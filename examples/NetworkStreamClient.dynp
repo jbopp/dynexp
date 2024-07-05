@@ -1,0 +1,96 @@
+<?xml version="1.0" standalone="yes"?>
+<DynExp DynExpVersion="0.6.0-beta">
+ <Project>
+  <Params>
+   <ParamsBase>
+    <ObjectName>Network Stream Client</ObjectName>
+    <Usage>1</Usage>
+    <ProjectParams>
+     <Authors>J. M. Bopp</Authors>
+     <Version>1.0</Version>
+     <Comment>Receives data for a data stream instrument streamed over the network using gRPC.</Comment>
+     <StoreWindowStates>1</StoreWindowStates>
+     <MainWindowPosX>3715</MainWindowPosX>
+     <MainWindowPosY>375</MainWindowPosY>
+     <MainWindowWidth>1000</MainWindowWidth>
+     <MainWindowHeight>800</MainWindowHeight>
+     <MainWindowState>0</MainWindowState>
+     <MainWindowDockingState>0</MainWindowDockingState>
+     <CircuitWindowPosX>0</CircuitWindowPosX>
+     <CircuitWindowPosY>0</CircuitWindowPosY>
+     <CircuitWindowWidth>941</CircuitWindowWidth>
+     <CircuitWindowHeight>600</CircuitWindowHeight>
+     <CircuitWindowState>0</CircuitWindowState>
+     <CircuitWindowDockingState>0</CircuitWindowDockingState>
+     <HSplitterWidgetWidths>
+      <Values>
+       <v>189</v>
+       <v>789</v>
+      </Values>
+     </HSplitterWidgetWidths>
+     <VSplitterWidgetHeights>
+      <Values>
+       <v>571</v>
+       <v>114</v>
+      </Values>
+     </VSplitterWidgetHeights>
+    </ProjectParams>
+   </ParamsBase>
+  </Params>
+  <HardwareAdapters/>
+  <Instruments>
+   <Item Category="Network Instruments (Clients)" ID="1" Name="Network Data Stream Instrument">
+    <Params>
+     <ParamsBase>
+      <ObjectName>Receiver</ObjectName>
+      <Usage>1</Usage>
+      <RunnableObjectParams>
+       <Startup>1</Startup>
+       <InstrumentParamsBase>
+        <DataStreamInstrumentParams>
+         <gRPCInstrumentParams>
+          <ServerName>127.0.0.1</ServerName>
+          <Port>1000</Port>
+          <NetworkDataStreamInstrumentParams/>
+         </gRPCInstrumentParams>
+        </DataStreamInstrumentParams>
+       </InstrumentParamsBase>
+      </RunnableObjectParams>
+     </ParamsBase>
+    </Params>
+   </Item>
+  </Instruments>
+  <Modules>
+   <Item Category="I/O" ID="1" Name="Signal Plotter">
+    <Params>
+     <ParamsBase>
+      <ObjectName>Signal Plotter</ObjectName>
+      <Usage>1</Usage>
+      <RunnableObjectParams>
+       <Startup>0</Startup>
+       <ModuleParamsBase>
+        <QModuleParamsBase>
+         <WindowPosX>0</WindowPosX>
+         <WindowPosY>0</WindowPosY>
+         <WindowWidth>0</WindowWidth>
+         <WindowHeight>0</WindowHeight>
+         <WindowState>0</WindowState>
+         <WindowDockingState>0</WindowDockingState>
+         <SignalPlotterParams>
+          <DataStreamInstr>
+           <Values>
+            <v>1</v>
+           </Values>
+          </DataStreamInstr>
+          <Autoscale>1</Autoscale>
+          <RollingView>1</RollingView>
+         </SignalPlotterParams>
+        </QModuleParamsBase>
+       </ModuleParamsBase>
+      </RunnableObjectParams>
+     </ParamsBase>
+    </Params>
+   </Item>
+  </Modules>
+ </Project>
+</DynExp>

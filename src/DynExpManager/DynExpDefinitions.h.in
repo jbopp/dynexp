@@ -1,0 +1,159 @@
+// This file is part of DynExp.
+
+/**
+ * @file DynExpDefinitions.h.in
+ * @brief Provides version and other meta information about %DynExp as well as style definitions for the user interface.
+ * The file is processed by cmake to fill in cmake definitions.
+*/
+
+#pragma once
+
+Q_DECLARE_METATYPE(QTreeWidgetItem*);
+
+/**
+ * @brief %DynExp's main namespace contains %DynExp's core functionality.
+*/
+namespace DynExp
+{
+	/**
+	 * @brief %DynExp's name string
+	*/
+	constexpr auto DynExpName = "DynExp";
+
+	/**
+	 * @brief %DynExp's version string
+	*/
+	constexpr auto DynExpVersion = "@PROJECT_VERSION@";
+
+	/**
+	 * @brief %DynExp's description string
+	*/
+	constexpr auto DynExpDescription = "Highly flexible laboratory automation for dynamically changing experiments.";
+
+	/**
+	 * @brief Default locale string
+	*/
+	constexpr auto DefaultLocale = "en_US.UTF8";
+
+	/**
+	 * @brief Default number separators used within %DynExp
+	*/
+	struct DefaultLocaleSeparator : std::numpunct<char>
+	{
+		virtual char do_decimal_point() const override { return '.'; }
+		virtual std::string do_grouping() const override { return ""; }
+	};
+
+	/**
+	 * @brief ID type of objects/items managed by %DynExp
+	*/
+	using ItemIDType = size_t;
+
+	/**
+	 * @brief ID of an non-existent object/item
+	*/
+	enum : ItemIDType { ItemIDNotSet = 0 };
+}
+
+/**
+ * @brief %DynExp's user interface namespace contains user interface style definitions.
+*/
+namespace DynExpUI
+{
+	/**
+	 * @brief Paths to icon resources contained in DynExpManager.qrc (main resources) and in
+	 * QModules.qrc (module resources)
+	*/
+	namespace Icons
+	{
+		constexpr auto DynExp = ":/DynExpManager/icons/DynExp.svg";
+		constexpr auto New = ":/DynExpManager/icons/Document-new.svg";
+		constexpr auto Open = ":/DynExpManager/icons/Document-open.svg";
+		constexpr auto Save = ":/DynExpManager/icons/Document-save.svg";
+		constexpr auto Delete = ":/DynExpManager/icons/Edit-delete.svg";
+		constexpr auto HardwareAdapter = ":/DynExpManager/icons/Media-flash.svg";
+		constexpr auto Instrument = ":/DynExpManager/icons/Utilities-system-monitor.svg";
+		constexpr auto Module = ":/DynExpManager/icons/Application-x-executable.svg";
+		constexpr auto UndockedWindow = ":/DynExpManager/icons/Preferences-system-windows.svg";
+		constexpr auto Undo = ":/DynExpManager/icons/Edit-undo.svg";
+		constexpr auto Ready = ":/DynExpManager/icons/Applications-system.svg";
+		constexpr auto NotReady = ":/DynExpManager/icons/Emblem-system.svg";
+		constexpr auto Running = ":/DynExpManager/icons/Media-playback-start.svg";
+		constexpr auto Stopped = ":/DynExpManager/icons/Media-playback-stop.svg";
+		constexpr auto Paused = ":/DynExpManager/icons/Media-playback-pause.svg";
+		constexpr auto Info = ":/DynExpManager/icons/Emblem-notice.svg";
+		constexpr auto Warning = ":/DynExpManager/icons/Emblem-important-yellow.svg";
+		constexpr auto Error = ":/DynExpManager/icons/Dialog-error-round.svg";
+		constexpr auto NotResponding = ":/DynExpManager/icons/Emblem-question.svg";
+		constexpr auto Network = ":/DynExpManager/icons/Internet-web-browser.svg";
+		constexpr auto Edit = ":/QModules/icons/Text-x-generic_with_pencil.svg";
+	}
+
+	/**
+	 * @brief Styles to provide a dark user interface appearance
+	*/
+	namespace DarkPalette
+	{
+		const QColor darkGray(53, 53, 53);
+		const QColor gray(128, 128, 128);
+		const QColor black(25, 25, 25);
+		const QColor blue(42, 130, 218);
+		const QColor green("lime");
+
+		QPalette GetPalette();
+		constexpr auto GetStyleSheet()
+		{
+			return "\
+				QToolTip { color: #ffffff; background-color: #808080; border: 1px solid white; }\
+				QMenu::separator { height: 1px; margin-left: 5px; margin-right: 5px; background: #808080; }\
+			";
+		}
+	}
+
+	constexpr auto DefaultQChartTheme = QChart::ChartThemeDark;
+	constexpr auto DefaultQ3DTheme = Q3DTheme::ThemeStoneMoss;
+	constexpr auto PushButtonDefaultStyleSheet = "border:none;";
+	constexpr auto StatusBarDefaultStyleSheet = "text-align:left center; padding-left:8px;";
+	constexpr auto StatusBarReadyStyleSheetBright = "color: black;";
+	constexpr auto StatusBarReadyStyleSheetDark = "color: white;";
+	constexpr auto StatusBarRunningStyleSheet = "font-weight: bold; background-color:lime; color: black;";
+	constexpr auto StatusBarWarningStyleSheet = "font-weight: bold; background-color: orange; color: black;";
+	constexpr auto StatusBarErrorStyleSheet = "font-weight: bold; background-color: red; color: white;";
+	constexpr auto StatusBarBusyStyleSheet = "font-weight: bold; color: white; background-color: #2A82DA;";
+	constexpr auto StatusBarReadyStyleSheetHover = "background-color: darkgray;";
+	constexpr auto StatusBarRunningStyleSheetHover = "background-color: lightgreen;";
+	constexpr auto StatusBarWarningStyleSheetHover = "background-color: lightsalmon;";
+	constexpr auto StatusBarErrorStyleSheetHover = "background-color: salmon;";
+	constexpr auto StatusBarBusyStyleSheetHover = "background-color: #6da9e6;";
+
+	static auto MakePushButtonStyleSheet(const char* DefaultStyle, const char* HoverStyle)
+	{
+		return std::string("QPushButton{") + StatusBarDefaultStyleSheet + PushButtonDefaultStyleSheet + DefaultStyle
+			+ "}QPushButton:hover{" + HoverStyle + "}";
+	}
+
+	static const auto PushButtonReadyStyleSheetBright = MakePushButtonStyleSheet(StatusBarReadyStyleSheetBright, StatusBarReadyStyleSheetHover);
+	static const auto PushButtonReadyStyleSheetDark = MakePushButtonStyleSheet(StatusBarReadyStyleSheetDark, StatusBarReadyStyleSheetHover);
+	static const auto PushButtonRunningStyleSheet = MakePushButtonStyleSheet(StatusBarRunningStyleSheet, StatusBarRunningStyleSheetHover);
+	static const auto PushButtonWarningStyleSheet = MakePushButtonStyleSheet(StatusBarWarningStyleSheet, StatusBarWarningStyleSheetHover);
+	static const auto PushButtonErrorStyleSheet = MakePushButtonStyleSheet(StatusBarErrorStyleSheet, StatusBarErrorStyleSheetHover);
+	static const auto PushButtonBusyStyleSheet = MakePushButtonStyleSheet(StatusBarBusyStyleSheet, StatusBarBusyStyleSheetHover);
+
+	QLinearGradient GetDefaultLinearGradient();
+}
+
+/**
+ * @brief Extracts the compilation year from the __DATE__ macro.
+ * @return Year when %DynExp was built
+*/
+constexpr int CompilationYear()
+{
+	constexpr int YearChar = 7;
+	constexpr int NumYearChars = 4;
+
+	int result = 0;
+	for (int i = YearChar + NumYearChars - 1, Multiplier = 1; i >= YearChar; i--, Multiplier *= 10)
+		result += (__DATE__[i] - '0') * Multiplier;
+
+	return result;
+}

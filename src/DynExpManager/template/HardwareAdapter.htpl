@@ -1,0 +1,122 @@
+// This file is part of DynExp.
+
+$$if($WindowsOnly)
+// Windows only
+$$endif
+
+#pragma once
+
+#include "stdafx.h"
+#include "HardwareAdapter.h"
+
+$$foreach($MetaInstrumentIncludes)
+#include "../MetaInstruments/$MetaInstrumentIncludes"
+$$endfor
+$$if($Includes)
+namespace DynExpHardware::$Name$Syms
+{
+$$endif
+$$foreach($Includes)
+	#include "../include/$Includes"
+$$endfor
+$$if($Includes)
+}
+$$endif
+
+namespace DynExpHardware
+{
+	class $Name$HardwareAdapter;
+
+$$if($DefineException)
+	class $Name$Exception : public Util::Exception
+	{
+	public:
+		$Name$Exception(std::string Description, const int ErrorCode,
+			const std::source_location Location = std::source_location::current()) noexcept
+			: Exception(std::move(Description), Util::ErrorType::Error, ErrorCode, Location)
+		{}
+	};
+$$endif
+
+	class $Name$HardwareAdapterParams : public DynExp::HardwareAdapterParamsBase
+	{
+	public:
+		$Name$HardwareAdapterParams(DynExp::ItemIDType ID, const DynExp::DynExpCore& Core) : HardwareAdapterParamsBase(ID, Core) {}
+		virtual ~$Name$HardwareAdapterParams() = default;
+
+		virtual const char* GetParamClassTag() const noexcept override { return "$Name$Params"; }
+
+		/* TODO: Insert parameter definitions here, like
+		Param<TextList> DeviceDescriptor = { *this, {}, "DeviceDescriptor", "Device descriptor",
+			"Descriptor of the $Name$ controller to connect with" };
+		*/
+
+	private:
+		void ConfigureParamsImpl(dispatch_tag<HardwareAdapterParamsBase>) override final;
+		virtual void ConfigureParamsImpl(dispatch_tag<$Name$HardwareAdapterParams>) {}
+
+		// TODO: Remove if at least one parameter has been inserted above.
+		DummyParam Dummy = { *this };
+	};
+
+	class $Name$HardwareAdapterConfigurator : public DynExp::HardwareAdapterConfiguratorBase
+	{
+	public:
+		using ObjectType = $Name$HardwareAdapter;
+		using ParamsType = $Name$HardwareAdapterParams;
+
+		$Name$HardwareAdapterConfigurator() = default;
+		virtual ~$Name$HardwareAdapterConfigurator() = default;
+
+	private:
+		virtual DynExp::ParamsBasePtrType MakeParams(DynExp::ItemIDType ID, const DynExp::DynExpCore& Core) const override { return DynExp::MakeParams<$Name$HardwareAdapterConfigurator>(ID, Core); }
+	};
+
+	class $Name$HardwareAdapter : public DynExp::HardwareAdapterBase
+	{
+	public:
+		using ParamsType = $Name$HardwareAdapterParams;
+		using ConfigType = $Name$HardwareAdapterConfigurator;
+
+		constexpr static auto Name() noexcept { return "$Name"; }
+		constexpr static auto Category() noexcept { return "$Category"; }
+$$if($DefineCommonFunctions)
+		static auto Enumerate();
+$$endif
+
+		$Name$HardwareAdapter(const std::thread::id OwnerThreadID, DynExp::ParamsBasePtrType&& Params);
+		virtual ~$Name$HardwareAdapter();
+
+		virtual std::string GetName() const override { return Name(); }
+		virtual std::string GetCategory() const override { return Category(); }
+
+$$if($DefineCommonFunctions)
+		bool IsOpened() const noexcept { return /* TODO */ false; }
+$$endif
+
+		// TODO: Define hardware adapter's functionality here.
+		// void DoSomethingUseful() const;
+
+	private:
+$$if($DefineCommonFunctions)
+		void Init();
+$$endif
+
+		void ResetImpl(dispatch_tag<HardwareAdapterBase>) override final;
+		virtual void ResetImpl(dispatch_tag<$Name$HardwareAdapter>) {}
+
+		void EnsureReadyStateChild() override final;
+		bool IsReadyChild() const override final;
+		bool IsConnectedChild() const noexcept override final;
+
+$$if($DefineException)
+		// Not thread-safe, must be called from function calling AcquireLock().
+		void CheckError(const /* TODO */ ResultType Result, const std::source_location Location = std::source_location::current()) const;
+$$endif
+
+$$if($DefineCommonFunctions)
+		void OpenUnsafe();
+		void CloseUnsafe();
+$$endif
+	};
+}

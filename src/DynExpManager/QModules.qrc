@@ -1,0 +1,33 @@
+<RCC>
+  <qresource prefix="/QModules">
+    <file>icons/Image-new-red.svg</file>
+    <file>icons/Audio-volume-muted.svg</file>
+    <file>icons/Dialog-information_red.svg</file>
+    <file>icons/Pulse.svg</file>
+    <file>icons/Measure.svg</file>
+    <file>icons/Emblem-star.svg</file>
+    <file>icons/Multimedia-volume-control.svg</file>
+    <file>icons/Go-jump.svg</file>
+    <file>icons/Ramp.svg</file>
+    <file>icons/Rect.svg</file>
+    <file>icons/Sine.svg</file>
+    <file>icons/Dialog-information_on.svg</file>
+    <file>icons/Large-green-spot.svg</file>
+    <file>icons/Small-green-spot.svg</file>
+    <file>icons/Set-home.svg</file>
+    <file>icons/View-zoom-reset.svg</file>
+    <file>icons/Go-first.svg</file>
+    <file>icons/Go-last.svg</file>
+    <file>icons/Go-next.svg</file>
+    <file>icons/Go-previous.svg</file>
+    <file>icons/Dialog-STOP.svg</file>
+    <file>icons/Go-home-2.svg</file>
+    <file>icons/Merge-short_arrows_2.png</file>
+    <file>icons/System-zoom-in.svg</file>
+    <file>icons/System-zoom-out.svg</file>
+    <file>icons/View-zoom-fit.svg</file>
+    <file>icons/Media-seek-forward.svg</file>
+    <file>icons/Image-new.svg</file>
+    <file>icons/Text-x-generic_with_pencil.svg</file>
+  </qresource>
+</RCC>

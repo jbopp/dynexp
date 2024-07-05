@@ -1,0 +1,33 @@
+// This file is part of DynExp.
+
+#include "stdafx.h"
+#include "$Name.h"
+
+namespace DynExpInstr
+{
+	void $Name$Data::ResetImpl(dispatch_tag<InstrumentDataBase>)
+	{
+		// TODO: Reset meta instrument data.
+
+		ResetImpl(dispatch_tag<$Name$Data>());
+	}
+
+	$Name$Params::~$Name$Params()
+	{
+	}
+
+	$Name$Configurator::~$Name$Configurator()
+	{
+	}
+
+	$Name::~$Name()
+	{
+	}
+
+	void $Name::ResetImpl(dispatch_tag<InstrumentBase>)
+	{
+		// TODO: Reset meta instrument.
+
+		ResetImpl(dispatch_tag<$Name>());
+	}
+}

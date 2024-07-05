@@ -1,0 +1,30 @@
+<RCC>
+  <qresource prefix="/DynExpManager">
+    <file>icons/Internet-web-browser.svg</file>
+    <file>icons/Emblem-notice.svg</file>
+    <file>icons/Preferences-system-windows.svg</file>
+    <file>icons/Application-x-executable.svg</file>
+    <file>icons/Document-new.svg</file>
+    <file>icons/Document-open.svg</file>
+    <file>icons/Document-save.svg</file>
+    <file>icons/Media-flash.svg</file>
+    <file>icons/Utilities-system-monitor.svg</file>
+    <file>icons/Edit-delete.svg</file>
+    <file>icons/Preferences-system.svg</file>
+    <file>icons/Edit-undo.svg</file>
+    <file>icons/Dialog-error-round.svg</file>
+    <file>icons/Emblem-system.svg</file>
+    <file>icons/Media-playback-start.svg</file>
+    <file>icons/Media-playback-stop.svg</file>
+    <file>icons/View-refresh.svg</file>
+    <file>icons/Emblem-question.svg</file>
+    <file>icons/Emblem-important-yellow.svg</file>
+    <file>icons/Applications-system.svg</file>
+    <file>icons/Process-stop.svg</file>
+    <file>icons/View-refresh-failed.svg</file>
+    <file>icons/Document-run.png</file>
+    <file>icons/Document-stop.png</file>
+    <file>icons/Media-playback-pause.svg</file>
+    <file>icons/DynExp.svg</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,38 @@
+// This file is part of DynExp.
+
+syntax = "proto3";
+
+package DynExpProto.Common;
+
+// See definition of DynExpInstr::DataStreamInstrumentData::UnitType in DataStreamInstrument.h
+enum UnitType
+{
+	Arbitrary = 0;
+	LogicLevel = 1;
+	Counts = 2;
+	Volt = 3;
+	Ampere = 4;
+	Power_W = 5;
+	Power_dBm = 6;
+}
+
+// See definition of DynExpInstr::SpectrometerData::FrequencyUnitType in Spectrometer.h
+enum FrequencyUnitType
+{
+	Hz = 0;
+	nm = 1;
+	Inv_cm = 2;
+}
+
+// See definition of DynExpInstr::SpectrometerData::IntensityUnitType in Spectrometer.h
+enum IntensityUnitType
+{
+	IntensityCounts = 0;
+}
+
+message VoidMessage {}
+
+message OptionalBoolMessage
+{
+	optional bool Value = 1;
+}

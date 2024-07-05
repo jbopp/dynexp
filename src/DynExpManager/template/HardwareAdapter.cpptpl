@@ -1,0 +1,143 @@
+// This file is part of DynExp.
+
+#include "stdafx.h"
+#include "HardwareAdapter$Name.h"
+
+namespace DynExpHardware
+{
+$$if($DefineCommonFunctions)
+	auto $Name$HardwareAdapter::Enumerate()
+	{
+		std::vector<std::string> DeviceDescriptors;
+
+		// TODO: Fill DeviceDescriptors with all available devices.
+
+		return DeviceDescriptors;
+	}
+$$endif
+
+	void $Name$HardwareAdapterParams::ConfigureParamsImpl(dispatch_tag<HardwareAdapterParamsBase>)
+	{
+$$if($DefineCommonFunctions)
+		auto $Name$Devices = $Name$HardwareAdapter::Enumerate();
+		if (!DeviceDescriptor.Get().empty() &&
+			std::find($Name$Devices.cbegin(), $Name$Devices.cend(), DeviceDescriptor) == std::cend($Name$Devices))
+			$Name$Devices.push_back(DeviceDescriptor);
+		if ($Name$Devices.empty())
+			throw Util::EmptyException("There is not any available $Name controller.");
+
+		/* TODO: Update device descriptor parameter's internal text list, like
+		DeviceDescriptor.SetTextList(std::move($Name$Devices));
+		*/
+$$endif
+
+		ConfigureParamsImpl(dispatch_tag<$Name$HardwareAdapterParams>());
+	}
+
+	$Name$HardwareAdapter::$Name$HardwareAdapter(const std::thread::id OwnerThreadID, DynExp::ParamsBasePtrType&& Params)
+		: HardwareAdapterBase(OwnerThreadID, std::move(Params))
+	{
+$$if($DefineCommonFunctions)
+		Init();
+$$endif
+	}
+
+	$Name$HardwareAdapter::~$Name$HardwareAdapter()
+	{
+$$if($DefineCommonFunctions)
+		// Not locking, since the object is being destroyed. This should be inherently thread-safe.
+		CloseUnsafe();
+$$endif
+	}
+
+$$if($DefineCommonFunctions)
+	void $Name$HardwareAdapter::Init()
+	{
+		auto DerivedParams = dynamic_Params_cast<$Name$HardwareAdapter>(GetParams());
+
+		// TODO: Initialize hardware adapter.
+	}
+$$endif
+
+	void $Name$HardwareAdapter::ResetImpl(dispatch_tag<HardwareAdapterBase>)
+	{
+		// auto lock = AcquireLock(); not necessary here, since DynExp ensures that Object::Reset() can only
+		// be called if respective object is not in use.
+
+$$if($DefineCommonFunctions)
+		CloseUnsafe();
+		Init();
+$$else
+		// TODO: Reset hardware adapter.
+$$endif
+
+		ResetImpl(dispatch_tag<$Name$HardwareAdapter>());
+	}
+
+	void $Name$HardwareAdapter::EnsureReadyStateChild()
+	{
+$$if($DefineCommonFunctions)
+		auto lock = AcquireLock(HardwareOperationTimeout);
+
+		OpenUnsafe();
+$$else
+		// TODO: Transition hardware adapter into ready state.
+$$endif
+	}
+
+	bool $Name$HardwareAdapter::IsReadyChild() const
+	{
+		auto lock = AcquireLock(HardwareOperationTimeout);
+
+		auto Exception = GetExceptionUnsafe();
+		Util::ForwardException(Exception);
+
+$$if($DefineCommonFunctions)
+		return IsOpened();
+$$else
+		// TODO: Return whether hardware adapter is ready.
+		return false;
+$$endif
+	}
+
+	bool $Name$HardwareAdapter::IsConnectedChild() const noexcept
+	{
+$$if($DefineCommonFunctions)
+		return IsOpened();
+$$else
+		// TODO: Return whether hardware adapter is connected.
+		return false;
+$$endif
+	}
+
+$$if($DefineException)
+	void $Name$HardwareAdapter::CheckError(const /* TODO */ ResultType Result, const std::source_location Location) const
+	{
+		if (Result == /* TODO */ ResultType::NoError)
+			return;
+
+		std::string ErrorString = /* TODO */ "";
+
+		// AcquireLock() has already been called by an (in)direct caller of this function.
+		ThrowExceptionUnsafe(std::make_exception_ptr($Name$Exception(ErrorString, Result, Location)));
+	}
+$$endif
+
+$$if($DefineCommonFunctions)
+	void $Name$HardwareAdapter::OpenUnsafe()
+	{
+		if (IsOpened())
+			return;
+
+		// TODO: Open hardware adapter.
+	}
+
+	void $Name$HardwareAdapter::CloseUnsafe()
+	{
+		if (IsOpened())
+		{
+			// TODO: Close hardware adapter.
+		}
+	}
+$$endif
+}

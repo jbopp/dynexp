@@ -1,0 +1,107 @@
+// This file is part of DynExp.
+
+#include "stdafx.h"
+#include "moc_$Name.cpp"
+#include "$Name.h"
+
+namespace DynExpModule
+{
+$$if($HasUI)
+	$Name$Widget::$Name$Widget($Name& Owner, QModuleWidget* parent) : QModuleWidget(Owner, parent)
+	{
+		ui.setupUi(this);
+		
+		// TODO: Initialize widget's UI.
+	}
+$$endif
+
+$$if($HasUI)
+	void $Name$Data::ResetImpl(dispatch_tag<QModuleDataBase>)
+$$else
+	void $Name$Data::ResetImpl(dispatch_tag<ModuleDataBase>)
+$$endif
+	{
+		Init();
+	}
+
+	void $Name$Data::Init()
+	{
+		// TODO: Reset module data.
+	}
+
+	Util::DynExpErrorCodes::DynExpErrorCodes $Name::ModuleMainLoop(DynExp::ModuleInstance& Instance)
+	{
+$$if($DefineDefaultDataUpdate)
+		try
+		{
+			auto ModuleData = DynExp::dynamic_ModuleData_cast<$Name$>(Instance.ModuleDataGetter());
+			// TODO: Also lock instruments' data.
+			// e.g. auto StageData = DynExp::dynamic_InstrumentData_cast<DynExpInstr::PositionerStage>(ModuleData->PositionerStage->GetInstrumentData());
+
+			// TODO: Update ModuleData according to data obtained from instruments.
+
+			NumFailedUpdateAttempts = 0;
+		} // ModuleData and instruments' data unlocked here.
+		catch (const Util::TimeoutException& e)
+		{
+			if (NumFailedUpdateAttempts++ >= 3)
+				Instance.GetOwner().SetWarning(e);
+		}
+$$else
+		// TODO: Update ModuleData according to data obtained from instruments.
+$$endif
+
+		return Util::DynExpErrorCodes::NoError;
+	}
+
+$$if($HasUI)
+	void $Name::ResetImpl(dispatch_tag<QModuleBase>)
+$$else
+	void $Name::ResetImpl(dispatch_tag<ModuleBase>)
+$$endif
+	{
+		// TODO: Reset module.
+
+$$if($DefineDefaultDataUpdate)
+		NumFailedUpdateAttempts = 0;
+$$endif
+	}
+
+$$if($HasUI)
+	std::unique_ptr<DynExp::QModuleWidget> $Name::MakeUIWidget()
+	{
+		auto Widget = std::make_unique<$Name$Widget>(*this);
+
+		// TODO: Connect Qt signals to module events
+		// e.g. Connect(Widget->ui.ButtonCalibrate, &QPushButton::clicked, this, &$Name::OnCalibrateClicked);
+		// e.g. Connect(Widget->ui.SpinBoxPosition, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &$Name::OnPositionValueChanged);
+
+		return Widget;
+	}
+
+	void $Name::UpdateUIChild(const ModuleBase::ModuleDataGetterType& ModuleDataGetter)
+	{
+		auto Widget = GetWidget<$Name$Widget>();
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<$Name>(ModuleDataGetter());
+
+		// TODO: Update widget's UI according to module's data.
+	}
+$$endif
+
+	void $Name::OnInit(DynExp::ModuleInstance* Instance) const
+	{
+		// TODO: Initialize module.
+		// TODO: auto ModuleParams = DynExp::dynamic_Params_cast<$Name>(Instance->ParamsGetter());
+		// TODO: auto ModuleData = DynExp::dynamic_ModuleData_cast<$Name>(Instance->ModuleDataGetter());
+
+		// e.g. Instance->LockObject(ModuleParams->PositionerStage, ModuleData->PositionerStage);
+	}
+
+	void $Name::OnExit(DynExp::ModuleInstance* Instance) const
+	{
+		// TODO: Prepare module shutdown.
+		// TODO: auto ModuleData = DynExp::dynamic_ModuleData_cast<$Name>(Instance->ModuleDataGetter());
+
+		// e.g. Instance->UnlockObject(ModuleData->PositionerStage);
+	}
+}

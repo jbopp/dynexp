@@ -1,0 +1,80 @@
+// This file is part of DynExp.
+
+syntax = "proto3";
+
+package DynExpProto.WidefieldLocalization;
+
+enum ResultType
+{
+	OK = 0;
+	GeneralError = 1;
+	LocalizationFailed = 2;
+}
+
+enum ImageFormatType
+{
+	Mono8 = 0;
+	Mono16 = 1;
+}
+
+message VoidMessage {}
+
+message ResultMessage
+{
+	ResultType Result = 1;
+}
+
+message PointMessage
+{
+	uint32 X = 1;
+	uint32 Y = 2;
+}
+
+message OffsetMessage
+{
+	int32 X = 1;
+	int32 Y = 2;
+}
+
+message ImageMessage
+{
+	uint32 Width = 1;
+	uint32 Height = 2;
+	ImageFormatType ImageFormat = 3;
+	bytes Image = 4;
+}
+
+message CellIDMessage
+{
+	ResultMessage ResultMsg = 1;
+	string IDString = 2;
+	PointMessage ID = 3;
+	optional OffsetMessage CellShift_px = 4;
+}
+
+message PositionsMessage
+{
+	message EntryType
+	{
+		uint32 ID = 1;
+		PointMessage Pos_px = 2;
+	}
+
+	ResultMessage ResultMsg = 1;
+	repeated EntryType Entries = 2;
+}
+
+message RecallPositionsMessage
+{
+	ImageMessage Image = 1;
+	CellIDMessage CellID = 2;
+	string MeasureSavePath = 3;
+}
+
+service WidefieldLocalization
+{
+	rpc ReadCellID (ImageMessage) returns (CellIDMessage) {}
+	rpc AnalyzeWidefield (ImageMessage) returns (PositionsMessage) {}
+	rpc AnalyzeTipTilt (ImageMessage) returns (VoidMessage) {}
+	rpc RecallPositions (RecallPositionsMessage) returns (PositionsMessage) {}
+}

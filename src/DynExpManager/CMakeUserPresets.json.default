@@ -1,0 +1,47 @@
+﻿{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "windows-debug-user",
+      "displayName": "Windows x64 Debug (User)",
+      "inherits": "windows-debug-default",
+      "cacheVariables": {
+      }
+    },
+    {
+      "name": "windows-relwithdebinfo-user",
+      "displayName": "Windows x64 Release with Debug info (User)",
+      "inherits": "windows-relwithdebinfo-default",
+      "cacheVariables": {
+      }
+    },
+    {
+      "name": "windows-release-user",
+      "displayName": "Windows x64 Release (User)",
+      "inherits": "windows-release-default",
+      "cacheVariables": {
+      }
+    },
+    {
+      "name": "linux-debug-user",
+      "displayName": "Linux Debug (User)",
+      "inherits": "linux-debug-default",
+      "cacheVariables": {
+      }
+    },
+    {
+      "name": "linux-relwithdebinfo-user",
+      "displayName": "Linux Release with Debug info (User)",
+      "inherits": "linux-relwithdebinfo-default",
+      "cacheVariables": {
+      }
+    },
+    {
+      "name": "linux-release-user",
+      "displayName": "Linux Release (User)",
+      "inherits": "linux-release-default",
+      "cacheVariables": {
+      }
+    }
+  ]
+}

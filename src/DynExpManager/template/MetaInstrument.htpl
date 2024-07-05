@@ -1,0 +1,118 @@
+// This file is part of DynExp.
+
+#pragma once
+
+#include "stdafx.h"
+#include "Instrument.h"
+
+namespace DynExpInstr
+{
+	class $Name;
+
+	namespace $Name$Tasks
+	{
+		class InitTask : public DynExp::InitTaskBase
+		{
+			void InitFuncImpl(dispatch_tag<InitTaskBase>, DynExp::InstrumentInstance& Instance) override final { InitFuncImpl(dispatch_tag<InitTask>(), Instance); }
+
+			virtual void InitFuncImpl(dispatch_tag<InitTask>, DynExp::InstrumentInstance& Instance) {}
+		};
+
+		class ExitTask : public DynExp::ExitTaskBase
+		{
+			void ExitFuncImpl(dispatch_tag<ExitTaskBase>, DynExp::InstrumentInstance& Instance) override final { ExitFuncImpl(dispatch_tag<ExitTask>(), Instance); }
+
+			virtual void ExitFuncImpl(dispatch_tag<ExitTask>, DynExp::InstrumentInstance& Instance) {}
+		};
+
+		class UpdateTask : public DynExp::UpdateTaskBase
+		{
+			void UpdateFuncImpl(dispatch_tag<UpdateTaskBase>, DynExp::InstrumentInstance& Instance) override final { UpdateFuncImpl(dispatch_tag<UpdateTask>(), Instance); }
+
+			virtual void UpdateFuncImpl(dispatch_tag<UpdateTask>, DynExp::InstrumentInstance& Instance) {}
+		};
+	}
+
+	class $Name$Data : public DynExp::InstrumentDataBase
+	{
+	public:
+		$Name$Data() = default;
+		virtual ~$Name$Data() = default;
+
+		// TODO: Insert getter and setter for data members here.
+
+	private:
+		void ResetImpl(dispatch_tag<InstrumentDataBase>) override final;
+		virtual void ResetImpl(dispatch_tag<$Name$Data>) {};
+
+		// TODO: Insert data members here.
+	};
+
+	class $Name$Params : public DynExp::InstrumentParamsBase
+	{
+	public:
+		$Name$Params(DynExp::ItemIDType ID, const DynExp::DynExpCore& Core) : InstrumentParamsBase(ID, Core) {}
+		virtual ~$Name$Params() = 0;
+
+		virtual const char* GetParamClassTag() const noexcept override { return "$Name$Params"; }
+
+		// TODO: Insert meta instrument's params here.
+
+	private:
+		void ConfigureParamsImpl(dispatch_tag<InstrumentParamsBase>) override final { ConfigureParamsImpl(dispatch_tag<$Name$Params>()); }
+		virtual void ConfigureParamsImpl(dispatch_tag<$Name$Params>) {}
+
+		// TODO: Remove if at least one parameter has been inserted above.
+		DummyParam Dummy = { *this };
+	};
+
+	class $Name$Configurator : public DynExp::InstrumentConfiguratorBase
+	{
+	public:
+		using ObjectType = $Name;
+		using ParamsType = $Name$Params;
+
+		$Name$Configurator() = default;
+		virtual ~$Name$Configurator() = 0;
+	};
+
+	class $Name : public DynExp::InstrumentBase
+	{
+	public:
+		using ParamsType = $Name$Params;					//!< @copydoc DynExp::Object::ParamsType
+		using ConfigType = $Name$Configurator;				//!< @copydoc DynExp::Object::ConfigType
+		using InstrumentDataType = $Name$Data;				//!< @copydoc DynExp::InstrumentBase::InstrumentDataType
+
+		/** @name gRPC aliases
+		 * Redefined to use this instrument with DynExpInstr::gRPCInstrument.
+		*/
+		///@{
+		using InitTaskType = $Name$Tasks::InitTask;			//!< @copydoc DynExp::InitTaskBase
+		using ExitTaskType = $Name$Tasks::ExitTask;			//!< @copydoc DynExp::ExitTaskBase
+		using UpdateTaskType = $Name$Tasks::UpdateTask;		//!< @copydoc DynExp::UpdateTaskBase
+		///@}
+
+		constexpr static auto Name() noexcept { return "< any >"; }
+		constexpr static auto Category() noexcept { return "$Category"; }
+
+		$Name(const std::thread::id OwnerThreadID, DynExp::ParamsBasePtrType&& Params)
+			: InstrumentBase(OwnerThreadID, std::move(Params)) {}
+		virtual ~$Name() = 0;
+
+		virtual std::string GetName() const override { return Name(); }
+		virtual std::string GetCategory() const override { return Category(); }
+
+		virtual std::chrono::milliseconds GetTaskQueueDelay() const override { return std::chrono::milliseconds(100); }
+
+		// TODO: Insert virtual functions giving information about instrument here.
+		// virtual bool IsUsingSIUnits() const noexcept { return false; }
+
+		// Logical const-ness: const member functions to allow inserting tasks into task queue.
+		// TODO: Insert virtual task functions to be overridden by instruments here.
+		// virtual void SomeUsefulTask(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const = 0;
+
+	private:
+		void ResetImpl(dispatch_tag<InstrumentBase>) override final;
+		virtual void ResetImpl(dispatch_tag<$Name>) = 0;
+	};
+}

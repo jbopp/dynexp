@@ -1,0 +1,71 @@
+﻿{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "windows-debug-default",
+      "displayName": "Windows x64 Debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/../../out/build/${presetName}",
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "vendor": {
+        "microsoft.com/VisualStudioSettings/CMake/1.0": {
+          "hostOS": [ "Windows" ]
+        }
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "-std:c++latest"
+      }
+    },
+    {
+      "name": "windows-relwithdebinfo-default",
+      "displayName": "Windows x64 Release with Debug info",
+      "inherits": "windows-debug-default",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    },
+    {
+      "name": "windows-release-default",
+      "displayName": "Windows x64 Release",
+      "inherits": "windows-debug-default",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "linux-debug-default",
+      "displayName": "Linux Debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/../../out/build/${presetName}",
+      "vendor": {
+        "microsoft.com/VisualStudioSettings/CMake/1.0": {
+          "hostOS": [ "Linux" ]
+        }
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_COMPILER": "g++-13"
+      }
+    },
+    {
+      "name": "linux-relwithdebinfo-default",
+      "displayName": "Linux Release with Debug info",
+      "inherits": "linux-debug-default",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    },
+    {
+      "name": "linux-release-default",
+      "displayName": "Linux Release",
+      "inherits": "linux-debug-default",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    }
+  ]
+}

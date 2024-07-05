@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DynExpManagerClass</class>
+ <widget class="QMainWindow" name="DynExpManagerClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::NoContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>DynExp Manager</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="DynExpManager.qrc">
+    <normaloff>:/DynExpManager/icons/DynExp.svg</normaloff>:/DynExpManager/icons/DynExp.svg</iconset>
+  </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="centralWidget_layout">
+    <property name="bottomMargin">
+     <number>3</number>
+    </property>
+    <item>
+     <widget class="QSplitter" name="splitterInstrListMain">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="childrenCollapsible">
+       <bool>false</bool>
+      </property>
+      <widget class="QTreeWidget" name="treeItems">
+       <property name="minimumSize">
+        <size>
+         <width>120</width>
+         <height>300</height>
+        </size>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::CustomContextMenu</enum>
+       </property>
+       <property name="animated">
+        <bool>true</bool>
+       </property>
+       <property name="columnCount">
+        <number>3</number>
+       </property>
+       <column>
+        <property name="text">
+         <string>Item</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Type</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>State</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QWidget" name="verticalMDI" native="true">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>1</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <layout class="QVBoxLayout" name="verticalMDI_layout">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QSplitter" name="splitterMDILog">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="childrenCollapsible">
+           <bool>false</bool>
+          </property>
+          <widget class="QMdiArea" name="mdiMain">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>400</width>
+             <height>300</height>
+            </size>
+           </property>
+           <property name="verticalScrollBarPolicy">
+            <enum>Qt::ScrollBarAsNeeded</enum>
+           </property>
+           <property name="horizontalScrollBarPolicy">
+            <enum>Qt::ScrollBarAsNeeded</enum>
+           </property>
+          </widget>
+          <widget class="QTableWidget" name="tableLog">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="contextMenuPolicy">
+            <enum>Qt::CustomContextMenu</enum>
+           </property>
+           <property name="editTriggers">
+            <set>QAbstractItemView::NoEditTriggers</set>
+           </property>
+           <property name="tabKeyNavigation">
+            <bool>false</bool>
+           </property>
+           <property name="alternatingRowColors">
+            <bool>true</bool>
+           </property>
+           <property name="selectionMode">
+            <enum>QAbstractItemView::SingleSelection</enum>
+           </property>
+           <property name="selectionBehavior">
+            <enum>QAbstractItemView::SelectRows</enum>
+           </property>
+           <property name="horizontalScrollMode">
+            <enum>QAbstractItemView::ScrollPerPixel</enum>
+           </property>
+           <property name="showGrid">
+            <bool>false</bool>
+           </property>
+           <property name="wordWrap">
+            <bool>false</bool>
+           </property>
+           <property name="rowCount">
+            <number>0</number>
+           </property>
+           <property name="columnCount">
+            <number>3</number>
+           </property>
+           <attribute name="horizontalHeaderHighlightSections">
+            <bool>false</bool>
+           </attribute>
+           <attribute name="horizontalHeaderStretchLastSection">
+            <bool>true</bool>
+           </attribute>
+           <attribute name="verticalHeaderVisible">
+            <bool>false</bool>
+           </attribute>
+           <column>
+            <property name="text">
+             <string>Date</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>State</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Message</string>
+            </property>
+           </column>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuMain">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1000</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_File">
+    <property name="locale">
+     <locale language="English" country="UnitedStates"/>
+    </property>
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="action_New_Project"/>
+    <addaction name="action_Open_Project"/>
+    <addaction name="action_Save_Project"/>
+    <addaction name="action_Save_Project_As"/>
+    <addaction name="separator"/>
+    <addaction name="action_Close"/>
+   </widget>
+   <widget class="QMenu" name="menu_Help">
+    <property name="locale">
+     <locale language="English" country="UnitedStates"/>
+    </property>
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="action_About_DynExp"/>
+   </widget>
+   <widget class="QMenu" name="menu_Project">
+    <property name="locale">
+     <locale language="English" country="UnitedStates"/>
+    </property>
+    <property name="title">
+     <string>&amp;Project</string>
+    </property>
+    <widget class="QMenu" name="menu_Add_Hardware_Adapter">
+     <property name="locale">
+      <locale language="English" country="UnitedStates"/>
+     </property>
+     <property name="title">
+      <string>Add Hardware &amp;Adapter</string>
+     </property>
+    </widget>
+    <widget class="QMenu" name="menu_Add_Instrument">
+     <property name="locale">
+      <locale language="English" country="UnitedStates"/>
+     </property>
+     <property name="title">
+      <string>Add I&amp;nstrument</string>
+     </property>
+    </widget>
+    <widget class="QMenu" name="menu_Add_Module">
+     <property name="locale">
+      <locale language="English" country="UnitedStates"/>
+     </property>
+     <property name="title">
+      <string>Add &amp;Module</string>
+     </property>
+    </widget>
+    <addaction name="menu_Add_Hardware_Adapter"/>
+    <addaction name="menu_Add_Instrument"/>
+    <addaction name="menu_Add_Module"/>
+    <addaction name="separator"/>
+    <addaction name="action_Start_up_Project"/>
+    <addaction name="action_Stop_Project"/>
+    <addaction name="action_Reset_failed_Items"/>
+    <addaction name="separator"/>
+    <addaction name="action_Project_Settings"/>
+   </widget>
+   <widget class="QMenu" name="menu_Item">
+    <property name="title">
+     <string>&amp;Item</string>
+    </property>
+    <addaction name="action_Run_Item"/>
+    <addaction name="action_Stop_Item"/>
+    <addaction name="action_Force_Stop_Item"/>
+    <addaction name="action_Reset_Item"/>
+    <addaction name="separator"/>
+    <addaction name="action_Configure_Item"/>
+    <addaction name="action_Delete_Item"/>
+   </widget>
+   <widget class="QMenu" name="menu_Window">
+    <property name="title">
+     <string>&amp;Window</string>
+    </property>
+    <widget class="QMenu" name="menu_UI_Theme">
+     <property name="title">
+      <string>&amp;Theme</string>
+     </property>
+    </widget>
+    <addaction name="menu_UI_Theme"/>
+    <addaction name="separator"/>
+    <addaction name="action_Show_Circuit_Diagram"/>
+    <addaction name="separator"/>
+    <addaction name="action_Dock_Undock_Window"/>
+    <addaction name="action_Restore_Windows_from_Settings"/>
+    <addaction name="separator"/>
+    <addaction name="action_Dummy_NoWindow"/>
+   </widget>
+   <addaction name="menu_File"/>
+   <addaction name="menu_Project"/>
+   <addaction name="menu_Item"/>
+   <addaction name="menu_Window"/>
+   <addaction name="menu_Help"/>
+  </widget>
+  <widget class="QToolBar" name="toolBarMain">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_New_Project"/>
+   <addaction name="action_Open_Project"/>
+   <addaction name="action_Save_Project"/>
+   <addaction name="separator"/>
+   <addaction name="action_Start_up_Project"/>
+   <addaction name="action_Stop_Project"/>
+   <addaction name="action_Reset_failed_Items"/>
+   <addaction name="separator"/>
+   <addaction name="action_Run_Item"/>
+   <addaction name="action_Stop_Item"/>
+   <addaction name="action_Reset_Item"/>
+   <addaction name="separator"/>
+   <addaction name="action_Configure_Item"/>
+   <addaction name="action_Delete_Item"/>
+   <addaction name="separator"/>
+   <addaction name="action_Show_Circuit_Diagram"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBarMain"/>
+  <action name="action_Close">
+   <property name="text">
+    <string>&amp;Close</string>
+   </property>
+  </action>
+  <action name="action_About_DynExp">
+   <property name="text">
+    <string>&amp;About DynExp</string>
+   </property>
+  </action>
+  <action name="action_New_Project">
+   <property name="icon">
+    <iconset resource="DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/Document-new.svg</normaloff>:/DynExpManager/icons/Document-new.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;New Project</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="action_Save_Project">
+   <property name="icon">
+    <iconset resource="DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/Document-save.svg</normaloff>:/DynExpManager/icons/Document-save.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Save Project</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="action_Open_Project">
+   <property name="icon">
+    <iconset resource="DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/Document-open.svg</normaloff>:/DynExpManager/icons/Document-open.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Open Project</string>
+   </property>
+   <property name="toolTip">
+    <string>Open Project</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="action_Delete_Item">
+   <property name="icon">
+    <iconset resource="DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/Edit-delete.svg</normaloff>:/DynExpManager/icons/Edit-delete.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Delete Item</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Del</string>
+   </property>
+  </action>
+  <action name="action_Configure_Item">
+   <property name="icon">
+    <iconset resource="DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/Preferences-system.svg</normaloff>:/DynExpManager/icons/Preferences-system.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Configure Item</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="action_Reset_Item">
+   <property name="icon">
+    <iconset resource="DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/View-refresh.svg</normaloff>:/DynExpManager/icons/View-refresh.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Reset Item</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="action_Stop_Item">
+   <property name="icon">
+    <iconset resource="DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/Media-playback-stop.svg</normaloff>:/DynExpManager/icons/Media-playback-stop.svg</iconset>
+   </property>
+   <property name="text">
+    <string>S&amp;top Item</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
+  </action>
+  <action name="action_Run_Item">
+   <property name="icon">
+    <iconset resource="DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/Media-playback-start.svg</normaloff>:/DynExpManager/icons/Media-playback-start.svg</iconset>
+   </property>
+   <property name="text">
+    <string>R&amp;un Item</string>
+   </property>
+   <property name="shortcut">
+    <string>F5</string>
+   </property>
+  </action>
+  <action name="action_Dummy_NoWindow">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>No windows opened</string>
+   </property>
+  </action>
+  <action name="action_Start_up_Project">
+   <property name="icon">
+    <iconset resource="DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/Document-run.png</normaloff>:/DynExpManager/icons/Document-run.png</iconset>
+   </property>
+   <property name="text">
+    <string>Start &amp;up Project</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+F5</string>
+   </property>
+  </action>
+  <action name="action_Dock_Undock_Window">
+   <property name="icon">
+    <iconset resource="DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/Preferences-system-windows.svg</normaloff>:/DynExpManager/icons/Preferences-system-windows.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Un&amp;dock Window</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
+   </property>
+  </action>
+  <action name="action_Stop_Project">
+   <property name="icon">
+    <iconset resource="DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/Document-stop.png</normaloff>:/DynExpManager/icons/Document-stop.png</iconset>
+   </property>
+   <property name="text">
+    <string>S&amp;top Project</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+T</string>
+   </property>
+  </action>
+  <action name="action_Reset_failed_Items">
+   <property name="icon">
+    <iconset resource="DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/View-refresh-failed.svg</normaloff>:/DynExpManager/icons/View-refresh-failed.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Reset failed Items</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+R</string>
+   </property>
+  </action>
+  <action name="action_Force_Stop_Item">
+   <property name="text">
+    <string>&amp;Force Stop Item</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+T</string>
+   </property>
+  </action>
+  <action name="action_Project_Settings">
+   <property name="text">
+    <string>&amp;Settings...</string>
+   </property>
+  </action>
+  <action name="action_Save_Project_As">
+   <property name="text">
+    <string>Save Project &amp;As...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="action_Restore_Windows_from_Settings">
+   <property name="icon">
+    <iconset resource="DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/Edit-undo.svg</normaloff>:/DynExpManager/icons/Edit-undo.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Restore Windows from Settings</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+D</string>
+   </property>
+  </action>
+  <action name="action_Show_Circuit_Diagram">
+   <property name="icon">
+    <iconset resource="DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/DynExp.svg</normaloff>:/DynExpManager/icons/DynExp.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Show Circ&amp;uit Diagram</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+U</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="DynExpManager.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>tableLog</sender>
+   <signal>customContextMenuRequested(QPoint)</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnLogContextMenuRequested(QPoint)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>674</x>
+     <y>648</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>665</x>
+     <y>-8</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_About_DynExp</sender>
+   <signal>triggered()</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnAboutClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Close</sender>
+   <signal>triggered()</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_New_Project</sender>
+   <signal>triggered()</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnNewProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Open_Project</sender>
+   <signal>triggered()</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnOpenProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Save_Project</sender>
+   <signal>triggered()</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnSaveProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Delete_Item</sender>
+   <signal>triggered()</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnDeleteItem()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Configure_Item</sender>
+   <signal>triggered()</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnConfigureItem()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Run_Item</sender>
+   <signal>triggered()</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnRunItem()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Stop_Item</sender>
+   <signal>triggered()</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnStopItem()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Reset_Item</sender>
+   <signal>triggered()</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnResetItem()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>treeItems</sender>
+   <signal>itemSelectionChanged()</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnItemSelectionChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>136</x>
+     <y>417</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>treeItems</sender>
+   <signal>itemDoubleClicked(QTreeWidgetItem*,int)</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnItemDoubleClicked(QTreeWidgetItem*,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>136</x>
+     <y>417</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Start_up_Project</sender>
+   <signal>triggered()</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnRunProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>treeItems</sender>
+   <signal>customContextMenuRequested(QPoint)</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnItemTreeContextMenuRequested(QPoint)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>136</x>
+     <y>417</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Dock_Undock_Window</sender>
+   <signal>triggered()</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnDockUndockWindow()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Stop_Project</sender>
+   <signal>triggered()</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnStopProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Reset_failed_Items</sender>
+   <signal>triggered()</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnResetFailedItems()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Force_Stop_Item</sender>
+   <signal>triggered()</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnForceStopItem()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Project_Settings</sender>
+   <signal>triggered()</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnProjectSettingsClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Save_Project_As</sender>
+   <signal>triggered()</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnSaveProjectAs()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Restore_Windows_from_Settings</sender>
+   <signal>triggered()</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnRestoreWindowStatesFromParams()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Show_Circuit_Diagram</sender>
+   <signal>triggered()</signal>
+   <receiver>DynExpManagerClass</receiver>
+   <slot>OnShowCircuitDiagram()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>OnLogContextMenuRequested(QPoint)</slot>
+  <slot>OnAboutClicked()</slot>
+  <slot>OnNewProject()</slot>
+  <slot>OnOpenProject()</slot>
+  <slot>OnSaveProject()</slot>
+  <slot>OnDeleteItem()</slot>
+  <slot>OnConfigureItem()</slot>
+  <slot>OnRunItem()</slot>
+  <slot>OnStopItem()</slot>
+  <slot>OnResetItem()</slot>
+  <slot>OnItemSelectionChanged()</slot>
+  <slot>OnItemDoubleClicked(QTreeWidgetItem*,int)</slot>
+  <slot>OnRunProject()</slot>
+  <slot>OnItemTreeContextMenuRequested(QPoint)</slot>
+  <slot>OnDockUndockWindow()</slot>
+  <slot>OnWindowMenuOpened()</slot>
+  <slot>OnStopProject()</slot>
+  <slot>OnResetFailedItems()</slot>
+  <slot>OnForceStopItem()</slot>
+  <slot>OnProjectSettingsClicked()</slot>
+  <slot>OnSaveProjectAs()</slot>
+  <slot>OnRestoreWindowStatesFromParams()</slot>
+  <slot>OnShowCircuitDiagram()</slot>
+ </slots>
+</ui>

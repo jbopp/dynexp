@@ -1,0 +1,272 @@
+// This file is part of DynExp.
+
+/**
+ * @file main.cpp.in
+ * @brief This file defines %DynExpManager's main entry point.
+ * @details %DynExp is the entire project. %DynExpManager as the main application managing all
+ * hardware, instruments and modules is the main part of the %DynExp project.
+ * @par Copyright
+ *
+ * %DynExp Copyright (C) Julian M. Bopp
+ * 
+ * %DynExp is free software: you can redistribute it and/or modify it under the terms of the
+ * GNU General Public License version 3 as published by the Free Software Foundation.
+ * 
+ * %DynExp is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with %DynExp.
+ * If not, see: https://www.gnu.org/licenses/
+*/
+
+#include "stdafx.h"
+#include "DynExpManager.h"
+#include <QtWidgets/QApplication>
+
+/** @name Macros to enable third-party support
+ * These macros are managed by cmake. Refer to @p %README.md for information on how to compile
+ * %DynExp with third-party libraries. Refer to the main @p %CMakeLists.txt for information
+ * on which library components these macros enable.
+*/
+///@{
+#cmakedefine USE_NIDAQ
+#cmakedefine USE_PVCAM
+#cmakedefine USE_QUTOOLSQUTAG
+#cmakedefine USE_SMARACT
+#cmakedefine USE_SWABIANPULSESTREAMER
+#cmakedefine USE_ZIMFLI
+///@}
+
+// Hardware adapters
+#include "HardwareAdapters/HardwareAdapterSerialPort.h"
+#include "HardwareAdapters/HardwareAdapterEthernet.h"
+
+// Instruments
+#include "Instruments/DummyCamera.h"
+#include "Instruments/DummyDataStreamInstrument.h"
+#include "Instruments/InterModuleCommunicator.h"
+#include "Instruments/NenionLeakvalveF3.h"
+#include "Instruments/NetworkAnalogInInstr.h"
+#include "Instruments/NetworkAnalogOutInstr.h"
+#include "Instruments/NetworkDataStreamInstrument.h"
+#include "Instruments/NetworkDigitalInInstr.h"
+#include "Instruments/NetworkDigitalOutInstr.h"
+#include "Instruments/NetworkSpectrometer.h"
+#include "Instruments/NetworkTimeTagger.h"
+#include "Instruments/PI-C-862.h"
+#include "Instruments/RS_SMB100B.h"
+#include "Instruments/RS_SMC100A.h"
+#include "Instruments/WidefieldLocalization.h"
+#ifdef USE_NIDAQ
+#include "Instruments/NIDAQAnalogIn.h"
+#include "Instruments/NIDAQAnalogOut.h"
+#include "Instruments/NIDAQDigitalIn.h"
+#include "Instruments/NIDAQDigitalOut.h"
+#endif // USE_NIDAQ
+#ifdef USE_PVCAM
+#include "Instruments/PVCam.h"
+#endif // USE_PVCAM
+#ifdef USE_QUTOOLSQUTAG
+#include "Instruments/QutoolsQuTAG.h"
+#endif // USE_QUTOOLSQUTAG
+#ifdef USE_SMARACT
+#include "Instruments/SmarAct.h"
+#endif // USE_SMARACT
+#ifdef USE_SWABIANPULSESTREAMER
+#include "Instruments/SwabianInstrumentsPulseStreamer.h"
+#endif // USE_SWABIANPULSESTREAMER
+#ifdef USE_ZIMFLI
+#include "Instruments/ZI_MFLI.h"
+#endif // USE_ZIMFLI
+
+// Modules
+#include "Modules/ArbitraryFunctionFromCSV.h"
+#include "Modules/ImageViewer/ImageViewer.h"
+#include "Modules/InputPortReader.h"
+#include "Modules/LockinAmplifierControl.h"
+#include "Modules/NetworkAnalogInModule.h"
+#include "Modules/NetworkAnalogOutModule.h"
+#include "Modules/NetworkDataStreamInstrumentModule.h"
+#include "Modules/NetworkDigitalInModule.h"
+#include "Modules/NetworkDigitalOutModule.h"
+#include "Modules/NetworkTimeTaggerModule.h"
+#include "Modules/OutputPortWriter.h"
+#include "Modules/SignalDesigner.h"
+#include "Modules/SignalPlotter.h"
+#include "Modules/SpectrumViewer/SpectrumViewer.h"
+#include "Modules/Stage1D.h"
+#include "Modules/StreamManipulator.h"
+#include "Modules/Trajectory1D.h"
+
+// Experiment modules
+#include "Modules/WidefieldMicroscope/WidefieldMicroscope.h"
+#include "Modules/ODMR/ODMR.h"
+
+/**
+ * @brief %DynExpManager's main entry point
+ * @param argc Number of command line arguments passed when starting the program
+ * @param argv Command line arguments. Supports @p QCommandLineParser's help and version arguments
+ * as well as a path to a .dynp %DynExp project file to load after starting the application
+ * (must be the last argument).
+ * @return Returns 0 in case of successful termination, an error code otherwise.
+*/
+int main(int argc, char *argv[])
+{
+	constexpr DynExp::HardwareAdapterLibrary<
+		DynExp::HardwareAdapterSerialPort,
+		DynExp::HardwareAdapterTcpSocket
+#ifdef USE_NIDAQ
+		,DynExpHardware::NIDAQHardwareAdapter
+#endif // USE_NIDAQ
+#ifdef USE_PVCAM
+		,DynExpHardware::PVCamHardwareAdapter
+#endif // USE_PVCAM
+#ifdef USE_QUTOOLSQUTAG
+		,DynExpHardware::QutoolsTDCHardwareAdapter
+#endif // USE_QUTOOLSQUTAG
+#ifdef USE_SMARACT
+		,DynExpHardware::SmarActHardwareAdapter
+#endif // USE_SMARACT
+#ifdef USE_SWABIANPULSESTREAMER
+		,DynExpHardware::SIPulseStreamerHardwareAdapter
+#endif // USE_SWABIANPULSESTREAMER
+#ifdef USE_ZIMFLI
+		,DynExpHardware::ZILabOneHardwareAdapter
+#endif // USE_ZIMFLI
+	> HardwareAdapterLib;
+
+	constexpr DynExp::InstrumentLibrary<
+		DynExpInstr::DummyCamera,
+		DynExpInstr::DummyDataStreamInstrument,
+		DynExpInstr::InterModuleCommunicator,
+		DynExpInstr::NenionLeakvalveF3,
+		DynExpInstr::NetworkAnalogIn,
+		DynExpInstr::NetworkAnalogOut,
+		DynExpInstr::NetworkDataStreamInstrument,
+		DynExpInstr::NetworkDigitalIn,
+		DynExpInstr::NetworkDigitalOut,
+		DynExpInstr::NetworkSpectrometer,
+		DynExpInstr::NetworkTimeTagger,
+		DynExpInstr::PI_C_862,
+		DynExpInstr::RS_SMB100B,
+		DynExpInstr::RS_SMC100A,
+		DynExpInstr::WidefieldLocalization
+#ifdef USE_NIDAQ
+		,DynExpInstr::NIDAQAnalogIn,
+		DynExpInstr::NIDAQAnalogOut,
+		DynExpInstr::NIDAQDigitalIn,
+		DynExpInstr::NIDAQDigitalOut
+#endif // USE_NIDAQ
+#ifdef USE_PVCAM
+		,DynExpInstr::PVCam
+#endif // USE_PVCAM
+#ifdef USE_QUTOOLSQUTAG
+		,DynExpInstr::QutoolsQuTAG
+#endif // USE_QUTOOLSQUTAG
+#ifdef USE_SMARACT
+		,DynExpInstr::SmarAct
+#endif // USE_SMARACT
+#ifdef USE_SWABIANPULSESTREAMER
+		,DynExpInstr::SwabianInstrumentsPulseStreamer
+#endif // USE_SWABIANPULSESTREAMER
+#ifdef USE_ZIMFLI
+		,DynExpInstr::ZI_MFLI
+#endif // USE_ZIMFLI
+	> InstrumentLib;
+
+	constexpr DynExp::ModuleLibrary<
+		DynExpModule::ArbitraryFunctionFromCSV,
+		DynExpModule::ImageViewer::ImageViewer,
+		DynExpModule::InputPortReader,
+		DynExpModule::LockinAmplifierControl,
+		DynExpModule::NetworkAnalogIn,
+		DynExpModule::NetworkAnalogOut,
+		DynExpModule::NetworkDataStreamInstrument,
+		DynExpModule::NetworkDigitalIn,
+		DynExpModule::NetworkDigitalOut,
+		DynExpModule::NetworkTimeTagger,
+		DynExpModule::OutputPortWriter,
+		DynExpModule::SignalDesigner,
+		DynExpModule::SignalPlotter,
+		DynExpModule::SpectrumViewer::SpectrumViewer,
+		DynExpModule::Stage1D,
+		DynExpModule::StreamManipulator,
+		DynExpModule::Trajectory1D,
+		//
+		// Experiments
+		DynExpModule::Widefield::WidefieldMicroscope,
+		DynExpModule::ODMR::ODMR
+	> ModuleLib;
+
+	int ErrorReturnCode = Util::DynExpErrorCodes::GeneralError;
+	try
+	{
+		// Set up language and application settings.
+		std::locale::global(std::locale(std::locale(DynExp::DefaultLocale), new DynExp::DefaultLocaleSeparator));
+		QLocale::setDefault(Util::GetDefaultQtLocale());
+
+		QApplication App(argc, argv);
+		QApplication::setApplicationName(DynExp::DynExpName);
+		QApplication::setApplicationVersion(DynExp::DynExpVersion);
+
+		// Turn off GSL error handler.
+		gsl_set_error_handler_off();
+		
+		// Initialize Python interpreter.
+		Util::PyGilReleasedInterpreter PyInterpreter;
+
+		// Parse command line options.
+		QCommandLineParser Parser;
+		Parser.setApplicationDescription(DynExp::DynExpDescription);
+		Parser.addHelpOption();
+		Parser.addVersionOption();
+		Parser.addPositionalArgument("file", "Project file (*.dynp) to open.");
+		Parser.process(App);
+
+		QString ProjectFile;
+		if (!Parser.positionalArguments().empty())
+			ProjectFile = Parser.positionalArguments()[0];
+
+		// Initialize DynExp.
+		auto DynExpCore = std::make_unique<DynExp::DynExpCore>(HardwareAdapterLib.ToVector(), InstrumentLib.ToVector(), ModuleLib.ToVector(),
+			ProjectFile.toStdString());
+		auto DynExpMgr = std::make_unique<DynExpManager>(*DynExpCore);
+		DynExpMgr->showMaximized();
+
+#ifdef DYNEXP_DEBUG
+		PyInterpreter.PrintDebugInfo();
+#endif // DYNEXP_DEBUG
+
+		// All exceptions need to be caught in Qt event handlers. Exceptions leaving slots is considered undefined behaviour.
+		// The exception does not propagate here! See https://doc.qt.io/qt-5/exceptionsafety.html
+		return App.exec();
+	}
+	catch (const Util::Exception& e)
+	{
+		Util::EventLog().Log(e);
+		ErrorReturnCode = e.ErrorCode;
+
+#ifdef DYNEXP_DEBUG
+		throw;
+#endif // DYNEXP_DEBUG
+	}
+	catch (const std::exception& e)
+	{
+		Util::EventLog().Log(e.what(), Util::ErrorType::Fatal, ErrorReturnCode);
+
+#ifdef DYNEXP_DEBUG
+		throw;
+#endif // DYNEXP_DEBUG
+	}
+	catch (...)
+	{
+		Util::EventLog().Log("Unknown Error", Util::ErrorType::Fatal, ErrorReturnCode);
+
+#ifdef DYNEXP_DEBUG
+		throw;
+#endif // DYNEXP_DEBUG
+	}
+
+	return ErrorReturnCode;
+}

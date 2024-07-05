@@ -1,0 +1,158 @@
+// This file is part of DynExp.
+
+#pragma once
+
+#include "stdafx.h"
+#include "DynExpCore.h"
+$$foreach($MetaInstrumentIncludes)
+#include "../MetaInstruments/$MetaInstrumentIncludes"
+$$endfor
+
+$$if($HasUI)
+#include <QWidget>
+#include "ui_$Name.h"
+$$endif
+
+namespace DynExpModule
+{
+	class $Name;
+
+$$if($HasUI)
+	class $Name$Widget : public DynExp::QModuleWidget
+	{
+		Q_OBJECT
+
+	public:
+		$Name$Widget($Name& Owner, QModuleWidget* parent = nullptr);
+		~$Name$Widget() = default;
+
+		// TODO: bool AllowResize() const noexcept override final { return true; }
+
+		Ui::$Name ui;
+	};
+$$endif
+
+$$if($HasUI)
+	class $Name$Data : public DynExp::QModuleDataBase
+$$else
+	class $Name$Data : public DynExp::ModuleDataBase
+$$endif
+	{
+	public:
+		$Name$Data() { Init(); }
+		virtual ~$Name$Data() = default;
+
+		// TODO: Insert getter and setter for data members here.
+
+	private:
+$$if($HasUI)
+		void ResetImpl(dispatch_tag<QModuleDataBase>) override final;
+$$else
+		void ResetImpl(dispatch_tag<ModuleDataBase>) override final;
+$$endif
+		virtual void ResetImpl(dispatch_tag<$Name$Data>) {};
+
+		void Init();
+
+		// TODO: Insert data members here.
+		// e.g. DynExp::LinkedObjectWrapperContainer<DynExpInstr::PositionerStage> PositionerStage;
+	};
+
+$$if($HasUI)
+	class $Name$Params : public DynExp::QModuleParamsBase
+$$else
+	class $Name$Params : public DynExp::ModuleParamsBase
+$$endif
+	{
+	public:
+$$if($HasUI)
+		$Name$Params(DynExp::ItemIDType ID, const DynExp::DynExpCore& Core) : QModuleParamsBase(ID, Core) {}
+$$else
+		$Name$Params(DynExp::ItemIDType ID, const DynExp::DynExpCore& Core) : ModuleParamsBase(ID, Core) {}
+$$endif
+		virtual ~$Name$Params() = default;
+
+		virtual const char* GetParamClassTag() const noexcept override { return "$Name$Params"; }
+
+		/* TODO: Insert module's params here. E.g.
+		Param<DynExp::ObjectLink<DynExpInstr::PositionerStage>> PositionerStage = { *this, GetCore().GetInstrumentManager(),
+			"PositionerStage", "Positioner stage", "Underlying ... instrument to be used as ...", DynExpUI::Icons::Instrument };
+		*/
+
+	private:
+$$if($HasUI)
+		void ConfigureParamsImpl(dispatch_tag<QModuleParamsBase>) override final {}
+$$else
+		void ConfigureParamsImpl(dispatch_tag<ModuleParamsBase>) override final {}
+$$endif
+		// TODO: Remove if at least one parameter has been inserted above.
+		DummyParam Dummy = { *this };
+	};
+
+$$if($HasUI)
+	class $Name$Configurator : public DynExp::QModuleConfiguratorBase
+$$else
+	class $Name$Configurator : public DynExp::ModuleConfiguratorBase
+$$endif
+	{
+	public:
+		using ObjectType = $Name;
+		using ParamsType = $Name$Params;
+
+		$Name$Configurator() = default;
+		virtual ~$Name$Configurator() = default;
+
+	private:
+		virtual DynExp::ParamsBasePtrType MakeParams(DynExp::ItemIDType ID, const DynExp::DynExpCore& Core) const override final { return DynExp::MakeParams<$Name$Configurator>(ID, Core); }
+	};
+
+$$if($HasUI)
+	class $Name : public DynExp::QModuleBase
+$$else
+	class $Name : public DynExp::ModuleBase
+$$endif
+	{
+	public:
+		using ParamsType = $Name$Params;
+		using ConfigType = $Name$Configurator;
+		using ModuleDataType = $Name$Data;
+
+		constexpr static auto Name() noexcept { return "$Name"; }
+		constexpr static auto Category() noexcept { return "$Category"; }
+
+$$if($HasUI)
+		$Name(const std::thread::id OwnerThreadID, DynExp::ParamsBasePtrType&& Params)
+			: QModuleBase(OwnerThreadID, std::move(Params)) {}
+$$else
+		$Name(const std::thread::id OwnerThreadID, DynExp::ParamsBasePtrType&& Params)
+			: ModuleBase(OwnerThreadID, std::move(Params)) {}
+$$endif
+		virtual ~$Name() = default;
+
+		virtual std::string GetName() const override { return Name(); }
+		virtual std::string GetCategory() const override { return Category(); }
+
+		// TODO: std::chrono::milliseconds GetMainLoopDelay() const override final { return std::chrono::milliseconds(10); }
+
+	private:
+		Util::DynExpErrorCodes::DynExpErrorCodes ModuleMainLoop(DynExp::ModuleInstance& Instance) override final;
+
+$$if($HasUI)
+		void ResetImpl(dispatch_tag<QModuleBase>) override final;
+
+		std::unique_ptr<DynExp::QModuleWidget> MakeUIWidget() override final;
+		void UpdateUIChild(const ModuleBase::ModuleDataGetterType& ModuleDataGetter) override final;
+$$else
+		void ResetImpl(dispatch_tag<ModuleBase>) override final;
+$$endif
+
+		// Events, run in module thread
+		// TODO: Declare events here.
+		void OnInit(DynExp::ModuleInstance* Instance) const override final;
+		void OnExit(DynExp::ModuleInstance* Instance) const override final;
+
+$$if($DefineDefaultDataUpdate)
+		size_t NumFailedUpdateAttempts = 0;
+$$endif
+	};
+}

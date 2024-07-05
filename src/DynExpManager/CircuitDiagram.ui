@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CircuitDiagram</class>
+ <widget class="QWidget" name="CircuitDiagram">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>941</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>300</width>
+    <height>200</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>DynExp - Circuit Diagram</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="DynExpManager.qrc">
+    <normaloff>:/DynExpManager/icons/DynExp.svg</normaloff>:/DynExpManager/icons/DynExp.svg</iconset>
+  </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QGraphicsView" name="GVCircuit">
+     <property name="contextMenuPolicy">
+      <enum>Qt::CustomContextMenu</enum>
+     </property>
+     <property name="renderHints">
+      <set>QPainter::Antialiasing|QPainter::SmoothPixmapTransform|QPainter::TextAntialiasing</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+  <action name="action_Save_Image">
+   <property name="icon">
+    <iconset resource="DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/Document-save.svg</normaloff>:/DynExpManager/icons/Document-save.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Save as image</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="action_Zoom_in">
+   <property name="icon">
+    <iconset resource="QModules.qrc">
+     <normaloff>:/QModules/icons/System-zoom-in.svg</normaloff>:/QModules/icons/System-zoom-in.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom in</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl++</string>
+   </property>
+  </action>
+  <action name="action_Zoom_out">
+   <property name="icon">
+    <iconset resource="QModules.qrc">
+     <normaloff>:/QModules/icons/System-zoom-out.svg</normaloff>:/QModules/icons/System-zoom-out.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom out</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+-</string>
+   </property>
+  </action>
+  <action name="action_Zoom_reset">
+   <property name="icon">
+    <iconset resource="QModules.qrc">
+     <normaloff>:/QModules/icons/View-zoom-reset.svg</normaloff>:/QModules/icons/View-zoom-reset.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom reset</string>
+   </property>
+   <property name="toolTip">
+    <string>Zoom reset</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Backspace</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="DynExpManager.qrc"/>
+  <include location="../QModules.qrc"/>
+  <include location="../DynExpManager.qrc"/>
+  <include location="QModules.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>action_Zoom_reset</sender>
+   <signal>triggered()</signal>
+   <receiver>CircuitDiagram</receiver>
+   <slot>OnZoomReset()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Zoom_in</sender>
+   <signal>triggered()</signal>
+   <receiver>CircuitDiagram</receiver>
+   <slot>OnZoomIn()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Zoom_out</sender>
+   <signal>triggered()</signal>
+   <receiver>CircuitDiagram</receiver>
+   <slot>OnZoomOut()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Save_Image</sender>
+   <signal>triggered()</signal>
+   <receiver>CircuitDiagram</receiver>
+   <slot>OnSaveDiagram()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>GVCircuit</sender>
+   <signal>customContextMenuRequested(QPoint)</signal>
+   <receiver>CircuitDiagram</receiver>
+   <slot>OnContextMenuRequested(QPoint)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>470</x>
+     <y>299</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>OnZoomIn()</slot>
+  <slot>OnZoomOut()</slot>
+  <slot>OnZoomReset()</slot>
+  <slot>OnSaveDiagram()</slot>
+  <slot>OnContextMenuRequested(QPoint)</slot>
+ </slots>
+</ui>

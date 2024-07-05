@@ -1,0 +1,39 @@
+// This file is part of DynExp.
+
+syntax = "proto3";
+
+import public "Common.proto";
+
+package DynExpProto.NetworkAnalogOut;
+
+message ValueLimitsMessage
+{
+	double LowerLimit = 1;
+	double UpperLimit = 2;
+}
+
+message ValueResolutionMessage
+{
+	double Resolution = 1;
+}
+
+message ValueUnitMessage
+{
+	DynExpProto.Common.UnitType Unit = 1;
+}
+
+message SampleMessage
+{
+	double Value = 1;
+}
+
+service NetworkAnalogOut
+{
+	rpc GetHardwareLimits (DynExpProto.Common.VoidMessage) returns (ValueLimitsMessage) {}
+	rpc GetUserLimits (DynExpProto.Common.VoidMessage) returns (ValueLimitsMessage) {}
+	rpc GetHardwareResolution (DynExpProto.Common.VoidMessage) returns (ValueResolutionMessage) {}
+	rpc GetValueUnit (DynExpProto.Common.VoidMessage) returns (ValueUnitMessage) {}
+	rpc SetAsync (SampleMessage) returns (DynExpProto.Common.VoidMessage) {}
+	rpc SetSync (SampleMessage) returns (DynExpProto.Common.VoidMessage) {}
+	rpc SetDefault (DynExpProto.Common.VoidMessage) returns (DynExpProto.Common.VoidMessage) {}
+}

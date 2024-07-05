@@ -1,0 +1,1303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ODMR</class>
+ <widget class="QWidget" name="ODMR">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>710</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ODMR</string>
+  </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="leftMargin">
+      <number>9</number>
+     </property>
+     <property name="topMargin">
+      <number>9</number>
+     </property>
+     <property name="rightMargin">
+      <number>9</number>
+     </property>
+     <property name="bottomMargin">
+      <number>9</number>
+     </property>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QTabWidget" name="MainTabWidget">
+         <property name="maximumSize">
+          <size>
+           <width>500</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="GeneralParamsTab">
+          <attribute name="title">
+           <string>General</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QGroupBox" name="GBRFSweep">
+             <property name="title">
+              <string>RF frequency sweep</string>
+             </property>
+             <layout class="QFormLayout" name="formLayout">
+              <property name="leftMargin">
+               <number>9</number>
+              </property>
+              <property name="rightMargin">
+               <number>9</number>
+              </property>
+              <property name="bottomMargin">
+               <number>9</number>
+              </property>
+              <item row="1" column="0">
+               <widget class="QLabel" name="LRFPower">
+                <property name="text">
+                 <string>RF power</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="LRFCenter">
+                <property name="text">
+                 <string>Center frequency</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QDoubleSpinBox" name="SBRFCenter">
+                <property name="keyboardTracking">
+                 <bool>false</bool>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="suffix">
+                 <string> MHz</string>
+                </property>
+                <property name="decimals">
+                 <number>3</number>
+                </property>
+                <property name="minimum">
+                 <double>1.000000000000000</double>
+                </property>
+                <property name="maximum">
+                 <double>10000.000000000000000</double>
+                </property>
+                <property name="value">
+                 <double>2870.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="LRFSpan">
+                <property name="text">
+                 <string>Frequency span</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QDoubleSpinBox" name="SBRFSpan">
+                <property name="keyboardTracking">
+                 <bool>false</bool>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="suffix">
+                 <string> MHz</string>
+                </property>
+                <property name="decimals">
+                 <number>3</number>
+                </property>
+                <property name="minimum">
+                 <double>0.001000000000000</double>
+                </property>
+                <property name="maximum">
+                 <double>10000.000000000000000</double>
+                </property>
+                <property name="value">
+                 <double>100.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="LRFFreqSpacing">
+                <property name="text">
+                 <string>Frequency spacing</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QDoubleSpinBox" name="SBRFFreqSpacing">
+                <property name="keyboardTracking">
+                 <bool>false</bool>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="suffix">
+                 <string> kHz</string>
+                </property>
+                <property name="decimals">
+                 <number>3</number>
+                </property>
+                <property name="minimum">
+                 <double>0.001000000000000</double>
+                </property>
+                <property name="maximum">
+                 <double>10000.000000000000000</double>
+                </property>
+                <property name="value">
+                 <double>10.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="QLabel" name="LRFNumSamples">
+                <property name="text">
+                 <string>Number of samples</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="QLineEdit" name="LERFNumSamples">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="0">
+               <widget class="QLabel" name="LRFDwellTime">
+                <property name="text">
+                 <string>Dwell time</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="1">
+               <widget class="QDoubleSpinBox" name="SBRFDwellTime">
+                <property name="keyboardTracking">
+                 <bool>false</bool>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="suffix">
+                 <string> ms</string>
+                </property>
+                <property name="decimals">
+                 <number>3</number>
+                </property>
+                <property name="minimum">
+                 <double>0.001000000000000</double>
+                </property>
+                <property name="maximum">
+                 <double>100000.000000000000000</double>
+                </property>
+                <property name="value">
+                 <double>10.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QCheckBox" name="CBRFAutoEnable">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>16</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Automatically enable/disable RF source</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <layout class="QHBoxLayout" name="horizontalLayout_5">
+                <item>
+                 <widget class="QDoubleSpinBox" name="SBRFPower">
+                  <property name="keyboardTracking">
+                   <bool>false</bool>
+                  </property>
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="suffix">
+                   <string> dBm</string>
+                  </property>
+                  <property name="decimals">
+                   <number>3</number>
+                  </property>
+                  <property name="minimum">
+                   <double>-100.000000000000000</double>
+                  </property>
+                  <property name="maximum">
+                   <double>100.000000000000000</double>
+                  </property>
+                  <property name="value">
+                   <double>-10.000000000000000</double>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="BRFOn">
+                  <property name="maximumSize">
+                   <size>
+                    <width>50</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>RF on</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="BRFOff">
+                  <property name="maximumSize">
+                   <size>
+                    <width>50</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>RF off</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="GBRFModulation">
+             <property name="title">
+              <string>RF frequency modulation</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_4">
+              <item>
+               <widget class="QGroupBox" name="GBRFModulationType">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="title">
+                 <string>Modulation type</string>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_2">
+                 <item>
+                  <widget class="QRadioButton" name="RBRFModulationTypeNone">
+                   <property name="text">
+                    <string>None</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QRadioButton" name="RBRFModulationTypeSine">
+                   <property name="text">
+                    <string>Sine</string>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="../../QModules.qrc">
+                     <normaloff>:/QModules/icons/Sine.svg</normaloff>:/QModules/icons/Sine.svg</iconset>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QRadioButton" name="RBRFModulationTypePulse">
+                   <property name="text">
+                    <string>Pulse</string>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="../../QModules.qrc">
+                     <normaloff>:/QModules/icons/Rect.svg</normaloff>:/QModules/icons/Rect.svg</iconset>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <layout class="QFormLayout" name="formLayout_2">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="LRFModulationFreq">
+                  <property name="text">
+                   <string>Modulation frequency</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QDoubleSpinBox" name="SBRFModulationFreq">
+                  <property name="keyboardTracking">
+                   <bool>false</bool>
+                  </property>
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="suffix">
+                   <string> kHz</string>
+                  </property>
+                  <property name="decimals">
+                   <number>3</number>
+                  </property>
+                  <property name="minimum">
+                   <double>0.001000000000000</double>
+                  </property>
+                  <property name="maximum">
+                   <double>10000.000000000000000</double>
+                  </property>
+                  <property name="value">
+                   <double>10.000000000000000</double>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="LRFModulationDepth">
+                  <property name="text">
+                   <string>Modulation depth</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QDoubleSpinBox" name="SBRFModulationDepth">
+                  <property name="keyboardTracking">
+                   <bool>false</bool>
+                  </property>
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="suffix">
+                   <string> kHz</string>
+                  </property>
+                  <property name="decimals">
+                   <number>3</number>
+                  </property>
+                  <property name="minimum">
+                   <double>0.001000000000000</double>
+                  </property>
+                  <property name="maximum">
+                   <double>1000000.000000000000000</double>
+                  </property>
+                  <property name="value">
+                   <double>1000.000000000000000</double>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="GBDataAcquisition">
+             <property name="title">
+              <string>Data Acquisition</string>
+             </property>
+             <layout class="QFormLayout" name="formLayout_6">
+              <item row="0" column="0">
+               <widget class="QLabel" name="LDataAcquisitionODMRSamplingRate">
+                <property name="text">
+                 <string>ODMR sampling rate</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QDoubleSpinBox" name="SBDataAcquisitionODMRSamplingRate">
+                <property name="keyboardTracking">
+                 <bool>false</bool>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="suffix">
+                 <string> smpls/s</string>
+                </property>
+                <property name="minimum">
+                 <double>1.000000000000000</double>
+                </property>
+                <property name="maximum">
+                 <double>1000000000.000000000000000</double>
+                </property>
+                <property name="stepType">
+                 <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                </property>
+                <property name="value">
+                 <double>100.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="GBSaveData">
+             <property name="title">
+              <string>Data storage settings</string>
+             </property>
+             <layout class="QFormLayout" name="formLayout_3">
+              <item row="0" column="0">
+               <widget class="QLabel" name="LSaveDataPath">
+                <property name="text">
+                 <string>Save path</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <layout class="QHBoxLayout" name="horizontalLayout_3">
+                <item>
+                 <widget class="QLineEdit" name="LESaveDataPath"/>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="BSaveDataBrowse">
+                  <property name="icon">
+                   <iconset resource="../../DynExpManager.qrc">
+                    <normaloff>:/DynExpManager/icons/Document-open.svg</normaloff>:/DynExpManager/icons/Document-open.svg</iconset>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="LSaveDataCurrentIndex">
+                <property name="text">
+                 <string>Current file index</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QSpinBox" name="SBSaveDataCurrentIndex">
+                <property name="keyboardTracking">
+                 <bool>false</bool>
+                </property>
+                <property name="maximum">
+                 <number>1000000000</number>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="LSaveDataEnable">
+                <property name="text">
+                 <string>Autosave</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QCheckBox" name="CBSaveDataEnable">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>16</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="SensitivityParamsTab">
+          <attribute name="title">
+           <string>Sensitivity</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_7">
+           <item>
+            <widget class="QGroupBox" name="GBSensitivity">
+             <property name="title">
+              <string>Sensitivity parameters</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_9">
+              <item>
+               <layout class="QFormLayout" name="formLayout_4">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="LSensitivityEnable">
+                  <property name="text">
+                   <string>Record sensitivity after ODMR</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QCheckBox" name="CBSensitivityEnable">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>16</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="LSensitivityOffResEnable">
+                  <property name="text">
+                   <string>Record off-resonance sensitivity</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QCheckBox" name="CBSensitivityOffResEnable">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>16</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="LSensitivityFreq">
+                  <property name="text">
+                   <string>ODMR resonance frequency</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QDoubleSpinBox" name="SBSensitivityFreq">
+                  <property name="keyboardTracking">
+                   <bool>false</bool>
+                  </property>
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="suffix">
+                   <string> MHz</string>
+                  </property>
+                  <property name="decimals">
+                   <number>3</number>
+                  </property>
+                  <property name="minimum">
+                   <double>1.000000000000000</double>
+                  </property>
+                  <property name="maximum">
+                   <double>10000.000000000000000</double>
+                  </property>
+                  <property name="value">
+                   <double>2870.000000000000000</double>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0">
+                 <widget class="QLabel" name="LSensitivityOffResFreq">
+                  <property name="text">
+                   <string>ODMR off-resonance frequency</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="1">
+                 <widget class="QDoubleSpinBox" name="SBSensitivityOffResFreq">
+                  <property name="keyboardTracking">
+                   <bool>false</bool>
+                  </property>
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="suffix">
+                   <string> MHz</string>
+                  </property>
+                  <property name="decimals">
+                   <number>3</number>
+                  </property>
+                  <property name="minimum">
+                   <double>1.000000000000000</double>
+                  </property>
+                  <property name="maximum">
+                   <double>10000.000000000000000</double>
+                  </property>
+                  <property name="value">
+                   <double>2800.000000000000000</double>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="0">
+                 <widget class="QLabel" name="LSensitivitySpan">
+                  <property name="text">
+                   <string>ODMR resonance span</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="1">
+                 <widget class="QDoubleSpinBox" name="SBSensitivitySpan">
+                  <property name="keyboardTracking">
+                   <bool>false</bool>
+                  </property>
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="suffix">
+                   <string> MHz</string>
+                  </property>
+                  <property name="decimals">
+                   <number>3</number>
+                  </property>
+                  <property name="minimum">
+                   <double>0.001000000000000</double>
+                  </property>
+                  <property name="maximum">
+                   <double>10000.000000000000000</double>
+                  </property>
+                  <property name="value">
+                   <double>10.000000000000000</double>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="0">
+                 <widget class="QLabel" name="LSensitivitySamplingRate">
+                  <property name="text">
+                   <string>Sampling rate</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="1">
+                 <widget class="QDoubleSpinBox" name="SBSensitivitySamplingRate">
+                  <property name="keyboardTracking">
+                   <bool>false</bool>
+                  </property>
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="suffix">
+                   <string> smpls/s</string>
+                  </property>
+                  <property name="minimum">
+                   <double>1.000000000000000</double>
+                  </property>
+                  <property name="maximum">
+                   <double>1000000000.000000000000000</double>
+                  </property>
+                  <property name="stepType">
+                   <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                  </property>
+                  <property name="value">
+                   <double>1000.000000000000000</double>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="0">
+                 <widget class="QLabel" name="LSensitivityDuration">
+                  <property name="text">
+                   <string>Duration</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="1">
+                 <widget class="QDoubleSpinBox" name="SBSensitivityDuration">
+                  <property name="keyboardTracking">
+                   <bool>false</bool>
+                  </property>
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="suffix">
+                   <string> s</string>
+                  </property>
+                  <property name="decimals">
+                   <number>3</number>
+                  </property>
+                  <property name="minimum">
+                   <double>1.000000000000000</double>
+                  </property>
+                  <property name="maximum">
+                   <double>1000000.000000000000000</double>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QCheckBox" name="CBSensitivityOncePerSweep">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>16</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="LSensitivityOncePerSweep">
+                  <property name="text">
+                   <string>Record sensitivity only once per sweep</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="GBSensitivityAnalysis">
+             <property name="title">
+              <string>Sensitivity analysis</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <layout class="QFormLayout" name="formLayout_7">
+              <item row="0" column="0">
+               <widget class="QLabel" name="LGyromagneticRatio">
+                <property name="text">
+                 <string>Gyromagnetic ratio</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QDoubleSpinBox" name="SBGyromagneticRatio">
+                <property name="keyboardTracking">
+                 <bool>false</bool>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="suffix">
+                 <string> MHz/T</string>
+                </property>
+                <property name="decimals">
+                 <number>3</number>
+                </property>
+                <property name="minimum">
+                 <double>1.000000000000000</double>
+                </property>
+                <property name="maximum">
+                 <double>1000000.000000000000000</double>
+                </property>
+                <property name="value">
+                 <double>28000.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="LEODMRFitSlope">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="LODMRFitSlope">
+                <property name="text">
+                 <string>ODMR linear fit slope</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="LEODMRFitOffset">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="LODMRFitOffset">
+                <property name="text">
+                 <string>ODMR linear fit offset</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="ParamSweepTab">
+          <attribute name="title">
+           <string>Measurement series</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_8">
+           <item>
+            <widget class="QGroupBox" name="GBParamSweep">
+             <property name="title">
+              <string>Parameter sweep</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <item>
+               <layout class="QFormLayout" name="formLayout_5">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="LParamSweepEnable">
+                  <property name="text">
+                   <string>Enable sweep series</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QCheckBox" name="CBParamSweepEnable">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>16</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="LParamSweepType">
+                  <property name="text">
+                   <string>Parameter to sweep</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QComboBox" name="CBParamSweepType">
+                  <item>
+                   <property name="text">
+                    <string>RF modulation depth</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>RF power</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="LParamSweepStart">
+                  <property name="text">
+                   <string>Start value</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QDoubleSpinBox" name="SBParamSweepStart">
+                  <property name="keyboardTracking">
+                   <bool>false</bool>
+                  </property>
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="decimals">
+                   <number>3</number>
+                  </property>
+                  <property name="minimum">
+                   <double>-1000000.000000000000000</double>
+                  </property>
+                  <property name="maximum">
+                   <double>1000000.000000000000000</double>
+                  </property>
+                  <property name="value">
+                   <double>1000.000000000000000</double>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="LParamSweepStop">
+                  <property name="text">
+                   <string>Stop value</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QDoubleSpinBox" name="SBParamSweepStop">
+                  <property name="keyboardTracking">
+                   <bool>false</bool>
+                  </property>
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="decimals">
+                   <number>3</number>
+                  </property>
+                  <property name="minimum">
+                   <double>-1000000.000000000000000</double>
+                  </property>
+                  <property name="maximum">
+                   <double>1000000.000000000000000</double>
+                  </property>
+                  <property name="value">
+                   <double>10000.000000000000000</double>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0">
+                 <widget class="QLabel" name="LParamSweepStep">
+                  <property name="text">
+                   <string>Step</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="1">
+                 <widget class="QDoubleSpinBox" name="SBParamSweepStep">
+                  <property name="keyboardTracking">
+                   <bool>false</bool>
+                  </property>
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="decimals">
+                   <number>3</number>
+                  </property>
+                  <property name="minimum">
+                   <double>0.001000000000000</double>
+                  </property>
+                  <property name="maximum">
+                   <double>100000.000000000000000</double>
+                  </property>
+                  <property name="value">
+                   <double>100.000000000000000</double>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="0">
+                 <widget class="QLabel" name="LParamSweepRetrace">
+                  <property name="text">
+                   <string>Retrace</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="1">
+                 <widget class="QCheckBox" name="CBParamSweepRetrace">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>16</height>
+                   </size>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="0">
+                 <widget class="QLabel" name="LParamSweepAdvanceLastValue">
+                  <property name="minimumSize">
+                   <size>
+                    <width>140</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Advance last value (changes sweep order from (v&lt;span style=&quot; vertical-align:sub;&quot;&gt;1&lt;/span&gt;,&amp;nbsp;v&lt;span style=&quot; vertical-align:sub;&quot;&gt;2&lt;/span&gt;,&amp;nbsp;...,&amp;nbsp;v&lt;span style=&quot; vertical-align:sub;&quot;&gt;N&lt;/span&gt;) to (v&lt;span style=&quot; vertical-align:sub;&quot;&gt;1&lt;/span&gt;,&amp;nbsp;v&lt;span style=&quot; vertical-align:sub;&quot;&gt;N&lt;/span&gt;,&amp;nbsp;v&lt;span style=&quot; vertical-align:sub;&quot;&gt;2&lt;/span&gt;,&amp;nbsp;...,&amp;nbsp;v&lt;span style=&quot; vertical-align:sub;&quot;&gt;N-1&lt;/span&gt;))&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="1">
+                 <widget class="QCheckBox" name="CBParamSweepAdvanceLastValue">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>16</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>329</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QPushButton" name="BStart">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>2</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>26</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Start</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../DynExpManager.qrc">
+             <normaloff>:/DynExpManager/icons/Media-playback-start.svg</normaloff>:/DynExpManager/icons/Media-playback-start.svg</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="BStartSensitivity">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>2</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>26</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Measure sensitivity</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../DynExpManager.qrc">
+             <normaloff>:/DynExpManager/icons/Media-playback-start.svg</normaloff>:/DynExpManager/icons/Media-playback-start.svg</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="BStop">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>1</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>26</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Stop</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../QModules.qrc">
+             <normaloff>:/QModules/icons/Dialog-STOP.svg</normaloff>:/QModules/icons/Dialog-STOP.svg</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <property name="spacing">
+        <number>1</number>
+       </property>
+       <item>
+        <widget class="QChartView" name="ODMRChartView">
+         <property name="minimumSize">
+          <size>
+           <width>400</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="LODMRCurrentSelection">
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>5</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QChartView" name="SensitivityChartView">
+         <property name="minimumSize">
+          <size>
+           <width>400</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QStatusBar" name="MainStatusBar"/>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QChartView</class>
+   <extends>QGraphicsView</extends>
+   <header>QtCharts</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>MainTabWidget</tabstop>
+  <tabstop>SBRFPower</tabstop>
+  <tabstop>BRFOn</tabstop>
+  <tabstop>BRFOff</tabstop>
+  <tabstop>CBRFAutoEnable</tabstop>
+  <tabstop>SBRFCenter</tabstop>
+  <tabstop>SBRFSpan</tabstop>
+  <tabstop>SBRFFreqSpacing</tabstop>
+  <tabstop>LERFNumSamples</tabstop>
+  <tabstop>SBRFDwellTime</tabstop>
+  <tabstop>RBRFModulationTypeNone</tabstop>
+  <tabstop>RBRFModulationTypeSine</tabstop>
+  <tabstop>RBRFModulationTypePulse</tabstop>
+  <tabstop>SBRFModulationFreq</tabstop>
+  <tabstop>SBRFModulationDepth</tabstop>
+  <tabstop>SBDataAcquisitionODMRSamplingRate</tabstop>
+  <tabstop>LESaveDataPath</tabstop>
+  <tabstop>BSaveDataBrowse</tabstop>
+  <tabstop>SBSaveDataCurrentIndex</tabstop>
+  <tabstop>CBSaveDataEnable</tabstop>
+  <tabstop>CBSensitivityEnable</tabstop>
+  <tabstop>CBSensitivityOncePerSweep</tabstop>
+  <tabstop>CBSensitivityOffResEnable</tabstop>
+  <tabstop>SBSensitivityFreq</tabstop>
+  <tabstop>SBSensitivityOffResFreq</tabstop>
+  <tabstop>SBSensitivitySpan</tabstop>
+  <tabstop>SBSensitivitySamplingRate</tabstop>
+  <tabstop>SBSensitivityDuration</tabstop>
+  <tabstop>GBSensitivityAnalysis</tabstop>
+  <tabstop>SBGyromagneticRatio</tabstop>
+  <tabstop>LEODMRFitSlope</tabstop>
+  <tabstop>LEODMRFitOffset</tabstop>
+  <tabstop>CBParamSweepEnable</tabstop>
+  <tabstop>CBParamSweepType</tabstop>
+  <tabstop>SBParamSweepStart</tabstop>
+  <tabstop>SBParamSweepStop</tabstop>
+  <tabstop>SBParamSweepStep</tabstop>
+  <tabstop>CBParamSweepRetrace</tabstop>
+  <tabstop>CBParamSweepAdvanceLastValue</tabstop>
+  <tabstop>BStart</tabstop>
+  <tabstop>BStartSensitivity</tabstop>
+  <tabstop>BStop</tabstop>
+  <tabstop>ODMRChartView</tabstop>
+  <tabstop>SensitivityChartView</tabstop>
+ </tabstops>
+ <resources>
+  <include location="../../QModules.qrc"/>
+  <include location="../../DynExpManager.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>BSaveDataBrowse</sender>
+   <signal>clicked()</signal>
+   <receiver>ODMR</receiver>
+   <slot>OnBrowseSavePathClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>376</x>
+     <y>429</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>418</x>
+     <y>290</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>OnBrowseSavePathClicked()</slot>
+ </slots>
+</ui>

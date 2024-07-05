@@ -1,0 +1,2525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WidefieldMicroscope</class>
+ <widget class="QWidget" name="WidefieldMicroscope">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>770</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1000</width>
+    <height>770</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Widefield Microscope</string>
+  </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QMenuBar" name="MainMenuBar">
+     <property name="nativeMenuBar">
+      <bool>false</bool>
+     </property>
+     <widget class="QMenu" name="menu_Module">
+      <property name="title">
+       <string>&amp;Module</string>
+      </property>
+      <addaction name="action_Terminate"/>
+     </widget>
+     <addaction name="menu_Module"/>
+    </widget>
+   </item>
+   <item>
+    <widget class="QToolBar" name="MainToolBar">
+     <addaction name="action_Stop_current_action"/>
+     <addaction name="separator"/>
+     <addaction name="action_Set_home_position"/>
+     <addaction name="action_Go_home_position"/>
+     <addaction name="separator"/>
+     <addaction name="action_Toogle_LED_light_source"/>
+     <addaction name="action_Toogle_pump_light_source"/>
+     <addaction name="separator"/>
+     <addaction name="action_Widefield_mode"/>
+     <addaction name="action_Confocal_mode"/>
+     <addaction name="separator"/>
+     <addaction name="action_Autofocus"/>
+     <addaction name="action_Optimize_positions"/>
+     <addaction name="separator"/>
+     <addaction name="action_Toggle_HBT_mirror"/>
+    </widget>
+   </item>
+   <item>
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="MainWidget" native="true">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QSplitter" name="MainHSplitter">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <widget class="QTabWidget" name="TabWidget">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>620</width>
+           <height>500</height>
+          </size>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="TabGeneral">
+          <attribute name="title">
+           <string>General</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <widget class="QGroupBox" name="GBGeneralLaserPowers">
+             <property name="title">
+              <string>Pump power</string>
+             </property>
+             <layout class="QFormLayout" name="formLayout_5">
+              <item row="0" column="0">
+               <widget class="QLabel" name="LGeneralWidefieldPower">
+                <property name="text">
+                 <string>Power in widefield mode</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QDoubleSpinBox" name="SBGeneralWidefieldPower">
+                <property name="suffix">
+                 <string> V</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="LGeneralConfocalPower">
+                <property name="text">
+                 <string>Power in confocal mode</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QDoubleSpinBox" name="SBGeneralConfocalPower">
+                <property name="suffix">
+                 <string> V</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="GBGeneralFocus">
+             <property name="title">
+              <string>Focusing piezo</string>
+             </property>
+             <layout class="QFormLayout" name="formLayout_9">
+              <item row="0" column="0">
+               <widget class="QLabel" name="LGeneralFocusCurrentVoltage">
+                <property name="text">
+                 <string>Current voltage</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QDoubleSpinBox" name="SBGeneralFocusCurrentVoltage">
+                <property name="suffix">
+                 <string> V</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="LGeneralFocusZeroVoltage">
+                <property name="text">
+                 <string>Zero point voltage</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <layout class="QHBoxLayout" name="horizontalLayout_10">
+                <item>
+                 <widget class="QDoubleSpinBox" name="SBGeneralFocusZeroVoltage">
+                  <property name="suffix">
+                   <string> V</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="BGeneralFocusSetZeroVoltage">
+                  <property name="maximumSize">
+                   <size>
+                    <width>32</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="toolTip">
+                   <string>Set zero voltage</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../../QModules.qrc">
+                    <normaloff>:/QModules/icons/Set-home.svg</normaloff>:/QModules/icons/Set-home.svg</iconset>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="BGeneralFocusApplyZeroVoltage">
+                  <property name="maximumSize">
+                   <size>
+                    <width>32</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="toolTip">
+                   <string>Apply zero voltage</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../../QModules.qrc">
+                    <normaloff>:/QModules/icons/Go-home-2.svg</normaloff>:/QModules/icons/Go-home-2.svg</iconset>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="LGeneralFocusConfocalOffsetVoltage">
+                <property name="text">
+                 <string>Offset voltage in confocal mode</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QDoubleSpinBox" name="SBGeneralFocusConfocalOffsetVoltage">
+                <property name="suffix">
+                 <string> V</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>577</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="TabWidefield">
+          <attribute name="title">
+           <string>Widefield</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QGroupBox" name="GBWidefieldSettings">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="title">
+              <string>Settings</string>
+             </property>
+             <layout class="QFormLayout" name="formLayout">
+              <item row="0" column="0">
+               <widget class="QLabel" name="LWidefieldLEDExposureTime">
+                <property name="text">
+                 <string>LED exposure time</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <layout class="QHBoxLayout" name="horizontalLayout_9">
+                <item>
+                 <widget class="QSpinBox" name="SBWidefieldLEDExposureTime">
+                  <property name="keyboardTracking">
+                   <bool>false</bool>
+                  </property>
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="suffix">
+                   <string> ms</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="BWidefieldApplyLEDExposureTime">
+                  <property name="maximumSize">
+                   <size>
+                    <width>50</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Apply</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="LWidefieldPumpExposureTime">
+                <property name="text">
+                 <string>Pump exposure time</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <layout class="QHBoxLayout" name="horizontalLayout_11">
+                <item>
+                 <widget class="QSpinBox" name="SBWidefieldPumpExposureTime">
+                  <property name="keyboardTracking">
+                   <bool>false</bool>
+                  </property>
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="suffix">
+                   <string> ms</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="BWidefieldApplyPumpExposureTime">
+                  <property name="maximumSize">
+                   <size>
+                    <width>50</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Apply</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="GBWidefieldCapturing">
+             <property name="title">
+              <string>Image capturing</string>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_7">
+              <property name="leftMargin">
+               <number>9</number>
+              </property>
+              <property name="topMargin">
+               <number>3</number>
+              </property>
+              <property name="rightMargin">
+               <number>9</number>
+              </property>
+              <property name="bottomMargin">
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="BWidefieldFindConfocalSpot">
+                <property name="text">
+                 <string>Find confocal spot position</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../../QModules.qrc">
+                  <normaloff>:/QModules/icons/View-zoom-fit.svg</normaloff>:/QModules/icons/View-zoom-fit.svg</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>20</width>
+                  <height>16</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="BWidefieldLEDCapture">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>24</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Capture LED image</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../../QModules.qrc">
+                  <normaloff>:/QModules/icons/Image-new-red.svg</normaloff>:/QModules/icons/Image-new-red.svg</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>20</width>
+                  <height>16</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="BWidefieldCapture">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>24</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Capture widefield image</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../../QModules.qrc">
+                  <normaloff>:/QModules/icons/Image-new.svg</normaloff>:/QModules/icons/Image-new.svg</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>20</width>
+                  <height>16</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="GBWidefieldProcessing">
+             <property name="title">
+              <string>Image processing</string>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <property name="leftMargin">
+               <number>9</number>
+              </property>
+              <property name="topMargin">
+               <number>3</number>
+              </property>
+              <property name="rightMargin">
+               <number>9</number>
+              </property>
+              <property name="bottomMargin">
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="BReadCellID">
+                <property name="text">
+                 <string>Read cell ID</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../../QModules.qrc">
+                  <normaloff>:/QModules/icons/Text-x-generic_with_pencil.svg</normaloff>:/QModules/icons/Text-x-generic_with_pencil.svg</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>20</width>
+                  <height>16</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="BAnalyzeImageDistortion">
+                <property name="text">
+                 <string>Analyze image distortion</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../../QModules.qrc">
+                  <normaloff>:/QModules/icons/Measure.svg</normaloff>:/QModules/icons/Measure.svg</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>20</width>
+                  <height>16</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="BLocalizeEmitters">
+                <property name="text">
+                 <string>Localize emitters</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../../QModules.qrc">
+                  <normaloff>:/QModules/icons/Emblem-star.svg</normaloff>:/QModules/icons/Emblem-star.svg</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>20</width>
+                  <height>16</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>9</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QTableWidget" name="TWEmitterList">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="contextMenuPolicy">
+              <enum>Qt::CustomContextMenu</enum>
+             </property>
+             <property name="editTriggers">
+              <set>QAbstractItemView::NoEditTriggers</set>
+             </property>
+             <property name="tabKeyNavigation">
+              <bool>false</bool>
+             </property>
+             <property name="alternatingRowColors">
+              <bool>true</bool>
+             </property>
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectRows</enum>
+             </property>
+             <property name="horizontalScrollMode">
+              <enum>QAbstractItemView::ScrollPerPixel</enum>
+             </property>
+             <property name="showGrid">
+              <bool>false</bool>
+             </property>
+             <property name="sortingEnabled">
+              <bool>true</bool>
+             </property>
+             <property name="wordWrap">
+              <bool>false</bool>
+             </property>
+             <attribute name="horizontalHeaderDefaultSectionSize">
+              <number>46</number>
+             </attribute>
+             <attribute name="horizontalHeaderHighlightSections">
+              <bool>false</bool>
+             </attribute>
+             <attribute name="verticalHeaderVisible">
+              <bool>false</bool>
+             </attribute>
+             <column>
+              <property name="text">
+               <string>ID</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Name</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>x [px]</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>y [px]</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>sample position x [nm]</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>sample position y [nm]</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Auto Measure</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="TabConfocal">
+          <attribute name="title">
+           <string>Confocal</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <item>
+            <widget class="QGroupBox" name="GBConfocalParameters">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="title">
+              <string>Scanning</string>
+             </property>
+             <layout class="QFormLayout" name="formLayout_2">
+              <item row="0" column="0">
+               <widget class="QLabel" name="LConfocalWidth">
+                <property name="text">
+                 <string>Scan width (x)</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QSpinBox" name="SBConfocalWidth">
+                <property name="keyboardTracking">
+                 <bool>false</bool>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="suffix">
+                 <string> px</string>
+                </property>
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>10000</number>
+                </property>
+                <property name="value">
+                 <number>20</number>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="LConfocalHeight">
+                <property name="text">
+                 <string>Scan height (y)</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QSpinBox" name="SBConfocalHeight">
+                <property name="keyboardTracking">
+                 <bool>false</bool>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="suffix">
+                 <string> px</string>
+                </property>
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>10000</number>
+                </property>
+                <property name="value">
+                 <number>20</number>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="LConfocalDistPerPixel">
+                <property name="text">
+                 <string>Distance per pixel</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QSpinBox" name="SBConfocalDistPerPixel">
+                <property name="keyboardTracking">
+                 <bool>false</bool>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="suffix">
+                 <string> nm</string>
+                </property>
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>1000000</number>
+                </property>
+                <property name="value">
+                 <number>50</number>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="LConfocalSPDExposureTime">
+                <property name="text">
+                 <string>SPD exposure time</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QSpinBox" name="SBConfocalSPDExposureTime">
+                <property name="keyboardTracking">
+                 <bool>false</bool>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="suffix">
+                 <string> ms</string>
+                </property>
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>60000</number>
+                </property>
+                <property name="value">
+                 <number>100</number>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="GBConfocalOptimization">
+             <property name="title">
+              <string>Optimizing</string>
+             </property>
+             <layout class="QFormLayout" name="formLayout_4">
+              <item row="0" column="0">
+               <widget class="QLabel" name="LConfocalOptimizationInitXYStepSize">
+                <property name="text">
+                 <string>Initial step size factor (x, y)</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="LConfocalOptimizationInitZStepSize">
+                <property name="text">
+                 <string>Initial step size factor (z)</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="LConfocalOptimizationTolerance">
+                <property name="text">
+                 <string>Optimization tolerance</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QDoubleSpinBox" name="SBConfocalOptimizationInitXYStepSize">
+                <property name="decimals">
+                 <number>3</number>
+                </property>
+                <property name="minimum">
+                 <double>0.001000000000000</double>
+                </property>
+                <property name="maximum">
+                 <double>1000.000000000000000</double>
+                </property>
+                <property name="stepType">
+                 <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                </property>
+                <property name="value">
+                 <double>20.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QDoubleSpinBox" name="SBConfocalOptimizationInitZStepSize">
+                <property name="decimals">
+                 <number>3</number>
+                </property>
+                <property name="minimum">
+                 <double>0.001000000000000</double>
+                </property>
+                <property name="maximum">
+                 <double>1000.000000000000000</double>
+                </property>
+                <property name="stepType">
+                 <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                </property>
+                <property name="value">
+                 <double>10.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QDoubleSpinBox" name="SBConfocalOptimizationTolerance">
+                <property name="decimals">
+                 <number>3</number>
+                </property>
+                <property name="minimum">
+                 <double>0.001000000000000</double>
+                </property>
+                <property name="maximum">
+                 <double>1000.000000000000000</double>
+                </property>
+                <property name="stepType">
+                 <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                </property>
+                <property name="value">
+                 <double>1.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="ConfocalGraphToolsLayout">
+             <property name="rightMargin">
+              <number>9</number>
+             </property>
+             <item>
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="BConfocalGraphTools">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>32</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>...</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QWidget" name="WidgetConfocalGraphContainer" native="true">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>300</width>
+               <height>200</height>
+              </size>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="BConfocalScan">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Perform confocal scan</string>
+             </property>
+             <property name="icon">
+              <iconset resource="../../DynExpManager.qrc">
+               <normaloff>:/DynExpManager/icons/Media-playback-start.svg</normaloff>:/DynExpManager/icons/Media-playback-start.svg</iconset>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="TabHBT">
+          <attribute name="title">
+           <string>HBT</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <item>
+            <widget class="QGroupBox" name="GBHBTSettings">
+             <property name="title">
+              <string>Settings</string>
+             </property>
+             <layout class="QFormLayout" name="formLayout_3">
+              <property name="leftMargin">
+               <number>9</number>
+              </property>
+              <property name="topMargin">
+               <number>9</number>
+              </property>
+              <property name="rightMargin">
+               <number>9</number>
+              </property>
+              <property name="bottomMargin">
+               <number>9</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QLabel" name="LHBTBinWidth">
+                <property name="text">
+                 <string>Bin width</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="LHBTBinCount">
+                <property name="text">
+                 <string>Number of bins</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QSpinBox" name="SBHBTBinCount">
+                <property name="minimum">
+                 <number>20</number>
+                </property>
+                <property name="maximum">
+                 <number>65535</number>
+                </property>
+                <property name="singleStep">
+                 <number>10</number>
+                </property>
+                <property name="value">
+                 <number>256</number>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="LHBTTotalIntegrationTime">
+                <property name="text">
+                 <string>Total integration time</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLineEdit" name="LEHBTTotalIntegrationTime">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QSpinBox" name="SBHBTBinWidth">
+                <property name="suffix">
+                 <string> ps</string>
+                </property>
+                <property name="prefix">
+                 <string/>
+                </property>
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>1000000</number>
+                </property>
+                <property name="value">
+                 <number>500</number>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLineEdit" name="LEHBTMinValue">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="LHBTMinValue">
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimal g&lt;span style=&quot; vertical-align:super;&quot;&gt;(2)&lt;/span&gt;(τ)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="LHBTAcquisitionTime">
+                <property name="text">
+                 <string>Acquisition time (0 means infinite)</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QDoubleSpinBox" name="SBHBTAcquisitionTime">
+                <property name="keyboardTracking">
+                 <bool>false</bool>
+                </property>
+                <property name="suffix">
+                 <string> s</string>
+                </property>
+                <property name="decimals">
+                 <number>3</number>
+                </property>
+                <property name="maximum">
+                 <double>3153600000.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QChartView" name="HBTChart"/>
+           </item>
+           <item>
+            <widget class="QPushButton" name="BHBT">
+             <property name="text">
+              <string>Measure</string>
+             </property>
+             <property name="icon">
+              <iconset resource="../../DynExpManager.qrc">
+               <normaloff>:/DynExpManager/icons/Media-playback-start.svg</normaloff>:/DynExpManager/icons/Media-playback-start.svg</iconset>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="BHBTSaveData">
+             <property name="text">
+              <string>Save data</string>
+             </property>
+             <property name="icon">
+              <iconset resource="../../DynExpManager.qrc">
+               <normaloff>:/DynExpManager/icons/Document-save.svg</normaloff>:/DynExpManager/icons/Document-save.svg</iconset>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="TabAutomatization">
+          <attribute name="title">
+           <string>Auto Measure</string>
+          </attribute>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_7">
+             <item>
+              <widget class="QGroupBox" name="GBAutoMeasureGeneralSettings">
+               <property name="title">
+                <string>General settings</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_9">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_5">
+                  <item>
+                   <widget class="QLabel" name="LAutoMeasureSavePath">
+                    <property name="text">
+                     <string>Save file path</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="LEAutoMeasureSavePath">
+                    <property name="readOnly">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="BAutoMeasureSavePathBrowse">
+                    <property name="minimumSize">
+                     <size>
+                      <width>80</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Browse...</string>
+                    </property>
+                    <property name="text">
+                     <string>Browse...</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../../DynExpManager.qrc">
+                      <normaloff>:/DynExpManager/icons/Document-open.svg</normaloff>:/DynExpManager/icons/Document-open.svg</iconset>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="GBAutoMeasureLocalizationSettings">
+               <property name="title">
+                <string>Emitter localization settings</string>
+               </property>
+               <layout class="QFormLayout" name="formLayout_7">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="LAutoMeasureNumberImageSets">
+                  <property name="text">
+                   <string>Number of image sets to record</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QSpinBox" name="SBAutoMeasureNumberImageSets">
+                  <property name="minimum">
+                   <number>1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>1000</number>
+                  </property>
+                  <property name="value">
+                   <number>10</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="LAutoMeasureInitialImageSetWaitTime">
+                  <property name="text">
+                   <string>Time to wait before first image set is recorded</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QSpinBox" name="SBAutoMeasureInitialImageSetWaitTime">
+                  <property name="suffix">
+                   <string> s</string>
+                  </property>
+                  <property name="maximum">
+                   <number>3600</number>
+                  </property>
+                  <property name="value">
+                   <number>30</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="LAutoMeasureImagePositionScatterRadius">
+                  <property name="text">
+                   <string>Scatter radius of a random image set recording position shift</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QSpinBox" name="SBAutoMeasureImagePositionScatterRadius">
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="suffix">
+                   <string> nm</string>
+                  </property>
+                  <property name="maximum">
+                   <number>100000000</number>
+                  </property>
+                  <property name="stepType">
+                   <enum>QAbstractSpinBox::DefaultStepType</enum>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="GBAutoMeasureCharacterizationSettings">
+               <property name="title">
+                <string>Emitter characterization settings</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_8">
+                <item>
+                 <widget class="QGroupBox" name="GBAutoMeasureCharacterizationSteps">
+                  <property name="title">
+                   <string>Characterization steps</string>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_6">
+                   <property name="leftMargin">
+                    <number>9</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>9</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>9</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>9</number>
+                   </property>
+                   <item>
+                    <widget class="QComboBox" name="CBAutoMeasureLocalize">
+                     <property name="minimumSize">
+                      <size>
+                       <width>240</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <item>
+                      <property name="text">
+                       <string>Localize emitters from widefield image</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Recall emitter positions via cell ID</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_8">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="CBAutoMeasureOptimize">
+                     <property name="text">
+                      <string>Optimize emitter position</string>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_3">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="CBAutoMeasureEnableSpectrum">
+                     <property name="text">
+                      <string>Record spectrum</string>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_4">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="CBAutoMeasureEnableHBT">
+                     <property name="text">
+                      <string>Enable HBT</string>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QGroupBox" name="GBAutoMeasureOptimizationSettings">
+                  <property name="title">
+                   <string>Optimization settings</string>
+                  </property>
+                  <layout class="QFormLayout" name="formLayout_8">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="LAutoMeasureOptimizationAttempts">
+                     <property name="text">
+                      <string>Number of optimization attempts</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QSpinBox" name="SBAutoMeasureOptimizationAttempts">
+                     <property name="minimum">
+                      <number>1</number>
+                     </property>
+                     <property name="maximum">
+                      <number>100</number>
+                     </property>
+                     <property name="value">
+                      <number>2</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="LAutoMeasureOptimizationReruns">
+                     <property name="text">
+                      <string>Maximal number of optimization reruns within one attempt</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QSpinBox" name="SBAutoMeasureOptimizationReruns">
+                     <property name="maximum">
+                      <number>100</number>
+                     </property>
+                     <property name="value">
+                      <number>2</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="LAutoMeasureOptimizationMaxDistance">
+                     <property name="text">
+                      <string>Maximal distance between confocal spot and localized emitter after optimization</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QSpinBox" name="SBAutoMeasureOptimizationMaxDistance">
+                     <property name="showGroupSeparator" stdset="0">
+                      <bool>true</bool>
+                     </property>
+                     <property name="suffix">
+                      <string> nm</string>
+                     </property>
+                     <property name="minimum">
+                      <number>1</number>
+                     </property>
+                     <property name="maximum">
+                      <number>10000000</number>
+                     </property>
+                     <property name="stepType">
+                      <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                     </property>
+                     <property name="value">
+                      <number>1000</number>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <layout class="QFormLayout" name="formLayout_6">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="LAutoMeasureCountRateThreshold">
+                    <property name="text">
+                     <string>Emitter acceptance count rate threshold</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QSpinBox" name="SBAutoMeasureCountRateThreshold">
+                    <property name="showGroupSeparator" stdset="0">
+                     <bool>true</bool>
+                    </property>
+                    <property name="suffix">
+                     <string> Hz</string>
+                    </property>
+                    <property name="maximum">
+                     <number>1000000000</number>
+                    </property>
+                    <property name="stepType">
+                     <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                    </property>
+                    <property name="value">
+                     <number>40000</number>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="GBAutoMeasureCellSettings">
+               <property name="title">
+                <string>Sample cell settings</string>
+               </property>
+               <layout class="QGridLayout" name="gridLayout">
+                <item row="0" column="6">
+                 <widget class="QLabel" name="LAutoMeasureCellRangeFromY">
+                  <property name="maximumSize">
+                   <size>
+                    <width>50</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>(y) from</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QSpinBox" name="SBAutoMeasureCellSkipX">
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="suffix">
+                   <string> nm</string>
+                  </property>
+                  <property name="minimum">
+                   <number>-100000000</number>
+                  </property>
+                  <property name="maximum">
+                   <number>100000000</number>
+                  </property>
+                  <property name="stepType">
+                   <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                  </property>
+                  <property name="value">
+                   <number>100000</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="9">
+                 <widget class="QSpinBox" name="SBAutoMeasureCellRangeToY">
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="maximum">
+                   <number>10000</number>
+                  </property>
+                  <property name="value">
+                   <number>10</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QLabel" name="LAutoMeasureCellRangeFromX">
+                  <property name="maximumSize">
+                   <size>
+                    <width>50</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>(x) from</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="6">
+                 <widget class="QLabel" name="LAutoMeasureCellSkipY">
+                  <property name="maximumSize">
+                   <size>
+                    <width>50</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>(y)</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="3">
+                 <widget class="QLabel" name="LAutoMeasureCellRangeToX">
+                  <property name="maximumSize">
+                   <size>
+                    <width>14</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>to</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="4">
+                 <widget class="QSpinBox" name="SBAutoMeasureCellRangeToX">
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="maximum">
+                   <number>10000</number>
+                  </property>
+                  <property name="value">
+                   <number>10</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QSpinBox" name="SBAutoMeasureCellRangeFromX">
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="maximum">
+                   <number>10000</number>
+                  </property>
+                  <property name="value">
+                   <number>0</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="8">
+                 <widget class="QLabel" name="LAutoMeasureCellRangeToY">
+                  <property name="maximumSize">
+                   <size>
+                    <width>14</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>to</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="7">
+                 <widget class="QSpinBox" name="SBAutoMeasureCellRangeFromY">
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="maximum">
+                   <number>10000</number>
+                  </property>
+                  <property name="value">
+                   <number>0</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="LAutoMeasureCellRange">
+                  <property name="minimumSize">
+                   <size>
+                    <width>190</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Cell range on sample</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QLabel" name="LAutoMeasureCellSkipX">
+                  <property name="maximumSize">
+                   <size>
+                    <width>50</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>(x)</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="LAutoMeasureCellSkip">
+                  <property name="minimumSize">
+                   <size>
+                    <width>190</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Position difference to next cell</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="7">
+                 <widget class="QSpinBox" name="SBAutoMeasureCellSkipY">
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="suffix">
+                   <string> nm</string>
+                  </property>
+                  <property name="minimum">
+                   <number>-100000000</number>
+                  </property>
+                  <property name="maximum">
+                   <number>100000000</number>
+                  </property>
+                  <property name="stepType">
+                   <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                  </property>
+                  <property name="value">
+                   <number>100000</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="5">
+                 <spacer name="horizontalSpacer_5">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Fixed</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>10</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="GBAutoMeasureProgress">
+               <property name="title">
+                <string>Progress</string>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_3">
+                <item>
+                 <widget class="QGroupBox" name="GBAutoMeasureCellProgress">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QGroupBox{border:0;}</string>
+                  </property>
+                  <property name="title">
+                   <string/>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_13">
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item>
+                    <widget class="QLabel" name="LAutoMeasureCellProgress">
+                     <property name="minimumSize">
+                      <size>
+                       <width>250</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_2">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeType">
+                      <enum>QSizePolicy::Fixed</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QProgressBar" name="PBAutoMeasureCellProgress">
+                     <property name="value">
+                      <number>0</number>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_6">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Fixed</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QGroupBox" name="GBAutoMeasureSampleProgress">
+                  <property name="styleSheet">
+                   <string notr="true">QGroupBox{border:0;}</string>
+                  </property>
+                  <property name="title">
+                   <string/>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_12">
+                   <property name="spacing">
+                    <number>6</number>
+                   </property>
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item>
+                    <widget class="QLabel" name="LAutoMeasureSampleProgress">
+                     <property name="minimumSize">
+                      <size>
+                       <width>100</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_7">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeType">
+                      <enum>QSizePolicy::Fixed</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QProgressBar" name="PBAutoMeasureSampleProgress">
+                     <property name="value">
+                      <number>0</number>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_3">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_8">
+               <item>
+                <widget class="QPushButton" name="BAutoMeasureRunLocalization">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Run localization (single cell)</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../../DynExpManager.qrc">
+                   <normaloff>:/DynExpManager/icons/Media-playback-start.svg</normaloff>:/DynExpManager/icons/Media-playback-start.svg</iconset>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="BAutoMeasureRunCharacterization">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Run characterization (single cell)</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../../DynExpManager.qrc">
+                   <normaloff>:/DynExpManager/icons/Media-playback-start.svg</normaloff>:/DynExpManager/icons/Media-playback-start.svg</iconset>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="BAutoMeasureRunSampleCharacterization">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Run all (multi-cell)</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../../QModules.qrc">
+                   <normaloff>:/QModules/icons/Media-seek-forward.svg</normaloff>:/QModules/icons/Media-seek-forward.svg</iconset>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QStatusBar" name="MainStatusBar"/>
+   </item>
+  </layout>
+  <action name="action_Terminate">
+   <property name="text">
+    <string>&amp;Terminate</string>
+   </property>
+  </action>
+  <action name="action_Zoom_in">
+   <property name="icon">
+    <iconset resource="../../QModules.qrc">
+     <normaloff>:/QModules/icons/System-zoom-in.svg</normaloff>:/QModules/icons/System-zoom-in.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom &amp;in</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl++</string>
+   </property>
+  </action>
+  <action name="action Zoom_out">
+   <property name="icon">
+    <iconset resource="../../QModules.qrc">
+     <normaloff>:/QModules/icons/System-zoom-out.svg</normaloff>:/QModules/icons/System-zoom-out.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom &amp;out</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+-</string>
+   </property>
+  </action>
+  <action name="action_Zoom_reset">
+   <property name="icon">
+    <iconset resource="../../QModules.qrc">
+     <normaloff>:/QModules/icons/View-zoom-reset.svg</normaloff>:/QModules/icons/View-zoom-reset.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom rese&amp;t</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Backspace</string>
+   </property>
+  </action>
+  <action name="action_Zoom_fit">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../QModules.qrc">
+     <normaloff>:/QModules/icons/View-zoom-fit.svg</normaloff>:/QModules/icons/View-zoom-fit.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom &amp;fit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+,</string>
+   </property>
+  </action>
+  <action name="action_Save_Image">
+   <property name="icon">
+    <iconset resource="../../DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/Document-save.svg</normaloff>:/DynExpManager/icons/Document-save.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Save image</string>
+   </property>
+  </action>
+  <action name="action_Stop_current_action">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../QModules.qrc">
+     <normaloff>:/QModules/icons/Dialog-STOP.svg</normaloff>:/QModules/icons/Dialog-STOP.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Stop current action</string>
+   </property>
+   <property name="shortcut">
+    <string>Esc</string>
+   </property>
+  </action>
+  <action name="action_Set_home_position">
+   <property name="icon">
+    <iconset resource="../../QModules.qrc">
+     <normaloff>:/QModules/icons/Set-home.svg</normaloff>:/QModules/icons/Set-home.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Set home position</string>
+   </property>
+  </action>
+  <action name="action_Go_home_position">
+   <property name="icon">
+    <iconset resource="../../QModules.qrc">
+     <normaloff>:/QModules/icons/Go-home-2.svg</normaloff>:/QModules/icons/Go-home-2.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Go to home position</string>
+   </property>
+  </action>
+  <action name="action_Toogle_pump_light_source">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../QModules.qrc">
+     <normaloff>:/QModules/icons/Dialog-information_on.svg</normaloff>:/QModules/icons/Dialog-information_on.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Toogle pump light source</string>
+   </property>
+   <property name="shortcut">
+    <string>F8</string>
+   </property>
+  </action>
+  <action name="action_confocal_map_reset">
+   <property name="icon">
+    <iconset resource="../../DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/View-refresh.svg</normaloff>:/DynExpManager/icons/View-refresh.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Reset view</string>
+   </property>
+  </action>
+  <action name="action_confocal_map_save_raw_data">
+   <property name="icon">
+    <iconset resource="../../DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/Document-save.svg</normaloff>:/DynExpManager/icons/Document-save.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Save raw data</string>
+   </property>
+  </action>
+  <action name="action_Widefield_mode">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../QModules.qrc">
+     <normaloff>:/QModules/icons/Large-green-spot.svg</normaloff>:/QModules/icons/Large-green-spot.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Widefield mode</string>
+   </property>
+   <property name="shortcut">
+    <string>F9</string>
+   </property>
+  </action>
+  <action name="action_Confocal_mode">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../QModules.qrc">
+     <normaloff>:/QModules/icons/Small-green-spot.svg</normaloff>:/QModules/icons/Small-green-spot.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Confocal mode</string>
+   </property>
+   <property name="shortcut">
+    <string>F10</string>
+   </property>
+  </action>
+  <action name="action_Toggle_HBT_mirror">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../QModules.qrc">
+     <normaloff>:/QModules/icons/Go-jump.svg</normaloff>:/QModules/icons/Go-jump.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Toggle HBT mirror</string>
+   </property>
+  </action>
+  <action name="action_Optimize_positions">
+   <property name="icon">
+    <iconset resource="../../QModules.qrc">
+     <normaloff>:/QModules/icons/Multimedia-volume-control.svg</normaloff>:/QModules/icons/Multimedia-volume-control.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Optimize positions</string>
+   </property>
+   <property name="toolTip">
+    <string>Optimize positions to move current emitter into confocal spot.</string>
+   </property>
+   <property name="shortcut">
+    <string>F12</string>
+   </property>
+  </action>
+  <action name="action_EmitterList_Remove_entry">
+   <property name="icon">
+    <iconset resource="../../DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/Edit-delete.svg</normaloff>:/DynExpManager/icons/Edit-delete.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Remove selected entries</string>
+   </property>
+   <property name="toolTip">
+    <string>Remove selected entries from emitter list</string>
+   </property>
+   <property name="shortcut">
+    <string>Del</string>
+   </property>
+  </action>
+  <action name="action_EmitterList_Edit_name">
+   <property name="icon">
+    <iconset resource="../../QModules.qrc">
+     <normaloff>:/QModules/icons/Text-x-generic_with_pencil.svg</normaloff>:/QModules/icons/Text-x-generic_with_pencil.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Edit name</string>
+   </property>
+   <property name="toolTip">
+    <string>Edit name of selected emitter</string>
+   </property>
+  </action>
+  <action name="action_EmitterList_Go_to_sample_position">
+   <property name="text">
+    <string>&amp;Go to sample position</string>
+   </property>
+  </action>
+  <action name="action_EmitterList_Bring_marker_to_confocal_spot">
+   <property name="text">
+    <string>Bring marker to &amp;confocal spot</string>
+   </property>
+  </action>
+  <action name="action_Toogle_LED_light_source">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../QModules.qrc">
+     <normaloff>:/QModules/icons/Dialog-information_red.svg</normaloff>:/QModules/icons/Dialog-information_red.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Toogle LED light source</string>
+   </property>
+   <property name="toolTip">
+    <string>Toogle LED light source</string>
+   </property>
+   <property name="shortcut">
+    <string>F7</string>
+   </property>
+  </action>
+  <action name="action_Reset_CellID">
+   <property name="icon">
+    <iconset resource="../../DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/Edit-delete.svg</normaloff>:/DynExpManager/icons/Edit-delete.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Reset cell ID</string>
+   </property>
+   <property name="toolTip">
+    <string>Reset cell ID</string>
+   </property>
+  </action>
+  <action name="action_Autofocus">
+   <property name="icon">
+    <iconset resource="../../QModules.qrc">
+     <normaloff>:/QModules/icons/Merge-short_arrows_2.png</normaloff>:/QModules/icons/Merge-short_arrows_2.png</iconset>
+   </property>
+   <property name="text">
+    <string>Autofocus</string>
+   </property>
+   <property name="toolTip">
+    <string>Auto-adjust focusing piezo</string>
+   </property>
+   <property name="shortcut">
+    <string>F11</string>
+   </property>
+  </action>
+  <action name="action_EmitterList_Run_characterization_from_ID">
+   <property name="icon">
+    <iconset resource="../../DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/Media-playback-start.svg</normaloff>:/DynExpManager/icons/Media-playback-start.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Run characterization from this &amp;ID</string>
+   </property>
+   <property name="toolTip">
+    <string>Run characterization from the emitter with this ID (including all emitters with higher IDs)</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QChartView</class>
+   <extends>QGraphicsView</extends>
+   <header>QtCharts</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>TabWidget</tabstop>
+  <tabstop>SBGeneralWidefieldPower</tabstop>
+  <tabstop>SBGeneralConfocalPower</tabstop>
+  <tabstop>SBGeneralFocusCurrentVoltage</tabstop>
+  <tabstop>SBGeneralFocusZeroVoltage</tabstop>
+  <tabstop>BGeneralFocusSetZeroVoltage</tabstop>
+  <tabstop>BGeneralFocusApplyZeroVoltage</tabstop>
+  <tabstop>SBGeneralFocusConfocalOffsetVoltage</tabstop>
+  <tabstop>SBWidefieldLEDExposureTime</tabstop>
+  <tabstop>BWidefieldApplyLEDExposureTime</tabstop>
+  <tabstop>SBWidefieldPumpExposureTime</tabstop>
+  <tabstop>BWidefieldApplyPumpExposureTime</tabstop>
+  <tabstop>BWidefieldFindConfocalSpot</tabstop>
+  <tabstop>BWidefieldLEDCapture</tabstop>
+  <tabstop>BWidefieldCapture</tabstop>
+  <tabstop>BReadCellID</tabstop>
+  <tabstop>BAnalyzeImageDistortion</tabstop>
+  <tabstop>BLocalizeEmitters</tabstop>
+  <tabstop>TWEmitterList</tabstop>
+  <tabstop>SBConfocalWidth</tabstop>
+  <tabstop>SBConfocalHeight</tabstop>
+  <tabstop>SBConfocalDistPerPixel</tabstop>
+  <tabstop>SBConfocalSPDExposureTime</tabstop>
+  <tabstop>SBConfocalOptimizationInitXYStepSize</tabstop>
+  <tabstop>SBConfocalOptimizationInitZStepSize</tabstop>
+  <tabstop>SBConfocalOptimizationTolerance</tabstop>
+  <tabstop>BConfocalGraphTools</tabstop>
+  <tabstop>BConfocalScan</tabstop>
+  <tabstop>SBHBTBinWidth</tabstop>
+  <tabstop>SBHBTBinCount</tabstop>
+  <tabstop>SBHBTAcquisitionTime</tabstop>
+  <tabstop>LEHBTTotalIntegrationTime</tabstop>
+  <tabstop>LEHBTMinValue</tabstop>
+  <tabstop>HBTChart</tabstop>
+  <tabstop>BHBT</tabstop>
+  <tabstop>BHBTSaveData</tabstop>
+  <tabstop>LEAutoMeasureSavePath</tabstop>
+  <tabstop>BAutoMeasureSavePathBrowse</tabstop>
+  <tabstop>SBAutoMeasureNumberImageSets</tabstop>
+  <tabstop>SBAutoMeasureInitialImageSetWaitTime</tabstop>
+  <tabstop>SBAutoMeasureImagePositionScatterRadius</tabstop>
+  <tabstop>CBAutoMeasureLocalize</tabstop>
+  <tabstop>CBAutoMeasureOptimize</tabstop>
+  <tabstop>CBAutoMeasureEnableSpectrum</tabstop>
+  <tabstop>CBAutoMeasureEnableHBT</tabstop>
+  <tabstop>SBAutoMeasureOptimizationAttempts</tabstop>
+  <tabstop>SBAutoMeasureOptimizationReruns</tabstop>
+  <tabstop>SBAutoMeasureOptimizationMaxDistance</tabstop>
+  <tabstop>SBAutoMeasureCountRateThreshold</tabstop>
+  <tabstop>SBAutoMeasureCellRangeFromX</tabstop>
+  <tabstop>SBAutoMeasureCellRangeToX</tabstop>
+  <tabstop>SBAutoMeasureCellRangeFromY</tabstop>
+  <tabstop>SBAutoMeasureCellRangeToY</tabstop>
+  <tabstop>SBAutoMeasureCellSkipX</tabstop>
+  <tabstop>SBAutoMeasureCellSkipY</tabstop>
+  <tabstop>BAutoMeasureRunLocalization</tabstop>
+  <tabstop>BAutoMeasureRunCharacterization</tabstop>
+  <tabstop>BAutoMeasureRunSampleCharacterization</tabstop>
+ </tabstops>
+ <resources>
+  <include location="../../QModules.qrc"/>
+  <include location="../../DynExpManager.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>action_Zoom_reset</sender>
+   <signal>triggered()</signal>
+   <receiver>WidefieldMicroscope</receiver>
+   <slot>OnZoomResetClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>480</x>
+     <y>330</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action Zoom_out</sender>
+   <signal>triggered()</signal>
+   <receiver>WidefieldMicroscope</receiver>
+   <slot>OnZoomOutClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>480</x>
+     <y>330</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Zoom_in</sender>
+   <signal>triggered()</signal>
+   <receiver>WidefieldMicroscope</receiver>
+   <slot>OnZoomInClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>480</x>
+     <y>330</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Zoom_fit</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>WidefieldMicroscope</receiver>
+   <slot>OnZoomFitClicked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>480</x>
+     <y>330</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_Save_Image</sender>
+   <signal>triggered()</signal>
+   <receiver>WidefieldMicroscope</receiver>
+   <slot>OnSaveImageClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>480</x>
+     <y>330</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_confocal_map_reset</sender>
+   <signal>triggered()</signal>
+   <receiver>WidefieldMicroscope</receiver>
+   <slot>OnConfocalMapResetClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>579</x>
+     <y>397</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_confocal_map_save_raw_data</sender>
+   <signal>triggered()</signal>
+   <receiver>WidefieldMicroscope</receiver>
+   <slot>OnConfocalMapSaveRawDataClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>579</x>
+     <y>397</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BHBTSaveData</sender>
+   <signal>clicked()</signal>
+   <receiver>WidefieldMicroscope</receiver>
+   <slot>OnHBTSaveRawDataClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>336</x>
+     <y>566</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>579</x>
+     <y>397</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>TWEmitterList</sender>
+   <signal>cellDoubleClicked(int,int)</signal>
+   <receiver>WidefieldMicroscope</receiver>
+   <slot>OnEmitterListCellDoubleClicked(int,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>71</x>
+     <y>331</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>386</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>TWEmitterList</sender>
+   <signal>customContextMenuRequested(QPoint)</signal>
+   <receiver>WidefieldMicroscope</receiver>
+   <slot>OnEmitterListContextMenuRequested(QPoint)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>385</x>
+     <y>440</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>386</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_EmitterList_Remove_entry</sender>
+   <signal>triggered()</signal>
+   <receiver>WidefieldMicroscope</receiver>
+   <slot>OnEmitterListDeleteEntryClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>386</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_EmitterList_Edit_name</sender>
+   <signal>triggered()</signal>
+   <receiver>WidefieldMicroscope</receiver>
+   <slot>OnEmitterListEditEntryClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>386</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>TWEmitterList</sender>
+   <signal>cellClicked(int,int)</signal>
+   <receiver>WidefieldMicroscope</receiver>
+   <slot>OnEmitterListCellClicked(int,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>71</x>
+     <y>334</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>386</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_EmitterList_Go_to_sample_position</sender>
+   <signal>triggered()</signal>
+   <receiver>WidefieldMicroscope</receiver>
+   <slot>OnEmitterListGoToSamplePositionClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>386</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_EmitterList_Bring_marker_to_confocal_spot</sender>
+   <signal>triggered()</signal>
+   <receiver>WidefieldMicroscope</receiver>
+   <slot>OnEmitterListBringMarkerToConfocalSpotClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>386</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BAutoMeasureSavePathBrowse</sender>
+   <signal>clicked()</signal>
+   <receiver>WidefieldMicroscope</receiver>
+   <slot>OnAutoMeasureSavePathBrowseClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>699</x>
+     <y>140</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>386</x>
+     <y>335</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_EmitterList_Run_characterization_from_ID</sender>
+   <signal>triggered()</signal>
+   <receiver>WidefieldMicroscope</receiver>
+   <slot>OnEmitterListRunCharacterizationFromID()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>379</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>OnSaveImageClicked()</slot>
+  <slot>OnZoomInClicked()</slot>
+  <slot>OnZoomOutClicked()</slot>
+  <slot>OnZoomFitClicked(bool)</slot>
+  <slot>OnZoomResetClicked()</slot>
+  <slot>OnConfocalMapResetClicked()</slot>
+  <slot>OnConfocalMapSaveRawDataClicked()</slot>
+  <slot>OnHBTSaveRawDataClicked()</slot>
+  <slot>OnEmitterListCellDoubleClicked(int,int)</slot>
+  <slot>OnEmitterListContextMenuRequested(QPoint)</slot>
+  <slot>OnEmitterListDeleteEntryClicked()</slot>
+  <slot>OnEmitterListEditEntryClicked()</slot>
+  <slot>OnEmitterListCellClicked(int,int)</slot>
+  <slot>OnEmitterListGoToSamplePositionClicked()</slot>
+  <slot>OnEmitterListBringMarkerToConfocalSpotClicked()</slot>
+  <slot>OnAutoMeasureSavePathBrowseClicked()</slot>
+  <slot>OnEmitterListRunCharacterizationFromID()</slot>
+ </slots>
+</ui>

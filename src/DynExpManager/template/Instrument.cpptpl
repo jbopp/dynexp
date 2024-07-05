@@ -1,0 +1,136 @@
+// This file is part of DynExp.
+
+$$if($WindowsOnly)
+// Windows only
+$$endif
+
+#include "stdafx.h"
+#include "$Name.h"
+
+namespace DynExpInstr
+{
+	void $Name$Tasks::InitTask::InitFuncImpl(dispatch_tag<$ParentName$Tasks::InitTask>, DynExp::InstrumentInstance& Instance)
+	{
+		{
+$$if($HardwareAdapterName)
+			auto InstrParams = DynExp::dynamic_Params_cast<$Name>(Instance.ParamsGetter());
+			auto InstrData = DynExp::dynamic_InstrumentData_cast<$Name>(Instance.InstrumentDataGetter());
+
+			Instance.LockObject(InstrParams->HardwareAdapter, InstrData->HardwareAdapter);
+$$else
+			// TODO: auto InstrParams = DynExp::dynamic_Params_cast<$Name>(Instance.ParamsGetter());
+			// TODO: auto InstrData = DynExp::dynamic_InstrumentData_cast<$Name>(Instance.InstrumentDataGetter());
+$$endif
+
+			// TODO: Initialize instrument.
+		} // InstrParams and InstrData unlocked here.
+
+		// Initialize derived instrument last.
+		InitFuncImpl(dispatch_tag<InitTask>(), Instance);
+	}
+
+	void $Name$Tasks::ExitTask::ExitFuncExitFuncImpl(dispatch_tag<$ParentName$Tasks::ExitTask>, DynExp::InstrumentInstance& Instance)
+	{
+		// Shut down derived instrument first.
+		ExitFuncImpl(dispatch_tag<ExitTask>(), Instance);
+
+$$if($HardwareAdapterName)
+		auto InstrData = DynExp::dynamic_InstrumentData_cast<$Name>(Instance.InstrumentDataGetter());
+$$else
+		// TODO: auto InstrData = DynExp::dynamic_InstrumentData_cast<$Name>(Instance.InstrumentDataGetter());
+$$endif
+
+		try
+		{
+			// TODO: Prepare instrument shutdown.
+		}
+		catch (...)
+		{
+			// Swallow any exception which might arise from instrument shutdown since a failure
+			// of this function is not considered a severe error.
+		}
+
+$$if($HardwareAdapterName)
+		Instance.UnlockObject(InstrData->HardwareAdapter);
+$$endif
+	}
+
+	void $Name$Tasks::UpdateTask::UpdateFuncImpl(dispatch_tag<$ParentName$Tasks::UpdateTask>, DynExp::InstrumentInstance& Instance)
+	{
+$$if($DefineDefaultDataUpdate)
+		try
+		{
+			auto InstrData = DynExp::dynamic_InstrumentData_cast<$Name>(Instance.InstrumentDataGetter());
+			bool UpdateError = false;
+
+			try
+			{
+				// TODO: Update instrument data.
+			}
+			catch ([[maybe_unused]] const /* TODO */ DynExpHardware::$HardwareAdapterName$Exception& e)
+			{
+				UpdateError = true;
+
+				// Swallow if just one or two subsequent updates failed.
+				if (InstrData->NumFailedStatusUpdateAttempts++ >= 3)
+					throw;
+			}
+
+			if (!UpdateError)
+				InstrData->NumFailedStatusUpdateAttempts = 0;
+		}
+		// Issued if a mutex is blocked by another operation.
+		catch (const Util::TimeoutException& e)
+		{
+			Instance.GetOwner().SetWarning(e);
+
+			return;
+		}
+		// Issued if reading data from $Name controller failed.
+		catch (const /* TODO */ DynExpHardware::$HardwareAdapterName$Exception& e)
+		{
+			Instance.GetOwner().SetWarning(e);
+
+			return;
+		}
+$$else
+		// TODO: Update instrument (data).
+$$endif
+
+		// Update derived instrument.
+		UpdateFuncImpl(dispatch_tag<UpdateTask>(), Instance);
+	}
+
+	/* TODO: Define instrument tasks' run functions here.
+	DynExp::TaskResultType $Name$Tasks::SomeUsefulTask::RunChild(DynExp::InstrumentInstance& Instance)
+	{
+		auto InstrData = DynExp::dynamic_InstrumentData_cast<$Name>(Instance.InstrumentDataGetter());
+
+		InstrData->HardwareAdapter->DoSomethingUseful();
+
+		return {};
+	}
+	*/
+
+	void $Name$Data::ResetImpl(dispatch_tag<$ParentName$Data>)
+	{
+$$if($DefineDefaultDataUpdate)
+		NumFailedStatusUpdateAttempts = 0;
+$$endif
+		// TODO: Reset instrument data.
+
+		ResetImpl(dispatch_tag<$Name$Data>());
+	}
+
+	$Name::$Name(const std::thread::id OwnerThreadID, DynExp::ParamsBasePtrType&& Params)
+		: $ParentName(OwnerThreadID, std::move(Params))
+	{
+	}
+
+	void $Name::ResetImpl(dispatch_tag<$ParentName>)
+	{
+		// TODO: Reset instrument.
+
+		ResetImpl(dispatch_tag<$Name>());
+	}
+}

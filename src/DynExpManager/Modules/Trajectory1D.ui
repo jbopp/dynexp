@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Trajectory1D</class>
+ <widget class="QWidget" name="Trajectory1D">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>324</width>
+    <height>149</height>
+   </rect>
+  </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Trajectory</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="LSampleCount">
+        <property name="text">
+         <string>Sample count</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="LESampleCount">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="LProgress">
+        <property name="text">
+         <string>Progress</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QProgressBar" name="PBProgress">
+        <property name="value">
+         <number>0</number>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLabel" name="LRepetition">
+        <property name="text">
+         <string>Repetition 0 / 0</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="BStart">
+       <property name="text">
+        <string>Start</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../DynExpManager.qrc">
+         <normaloff>:/DynExpManager/icons/Media-playback-start.svg</normaloff>:/DynExpManager/icons/Media-playback-start.svg</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="BStop">
+       <property name="text">
+        <string>Stop</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../QModules.qrc">
+         <normaloff>:/QModules/icons/Dialog-STOP.svg</normaloff>:/QModules/icons/Dialog-STOP.svg</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="BForce">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Force Trigger</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>LESampleCount</tabstop>
+  <tabstop>BStart</tabstop>
+  <tabstop>BStop</tabstop>
+  <tabstop>BForce</tabstop>
+ </tabstops>
+ <resources>
+  <include location="../QModules.qrc"/>
+  <include location="../DynExpManager.qrc"/>
+ </resources>
+ <connections/>
+</ui>

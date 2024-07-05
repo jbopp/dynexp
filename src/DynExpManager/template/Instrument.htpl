@@ -1,0 +1,143 @@
+// This file is part of DynExp.
+
+#pragma once
+
+#include "stdafx.h"
+#include "DynExpCore.h"
+$$foreach($HardwareAdapterIncludes)
+#include "HardwareAdapters/$HardwareAdapterIncludes"
+$$endfor
+$$foreach($MetaInstrumentIncludes)
+#include "MetaInstruments/$MetaInstrumentIncludes"
+$$endfor
+
+namespace DynExpInstr
+{
+	class $Name;
+
+	namespace $Name$Tasks
+	{
+		class InitTask : public $ParentName$Tasks::InitTask
+		{
+			void InitFuncImpl(dispatch_tag<$ParentName$Tasks::InitTask>, DynExp::InstrumentInstance& Instance) override final;
+
+			virtual void InitFuncImpl(dispatch_tag<InitTask>, DynExp::InstrumentInstance& Instance) {}
+		};
+
+		class ExitTask : public $ParentName$Tasks::ExitTask
+		{
+			void ExitFuncImpl(dispatch_tag<$ParentName$Tasks::ExitTask>, DynExp::InstrumentInstance& Instance) override final;
+
+			virtual void ExitFuncImpl(dispatch_tag<ExitTask>, DynExp::InstrumentInstance& Instance) {}
+		};
+
+		class UpdateTask : public $ParentName$Tasks::UpdateTask
+		{
+			void UpdateFuncImpl(dispatch_tag<$ParentName$Tasks::UpdateTask>, DynExp::InstrumentInstance& Instance) override final;
+
+			virtual void UpdateFuncImpl(dispatch_tag<UpdateTask>, DynExp::InstrumentInstance& Instance) {}
+		};
+
+		/* TODO: Insert classes for instrument's tasks here.
+		class SomeUsefulTask final : public DynExp::TaskBase
+		{
+		// There is also a TaskBase default constructor if no callback function is to be called.
+		public:
+			SomeUsefulTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+
+		private:
+			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
+		};
+		*/
+	}
+
+	class $Name$Data : public $ParentName$Data
+	{
+$$if($DefineDefaultDataUpdate)
+		friend class $Name$Tasks::UpdateTask;
+$$endif
+
+	public:
+		$Name$Data() = default;
+		virtual ~$Name$Data() = default;
+
+		// TODO: Insert getter and setter for data members here.
+
+$$if($HardwareAdapterName)
+		DynExp::LinkedObjectWrapperContainer<DynExpHardware::$HardwareAdapterName> HardwareAdapter;
+$$endif
+
+	private:
+		void ResetImpl(dispatch_tag<$ParentName$Data>) override final;
+		virtual void ResetImpl(dispatch_tag<$Name$Data>) {};
+
+$$if($DefineDefaultDataUpdate)
+		size_t NumFailedStatusUpdateAttempts = 0;
+$$endif
+		// TODO: Insert data members here.
+	};
+
+	class $Name$Params : public $ParentName$Params
+	{
+	public:
+		$Name$Params(DynExp::ItemIDType ID, const DynExp::DynExpCore& Core) : $ParentName$Params(ID, Core) {}
+		virtual ~$Name$Params() = default;
+
+		virtual const char* GetParamClassTag() const noexcept override { return "$Name$Params"; }
+
+$$if($HardwareAdapterName)
+		Param<DynExp::ObjectLink<DynExpHardware::$HardwareAdapterName>> HardwareAdapter = { *this, GetCore().GetHardwareAdapterManager(),
+			"HardwareAdapter", "$Name controller", "Underlying hardware adapter of this instrument", DynExpUI::Icons::HardwareAdapter };
+$$endif
+		// TODO: Insert instrument's params here.
+
+	private:
+		void ConfigureParamsImpl(dispatch_tag<$ParentName$Params>) override final { ConfigureParamsImpl(dispatch_tag<$Name$Params>()); }
+		virtual void ConfigureParamsImpl(dispatch_tag<$Name$Params>) {}
+
+		// TODO: Remove if at least one parameter has been inserted above.
+		DummyParam Dummy = { *this };
+	};
+
+	class $Name$Configurator : public $ParentName$Configurator
+	{
+	public:
+		using ObjectType = $Name$;
+		using ParamsType = $Name$Params;
+
+		$Name$Configurator() = default;
+		virtual ~$Name$Configurator() = default;
+
+	private:
+		virtual DynExp::ParamsBasePtrType MakeParams(DynExp::ItemIDType ID, const DynExp::DynExpCore& Core) const override { return DynExp::MakeParams<$Name$Configurator>(ID, Core); }
+	};
+
+	class $Name : public $ParentName
+	{
+	public:
+		using ParamsType = $Name$Params;
+		using ConfigType = $Name$Configurator;
+		using InstrumentDataType = $Name$Data;
+
+		constexpr static auto Name() noexcept { return "$Name"; }
+
+		$Name(const std::thread::id OwnerThreadID, DynExp::ParamsBasePtrType&& Params);
+		virtual ~$Name() {}
+
+		virtual std::string GetName() const override { return Name(); }
+
+		// TODO: Override virtual functions giving information about instrument here.
+		// virtual bool IsUsingSIUnits() const noexcept override { return true; }
+
+		// TODO: Override virtual task functions here.
+		// virtual void SomeUsefulTask(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<$Name$Tasks::SomeUsefulTask>(CallbackFunc); }
+
+	private:
+		void ResetImpl(dispatch_tag<$ParentName>) override final;
+		virtual void ResetImpl(dispatch_tag<$Name>) {}
+
+		virtual std::unique_ptr<DynExp::InitTaskBase> MakeInitTask() const override { return DynExp::MakeTask<$Name$Tasks::InitTask>(); }
+		virtual std::unique_ptr<DynExp::ExitTaskBase> MakeExitTask() const override { return DynExp::MakeTask<$Name$Tasks::ExitTask>(); }
+		virtual std::unique_ptr<DynExp::UpdateTaskBase> MakeUpdateTask() const override { return DynExp::MakeTask<$Name$Tasks::UpdateTask>(); }
+	};
+}

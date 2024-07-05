@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>$Name$</class>
+ <widget class="QWidget" name="$Name$">
+ </widget>
+ <tabstops/>
+ <resources>
+  <include location="../QModules.qrc"/>
+ </resources>
+ <connections/>
+</ui>

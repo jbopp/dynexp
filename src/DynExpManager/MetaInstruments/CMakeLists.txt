@@ -1,0 +1,16 @@
+# This file is part of DynExp.
+
+target_sources(DynExp PRIVATE "AnalogIn.cpp" "AnalogIn.h")
+target_sources(DynExp PRIVATE "AnalogOut.cpp" "AnalogOut.h")
+target_sources(DynExp PRIVATE "Camera.cpp" "Camera.h")
+target_sources(DynExp PRIVATE "DataStreamInstrument.cpp" "DataStreamInstrument.h")
+target_sources(DynExp PRIVATE "DigitalIn.cpp" "DigitalIn.h")
+target_sources(DynExp PRIVATE "DigitalOut.cpp" "DigitalOut.h")
+target_sources(DynExp PRIVATE "FunctionGenerator.cpp" "FunctionGenerator.h")
+target_sources(DynExp PRIVATE "gRPCInstrument.cpp" "gRPCInstrument.h")
+target_sources(DynExp PRIVATE "InputPort.cpp" "InputPort.h")
+target_sources(DynExp PRIVATE "LockinAmplifier.cpp" "LockinAmplifier.h")
+target_sources(DynExp PRIVATE "OutputPort.cpp" "OutputPort.h")
+target_sources(DynExp PRIVATE "Spectrometer.cpp" "Spectrometer.h")
+target_sources(DynExp PRIVATE "Stage.cpp" "Stage.h")
+target_sources(DynExp PRIVATE "TimeTagger.cpp" "TimeTagger.h")
