@@ -1,0 +1,4 @@
+<map id="Util::SynchronizedPointer&lt; T &gt;" name="Util::SynchronizedPointer&lt; T &gt;">
+<area shape="rect" id="node1" title="Pointer to lock a class derived from ISynchronizedPointerLockable for synchronizing between threads...." alt="" coords="5,80,229,107"/>
+<area shape="rect" id="node2" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="45,5,189,32"/>
+</map>

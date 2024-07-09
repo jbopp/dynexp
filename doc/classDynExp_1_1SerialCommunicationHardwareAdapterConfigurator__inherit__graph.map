@@ -1,0 +1,8 @@
+<map id="DynExp::SerialCommunicationHardwareAdapterConfigurator" name="DynExp::SerialCommunicationHardwareAdapterConfigurator">
+<area shape="rect" id="node1" title="Configurator class for SerialCommunicationHardwareAdapter." alt="" coords="600,39,820,80"/>
+<area shape="rect" id="node4" href="$classDynExp_1_1QSerialCommunicationHardwareAdapterConfigurator.html" title="Configurator class for QSerialCommunicationHardwareAdapter." alt="" coords="868,39,1099,80"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1HardwareAdapterConfiguratorBase.html" title="Configurator class for HardwareAdapterBase." alt="" coords="245,46,552,73"/>
+<area shape="rect" id="node3" href="$classDynExp_1_1ConfiguratorBase.html" title="The configurator classes have the task to generate parameter objects (refer to DynExp::ParamsBase) of..." alt="" coords="5,46,197,73"/>
+<area shape="rect" id="node5" href="$classDynExp_1_1HardwareAdapterSerialPortConfigurator.html" title="Configurator class for HardwareAdapterSerialPort." alt="" coords="1147,5,1377,47"/>
+<area shape="rect" id="node6" href="$classDynExp_1_1HardwareAdapterTcpSocketConfigurator.html" title="Configurator class for HardwareAdapterTcpSocket." alt="" coords="1155,71,1369,112"/>
+</map>

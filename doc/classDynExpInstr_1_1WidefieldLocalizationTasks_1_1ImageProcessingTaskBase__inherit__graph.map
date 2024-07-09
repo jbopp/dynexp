@@ -1,0 +1,7 @@
+<map id="DynExpInstr::WidefieldLocalizationTasks::ImageProcessingTaskBase" name="DynExpInstr::WidefieldLocalizationTasks::ImageProcessingTaskBase">
+<area shape="rect" id="node1" title=" " alt="" coords="5,104,253,145"/>
+<area shape="rect" id="node2" href="$classDynExpInstr_1_1WidefieldLocalizationTasks_1_1AnalyzeDistortionTask.html" title=" " alt="" coords="301,5,549,47"/>
+<area shape="rect" id="node3" href="$classDynExpInstr_1_1WidefieldLocalizationTasks_1_1AnalyzeWidefieldTask.html" title=" " alt="" coords="301,71,549,112"/>
+<area shape="rect" id="node4" href="$classDynExpInstr_1_1WidefieldLocalizationTasks_1_1ReadCellIDTask.html" title=" " alt="" coords="301,136,549,177"/>
+<area shape="rect" id="node5" href="$classDynExpInstr_1_1WidefieldLocalizationTasks_1_1RecallPositionsTask.html" title=" " alt="" coords="301,201,549,243"/>
+</map>

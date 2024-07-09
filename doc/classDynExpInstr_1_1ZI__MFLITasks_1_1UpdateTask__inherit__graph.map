@@ -1,0 +1,8 @@
+<map id="DynExpInstr::ZI_MFLITasks::UpdateTask" name="DynExpInstr::ZI_MFLITasks::UpdateTask">
+<area shape="rect" id="node1" title=" " alt="" coords="996,39,1192,80"/>
+<area shape="rect" id="node2" href="$classDynExpInstr_1_1LockinAmplifierTasks_1_1UpdateTask.html" title="Defines a task for updating an instrument within an instrument inheritance hierarchy...." alt="" coords="737,5,948,47"/>
+<area shape="rect" id="node3" href="$classDynExpInstr_1_1DataStreamInstrumentTasks_1_1UpdateTask.html" title="Defines a task for updating an instrument within an instrument inheritance hierarchy...." alt="" coords="431,5,689,47"/>
+<area shape="rect" id="node4" href="$classDynExp_1_1UpdateTaskBase.html" title="Defines a task for updating an instrument within an instrument inheritance hierarchy...." alt="" coords="195,13,383,39"/>
+<area shape="rect" id="node5" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="5,13,147,39"/>
+<area shape="rect" id="node6" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1ZI__MFLITaskBase.html" title=" " alt="" coords="745,71,941,112"/>
+</map>

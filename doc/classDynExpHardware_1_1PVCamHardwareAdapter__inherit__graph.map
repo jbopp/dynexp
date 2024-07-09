@@ -1,0 +1,7 @@
+<map id="DynExpHardware::PVCamHardwareAdapter" name="DynExpHardware::PVCamHardwareAdapter">
+<area shape="rect" id="node1" title=" " alt="" coords="21,229,275,271"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1HardwareAdapterBase.html" title="Defines the base class for a hardware adapter object. Hardware adapters describe interfaces/connectio..." alt="" coords="35,155,261,181"/>
+<area shape="rect" id="node3" href="$classUtil_1_1ILockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by providing..." alt="" coords="20,80,135,107"/>
+<area shape="rect" id="node4" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="5,5,149,32"/>
+<area shape="rect" id="node5" href="$classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),..." alt="" coords="159,80,281,107"/>
+</map>

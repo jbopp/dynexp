@@ -1,0 +1,9 @@
+<map id="DynExpModule::SignalPlotterParams" name="DynExpModule::SignalPlotterParams">
+<area shape="rect" id="node1" title=" " alt="" coords="15,468,226,509"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1QModuleParamsBase.html" title="Parameter class for QModuleBase." alt="" coords="11,393,230,420"/>
+<area shape="rect" id="node3" href="$classDynExp_1_1ModuleParamsBase.html" title="Parameter class for ModuleBase." alt="" coords="17,319,225,345"/>
+<area shape="rect" id="node4" href="$classDynExp_1_1RunnableObjectParams.html" title="Parameter class for RunnableObject." alt="" coords="5,244,236,271"/>
+<area shape="rect" id="node5" href="$classDynExp_1_1ParamsBase.html" title="Abstract base class for object parameter classes. Each class derived from class Object must be accomp..." alt="" coords="41,169,201,196"/>
+<area shape="rect" id="node6" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="25,80,216,121"/>
+<area shape="rect" id="node7" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="49,5,193,32"/>
+</map>

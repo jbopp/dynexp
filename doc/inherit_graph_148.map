@@ -1,0 +1,4 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classUtil_1_1INonMovable.html" title="Interface to delete move constructor and move assignment operator and thus make derived classes non&#45;m..." alt="" coords="5,13,144,39"/>
+<area shape="rect" id="node2" href="$classUtil_1_1CallableMemberWrapper.html" title="Wraps a member function of some object and stores its default arguments. Moving from CallableMemberWr..." alt="" coords="192,5,407,47"/>
+</map>

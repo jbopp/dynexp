@@ -1,0 +1,6 @@
+<map id="DynExpHardware::gRPCException" name="DynExpHardware::gRPCException">
+<area shape="rect" id="node1" title="Defines an exception caused by an operation involving the gRPC library and communication over a TCP s..." alt="" coords="5,229,247,256"/>
+<area shape="rect" id="node2" href="$classUtil_1_1Exception.html" title="DynExp exceptions are derived from this class. It contains basic information about the cause of the e..." alt="" coords="67,155,185,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="57,80,195,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="69,5,183,32"/>
+</map>

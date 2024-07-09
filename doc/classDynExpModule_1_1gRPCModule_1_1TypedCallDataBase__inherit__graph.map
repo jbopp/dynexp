@@ -1,0 +1,4 @@
+<map id="DynExpModule::gRPCModule&lt; gRPCServices &gt;::TypedCallDataBase&lt; DerivedType, gRPCService, RequestMessageType, ResponseMessageType,... &gt;" name="DynExpModule::gRPCModule&lt; gRPCServices &gt;::TypedCallDataBase&lt; DerivedType, gRPCService, RequestMessageType, ResponseMessageType,... &gt;">
+<area shape="rect" id="node1" title="Derive from this class to implement a single remote procedure call handled by this gRPC server gRPCMo..." alt="" coords="5,95,363,165"/>
+<area shape="rect" id="node2" href="$classDynExpModule_1_1gRPCModule_1_1CallDataBase.html" title="Base class for all TypedCallDataBase classes. Instances of this class manage the state of a single re..." alt="" coords="65,5,303,47"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="DynExpInstr::CameraParams" name="DynExpInstr::CameraParams">
+<area shape="rect" id="node1" title="Parameter class for Camera." alt="" coords="123,393,331,420"/>
+<area shape="rect" id="node7" href="$classDynExpInstr_1_1DummyCameraParams.html" title=" " alt="" coords="5,468,217,509"/>
+<area shape="rect" id="node8" href="$classDynExpInstr_1_1PVCamParams.html" title=" " alt="" coords="241,475,445,502"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1InstrumentParamsBase.html" title="Parameter class for InstrumentBase." alt="" coords="112,319,343,345"/>
+<area shape="rect" id="node3" href="$classDynExp_1_1RunnableObjectParams.html" title="Parameter class for RunnableObject." alt="" coords="112,244,343,271"/>
+<area shape="rect" id="node4" href="$classDynExp_1_1ParamsBase.html" title="Abstract base class for object parameter classes. Each class derived from class Object must be accomp..." alt="" coords="147,169,307,196"/>
+<area shape="rect" id="node5" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="132,80,323,121"/>
+<area shape="rect" id="node6" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="155,5,299,32"/>
+</map>

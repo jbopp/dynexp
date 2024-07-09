@@ -1,0 +1,5 @@
+<map id="Util::EventLogger" name="Util::EventLogger">
+<area shape="rect" id="node1" title="Logs events like errors and writes them immediately to a HTML file in a human&#45;readable format...." alt="" coords="10,155,145,181"/>
+<area shape="rect" id="node2" href="$classUtil_1_1ILockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by providing..." alt="" coords="20,80,135,107"/>
+<area shape="rect" id="node3" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="5,5,149,32"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="DynExp::HardwareAdapterSerialPortWorker" name="DynExp::HardwareAdapterSerialPortWorker">
+<area shape="rect" id="node1" title="Qt worker for serial/COM port communication in a separate thread." alt="" coords="5,244,236,285"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1QSerialCommunicationHardwareAdapterWorker.html" title="Qt worker which performs actual serial communication hardware operations in a separate thread in orde..." alt="" coords="5,155,236,196"/>
+<area shape="rect" id="node3" href="$classUtil_1_1QWorker.html" title="Implements a QObject belonging to a hardware adapter (derived from DynExp::HardwareAdapterBase) that ..." alt="" coords="67,80,175,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="83,5,158,32"/>
+</map>

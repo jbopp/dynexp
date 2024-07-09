@@ -1,0 +1,5 @@
+<map id="DynExpHardware::QutoolsTDCHardwareAdapter::QutoolsTDCSynchronizer" name="DynExpHardware::QutoolsTDCHardwareAdapter::QutoolsTDCSynchronizer">
+<area shape="rect" id="node1" title="Only one instance of this class is allowed for synchronizing calls to connected qutools time taggers...." alt="" coords="5,155,288,196"/>
+<area shape="rect" id="node2" href="$classUtil_1_1ILockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by providing..." alt="" coords="89,80,204,107"/>
+<area shape="rect" id="node3" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="75,5,219,32"/>
+</map>

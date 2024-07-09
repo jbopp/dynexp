@@ -1,0 +1,5 @@
+<map id="Util::Warning" name="Util::Warning">
+<area shape="rect" id="node1" title="Class to store information about warnings in a thread&#45;safe manner (deriving from ILockable)...." alt="" coords="24,155,131,181"/>
+<area shape="rect" id="node2" href="$classUtil_1_1ILockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by providing..." alt="" coords="20,80,135,107"/>
+<area shape="rect" id="node3" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="5,5,149,32"/>
+</map>

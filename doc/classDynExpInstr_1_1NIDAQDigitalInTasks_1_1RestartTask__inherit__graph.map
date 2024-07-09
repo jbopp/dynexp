@@ -1,0 +1,4 @@
+<map id="DynExpInstr::NIDAQDigitalInTasks::RestartTask" name="DynExpInstr::NIDAQDigitalInTasks::RestartTask">
+<area shape="rect" id="node1" title=" " alt="" coords="5,80,200,121"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="32,5,173,32"/>
+</map>

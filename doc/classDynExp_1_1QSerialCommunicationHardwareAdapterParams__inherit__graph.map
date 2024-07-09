@@ -1,0 +1,10 @@
+<map id="DynExp::QSerialCommunicationHardwareAdapterParams" name="DynExp::QSerialCommunicationHardwareAdapterParams">
+<area shape="rect" id="node1" title="Parameter class for QSerialCommunicationHardwareAdapter." alt="" coords="128,408,359,449"/>
+<area shape="rect" id="node7" href="$classDynExp_1_1HardwareAdapterSerialPortParams.html" title="Parameter class for HardwareAdapterSerialPort." alt="" coords="5,497,236,539"/>
+<area shape="rect" id="node8" href="$classDynExp_1_1HardwareAdapterTcpSocketParams.html" title="Parameter class for HardwareAdapterTcpSocket." alt="" coords="260,497,475,539"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1SerialCommunicationHardwareAdapterParams.html" title="Parameter class for SerialCommunicationHardwareAdapter." alt="" coords="133,319,353,360"/>
+<area shape="rect" id="node3" href="$classDynExp_1_1HardwareAdapterParamsBase.html" title="Parameter class for HardwareAdapterBase." alt="" coords="106,244,381,271"/>
+<area shape="rect" id="node4" href="$classDynExp_1_1ParamsBase.html" title="Abstract base class for object parameter classes. Each class derived from class Object must be accomp..." alt="" coords="163,169,323,196"/>
+<area shape="rect" id="node5" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="148,80,339,121"/>
+<area shape="rect" id="node6" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="171,5,315,32"/>
+</map>

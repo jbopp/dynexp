@@ -1,0 +1,27 @@
+var classDynExpInstr_1_1Spectrometer =
+[
+    [ "ConfigType", "classDynExpInstr_1_1Spectrometer.html#aa1b943812bf16abff308c656cb3769c0", null ],
+    [ "ExitTaskType", "classDynExpInstr_1_1Spectrometer.html#af37f8cf541a16b237dbb5890ca92c9d4", null ],
+    [ "InitTaskType", "classDynExpInstr_1_1Spectrometer.html#a2c58c877969d3eab867ed4983e262574", null ],
+    [ "InstrumentDataType", "classDynExpInstr_1_1Spectrometer.html#a230920b17892c94e92940fc1910419f5", null ],
+    [ "ParamsType", "classDynExpInstr_1_1Spectrometer.html#ab8cf27232f4f1e5935c2054e9bfb0a2a", null ],
+    [ "UpdateTaskType", "classDynExpInstr_1_1Spectrometer.html#a4922d3c346ec3fa697f2ebd9e988bea9", null ],
+    [ "Spectrometer", "classDynExpInstr_1_1Spectrometer.html#a716c5f01b4009ec44da75ef9c6667810", null ],
+    [ "~Spectrometer", "classDynExpInstr_1_1Spectrometer.html#a8a503f733c3c53a0a76d8c902e3d3dde", null ],
+    [ "Abort", "classDynExpInstr_1_1Spectrometer.html#a901dfcd0932cc279ce876b2ca1120aff", null ],
+    [ "Category", "classDynExpInstr_1_1Spectrometer.html#a8af39ace17f4213d43cfb1dbedeb30d7", null ],
+    [ "GetCategory", "classDynExpInstr_1_1Spectrometer.html#ae1921038b7fe75fee98582090624dc21", null ],
+    [ "GetFrequencyUnit", "classDynExpInstr_1_1Spectrometer.html#a4033c944bbd5e4d68aa5eeb6077a639c", null ],
+    [ "GetIntensityUnit", "classDynExpInstr_1_1Spectrometer.html#aa137378ba42d425193653c55801516ac", null ],
+    [ "GetMaxFrequency", "classDynExpInstr_1_1Spectrometer.html#ad40fd2651ec94a2202b56fd090b60cc1", null ],
+    [ "GetMinFrequency", "classDynExpInstr_1_1Spectrometer.html#a5770f2f753018a1feacd34e0262ad27c", null ],
+    [ "GetName", "classDynExpInstr_1_1Spectrometer.html#a4dcebc52a479effdfd1a5f1b14deee72", null ],
+    [ "GetTaskQueueDelay", "classDynExpInstr_1_1Spectrometer.html#a89c88ae2f70fcf7efb3fefe3b2adc563", null ],
+    [ "Name", "classDynExpInstr_1_1Spectrometer.html#abe8763f52d00b9f17a77cc5d50fdae92", null ],
+    [ "Record", "classDynExpInstr_1_1Spectrometer.html#a0d061df50e562b65b88b35f00853b3d9", null ],
+    [ "ResetImpl", "classDynExpInstr_1_1Spectrometer.html#a895ed83f646ab889bb7e8f95672fb7ef", null ],
+    [ "ResetImpl", "classDynExpInstr_1_1Spectrometer.html#a861f82186bcb1d45bac48294db1ae14d", null ],
+    [ "SetExposureTime", "classDynExpInstr_1_1Spectrometer.html#af96e748f85aa984aaa1343658d604566", null ],
+    [ "SetFrequencyRange", "classDynExpInstr_1_1Spectrometer.html#acec815afabeeb77aa53cd118badd399f", null ],
+    [ "SetSilentMode", "classDynExpInstr_1_1Spectrometer.html#a71ad0a3b26fed2e84408c98324c8a4db", null ]
+];

@@ -1,0 +1,5 @@
+<map id="DynExpHardware::PVCamHardwareAdapter::PVCamInitializer" name="DynExpHardware::PVCamHardwareAdapter::PVCamInitializer">
+<area shape="rect" id="node1" title="Only one instance of this class is allowed for synchronizing calls to the PVCam library from any PVCa..." alt="" coords="5,155,259,196"/>
+<area shape="rect" id="node2" href="$classUtil_1_1ILockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by providing..." alt="" coords="75,80,189,107"/>
+<area shape="rect" id="node3" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="60,5,204,32"/>
+</map>

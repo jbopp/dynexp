@@ -1,0 +1,6 @@
+<map id="Util::FileIOErrorException" name="Util::FileIOErrorException">
+<area shape="rect" id="node1" title="Thrown when reading from or writing to a file failed." alt="" coords="5,229,191,256"/>
+<area shape="rect" id="node2" href="$classUtil_1_1Exception.html" title="DynExp exceptions are derived from this class. It contains basic information about the cause of the e..." alt="" coords="39,155,157,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="29,80,167,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="41,5,155,32"/>
+</map>

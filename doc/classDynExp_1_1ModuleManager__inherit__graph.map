@@ -1,0 +1,5 @@
+<map id="DynExp::ModuleManager" name="DynExp::ModuleManager">
+<area shape="rect" id="node1" title="Resource manager for ModuleBase resources deriving from a specialized ResourceManagerBase class." alt="" coords="57,169,242,196"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1ResourceManagerBase.html" title=" " alt="" coords="35,80,264,121"/>
+<area shape="rect" id="node3" href="$classDynExp_1_1CommonResourceManagerBase.html" title="Common base class for all derived ResourceManagerBase classes. Logical const&#45;ness: Only const functio..." alt="" coords="5,5,293,32"/>
+</map>

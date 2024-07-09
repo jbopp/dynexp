@@ -1,0 +1,246 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="5,1086,149,1113"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1DynExpCore.html" title="DynExp&#39;s core class acts as the interface between the user interface and DynExp&#39;s internal data like ..." alt="" coords="243,977,403,1003"/>
+<area shape="rect" id="node3" href="$classDynExp_1_1LinkedObjectWrapperBase.html" title="Polymorphic base class to allow storing LinkedObjectWrapper of any type in a single list." alt="" coords="197,1027,448,1054"/>
+<area shape="rect" id="node5" href="$classDynExp_1_1LinkedObjectWrapperContainerBase.html" title="Polymorphic base class to allow storing LinkedObjectWrapperContainer of any type in a single list." alt="" coords="213,1079,432,1120"/>
+<area shape="rect" id="node29" href="$classDynExp_1_1RunnableInstance.html" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R..." alt="" coords="225,1898,421,1925"/>
+<area shape="rect" id="node32" href="$classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ..." alt="" coords="231,4174,414,4201"/>
+<area shape="rect" id="node91" href="$classUtil_1_1ILockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by providing..." alt="" coords="265,2126,380,2153"/>
+<area shape="rect" id="node112" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="227,2491,418,2532"/>
+<area shape="rect" id="node237" href="$classUtil_1_1OneToOneNotifier.html" title="Helper class to communicate flags between different threads based on a condition variable and a mutex..." alt="" coords="239,875,406,902"/>
+<area shape="rect" id="node238" href="$classUtil_1_1SynchronizedPointer.html" title="Pointer to lock a class derived from ISynchronizedPointerLockable for synchronizing between threads...." alt="" coords="211,926,435,953"/>
+<area shape="rect" id="node4" href="$classDynExp_1_1LinkedObjectWrapper.html" title="Holds a shared_ptr to a resource (instance of class Object) and lets the resource keep track of its u..." alt="" coords="536,5,755,47"/>
+<area shape="rect" id="node6" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="536,1258,755,1314"/>
+<area shape="rect" id="node7" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="536,1338,755,1394"/>
+<area shape="rect" id="node8" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="536,1418,755,1474"/>
+<area shape="rect" id="node9" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="536,1498,755,1554"/>
+<area shape="rect" id="node10" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="536,1578,755,1634"/>
+<area shape="rect" id="node11" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="536,1658,755,1714"/>
+<area shape="rect" id="node12" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="536,1738,755,1794"/>
+<area shape="rect" id="node13" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="512,1818,779,1874"/>
+<area shape="rect" id="node14" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="496,71,795,127"/>
+<area shape="rect" id="node15" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="536,151,755,207"/>
+<area shape="rect" id="node16" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="536,231,755,287"/>
+<area shape="rect" id="node17" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="535,311,756,367"/>
+<area shape="rect" id="node18" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="536,391,755,447"/>
+<area shape="rect" id="node19" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="536,471,755,527"/>
+<area shape="rect" id="node20" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="536,551,755,607"/>
+<area shape="rect" id="node21" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="536,631,755,687"/>
+<area shape="rect" id="node22" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="536,711,755,767"/>
+<area shape="rect" id="node23" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="536,791,755,847"/>
+<area shape="rect" id="node24" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="536,871,755,927"/>
+<area shape="rect" id="node25" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="536,951,755,1007"/>
+<area shape="rect" id="node26" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="527,1031,763,1087"/>
+<area shape="rect" id="node27" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title=" " alt="" coords="536,1111,755,1167"/>
+<area shape="rect" id="node28" href="$classDynExp_1_1LinkedObjectWrapperContainer.html" title="This class holds a pointer (LinkedObjectWrapperPointer) to a LinkedObjectWrapper. Intances of this cl..." alt="" coords="536,1192,755,1233"/>
+<area shape="rect" id="node30" href="$classDynExp_1_1InstrumentInstance.html" title="Defines data for a thread belonging to a InstrumentBase instance. Refer to RunnableInstance." alt="" coords="542,1898,749,1925"/>
+<area shape="rect" id="node31" href="$classDynExp_1_1ModuleInstance.html" title="Defines data for a thread belonging to a ModuleBase instance. Refer to RunnableInstance." alt="" coords="554,1949,737,1975"/>
+<area shape="rect" id="node33" href="$classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic..." alt="" coords="554,4250,737,4277"/>
+<area shape="rect" id="node67" href="$classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server..." alt="" coords="565,4657,725,4683"/>
+<area shape="rect" id="node34" href="$classDynExpInstr_1_1gRPCInstrument.html" title=" " alt="" coords="851,4104,1124,4175"/>
+<area shape="rect" id="node36" href="$classDynExpInstr_1_1Camera.html" title="Meta instrument for an image capturing (camera) device." alt="" coords="907,4199,1067,4226"/>
+<area shape="rect" id="node39" href="$classDynExpInstr_1_1DataStreamInstrument.html" title="Implementation of the data stream meta instrument, which is a base class for all instruments reading/..." alt="" coords="858,4250,1117,4277"/>
+<area shape="rect" id="node59" href="$classDynExpInstr_1_1InterModuleCommunicator.html" title="Defines an inter&#45;module communicator instrument to exchange events in between DynExp modules...." alt="" coords="894,4301,1081,4343"/>
+<area shape="rect" id="node60" href="$classDynExpInstr_1_1PositionerStage.html" title="Implementation of a meta instrument to control single&#45;axis positioner stages." alt="" coords="882,4389,1093,4415"/>
+<area shape="rect" id="node64" href="$classDynExpInstr_1_1Spectrometer.html" title="Meta instrument for a spectrometer." alt="" coords="889,4499,1086,4526"/>
+<area shape="rect" id="node35" href="$classDynExpInstr_1_1WidefieldLocalization.html" title=" " alt="" coords="1225,3999,1473,4026"/>
+<area shape="rect" id="node37" href="$classDynExpInstr_1_1DummyCamera.html" title=" " alt="" coords="1243,4050,1455,4077"/>
+<area shape="rect" id="node38" href="$classDynExpInstr_1_1PVCam.html" title=" " alt="" coords="1271,4101,1427,4127"/>
+<area shape="rect" id="node40" href="$classDynExpInstr_1_1FunctionGenerator.html" title="Function generator meta instrument based on the data stream meta instrument to generate waveforms by ..." alt="" coords="1235,4151,1464,4178"/>
+<area shape="rect" id="node50" href="$classDynExpInstr_1_1InputPort.html" title="Generic input port meta instrument based on the data stream meta instrument to read data from hardwar..." alt="" coords="1265,4206,1433,4233"/>
+<area shape="rect" id="node55" href="$classDynExpInstr_1_1LockinAmplifier.html" title="Meta instrument for a lock&#45;in amplifier based on the data stream meta instrument." alt="" coords="1244,4257,1455,4283"/>
+<area shape="rect" id="node57" href="$classDynExpInstr_1_1TimeTagger.html" title="Meta instrument for a time tagging device to assign timestamps to (e.g. photon) detection events base..." alt="" coords="1257,4307,1442,4334"/>
+<area shape="rect" id="node41" href="$classDynExpInstr_1_1DummyDataStreamInstrument.html" title=" " alt="" coords="1577,3925,1815,3967"/>
+<area shape="rect" id="node42" href="$classDynExpInstr_1_1OutputPort.html" title="Generic output port meta instrument based on the data stream and function generator meta instruments ..." alt="" coords="1607,3991,1785,4018"/>
+<area shape="rect" id="node47" href="$classDynExpInstr_1_1RS__SMB100B.html" title=" " alt="" coords="1599,4042,1793,4069"/>
+<area shape="rect" id="node48" href="$classDynExpInstr_1_1RS__SMC100A.html" title=" " alt="" coords="1599,4093,1793,4119"/>
+<area shape="rect" id="node49" href="$classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html" title=" " alt="" coords="1575,4144,1817,4185"/>
+<area shape="rect" id="node43" href="$classDynExpInstr_1_1AnalogOut.html" title="Meta instrument for a single analog output port based on the data stream, function generator,..." alt="" coords="1902,3966,2079,3993"/>
+<area shape="rect" id="node45" href="$classDynExpInstr_1_1DigitalOut.html" title="Meta instrument for a single digital output port based on the data stream, function generator,..." alt="" coords="1903,4017,2078,4043"/>
+<area shape="rect" id="node44" href="$classDynExpInstr_1_1NIDAQAnalogOut.html" title=" " alt="" coords="2171,3966,2391,3993"/>
+<area shape="rect" id="node46" href="$classDynExpInstr_1_1NIDAQDigitalOut.html" title=" " alt="" coords="2172,4017,2391,4043"/>
+<area shape="rect" id="node51" href="$classDynExpInstr_1_1AnalogIn.html" title="Meta instrument for a single analog input port based on the data stream and generic input port meta i..." alt="" coords="1613,4261,1779,4287"/>
+<area shape="rect" id="node53" href="$classDynExpInstr_1_1DigitalIn.html" title="Meta instrument for a single digital input port based on the data stream and generic input port meta ..." alt="" coords="1614,4210,1778,4237"/>
+<area shape="rect" id="node52" href="$classDynExpInstr_1_1NIDAQAnalogIn.html" title=" " alt="" coords="1886,4261,2095,4287"/>
+<area shape="rect" id="node54" href="$classDynExpInstr_1_1NIDAQDigitalIn.html" title=" " alt="" coords="1887,4210,2094,4237"/>
+<area shape="rect" id="node56" href="$classDynExpInstr_1_1ZI__MFLI.html" title=" " alt="" coords="1616,4311,1776,4338"/>
+<area shape="rect" id="node58" href="$classDynExpInstr_1_1QutoolsQuTAG.html" title=" " alt="" coords="1595,4362,1797,4389"/>
+<area shape="rect" id="node61" href="$classDynExpInstr_1_1NenionLeakvalveF3.html" title=" " alt="" coords="1230,4358,1469,4385"/>
+<area shape="rect" id="node62" href="$classDynExpInstr_1_1PI__C__862.html" title=" " alt="" coords="1265,4409,1433,4435"/>
+<area shape="rect" id="node63" href="$classDynExpInstr_1_1SmarAct.html" title=" " alt="" coords="1267,4459,1431,4486"/>
+<area shape="rect" id="node65" href="$classDynExpInstr_1_1gRPCInstrument.html" title=" " alt="" coords="1180,4510,1519,4566"/>
+<area shape="rect" id="node66" href="$classDynExpInstr_1_1NetworkSpectrometer.html" title=" " alt="" coords="1570,4469,1822,4495"/>
+<area shape="rect" id="node68" href="$classDynExpModule_1_1gRPCModule.html" title=" " alt="" coords="882,4681,1093,4723"/>
+<area shape="rect" id="node76" href="$classDynExp_1_1QModuleBase.html" title="Base class for modules with a Qt&#45;based user interface. Derive from this class to implement modules wi..." alt="" coords="902,4989,1073,5015"/>
+<area shape="rect" id="node88" href="$classDynExpModule_1_1ArbitraryFunctionFromCSV.html" title=" " alt="" coords="867,5040,1107,5081"/>
+<area shape="rect" id="node89" href="$classDynExpModule_1_1StreamManipulator.html" title="Module to process data stored in data stream instrument(s) with a Python script and to write the resu..." alt="" coords="861,4565,1114,4591"/>
+<area shape="rect" id="node90" href="$classDynExpModule_1_1gRPCModule.html" title="Module template for building gRPC servers listening on TCP sockets for network instruments to connect..." alt="" coords="882,4616,1093,4657"/>
+<area shape="rect" id="node69" href="$classDynExpModule_1_1NetworkDataStreamInstrumentT.html" title=" " alt="" coords="1210,4616,1489,4657"/>
+<area shape="rect" id="node75" href="$classDynExpModule_1_1NetworkDataStreamInstrumentT.html" title=" " alt="" coords="1216,4681,1483,4723"/>
+<area shape="rect" id="node70" href="$classDynExpModule_1_1NetworkAnalogInT.html" title=" " alt="" coords="1582,4520,1810,4561"/>
+<area shape="rect" id="node71" href="$classDynExpModule_1_1NetworkAnalogOutT.html" title=" " alt="" coords="1582,4585,1810,4627"/>
+<area shape="rect" id="node72" href="$classDynExpModule_1_1NetworkDigitalInT.html" title=" " alt="" coords="1583,4651,1809,4692"/>
+<area shape="rect" id="node73" href="$classDynExpModule_1_1NetworkDigitalOutT.html" title=" " alt="" coords="1583,4716,1809,4757"/>
+<area shape="rect" id="node74" href="$classDynExpModule_1_1NetworkTimeTaggerT.html" title=" " alt="" coords="1588,4781,1804,4823"/>
+<area shape="rect" id="node77" href="$classDynExpModule_1_1ImageViewer_1_1ImageViewer.html" title=" " alt="" coords="1242,4864,1457,4905"/>
+<area shape="rect" id="node78" href="$classDynExpModule_1_1InputPortReader.html" title=" " alt="" coords="1233,4930,1466,4957"/>
+<area shape="rect" id="node79" href="$classDynExpModule_1_1LockinAmplifierControl.html" title=" " alt="" coords="1235,4981,1464,5023"/>
+<area shape="rect" id="node80" href="$classDynExpModule_1_1ODMR_1_1ODMR.html" title=" " alt="" coords="1265,5047,1434,5088"/>
+<area shape="rect" id="node81" href="$classDynExpModule_1_1OutputPortWriter.html" title=" " alt="" coords="1250,5112,1449,5153"/>
+<area shape="rect" id="node82" href="$classDynExpModule_1_1SignalDesigner.html" title=" " alt="" coords="1236,5178,1463,5205"/>
+<area shape="rect" id="node83" href="$classDynExpModule_1_1SignalPlotter.html" title=" " alt="" coords="1244,5229,1455,5255"/>
+<area shape="rect" id="node84" href="$classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html" title=" " alt="" coords="1232,5280,1467,5321"/>
+<area shape="rect" id="node85" href="$classDynExpModule_1_1Stage1D.html" title=" " alt="" coords="1258,5346,1441,5373"/>
+<area shape="rect" id="node86" href="$classDynExpModule_1_1Trajectory1D.html" title=" " alt="" coords="1244,4747,1455,4774"/>
+<area shape="rect" id="node87" href="$classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html" title=" " alt="" coords="1255,4799,1444,4840"/>
+<area shape="rect" id="node92" href="$classDynExp_1_1EventListenersBase.html" title="Common base class for all managers of event listeners of type TypedEventListeners...." alt="" coords="541,2101,749,2127"/>
+<area shape="rect" id="node94" href="$classDynExp_1_1HardwareAdapterBase.html" title="Defines the base class for a hardware adapter object. Hardware adapters describe interfaces/connectio..." alt="" coords="532,3801,759,3827"/>
+<area shape="rect" id="node107" href="$classDynExp_1_1ObjectUserList.html" title="Helper class to enable keeping track of instances of class Object making use of the owner of the resp..." alt="" coords="558,2151,733,2178"/>
+<area shape="rect" id="node108" href="$classDynExpHardware_1_1PVCamHardwareAdapter_1_1PVCamInitializer.html" title="Only one instance of this class is allowed for synchronizing calls to the PVCam library from any PVCa..." alt="" coords="519,2203,772,2244"/>
+<area shape="rect" id="node109" href="$classDynExpHardware_1_1QutoolsTDCHardwareAdapter_1_1QutoolsTDCSynchronizer.html" title="Only one instance of this class is allowed for synchronizing calls to connected qutools time taggers...." alt="" coords="504,2268,787,2309"/>
+<area shape="rect" id="node110" href="$classUtil_1_1EventLogger.html" title="Logs events like errors and writes them immediately to a HTML file in a human&#45;readable format...." alt="" coords="578,1999,713,2026"/>
+<area shape="rect" id="node111" href="$classUtil_1_1Warning.html" title="Class to store information about warnings in a thread&#45;safe manner (deriving from ILockable)...." alt="" coords="592,2050,699,2077"/>
+<area shape="rect" id="node93" href="$classDynExp_1_1TypedEventListeners.html" title="Typed managers of event listeners class whose instances are owned by classes derived from InterModule..." alt="" coords="880,1513,1095,1555"/>
+<area shape="rect" id="node95" href="$classDynExpHardware_1_1gRPCHardwareAdapter.html" title=" " alt="" coords="867,3893,1107,3949"/>
+<area shape="rect" id="node97" href="$classDynExp_1_1SerialCommunicationHardwareAdapter.html" title="Defines a hardware adapter for serial communication. Logical const&#45;ness: see declaration of class Dyn..." alt="" coords="877,3827,1097,3868"/>
+<area shape="rect" id="node101" href="$classDynExpHardware_1_1NIDAQHardwareAdapter.html" title=" " alt="" coords="863,3973,1112,4015"/>
+<area shape="rect" id="node102" href="$classDynExpHardware_1_1PVCamHardwareAdapter.html" title=" " alt="" coords="861,4039,1114,4080"/>
+<area shape="rect" id="node103" href="$classDynExpHardware_1_1QutoolsTDCHardwareAdapter.html" title=" " alt="" coords="846,3565,1129,3607"/>
+<area shape="rect" id="node104" href="$classDynExpHardware_1_1SmarActHardwareAdapter.html" title=" " alt="" coords="857,3631,1118,3672"/>
+<area shape="rect" id="node105" href="$classDynExpHardware_1_1ZILabOneHardwareAdapter.html" title=" " alt="" coords="885,3696,1090,3737"/>
+<area shape="rect" id="node106" href="$classDynExpHardware_1_1gRPCHardwareAdapter.html" title="This template class provides basic functionality to design hardware adapters for instruments which co..." alt="" coords="867,3761,1107,3803"/>
+<area shape="rect" id="node96" href="$classDynExpHardware_1_1SIPulseStreamerHardwareAdapter.html" title=" " alt="" coords="1224,3900,1475,3941"/>
+<area shape="rect" id="node98" href="$classDynExp_1_1QSerialCommunicationHardwareAdapter.html" title="SerialCommunicationHardwareAdapter is based on a Qt communication object (wrapped by QSerialCommunica..." alt="" coords="1234,3760,1465,3801"/>
+<area shape="rect" id="node99" href="$classDynExp_1_1HardwareAdapterSerialPort.html" title="Implements a hardware adapter to communicate with text&#45;based commands over COM ports." alt="" coords="1567,3811,1825,3838"/>
+<area shape="rect" id="node100" href="$classDynExp_1_1HardwareAdapterTcpSocket.html" title="Implements a hardware adapter to communicate with text&#45;based commands over TCP sockets." alt="" coords="1589,3745,1803,3787"/>
+<area shape="rect" id="node113" href="$classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads...." alt="" coords="538,3253,753,3279"/>
+<area shape="rect" id="node143" href="$classDynExp_1_1ModuleDataBase.html" title="Data structure to contain data which is synchronized in between different threads...." alt="" coords="550,2334,741,2361"/>
+<area shape="rect" id="node167" href="$classDynExp_1_1ParamsBase.html" title="Abstract base class for object parameter classes. Each class derived from class Object must be accomp..." alt="" coords="565,2698,725,2725"/>
+<area shape="rect" id="node114" href="$classDynExpInstr_1_1CameraData.html" title="Data class for Camera." alt="" coords="892,3215,1083,3242"/>
+<area shape="rect" id="node117" href="$classDynExpInstr_1_1DataStreamInstrumentData.html" title="Data class for DataStreamInstrument." alt="" coords="843,3291,1132,3318"/>
+<area shape="rect" id="node137" href="$classDynExpInstr_1_1InterModuleCommunicatorData.html" title="Data class for InterModuleCommunicator." alt="" coords="894,3343,1081,3384"/>
+<area shape="rect" id="node138" href="$classDynExpInstr_1_1PositionerStageData.html" title="Data class for PositionerStage." alt="" coords="866,3463,1109,3490"/>
+<area shape="rect" id="node142" href="$classDynExpInstr_1_1SpectrometerData.html" title="Data class for Spectrometer." alt="" coords="873,3165,1101,3191"/>
+<area shape="rect" id="node115" href="$classDynExpInstr_1_1DummyCameraData.html" title=" " alt="" coords="1228,3151,1471,3178"/>
+<area shape="rect" id="node116" href="$classDynExpInstr_1_1PVCamData.html" title=" " alt="" coords="1256,3202,1443,3229"/>
+<area shape="rect" id="node118" href="$classDynExpInstr_1_1FunctionGeneratorData.html" title="Data class for FunctionGenerator." alt="" coords="1219,3253,1479,3279"/>
+<area shape="rect" id="node128" href="$classDynExpInstr_1_1InputPortData.html" title="Data class for InputPort." alt="" coords="1250,3303,1449,3330"/>
+<area shape="rect" id="node133" href="$classDynExpInstr_1_1LockinAmplifierData.html" title="Data class for LockinAmplifier." alt="" coords="1229,3354,1470,3381"/>
+<area shape="rect" id="node135" href="$classDynExpInstr_1_1TimeTaggerData.html" title="Data class for TimeTagger." alt="" coords="1241,3405,1457,3431"/>
+<area shape="rect" id="node119" href="$classDynExpInstr_1_1DummyDataStreamInstrumentData.html" title=" " alt="" coords="1577,3136,1815,3177"/>
+<area shape="rect" id="node120" href="$classDynExpInstr_1_1OutputPortData.html" title="Data class for OutputPort." alt="" coords="1591,3202,1801,3229"/>
+<area shape="rect" id="node125" href="$classDynExpInstr_1_1RS__SMB100BData.html" title=" " alt="" coords="1583,3253,1809,3279"/>
+<area shape="rect" id="node126" href="$classDynExpInstr_1_1RS__SMC100AData.html" title=" " alt="" coords="1583,3019,1809,3046"/>
+<area shape="rect" id="node127" href="$classDynExpInstr_1_1SwabianInstrumentsPulseStreamerData.html" title=" " alt="" coords="1575,3071,1817,3112"/>
+<area shape="rect" id="node121" href="$classDynExpInstr_1_1AnalogOutData.html" title="Data class for AnalogOut." alt="" coords="1887,3165,2095,3191"/>
+<area shape="rect" id="node123" href="$classDynExpInstr_1_1DigitalOutData.html" title="Data class for DigitalOut." alt="" coords="1887,3219,2094,3246"/>
+<area shape="rect" id="node122" href="$classDynExpInstr_1_1NIDAQAnalogOutData.html" title=" " alt="" coords="2183,3153,2380,3195"/>
+<area shape="rect" id="node124" href="$classDynExpInstr_1_1NIDAQDigitalOutData.html" title=" " alt="" coords="2184,3219,2379,3260"/>
+<area shape="rect" id="node129" href="$classDynExpInstr_1_1AnalogInData.html" title="Data class for AnalogIn." alt="" coords="1597,3354,1795,3381"/>
+<area shape="rect" id="node131" href="$classDynExpInstr_1_1DigitalInData.html" title="Data class for DigitalIn." alt="" coords="1599,3303,1793,3330"/>
+<area shape="rect" id="node130" href="$classDynExpInstr_1_1NIDAQAnalogInData.html" title=" " alt="" coords="1892,3355,2089,3396"/>
+<area shape="rect" id="node132" href="$classDynExpInstr_1_1NIDAQDigitalInData.html" title=" " alt="" coords="1893,3289,2088,3331"/>
+<area shape="rect" id="node134" href="$classDynExpInstr_1_1ZI__MFLIData.html" title=" " alt="" coords="1601,3405,1791,3431"/>
+<area shape="rect" id="node136" href="$classDynExpInstr_1_1QutoolsQuTAGData.html" title=" " alt="" coords="1579,3455,1813,3482"/>
+<area shape="rect" id="node139" href="$classDynExpInstr_1_1NenionLeakvalveF3Data.html" title=" " alt="" coords="1238,3456,1461,3497"/>
+<area shape="rect" id="node140" href="$classDynExpInstr_1_1PI__C__862StageData.html" title=" " alt="" coords="1231,3522,1467,3549"/>
+<area shape="rect" id="node141" href="$classDynExpInstr_1_1SmarActData.html" title=" " alt="" coords="1252,3573,1447,3599"/>
+<area shape="rect" id="node144" href="$classDynExpModule_1_1gRPCModuleData.html" title=" " alt="" coords="882,2359,1093,2400"/>
+<area shape="rect" id="node152" href="$classDynExp_1_1QModuleDataBase.html" title="Data class for QModuleBase." alt="" coords="887,1579,1088,1606"/>
+<area shape="rect" id="node164" href="$classDynExpModule_1_1ArbitraryFunctionFromCSVData.html" title=" " alt="" coords="867,2176,1107,2217"/>
+<area shape="rect" id="node165" href="$classDynExpModule_1_1StreamManipulatorData.html" title="Data class for StreamManipulator." alt="" coords="845,2242,1129,2269"/>
+<area shape="rect" id="node166" href="$classDynExpModule_1_1gRPCModuleData.html" title="Data class for gRPCModule." alt="" coords="882,2293,1093,2335"/>
+<area shape="rect" id="node145" href="$classDynExpModule_1_1NetworkDataStreamInstrumentData.html" title=" " alt="" coords="1198,1871,1501,1912"/>
+<area shape="rect" id="node151" href="$classDynExpModule_1_1NetworkDataStreamInstrumentData.html" title=" " alt="" coords="1204,2173,1495,2215"/>
+<area shape="rect" id="node146" href="$classDynExpModule_1_1NetworkAnalogInData.html" title=" " alt="" coords="1582,1903,1810,1944"/>
+<area shape="rect" id="node147" href="$classDynExpModule_1_1NetworkAnalogOutData.html" title=" " alt="" coords="1582,1641,1810,1683"/>
+<area shape="rect" id="node148" href="$classDynExpModule_1_1NetworkDigitalInData.html" title=" " alt="" coords="1583,1707,1809,1748"/>
+<area shape="rect" id="node149" href="$classDynExpModule_1_1NetworkDigitalOutData.html" title=" " alt="" coords="1583,1772,1809,1813"/>
+<area shape="rect" id="node150" href="$classDynExpModule_1_1NetworkTimeTaggerData.html" title=" " alt="" coords="1588,1837,1804,1879"/>
+<area shape="rect" id="node153" href="$classDynExpModule_1_1ImageViewer_1_1ImageViewerData.html" title=" " alt="" coords="1242,1455,1457,1496"/>
+<area shape="rect" id="node154" href="$classDynExpModule_1_1InputPortReaderData.html" title=" " alt="" coords="1217,1521,1481,1547"/>
+<area shape="rect" id="node155" href="$classDynExpModule_1_1LockinAmplifierControlData.html" title=" " alt="" coords="1235,1572,1464,1613"/>
+<area shape="rect" id="node156" href="$classDynExpModule_1_1ODMR_1_1ODMRData.html" title=" " alt="" coords="1265,1637,1434,1679"/>
+<area shape="rect" id="node157" href="$classDynExpModule_1_1OutputPortWriterData.html" title=" " alt="" coords="1250,1703,1449,1744"/>
+<area shape="rect" id="node158" href="$classDynExpModule_1_1SignalDesignerData.html" title=" " alt="" coords="1221,1769,1478,1795"/>
+<area shape="rect" id="node159" href="$classDynExpModule_1_1SignalPlotterData.html" title=" " alt="" coords="1228,1819,1471,1846"/>
+<area shape="rect" id="node160" href="$classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerData.html" title=" " alt="" coords="1232,1207,1467,1248"/>
+<area shape="rect" id="node161" href="$classDynExpModule_1_1Stage1DData.html" title=" " alt="" coords="1242,1273,1457,1299"/>
+<area shape="rect" id="node162" href="$classDynExpModule_1_1Trajectory1DData.html" title=" " alt="" coords="1249,1324,1449,1365"/>
+<area shape="rect" id="node163" href="$classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeData.html" title=" " alt="" coords="1251,1389,1447,1431"/>
+<area shape="rect" id="node168" href="$classDynExp_1_1HardwareAdapterParamsBase.html" title="Parameter class for HardwareAdapterBase." alt="" coords="850,2798,1125,2825"/>
+<area shape="rect" id="node181" href="$classDynExp_1_1ProjectParams.html" title="Defines a parameter class with parameters common to all DynExp projects." alt="" coords="901,2849,1074,2875"/>
+<area shape="rect" id="node182" href="$classDynExp_1_1RunnableObjectParams.html" title="Parameter class for RunnableObject." alt="" coords="872,2561,1103,2587"/>
+<area shape="rect" id="node169" href="$classDynExpHardware_1_1gRPCHardwareAdapterParams.html" title=" " alt="" coords="1229,2678,1469,2734"/>
+<area shape="rect" id="node171" href="$classDynExp_1_1SerialCommunicationHardwareAdapterParams.html" title="Parameter class for SerialCommunicationHardwareAdapter." alt="" coords="1239,2759,1459,2800"/>
+<area shape="rect" id="node175" href="$classDynExpHardware_1_1NIDAQHardwareAdapterParams.html" title=" " alt="" coords="1225,2824,1474,2865"/>
+<area shape="rect" id="node176" href="$classDynExpHardware_1_1PVCamHardwareAdapterParams.html" title=" " alt="" coords="1223,2889,1476,2931"/>
+<area shape="rect" id="node177" href="$classDynExpHardware_1_1QutoolsTDCHardwareAdapterParams.html" title=" " alt="" coords="1208,2955,1491,2996"/>
+<area shape="rect" id="node178" href="$classDynExpHardware_1_1SmarActHardwareAdapterParams.html" title=" " alt="" coords="1219,3020,1480,3061"/>
+<area shape="rect" id="node179" href="$classDynExpHardware_1_1ZILabOneHardwareAdapterParams.html" title=" " alt="" coords="1247,3085,1452,3127"/>
+<area shape="rect" id="node180" href="$classDynExpHardware_1_1gRPCHardwareAdapterParams.html" title="Parameter class for gRPCHardwareAdapter." alt="" coords="1229,2612,1469,2653"/>
+<area shape="rect" id="node170" href="$classDynExpHardware_1_1SIPulseStreamerHardwareAdapterParams.html" title=" " alt="" coords="1571,2844,1821,2885"/>
+<area shape="rect" id="node172" href="$classDynExp_1_1QSerialCommunicationHardwareAdapterParams.html" title="Parameter class for QSerialCommunicationHardwareAdapter." alt="" coords="1581,2936,1811,2977"/>
+<area shape="rect" id="node173" href="$classDynExp_1_1HardwareAdapterSerialPortParams.html" title="Parameter class for HardwareAdapterSerialPort." alt="" coords="1875,2936,2106,2977"/>
+<area shape="rect" id="node174" href="$classDynExp_1_1HardwareAdapterTcpSocketParams.html" title="Parameter class for HardwareAdapterTcpSocket." alt="" coords="1883,3001,2098,3043"/>
+<area shape="rect" id="node183" href="$classDynExp_1_1InstrumentParamsBase.html" title="Parameter class for InstrumentBase." alt="" coords="1234,2561,1465,2587"/>
+<area shape="rect" id="node213" href="$classDynExp_1_1ModuleParamsBase.html" title="Parameter class for ModuleBase." alt="" coords="1245,2239,1453,2266"/>
+<area shape="rect" id="node184" href="$classDynExpInstr_1_1CameraParams.html" title="Parameter class for Camera." alt="" coords="1592,2793,1800,2819"/>
+<area shape="rect" id="node187" href="$classDynExpInstr_1_1DataStreamInstrumentParams.html" title="Parameter class for DataStreamInstrument." alt="" coords="1567,2496,1825,2537"/>
+<area shape="rect" id="node207" href="$classDynExpInstr_1_1InterModuleCommunicatorParams.html" title="Parameter class for InterModuleCommunicator." alt="" coords="1603,2561,1789,2603"/>
+<area shape="rect" id="node208" href="$classDynExpInstr_1_1PositionerStageParams.html" title="Parameter class for PositionerStage." alt="" coords="1591,2636,1801,2677"/>
+<area shape="rect" id="node212" href="$classDynExpInstr_1_1SpectrometerParams.html" title="Parameter class for Spectrometer." alt="" coords="1597,2701,1795,2743"/>
+<area shape="rect" id="node185" href="$classDynExpInstr_1_1DummyCameraParams.html" title=" " alt="" coords="1885,2819,2097,2860"/>
+<area shape="rect" id="node186" href="$classDynExpInstr_1_1PVCamParams.html" title=" " alt="" coords="1889,2885,2093,2911"/>
+<area shape="rect" id="node188" href="$classDynExpInstr_1_1FunctionGeneratorParams.html" title="Parameter class for FunctionGenerator." alt="" coords="1876,2453,2105,2495"/>
+<area shape="rect" id="node198" href="$classDynExpInstr_1_1InputPortParams.html" title="Parameter class for InputPort." alt="" coords="1883,2519,2099,2546"/>
+<area shape="rect" id="node203" href="$classDynExpInstr_1_1LockinAmplifierParams.html" title="Parameter class for LockinAmplifier." alt="" coords="1885,2571,2096,2612"/>
+<area shape="rect" id="node205" href="$classDynExpInstr_1_1TimeTaggerParams.html" title="Parameter class for TimeTagger." alt="" coords="1874,2381,2107,2407"/>
+<area shape="rect" id="node189" href="$classDynExpInstr_1_1DummyDataStreamInstrumentParams.html" title=" " alt="" coords="2162,2525,2401,2567"/>
+<area shape="rect" id="node190" href="$classDynExpInstr_1_1OutputPortParams.html" title="Parameter class for OutputPort." alt="" coords="2168,2591,2395,2618"/>
+<area shape="rect" id="node195" href="$classDynExpInstr_1_1RS__SMB100BParams.html" title=" " alt="" coords="2160,2642,2403,2669"/>
+<area shape="rect" id="node196" href="$classDynExpInstr_1_1RS__SMC100AParams.html" title=" " alt="" coords="2160,2409,2403,2435"/>
+<area shape="rect" id="node197" href="$classDynExpInstr_1_1SwabianInstrumentsPulseStreamerParams.html" title=" " alt="" coords="2160,2460,2403,2501"/>
+<area shape="rect" id="node191" href="$classDynExpInstr_1_1AnalogOutParams.html" title="Parameter class for AnalogOut." alt="" coords="2455,2549,2680,2575"/>
+<area shape="rect" id="node193" href="$classDynExpInstr_1_1DigitalOutParams.html" title="Parameter class for DigitalOut." alt="" coords="2456,2606,2679,2633"/>
+<area shape="rect" id="node192" href="$classDynExpInstr_1_1NIDAQAnalogOutParams.html" title=" " alt="" coords="2728,2537,2925,2579"/>
+<area shape="rect" id="node194" href="$classDynExpInstr_1_1NIDAQDigitalOutParams.html" title=" " alt="" coords="2729,2603,2924,2644"/>
+<area shape="rect" id="node199" href="$classDynExpInstr_1_1AnalogInParams.html" title="Parameter class for AnalogIn." alt="" coords="2174,2693,2389,2719"/>
+<area shape="rect" id="node201" href="$classDynExpInstr_1_1DigitalInParams.html" title="Parameter class for DigitalIn." alt="" coords="2175,2743,2387,2770"/>
+<area shape="rect" id="node200" href="$classDynExpInstr_1_1NIDAQAnalogInParams.html" title=" " alt="" coords="2469,2679,2666,2720"/>
+<area shape="rect" id="node202" href="$classDynExpInstr_1_1NIDAQDigitalInParams.html" title=" " alt="" coords="2470,2744,2665,2785"/>
+<area shape="rect" id="node204" href="$classDynExpInstr_1_1ZI__MFLIParams.html" title=" " alt="" coords="2177,2794,2385,2821"/>
+<area shape="rect" id="node206" href="$classDynExpInstr_1_1QutoolsQuTAGParams.html" title=" " alt="" coords="2156,2358,2407,2385"/>
+<area shape="rect" id="node209" href="$classDynExpInstr_1_1NenionLeakvalveF3Params.html" title=" " alt="" coords="1879,2636,2102,2677"/>
+<area shape="rect" id="node210" href="$classDynExpInstr_1_1PI__C__862__Params.html" title=" " alt="" coords="1907,2701,2075,2743"/>
+<area shape="rect" id="node211" href="$classDynExpInstr_1_1SmarActParams.html" title=" " alt="" coords="1885,2767,2097,2794"/>
+<area shape="rect" id="node214" href="$classDynExpModule_1_1gRPCModuleParams.html" title=" " alt="" coords="1591,2297,1801,2339"/>
+<area shape="rect" id="node222" href="$classDynExp_1_1QModuleParamsBase.html" title="Parameter class for QModuleBase." alt="" coords="1587,1969,1805,1995"/>
+<area shape="rect" id="node234" href="$classDynExpModule_1_1ArbitraryFunctionFromCSVParams.html" title=" " alt="" coords="1576,2101,1816,2143"/>
+<area shape="rect" id="node235" href="$classDynExpModule_1_1StreamManipulatorParams.html" title="Parameter class for StreamManipulator." alt="" coords="1569,2167,1823,2208"/>
+<area shape="rect" id="node236" href="$classDynExpModule_1_1gRPCModuleParams.html" title="Parameter class for gRPCModule." alt="" coords="1591,2232,1801,2273"/>
+<area shape="rect" id="node215" href="$classDynExpModule_1_1NetworkDataStreamInstrumentParams.html" title=" " alt="" coords="1883,2290,2098,2346"/>
+<area shape="rect" id="node221" href="$classDynExpModule_1_1NetworkDataStreamInstrumentParams.html" title=" " alt="" coords="1883,2210,2098,2266"/>
+<area shape="rect" id="node216" href="$classDynExpModule_1_1NetworkAnalogInParams.html" title=" " alt="" coords="2167,2227,2395,2268"/>
+<area shape="rect" id="node217" href="$classDynExpModule_1_1NetworkAnalogOutParams.html" title=" " alt="" coords="2167,2292,2395,2333"/>
+<area shape="rect" id="node218" href="$classDynExpModule_1_1NetworkDigitalInParams.html" title=" " alt="" coords="2168,2031,2395,2072"/>
+<area shape="rect" id="node219" href="$classDynExpModule_1_1NetworkDigitalOutParams.html" title=" " alt="" coords="2168,2096,2395,2137"/>
+<area shape="rect" id="node220" href="$classDynExpModule_1_1NetworkTimeTaggerParams.html" title=" " alt="" coords="2165,2161,2397,2203"/>
+<area shape="rect" id="node223" href="$classDynExpModule_1_1ImageViewer_1_1ImageViewerParams.html" title=" " alt="" coords="1883,1569,2098,1611"/>
+<area shape="rect" id="node224" href="$classDynExpModule_1_1InputPortReaderParams.html" title=" " alt="" coords="1874,1635,2107,1676"/>
+<area shape="rect" id="node225" href="$classDynExpModule_1_1LockinAmplifierControlParams.html" title=" " alt="" coords="1876,1700,2105,1741"/>
+<area shape="rect" id="node226" href="$classDynExpModule_1_1ODMR_1_1ODMRParams.html" title=" " alt="" coords="1906,1765,2075,1807"/>
+<area shape="rect" id="node227" href="$classDynExpModule_1_1OutputPortWriterParams.html" title=" " alt="" coords="1891,1831,2090,1872"/>
+<area shape="rect" id="node228" href="$classDynExpModule_1_1SignalDesignerParams.html" title=" " alt="" coords="1877,1896,2104,1937"/>
+<area shape="rect" id="node229" href="$classDynExpModule_1_1SignalPlotterParams.html" title=" " alt="" coords="1885,1961,2096,2003"/>
+<area shape="rect" id="node230" href="$classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerParams.html" title=" " alt="" coords="1873,2027,2108,2068"/>
+<area shape="rect" id="node231" href="$classDynExpModule_1_1Stage1DParams.html" title=" " alt="" coords="1875,2093,2106,2119"/>
+<area shape="rect" id="node232" href="$classDynExpModule_1_1Trajectory1DParams.html" title=" " alt="" coords="1891,2144,2091,2185"/>
+<area shape="rect" id="node233" href="$classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeParams.html" title=" " alt="" coords="1884,1504,2097,1545"/>
+<area shape="rect" id="node239" href="$classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),..." alt="" coords="16,4041,139,4067"/>
+<area shape="rect" id="node240" title=" " alt="" coords="950,3514,1025,3541"/>
+<area shape="rect" id="node241" href="$classUtil_1_1QWorker.html" title="Implements a QObject belonging to a hardware adapter (derived from DynExp::HardwareAdapterBase) that ..." alt="" coords="1295,3623,1403,3650"/>
+<area shape="rect" id="node242" href="$classDynExp_1_1QSerialCommunicationHardwareAdapterWorker.html" title="Qt worker which performs actual serial communication hardware operations in a separate thread in orde..." alt="" coords="1581,3616,1811,3657"/>
+<area shape="rect" id="node243" href="$classDynExp_1_1HardwareAdapterSerialPortWorker.html" title="Qt worker for serial/COM port communication in a separate thread." alt="" coords="1875,3584,2106,3625"/>
+<area shape="rect" id="node244" href="$classDynExp_1_1HardwareAdapterTcpSocketWorker.html" title="Qt worker for network communication in a separate thread." alt="" coords="1883,3649,2098,3691"/>
+</map>

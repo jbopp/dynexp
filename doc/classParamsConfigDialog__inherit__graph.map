@@ -1,0 +1,4 @@
+<map id="ParamsConfigDialog" name="ParamsConfigDialog">
+<area shape="rect" id="node1" title="Defines the configuration dialog. The dialog must be displayed by calling ParamsConfigDialog::Display..." alt="" coords="5,80,159,107"/>
+<area shape="rect" id="node2" title=" " alt="" coords="45,5,119,32"/>
+</map>

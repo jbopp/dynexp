@@ -1,0 +1,6 @@
+<map id="DynExp::ProjectParams" name="DynExp::ProjectParams">
+<area shape="rect" id="node1" title="Defines a parameter class with parameters common to all DynExp projects." alt="" coords="14,244,187,271"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1ParamsBase.html" title="Abstract base class for object parameter classes. Each class derived from class Object must be accomp..." alt="" coords="21,169,181,196"/>
+<area shape="rect" id="node3" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="5,80,196,121"/>
+<area shape="rect" id="node4" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="29,5,173,32"/>
+</map>

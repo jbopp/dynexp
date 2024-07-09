@@ -1,0 +1,4 @@
+<map id="Util::OneToOneNotifier" name="Util::OneToOneNotifier">
+<area shape="rect" id="node1" title="Helper class to communicate flags between different threads based on a condition variable and a mutex..." alt="" coords="5,80,172,107"/>
+<area shape="rect" id="node2" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="17,5,161,32"/>
+</map>

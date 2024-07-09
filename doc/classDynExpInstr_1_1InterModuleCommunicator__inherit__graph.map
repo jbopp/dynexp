@@ -1,0 +1,7 @@
+<map id="DynExpInstr::InterModuleCommunicator" name="DynExpInstr::InterModuleCommunicator">
+<area shape="rect" id="node1" title="Defines an inter&#45;module communicator instrument to exchange events in between DynExp modules...." alt="" coords="63,229,249,271"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic..." alt="" coords="65,155,247,181"/>
+<area shape="rect" id="node3" href="$classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ..." alt="" coords="65,80,247,107"/>
+<area shape="rect" id="node4" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="5,5,149,32"/>
+<area shape="rect" id="node5" href="$classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),..." alt="" coords="173,5,296,32"/>
+</map>

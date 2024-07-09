@@ -1,0 +1,6 @@
+<map id="DynExpModule::SpectrumViewer::SetSilentModeEvent" name="DynExpModule::SpectrumViewer::SetSilentModeEvent">
+<area shape="rect" id="node1" title=" " alt="" coords="5,244,240,285"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="7,155,239,196"/>
+<area shape="rect" id="node3" href="$classDynExp_1_1InterModuleEventBase.html" title="Common base class for all inter&#45;module events." alt="" coords="9,80,236,107"/>
+<area shape="rect" id="node4" href="$classDynExp_1_1EventBase.html" title="Common base class for all events to store them in a FIFO queue to be invoked later." alt="" coords="48,5,197,32"/>
+</map>

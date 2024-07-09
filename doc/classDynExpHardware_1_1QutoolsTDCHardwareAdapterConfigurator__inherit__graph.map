@@ -1,0 +1,5 @@
+<map id="DynExpHardware::QutoolsTDCHardwareAdapterConfigurator" name="DynExpHardware::QutoolsTDCHardwareAdapterConfigurator">
+<area shape="rect" id="node1" title=" " alt="" coords="17,155,300,196"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1HardwareAdapterConfiguratorBase.html" title="Configurator class for HardwareAdapterBase." alt="" coords="5,80,312,107"/>
+<area shape="rect" id="node3" href="$classDynExp_1_1ConfiguratorBase.html" title="The configurator classes have the task to generate parameter objects (refer to DynExp::ParamsBase) of..." alt="" coords="63,5,255,32"/>
+</map>

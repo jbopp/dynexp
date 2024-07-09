@@ -1,0 +1,7 @@
+<map id="DynExp::NetworkException" name="DynExp::NetworkException">
+<area shape="rect" id="node1" title="Defines an exception caused by a hardware operation on an ethernet interface (e.g...." alt="" coords="16,319,215,345"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1SerialCommunicationException.html" title="Defines an exception caused by a serial communication operation of a hardware adapter." alt="" coords="5,229,225,271"/>
+<area shape="rect" id="node3" href="$classUtil_1_1Exception.html" title="DynExp exceptions are derived from this class. It contains basic information about the cause of the e..." alt="" coords="57,155,174,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="46,80,185,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="58,5,173,32"/>
+</map>

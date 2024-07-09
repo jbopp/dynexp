@@ -1,0 +1,7 @@
+<map id="DynExpHardware::ZILabOneHardwareAdapterParams" name="DynExpHardware::ZILabOneHardwareAdapterParams">
+<area shape="rect" id="node1" title=" " alt="" coords="40,319,245,360"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1HardwareAdapterParamsBase.html" title="Parameter class for HardwareAdapterBase." alt="" coords="5,244,280,271"/>
+<area shape="rect" id="node3" href="$classDynExp_1_1ParamsBase.html" title="Abstract base class for object parameter classes. Each class derived from class Object must be accomp..." alt="" coords="63,169,223,196"/>
+<area shape="rect" id="node4" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="47,80,238,121"/>
+<area shape="rect" id="node5" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="71,5,215,32"/>
+</map>

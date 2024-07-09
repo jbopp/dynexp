@@ -1,0 +1,8 @@
+<map id="DynExpInstr::TimeTaggerData" name="DynExpInstr::TimeTaggerData">
+<area shape="rect" id="node1" title="Data class for TimeTagger." alt="" coords="42,319,258,345"/>
+<area shape="rect" id="node6" href="$classDynExpInstr_1_1QutoolsQuTAGData.html" title=" " alt="" coords="33,393,267,420"/>
+<area shape="rect" id="node2" href="$classDynExpInstr_1_1DataStreamInstrumentData.html" title="Data class for DataStreamInstrument." alt="" coords="5,244,295,271"/>
+<area shape="rect" id="node3" href="$classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads...." alt="" coords="43,169,257,196"/>
+<area shape="rect" id="node4" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="55,80,245,121"/>
+<area shape="rect" id="node5" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="78,5,222,32"/>
+</map>

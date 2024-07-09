@@ -1,0 +1,7 @@
+<map id="DynExpInstr::PVCamData" name="DynExpInstr::PVCamData">
+<area shape="rect" id="node1" title=" " alt="" coords="19,319,206,345"/>
+<area shape="rect" id="node2" href="$classDynExpInstr_1_1CameraData.html" title="Data class for Camera." alt="" coords="17,244,208,271"/>
+<area shape="rect" id="node3" href="$classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads...." alt="" coords="5,169,220,196"/>
+<area shape="rect" id="node4" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="17,80,208,121"/>
+<area shape="rect" id="node5" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="41,5,185,32"/>
+</map>

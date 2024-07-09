@@ -1,0 +1,6 @@
+<map id="DynExpInstr::PVCamTasks::InitTask" name="DynExpInstr::PVCamTasks::InitTask">
+<area shape="rect" id="node1" title=" " alt="" coords="7,244,199,285"/>
+<area shape="rect" id="node2" href="$classDynExpInstr_1_1CameraTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="5,155,201,196"/>
+<area shape="rect" id="node3" href="$classDynExp_1_1InitTaskBase.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="22,80,185,107"/>
+<area shape="rect" id="node4" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="33,5,174,32"/>
+</map>

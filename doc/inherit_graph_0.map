@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" title=" " alt="" coords="5,132,80,159"/>
+<area shape="rect" id="node2" href="$classBusyDialog.html" title=" " alt="" coords="157,5,253,32"/>
+<area shape="rect" id="node3" href="$classChoiceListDialog.html" title=" " alt="" coords="139,56,270,83"/>
+<area shape="rect" id="node4" href="$classCircuitDiagram.html" title=" " alt="" coords="145,107,265,133"/>
+<area shape="rect" id="node5" href="$classDynExpAbout.html" title=" " alt="" coords="149,157,260,184"/>
+<area shape="rect" id="node6" href="$classErrorListDialog.html" title=" " alt="" coords="145,208,264,235"/>
+<area shape="rect" id="node7" href="$classParamsConfigDialog.html" title="Defines the configuration dialog. The dialog must be displayed by calling ParamsConfigDialog::Display..." alt="" coords="128,259,281,285"/>
+</map>

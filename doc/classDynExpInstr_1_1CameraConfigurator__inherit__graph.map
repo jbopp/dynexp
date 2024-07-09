@@ -1,0 +1,8 @@
+<map id="DynExpInstr::CameraConfigurator" name="DynExpInstr::CameraConfigurator">
+<area shape="rect" id="node1" title="Configurator class for Camera." alt="" coords="115,229,355,256"/>
+<area shape="rect" id="node5" href="$classDynExpInstr_1_1DummyCameraConfigurator.html" title=" " alt="" coords="5,304,217,345"/>
+<area shape="rect" id="node6" href="$classDynExpInstr_1_1PVCamConfigurator.html" title=" " alt="" coords="241,311,477,338"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1InstrumentConfiguratorBase.html" title="Configurator class for InstrumentBase." alt="" coords="104,155,367,181"/>
+<area shape="rect" id="node3" href="$classDynExp_1_1RunnableObjectConfigurator.html" title="Configurator class for RunnableObject." alt="" coords="104,80,367,107"/>
+<area shape="rect" id="node4" href="$classDynExp_1_1ConfiguratorBase.html" title="The configurator classes have the task to generate parameter objects (refer to DynExp::ParamsBase) of..." alt="" coords="139,5,331,32"/>
+</map>

@@ -1,0 +1,27 @@
+var classDynExpInstr_1_1Camera =
+[
+    [ "ConfigType", "classDynExpInstr_1_1Camera.html#a5bd3ed31f4915e6d79c8b361c5105d9b", null ],
+    [ "ExitTaskType", "classDynExpInstr_1_1Camera.html#aa3a3a723b84b6f4b7fb6136bbc6904ae", null ],
+    [ "InitTaskType", "classDynExpInstr_1_1Camera.html#af3f84db35c9b72a24a9ba771e64eb5d2", null ],
+    [ "InstrumentDataType", "classDynExpInstr_1_1Camera.html#aedc9dbfbc5f2fa55ebb1fee370e65e81", null ],
+    [ "ParamsType", "classDynExpInstr_1_1Camera.html#af28a2f605ffbfea147d5349b5bda7fd1", null ],
+    [ "UpdateTaskType", "classDynExpInstr_1_1Camera.html#a874f3c7ec09e929e6cff6edb809dc2cb", null ],
+    [ "Camera", "classDynExpInstr_1_1Camera.html#afce2ba1f7cc45fd5a301c091c3dc9794", null ],
+    [ "~Camera", "classDynExpInstr_1_1Camera.html#af22cbe9845e90fa20073bb0bf8684e7f", null ],
+    [ "CanSetExposureTime", "classDynExpInstr_1_1Camera.html#a96abccc8fdb7b9cebb70831987b4eae6", null ],
+    [ "CaptureSingle", "classDynExpInstr_1_1Camera.html#aba7facfb76e01da95852ee11eff7b5d9", null ],
+    [ "Category", "classDynExpInstr_1_1Camera.html#af0c2f4e187ac9ca6db37bcbd7858e360", null ],
+    [ "GetCategory", "classDynExpInstr_1_1Camera.html#a615a1782db4e6090f50650abab4d441c", null ],
+    [ "GetName", "classDynExpInstr_1_1Camera.html#a9f014dea9ab7382a0f88aa1319f5a72e", null ],
+    [ "GetPixelSizeInMicrons", "classDynExpInstr_1_1Camera.html#a60cc5987320c450762d08b57c9868896", null ],
+    [ "GetTaskQueueDelay", "classDynExpInstr_1_1Camera.html#ac3524ff1afe5a3473eeb1b2c66a340ce", null ],
+    [ "Name", "classDynExpInstr_1_1Camera.html#afee5a731518ae22a8df0e864e094b30a", null ],
+    [ "ResetImpl", "classDynExpInstr_1_1Camera.html#ae4e9711310f10cd20558f74bad08b4a2", null ],
+    [ "ResetImpl", "classDynExpInstr_1_1Camera.html#a39aedef73081471eccbb5323144d2926", null ],
+    [ "SetCameraMode", "classDynExpInstr_1_1Camera.html#ae39b81e1f8bd3b8a95ed8a03ec813a6d", null ],
+    [ "SetExposureTime", "classDynExpInstr_1_1Camera.html#a3428f189996797438e0e9e07fb3294a4", null ],
+    [ "SetExposureTimeSync", "classDynExpInstr_1_1Camera.html#aaac56f042d1c4e2af4c79050e43b2129", null ],
+    [ "StartCapturing", "classDynExpInstr_1_1Camera.html#aa14928a350fd7ac8754c6d76b48a25bb", null ],
+    [ "StopCapturing", "classDynExpInstr_1_1Camera.html#a7ab54a1d8d3dbef9f1ebe5c8ea6b88b2", null ],
+    [ "StopCapturingSync", "classDynExpInstr_1_1Camera.html#a97ddec3dc18e49048a0083dae76291cc", null ]
+];

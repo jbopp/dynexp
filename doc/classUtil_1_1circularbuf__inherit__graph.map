@@ -1,0 +1,4 @@
+<map id="Util::circularbuf" name="Util::circularbuf">
+<area shape="rect" id="node1" title="Circular stream buffer to be used with the standard library&#39;s stream classes. Reading from or writing..." alt="" coords="5,80,128,107"/>
+<area shape="rect" id="node2" title=" " alt="" coords="8,5,125,32"/>
+</map>

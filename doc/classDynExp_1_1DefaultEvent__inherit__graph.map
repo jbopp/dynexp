@@ -1,0 +1,4 @@
+<map id="DynExp::DefaultEvent&lt; ReceiverType, ArgTupleType &gt;" name="DynExp::DefaultEvent&lt; ReceiverType, ArgTupleType &gt;">
+<area shape="rect" id="node1" title="Describes an event which consists of a receiver&#39;s member function and a set of arguments to call this..." alt="" coords="5,80,239,121"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1EventBase.html" title="Common base class for all events to store them in a FIFO queue to be invoked later." alt="" coords="47,5,197,32"/>
+</map>

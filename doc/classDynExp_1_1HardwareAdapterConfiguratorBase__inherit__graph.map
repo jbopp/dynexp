@@ -1,0 +1,16 @@
+<map id="DynExp::HardwareAdapterConfiguratorBase" name="DynExp::HardwareAdapterConfiguratorBase">
+<area shape="rect" id="node1" title="Configurator class for HardwareAdapterBase." alt="" coords="245,257,552,284"/>
+<area shape="rect" id="node3" href="$classDynExpHardware_1_1gRPCHardwareAdapterConfigurator.html" title=" " alt="" coords="621,5,861,61"/>
+<area shape="rect" id="node5" href="$classDynExp_1_1SerialCommunicationHardwareAdapterConfigurator.html" title="Configurator class for SerialCommunicationHardwareAdapter." alt="" coords="631,86,851,127"/>
+<area shape="rect" id="node9" href="$classDynExpHardware_1_1NIDAQHardwareAdapterConfigurator.html" title=" " alt="" coords="617,151,866,193"/>
+<area shape="rect" id="node10" href="$classDynExpHardware_1_1PVCamHardwareAdapterConfigurator.html" title=" " alt="" coords="615,217,868,258"/>
+<area shape="rect" id="node11" href="$classDynExpHardware_1_1QutoolsTDCHardwareAdapterConfigurator.html" title=" " alt="" coords="600,282,883,323"/>
+<area shape="rect" id="node12" href="$classDynExpHardware_1_1SmarActHardwareAdapterConfigurator.html" title=" " alt="" coords="611,347,872,389"/>
+<area shape="rect" id="node13" href="$classDynExpHardware_1_1ZILabOneHardwareAdapterConfigurator.html" title=" " alt="" coords="633,413,849,454"/>
+<area shape="rect" id="node14" href="$classDynExpHardware_1_1gRPCHardwareAdapterConfigurator.html" title="Configurator class for gRPCHardwareAdapter." alt="" coords="618,478,865,519"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1ConfiguratorBase.html" title="The configurator classes have the task to generate parameter objects (refer to DynExp::ParamsBase) of..." alt="" coords="5,257,197,284"/>
+<area shape="rect" id="node4" href="$classDynExpHardware_1_1SIPulseStreamerHardwareAdapterConfigurator.html" title=" " alt="" coords="931,13,1181,54"/>
+<area shape="rect" id="node6" href="$classDynExp_1_1QSerialCommunicationHardwareAdapterConfigurator.html" title="Configurator class for QSerialCommunicationHardwareAdapter." alt="" coords="941,86,1171,127"/>
+<area shape="rect" id="node7" href="$classDynExp_1_1HardwareAdapterSerialPortConfigurator.html" title="Configurator class for HardwareAdapterSerialPort." alt="" coords="1229,53,1460,94"/>
+<area shape="rect" id="node8" href="$classDynExp_1_1HardwareAdapterTcpSocketConfigurator.html" title="Configurator class for HardwareAdapterTcpSocket." alt="" coords="1237,118,1452,159"/>
+</map>

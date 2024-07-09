@@ -1,0 +1,8 @@
+<map id="DynExpInstr::QutoolsQuTAGConfigurator" name="DynExpInstr::QutoolsQuTAGConfigurator">
+<area shape="rect" id="node1" title=" " alt="" coords="5,393,288,420"/>
+<area shape="rect" id="node2" href="$classDynExpInstr_1_1TimeTaggerConfigurator.html" title="Configurator class for TimeTagger." alt="" coords="14,319,279,345"/>
+<area shape="rect" id="node3" href="$classDynExpInstr_1_1DataStreamInstrumentConfigurator.html" title="Configurator class for DataStreamInstrument." alt="" coords="17,229,276,271"/>
+<area shape="rect" id="node4" href="$classDynExp_1_1InstrumentConfiguratorBase.html" title="Configurator class for InstrumentBase." alt="" coords="15,155,278,181"/>
+<area shape="rect" id="node5" href="$classDynExp_1_1RunnableObjectConfigurator.html" title="Configurator class for RunnableObject." alt="" coords="15,80,278,107"/>
+<area shape="rect" id="node6" href="$classDynExp_1_1ConfiguratorBase.html" title="The configurator classes have the task to generate parameter objects (refer to DynExp::ParamsBase) of..." alt="" coords="51,5,243,32"/>
+</map>

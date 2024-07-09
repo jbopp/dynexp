@@ -1,0 +1,22 @@
+<map id="DynExpInstr::ZI_MFLITasks::ZI_MFLITaskBase" name="DynExpInstr::ZI_MFLITasks::ZI_MFLITaskBase">
+<area shape="rect" id="node1" title=" " alt="" coords="5,593,201,635"/>
+<area shape="rect" id="node2" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1AutoAdjustPhaseTask.html" title=" " alt="" coords="251,5,447,47"/>
+<area shape="rect" id="node3" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1AutoAdjustSensitivityTask.html" title=" " alt="" coords="249,71,448,112"/>
+<area shape="rect" id="node4" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1ClearDataTask.html" title=" " alt="" coords="251,136,447,177"/>
+<area shape="rect" id="node5" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1ExitTask.html" title=" " alt="" coords="251,201,447,243"/>
+<area shape="rect" id="node6" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1ForceTriggerTask.html" title=" " alt="" coords="251,267,447,308"/>
+<area shape="rect" id="node7" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1InitTask.html" title=" " alt="" coords="251,332,447,373"/>
+<area shape="rect" id="node8" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1ReadTask.html" title=" " alt="" coords="251,397,447,439"/>
+<area shape="rect" id="node9" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1SetEnableTask.html" title=" " alt="" coords="251,463,447,504"/>
+<area shape="rect" id="node10" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1SetFilterOrderTask.html" title=" " alt="" coords="251,528,447,569"/>
+<area shape="rect" id="node11" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1SetPhaseTask.html" title=" " alt="" coords="251,593,447,635"/>
+<area shape="rect" id="node12" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1SetSamplingRateTask.html" title=" " alt="" coords="251,659,447,700"/>
+<area shape="rect" id="node13" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1SetSensitivityTask.html" title=" " alt="" coords="251,724,447,765"/>
+<area shape="rect" id="node14" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1SetSignalTypeTask.html" title=" " alt="" coords="251,789,447,831"/>
+<area shape="rect" id="node15" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1SetTimeConstantTask.html" title=" " alt="" coords="251,855,447,896"/>
+<area shape="rect" id="node16" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1SetTriggerEdgeTask.html" title=" " alt="" coords="251,920,447,961"/>
+<area shape="rect" id="node17" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1SetTriggerModeTask.html" title=" " alt="" coords="251,985,447,1027"/>
+<area shape="rect" id="node18" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1StartTask.html" title=" " alt="" coords="251,1051,447,1092"/>
+<area shape="rect" id="node19" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1StopTask.html" title=" " alt="" coords="251,1116,447,1157"/>
+<area shape="rect" id="node20" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1UpdateTask.html" title=" " alt="" coords="251,1181,447,1223"/>
+</map>

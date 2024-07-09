@@ -1,0 +1,5 @@
+<map id="DynExpInstr::SpectrometerTasks::ExitTask" name="DynExpInstr::SpectrometerTasks::ExitTask">
+<area shape="rect" id="node1" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="5,155,203,196"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1ExitTaskBase.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="21,80,187,107"/>
+<area shape="rect" id="node3" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="33,5,175,32"/>
+</map>

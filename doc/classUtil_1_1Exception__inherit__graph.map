@@ -1,0 +1,33 @@
+<map id="Util::Exception" name="Util::Exception">
+<area shape="rect" id="node1" title="DynExp exceptions are derived from this class. It contains basic information about the cause of the e..." alt="" coords="355,612,472,639"/>
+<area shape="rect" id="node4" href="$classDynExp_1_1SerialCommunicationException.html" title="Defines an exception caused by a serial communication operation of a hardware adapter." alt="" coords="552,23,772,65"/>
+<area shape="rect" id="node7" href="$classDynExpHardware_1_1NIDAQException.html" title=" " alt="" coords="537,89,787,116"/>
+<area shape="rect" id="node8" href="$classDynExpHardware_1_1PVCamException.html" title=" " alt="" coords="535,140,789,167"/>
+<area shape="rect" id="node9" href="$classDynExpHardware_1_1QutoolsTDCException.html" title=" " alt="" coords="520,191,804,217"/>
+<area shape="rect" id="node10" href="$classDynExpHardware_1_1SmarActException.html" title=" " alt="" coords="531,241,793,268"/>
+<area shape="rect" id="node11" href="$classDynExpHardware_1_1ZILabOneException.html" title=" " alt="" coords="559,293,765,334"/>
+<area shape="rect" id="node12" href="$classDynExpHardware_1_1gRPCException.html" title="Defines an exception caused by an operation involving the gRPC library and communication over a TCP s..." alt="" coords="541,359,783,385"/>
+<area shape="rect" id="node13" href="$classUtil_1_1EmptyException.html" title="Thrown when a list is expected to contain entries and when a query results in an empty answer or an e..." alt="" coords="583,409,741,436"/>
+<area shape="rect" id="node14" href="$classUtil_1_1FileIOErrorException.html" title="Thrown when reading from or writing to a file failed." alt="" coords="569,460,755,487"/>
+<area shape="rect" id="node15" href="$classUtil_1_1ForwardedException.html" title="Class to forward an Exception instance from one DynExp::Object instance to another DynExp::Object ins..." alt="" coords="569,511,755,537"/>
+<area shape="rect" id="node16" href="$classUtil_1_1InvalidArgException.html" title="An invalid argument like a null pointer has been passed to a function." alt="" coords="571,561,753,588"/>
+<area shape="rect" id="node17" href="$classUtil_1_1InvalidCallException.html" title="Thrown when a function call is not allowed to a specific thread in a multi&#45;threading context." alt="" coords="569,612,755,639"/>
+<area shape="rect" id="node18" href="$classUtil_1_1InvalidDataException.html" title="Data to operate on is invalid for a specific purpose. This indicates a corrupted data structure or fu..." alt="" coords="566,663,758,689"/>
+<area shape="rect" id="node19" href="$classUtil_1_1InvalidStateException.html" title="An operation cannot be performed currently since the related object is in an invalid state like an er..." alt="" coords="565,713,759,740"/>
+<area shape="rect" id="node22" href="$classUtil_1_1NotAvailableException.html" title="Thrown when some operation or feature is temporarily or permanently not available." alt="" coords="562,764,762,791"/>
+<area shape="rect" id="node23" href="$classUtil_1_1NotFoundException.html" title="Thrown when a requested ressource does not exist." alt="" coords="573,815,751,841"/>
+<area shape="rect" id="node24" href="$classUtil_1_1NotImplementedException.html" title="Thrown when a requested feature is either under development and thus not implemented yet or when a sp..." alt="" coords="549,865,775,892"/>
+<area shape="rect" id="node25" href="$classUtil_1_1OutOfRangeException.html" title="Thrown when an argument passed to a function exceeds the valid range." alt="" coords="564,916,760,943"/>
+<area shape="rect" id="node26" href="$classUtil_1_1OverflowException.html" title="Thrown when a numeric operation would result in an overflow (e.g. due to incompatible data types)" alt="" coords="575,967,749,993"/>
+<area shape="rect" id="node27" href="$classUtil_1_1ServiceFailedException.html" title="Denotes that e.g. a remote gRPC service failed." alt="" coords="561,1017,763,1044"/>
+<area shape="rect" id="node28" href="$classUtil_1_1TimeoutException.html" title="Thrown when an operation timed out before it could be completed, especially used for locking shared d..." alt="" coords="577,1068,747,1095"/>
+<area shape="rect" id="node30" href="$classUtil_1_1TypeErrorException.html" title="Thrown when an attempt was made to convert two incompatible types into each other." alt="" coords="573,1119,751,1145"/>
+<area shape="rect" id="node31" href="$classUtil_1_1UnderflowException.html" title="Thrown when a numeric operation would result in an underflow (e.g. due to incompatible data types)" alt="" coords="571,1169,753,1196"/>
+<area shape="rect" id="node2" title=" " alt="" coords="168,612,307,639"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,612,120,639"/>
+<area shape="rect" id="node5" href="$classDynExp_1_1NetworkException.html" title="Defines an exception caused by a hardware operation on an ethernet interface (e.g...." alt="" coords="868,5,1067,32"/>
+<area shape="rect" id="node6" href="$classDynExp_1_1SerialPortException.html" title="Defines an exception caused by a hardware operation on a COM port (e.g. reading/writing data to a COM..." alt="" coords="864,56,1071,83"/>
+<area shape="rect" id="node20" href="$classUtil_1_1InvalidObjectLinkException.html" title="Thrown when RunnableInstance cannot lock an object to be used by another object due to an invalid lin..." alt="" coords="852,684,1083,711"/>
+<area shape="rect" id="node21" href="$classUtil_1_1LinkedObjectNotLockedException.html" title="Thrown when RunnableInstance::LockObject() has not been called on an object link parameter to establi..." alt="" coords="865,735,1070,777"/>
+<area shape="rect" id="node29" href="$classUtil_1_1ThreadDidNotRespondException.html" title="Thrown in a multi&#45;threading context when an answer is expected from another thread an when the commun..." alt="" coords="868,1061,1067,1102"/>
+</map>

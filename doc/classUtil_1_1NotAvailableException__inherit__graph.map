@@ -1,0 +1,6 @@
+<map id="Util::NotAvailableException" name="Util::NotAvailableException">
+<area shape="rect" id="node1" title="Thrown when some operation or feature is temporarily or permanently not available." alt="" coords="5,229,205,256"/>
+<area shape="rect" id="node2" href="$classUtil_1_1Exception.html" title="DynExp exceptions are derived from this class. It contains basic information about the cause of the e..." alt="" coords="47,155,164,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="36,80,175,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="48,5,163,32"/>
+</map>

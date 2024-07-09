@@ -1,0 +1,10 @@
+<map id="DynExp::SerialCommunicationHardwareAdapter" name="DynExp::SerialCommunicationHardwareAdapter">
+<area shape="rect" id="node1" title="Defines a hardware adapter for serial communication. Logical const&#45;ness: see declaration of class Dyn..." alt="" coords="153,229,373,271"/>
+<area shape="rect" id="node6" href="$classDynExp_1_1QSerialCommunicationHardwareAdapter.html" title="SerialCommunicationHardwareAdapter is based on a Qt communication object (wrapped by QSerialCommunica..." alt="" coords="148,319,379,360"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1HardwareAdapterBase.html" title="Defines the base class for a hardware adapter object. Hardware adapters describe interfaces/connectio..." alt="" coords="150,155,377,181"/>
+<area shape="rect" id="node3" href="$classUtil_1_1ILockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by providing..." alt="" coords="135,80,250,107"/>
+<area shape="rect" id="node4" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="121,5,265,32"/>
+<area shape="rect" id="node5" href="$classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),..." alt="" coords="274,80,397,107"/>
+<area shape="rect" id="node7" href="$classDynExp_1_1HardwareAdapterSerialPort.html" title="Implements a hardware adapter to communicate with text&#45;based commands over COM ports." alt="" coords="5,415,263,442"/>
+<area shape="rect" id="node8" href="$classDynExp_1_1HardwareAdapterTcpSocket.html" title="Implements a hardware adapter to communicate with text&#45;based commands over TCP sockets." alt="" coords="287,408,501,449"/>
+</map>

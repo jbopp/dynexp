@@ -1,0 +1,7 @@
+<map id="DynExpInstr::DummyDataStreamInstrumentTasks::InitTask" name="DynExpInstr::DummyDataStreamInstrumentTasks::InitTask">
+<area shape="rect" id="node1" title=" " alt="" coords="15,333,254,375"/>
+<area shape="rect" id="node2" href="$classDynExpInstr_1_1FunctionGeneratorTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="20,244,249,285"/>
+<area shape="rect" id="node3" href="$classDynExpInstr_1_1DataStreamInstrumentTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="5,155,264,196"/>
+<area shape="rect" id="node4" href="$classDynExp_1_1InitTaskBase.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="53,80,216,107"/>
+<area shape="rect" id="node5" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="64,5,205,32"/>
+</map>

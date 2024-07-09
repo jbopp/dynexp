@@ -1,0 +1,57 @@
+var classDynExpInstr_1_1SpectrometerData =
+[
+    [ "SpectrumType", "classDynExpInstr_1_1SpectrometerData_1_1SpectrumType.html", "classDynExpInstr_1_1SpectrometerData_1_1SpectrumType" ],
+    [ "TimeType", "classDynExpInstr_1_1SpectrometerData.html#aa986e6ad2102b58a659fc71d47a3c801", null ],
+    [ "CapturingStateType", "classDynExpInstr_1_1SpectrometerData.html#a77750835de7f969234feb8b43d3f7b73", [
+      [ "Ready", "classDynExpInstr_1_1SpectrometerData.html#a77750835de7f969234feb8b43d3f7b73ae7d31fc0602fb2ede144d18cdffd816b", null ],
+      [ "Warning", "classDynExpInstr_1_1SpectrometerData.html#a77750835de7f969234feb8b43d3f7b73a0eaadb4fcb48a0a0ed7bc9868be9fbaa", null ],
+      [ "Error", "classDynExpInstr_1_1SpectrometerData.html#a77750835de7f969234feb8b43d3f7b73a902b0d55fddef6f8d651fe1035b7d4bd", null ],
+      [ "Capturing", "classDynExpInstr_1_1SpectrometerData.html#a77750835de7f969234feb8b43d3f7b73a62411b76d12a4ad116da05c356ff9bf3", null ]
+    ] ],
+    [ "FrequencyUnitType", "classDynExpInstr_1_1SpectrometerData.html#ae42e8db302c481aab3ecfbd2115bf233", [
+      [ "Hz", "classDynExpInstr_1_1SpectrometerData.html#ae42e8db302c481aab3ecfbd2115bf233ad1e2634cb743590b235fe6b1dfa763ba", null ],
+      [ "nm", "classDynExpInstr_1_1SpectrometerData.html#ae42e8db302c481aab3ecfbd2115bf233a93122a9e4abcba124d5a7d4beaba3f89", null ],
+      [ "Inv_cm", "classDynExpInstr_1_1SpectrometerData.html#ae42e8db302c481aab3ecfbd2115bf233a36569f7fac6afec2f023d1a9f22465ce", null ]
+    ] ],
+    [ "IntensityUnitType", "classDynExpInstr_1_1SpectrometerData.html#aeca5ad2b16f00f82ce45b5388d8f2306", [
+      [ "Counts", "classDynExpInstr_1_1SpectrometerData.html#aeca5ad2b16f00f82ce45b5388d8f2306afbc82f77563b61ff6ee1a8202837307d", null ]
+    ] ],
+    [ "SpectrometerData", "classDynExpInstr_1_1SpectrometerData.html#a05b7262c6fbc201172fa3c6365c0f634", null ],
+    [ "~SpectrometerData", "classDynExpInstr_1_1SpectrometerData.html#a8e77837d260b794c432e15d13e0831d7", null ],
+    [ "ClearSpectrum", "classDynExpInstr_1_1SpectrometerData.html#a7d9d8b5a0aea02a2a382f73b58565731", null ],
+    [ "FrequencyUnitTypeToStr", "classDynExpInstr_1_1SpectrometerData.html#ab981b53deb841257dd4b4f1de0589ec5", null ],
+    [ "GetCapturingProgress", "classDynExpInstr_1_1SpectrometerData.html#a9f49cfebc8cae327ebc4c8218784a8f4", null ],
+    [ "GetCapturingProgressChild", "classDynExpInstr_1_1SpectrometerData.html#a4ecca2fdba1489037d68b97dfaa0432b", null ],
+    [ "GetCapturingState", "classDynExpInstr_1_1SpectrometerData.html#a1460017358aa8eb5ef11fd8e75b713a8", null ],
+    [ "GetCapturingStateChild", "classDynExpInstr_1_1SpectrometerData.html#adfa3dc38c3be4796c2fb8a84f5665063", null ],
+    [ "GetCurrentExposureTime", "classDynExpInstr_1_1SpectrometerData.html#a8f5247b55111fe047bc10524ac6aa417", null ],
+    [ "GetCurrentLowerFrequency", "classDynExpInstr_1_1SpectrometerData.html#a8f8903ff39c2629302ecc70f767a37ee", null ],
+    [ "GetCurrentUpperFrequency", "classDynExpInstr_1_1SpectrometerData.html#ad532ffcf70e70953869671f2ea2e82dc", null ],
+    [ "GetMaxExposureTime", "classDynExpInstr_1_1SpectrometerData.html#a245f71fa304422d0c86cc81d69707462", null ],
+    [ "GetMinExposureTime", "classDynExpInstr_1_1SpectrometerData.html#ae2e27dfb166a30692b7734a59ba1f7a0", null ],
+    [ "GetSilentModeEnabled", "classDynExpInstr_1_1SpectrometerData.html#a3cb8f873f084eef1fd8ceb22a12229bb", null ],
+    [ "GetSpectrum", "classDynExpInstr_1_1SpectrometerData.html#a881f58b2fd2885234ccf89027b52c408", null ],
+    [ "GetSpectrumCopy", "classDynExpInstr_1_1SpectrometerData.html#a16b291189c9c5129d16ebe211365b68b", null ],
+    [ "HasSpectrum", "classDynExpInstr_1_1SpectrometerData.html#ac38ee244b0db73bb4920383921f136d8", null ],
+    [ "IntensityUnitTypeToStr", "classDynExpInstr_1_1SpectrometerData.html#a7c0f1e45c8c059e232028166cd4443b4", null ],
+    [ "IsCapturing", "classDynExpInstr_1_1SpectrometerData.html#ad9521fa0f0213d2ba8f95ff6bb71a4da", null ],
+    [ "ResetImpl", "classDynExpInstr_1_1SpectrometerData.html#a7dc58a8344a88b36165086e78c5bfc38", null ],
+    [ "ResetImpl", "classDynExpInstr_1_1SpectrometerData.html#a0118a3074aafbcc9e8399868542c13a2", null ],
+    [ "SetCurrentExposureTime", "classDynExpInstr_1_1SpectrometerData.html#a8cc6958385f5fd9ef75967122f57af88", null ],
+    [ "SetCurrentExposureTime", "classDynExpInstr_1_1SpectrometerData.html#a3ced70d6c02c74b242199244874941dd", null ],
+    [ "SetCurrentLowerFrequency", "classDynExpInstr_1_1SpectrometerData.html#a56fd8a896dc919fb504542813d6554b1", null ],
+    [ "SetCurrentUpperFrequency", "classDynExpInstr_1_1SpectrometerData.html#aad6c6342a979965fb2b583bc7500a53b", null ],
+    [ "SetMaxExposureTime", "classDynExpInstr_1_1SpectrometerData.html#ac5ad09b564c957ffe1f879d41af3c1ec", null ],
+    [ "SetMaxExposureTime", "classDynExpInstr_1_1SpectrometerData.html#aaf7326302a6e7d0255274c855acdb408", null ],
+    [ "SetMinExposureTime", "classDynExpInstr_1_1SpectrometerData.html#a02c6099ea2f35b03b3c2ac546c874b14", null ],
+    [ "SetMinExposureTime", "classDynExpInstr_1_1SpectrometerData.html#a8a83092f1b442864c3b14e833b250a5e", null ],
+    [ "SetSilentModeEnabled", "classDynExpInstr_1_1SpectrometerData.html#afff7d998733b37e6a7c013d5d9f0f2e4", null ],
+    [ "SetSpectrum", "classDynExpInstr_1_1SpectrometerData.html#a7ae4bafd26fdf0095278507be962be9d", null ],
+    [ "CurrentExposureTime", "classDynExpInstr_1_1SpectrometerData.html#aee513294ddcf57f68fb73520c9fde9b8", null ],
+    [ "CurrentLowerFrequency", "classDynExpInstr_1_1SpectrometerData.html#ad1e1f74a6871bf8435b6370af184cbd9", null ],
+    [ "CurrentSpectrum", "classDynExpInstr_1_1SpectrometerData.html#a67c4fafac97bbc71c3ac6f285ea6e05a", null ],
+    [ "CurrentUpperFrequency", "classDynExpInstr_1_1SpectrometerData.html#a5b81824fe280831b2a6ed6b58dd700d6", null ],
+    [ "MaxExposureTime", "classDynExpInstr_1_1SpectrometerData.html#a65bb4e6bfc536208ece6a35fdf1598a9", null ],
+    [ "MinExposureTime", "classDynExpInstr_1_1SpectrometerData.html#a9b7e2a75b8ff1952cd881ca6bb4b77be", null ],
+    [ "SilentModeEnabled", "classDynExpInstr_1_1SpectrometerData.html#aef8b7d8dd7b0f290c907a6a369ced648", null ]
+];

@@ -1,0 +1,6 @@
+<map id="DynExpInstr::SpectrometerData" name="DynExpInstr::SpectrometerData">
+<area shape="rect" id="node1" title="Data class for Spectrometer." alt="" coords="5,244,233,271"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads...." alt="" coords="12,169,227,196"/>
+<area shape="rect" id="node3" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="24,80,215,121"/>
+<area shape="rect" id="node4" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="47,5,191,32"/>
+</map>

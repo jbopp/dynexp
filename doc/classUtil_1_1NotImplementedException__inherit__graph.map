@@ -1,0 +1,6 @@
+<map id="Util::NotImplementedException" name="Util::NotImplementedException">
+<area shape="rect" id="node1" title="Thrown when a requested feature is either under development and thus not implemented yet or when a sp..." alt="" coords="5,229,232,256"/>
+<area shape="rect" id="node2" href="$classUtil_1_1Exception.html" title="DynExp exceptions are derived from this class. It contains basic information about the cause of the e..." alt="" coords="60,155,177,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="49,80,188,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="61,5,176,32"/>
+</map>

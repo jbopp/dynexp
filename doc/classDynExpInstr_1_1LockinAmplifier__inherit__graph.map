@@ -1,0 +1,9 @@
+<map id="DynExpInstr::LockinAmplifier" name="DynExpInstr::LockinAmplifier">
+<area shape="rect" id="node1" title="Meta instrument for a lock&#45;in amplifier based on the data stream meta instrument." alt="" coords="51,304,261,331"/>
+<area shape="rect" id="node7" href="$classDynExpInstr_1_1ZI__MFLI.html" title=" " alt="" coords="76,379,236,405"/>
+<area shape="rect" id="node2" href="$classDynExpInstr_1_1DataStreamInstrument.html" title="Implementation of the data stream meta instrument, which is a base class for all instruments reading/..." alt="" coords="27,229,285,256"/>
+<area shape="rect" id="node3" href="$classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic..." alt="" coords="65,155,247,181"/>
+<area shape="rect" id="node4" href="$classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ..." alt="" coords="65,80,247,107"/>
+<area shape="rect" id="node5" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="5,5,149,32"/>
+<area shape="rect" id="node6" href="$classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),..." alt="" coords="173,5,296,32"/>
+</map>

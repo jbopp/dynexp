@@ -1,0 +1,5 @@
+<map id="DynExpInstr::ZI_MFLITasks::SetTriggerModeTask" name="DynExpInstr::ZI_MFLITasks::SetTriggerModeTask">
+<area shape="rect" id="node1" title=" " alt="" coords="74,95,270,136"/>
+<area shape="rect" id="node2" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="5,13,147,39"/>
+<area shape="rect" id="node3" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1ZI__MFLITaskBase.html" title=" " alt="" coords="171,5,367,47"/>
+</map>
