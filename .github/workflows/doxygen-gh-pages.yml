@@ -18,4 +18,4 @@ jobs:
           folder: doc/html
           config_file: Doxyfile
           branch: gh-pages
-          target_folder: dynexp/doc
+          target_folder: doc
