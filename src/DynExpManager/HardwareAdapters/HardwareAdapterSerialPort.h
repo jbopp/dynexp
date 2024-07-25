@@ -44,6 +44,29 @@ namespace DynExp
 	{
 	public:
 		/**
+		 * @brief Extends QSerialPort::BaudRate enumeration with further Baud rates.
+		*/
+		enum BaudRateType : std::underlying_type_t<QSerialPort::BaudRate> {
+			Baud1200 = QSerialPort::BaudRate::Baud1200,
+			Baud2400 = QSerialPort::BaudRate::Baud2400,
+			Baud4800 = QSerialPort::BaudRate::Baud4800,
+			Baud9600 = QSerialPort::BaudRate::Baud9600,
+			Baud19200 = QSerialPort::BaudRate::Baud19200,
+			Baud38400 = QSerialPort::BaudRate::Baud38400,
+			Baud57600 = QSerialPort::BaudRate::Baud57600,
+			Baud115200 = QSerialPort::BaudRate::Baud115200,
+			Baud230400 = 230400,
+			Baud460800 = 460800,
+			Baud921600 = 921600
+		};
+
+		/**
+		 * @brief Assigns labels to the entries of @p BaudRateType.
+		 * @return Mapping between the entries of @p BaudRateType and human-readable descriptions
+		*/
+		static Util::TextValueListType<BaudRateType> BaudRateTypeStrList();
+
+		/**
 		 * @brief Constructs the parameters for a @p HardwareAdapterSerialPort instance.
 		 * @copydetails ParamsBase::ParamsBase
 		*/
@@ -55,8 +78,8 @@ namespace DynExp
 
 		Param<TextList> PortName = { *this, {}, "PortName", "Port",
 			"Name of the serial port to be assigned to this hardware adapter" };			//!< COM port name
-		Param<QSerialPort::BaudRate> BaudRate = { *this, Util::QtEnumToTextValueList<QSerialPort::BaudRate>(0, 0, 4), "BaudRate", "Baud rate",
-			"Data rate in bits per second", true, QSerialPort::Baud9600 };					//!< Baud rate
+		Param<BaudRateType> BaudRate = { *this, BaudRateTypeStrList(), "BaudRate", "Baud rate",
+			"Data rate in bits per second", true, BaudRateType::Baud9600 };					//!< Baud rate
 		Param<QSerialPort::DataBits> DataBits = { *this, Util::QtEnumToTextValueList<QSerialPort::DataBits>(0, 0, 4), "DataBits", "Data bits",
 			"Number of data bits in each character", true, QSerialPort::Data8 };			//!< Amount of data bits
 		Param<QSerialPort::StopBits> StopBits = { *this, Util::QtEnumToTextValueList<QSerialPort::StopBits>(0, 0, 0, 4), "StopBits", "Stop bits",
@@ -111,7 +134,7 @@ namespace DynExp
 		 * @param StopBits Amount of stop bits
 		 * @param Parity Parity setting
 		*/
-		void Init(QString PortName, QSerialPort::BaudRate BaudRate, QSerialPort::DataBits DataBits,
+		void Init(QString PortName, HardwareAdapterSerialPortParams::BaudRateType BaudRate, QSerialPort::DataBits DataBits,
 			QSerialPort::StopBits StopBits, QSerialPort::Parity Parity);
 
 	private slots:
@@ -187,7 +210,7 @@ namespace DynExp
 		/**
 		 * @copydoc HardwareAdapterSerialPortWorker::Init()
 		*/
-		void InitSig(QString PortName, QSerialPort::BaudRate BaudRate, QSerialPort::DataBits DataBits,
+		void InitSig(QString PortName, HardwareAdapterSerialPortParams::BaudRateType BaudRate, QSerialPort::DataBits DataBits,
 			QSerialPort::StopBits StopBits, QSerialPort::Parity Parity);
 		///@}
 	};
