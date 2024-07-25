@@ -17,6 +17,25 @@ namespace DynExp
 		return SerialPortNames;
 	}
 
+	Util::TextValueListType<HardwareAdapterSerialPortParams::BaudRateType> HardwareAdapterSerialPortParams::BaudRateTypeStrList()
+	{
+		Util::TextValueListType<BaudRateType> List = {
+			{ "1200", BaudRateType::Baud1200 },
+			{ "2400", BaudRateType::Baud2400 },
+			{ "4800", BaudRateType::Baud4800 },
+			{ "9600", BaudRateType::Baud9600 },
+			{ "19200", BaudRateType::Baud19200 },
+			{ "38400", BaudRateType::Baud38400 },
+			{ "57600", BaudRateType::Baud57600 },
+			{ "115200", BaudRateType::Baud115200 },
+			{ "230400", BaudRateType::Baud230400 },
+			{ "460800", BaudRateType::Baud460800 },
+			{ "921600", BaudRateType::Baud921600 },
+		};
+
+		return List;
+	}
+
 	void HardwareAdapterSerialPortParams::ConfigureParamsImpl(dispatch_tag<QSerialCommunicationHardwareAdapterParams>)
 	{
 		auto SerialPorts = HardwareAdapterSerialPort::Enumerate();
@@ -33,7 +52,7 @@ namespace DynExp
 		QObject::connect(&Port, &QSerialPort::readyRead, this, &HardwareAdapterSerialPortWorker::OnDataAvailable);
 	}
 
-	void HardwareAdapterSerialPortWorker::Init(QString PortName, QSerialPort::BaudRate BaudRate, QSerialPort::DataBits DataBits,
+	void HardwareAdapterSerialPortWorker::Init(QString PortName, HardwareAdapterSerialPortParams::BaudRateType BaudRate, QSerialPort::DataBits DataBits,
 		QSerialPort::StopBits StopBits, QSerialPort::Parity Parity)
 	{
 		Port.setReadBufferSize(SerialCommunicationHardwareAdapter::GetMaxBufferSize());
