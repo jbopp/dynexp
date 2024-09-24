@@ -8,6 +8,9 @@ In turn, the abstraction of instruments enables to write hardware-agnostic progr
 This allows for greatest flexibility since the experiment modules do not depend on specific hardware.
 Instead, instruments can be assigned to modules without any programming at runtime.
 
+-> [Installation Quickstart](./QUICKSTART.md)  
+-> [Documentation](https://jbopp.github.io/dynexp/doc/index.html) (Status: ![doxygen-gh-pages workflow status](https://github.com/jbopp/dynexp/actions/workflows/doxygen-gh-pages.yml/badge.svg))
+
 
 ## Features and core concepts
 ### Feature list
