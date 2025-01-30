@@ -1,3 +1,13 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structDynExpInstr_1_1TimeTaggerData_1_1HBTResultsType.html" title="Type to store results of a g^(2) measurement." alt="" coords="5,5,221,47"/>
+<area shape="rect" id="Node000000" href="$classDynExpInstr_1_1DataStreamBase.html" title="Base class for all data streams compatible with the data stream instrument&#39;s data class DataStreamIns..." alt="" coords="5,45,224,70"/>
+<area shape="rect" id="Node000001" href="$classDynExpInstr_1_1CircularDataStreamBase.html" title="Base class for all circular data streams based on Util::circularbuf." alt="" coords="272,37,463,77"/>
+<area shape="poly" id="edge214_Node000000_Node000001" title=" " alt="" coords="238,55,272,55,272,60,238,60"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1CircularDataStream.html" title=" " alt="" coords="511,5,701,45"/>
+<area shape="poly" id="edge215_Node000001_Node000002" title=" " alt="" coords="476,40,510,35,511,41,477,45"/>
+<area shape="rect" id="Node000004" href="$classDynExpInstr_1_1CircularDataStream.html" title="Implements a circular data stream based on Util::circularbuf." alt="" coords="511,69,701,109"/>
+<area shape="poly" id="edge217_Node000001_Node000004" title=" " alt="" coords="477,69,511,74,510,79,476,75"/>
+<area shape="rect" id="Node000003" href="$classDynExpInstr_1_1BasicSampleStream.html" title="Implements a circular data stream based on Util::circularbuf using samples of type BasicSample." alt="" coords="759,5,953,45"/>
+<area shape="poly" id="edge216_Node000002_Node000003" title=" " alt="" coords="715,23,759,23,759,28,715,28"/>
+<area shape="rect" id="Node000005" href="$classDynExpInstr_1_1NumericSampleStream.html" title="Implements a circular data stream based on Util::circularbuf using samples of an arithmetic type Samp..." alt="" coords="749,69,963,109"/>
+<area shape="poly" id="edge218_Node000004_Node000005" title=" " alt="" coords="715,87,749,87,749,92,715,92"/>
 </map>

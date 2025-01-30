@@ -27,7 +27,7 @@ var classDynExpHardware_1_1SIPulseStreamerHardwareAdapterParams =
     [ "~SIPulseStreamerHardwareAdapterParams", "classDynExpHardware_1_1SIPulseStreamerHardwareAdapterParams.html#adc967af5f4f72b0f39e3cc80191c2b26", null ],
     [ "ConfigureParamsImpl", "classDynExpHardware_1_1SIPulseStreamerHardwareAdapterParams.html#aed6fbc4b7803b75af41b65fb5dd1db33", null ],
     [ "ConfigureParamsImpl", "classDynExpHardware_1_1SIPulseStreamerHardwareAdapterParams.html#a8697ad4d736175c1bf4ae2444f88fcc1", null ],
-    [ "GetParamClassTag", "classDynExpHardware_1_1SIPulseStreamerHardwareAdapterParams.html#afe371e033b9c1f8af0c11f64f07e8081", null ],
+    [ "GetParamClassTag", "classDynExpHardware_1_1SIPulseStreamerHardwareAdapterParams.html#a902fe8eb050802d0b14df091076c2bff", null ],
     [ "OutputChannelTypeStrList", "classDynExpHardware_1_1SIPulseStreamerHardwareAdapterParams.html#a006f75bec4f33e62a9614506074b4f5b", null ],
     [ "TriggerEdgeTypeStrList", "classDynExpHardware_1_1SIPulseStreamerHardwareAdapterParams.html#a88f929d8780a4c4ee74ee547ea2c6001", null ],
     [ "TriggerModeTypeStrList", "classDynExpHardware_1_1SIPulseStreamerHardwareAdapterParams.html#ad8a8d6c77f68ebe015720a32b220c806", null ],

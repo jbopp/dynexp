@@ -1,4 +1,5 @@
 <map id="DynExp::ModuleLibrary&lt; ModuleTypes &gt;" name="DynExp::ModuleLibrary&lt; ModuleTypes &gt;">
-<area shape="rect" id="node1" title="Represents a module library to generate instances of classes derived from DynExp::ModuleBase." alt="" coords="411,57,584,98"/>
-<area shape="rect" id="node2" href="$namespaceDynExp.html" title=" " alt="" coords="5,5,363,149"/>
+<area shape="rect" id="Node000001" title="Represents a module library to generate instances of classes derived from DynExp::ModuleBase." alt="" coords="411,57,584,97"/>
+<area shape="rect" id="Node000002" href="$namespaceDynExp.html" title=" " alt="" coords="5,5,363,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="376,74,410,74,410,79,376,79"/>
 </map>

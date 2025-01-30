@@ -1,6 +1,9 @@
 <map id="DynExpInstr::gRPCInstrument&lt; BaseInstr,, gRPCStubs &gt;" name="DynExpInstr::gRPCInstrument&lt; BaseInstr,, gRPCStubs &gt;">
-<area shape="rect" id="node1" title="Meta instrument template for transforming meta instruments into network instruments,..." alt="" coords="136,27,351,69"/>
-<area shape="rect" id="node3" href="$classDynExpInstr_1_1NetworkDataStreamInstrumentT.html" title=" " alt="" coords="399,5,648,91"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,35,88,61"/>
-<area shape="rect" id="node4" href="$classDynExpInstr_1_1NetworkDataStreamInstrument.html" title="Explicit instantiation of derivable class NetworkDataStreamInstrumentT to create the network data str..." alt="" coords="696,27,891,69"/>
+<area shape="rect" id="Node000001" title="Meta instrument template for transforming meta instruments into network instruments,..." alt="" coords="136,27,351,67"/>
+<area shape="rect" id="Node000003" href="$classDynExpInstr_1_1NetworkDataStreamInstrumentT.html" title=" " alt="" coords="399,5,648,89"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="364,45,398,45,398,50,364,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,35,88,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,45,136,45,136,50,102,50"/>
+<area shape="rect" id="Node000004" href="$classDynExpInstr_1_1NetworkDataStreamInstrument.html" title="Explicit instantiation of derivable class NetworkDataStreamInstrumentT to create the network data str..." alt="" coords="696,27,891,67"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="662,45,696,45,696,50,662,50"/>
 </map>

@@ -1,4 +1,5 @@
 <map id="DynExpModule::NetworkTimeTaggerT&lt; gRPCServices &gt;::CallDataSetCoincidenceWindow" name="DynExpModule::NetworkTimeTaggerT&lt; gRPCServices &gt;::CallDataSetCoincidenceWindow">
-<area shape="rect" id="node1" title=" " alt="" coords="364,27,603,83"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,316,105"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="364,27,603,82"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,316,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="330,52,364,52,364,57,330,57"/>
 </map>

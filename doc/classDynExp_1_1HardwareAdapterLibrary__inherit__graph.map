@@ -1,4 +1,5 @@
 <map id="DynExp::HardwareAdapterLibrary&lt; HardwareAdapterTypes &gt;" name="DynExp::HardwareAdapterLibrary&lt; HardwareAdapterTypes &gt;">
-<area shape="rect" id="node1" title="Represents a hardware adapter library to generate instances of classes derived from DynExp::HardwareA..." alt="" coords="476,64,715,105"/>
-<area shape="rect" id="node2" href="$namespaceDynExp.html" title=" " alt="" coords="5,5,428,164"/>
+<area shape="rect" id="Node000001" title="Represents a hardware adapter library to generate instances of classes derived from DynExp::HardwareA..." alt="" coords="476,64,715,104"/>
+<area shape="rect" id="Node000002" href="$namespaceDynExp.html" title=" " alt="" coords="5,5,428,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="442,81,476,81,476,87,442,87"/>
 </map>

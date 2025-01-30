@@ -1,4 +1,5 @@
 <map id="DynExp::InstrumentLibrary&lt; InstrumentTypes &gt;" name="DynExp::InstrumentLibrary&lt; InstrumentTypes &gt;">
-<area shape="rect" id="node1" title="Represents an instrument library to generate instances of classes derived from DynExp::InstrumentBase..." alt="" coords="433,57,629,98"/>
-<area shape="rect" id="node2" href="$namespaceDynExp.html" title=" " alt="" coords="5,5,385,149"/>
+<area shape="rect" id="Node000001" title="Represents an instrument library to generate instances of classes derived from DynExp::InstrumentBase..." alt="" coords="433,57,629,97"/>
+<area shape="rect" id="Node000002" href="$namespaceDynExp.html" title=" " alt="" coords="5,5,385,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="399,74,433,74,433,79,399,79"/>
 </map>

@@ -3,7 +3,7 @@ var classDynExpModule_1_1Trajectory1DParams =
     [ "Trajectory1DParams", "classDynExpModule_1_1Trajectory1DParams.html#a1ee3f5a27201435dbf00d9b3876d8ecf", null ],
     [ "~Trajectory1DParams", "classDynExpModule_1_1Trajectory1DParams.html#a1983be6845dda30f3f9838493331c87b", null ],
     [ "ConfigureParamsImpl", "classDynExpModule_1_1Trajectory1DParams.html#a70432710a2a3b4fca861b6f3b7db4616", null ],
-    [ "GetParamClassTag", "classDynExpModule_1_1Trajectory1DParams.html#ab4259b1f356307ada62894a63c54d2ce", null ],
+    [ "GetParamClassTag", "classDynExpModule_1_1Trajectory1DParams.html#a0563470497b637369693c41e9516d3ed", null ],
     [ "TriggerModeTypeStrList", "classDynExpModule_1_1Trajectory1DParams.html#a41dbdba8e9494eb41d3e431cf29a9a81", null ],
     [ "Communicator", "classDynExpModule_1_1Trajectory1DParams.html#a5bd46711f480e33e926340986ada0fa1", null ],
     [ "DwellTime", "classDynExpModule_1_1Trajectory1DParams.html#a57c4e3abecf466ef328b386b8a92d6d0", null ],

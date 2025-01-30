@@ -8,7 +8,7 @@ var classDynExpInstr_1_1DigitalIn =
     [ "UpdateTaskType", "classDynExpInstr_1_1DigitalIn.html#aa4785d2b8170623fd420372d61d2269d", null ],
     [ "DigitalIn", "classDynExpInstr_1_1DigitalIn.html#ac9a79449fc482ccb0e1dcc7e32c1bf46", null ],
     [ "~DigitalIn", "classDynExpInstr_1_1DigitalIn.html#a43e44d891aa90abd5f541d157b9ef258", null ],
-    [ "Category", "classDynExpInstr_1_1DigitalIn.html#adc9a198422c042aba44e9308fd28efb0", null ],
+    [ "Category", "classDynExpInstr_1_1DigitalIn.html#a12aa8a9fc8d75093d7b319d0156afdf8", null ],
     [ "Get", "classDynExpInstr_1_1DigitalIn.html#ab75dac7ed2aeac595507e42f408e6eb8", null ],
     [ "GetCategory", "classDynExpInstr_1_1DigitalIn.html#a1a92a2dcd0e60e0be95d35b1ce7091dc", null ],
     [ "GetHardwareMaxValue", "classDynExpInstr_1_1DigitalIn.html#ae4d9105494bdf9362ff7760e1a07c5eb", null ],
@@ -18,10 +18,10 @@ var classDynExpInstr_1_1DigitalIn =
     [ "GetNumericSampleStreamParams", "classDynExpInstr_1_1DigitalIn.html#a4bc5b02e2392eb97f9ec6fcaf8854fcb", null ],
     [ "GetSync", "classDynExpInstr_1_1DigitalIn.html#a18f32ffb8efa0403bcbc853fe9047da4", null ],
     [ "GetValueUnit", "classDynExpInstr_1_1DigitalIn.html#aae4e20dd18b6197df51c3adc2ae3e74c", null ],
-    [ "MakeExitTask", "classDynExpInstr_1_1DigitalIn.html#a40edf20cdb99dacd135328a9cd88f0cf", null ],
-    [ "MakeInitTask", "classDynExpInstr_1_1DigitalIn.html#ae844bcc82f62ccf3f4b9bd1497e45184", null ],
-    [ "MakeUpdateTask", "classDynExpInstr_1_1DigitalIn.html#a539f343e29e3a75cdddad216cbd93ebc", null ],
-    [ "Name", "classDynExpInstr_1_1DigitalIn.html#a6abd596a7d40e4ce443e726e037545ad", null ],
+    [ "MakeExitTask", "classDynExpInstr_1_1DigitalIn.html#a4419c8234b3b96aa8c67eb24b96c20fe", null ],
+    [ "MakeInitTask", "classDynExpInstr_1_1DigitalIn.html#a84576473513e6529d9a3984d379f3dad", null ],
+    [ "MakeUpdateTask", "classDynExpInstr_1_1DigitalIn.html#a52bb0b75265ada7ac940b683fc68cdfd", null ],
+    [ "Name", "classDynExpInstr_1_1DigitalIn.html#a20f3bd6d58f28477435f99cf557a8445", null ],
     [ "ResetImpl", "classDynExpInstr_1_1DigitalIn.html#a612bff4935a3c06d87e0258d4666ffc4", null ],
     [ "ResetImpl", "classDynExpInstr_1_1DigitalIn.html#ad104fcd224979dff3d2b2d8fb6b73b9e", null ]
 ];

@@ -12,6 +12,6 @@ var classDynExp_1_1SerialCommunicationHardwareAdapterParams =
     [ "AvlblLineEndingsStrList", "classDynExp_1_1SerialCommunicationHardwareAdapterParams.html#aaa1093aa687d181a3eadf989726b5677", null ],
     [ "ConfigureParamsImpl", "classDynExp_1_1SerialCommunicationHardwareAdapterParams.html#a6f4c3d7eaa47b481472bc45a01355c81", null ],
     [ "ConfigureParamsImpl", "classDynExp_1_1SerialCommunicationHardwareAdapterParams.html#a892c99e89e85d6178658ca302cd337d6", null ],
-    [ "GetParamClassTag", "classDynExp_1_1SerialCommunicationHardwareAdapterParams.html#a978661ad53ee288431e1882543c558ef", null ],
+    [ "GetParamClassTag", "classDynExp_1_1SerialCommunicationHardwareAdapterParams.html#a74d2d265021da60da775b5f6912ecf4b", null ],
     [ "LineEnding", "classDynExp_1_1SerialCommunicationHardwareAdapterParams.html#a8c1e0102030743a24ec5aeee76bb9295", null ]
 ];

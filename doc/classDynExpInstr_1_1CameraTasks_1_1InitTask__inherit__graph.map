@@ -1,7 +1,11 @@
 <map id="DynExpInstr::CameraTasks::InitTask" name="DynExpInstr::CameraTasks::InitTask">
-<area shape="rect" id="node1" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="127,155,323,196"/>
-<area shape="rect" id="node4" href="$classDynExpInstr_1_1DummyCameraTasks_1_1InitTask.html" title=" " alt="" coords="5,244,217,285"/>
-<area shape="rect" id="node5" href="$classDynExpInstr_1_1PVCamTasks_1_1InitTask.html" title=" " alt="" coords="242,244,434,285"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1InitTaskBase.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="143,80,306,107"/>
-<area shape="rect" id="node3" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="154,5,295,32"/>
+<area shape="rect" id="Node000001" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="127,152,323,192"/>
+<area shape="rect" id="Node000004" href="$classDynExpInstr_1_1DummyCameraTasks_1_1InitTask.html" title=" " alt="" coords="5,240,217,280"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="190,202,138,242,135,238,187,198"/>
+<area shape="rect" id="Node000005" href="$classDynExpInstr_1_1PVCamTasks_1_1InitTask.html" title=" " alt="" coords="242,240,434,280"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="262,198,315,238,311,242,259,202"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1InitTaskBase.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="143,79,306,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="227,118,227,152,222,152,222,118"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="154,5,295,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="227,44,227,79,222,79,222,44"/>
 </map>

@@ -1,6 +1,9 @@
 <map id="DynExpInstr::NetworkDigitalOutParams&lt; BaseInstr,, gRPCStubs &gt;" name="DynExpInstr::NetworkDigitalOutParams&lt; BaseInstr,, gRPCStubs &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="5,273,272,315"/>
-<area shape="rect" id="node2" href="$classDynExpInstr_1_1NetworkDataStreamInstrumentParams.html" title=" " alt="" coords="29,169,248,225"/>
-<area shape="rect" id="node3" href="$classDynExpInstr_1_1gRPCInstrumentParams.html" title=" " alt="" coords="5,80,272,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="54,5,223,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,269,272,309"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1NetworkDataStreamInstrumentParams.html" title=" " alt="" coords="29,167,248,221"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,235,141,269,136,269,136,235"/>
+<area shape="rect" id="Node000003" href="$classDynExpInstr_1_1gRPCInstrumentParams.html" title=" " alt="" coords="5,79,272,119"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="141,132,141,167,136,167,136,132"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="54,5,223,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="141,44,141,79,136,79,136,44"/>
 </map>

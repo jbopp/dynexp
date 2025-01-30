@@ -6,7 +6,7 @@ var classDynExpInstr_1_1SmarActData =
     [ "GetChannel", "classDynExpInstr_1_1SmarActData.html#a4af5ceb31b3f9edfa147278493069c2d", null ],
     [ "GetHomePosition", "classDynExpInstr_1_1SmarActData.html#aae3f0a4252eb56a804f0f2b680aa60f7", null ],
     [ "GetSmarActChannelStatus", "classDynExpInstr_1_1SmarActData.html#a2310ad57c11ca9e342bc6f16bbd61cae", null ],
-    [ "GetSmarActChannelStatus", "classDynExpInstr_1_1SmarActData.html#a45ce41fc9c5278669f1814575d0b8013", null ],
+    [ "GetSmarActChannelStatus", "classDynExpInstr_1_1SmarActData.html#a699c3e06ea313f1c493d5dc736eea214", null ],
     [ "HasArrivedChild", "classDynExpInstr_1_1SmarActData.html#a1afadcbeaf3e59afca785a6ea244ba94", null ],
     [ "HasFailedChild", "classDynExpInstr_1_1SmarActData.html#a6f91ec8d696d776a656d835f05f651f1", null ],
     [ "IsMovingChild", "classDynExpInstr_1_1SmarActData.html#a189ca68cf31a6549674abba4f858e008", null ],

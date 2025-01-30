@@ -1,10 +1,17 @@
 <map id="DynExpInstr::InputPortTasks::InitTask" name="DynExpInstr::InputPortTasks::InitTask">
-<area shape="rect" id="node1" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="712,39,916,80"/>
-<area shape="rect" id="node5" href="$classDynExpInstr_1_1AnalogInTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="964,5,1167,47"/>
-<area shape="rect" id="node7" href="$classDynExpInstr_1_1DigitalInTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="965,71,1165,112"/>
-<area shape="rect" id="node2" href="$classDynExpInstr_1_1DataStreamInstrumentTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="405,39,664,80"/>
-<area shape="rect" id="node3" href="$classDynExp_1_1InitTaskBase.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="195,46,357,73"/>
-<area shape="rect" id="node4" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="5,46,147,73"/>
-<area shape="rect" id="node6" href="$classDynExpInstr_1_1NIDAQAnalogInTasks_1_1InitTask.html" title=" " alt="" coords="1215,5,1412,47"/>
-<area shape="rect" id="node8" href="$classDynExpInstr_1_1NIDAQDigitalInTasks_1_1InitTask.html" title=" " alt="" coords="1216,71,1411,112"/>
+<area shape="rect" id="Node000001" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="712,37,916,77"/>
+<area shape="rect" id="Node000005" href="$classDynExpInstr_1_1AnalogInTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="964,5,1167,45"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="929,40,964,36,964,41,930,45"/>
+<area shape="rect" id="Node000007" href="$classDynExpInstr_1_1DigitalInTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="965,69,1165,109"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="930,69,965,74,965,79,929,75"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1DataStreamInstrumentTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="405,37,664,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="678,55,712,55,712,60,678,60"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1InitTaskBase.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="195,45,357,70"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="371,55,405,55,405,60,371,60"/>
+<area shape="rect" id="Node000004" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="5,45,147,70"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="161,55,195,55,195,60,161,60"/>
+<area shape="rect" id="Node000006" href="$classDynExpInstr_1_1NIDAQAnalogInTasks_1_1InitTask.html" title=" " alt="" coords="1215,5,1412,45"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1180,23,1215,23,1215,28,1180,28"/>
+<area shape="rect" id="Node000008" href="$classDynExpInstr_1_1NIDAQDigitalInTasks_1_1InitTask.html" title=" " alt="" coords="1216,69,1411,109"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1179,87,1216,87,1216,92,1179,92"/>
 </map>

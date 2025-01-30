@@ -16,7 +16,7 @@ var classDynExp_1_1QModuleBase =
     [ "InitUI", "classDynExp_1_1QModuleBase.html#aca3d25f5a76521fb896a83043254904e", null ],
     [ "IsActiveWindow", "classDynExp_1_1QModuleBase.html#a33f4d40b07f89df3b2e59262cb558ba3", null ],
     [ "IsWindowDocked", "classDynExp_1_1QModuleBase.html#a425d94724c9f9788875a1d03afe4d8fb", null ],
-    [ "MakeUIWidget", "classDynExp_1_1QModuleBase.html#aebc1c6c82a96da33725f36786ed41978", null ],
+    [ "MakeUIWidget", "classDynExp_1_1QModuleBase.html#a93c2c74f5b7059834ff6422e54a8ec40", null ],
     [ "ResetImpl", "classDynExp_1_1QModuleBase.html#af83ab323976c05c5ba791de5aa61f5c1", null ],
     [ "ResetImpl", "classDynExp_1_1QModuleBase.html#acb2523ee3ba967e004f2dfb8d623e0a6", null ],
     [ "RestoreWindowStatesFromParamsChild", "classDynExp_1_1QModuleBase.html#a2ed40d999b1f90b10ba27c21743041a7", null ],

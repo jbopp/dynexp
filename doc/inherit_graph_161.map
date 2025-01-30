@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$namespaceUtil.html#structUtil_1_1OffsetIndexSequence_3_01Offset_00_01std_1_1index__sequence_3_01Indices_8_8_8_01_4_01_4" title="Holds an alias for a std::index_sequence where all indices are shifted by an offset." alt="" coords="5,5,223,61"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,5,121,31"/>
+<area shape="rect" id="Node000001" href="$classDynExpManager.html" title="Implements DynExp&#39;s main window as a Qt&#45;based user interface (UI)." alt="" coords="169,5,299,31"/>
+<area shape="poly" id="edge528_Node000000_Node000001" title=" " alt="" coords="135,15,169,15,169,21,135,21"/>
 </map>

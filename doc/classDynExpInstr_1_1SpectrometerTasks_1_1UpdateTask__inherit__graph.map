@@ -1,5 +1,7 @@
 <map id="DynExpInstr::SpectrometerTasks::UpdateTask" name="DynExpInstr::SpectrometerTasks::UpdateTask">
-<area shape="rect" id="node1" title="Defines a task for updating an instrument within an instrument inheritance hierarchy...." alt="" coords="5,155,203,196"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1UpdateTaskBase.html" title="Defines a task for updating an instrument within an instrument inheritance hierarchy...." alt="" coords="10,80,198,107"/>
-<area shape="rect" id="node3" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="33,5,175,32"/>
+<area shape="rect" id="Node000001" title="Defines a task for updating an instrument within an instrument inheritance hierarchy...." alt="" coords="5,152,203,192"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1UpdateTaskBase.html" title="Defines a task for updating an instrument within an instrument inheritance hierarchy...." alt="" coords="10,79,198,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,118,107,152,101,152,101,118"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="33,5,175,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="107,44,107,79,101,79,101,44"/>
 </map>

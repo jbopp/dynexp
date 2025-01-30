@@ -1,9 +1,15 @@
 <map id="DynExpInstr::NIDAQAnalogInConfigurator" name="DynExpInstr::NIDAQAnalogInConfigurator">
-<area shape="rect" id="node1" title=" " alt="" coords="38,468,235,509"/>
-<area shape="rect" id="node2" href="$classDynExpInstr_1_1AnalogInConfigurator.html" title="Configurator class for AnalogIn." alt="" coords="13,393,260,420"/>
-<area shape="rect" id="node3" href="$classDynExpInstr_1_1InputPortConfigurator.html" title="Configurator class for InputPort." alt="" coords="13,319,261,345"/>
-<area shape="rect" id="node4" href="$classDynExpInstr_1_1DataStreamInstrumentConfigurator.html" title="Configurator class for DataStreamInstrument." alt="" coords="7,229,266,271"/>
-<area shape="rect" id="node5" href="$classDynExp_1_1InstrumentConfiguratorBase.html" title="Configurator class for InstrumentBase." alt="" coords="5,155,268,181"/>
-<area shape="rect" id="node6" href="$classDynExp_1_1RunnableObjectConfigurator.html" title="Configurator class for RunnableObject." alt="" coords="5,80,268,107"/>
-<area shape="rect" id="node7" href="$classDynExp_1_1ConfiguratorBase.html" title="The configurator classes have the task to generate parameter objects (refer to DynExp::ParamsBase) of..." alt="" coords="41,5,233,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="38,460,235,500"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1AnalogInConfigurator.html" title="Configurator class for AnalogIn." alt="" coords="13,387,260,412"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,426,139,460,134,460,134,426"/>
+<area shape="rect" id="Node000003" href="$classDynExpInstr_1_1InputPortConfigurator.html" title="Configurator class for InputPort." alt="" coords="13,313,261,339"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="139,352,139,387,134,387,134,352"/>
+<area shape="rect" id="Node000004" href="$classDynExpInstr_1_1DataStreamInstrumentConfigurator.html" title="Configurator class for DataStreamInstrument." alt="" coords="7,225,266,265"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="139,279,139,313,134,313,134,279"/>
+<area shape="rect" id="Node000005" href="$classDynExp_1_1InstrumentConfiguratorBase.html" title="Configurator class for InstrumentBase." alt="" coords="5,152,268,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="139,191,139,225,134,225,134,191"/>
+<area shape="rect" id="Node000006" href="$classDynExp_1_1RunnableObjectConfigurator.html" title="Configurator class for RunnableObject." alt="" coords="5,79,268,104"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="139,118,139,152,134,152,134,118"/>
+<area shape="rect" id="Node000007" href="$classDynExp_1_1ConfiguratorBase.html" title="The configurator classes have the task to generate parameter objects (refer to DynExp::ParamsBase) of..." alt="" coords="41,5,233,31"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="139,44,139,79,134,79,134,44"/>
 </map>

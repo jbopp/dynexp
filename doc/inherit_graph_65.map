@@ -1,16 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,365,84,391"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1QModuleWidget.html" title="Window class for Qt&#45;based user interfaces belonging to DynExp modules. User interface Qt window class..." alt="" coords="132,339,316,366"/>
-<area shape="rect" id="node14" href="$classTextEditor.html" title=" " alt="" coords="181,390,267,417"/>
-<area shape="rect" id="node3" href="$classDynExpModule_1_1ImageViewer_1_1ImageViewerWidget.html" title=" " alt="" coords="374,5,589,47"/>
-<area shape="rect" id="node4" href="$classDynExpModule_1_1InputPortReaderWidget.html" title=" " alt="" coords="365,71,598,112"/>
-<area shape="rect" id="node5" href="$classDynExpModule_1_1LockinAmplifierControlWidget.html" title=" " alt="" coords="367,136,596,177"/>
-<area shape="rect" id="node6" href="$classDynExpModule_1_1ODMR_1_1ODMRWidget.html" title=" " alt="" coords="397,201,566,243"/>
-<area shape="rect" id="node7" href="$classDynExpModule_1_1OutputPortWriterWidget.html" title=" " alt="" coords="382,267,581,308"/>
-<area shape="rect" id="node8" href="$classDynExpModule_1_1SignalDesignerWidget.html" title=" " alt="" coords="368,332,595,373"/>
-<area shape="rect" id="node9" href="$classDynExpModule_1_1SignalPlotterWidget.html" title=" " alt="" coords="376,397,587,439"/>
-<area shape="rect" id="node10" href="$classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerWidget.html" title=" " alt="" coords="364,463,599,504"/>
-<area shape="rect" id="node11" href="$classDynExpModule_1_1Stage1DWidget.html" title=" " alt="" coords="367,529,596,555"/>
-<area shape="rect" id="node12" href="$classDynExpModule_1_1Trajectory1DWidget.html" title=" " alt="" coords="381,580,581,621"/>
-<area shape="rect" id="node13" href="$classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html" title=" " alt="" coords="376,645,587,687"/>
+<area shape="rect" id="Node000000" href="$classDynExp_1_1ModuleDataBase_1_1ModuleBaseOnlyType.html" title="Allow exclusive access to some of ModuleDataBase&#39;s private methods to ModuleBase." alt="" coords="5,5,196,45"/>
 </map>

@@ -1,5 +1,7 @@
 <map id="DynExp::ParamsBase::Param&lt; EnumType, std::enable_if_t&lt; std::is_enum_v&lt; EnumType &gt; &gt; &gt;" name="DynExp::ParamsBase::Param&lt; EnumType, std::enable_if_t&lt; std::is_enum_v&lt; EnumType &gt; &gt; &gt;">
-<area shape="rect" id="node1" title="Parameter for enumerations which are convertible to a numeric type. If ParamType is an enum,..." alt="" coords="5,184,213,255"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1ParamsBase_1_1TypedParamBase.html" title="Base class of parameters containing a single value." alt="" coords="9,95,210,136"/>
-<area shape="rect" id="node3" href="$classDynExp_1_1ParamsBase_1_1ParamBase.html" title="Abstract base class for a single object parameter. Parameters derived from this class are automatical..." alt="" coords="29,5,189,47"/>
+<area shape="rect" id="Node000001" title="Parameter for enumerations which are convertible to a numeric type. If ParamType is an enum,..." alt="" coords="5,181,213,251"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1ParamsBase_1_1TypedParamBase.html" title="Base class of parameters containing a single value." alt="" coords="9,93,210,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,147,112,181,107,181,107,147"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1ParamsBase_1_1ParamBase.html" title="Abstract base class for a single object parameter. Parameters derived from this class are automatical..." alt="" coords="29,5,189,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="112,59,112,93,107,93,107,59"/>
 </map>

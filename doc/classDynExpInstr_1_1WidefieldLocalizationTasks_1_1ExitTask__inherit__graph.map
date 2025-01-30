@@ -1,5 +1,7 @@
 <map id="DynExpInstr::WidefieldLocalizationTasks::ExitTask" name="DynExpInstr::WidefieldLocalizationTasks::ExitTask">
-<area shape="rect" id="node1" title=" " alt="" coords="607,20,855,61"/>
-<area shape="rect" id="node2" href="$classDynExpInstr_1_1gRPCInstrumentTasks_1_1ExitTask.html" title=" " alt="" coords="228,5,559,76"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,27,180,54"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="607,20,855,60"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1gRPCInstrumentTasks_1_1ExitTask.html" title=" " alt="" coords="228,5,559,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="572,37,606,37,606,43,572,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,27,180,53"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="194,37,228,37,228,43,194,43"/>
 </map>

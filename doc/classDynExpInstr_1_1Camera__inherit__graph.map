@@ -1,9 +1,15 @@
 <map id="DynExpInstr::Camera" name="DynExpInstr::Camera">
-<area shape="rect" id="node1" title="Meta instrument for an image capturing (camera) device." alt="" coords="135,229,295,256"/>
-<area shape="rect" id="node6" href="$classDynExpInstr_1_1DummyCamera.html" title=" " alt="" coords="5,304,217,331"/>
-<area shape="rect" id="node7" href="$classDynExpInstr_1_1PVCam.html" title=" " alt="" coords="241,304,397,331"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic..." alt="" coords="124,155,307,181"/>
-<area shape="rect" id="node3" href="$classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ..." alt="" coords="124,80,307,107"/>
-<area shape="rect" id="node4" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="65,5,209,32"/>
-<area shape="rect" id="node5" href="$classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),..." alt="" coords="233,5,355,32"/>
+<area shape="rect" id="Node000001" title="Meta instrument for an image capturing (camera) device." alt="" coords="135,225,295,251"/>
+<area shape="rect" id="Node000006" href="$classDynExpInstr_1_1DummyCamera.html" title=" " alt="" coords="5,299,217,324"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="189,261,130,301,127,296,186,256"/>
+<area shape="rect" id="Node000007" href="$classDynExpInstr_1_1PVCam.html" title=" " alt="" coords="241,299,397,324"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="245,256,304,296,301,301,242,261"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic..." alt="" coords="124,152,307,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="218,191,218,225,213,225,213,191"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ..." alt="" coords="124,79,307,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="218,118,218,152,213,152,213,118"/>
+<area shape="rect" id="Node000004" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="65,5,209,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="161,38,204,76,201,80,158,42"/>
+<area shape="rect" id="Node000005" href="$classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),..." alt="" coords="233,5,355,31"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="273,42,230,80,226,76,269,38"/>
 </map>

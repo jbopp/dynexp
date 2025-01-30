@@ -1,8 +1,13 @@
 <map id="DynExpInstr::CameraData" name="DynExpInstr::CameraData">
-<area shape="rect" id="node1" title="Data class for Camera." alt="" coords="150,244,341,271"/>
-<area shape="rect" id="node5" href="$classDynExpInstr_1_1DummyCameraData.html" title=" " alt="" coords="5,319,248,345"/>
-<area shape="rect" id="node6" href="$classDynExpInstr_1_1PVCamData.html" title=" " alt="" coords="272,319,459,345"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads...." alt="" coords="138,169,353,196"/>
-<area shape="rect" id="node3" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="150,80,341,121"/>
-<area shape="rect" id="node4" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="173,5,317,32"/>
+<area shape="rect" id="Node000001" title="Data class for Camera." alt="" coords="150,240,341,265"/>
+<area shape="rect" id="Node000005" href="$classDynExpInstr_1_1DummyCameraData.html" title=" " alt="" coords="5,313,248,339"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="216,275,147,315,145,311,213,270"/>
+<area shape="rect" id="Node000006" href="$classDynExpInstr_1_1PVCamData.html" title=" " alt="" coords="272,313,459,339"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="278,270,347,311,344,315,275,275"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads...." alt="" coords="138,167,353,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="248,206,248,240,243,240,243,206"/>
+<area shape="rect" id="Node000003" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="150,79,341,119"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="248,132,248,166,243,166,243,132"/>
+<area shape="rect" id="Node000004" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="173,5,317,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="248,44,248,79,243,79,243,44"/>
 </map>

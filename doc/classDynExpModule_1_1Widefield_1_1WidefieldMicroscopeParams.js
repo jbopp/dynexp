@@ -3,7 +3,7 @@ var classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeParams =
     [ "WidefieldMicroscopeParams", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeParams.html#a146eab73fdba0a35af9b3b2a74d86d42", null ],
     [ "~WidefieldMicroscopeParams", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeParams.html#afb89c8e64a095cf90644ffdc5ce4bc69", null ],
     [ "ConfigureParamsImpl", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeParams.html#a66c74d57f790c8cb83df3ce4b5535b3e", null ],
-    [ "GetParamClassTag", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeParams.html#a48b58700ab4e60856522eaf00205e843", null ],
+    [ "GetParamClassTag", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeParams.html#a8c8f42a5f49d45e6ce8e0aa99e9c46df", null ],
     [ "AcqCommunicator", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeParams.html#a9da017b44153a54149ea7d576649fb03", null ],
     [ "DefaultPowerConfocalMode", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeParams.html#a2389626f084a02244a2169752abb87ba", null ],
     [ "DefaultPowerWidefieldMode", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeParams.html#ab2fb6b1d823e9e411eb86766e642efa3", null ],

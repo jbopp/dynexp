@@ -1,4 +1,5 @@
 <map id="DynExpModule::NetworkDataStreamInstrumentT&lt; gRPCServices &gt;::CallDataResetStreamSize" name="DynExpModule::NetworkDataStreamInstrumentT&lt; gRPCServices &gt;::CallDataResetStreamSize">
-<area shape="rect" id="node1" title=" " alt="" coords="376,27,628,83"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,328,105"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="376,27,628,82"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,328,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="342,52,376,52,376,57,342,57"/>
 </map>

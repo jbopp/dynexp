@@ -1,6 +1,9 @@
 <map id="DynExpInstr::BasicSampleStream" name="DynExpInstr::BasicSampleStream">
-<area shape="rect" id="node1" title="Implements a circular data stream based on Util::circularbuf using samples of type BasicSample." alt="" coords="18,259,211,300"/>
-<area shape="rect" id="node2" href="$classDynExpInstr_1_1CircularDataStream.html" title=" " alt="" coords="19,169,210,211"/>
-<area shape="rect" id="node3" href="$classDynExpInstr_1_1CircularDataStreamBase.html" title="Base class for all circular data streams based on Util::circularbuf." alt="" coords="19,80,210,121"/>
-<area shape="rect" id="node4" href="$classDynExpInstr_1_1DataStreamBase.html" title="Base class for all data streams compatible with the data stream instrument&#39;s data class DataStreamIns..." alt="" coords="5,5,224,32"/>
+<area shape="rect" id="Node000001" title="Implements a circular data stream based on Util::circularbuf using samples of type BasicSample." alt="" coords="18,255,211,295"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1CircularDataStream.html" title=" " alt="" coords="19,167,210,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,221,117,254,112,254,112,221"/>
+<area shape="rect" id="Node000003" href="$classDynExpInstr_1_1CircularDataStreamBase.html" title="Base class for all circular data streams based on Util::circularbuf." alt="" coords="19,79,210,119"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="117,133,117,166,112,166,112,133"/>
+<area shape="rect" id="Node000004" href="$classDynExpInstr_1_1DataStreamBase.html" title="Base class for all data streams compatible with the data stream instrument&#39;s data class DataStreamIns..." alt="" coords="5,5,224,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="117,44,117,79,112,79,112,44"/>
 </map>

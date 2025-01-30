@@ -1,6 +1,9 @@
 <map id="DynExp::HardwareAdapterTcpSocketWorker" name="DynExp::HardwareAdapterTcpSocketWorker">
-<area shape="rect" id="node1" title="Qt worker for network communication in a separate thread." alt="" coords="13,244,228,285"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1QSerialCommunicationHardwareAdapterWorker.html" title="Qt worker which performs actual serial communication hardware operations in a separate thread in orde..." alt="" coords="5,155,236,196"/>
-<area shape="rect" id="node3" href="$classUtil_1_1QWorker.html" title="Implements a QObject belonging to a hardware adapter (derived from DynExp::HardwareAdapterBase) that ..." alt="" coords="67,80,175,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="83,5,158,32"/>
+<area shape="rect" id="Node000001" title="Qt worker for network communication in a separate thread." alt="" coords="13,240,228,280"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1QSerialCommunicationHardwareAdapterWorker.html" title="Qt worker which performs actual serial communication hardware operations in a separate thread in orde..." alt="" coords="5,152,236,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,206,123,240,118,240,118,206"/>
+<area shape="rect" id="Node000003" href="$classUtil_1_1QWorker.html" title="Implements a QObject belonging to a hardware adapter (derived from DynExp::HardwareAdapterBase) that ..." alt="" coords="67,79,175,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="123,118,123,152,118,152,118,118"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="83,5,158,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="123,44,123,79,118,79,118,44"/>
 </map>

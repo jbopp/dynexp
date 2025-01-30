@@ -1,6 +1,9 @@
 <map id="Util::NotAvailableException" name="Util::NotAvailableException">
-<area shape="rect" id="node1" title="Thrown when some operation or feature is temporarily or permanently not available." alt="" coords="5,229,205,256"/>
-<area shape="rect" id="node2" href="$classUtil_1_1Exception.html" title="DynExp exceptions are derived from this class. It contains basic information about the cause of the e..." alt="" coords="47,155,164,181"/>
-<area shape="rect" id="node3" title=" " alt="" coords="36,80,175,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="48,5,163,32"/>
+<area shape="rect" id="Node000001" title="Thrown when some operation or feature is temporarily or permanently not available." alt="" coords="5,225,205,251"/>
+<area shape="rect" id="Node000002" href="$classUtil_1_1Exception.html" title="DynExp exceptions are derived from this class. It contains basic information about the cause of the e..." alt="" coords="47,152,164,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,191,108,225,103,225,103,191"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="36,79,175,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="108,118,108,152,103,152,103,118"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="48,5,163,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="108,44,108,79,103,79,103,44"/>
 </map>

@@ -1,39 +1,77 @@
 <map id="DynExp::InstrumentBase" name="DynExp::InstrumentBase">
-<area shape="rect" id="node1" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic..." alt="" coords="428,354,611,381"/>
-<area shape="rect" id="node5" href="$classDynExpInstr_1_1gRPCInstrument.html" title=" " alt="" coords="659,43,932,113"/>
-<area shape="rect" id="node7" href="$classDynExpInstr_1_1Camera.html" title="Meta instrument for an image capturing (camera) device." alt="" coords="715,151,875,178"/>
-<area shape="rect" id="node10" href="$classDynExpInstr_1_1DataStreamInstrument.html" title="Implementation of the data stream meta instrument, which is a base class for all instruments reading/..." alt="" coords="666,325,925,351"/>
-<area shape="rect" id="node30" href="$classDynExpInstr_1_1InterModuleCommunicator.html" title="Defines an inter&#45;module communicator instrument to exchange events in between DynExp modules...." alt="" coords="702,376,889,417"/>
-<area shape="rect" id="node31" href="$classDynExpInstr_1_1PositionerStage.html" title="Implementation of a meta instrument to control single&#45;axis positioner stages." alt="" coords="690,459,901,486"/>
-<area shape="rect" id="node35" href="$classDynExpInstr_1_1Spectrometer.html" title="Meta instrument for a spectrometer." alt="" coords="697,559,894,586"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ..." alt="" coords="197,354,380,381"/>
-<area shape="rect" id="node3" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="5,329,149,355"/>
-<area shape="rect" id="node4" href="$classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),..." alt="" coords="16,379,139,406"/>
-<area shape="rect" id="node6" href="$classDynExpInstr_1_1WidefieldLocalization.html" title=" " alt="" coords="1025,50,1273,77"/>
-<area shape="rect" id="node8" href="$classDynExpInstr_1_1DummyCamera.html" title=" " alt="" coords="1043,101,1255,127"/>
-<area shape="rect" id="node9" href="$classDynExpInstr_1_1PVCam.html" title=" " alt="" coords="1071,151,1227,178"/>
-<area shape="rect" id="node11" href="$classDynExpInstr_1_1FunctionGenerator.html" title="Function generator meta instrument based on the data stream meta instrument to generate waveforms by ..." alt="" coords="1035,202,1264,229"/>
-<area shape="rect" id="node21" href="$classDynExpInstr_1_1InputPort.html" title="Generic input port meta instrument based on the data stream meta instrument to read data from hardwar..." alt="" coords="1065,290,1233,317"/>
-<area shape="rect" id="node26" href="$classDynExpInstr_1_1LockinAmplifier.html" title="Meta instrument for a lock&#45;in amplifier based on the data stream meta instrument." alt="" coords="1044,341,1255,367"/>
-<area shape="rect" id="node28" href="$classDynExpInstr_1_1TimeTagger.html" title="Meta instrument for a time tagging device to assign timestamps to (e.g. photon) detection events base..." alt="" coords="1057,391,1242,418"/>
-<area shape="rect" id="node12" href="$classDynExpInstr_1_1DummyDataStreamInstrument.html" title=" " alt="" coords="1373,5,1612,47"/>
-<area shape="rect" id="node13" href="$classDynExpInstr_1_1OutputPort.html" title="Generic output port meta instrument based on the data stream and function generator meta instruments ..." alt="" coords="1403,71,1582,98"/>
-<area shape="rect" id="node18" href="$classDynExpInstr_1_1RS__SMB100B.html" title=" " alt="" coords="1395,122,1590,149"/>
-<area shape="rect" id="node19" href="$classDynExpInstr_1_1RS__SMC100A.html" title=" " alt="" coords="1395,173,1590,199"/>
-<area shape="rect" id="node20" href="$classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html" title=" " alt="" coords="1371,224,1614,265"/>
-<area shape="rect" id="node14" href="$classDynExpInstr_1_1AnalogOut.html" title="Meta instrument for a single analog output port based on the data stream, function generator,..." alt="" coords="1683,46,1860,73"/>
-<area shape="rect" id="node16" href="$classDynExpInstr_1_1DigitalOut.html" title="Meta instrument for a single digital output port based on the data stream, function generator,..." alt="" coords="1684,97,1859,123"/>
-<area shape="rect" id="node15" href="$classDynExpInstr_1_1NIDAQAnalogOut.html" title=" " alt="" coords="1924,46,2144,73"/>
-<area shape="rect" id="node17" href="$classDynExpInstr_1_1NIDAQDigitalOut.html" title=" " alt="" coords="1925,97,2143,123"/>
-<area shape="rect" id="node22" href="$classDynExpInstr_1_1AnalogIn.html" title="Meta instrument for a single analog input port based on the data stream and generic input port meta i..." alt="" coords="1409,290,1576,317"/>
-<area shape="rect" id="node24" href="$classDynExpInstr_1_1DigitalIn.html" title="Meta instrument for a single digital input port based on the data stream and generic input port meta ..." alt="" coords="1411,341,1575,367"/>
-<area shape="rect" id="node23" href="$classDynExpInstr_1_1NIDAQAnalogIn.html" title=" " alt="" coords="1667,290,1876,317"/>
-<area shape="rect" id="node25" href="$classDynExpInstr_1_1NIDAQDigitalIn.html" title=" " alt="" coords="1668,341,1875,367"/>
-<area shape="rect" id="node27" href="$classDynExpInstr_1_1ZI__MFLI.html" title=" " alt="" coords="1413,391,1573,418"/>
-<area shape="rect" id="node29" href="$classDynExpInstr_1_1QutoolsQuTAG.html" title=" " alt="" coords="1391,442,1594,469"/>
-<area shape="rect" id="node32" href="$classDynExpInstr_1_1NenionLeakvalveF3.html" title=" " alt="" coords="1030,442,1269,469"/>
-<area shape="rect" id="node33" href="$classDynExpInstr_1_1PI__C__862.html" title=" " alt="" coords="1065,493,1233,519"/>
-<area shape="rect" id="node34" href="$classDynExpInstr_1_1SmarAct.html" title=" " alt="" coords="1067,543,1231,570"/>
-<area shape="rect" id="node36" href="$classDynExpInstr_1_1gRPCInstrument.html" title=" " alt="" coords="980,594,1319,650"/>
-<area shape="rect" id="node37" href="$classDynExpInstr_1_1NetworkSpectrometer.html" title=" " alt="" coords="1367,609,1619,635"/>
+<area shape="rect" id="Node000001" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic..." alt="" coords="428,323,611,349"/>
+<area shape="rect" id="Node000005" href="$classDynExpInstr_1_1gRPCInstrument.html" title=" " alt="" coords="659,5,932,75"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="527,309,545,264,573,208,610,150,657,98,694,73,697,77,660,102,615,153,578,211,550,267,532,311"/>
+<area shape="rect" id="Node000007" href="$classDynExpInstr_1_1Camera.html" title="Meta instrument for an image capturing (camera) device." alt="" coords="715,113,875,138"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="546,313,776,136,779,140,550,317"/>
+<area shape="rect" id="Node000010" href="$classDynExpInstr_1_1DataStreamInstrument.html" title="Implementation of the data stream meta instrument, which is a base class for all instruments reading/..." alt="" coords="666,294,925,319"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="624,322,675,317,676,322,624,328"/>
+<area shape="rect" id="Node000031" href="$classDynExpInstr_1_1InterModuleCommunicator.html" title="Defines an inter&#45;module communicator instrument to exchange events in between DynExp modules...." alt="" coords="702,344,889,384"/>
+<area shape="poly" id="edge30_Node000001_Node000031" title=" " alt="" coords="625,344,702,352,702,357,624,349"/>
+<area shape="rect" id="Node000032" href="$classDynExpInstr_1_1PositionerStage.html" title="Implementation of a meta instrument to control single&#45;axis positioner stages." alt="" coords="690,466,901,491"/>
+<area shape="poly" id="edge31_Node000001_Node000032" title=" " alt="" coords="559,353,771,464,768,468,556,358"/>
+<area shape="rect" id="Node000036" href="$classDynExpInstr_1_1Spectrometer.html" title="Meta instrument for a spectrometer." alt="" coords="697,571,894,597"/>
+<area shape="poly" id="edge35_Node000001_Node000036" title=" " alt="" coords="539,359,589,427,623,466,660,502,716,541,768,569,765,574,713,545,657,506,619,470,585,431,535,362"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ..." alt="" coords="197,323,380,349"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="393,333,428,333,428,339,393,339"/>
+<area shape="rect" id="Node000003" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="5,298,149,323"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="164,318,198,322,197,328,163,324"/>
+<area shape="rect" id="Node000004" href="$classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),..." alt="" coords="16,347,139,373"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="152,349,197,344,198,349,153,354"/>
+<area shape="rect" id="Node000006" href="$classDynExpInstr_1_1WidefieldLocalization.html" title=" " alt="" coords="1025,14,1273,39"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="946,32,1025,29,1025,34,946,37"/>
+<area shape="rect" id="Node000008" href="$classDynExpInstr_1_1DummyCamera.html" title=" " alt="" coords="1043,63,1255,89"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="889,110,1057,86,1058,91,890,115"/>
+<area shape="rect" id="Node000009" href="$classDynExpInstr_1_1PVCam.html" title=" " alt="" coords="1071,113,1227,138"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="889,123,1071,123,1071,128,889,128"/>
+<area shape="rect" id="Node000011" href="$classDynExpInstr_1_1gRPCInstrument.html" title=" " alt="" coords="1042,162,1257,217"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="834,286,901,255,979,225,1041,208,1043,213,981,231,903,260,836,290"/>
+<area shape="rect" id="Node000012" href="$classDynExpInstr_1_1FunctionGenerator.html" title="Function generator meta instrument based on the data stream meta instrument to generate waveforms by ..." alt="" coords="1035,241,1264,266"/>
+<area shape="poly" id="edge11_Node000010_Node000012" title=" " alt="" coords="893,289,1064,263,1065,269,894,295"/>
+<area shape="rect" id="Node000022" href="$classDynExpInstr_1_1InputPort.html" title="Generic input port meta instrument based on the data stream meta instrument to read data from hardwar..." alt="" coords="1065,294,1233,319"/>
+<area shape="poly" id="edge21_Node000010_Node000022" title=" " alt="" coords="939,304,1065,304,1065,309,939,309"/>
+<area shape="rect" id="Node000027" href="$classDynExpInstr_1_1LockinAmplifier.html" title="Meta instrument for a lock&#45;in amplifier based on the data stream meta instrument." alt="" coords="1044,343,1255,369"/>
+<area shape="poly" id="edge26_Node000010_Node000027" title=" " alt="" coords="901,319,1058,341,1057,346,901,324"/>
+<area shape="rect" id="Node000029" href="$classDynExpInstr_1_1TimeTagger.html" title="Meta instrument for a time tagging device to assign timestamps to (e.g. photon) detection events base..." alt="" coords="1057,393,1242,418"/>
+<area shape="poly" id="edge28_Node000010_Node000029" title=" " alt="" coords="915,321,933,330,949,342,958,355,967,368,981,379,1018,393,1057,401,1056,406,1017,398,979,384,963,372,954,358,945,346,931,334,913,326"/>
+<area shape="rect" id="Node000013" href="$classDynExpInstr_1_1DummyDataStreamInstrument.html" title=" " alt="" coords="1373,20,1612,60"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="1276,248,1298,239,1317,226,1332,208,1339,190,1341,151,1342,110,1349,90,1365,70,1381,58,1384,62,1369,74,1354,92,1347,111,1346,151,1345,191,1337,211,1320,230,1300,244,1278,253"/>
+<area shape="rect" id="Node000014" href="$classDynExpInstr_1_1OutputPort.html" title="Generic output port meta instrument based on the data stream and function generator meta instruments ..." alt="" coords="1403,85,1582,110"/>
+<area shape="poly" id="edge13_Node000012_Node000014" title=" " alt="" coords="1277,246,1298,238,1317,226,1329,214,1335,202,1340,175,1345,146,1352,132,1365,119,1383,108,1402,101,1404,106,1385,113,1368,123,1357,135,1350,148,1346,175,1340,203,1333,217,1320,230,1300,242,1279,251"/>
+<area shape="rect" id="Node000019" href="$classDynExpInstr_1_1RS__SMB100B.html" title=" " alt="" coords="1395,134,1590,159"/>
+<area shape="poly" id="edge18_Node000012_Node000019" title=" " alt="" coords="1277,242,1317,226,1332,213,1340,198,1349,183,1365,168,1394,156,1396,161,1368,173,1353,186,1345,201,1336,216,1320,230,1278,247"/>
+<area shape="rect" id="Node000020" href="$classDynExpInstr_1_1RS__SMC100A.html" title=" " alt="" coords="1395,183,1590,209"/>
+<area shape="poly" id="edge19_Node000012_Node000020" title=" " alt="" coords="1252,236,1318,225,1425,206,1426,211,1319,231,1253,241"/>
+<area shape="rect" id="Node000021" href="$classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html" title=" " alt="" coords="1371,233,1614,273"/>
+<area shape="poly" id="edge20_Node000012_Node000021" title=" " alt="" coords="1278,251,1371,251,1371,256,1278,256"/>
+<area shape="rect" id="Node000015" href="$classDynExpInstr_1_1AnalogOut.html" title="Meta instrument for a single analog output port based on the data stream, function generator,..." alt="" coords="1683,61,1860,86"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="1595,86,1682,78,1683,84,1596,91"/>
+<area shape="rect" id="Node000017" href="$classDynExpInstr_1_1DigitalOut.html" title="Meta instrument for a single digital output port based on the data stream, function generator,..." alt="" coords="1684,110,1859,135"/>
+<area shape="poly" id="edge16_Node000014_Node000017" title=" " alt="" coords="1596,104,1684,112,1683,117,1595,109"/>
+<area shape="rect" id="Node000016" href="$classDynExpInstr_1_1NIDAQAnalogOut.html" title=" " alt="" coords="1924,61,2144,86"/>
+<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="1874,71,1924,71,1924,76,1874,76"/>
+<area shape="rect" id="Node000018" href="$classDynExpInstr_1_1NIDAQDigitalOut.html" title=" " alt="" coords="1925,110,2143,135"/>
+<area shape="poly" id="edge17_Node000017_Node000018" title=" " alt="" coords="1872,120,1924,120,1924,125,1872,125"/>
+<area shape="rect" id="Node000023" href="$classDynExpInstr_1_1AnalogIn.html" title="Meta instrument for a single analog input port based on the data stream and generic input port meta i..." alt="" coords="1409,298,1576,323"/>
+<area shape="poly" id="edge22_Node000022_Node000023" title=" " alt="" coords="1247,305,1409,307,1409,312,1247,310"/>
+<area shape="rect" id="Node000025" href="$classDynExpInstr_1_1DigitalIn.html" title="Meta instrument for a single digital input port based on the data stream and generic input port meta ..." alt="" coords="1411,347,1575,373"/>
+<area shape="poly" id="edge24_Node000022_Node000025" title=" " alt="" coords="1248,318,1319,329,1414,345,1414,350,1318,335,1247,324"/>
+<area shape="rect" id="Node000024" href="$classDynExpInstr_1_1NIDAQAnalogIn.html" title=" " alt="" coords="1667,298,1876,323"/>
+<area shape="poly" id="edge23_Node000023_Node000024" title=" " alt="" coords="1590,308,1666,308,1666,313,1590,313"/>
+<area shape="rect" id="Node000026" href="$classDynExpInstr_1_1NIDAQDigitalIn.html" title=" " alt="" coords="1668,347,1875,373"/>
+<area shape="poly" id="edge25_Node000025_Node000026" title=" " alt="" coords="1589,357,1668,357,1668,363,1589,363"/>
+<area shape="rect" id="Node000028" href="$classDynExpInstr_1_1ZI__MFLI.html" title=" " alt="" coords="1413,397,1573,422"/>
+<area shape="poly" id="edge27_Node000027_Node000028" title=" " alt="" coords="1250,368,1319,379,1414,394,1414,399,1318,384,1249,373"/>
+<area shape="rect" id="Node000030" href="$classDynExpInstr_1_1QutoolsQuTAG.html" title=" " alt="" coords="1391,446,1594,471"/>
+<area shape="poly" id="edge29_Node000029_Node000030" title=" " alt="" coords="1250,417,1319,428,1414,443,1414,449,1318,433,1249,423"/>
+<area shape="rect" id="Node000033" href="$classDynExpInstr_1_1NenionLeakvalveF3.html" title=" " alt="" coords="1030,442,1269,467"/>
+<area shape="poly" id="edge32_Node000032_Node000033" title=" " alt="" coords="914,468,1030,460,1030,465,915,473"/>
+<area shape="rect" id="Node000034" href="$classDynExpInstr_1_1PI__C__862.html" title=" " alt="" coords="1065,491,1233,517"/>
+<area shape="poly" id="edge33_Node000032_Node000034" title=" " alt="" coords="915,485,1065,495,1065,501,915,490"/>
+<area shape="rect" id="Node000035" href="$classDynExpInstr_1_1SmarAct.html" title=" " alt="" coords="1067,541,1231,566"/>
+<area shape="poly" id="edge34_Node000032_Node000035" title=" " alt="" coords="851,493,981,527,1068,541,1067,547,979,532,849,498"/>
+<area shape="rect" id="Node000037" href="$classDynExpInstr_1_1gRPCInstrument.html" title=" " alt="" coords="980,590,1319,645"/>
+<area shape="poly" id="edge36_Node000036_Node000037" title=" " alt="" coords="908,592,980,599,980,604,907,597"/>
+<area shape="rect" id="Node000038" href="$classDynExpInstr_1_1NetworkSpectrometer.html" title=" " alt="" coords="1367,605,1619,630"/>
+<area shape="poly" id="edge37_Node000037_Node000038" title=" " alt="" coords="1332,615,1366,615,1366,620,1332,620"/>
 </map>

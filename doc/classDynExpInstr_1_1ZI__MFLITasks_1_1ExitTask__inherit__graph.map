@@ -1,8 +1,13 @@
 <map id="DynExpInstr::ZI_MFLITasks::ExitTask" name="DynExpInstr::ZI_MFLITasks::ExitTask">
-<area shape="rect" id="node1" title=" " alt="" coords="975,39,1171,80"/>
-<area shape="rect" id="node2" href="$classDynExpInstr_1_1LockinAmplifierTasks_1_1ExitTask.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="716,5,927,47"/>
-<area shape="rect" id="node3" href="$classDynExpInstr_1_1DataStreamInstrumentTasks_1_1ExitTask.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="409,5,668,47"/>
-<area shape="rect" id="node4" href="$classDynExp_1_1ExitTaskBase.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="195,13,361,39"/>
-<area shape="rect" id="node5" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="5,13,147,39"/>
-<area shape="rect" id="node6" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1ZI__MFLITaskBase.html" title=" " alt="" coords="723,71,919,112"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="975,37,1171,77"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1LockinAmplifierTasks_1_1ExitTask.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="716,5,927,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="940,38,975,42,974,48,940,43"/>
+<area shape="rect" id="Node000003" href="$classDynExpInstr_1_1DataStreamInstrumentTasks_1_1ExitTask.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="409,5,668,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="682,23,716,23,716,28,682,28"/>
+<area shape="rect" id="Node000004" href="$classDynExp_1_1ExitTaskBase.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="195,13,361,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="375,23,409,23,409,28,375,28"/>
+<area shape="rect" id="Node000005" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="5,13,147,38"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="161,23,194,23,194,28,161,28"/>
+<area shape="rect" id="Node000006" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1ZI__MFLITaskBase.html" title=" " alt="" coords="723,69,919,109"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="933,72,974,67,975,72,933,78"/>
 </map>

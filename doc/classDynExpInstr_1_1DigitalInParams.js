@@ -5,6 +5,6 @@ var classDynExpInstr_1_1DigitalInParams =
     [ "ConfigureParamsImpl", "classDynExpInstr_1_1DigitalInParams.html#a27f4a286db28a4ce7f06c8d35d43537e", null ],
     [ "ConfigureParamsImpl", "classDynExpInstr_1_1DigitalInParams.html#a7747ccc28364e2cf1e4110600df32bd5", null ],
     [ "DisableUserEditable", "classDynExpInstr_1_1DigitalInParams.html#ac147b50d94295c727f8d927d23709853", null ],
-    [ "GetParamClassTag", "classDynExpInstr_1_1DigitalInParams.html#a6e614660d7cfd2aac9aea467505c863e", null ],
+    [ "GetParamClassTag", "classDynExpInstr_1_1DigitalInParams.html#ab28774d00ea134a95c261aa85f99f777", null ],
     [ "Dummy", "classDynExpInstr_1_1DigitalInParams.html#a6c216d37fd69a1be5512585bae638c9a", null ]
 ];

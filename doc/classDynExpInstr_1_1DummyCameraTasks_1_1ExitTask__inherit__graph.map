@@ -1,6 +1,9 @@
 <map id="DynExpInstr::DummyCameraTasks::ExitTask" name="DynExpInstr::DummyCameraTasks::ExitTask">
-<area shape="rect" id="node1" title=" " alt="" coords="5,244,217,285"/>
-<area shape="rect" id="node2" href="$classDynExpInstr_1_1CameraTasks_1_1ExitTask.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="13,155,209,196"/>
-<area shape="rect" id="node3" href="$classDynExp_1_1ExitTaskBase.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="28,80,195,107"/>
-<area shape="rect" id="node4" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="41,5,182,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,240,217,280"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1CameraTasks_1_1ExitTask.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="13,152,209,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,206,114,240,109,240,109,206"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1ExitTaskBase.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="28,79,195,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="114,118,114,152,109,152,109,118"/>
+<area shape="rect" id="Node000004" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="41,5,182,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="114,44,114,79,109,79,109,44"/>
 </map>

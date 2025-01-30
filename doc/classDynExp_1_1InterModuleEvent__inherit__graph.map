@@ -1,5 +1,7 @@
 <map id="DynExp::InterModuleEvent&lt; DerivedEvent, EventFuncArgs &gt;" name="DynExp::InterModuleEvent&lt; DerivedEvent, EventFuncArgs &gt;">
-<area shape="rect" id="node1" title="Typed base class for inter&#45;module events to realize CRTP." alt="" coords="5,155,249,196"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1InterModuleEventBase.html" title="Common base class for all inter&#45;module events." alt="" coords="14,80,241,107"/>
-<area shape="rect" id="node3" href="$classDynExp_1_1EventBase.html" title="Common base class for all events to store them in a FIFO queue to be invoked later." alt="" coords="53,5,202,32"/>
+<area shape="rect" id="Node000001" title="Typed base class for inter&#45;module events to realize CRTP." alt="" coords="5,152,249,192"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1InterModuleEventBase.html" title="Common base class for all inter&#45;module events." alt="" coords="14,79,241,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,118,130,152,125,152,125,118"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1EventBase.html" title="Common base class for all events to store them in a FIFO queue to be invoked later." alt="" coords="53,5,202,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="130,44,130,79,125,79,125,44"/>
 </map>

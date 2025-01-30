@@ -9,7 +9,7 @@ var classDynExpHardware_1_1QutoolsTDCHardwareAdapterParams =
     [ "ConfigureParamsImpl", "classDynExpHardware_1_1QutoolsTDCHardwareAdapterParams.html#abe46dbef0b9e8f769bc2d72165d9443c", null ],
     [ "ConfigureParamsImpl", "classDynExpHardware_1_1QutoolsTDCHardwareAdapterParams.html#ac6617f04410e4bbadd2566fa3ca2b5b2", null ],
     [ "EdgeTypeStrList", "classDynExpHardware_1_1QutoolsTDCHardwareAdapterParams.html#a5a6c5c62e4ab6adbfc3ecc25b588239d", null ],
-    [ "GetParamClassTag", "classDynExpHardware_1_1QutoolsTDCHardwareAdapterParams.html#ae800e628d0f41867476846c4dc61689b", null ],
+    [ "GetParamClassTag", "classDynExpHardware_1_1QutoolsTDCHardwareAdapterParams.html#a483c5111ae797c6704ac81b41e0a8213", null ],
     [ "DefaultCoincidenceWindow", "classDynExpHardware_1_1QutoolsTDCHardwareAdapterParams.html#afb4eb1bb8a7eef8be9cb2d46f7e3c377", null ],
     [ "DefaultExposureTime", "classDynExpHardware_1_1QutoolsTDCHardwareAdapterParams.html#ad37c00c0f67de151f87da6ff65622015", null ],
     [ "DefaultThresholdInVolts", "classDynExpHardware_1_1QutoolsTDCHardwareAdapterParams.html#a01d259f3cb4fac59ff25c56ec2184271", null ],

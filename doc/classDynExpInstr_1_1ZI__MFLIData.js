@@ -4,7 +4,7 @@ var classDynExpInstr_1_1ZI__MFLIData =
     [ "~ZI_MFLIData", "classDynExpInstr_1_1ZI__MFLIData.html#ab2fcb0f1e830082817297210a68061d8", null ],
     [ "GetAcquisitionProgress", "classDynExpInstr_1_1ZI__MFLIData.html#a8075defdf5bde5b92c20a9fd9482e88f", null ],
     [ "GetFilterOrder", "classDynExpInstr_1_1ZI__MFLIData.html#a9e3413d5dbf9d0694a6b02f09a267e79", null ],
-    [ "GetInputLoad", "classDynExpInstr_1_1ZI__MFLIData.html#a4e81337f1b0cd886debd7ed79e365af7", null ],
+    [ "GetInputLoad", "classDynExpInstr_1_1ZI__MFLIData.html#a8d937ec1b0981b898fdfca9d58a897bc", null ],
     [ "GetOscillatorFrequency", "classDynExpInstr_1_1ZI__MFLIData.html#a34b36a443314165a6fbc67aec745a8d5", null ],
     [ "GetPhase", "classDynExpInstr_1_1ZI__MFLIData.html#a9561a0a54370c74e0a6f2677153cd342", null ],
     [ "GetSamplingRate", "classDynExpInstr_1_1ZI__MFLIData.html#a3e8b09658213032017325dc1fb5d1fc5", null ],

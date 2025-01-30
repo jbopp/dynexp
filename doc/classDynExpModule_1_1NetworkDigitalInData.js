@@ -5,6 +5,6 @@ var classDynExpModule_1_1NetworkDigitalInData =
     [ "~NetworkDigitalInData", "classDynExpModule_1_1NetworkDigitalInData.html#adade46fb68469dbffc9d2a3e0730e3c6", null ],
     [ "GetDigitalIn", "classDynExpModule_1_1NetworkDigitalInData.html#afd119ec044d0e583a8115d366190f0cd", null ],
     [ "Init", "classDynExpModule_1_1NetworkDigitalInData.html#a31e8fb91ca405c0abbb3a04d0aaf9cce", null ],
-    [ "ResetImpl", "classDynExpModule_1_1NetworkDigitalInData.html#a70889a1373b3424ee3c27c496c013d7f", null ],
+    [ "ResetImpl", "classDynExpModule_1_1NetworkDigitalInData.html#af0d5961f37349fa135e29a3c402841ee", null ],
     [ "ResetImpl", "classDynExpModule_1_1NetworkDigitalInData.html#acf3bcf20e8b34c9503bf528cc0865459", null ]
 ];

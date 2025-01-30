@@ -1,6 +1,9 @@
 <map id="DynExpModule::SpectrumViewer::ResumeSpectrumRecordingEvent" name="DynExpModule::SpectrumViewer::ResumeSpectrumRecordingEvent">
-<area shape="rect" id="node1" title=" " alt="" coords="17,244,263,285"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="5,155,275,196"/>
-<area shape="rect" id="node3" href="$classDynExp_1_1InterModuleEventBase.html" title="Common base class for all inter&#45;module events." alt="" coords="27,80,253,107"/>
-<area shape="rect" id="node4" href="$classDynExp_1_1EventBase.html" title="Common base class for all events to store them in a FIFO queue to be invoked later." alt="" coords="65,5,215,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="17,240,263,280"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="5,152,275,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,206,143,240,137,240,137,206"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1InterModuleEventBase.html" title="Common base class for all inter&#45;module events." alt="" coords="27,79,253,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="143,118,143,152,137,152,137,118"/>
+<area shape="rect" id="Node000004" href="$classDynExp_1_1EventBase.html" title="Common base class for all events to store them in a FIFO queue to be invoked later." alt="" coords="65,5,215,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="143,44,143,79,137,79,137,44"/>
 </map>

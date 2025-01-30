@@ -1,5 +1,7 @@
 <map id="DynExpInstr::NetworkDataStreamInstrumentTasks::UpdateTask&lt; BaseInstr,, gRPCStubs &gt;" name="DynExpInstr::NetworkDataStreamInstrumentTasks::UpdateTask&lt; BaseInstr,, gRPCStubs &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="19,184,214,255"/>
-<area shape="rect" id="node2" href="$classDynExpInstr_1_1gRPCInstrumentTasks_1_1UpdateTask.html" title="Defines a task for updating an instrument within an instrument inheritance hierarchy...." alt="" coords="5,80,228,136"/>
-<area shape="rect" id="node3" title=" " alt="" coords="18,5,215,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="19,181,214,251"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1gRPCInstrumentTasks_1_1UpdateTask.html" title="Defines a task for updating an instrument within an instrument inheritance hierarchy...." alt="" coords="5,79,228,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,147,119,181,114,181,114,147"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="18,5,215,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="119,44,119,79,114,79,114,44"/>
 </map>

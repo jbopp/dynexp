@@ -1,3 +1,29 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classCircuitDiagram_1_1CircuitDiagramItem.html#structCircuitDiagram_1_1CircuitDiagramItem_1_1ParamGraphicsItemsType" title=" " alt="" coords="5,5,232,47"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,331,228,357"/>
+<area shape="rect" id="Node000001" href="$classDynExpInstr_1_1gRPCInstrumentData.html" title=" " alt="" coords="320,208,571,248"/>
+<area shape="poly" id="edge49_Node000000_Node000001" title=" " alt="" coords="148,322,205,289,275,257,319,245,321,250,277,263,208,293,150,326"/>
+<area shape="rect" id="Node000009" href="$classDynExpInstr_1_1gRPCInstrumentData.html" title=" " alt="" coords="276,273,615,327"/>
+<area shape="poly" id="edge57_Node000000_Node000009" title=" " alt="" coords="225,327,275,320,276,325,226,332"/>
+<area shape="rect" id="Node000011" href="$classDynExpInstr_1_1gRPCInstrumentData.html" title=" " alt="" coords="309,352,582,421"/>
+<area shape="poly" id="edge59_Node000000_Node000011" title=" " alt="" coords="229,356,309,366,308,372,228,361"/>
+<area shape="rect" id="Node000013" href="$classDynExpInstr_1_1gRPCInstrumentData.html" title="Data class for gRPCInstrument." alt="" coords="332,445,559,485"/>
+<area shape="poly" id="edge61_Node000000_Node000013" title=" " alt="" coords="149,362,206,398,277,431,333,447,331,452,275,436,204,402,146,367"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1NetworkDataStreamInstrumentData.html" title=" " alt="" coords="700,126,908,181"/>
+<area shape="poly" id="edge50_Node000001_Node000002" title=" " alt="" coords="555,203,699,172,700,178,556,208"/>
+<area shape="rect" id="Node000008" href="$classDynExpInstr_1_1NetworkDataStreamInstrumentData.html" title=" " alt="" coords="707,205,901,259"/>
+<area shape="poly" id="edge56_Node000001_Node000008" title=" " alt="" coords="584,227,707,228,707,234,584,232"/>
+<area shape="rect" id="Node000003" href="$classDynExpInstr_1_1NetworkAnalogInData.html" title=" " alt="" coords="999,5,1237,45"/>
+<area shape="poly" id="edge51_Node000002_Node000003" title=" " alt="" coords="863,117,924,85,992,55,1029,43,1030,48,994,60,926,90,865,122"/>
+<area shape="rect" id="Node000004" href="$classDynExpInstr_1_1NetworkAnalogOutData.html" title=" " alt="" coords="993,69,1243,109"/>
+<area shape="poly" id="edge52_Node000002_Node000004" title=" " alt="" coords="921,127,1019,107,1020,112,922,132"/>
+<area shape="rect" id="Node000005" href="$classDynExpInstr_1_1NetworkDigitalInData.html" title=" " alt="" coords="999,133,1237,173"/>
+<area shape="poly" id="edge53_Node000002_Node000005" title=" " alt="" coords="922,151,998,151,998,156,922,156"/>
+<area shape="rect" id="Node000006" href="$classDynExpInstr_1_1NetworkDigitalOutData.html" title=" " alt="" coords="993,197,1243,237"/>
+<area shape="poly" id="edge54_Node000002_Node000006" title=" " alt="" coords="922,175,1020,195,1019,200,921,180"/>
+<area shape="rect" id="Node000007" href="$classDynExpInstr_1_1NetworkTimeTaggerData.html" title=" " alt="" coords="1019,262,1217,317"/>
+<area shape="poly" id="edge55_Node000002_Node000007" title=" " alt="" coords="922,177,947,190,963,204,972,219,980,233,995,247,1021,261,1018,266,992,251,976,237,967,222,959,208,944,194,920,181"/>
+<area shape="rect" id="Node000010" href="$classDynExpInstr_1_1NetworkSpectrometerData.html" title=" " alt="" coords="663,287,945,313"/>
+<area shape="poly" id="edge58_Node000009_Node000010" title=" " alt="" coords="628,297,663,297,663,303,628,303"/>
+<area shape="rect" id="Node000012" href="$classDynExpInstr_1_1WidefieldLocalizationData.html" title=" " alt="" coords="665,374,943,399"/>
+<area shape="poly" id="edge60_Node000011_Node000012" title=" " alt="" coords="596,384,664,384,664,389,596,389"/>
 </map>

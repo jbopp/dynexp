@@ -1,11 +1,19 @@
 <map id="DynExpInstr::PositionerStageParams" name="DynExpInstr::PositionerStageParams">
-<area shape="rect" id="node1" title="Parameter class for PositionerStage." alt="" coords="1201,71,1412,112"/>
-<area shape="rect" id="node7" href="$classDynExpInstr_1_1NenionLeakvalveF3Params.html" title=" " alt="" coords="1460,5,1683,47"/>
-<area shape="rect" id="node8" href="$classDynExpInstr_1_1PI__C__862__Params.html" title=" " alt="" coords="1487,71,1655,112"/>
-<area shape="rect" id="node9" href="$classDynExpInstr_1_1SmarActParams.html" title=" " alt="" coords="1465,137,1677,163"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1InstrumentParamsBase.html" title="Parameter class for InstrumentBase." alt="" coords="923,78,1153,105"/>
-<area shape="rect" id="node3" href="$classDynExp_1_1RunnableObjectParams.html" title="Parameter class for RunnableObject." alt="" coords="644,78,875,105"/>
-<area shape="rect" id="node4" href="$classDynExp_1_1ParamsBase.html" title="Abstract base class for object parameter classes. Each class derived from class Object must be accomp..." alt="" coords="436,78,596,105"/>
-<area shape="rect" id="node5" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="197,71,388,112"/>
-<area shape="rect" id="node6" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="5,78,149,105"/>
+<area shape="rect" id="Node000001" title="Parameter class for PositionerStage." alt="" coords="1201,69,1412,109"/>
+<area shape="rect" id="Node000007" href="$classDynExpInstr_1_1NenionLeakvalveF3Params.html" title=" " alt="" coords="1460,5,1683,45"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1403,63,1487,43,1489,48,1404,69"/>
+<area shape="rect" id="Node000008" href="$classDynExpInstr_1_1PI__C__862__Params.html" title=" " alt="" coords="1487,69,1655,109"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1426,87,1487,87,1487,92,1426,92"/>
+<area shape="rect" id="Node000009" href="$classDynExpInstr_1_1SmarActParams.html" title=" " alt="" coords="1465,134,1677,159"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1414,110,1513,131,1511,137,1412,115"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1InstrumentParamsBase.html" title="Parameter class for InstrumentBase." alt="" coords="923,77,1153,102"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1167,87,1201,87,1201,92,1167,92"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1RunnableObjectParams.html" title="Parameter class for RunnableObject." alt="" coords="644,77,875,102"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="888,87,923,87,923,92,888,92"/>
+<area shape="rect" id="Node000004" href="$classDynExp_1_1ParamsBase.html" title="Abstract base class for object parameter classes. Each class derived from class Object must be accomp..." alt="" coords="436,77,596,102"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="610,87,644,87,644,92,610,92"/>
+<area shape="rect" id="Node000005" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="197,69,388,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="402,87,436,87,436,92,402,92"/>
+<area shape="rect" id="Node000006" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="5,77,149,102"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="163,87,197,87,197,92,163,92"/>
 </map>

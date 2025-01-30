@@ -1,12 +1,12 @@
 var namespaceDynExpModule_1_1ODMR =
 [
+    [ "ODMR", "classDynExpModule_1_1ODMR_1_1ODMR.html", "classDynExpModule_1_1ODMR_1_1ODMR" ],
+    [ "ODMRConfigurator", "classDynExpModule_1_1ODMR_1_1ODMRConfigurator.html", "classDynExpModule_1_1ODMR_1_1ODMRConfigurator" ],
     [ "ODMRData", "classDynExpModule_1_1ODMR_1_1ODMRData.html", "classDynExpModule_1_1ODMR_1_1ODMRData" ],
     [ "ODMRParams", "classDynExpModule_1_1ODMR_1_1ODMRParams.html", "classDynExpModule_1_1ODMR_1_1ODMRParams" ],
-    [ "ODMRConfigurator", "classDynExpModule_1_1ODMR_1_1ODMRConfigurator.html", "classDynExpModule_1_1ODMR_1_1ODMRConfigurator" ],
-    [ "ODMR", "classDynExpModule_1_1ODMR_1_1ODMR.html", "classDynExpModule_1_1ODMR_1_1ODMR" ],
     [ "ODMRPlotType", "namespaceDynExpModule_1_1ODMR.html#structDynExpModule_1_1ODMR_1_1ODMRPlotType", "namespaceDynExpModule_1_1ODMR_structDynExpModule_1_1ODMR_1_1ODMRPlotType_dup" ],
-    [ "SensitivityPlotType", "namespaceDynExpModule_1_1ODMR.html#structDynExpModule_1_1ODMR_1_1SensitivityPlotType", "namespaceDynExpModule_1_1ODMR_structDynExpModule_1_1ODMR_1_1SensitivityPlotType_dup" ],
     [ "ODMRWidget", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html", "classDynExpModule_1_1ODMR_1_1ODMRWidget" ],
+    [ "SensitivityPlotType", "namespaceDynExpModule_1_1ODMR.html#structDynExpModule_1_1ODMR_1_1SensitivityPlotType", "namespaceDynExpModule_1_1ODMR_structDynExpModule_1_1ODMR_1_1SensitivityPlotType_dup" ],
     [ "StateMachineStateType", "namespaceDynExpModule_1_1ODMR.html#aed9aa5d2e36be49a13733101953347c8", null ],
     [ "StateType", "namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4", [
       [ "Initializing", "namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4a32b169f72b293ef80d35435e9894f8e2", null ],

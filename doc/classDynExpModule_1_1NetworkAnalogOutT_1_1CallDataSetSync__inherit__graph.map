@@ -1,4 +1,5 @@
 <map id="DynExpModule::NetworkAnalogOutT&lt; gRPCServices &gt;::CallDataSetSync" name="DynExpModule::NetworkAnalogOutT&lt; gRPCServices &gt;::CallDataSetSync">
-<area shape="rect" id="node1" title=" " alt="" coords="295,35,583,76"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,247,105"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="295,35,583,75"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,247,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="260,52,294,52,294,57,260,57"/>
 </map>

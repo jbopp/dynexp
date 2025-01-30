@@ -1,10 +1,17 @@
 <map id="DynExpModule::NetworkTimeTaggerParams&lt; gRPCServices &gt;" name="DynExpModule::NetworkTimeTaggerParams&lt; gRPCServices &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="5,587,237,628"/>
-<area shape="rect" id="node2" href="$classDynExpModule_1_1NetworkDataStreamInstrumentParams.html" title=" " alt="" coords="14,483,229,539"/>
-<area shape="rect" id="node3" href="$classDynExpModule_1_1gRPCModuleParams.html" title=" " alt="" coords="16,393,227,435"/>
-<area shape="rect" id="node4" href="$classDynExp_1_1ModuleParamsBase.html" title="Parameter class for ModuleBase." alt="" coords="17,319,225,345"/>
-<area shape="rect" id="node5" href="$classDynExp_1_1RunnableObjectParams.html" title="Parameter class for RunnableObject." alt="" coords="6,244,237,271"/>
-<area shape="rect" id="node6" href="$classDynExp_1_1ParamsBase.html" title="Abstract base class for object parameter classes. Each class derived from class Object must be accomp..." alt="" coords="41,169,201,196"/>
-<area shape="rect" id="node7" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="26,80,217,121"/>
-<area shape="rect" id="node8" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="49,5,193,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,577,237,617"/>
+<area shape="rect" id="Node000002" href="$classDynExpModule_1_1NetworkDataStreamInstrumentParams.html" title=" " alt="" coords="14,475,229,529"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,543,124,577,119,577,119,543"/>
+<area shape="rect" id="Node000003" href="$classDynExpModule_1_1gRPCModuleParams.html" title=" " alt="" coords="16,387,227,427"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="124,440,124,475,119,475,119,440"/>
+<area shape="rect" id="Node000004" href="$classDynExp_1_1ModuleParamsBase.html" title="Parameter class for ModuleBase." alt="" coords="17,313,225,339"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="124,352,124,387,119,387,119,352"/>
+<area shape="rect" id="Node000005" href="$classDynExp_1_1RunnableObjectParams.html" title="Parameter class for RunnableObject." alt="" coords="6,240,237,265"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="124,279,124,313,119,313,119,279"/>
+<area shape="rect" id="Node000006" href="$classDynExp_1_1ParamsBase.html" title="Abstract base class for object parameter classes. Each class derived from class Object must be accomp..." alt="" coords="41,167,201,192"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="124,206,124,240,119,240,119,206"/>
+<area shape="rect" id="Node000007" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="26,79,217,119"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="124,132,124,166,119,166,119,132"/>
+<area shape="rect" id="Node000008" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="49,5,193,31"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="124,44,124,79,119,79,119,44"/>
 </map>

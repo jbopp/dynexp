@@ -1,51 +1,99 @@
 <map id="DynExp::ConfiguratorBase" name="DynExp::ConfiguratorBase">
-<area shape="rect" id="node1" title="The configurator classes have the task to generate parameter objects (refer to DynExp::ParamsBase) of..." alt="" coords="5,417,197,444"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1HardwareAdapterConfiguratorBase.html" title="Configurator class for HardwareAdapterBase." alt="" coords="245,289,552,316"/>
-<area shape="rect" id="node15" href="$classDynExp_1_1RunnableObjectConfigurator.html" title="Configurator class for RunnableObject." alt="" coords="267,544,530,571"/>
-<area shape="rect" id="node3" href="$classDynExpHardware_1_1gRPCHardwareAdapterConfigurator.html" title=" " alt="" coords="621,5,861,61"/>
-<area shape="rect" id="node5" href="$classDynExp_1_1SerialCommunicationHardwareAdapterConfigurator.html" title="Configurator class for SerialCommunicationHardwareAdapter." alt="" coords="631,86,851,127"/>
-<area shape="rect" id="node9" href="$classDynExpHardware_1_1NIDAQHardwareAdapterConfigurator.html" title=" " alt="" coords="617,151,866,193"/>
-<area shape="rect" id="node10" href="$classDynExpHardware_1_1PVCamHardwareAdapterConfigurator.html" title=" " alt="" coords="615,217,868,258"/>
-<area shape="rect" id="node11" href="$classDynExpHardware_1_1QutoolsTDCHardwareAdapterConfigurator.html" title=" " alt="" coords="600,282,883,323"/>
-<area shape="rect" id="node12" href="$classDynExpHardware_1_1SmarActHardwareAdapterConfigurator.html" title=" " alt="" coords="611,347,872,389"/>
-<area shape="rect" id="node13" href="$classDynExpHardware_1_1ZILabOneHardwareAdapterConfigurator.html" title=" " alt="" coords="633,413,849,454"/>
-<area shape="rect" id="node14" href="$classDynExpHardware_1_1gRPCHardwareAdapterConfigurator.html" title="Configurator class for gRPCHardwareAdapter." alt="" coords="618,478,865,519"/>
-<area shape="rect" id="node4" href="$classDynExpHardware_1_1SIPulseStreamerHardwareAdapterConfigurator.html" title=" " alt="" coords="935,13,1185,54"/>
-<area shape="rect" id="node6" href="$classDynExp_1_1QSerialCommunicationHardwareAdapterConfigurator.html" title="Configurator class for QSerialCommunicationHardwareAdapter." alt="" coords="945,86,1175,127"/>
-<area shape="rect" id="node7" href="$classDynExp_1_1HardwareAdapterSerialPortConfigurator.html" title="Configurator class for HardwareAdapterSerialPort." alt="" coords="1255,29,1485,70"/>
-<area shape="rect" id="node8" href="$classDynExp_1_1HardwareAdapterTcpSocketConfigurator.html" title="Configurator class for HardwareAdapterTcpSocket." alt="" coords="1263,94,1477,135"/>
-<area shape="rect" id="node16" href="$classDynExp_1_1InstrumentConfiguratorBase.html" title="Configurator class for InstrumentBase." alt="" coords="610,544,873,571"/>
-<area shape="rect" id="node31" href="$classDynExp_1_1ModuleConfiguratorBase.html" title="Configurator class for ModuleBase." alt="" coords="621,1168,861,1195"/>
-<area shape="rect" id="node17" href="$classDynExpInstr_1_1CameraConfigurator.html" title="Configurator class for Camera." alt="" coords="940,241,1180,268"/>
-<area shape="rect" id="node20" href="$classDynExpInstr_1_1DataStreamInstrumentConfigurator.html" title="Configurator class for DataStreamInstrument." alt="" coords="931,410,1189,451"/>
-<area shape="rect" id="node25" href="$classDynExpInstr_1_1InterModuleCommunicatorConfigurator.html" title="Configurator class for InterModuleCommunicator." alt="" coords="961,502,1159,543"/>
-<area shape="rect" id="node26" href="$classDynExpInstr_1_1PositionerStageConfigurator.html" title="Configurator class for PositionerStage." alt="" coords="955,567,1165,609"/>
-<area shape="rect" id="node30" href="$classDynExpInstr_1_1SpectrometerConfigurator.html" title="Configurator class for Spectrometer." alt="" coords="961,633,1159,674"/>
-<area shape="rect" id="node18" href="$classDynExpInstr_1_1DummyCameraConfigurator.html" title=" " alt="" coords="1264,175,1476,217"/>
-<area shape="rect" id="node19" href="$classDynExpInstr_1_1PVCamConfigurator.html" title=" " alt="" coords="1252,241,1488,268"/>
-<area shape="rect" id="node21" href="$classDynExpInstr_1_1FunctionGeneratorConfigurator.html" title="Configurator class for FunctionGenerator." alt="" coords="1255,293,1485,334"/>
-<area shape="rect" id="node22" href="$classDynExpInstr_1_1InputPortConfigurator.html" title="Configurator class for InputPort." alt="" coords="1246,359,1494,385"/>
-<area shape="rect" id="node23" href="$classDynExpInstr_1_1LockinAmplifierConfigurator.html" title="Configurator class for LockinAmplifier." alt="" coords="1265,410,1475,451"/>
-<area shape="rect" id="node24" href="$classDynExpInstr_1_1TimeTaggerConfigurator.html" title="Configurator class for TimeTagger." alt="" coords="1237,476,1503,503"/>
-<area shape="rect" id="node27" href="$classDynExpInstr_1_1NenionLeakvalveF3Configurator.html" title=" " alt="" coords="1259,527,1481,569"/>
-<area shape="rect" id="node28" href="$classDynExpInstr_1_1PI__C__862__Configurator.html" title=" " alt="" coords="1286,593,1454,634"/>
-<area shape="rect" id="node29" href="$classDynExpInstr_1_1SmarActConfigurator.html" title=" " alt="" coords="1248,659,1492,685"/>
-<area shape="rect" id="node32" href="$classDynExpModule_1_1gRPCModuleConfigurator.html" title=" " alt="" coords="943,797,1177,838"/>
-<area shape="rect" id="node35" href="$classDynExp_1_1QModuleConfiguratorBase.html" title="Configurator class for QModuleBase." alt="" coords="935,1139,1185,1165"/>
-<area shape="rect" id="node47" href="$classDynExpModule_1_1ArbitraryFunctionFromCSVConfigurator.html" title=" " alt="" coords="940,1190,1180,1231"/>
-<area shape="rect" id="node48" href="$classDynExpModule_1_1StreamManipulatorConfigurator.html" title="Configurator class for StreamManipulator." alt="" coords="933,1255,1187,1297"/>
-<area shape="rect" id="node49" href="$classDynExpModule_1_1gRPCModuleConfigurator.html" title="Configurator class for gRPCModule." alt="" coords="949,1321,1171,1362"/>
-<area shape="rect" id="node33" href="$classDynExpModule_1_1NetworkDataStreamInstrumentConfigurator.html" title=" " alt="" coords="1260,709,1480,765"/>
-<area shape="rect" id="node34" href="$classDynExpModule_1_1NetworkDataStreamInstrumentConfigurator.html" title=" " alt="" coords="1260,789,1480,845"/>
-<area shape="rect" id="node36" href="$classDynExpModule_1_1ImageViewer_1_1ImageViewerConfigurator.html" title=" " alt="" coords="1263,870,1477,911"/>
-<area shape="rect" id="node37" href="$classDynExpModule_1_1InputPortReaderConfigurator.html" title=" " alt="" coords="1253,935,1487,977"/>
-<area shape="rect" id="node38" href="$classDynExpModule_1_1LockinAmplifierControlConfigurator.html" title=" " alt="" coords="1255,1001,1485,1042"/>
-<area shape="rect" id="node39" href="$classDynExpModule_1_1ODMR_1_1ODMRConfigurator.html" title=" " alt="" coords="1285,1066,1455,1107"/>
-<area shape="rect" id="node40" href="$classDynExpModule_1_1OutputPortWriterConfigurator.html" title=" " alt="" coords="1271,1131,1469,1173"/>
-<area shape="rect" id="node41" href="$classDynExpModule_1_1SignalDesignerConfigurator.html" title=" " alt="" coords="1257,1197,1483,1238"/>
-<area shape="rect" id="node42" href="$classDynExpModule_1_1SignalPlotterConfigurator.html" title=" " alt="" coords="1265,1262,1475,1303"/>
-<area shape="rect" id="node43" href="$classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerConfigurator.html" title=" " alt="" coords="1253,1327,1487,1369"/>
-<area shape="rect" id="node44" href="$classDynExpModule_1_1Stage1DConfigurator.html" title=" " alt="" coords="1239,1393,1501,1420"/>
-<area shape="rect" id="node45" href="$classDynExpModule_1_1Trajectory1DConfigurator.html" title=" " alt="" coords="1270,1445,1470,1486"/>
-<area shape="rect" id="node46" href="$classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeConfigurator.html" title=" " alt="" coords="1247,1510,1493,1551"/>
+<area shape="rect" id="Node000001" title="The configurator classes have the task to generate parameter objects (refer to DynExp::ParamsBase) of..." alt="" coords="5,409,197,435"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1HardwareAdapterConfiguratorBase.html" title="Configurator class for HardwareAdapterBase." alt="" coords="245,284,552,309"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,402,366,307,368,312,146,406"/>
+<area shape="rect" id="Node000015" href="$classDynExp_1_1RunnableObjectConfigurator.html" title="Configurator class for RunnableObject." alt="" coords="267,533,530,559"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="147,438,368,531,366,536,145,443"/>
+<area shape="rect" id="Node000003" href="$classDynExpHardware_1_1gRPCHardwareAdapterConfigurator.html" title=" " alt="" coords="621,5,861,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="413,271,442,228,485,173,538,118,599,70,623,58,625,62,601,75,541,122,489,177,446,231,417,274"/>
+<area shape="rect" id="Node000005" href="$classDynExp_1_1SerialCommunicationHardwareAdapterConfigurator.html" title="Configurator class for SerialCommunicationHardwareAdapter." alt="" coords="631,85,851,125"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="419,272,494,204,544,166,599,134,630,122,632,127,601,139,547,170,497,208,423,276"/>
+<area shape="rect" id="Node000009" href="$classDynExpHardware_1_1NIDAQHardwareAdapterConfigurator.html" title=" " alt="" coords="617,149,866,189"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="433,275,508,236,599,198,639,186,641,191,601,203,510,241,436,280"/>
+<area shape="rect" id="Node000010" href="$classDynExpHardware_1_1PVCamHardwareAdapterConfigurator.html" title=" " alt="" coords="615,213,868,253"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="480,279,633,250,634,255,481,284"/>
+<area shape="rect" id="Node000011" href="$classDynExpHardware_1_1QutoolsTDCHardwareAdapterConfigurator.html" title=" " alt="" coords="600,277,883,317"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="566,294,600,294,600,299,566,299"/>
+<area shape="rect" id="Node000012" href="$classDynExpHardware_1_1SmarActHardwareAdapterConfigurator.html" title=" " alt="" coords="611,341,872,381"/>
+<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="481,309,634,338,633,343,480,314"/>
+<area shape="rect" id="Node000013" href="$classDynExpHardware_1_1ZILabOneHardwareAdapterConfigurator.html" title=" " alt="" coords="633,405,849,445"/>
+<area shape="poly" id="edge12_Node000002_Node000013" title=" " alt="" coords="436,314,510,352,601,390,641,402,639,407,599,395,508,357,433,318"/>
+<area shape="rect" id="Node000014" href="$classDynExpHardware_1_1gRPCHardwareAdapterConfigurator.html" title="Configurator class for gRPCHardwareAdapter." alt="" coords="618,469,865,509"/>
+<area shape="poly" id="edge13_Node000002_Node000014" title=" " alt="" coords="423,317,497,386,547,423,601,454,631,466,629,471,599,459,544,427,494,390,419,321"/>
+<area shape="rect" id="Node000004" href="$classDynExpHardware_1_1SIPulseStreamerHardwareAdapterConfigurator.html" title=" " alt="" coords="935,13,1185,53"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="875,30,934,30,934,35,875,35"/>
+<area shape="rect" id="Node000006" href="$classDynExp_1_1QSerialCommunicationHardwareAdapterConfigurator.html" title="Configurator class for QSerialCommunicationHardwareAdapter." alt="" coords="945,85,1175,125"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="865,102,944,102,944,107,865,107"/>
+<area shape="rect" id="Node000007" href="$classDynExp_1_1HardwareAdapterSerialPortConfigurator.html" title="Configurator class for HardwareAdapterSerialPort." alt="" coords="1255,29,1485,69"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1184,80,1258,66,1259,71,1185,85"/>
+<area shape="rect" id="Node000008" href="$classDynExp_1_1HardwareAdapterTcpSocketConfigurator.html" title="Configurator class for HardwareAdapterTcpSocket." alt="" coords="1263,93,1477,133"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="1189,105,1263,107,1262,113,1189,111"/>
+<area shape="rect" id="Node000016" href="$classDynExp_1_1InstrumentConfiguratorBase.html" title="Configurator class for InstrumentBase." alt="" coords="610,533,873,559"/>
+<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="544,543,610,543,610,549,544,549"/>
+<area shape="rect" id="Node000046" href="$classDynExp_1_1ModuleConfiguratorBase.html" title="Configurator class for ModuleBase." alt="" coords="621,1144,861,1169"/>
+<area shape="poly" id="edge30_Node000015_Node000046" title=" " alt="" coords="416,570,735,1143,731,1145,412,572"/>
+<area shape="rect" id="Node000017" href="$classDynExpInstr_1_1CameraConfigurator.html" title="Configurator class for Camera." alt="" coords="940,237,1180,263"/>
+<area shape="poly" id="edge16_Node000016_Node000017" title=" " alt="" coords="874,524,881,519,895,504,903,490,910,460,914,427,919,408,928,389,956,349,987,313,1042,261,1045,265,991,317,960,353,933,391,924,410,919,428,915,461,908,492,899,507,884,523,877,528"/>
+<area shape="rect" id="Node000020" href="$classDynExpInstr_1_1DataStreamInstrumentConfigurator.html" title="Configurator class for DataStreamInstrument." alt="" coords="931,402,1189,442"/>
+<area shape="poly" id="edge19_Node000016_Node000020" title=" " alt="" coords="860,527,881,518,896,509,905,499,929,477,966,457,1003,440,1006,445,969,461,932,481,909,503,899,513,884,523,862,532"/>
+<area shape="rect" id="Node000040" href="$classDynExpInstr_1_1InterModuleCommunicatorConfigurator.html" title="Configurator class for InterModuleCommunicator." alt="" coords="961,491,1159,531"/>
+<area shape="poly" id="edge24_Node000016_Node000040" title=" " alt="" coords="872,529,960,519,961,525,872,534"/>
+<area shape="rect" id="Node000041" href="$classDynExpInstr_1_1PositionerStageConfigurator.html" title="Configurator class for PositionerStage." alt="" coords="955,555,1165,595"/>
+<area shape="poly" id="edge25_Node000016_Node000041" title=" " alt="" coords="887,557,955,563,954,568,886,562"/>
+<area shape="rect" id="Node000045" href="$classDynExpInstr_1_1SpectrometerConfigurator.html" title="Configurator class for Spectrometer." alt="" coords="961,619,1159,659"/>
+<area shape="poly" id="edge29_Node000016_Node000045" title=" " alt="" coords="793,561,931,605,975,617,974,622,930,610,791,566"/>
+<area shape="rect" id="Node000018" href="$classDynExpInstr_1_1DummyCameraConfigurator.html" title=" " alt="" coords="1264,173,1476,213"/>
+<area shape="poly" id="edge17_Node000017_Node000018" title=" " alt="" coords="1142,232,1263,210,1264,215,1143,237"/>
+<area shape="rect" id="Node000019" href="$classDynExpInstr_1_1PVCamConfigurator.html" title=" " alt="" coords="1252,237,1488,263"/>
+<area shape="poly" id="edge18_Node000017_Node000019" title=" " alt="" coords="1194,247,1252,247,1252,253,1194,253"/>
+<area shape="rect" id="Node000021" href="$classDynExpInstr_1_1FunctionGeneratorConfigurator.html" title="Configurator class for FunctionGenerator." alt="" coords="1255,287,1485,327"/>
+<area shape="poly" id="edge20_Node000020_Node000021" title=" " alt="" coords="1110,393,1169,364,1236,337,1275,325,1277,330,1238,342,1172,369,1112,398"/>
+<area shape="rect" id="Node000031" href="$classDynExpInstr_1_1InputPortConfigurator.html" title="Configurator class for InputPort." alt="" coords="1246,352,1494,377"/>
+<area shape="poly" id="edge21_Node000020_Node000031" title=" " alt="" coords="1182,397,1300,375,1301,380,1183,402"/>
+<area shape="rect" id="Node000036" href="$classDynExpInstr_1_1LockinAmplifierConfigurator.html" title="Configurator class for LockinAmplifier." alt="" coords="1265,402,1475,442"/>
+<area shape="poly" id="edge22_Node000020_Node000036" title=" " alt="" coords="1203,419,1265,419,1265,425,1203,425"/>
+<area shape="rect" id="Node000038" href="$classDynExpInstr_1_1TimeTaggerConfigurator.html" title="Configurator class for TimeTagger." alt="" coords="1237,467,1503,492"/>
+<area shape="poly" id="edge23_Node000020_Node000038" title=" " alt="" coords="1183,442,1301,464,1300,469,1182,447"/>
+<area shape="rect" id="Node000042" href="$classDynExpInstr_1_1NenionLeakvalveF3Configurator.html" title=" " alt="" coords="1259,517,1481,557"/>
+<area shape="poly" id="edge26_Node000041_Node000042" title=" " alt="" coords="1179,558,1258,548,1259,553,1179,563"/>
+<area shape="rect" id="Node000043" href="$classDynExpInstr_1_1PI__C__862__Configurator.html" title=" " alt="" coords="1286,581,1454,621"/>
+<area shape="poly" id="edge27_Node000041_Node000043" title=" " alt="" coords="1179,582,1286,591,1285,596,1179,588"/>
+<area shape="rect" id="Node000044" href="$classDynExpInstr_1_1SmarActConfigurator.html" title=" " alt="" coords="1248,645,1492,671"/>
+<area shape="poly" id="edge28_Node000041_Node000044" title=" " alt="" coords="1167,597,1190,605,1214,618,1238,630,1284,643,1283,648,1236,635,1212,623,1188,610,1165,602"/>
+<area shape="rect" id="Node000047" href="$classDynExpModule_1_1gRPCModuleConfigurator.html" title=" " alt="" coords="943,781,1177,821"/>
+<area shape="poly" id="edge31_Node000046_Node000047" title=" " alt="" coords="761,1132,1039,819,1043,823,765,1136"/>
+<area shape="rect" id="Node000055" href="$classDynExp_1_1QModuleConfiguratorBase.html" title="Configurator class for QModuleBase." alt="" coords="935,1116,1185,1141"/>
+<area shape="poly" id="edge34_Node000046_Node000055" title=" " alt="" coords="875,1142,934,1137,935,1142,875,1148"/>
+<area shape="rect" id="Node000067" href="$classDynExpModule_1_1ArbitraryFunctionFromCSVConfigurator.html" title=" " alt="" coords="940,1166,1180,1206"/>
+<area shape="poly" id="edge46_Node000046_Node000067" title=" " alt="" coords="875,1166,940,1172,940,1178,875,1172"/>
+<area shape="rect" id="Node000068" href="$classDynExpModule_1_1StreamManipulatorConfigurator.html" title="Configurator class for StreamManipulator." alt="" coords="933,1230,1187,1270"/>
+<area shape="poly" id="edge47_Node000046_Node000068" title=" " alt="" coords="793,1171,931,1215,975,1227,974,1233,930,1221,791,1176"/>
+<area shape="rect" id="Node000069" href="$classDynExpModule_1_1gRPCModuleConfigurator.html" title="Configurator class for gRPCModule." alt="" coords="949,1294,1171,1334"/>
+<area shape="poly" id="edge48_Node000046_Node000069" title=" " alt="" coords="770,1176,840,1228,885,1256,932,1280,964,1291,962,1296,930,1284,882,1260,837,1232,767,1180"/>
+<area shape="rect" id="Node000048" href="$classDynExpModule_1_1NetworkDataStreamInstrumentConfigurator.html" title=" " alt="" coords="1260,695,1480,749"/>
+<area shape="poly" id="edge32_Node000047_Node000048" title=" " alt="" coords="1152,775,1261,747,1262,752,1154,780"/>
+<area shape="rect" id="Node000054" href="$classDynExpModule_1_1NetworkDataStreamInstrumentConfigurator.html" title=" " alt="" coords="1260,773,1480,828"/>
+<area shape="poly" id="edge33_Node000047_Node000054" title=" " alt="" coords="1191,798,1260,798,1260,803,1191,803"/>
+<area shape="rect" id="Node000056" href="$classDynExpModule_1_1ImageViewer_1_1ImageViewerConfigurator.html" title=" " alt="" coords="1263,853,1477,893"/>
+<area shape="poly" id="edge35_Node000055_Node000056" title=" " alt="" coords="1072,1102,1096,1058,1133,1004,1180,949,1207,924,1236,902,1261,889,1264,894,1239,907,1210,928,1183,953,1137,1007,1101,1061,1076,1105"/>
+<area shape="rect" id="Node000057" href="$classDynExpModule_1_1InputPortReaderConfigurator.html" title=" " alt="" coords="1253,917,1487,957"/>
+<area shape="poly" id="edge36_Node000055_Node000057" title=" " alt="" coords="1078,1104,1143,1035,1187,998,1236,966,1264,954,1266,959,1239,971,1190,1002,1147,1039,1082,1107"/>
+<area shape="rect" id="Node000058" href="$classDynExpModule_1_1LockinAmplifierControlConfigurator.html" title=" " alt="" coords="1255,981,1485,1021"/>
+<area shape="poly" id="edge37_Node000055_Node000058" title=" " alt="" coords="1091,1106,1156,1068,1236,1030,1273,1018,1274,1023,1238,1035,1159,1073,1093,1111"/>
+<area shape="rect" id="Node000059" href="$classDynExpModule_1_1ODMR_1_1ODMRConfigurator.html" title=" " alt="" coords="1285,1045,1455,1085"/>
+<area shape="poly" id="edge38_Node000055_Node000059" title=" " alt="" coords="1135,1111,1284,1079,1286,1085,1137,1116"/>
+<area shape="rect" id="Node000060" href="$classDynExpModule_1_1OutputPortWriterConfigurator.html" title=" " alt="" coords="1271,1109,1469,1149"/>
+<area shape="poly" id="edge39_Node000055_Node000060" title=" " alt="" coords="1199,1126,1271,1126,1271,1131,1199,1131"/>
+<area shape="rect" id="Node000061" href="$classDynExpModule_1_1SignalDesignerConfigurator.html" title=" " alt="" coords="1257,1173,1483,1213"/>
+<area shape="poly" id="edge40_Node000055_Node000061" title=" " alt="" coords="1141,1141,1190,1151,1278,1170,1276,1175,1189,1157,1139,1147"/>
+<area shape="rect" id="Node000062" href="$classDynExpModule_1_1SignalPlotterConfigurator.html" title=" " alt="" coords="1265,1237,1475,1277"/>
+<area shape="poly" id="edge41_Node000055_Node000062" title=" " alt="" coords="1178,1145,1191,1152,1208,1169,1216,1188,1223,1206,1239,1223,1266,1237,1263,1241,1236,1227,1219,1209,1211,1190,1204,1172,1188,1156,1175,1149"/>
+<area shape="rect" id="Node000063" href="$classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerConfigurator.html" title=" " alt="" coords="1253,1301,1487,1341"/>
+<area shape="poly" id="edge42_Node000055_Node000063" title=" " alt="" coords="1184,1146,1191,1152,1206,1169,1213,1186,1216,1221,1219,1255,1226,1271,1239,1287,1255,1298,1252,1303,1236,1291,1221,1274,1214,1256,1211,1221,1208,1187,1201,1171,1188,1156,1180,1150"/>
+<area shape="rect" id="Node000064" href="$classDynExpModule_1_1Stage1DConfigurator.html" title=" " alt="" coords="1239,1365,1501,1391"/>
+<area shape="poly" id="edge43_Node000055_Node000064" title=" " alt="" coords="1185,1147,1191,1152,1210,1177,1218,1202,1219,1228,1216,1254,1213,1279,1214,1304,1221,1327,1239,1351,1256,1363,1253,1367,1235,1355,1217,1330,1209,1304,1208,1279,1211,1253,1213,1228,1213,1203,1205,1179,1187,1156,1181,1151"/>
+<area shape="rect" id="Node000065" href="$classDynExpModule_1_1Trajectory1DConfigurator.html" title=" " alt="" coords="1270,1415,1470,1455"/>
+<area shape="poly" id="edge44_Node000055_Node000065" title=" " alt="" coords="1186,1147,1191,1152,1213,1183,1222,1214,1222,1246,1217,1278,1212,1309,1211,1340,1219,1370,1239,1400,1254,1412,1271,1421,1269,1426,1251,1417,1235,1404,1214,1372,1206,1340,1207,1308,1212,1277,1216,1246,1217,1215,1209,1185,1187,1156,1182,1151"/>
+<area shape="rect" id="Node000066" href="$classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeConfigurator.html" title=" " alt="" coords="1247,1479,1493,1519"/>
+<area shape="poly" id="edge45_Node000055_Node000066" title=" " alt="" coords="1187,1148,1191,1152,1207,1172,1218,1191,1227,1231,1225,1271,1217,1310,1209,1350,1206,1389,1214,1427,1224,1446,1239,1465,1253,1477,1249,1481,1235,1469,1220,1449,1209,1429,1201,1389,1203,1349,1212,1309,1220,1270,1222,1232,1213,1193,1203,1175,1187,1156,1183,1152"/>
 </map>

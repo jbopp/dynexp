@@ -1,3 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structDynExpInstr_1_1WidefieldLocalizationCellIDType.html" title=" " alt="" coords="5,5,253,47"/>
+<area shape="rect" id="Node000000" href="$structDynExpInstr_1_1FunctionGeneratorDefs_1_1FunctionDescType.html" title="Type describing a generic periodic function." alt="" coords="5,69,235,109"/>
+<area shape="rect" id="Node000001" href="$structDynExpInstr_1_1FunctionGeneratorDefs_1_1RampFunctionDescType.html" title="Type describing a ramp function." alt="" coords="283,5,512,45"/>
+<area shape="poly" id="edge219_Node000000_Node000001" title=" " alt="" coords="220,64,310,43,311,48,221,69"/>
+<area shape="rect" id="Node000002" href="$structDynExpInstr_1_1FunctionGeneratorDefs_1_1RectFunctionDescType.html" title="Type describing a rectangular function." alt="" coords="283,69,512,109"/>
+<area shape="poly" id="edge220_Node000000_Node000002" title=" " alt="" coords="249,87,282,87,282,92,249,92"/>
+<area shape="rect" id="Node000003" href="$structDynExpInstr_1_1FunctionGeneratorDefs_1_1SineFunctionDescType.html" title="Type describing a sine function." alt="" coords="283,133,512,173"/>
+<area shape="poly" id="edge221_Node000000_Node000003" title=" " alt="" coords="221,110,311,131,310,136,220,115"/>
 </map>

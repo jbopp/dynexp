@@ -15,7 +15,7 @@ var classDynExpInstr_1_1DataStreamInstrumentData =
     [ "GetCastSampleStream", "classDynExpInstr_1_1DataStreamInstrumentData.html#a016774a4fcfc7242bdb1e04aa8f90819", null ],
     [ "GetHardwareMaxValue", "classDynExpInstr_1_1DataStreamInstrumentData.html#a21d75bb47f0776cc24fea041082c5e8d", null ],
     [ "GetHardwareMinValue", "classDynExpInstr_1_1DataStreamInstrumentData.html#aee65a9f92e38da57ee4d64c1722bcb93", null ],
-    [ "GetSampleStream", "classDynExpInstr_1_1DataStreamInstrumentData.html#aa3d05d4c2fa3dceae2a485fcee295176", null ],
+    [ "GetSampleStream", "classDynExpInstr_1_1DataStreamInstrumentData.html#a405468e1f374062644d556e358af4824", null ],
     [ "GetValueUnit", "classDynExpInstr_1_1DataStreamInstrumentData.html#ab1286f91681467181c327b4b6e68824d", null ],
     [ "ResetImpl", "classDynExpInstr_1_1DataStreamInstrumentData.html#a006fc769a14461a94fa870e272edaf58", null ],
     [ "ResetImpl", "classDynExpInstr_1_1DataStreamInstrumentData.html#ab0c78a8c0fde5c353059f75c190fe2ac", null ],

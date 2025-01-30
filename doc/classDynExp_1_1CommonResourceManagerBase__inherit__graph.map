@@ -1,10 +1,17 @@
 <map id="DynExp::CommonResourceManagerBase" name="DynExp::CommonResourceManagerBase">
-<area shape="rect" id="node1" title="Common base class for all derived ResourceManagerBase classes. Logical const&#45;ness: Only const functio..." alt="" coords="5,111,293,138"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1ResourceManagerBase.html" title=" " alt="" coords="341,5,571,47"/>
-<area shape="rect" id="node4" href="$classDynExp_1_1ResourceManagerBase.html" title=" " alt="" coords="341,71,571,112"/>
-<area shape="rect" id="node6" href="$classDynExp_1_1ResourceManagerBase.html" title=" " alt="" coords="341,136,571,177"/>
-<area shape="rect" id="node8" href="$classDynExp_1_1ResourceManagerBase.html" title="Typed resource manager base class deriving from class CommonResourceManagerBase." alt="" coords="341,201,571,243"/>
-<area shape="rect" id="node3" href="$classDynExp_1_1ModuleManager.html" title="Resource manager for ModuleBase resources deriving from a specialized ResourceManagerBase class." alt="" coords="651,13,837,39"/>
-<area shape="rect" id="node5" href="$classDynExp_1_1InstrumentManager.html" title="Resource manager for InstrumentBase resources deriving from a specialized ResourceManagerBase class." alt="" coords="640,78,848,105"/>
-<area shape="rect" id="node7" href="$classDynExp_1_1HardwareAdapterManager.html" title="Resource manager for HardwareAdapterBase resources deriving from a specialized ResourceManagerBase cl..." alt="" coords="619,143,869,170"/>
+<area shape="rect" id="Node000001" title="Common base class for all derived ResourceManagerBase classes. Logical const&#45;ness: Only const functio..." alt="" coords="5,109,293,134"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1ResourceManagerBase.html" title=" " alt="" coords="341,5,571,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,102,341,55,381,43,382,48,342,60,200,107"/>
+<area shape="rect" id="Node000004" href="$classDynExp_1_1ResourceManagerBase.html" title=" " alt="" coords="341,69,571,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="285,105,341,99,341,104,285,110"/>
+<area shape="rect" id="Node000006" href="$classDynExp_1_1ResourceManagerBase.html" title=" " alt="" coords="341,133,571,173"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="285,133,341,139,341,144,285,138"/>
+<area shape="rect" id="Node000008" href="$classDynExp_1_1ResourceManagerBase.html" title="Typed resource manager base class deriving from class CommonResourceManagerBase." alt="" coords="341,197,571,237"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="200,136,342,183,382,195,381,200,341,188,199,141"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1HardwareAdapterManager.html" title="Resource manager for HardwareAdapterBase resources deriving from a specialized ResourceManagerBase cl..." alt="" coords="619,13,869,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="585,23,618,23,618,28,585,28"/>
+<area shape="rect" id="Node000005" href="$classDynExp_1_1InstrumentManager.html" title="Resource manager for InstrumentBase resources deriving from a specialized ResourceManagerBase class." alt="" coords="640,77,848,102"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="584,87,640,87,640,92,584,92"/>
+<area shape="rect" id="Node000007" href="$classDynExp_1_1ModuleManager.html" title="Resource manager for ModuleBase resources deriving from a specialized ResourceManagerBase class." alt="" coords="651,141,837,166"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="585,151,651,151,651,156,585,156"/>
 </map>

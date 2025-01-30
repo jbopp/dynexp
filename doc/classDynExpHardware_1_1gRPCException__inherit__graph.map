@@ -1,6 +1,9 @@
 <map id="DynExpHardware::gRPCException" name="DynExpHardware::gRPCException">
-<area shape="rect" id="node1" title="Defines an exception caused by an operation involving the gRPC library and communication over a TCP s..." alt="" coords="5,229,247,256"/>
-<area shape="rect" id="node2" href="$classUtil_1_1Exception.html" title="DynExp exceptions are derived from this class. It contains basic information about the cause of the e..." alt="" coords="67,155,185,181"/>
-<area shape="rect" id="node3" title=" " alt="" coords="57,80,195,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="69,5,183,32"/>
+<area shape="rect" id="Node000001" title="Defines an exception caused by an operation involving the gRPC library and communication over a TCP s..." alt="" coords="5,225,247,251"/>
+<area shape="rect" id="Node000002" href="$classUtil_1_1Exception.html" title="DynExp exceptions are derived from this class. It contains basic information about the cause of the e..." alt="" coords="67,152,185,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,191,129,225,123,225,123,191"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="57,79,195,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="129,118,129,152,123,152,123,118"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="69,5,183,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="129,44,129,79,123,79,123,44"/>
 </map>

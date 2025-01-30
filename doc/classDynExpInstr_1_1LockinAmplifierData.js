@@ -6,7 +6,7 @@ var classDynExpInstr_1_1LockinAmplifierData =
     [ "GetAcquisitionProgress", "classDynExpInstr_1_1LockinAmplifierData.html#a55636c6c6dae572141b37815ed5b0310", null ],
     [ "GetAcquisitionTime", "classDynExpInstr_1_1LockinAmplifierData.html#a2395bdc17b1b416b34d00936774fe8fe", null ],
     [ "GetFilterOrder", "classDynExpInstr_1_1LockinAmplifierData.html#ad34d5cb51d79c0ee02d01b915829468a", null ],
-    [ "GetInputLoad", "classDynExpInstr_1_1LockinAmplifierData.html#a2a174919035fdc4f5c1eea9e478da301", null ],
+    [ "GetInputLoad", "classDynExpInstr_1_1LockinAmplifierData.html#a7aa1989e3c3c0cc9ca650a8ce54e9fae", null ],
     [ "GetOscillatorFrequency", "classDynExpInstr_1_1LockinAmplifierData.html#a69bc1e7478347bb26084b6d283aa2e79", null ],
     [ "GetPhase", "classDynExpInstr_1_1LockinAmplifierData.html#aa3605fd117b19f83a44d6353645ff505", null ],
     [ "GetSamplingRate", "classDynExpInstr_1_1LockinAmplifierData.html#aa3a9168b778d72262ad0bf4632594554", null ],

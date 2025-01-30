@@ -1,9 +1,9 @@
 var namespaceDynExpModule_1_1Widefield =
 [
+    [ "WidefieldMicroscope", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscope" ],
+    [ "WidefieldMicroscopeConfigurator", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeConfigurator.html", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeConfigurator" ],
     [ "WidefieldMicroscopeData", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeData.html", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeData" ],
     [ "WidefieldMicroscopeParams", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeParams.html", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeParams" ],
-    [ "WidefieldMicroscopeConfigurator", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeConfigurator.html", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeConfigurator" ],
-    [ "WidefieldMicroscope", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscope" ],
     [ "WidefieldMicroscopeWidget", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget" ],
     [ "StateMachineStateType", "namespaceDynExpModule_1_1Widefield.html#aba7be1873e7c592fdb4dbd2ddd2b0b8f", null ],
     [ "StateType", "namespaceDynExpModule_1_1Widefield.html#a45816f345a7c92c2dfb5e23d4640826d", [

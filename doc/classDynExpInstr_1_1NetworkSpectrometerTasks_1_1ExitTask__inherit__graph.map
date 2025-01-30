@@ -1,5 +1,7 @@
 <map id="DynExpInstr::NetworkSpectrometerTasks::ExitTask" name="DynExpInstr::NetworkSpectrometerTasks::ExitTask">
-<area shape="rect" id="node1" title=" " alt="" coords="553,20,805,61"/>
-<area shape="rect" id="node2" href="$classDynExpInstr_1_1gRPCInstrumentTasks_1_1ExitTask.html" title=" " alt="" coords="228,5,505,76"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,27,180,54"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="553,20,805,60"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1gRPCInstrumentTasks_1_1ExitTask.html" title=" " alt="" coords="228,5,505,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="519,37,553,37,553,43,519,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,27,180,53"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="194,37,228,37,228,43,194,43"/>
 </map>

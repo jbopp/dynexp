@@ -1,6 +1,9 @@
 <map id="DynExpHardware::SIPulseStreamerHardwareAdapterConfigurator" name="DynExpHardware::SIPulseStreamerHardwareAdapterConfigurator">
-<area shape="rect" id="node1" title=" " alt="" coords="33,259,284,300"/>
-<area shape="rect" id="node2" href="$classDynExpHardware_1_1gRPCHardwareAdapterConfigurator.html" title=" " alt="" coords="39,155,279,211"/>
-<area shape="rect" id="node3" href="$classDynExp_1_1HardwareAdapterConfiguratorBase.html" title="Configurator class for HardwareAdapterBase." alt="" coords="5,80,312,107"/>
-<area shape="rect" id="node4" href="$classDynExp_1_1ConfiguratorBase.html" title="The configurator classes have the task to generate parameter objects (refer to DynExp::ParamsBase) of..." alt="" coords="63,5,255,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="33,255,284,295"/>
+<area shape="rect" id="Node000002" href="$classDynExpHardware_1_1gRPCHardwareAdapterConfigurator.html" title=" " alt="" coords="39,152,279,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,220,161,255,156,255,156,220"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1HardwareAdapterConfiguratorBase.html" title="Configurator class for HardwareAdapterBase." alt="" coords="5,79,312,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="161,118,161,152,156,152,156,118"/>
+<area shape="rect" id="Node000004" href="$classDynExp_1_1ConfiguratorBase.html" title="The configurator classes have the task to generate parameter objects (refer to DynExp::ParamsBase) of..." alt="" coords="63,5,255,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="161,44,161,79,156,79,156,44"/>
 </map>

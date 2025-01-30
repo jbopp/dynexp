@@ -1,6 +1,9 @@
 <map id="DynExpInstr::NetworkDigitalInTasks::UpdateTask&lt; BaseInstr,, gRPCStubs &gt;" name="DynExpInstr::NetworkDigitalInTasks::UpdateTask&lt; BaseInstr,, gRPCStubs &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="764,13,999,69"/>
-<area shape="rect" id="node2" href="$classDynExpInstr_1_1NetworkDataStreamInstrumentTasks_1_1UpdateTask.html" title=" " alt="" coords="521,5,716,76"/>
-<area shape="rect" id="node3" href="$classDynExpInstr_1_1gRPCInstrumentTasks_1_1UpdateTask.html" title="Defines a task for updating an instrument within an instrument inheritance hierarchy...." alt="" coords="251,13,473,69"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,27,203,54"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="764,13,999,67"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1NetworkDataStreamInstrumentTasks_1_1UpdateTask.html" title=" " alt="" coords="521,5,716,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="730,37,764,37,764,43,730,43"/>
+<area shape="rect" id="Node000003" href="$classDynExpInstr_1_1gRPCInstrumentTasks_1_1UpdateTask.html" title="Defines a task for updating an instrument within an instrument inheritance hierarchy...." alt="" coords="251,13,473,67"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="487,37,521,37,521,43,487,43"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,27,203,53"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="217,37,250,37,250,43,217,43"/>
 </map>

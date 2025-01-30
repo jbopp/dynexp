@@ -1,4 +1,5 @@
 <map id="DynExpInstr::gRPCInstrumentConfigurator&lt; BaseInstr,, gRPCStubs &gt;" name="DynExpInstr::gRPCInstrumentConfigurator&lt; BaseInstr,, gRPCStubs &gt;">
-<area shape="rect" id="node1" title="Configurator class for gRPCInstrument." alt="" coords="5,80,220,136"/>
-<area shape="rect" id="node2" title=" " alt="" coords="31,5,194,32"/>
+<area shape="rect" id="Node000001" title="Configurator class for gRPCInstrument." alt="" coords="5,79,220,133"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="31,5,194,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,44,115,79,110,79,110,44"/>
 </map>

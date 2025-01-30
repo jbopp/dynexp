@@ -14,7 +14,7 @@ var classDynExpHardware_1_1NIDAQHardwareAdapterParams =
     [ "ChannelModeTypeStrList", "classDynExpHardware_1_1NIDAQHardwareAdapterParams.html#a678085a8b4d254b90b8ef80151f0f8df", null ],
     [ "ConfigureParamsImpl", "classDynExpHardware_1_1NIDAQHardwareAdapterParams.html#ae3886dcb945350daf81dc554699939ec", null ],
     [ "ConfigureParamsImpl", "classDynExpHardware_1_1NIDAQHardwareAdapterParams.html#a1d7cd08e6715c64ad935a9f7b11a344a", null ],
-    [ "GetParamClassTag", "classDynExpHardware_1_1NIDAQHardwareAdapterParams.html#a66c2c00f7f111f4b1f7d9b655b8fb2c3", null ],
+    [ "GetParamClassTag", "classDynExpHardware_1_1NIDAQHardwareAdapterParams.html#aa256c6844a7ffef618cbd1f9432cbaae", null ],
     [ "TriggerModeTypeStrList", "classDynExpHardware_1_1NIDAQHardwareAdapterParams.html#abf595784bd45e5baacaae6be2fa2153a", null ],
     [ "ChannelMode", "classDynExpHardware_1_1NIDAQHardwareAdapterParams.html#a98fc6c7239cfc485419110f2658b94fa", null ],
     [ "NumericSampleStreamParams", "classDynExpHardware_1_1NIDAQHardwareAdapterParams.html#a89973ec8f71d76f76fd3a02707074763", null ],

@@ -5,7 +5,7 @@ var classChoiceListDialog =
     [ "~ChoiceListDialog", "classChoiceListDialog.html#aca559365d9450edaa6da0e2cf42ac928", null ],
     [ "accept", "classChoiceListDialog.html#ad9f241e0b7f3a55af6f2804c8a859420", null ],
     [ "GetParamName", "classChoiceListDialog.html#a5d24d0f0efd13e8edd075140e2f028e4", null ],
-    [ "GetSelection", "classChoiceListDialog.html#aac0663bd623ef15a5cdf9044a2277a36", null ],
+    [ "GetSelection", "classChoiceListDialog.html#ac717b8fd40e19da309a30ee21a11cb02", null ],
     [ "IsOptional", "classChoiceListDialog.html#a6717594c632ea21e8ba240fda0231587", null ],
     [ "OnAddItemClicked", "classChoiceListDialog.html#a1fb80cb045a40dab5ef49325d775a972", null ],
     [ "OnMoveItemDownClicked", "classChoiceListDialog.html#af1901e7dba70b29f3d0c1408822b3eb0", null ],

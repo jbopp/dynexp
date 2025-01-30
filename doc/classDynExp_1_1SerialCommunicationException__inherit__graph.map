@@ -1,8 +1,13 @@
 <map id="DynExp::SerialCommunicationException" name="DynExp::SerialCommunicationException">
-<area shape="rect" id="node1" title="Defines an exception caused by a serial communication operation of a hardware adapter." alt="" coords="108,229,328,271"/>
-<area shape="rect" id="node5" href="$classDynExp_1_1NetworkException.html" title="Defines an exception caused by a hardware operation on an ethernet interface (e.g...." alt="" coords="5,319,204,345"/>
-<area shape="rect" id="node6" href="$classDynExp_1_1SerialPortException.html" title="Defines an exception caused by a hardware operation on a COM port (e.g. reading/writing data to a COM..." alt="" coords="228,319,435,345"/>
-<area shape="rect" id="node2" href="$classUtil_1_1Exception.html" title="DynExp exceptions are derived from this class. It contains basic information about the cause of the e..." alt="" coords="159,155,277,181"/>
-<area shape="rect" id="node3" title=" " alt="" coords="149,80,287,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="161,5,275,32"/>
+<area shape="rect" id="Node000001" title="Defines an exception caused by a serial communication operation of a hardware adapter." alt="" coords="108,225,328,265"/>
+<area shape="rect" id="Node000005" href="$classDynExp_1_1NetworkException.html" title="Defines an exception caused by a hardware operation on an ethernet interface (e.g...." alt="" coords="5,313,204,339"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="181,275,123,315,120,311,178,271"/>
+<area shape="rect" id="Node000006" href="$classDynExp_1_1SerialPortException.html" title="Defines an exception caused by a hardware operation on a COM port (e.g. reading/writing data to a COM..." alt="" coords="228,313,435,339"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="258,271,316,311,313,315,255,275"/>
+<area shape="rect" id="Node000002" href="$classUtil_1_1Exception.html" title="DynExp exceptions are derived from this class. It contains basic information about the cause of the e..." alt="" coords="159,152,277,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,191,221,225,215,225,215,191"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="149,79,287,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="221,118,221,152,215,152,215,118"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="161,5,275,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="221,44,221,79,215,79,215,44"/>
 </map>

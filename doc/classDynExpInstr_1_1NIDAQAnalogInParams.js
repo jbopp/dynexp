@@ -11,7 +11,7 @@ var classDynExpInstr_1_1NIDAQAnalogInParams =
     [ "~NIDAQAnalogInParams", "classDynExpInstr_1_1NIDAQAnalogInParams.html#aa178e5b28808ed6d686f076ed9318af2", null ],
     [ "ConfigureParamsImpl", "classDynExpInstr_1_1NIDAQAnalogInParams.html#a9b09d7094bae058db22babd7aa55662a", null ],
     [ "ConfigureParamsImpl", "classDynExpInstr_1_1NIDAQAnalogInParams.html#a5228d12fdf0a2c5aca4ef4e23fe8233f", null ],
-    [ "GetParamClassTag", "classDynExpInstr_1_1NIDAQAnalogInParams.html#ace5145bb879745152639c7ad114aeec1", null ],
+    [ "GetParamClassTag", "classDynExpInstr_1_1NIDAQAnalogInParams.html#ae94c29519a6ef7002a734184786a232e", null ],
     [ "TerminalConfigTypeStrList", "classDynExpInstr_1_1NIDAQAnalogInParams.html#a64bc87891e9b74522836f055d3255f4d", null ],
     [ "ChannelName", "classDynExpInstr_1_1NIDAQAnalogInParams.html#ac15a233116b4b23ea1a2025851470e58", null ],
     [ "HardwareAdapter", "classDynExpInstr_1_1NIDAQAnalogInParams.html#a81aadefd1f4b752ec3895c0d5e0de48b", null ],

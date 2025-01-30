@@ -4,7 +4,7 @@ var classDynExpModule_1_1SignalDesignerWidget =
     [ "~SignalDesignerWidget", "classDynExpModule_1_1SignalDesignerWidget.html#ae42337b4113b8748d02c7346a954b059", null ],
     [ "AllowResize", "classDynExpModule_1_1SignalDesignerWidget.html#a31c82b999a1620be30f0d8fdb99fb07d", null ],
     [ "GetPulses", "classDynExpModule_1_1SignalDesignerWidget.html#af9e7adb3982b65fe880945f4635e8ae3", null ],
-    [ "GetUI", "classDynExpModule_1_1SignalDesignerWidget.html#a441ff6a15124fae88bc64fc8b6490fa6", null ],
+    [ "GetUI", "classDynExpModule_1_1SignalDesignerWidget.html#a2f24f0573fe22f407f32d13bdae16fb8", null ],
     [ "HavePulsesChanged", "classDynExpModule_1_1SignalDesignerWidget.html#ad062f68f7da474a6a9224a3ff0a045d8", null ],
     [ "InitializeUI", "classDynExpModule_1_1SignalDesignerWidget.html#a4adebf04b85e56a8e1f46a3199af4eef", null ],
     [ "OnAddPulse", "classDynExpModule_1_1SignalDesignerWidget.html#a611863dff5585b9f51c264be7d914d51", null ],

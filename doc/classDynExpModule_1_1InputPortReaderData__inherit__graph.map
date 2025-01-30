@@ -1,7 +1,11 @@
 <map id="DynExpModule::InputPortReaderData" name="DynExpModule::InputPortReaderData">
-<area shape="rect" id="node1" title=" " alt="" coords="5,319,269,345"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1QModuleDataBase.html" title="Data class for QModuleBase." alt="" coords="37,244,238,271"/>
-<area shape="rect" id="node3" href="$classDynExp_1_1ModuleDataBase.html" title="Data structure to contain data which is synchronized in between different threads...." alt="" coords="42,169,233,196"/>
-<area shape="rect" id="node4" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="42,80,233,121"/>
-<area shape="rect" id="node5" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="65,5,209,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,313,269,339"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1QModuleDataBase.html" title="Data class for QModuleBase." alt="" coords="37,240,238,265"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,279,140,313,135,313,135,279"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1ModuleDataBase.html" title="Data structure to contain data which is synchronized in between different threads...." alt="" coords="42,167,233,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="140,206,140,240,135,240,135,206"/>
+<area shape="rect" id="Node000004" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="42,79,233,119"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="140,132,140,166,135,166,135,132"/>
+<area shape="rect" id="Node000005" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="65,5,209,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="140,44,140,79,135,79,135,44"/>
 </map>

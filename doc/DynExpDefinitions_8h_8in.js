@@ -1,6 +1,6 @@
 var DynExpDefinitions_8h_8in =
 [
-    [ "DefaultLocaleSeparator", "structDynExp_1_1DefaultLocaleSeparator.html", "structDynExp_1_1DefaultLocaleSeparator" ],
+    [ "DynExp::DefaultLocaleSeparator", "structDynExp_1_1DefaultLocaleSeparator.html", "structDynExp_1_1DefaultLocaleSeparator" ],
     [ "ItemIDType", "DynExpDefinitions_8h_8in.html#a8b4c34da3bf02951070e7011bc438e38", null ],
     [ "black", "DynExpDefinitions_8h_8in.html#a9c477d8e01dc01ad909e10226eb5e05b", null ],
     [ "blue", "DynExpDefinitions_8h_8in.html#ae9e896572ddb0ebf2f26e939cd351b20", null ],

@@ -1,7 +1,7 @@
 var WidefieldMicroscopeWidget_8h =
 [
-    [ "WidefieldMicroscopeWidget", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget" ],
-    [ "StatusBarType", "structDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget_1_1StatusBarType.html", "structDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget_1_1StatusBarType" ],
+    [ "DynExpModule::Widefield::WidefieldMicroscopeWidget", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget" ],
+    [ "DynExpModule::Widefield::WidefieldMicroscopeWidget::StatusBarType", "structDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget_1_1StatusBarType.html", "structDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget_1_1StatusBarType" ],
     [ "StateMachineStateType", "WidefieldMicroscopeWidget_8h.html#aba7be1873e7c592fdb4dbd2ddd2b0b8f", null ],
     [ "StateType", "WidefieldMicroscopeWidget_8h.html#a45816f345a7c92c2dfb5e23d4640826d", [
       [ "DummyState", "WidefieldMicroscopeWidget_8h.html#a45816f345a7c92c2dfb5e23d4640826da02f4d2939f8ebcc7757538ba97db0ba1", null ],

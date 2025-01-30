@@ -1,33 +1,63 @@
 <map id="DynExp::InterModuleEventBase" name="DynExp::InterModuleEventBase">
-<area shape="rect" id="node1" title="Common base class for all inter&#45;module events." alt="" coords="203,485,429,512"/>
-<area shape="rect" id="node3" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="515,5,710,61"/>
-<area shape="rect" id="node5" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="485,86,740,127"/>
-<area shape="rect" id="node7" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="515,151,710,193"/>
-<area shape="rect" id="node9" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="478,217,747,258"/>
-<area shape="rect" id="node11" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="515,282,710,323"/>
-<area shape="rect" id="node13" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="497,347,729,389"/>
-<area shape="rect" id="node15" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="515,413,710,454"/>
-<area shape="rect" id="node17" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="493,478,732,519"/>
-<area shape="rect" id="node19" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="503,544,723,600"/>
-<area shape="rect" id="node21" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="485,625,740,666"/>
-<area shape="rect" id="node23" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="515,690,710,731"/>
-<area shape="rect" id="node25" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="477,755,748,797"/>
-<area shape="rect" id="node27" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="489,821,736,862"/>
-<area shape="rect" id="node29" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="514,887,711,943"/>
-<area shape="rect" id="node31" href="$classDynExp_1_1InterModuleEvent.html" title="Typed base class for inter&#45;module events to realize CRTP." alt="" coords="491,967,735,1009"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1EventBase.html" title="Common base class for all events to store them in a FIFO queue to be invoked later." alt="" coords="5,485,155,512"/>
-<area shape="rect" id="node4" href="$classDynExpModule_1_1SpectrumViewer_1_1RecordSpectrumEvent.html" title=" " alt="" coords="803,13,1037,54"/>
-<area shape="rect" id="node6" href="$classDynExpModule_1_1SpectrumViewer_1_1PauseSpectrumRecordingEvent.html" title=" " alt="" coords="803,86,1037,127"/>
-<area shape="rect" id="node8" href="$classDynExpModule_1_1ImageViewer_1_1AutofocusEvent.html" title=" " alt="" coords="813,151,1027,193"/>
-<area shape="rect" id="node10" href="$classDynExpModule_1_1SpectrumViewer_1_1ResumeSpectrumRecordingEvent.html" title=" " alt="" coords="797,217,1043,258"/>
-<area shape="rect" id="node12" href="$classDynExpModule_1_1StopEvent.html" title="This event is intended to make the receiver stop an action (like a measurement)." alt="" coords="823,289,1017,316"/>
-<area shape="rect" id="node14" href="$classDynExpModule_1_1SpectrumViewer_1_1SetSilentModeEvent.html" title=" " alt="" coords="803,347,1037,389"/>
-<area shape="rect" id="node16" href="$classDynExpModule_1_1StartEvent.html" title="This event is intended to make the receiver either directly start an action (like a measurement) or t..." alt="" coords="822,420,1018,447"/>
-<area shape="rect" id="node18" href="$classDynExpModule_1_1ImageViewer_1_1ImageCapturingPausedEvent.html" title=" " alt="" coords="811,478,1029,519"/>
-<area shape="rect" id="node20" href="$classDynExpModule_1_1ImageViewer_1_1PauseImageCapturingEvent.html" title=" " alt="" coords="813,551,1027,593"/>
-<area shape="rect" id="node22" href="$classDynExpModule_1_1ImageViewer_1_1ImageCapturingResumedEvent.html" title=" " alt="" coords="804,625,1036,666"/>
-<area shape="rect" id="node24" href="$classDynExpModule_1_1TriggerEvent.html" title="This event is intended to make the receiver start an action (like a measurement) after it received a ..." alt="" coords="815,697,1025,724"/>
-<area shape="rect" id="node26" href="$classDynExpModule_1_1SpectrumViewer_1_1SpectrumFinishedRecordingEvent.html" title=" " alt="" coords="796,755,1044,797"/>
-<area shape="rect" id="node28" href="$classDynExpModule_1_1ImageViewer_1_1ResumeImageCapturingEvent.html" title=" " alt="" coords="808,821,1032,862"/>
-<area shape="rect" id="node30" href="$classDynExpModule_1_1ImageViewer_1_1FinishedAutofocusEvent.html" title=" " alt="" coords="813,894,1027,935"/>
+<area shape="rect" id="Node000001" title="Common base class for all inter&#45;module events." alt="" coords="203,501,429,526"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="515,5,710,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="316,487,324,403,333,347,348,287,368,224,395,162,431,105,476,55,494,42,514,33,516,38,496,47,479,59,435,108,400,165,373,226,353,288,338,348,329,404,321,487"/>
+<area shape="rect" id="Node000005" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="514,70,711,125"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="318,486,332,417,360,322,380,272,406,222,438,176,476,135,512,113,515,118,479,139,442,179,411,225,385,274,365,324,337,418,323,487"/>
+<area shape="rect" id="Node000007" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="493,149,732,189"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="320,486,337,427,367,349,388,308,412,268,442,231,476,199,495,187,498,192,479,203,446,235,417,271,392,310,372,351,342,428,325,488"/>
+<area shape="rect" id="Node000009" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="485,213,740,253"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="324,486,344,438,376,378,420,316,446,287,476,263,497,251,499,256,479,268,450,291,424,319,381,380,349,440,329,488"/>
+<area shape="rect" id="Node000011" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="503,278,723,333"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="332,487,390,416,430,377,476,343,501,330,504,335,479,348,434,381,394,420,336,491"/>
+<area shape="rect" id="Node000013" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="489,357,736,397"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="342,490,401,448,476,407,510,395,511,400,478,412,404,452,345,494"/>
+<area shape="rect" id="Node000015" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="485,421,740,461"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="382,495,529,459,530,464,383,500"/>
+<area shape="rect" id="Node000017" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="515,486,710,541"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="443,511,515,511,515,516,443,516"/>
+<area shape="rect" id="Node000019" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="478,565,747,605"/>
+<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="381,527,478,551,528,563,526,568,477,556,380,532"/>
+<area shape="rect" id="Node000021" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="497,629,729,669"/>
+<area shape="poly" id="edge20_Node000001_Node000021" title=" " alt="" coords="345,532,404,574,478,615,511,627,510,632,476,620,401,579,342,537"/>
+<area shape="rect" id="Node000023" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="477,693,748,733"/>
+<area shape="poly" id="edge22_Node000001_Node000023" title=" " alt="" coords="335,536,393,608,433,646,479,679,504,691,502,696,476,684,430,651,389,611,331,539"/>
+<area shape="rect" id="Node000025" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="515,757,710,797"/>
+<area shape="poly" id="edge24_Node000001_Node000025" title=" " alt="" coords="330,538,351,583,383,639,426,696,451,721,479,743,516,761,514,766,476,748,448,725,422,699,379,642,346,585,325,540"/>
+<area shape="rect" id="Node000027" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="515,821,710,861"/>
+<area shape="poly" id="edge26_Node000001_Node000027" title=" " alt="" coords="326,539,344,596,374,669,394,707,419,744,447,778,479,807,517,827,514,831,476,812,443,782,414,747,390,710,369,671,339,597,321,541"/>
+<area shape="rect" id="Node000029" href="$classDynExp_1_1InterModuleEvent.html" title=" " alt="" coords="515,885,710,925"/>
+<area shape="poly" id="edge28_Node000001_Node000029" title=" " alt="" coords="324,539,337,607,365,697,386,745,411,791,442,834,479,871,496,883,516,891,514,896,494,888,476,875,438,838,407,794,381,747,360,699,332,608,318,540"/>
+<area shape="rect" id="Node000031" href="$classDynExp_1_1InterModuleEvent.html" title="Typed base class for inter&#45;module events to realize CRTP." alt="" coords="491,949,735,989"/>
+<area shape="poly" id="edge30_Node000001_Node000031" title=" " alt="" coords="322,539,332,618,357,725,377,782,404,839,437,890,479,935,496,947,493,951,476,939,433,894,399,841,372,784,352,727,326,619,316,540"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1EventBase.html" title="Common base class for all events to store them in a FIFO queue to be invoked later." alt="" coords="5,501,155,526"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,511,203,511,203,516,169,516"/>
+<area shape="rect" id="Node000004" href="$classDynExpModule_1_1ImageViewer_1_1AutofocusEvent.html" title=" " alt="" coords="813,5,1027,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="724,23,812,23,812,28,724,28"/>
+<area shape="rect" id="Node000006" href="$classDynExpModule_1_1ImageViewer_1_1FinishedAutofocusEvent.html" title=" " alt="" coords="813,77,1027,117"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="725,95,813,95,813,100,725,100"/>
+<area shape="rect" id="Node000008" href="$classDynExpModule_1_1ImageViewer_1_1ImageCapturingPausedEvent.html" title=" " alt="" coords="811,149,1029,189"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="746,167,811,167,811,172,746,172"/>
+<area shape="rect" id="Node000010" href="$classDynExpModule_1_1ImageViewer_1_1ImageCapturingResumedEvent.html" title=" " alt="" coords="804,213,1036,253"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="754,231,804,231,804,236,754,236"/>
+<area shape="rect" id="Node000012" href="$classDynExpModule_1_1ImageViewer_1_1PauseImageCapturingEvent.html" title=" " alt="" coords="813,285,1027,325"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="736,303,813,303,813,308,736,308"/>
+<area shape="rect" id="Node000014" href="$classDynExpModule_1_1ImageViewer_1_1ResumeImageCapturingEvent.html" title=" " alt="" coords="808,357,1032,397"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="750,375,808,375,808,380,750,380"/>
+<area shape="rect" id="Node000016" href="$classDynExpModule_1_1SpectrumViewer_1_1PauseSpectrumRecordingEvent.html" title=" " alt="" coords="803,421,1037,461"/>
+<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="754,439,802,439,802,444,754,444"/>
+<area shape="rect" id="Node000018" href="$classDynExpModule_1_1SpectrumViewer_1_1RecordSpectrumEvent.html" title=" " alt="" coords="803,493,1037,533"/>
+<area shape="poly" id="edge17_Node000017_Node000018" title=" " alt="" coords="724,511,803,511,803,516,724,516"/>
+<area shape="rect" id="Node000020" href="$classDynExpModule_1_1SpectrumViewer_1_1ResumeSpectrumRecordingEvent.html" title=" " alt="" coords="797,565,1043,605"/>
+<area shape="poly" id="edge19_Node000019_Node000020" title=" " alt="" coords="761,583,797,583,797,588,761,588"/>
+<area shape="rect" id="Node000022" href="$classDynExpModule_1_1SpectrumViewer_1_1SetSilentModeEvent.html" title=" " alt="" coords="803,629,1037,669"/>
+<area shape="poly" id="edge21_Node000021_Node000022" title=" " alt="" coords="742,647,803,647,803,652,742,652"/>
+<area shape="rect" id="Node000024" href="$classDynExpModule_1_1SpectrumViewer_1_1SpectrumFinishedRecordingEvent.html" title=" " alt="" coords="796,693,1044,733"/>
+<area shape="poly" id="edge23_Node000023_Node000024" title=" " alt="" coords="761,711,796,711,796,716,761,716"/>
+<area shape="rect" id="Node000026" href="$classDynExpModule_1_1StartEvent.html" title="This event is intended to make the receiver either directly start an action (like a measurement) or t..." alt="" coords="822,765,1018,790"/>
+<area shape="poly" id="edge25_Node000025_Node000026" title=" " alt="" coords="724,775,822,775,822,780,724,780"/>
+<area shape="rect" id="Node000028" href="$classDynExpModule_1_1StopEvent.html" title="This event is intended to make the receiver stop an action (like a measurement)." alt="" coords="823,829,1017,854"/>
+<area shape="poly" id="edge27_Node000027_Node000028" title=" " alt="" coords="724,839,822,839,822,844,724,844"/>
+<area shape="rect" id="Node000030" href="$classDynExpModule_1_1TriggerEvent.html" title="This event is intended to make the receiver start an action (like a measurement) after it received a ..." alt="" coords="815,893,1025,918"/>
+<area shape="poly" id="edge29_Node000029_Node000030" title=" " alt="" coords="724,903,815,903,815,908,724,908"/>
 </map>

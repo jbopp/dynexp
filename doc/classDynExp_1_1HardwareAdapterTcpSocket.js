@@ -9,7 +9,7 @@ var classDynExp_1_1HardwareAdapterTcpSocket =
     [ "InitSig", "classDynExp_1_1HardwareAdapterTcpSocket.html#abd377117d45c5683bb773ad0848cb97b", null ],
     [ "InitWorker", "classDynExp_1_1HardwareAdapterTcpSocket.html#adad16da824c8142f3cde55a07ee6885d", null ],
     [ "MakeWorker", "classDynExp_1_1HardwareAdapterTcpSocket.html#a21ee255919b705bc1b74d61c0347fa1a", null ],
-    [ "Name", "classDynExp_1_1HardwareAdapterTcpSocket.html#a5211a9d6dd179d4143df1f07101e2084", null ],
+    [ "Name", "classDynExp_1_1HardwareAdapterTcpSocket.html#a6c736869aa878a0927ea829fd0ba3789", null ],
     [ "ResetImpl", "classDynExp_1_1HardwareAdapterTcpSocket.html#a83b03786c075b0057c5a23a5c425b2ab", null ],
     [ "ResetImpl", "classDynExp_1_1HardwareAdapterTcpSocket.html#a64ab3ab4847f1d762007e4afd410dde9", null ]
 ];

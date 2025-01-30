@@ -1,9 +1,15 @@
 <map id="DynExpModule::SpectrumViewer::SpectrumViewerParams" name="DynExpModule::SpectrumViewer::SpectrumViewerParams">
-<area shape="rect" id="node1" title=" " alt="" coords="5,468,240,509"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1QModuleParamsBase.html" title="Parameter class for QModuleBase." alt="" coords="13,393,232,420"/>
-<area shape="rect" id="node3" href="$classDynExp_1_1ModuleParamsBase.html" title="Parameter class for ModuleBase." alt="" coords="19,319,227,345"/>
-<area shape="rect" id="node4" href="$classDynExp_1_1RunnableObjectParams.html" title="Parameter class for RunnableObject." alt="" coords="7,244,238,271"/>
-<area shape="rect" id="node5" href="$classDynExp_1_1ParamsBase.html" title="Abstract base class for object parameter classes. Each class derived from class Object must be accomp..." alt="" coords="43,169,203,196"/>
-<area shape="rect" id="node6" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="27,80,218,121"/>
-<area shape="rect" id="node7" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="51,5,195,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,460,240,500"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1QModuleParamsBase.html" title="Parameter class for QModuleBase." alt="" coords="13,387,232,412"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,426,125,460,120,460,120,426"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1ModuleParamsBase.html" title="Parameter class for ModuleBase." alt="" coords="19,313,227,339"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="125,352,125,387,120,387,120,352"/>
+<area shape="rect" id="Node000004" href="$classDynExp_1_1RunnableObjectParams.html" title="Parameter class for RunnableObject." alt="" coords="7,240,238,265"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="125,279,125,313,120,313,120,279"/>
+<area shape="rect" id="Node000005" href="$classDynExp_1_1ParamsBase.html" title="Abstract base class for object parameter classes. Each class derived from class Object must be accomp..." alt="" coords="43,167,203,192"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="125,206,125,240,120,240,120,206"/>
+<area shape="rect" id="Node000006" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="27,79,218,119"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="125,132,125,166,120,166,120,132"/>
+<area shape="rect" id="Node000007" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="51,5,195,31"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="125,44,125,79,120,79,120,44"/>
 </map>

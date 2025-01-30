@@ -29,24 +29,18 @@ var hierarchy =
     [ "DynExpHardware::NIDAQTask::CircularStream", "structDynExpHardware_1_1NIDAQTask_1_1CircularStream.html", null ],
     [ "DynExpHardware::QutoolsTDCHardwareAdapter::CoincidenceDataType", "structDynExpHardware_1_1QutoolsTDCHardwareAdapter_1_1CoincidenceDataType.html", null ],
     [ "DynExp::CommonResourceManagerBase", "classDynExp_1_1CommonResourceManagerBase.html", [
-      [ "DynExp::ResourceManagerBase< ModulePtrType >", "classDynExp_1_1ResourceManagerBase.html", [
-        [ "DynExp::ModuleManager", "classDynExp_1_1ModuleManager.html", null ]
+      [ "DynExp::ResourceManagerBase< HardwareAdapterPtrType >", "classDynExp_1_1ResourceManagerBase.html", [
+        [ "DynExp::HardwareAdapterManager", "classDynExp_1_1HardwareAdapterManager.html", null ]
       ] ],
       [ "DynExp::ResourceManagerBase< InstrumentPtrType >", "classDynExp_1_1ResourceManagerBase.html", [
         [ "DynExp::InstrumentManager", "classDynExp_1_1InstrumentManager.html", null ]
       ] ],
-      [ "DynExp::ResourceManagerBase< HardwareAdapterPtrType >", "classDynExp_1_1ResourceManagerBase.html", [
-        [ "DynExp::HardwareAdapterManager", "classDynExp_1_1HardwareAdapterManager.html", null ]
+      [ "DynExp::ResourceManagerBase< ModulePtrType >", "classDynExp_1_1ResourceManagerBase.html", [
+        [ "DynExp::ModuleManager", "classDynExp_1_1ModuleManager.html", null ]
       ] ],
       [ "DynExp::ResourceManagerBase< PointerType >", "classDynExp_1_1ResourceManagerBase.html", null ]
     ] ],
     [ "BaseInstr::ConfigType", null, [
-      [ "DynExpInstr::gRPCInstrumentConfigurator< Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer >", "classDynExpInstr_1_1gRPCInstrumentConfigurator.html", [
-        [ "DynExpInstr::NetworkSpectrometerConfigurator", "classDynExpInstr_1_1NetworkSpectrometerConfigurator.html", null ]
-      ] ],
-      [ "DynExpInstr::gRPCInstrumentConfigurator< DynExp::InstrumentBase, 0, DynExpProto::WidefieldLocalization::WidefieldLocalization >", "classDynExpInstr_1_1gRPCInstrumentConfigurator.html", [
-        [ "DynExpInstr::WidefieldLocalizationConfigurator", "classDynExpInstr_1_1WidefieldLocalizationConfigurator.html", null ]
-      ] ],
       [ "DynExpInstr::gRPCInstrumentConfigurator< BaseInstr, 0, gRPCStubs... >", "classDynExpInstr_1_1gRPCInstrumentConfigurator.html", [
         [ "DynExpInstr::NetworkDataStreamInstrumentConfigurator< BaseInstr, 0, gRPCStubs... >", "classDynExpInstr_1_1NetworkDataStreamInstrumentConfigurator.html", [
           [ "DynExpInstr::NetworkAnalogInConfigurator< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1NetworkAnalogInConfigurator.html", null ],
@@ -56,6 +50,12 @@ var hierarchy =
           [ "DynExpInstr::NetworkTimeTaggerConfigurator< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1NetworkTimeTaggerConfigurator.html", null ]
         ] ],
         [ "DynExpInstr::NetworkDataStreamInstrumentConfigurator< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1NetworkDataStreamInstrumentConfigurator.html", null ]
+      ] ],
+      [ "DynExpInstr::gRPCInstrumentConfigurator< Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer >", "classDynExpInstr_1_1gRPCInstrumentConfigurator.html", [
+        [ "DynExpInstr::NetworkSpectrometerConfigurator", "classDynExpInstr_1_1NetworkSpectrometerConfigurator.html", null ]
+      ] ],
+      [ "DynExpInstr::gRPCInstrumentConfigurator< DynExp::InstrumentBase, 0, DynExpProto::WidefieldLocalization::WidefieldLocalization >", "classDynExpInstr_1_1gRPCInstrumentConfigurator.html", [
+        [ "DynExpInstr::WidefieldLocalizationConfigurator", "classDynExpInstr_1_1WidefieldLocalizationConfigurator.html", null ]
       ] ],
       [ "DynExpInstr::gRPCInstrumentConfigurator< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1gRPCInstrumentConfigurator.html", null ]
     ] ],
@@ -177,47 +177,47 @@ var hierarchy =
     [ "DynExp::EventBase", "classDynExp_1_1EventBase.html", [
       [ "DynExp::DefaultEvent< ReceiverType, ArgTupleType >", "classDynExp_1_1DefaultEvent.html", null ],
       [ "DynExp::InterModuleEventBase", "classDynExp_1_1InterModuleEventBase.html", [
-        [ "DynExp::InterModuleEvent< RecordSpectrumEvent, std::string >", "classDynExp_1_1InterModuleEvent.html", [
-          [ "DynExpModule::SpectrumViewer::RecordSpectrumEvent", "classDynExpModule_1_1SpectrumViewer_1_1RecordSpectrumEvent.html", null ]
-        ] ],
-        [ "DynExp::InterModuleEvent< PauseSpectrumRecordingEvent >", "classDynExp_1_1InterModuleEvent.html", [
-          [ "DynExpModule::SpectrumViewer::PauseSpectrumRecordingEvent", "classDynExpModule_1_1SpectrumViewer_1_1PauseSpectrumRecordingEvent.html", null ]
-        ] ],
         [ "DynExp::InterModuleEvent< AutofocusEvent, bool >", "classDynExp_1_1InterModuleEvent.html", [
           [ "DynExpModule::ImageViewer::AutofocusEvent", "classDynExpModule_1_1ImageViewer_1_1AutofocusEvent.html", null ]
         ] ],
-        [ "DynExp::InterModuleEvent< ResumeSpectrumRecordingEvent >", "classDynExp_1_1InterModuleEvent.html", [
-          [ "DynExpModule::SpectrumViewer::ResumeSpectrumRecordingEvent", "classDynExpModule_1_1SpectrumViewer_1_1ResumeSpectrumRecordingEvent.html", null ]
-        ] ],
-        [ "DynExp::InterModuleEvent< StopEvent >", "classDynExp_1_1InterModuleEvent.html", [
-          [ "DynExpModule::StopEvent", "classDynExpModule_1_1StopEvent.html", null ]
-        ] ],
-        [ "DynExp::InterModuleEvent< RecordSpectrumEvent, bool >", "classDynExp_1_1InterModuleEvent.html", [
-          [ "DynExpModule::SpectrumViewer::SetSilentModeEvent", "classDynExpModule_1_1SpectrumViewer_1_1SetSilentModeEvent.html", null ]
-        ] ],
-        [ "DynExp::InterModuleEvent< StartEvent >", "classDynExp_1_1InterModuleEvent.html", [
-          [ "DynExpModule::StartEvent", "classDynExpModule_1_1StartEvent.html", null ]
+        [ "DynExp::InterModuleEvent< FinishedAutofocusEvent, bool, double >", "classDynExp_1_1InterModuleEvent.html", [
+          [ "DynExpModule::ImageViewer::FinishedAutofocusEvent", "classDynExpModule_1_1ImageViewer_1_1FinishedAutofocusEvent.html", null ]
         ] ],
         [ "DynExp::InterModuleEvent< ImageCapturingPausedEvent >", "classDynExp_1_1InterModuleEvent.html", [
           [ "DynExpModule::ImageViewer::ImageCapturingPausedEvent", "classDynExpModule_1_1ImageViewer_1_1ImageCapturingPausedEvent.html", null ]
         ] ],
-        [ "DynExp::InterModuleEvent< PauseImageCapturingEvent, bool >", "classDynExp_1_1InterModuleEvent.html", [
-          [ "DynExpModule::ImageViewer::PauseImageCapturingEvent", "classDynExpModule_1_1ImageViewer_1_1PauseImageCapturingEvent.html", null ]
-        ] ],
         [ "DynExp::InterModuleEvent< ImageCapturingResumedEvent >", "classDynExp_1_1InterModuleEvent.html", [
           [ "DynExpModule::ImageViewer::ImageCapturingResumedEvent", "classDynExpModule_1_1ImageViewer_1_1ImageCapturingResumedEvent.html", null ]
         ] ],
-        [ "DynExp::InterModuleEvent< TriggerEvent >", "classDynExp_1_1InterModuleEvent.html", [
-          [ "DynExpModule::TriggerEvent", "classDynExpModule_1_1TriggerEvent.html", null ]
-        ] ],
-        [ "DynExp::InterModuleEvent< SpectrumFinishedRecordingEvent >", "classDynExp_1_1InterModuleEvent.html", [
-          [ "DynExpModule::SpectrumViewer::SpectrumFinishedRecordingEvent", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumFinishedRecordingEvent.html", null ]
+        [ "DynExp::InterModuleEvent< PauseImageCapturingEvent, bool >", "classDynExp_1_1InterModuleEvent.html", [
+          [ "DynExpModule::ImageViewer::PauseImageCapturingEvent", "classDynExpModule_1_1ImageViewer_1_1PauseImageCapturingEvent.html", null ]
         ] ],
         [ "DynExp::InterModuleEvent< ResumeImageCapturingEvent >", "classDynExp_1_1InterModuleEvent.html", [
           [ "DynExpModule::ImageViewer::ResumeImageCapturingEvent", "classDynExpModule_1_1ImageViewer_1_1ResumeImageCapturingEvent.html", null ]
         ] ],
-        [ "DynExp::InterModuleEvent< FinishedAutofocusEvent, bool, double >", "classDynExp_1_1InterModuleEvent.html", [
-          [ "DynExpModule::ImageViewer::FinishedAutofocusEvent", "classDynExpModule_1_1ImageViewer_1_1FinishedAutofocusEvent.html", null ]
+        [ "DynExp::InterModuleEvent< PauseSpectrumRecordingEvent >", "classDynExp_1_1InterModuleEvent.html", [
+          [ "DynExpModule::SpectrumViewer::PauseSpectrumRecordingEvent", "classDynExpModule_1_1SpectrumViewer_1_1PauseSpectrumRecordingEvent.html", null ]
+        ] ],
+        [ "DynExp::InterModuleEvent< RecordSpectrumEvent, std::string >", "classDynExp_1_1InterModuleEvent.html", [
+          [ "DynExpModule::SpectrumViewer::RecordSpectrumEvent", "classDynExpModule_1_1SpectrumViewer_1_1RecordSpectrumEvent.html", null ]
+        ] ],
+        [ "DynExp::InterModuleEvent< ResumeSpectrumRecordingEvent >", "classDynExp_1_1InterModuleEvent.html", [
+          [ "DynExpModule::SpectrumViewer::ResumeSpectrumRecordingEvent", "classDynExpModule_1_1SpectrumViewer_1_1ResumeSpectrumRecordingEvent.html", null ]
+        ] ],
+        [ "DynExp::InterModuleEvent< RecordSpectrumEvent, bool >", "classDynExp_1_1InterModuleEvent.html", [
+          [ "DynExpModule::SpectrumViewer::SetSilentModeEvent", "classDynExpModule_1_1SpectrumViewer_1_1SetSilentModeEvent.html", null ]
+        ] ],
+        [ "DynExp::InterModuleEvent< SpectrumFinishedRecordingEvent >", "classDynExp_1_1InterModuleEvent.html", [
+          [ "DynExpModule::SpectrumViewer::SpectrumFinishedRecordingEvent", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumFinishedRecordingEvent.html", null ]
+        ] ],
+        [ "DynExp::InterModuleEvent< StartEvent >", "classDynExp_1_1InterModuleEvent.html", [
+          [ "DynExpModule::StartEvent", "classDynExpModule_1_1StartEvent.html", null ]
+        ] ],
+        [ "DynExp::InterModuleEvent< StopEvent >", "classDynExp_1_1InterModuleEvent.html", [
+          [ "DynExpModule::StopEvent", "classDynExpModule_1_1StopEvent.html", null ]
+        ] ],
+        [ "DynExp::InterModuleEvent< TriggerEvent >", "classDynExp_1_1InterModuleEvent.html", [
+          [ "DynExpModule::TriggerEvent", "classDynExpModule_1_1TriggerEvent.html", null ]
         ] ],
         [ "DynExp::InterModuleEvent< DerivedEvent, EventFuncArgs >", "classDynExp_1_1InterModuleEvent.html", null ]
       ] ]
@@ -325,28 +325,28 @@ var hierarchy =
         [ "DynExp::LinkedObjectWrapper< ObjectT >", "classDynExp_1_1LinkedObjectWrapper.html", null ]
       ] ],
       [ "DynExp::LinkedObjectWrapperContainerBase", "classDynExp_1_1LinkedObjectWrapperContainerBase.html", [
-        [ "DynExp::LinkedObjectWrapperContainer< DynExpHardware::SmarActHardwareAdapter >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
-        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::DigitalOut >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
-        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::LockinAmplifier >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
-        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::Camera >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
+        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::DataStreamInstrument >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
         [ "DynExp::LinkedObjectWrapperContainer< DynExpHardware::NIDAQHardwareAdapter >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
-        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::AnalogIn >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
-        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::AnalogOut >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
-        [ "DynExp::LinkedObjectWrapperContainer< DynExpHardware::SIPulseStreamerHardwareAdapter >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
         [ "DynExp::LinkedObjectWrapperContainer< DynExp::SerialCommunicationHardwareAdapter >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
-        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::TimeTagger >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
-        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::InterModuleCommunicator >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
+        [ "DynExp::LinkedObjectWrapperContainer< DynExpHardware::PVCamHardwareAdapter >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
+        [ "DynExp::LinkedObjectWrapperContainer< DynExpHardware::QutoolsTDCHardwareAdapter >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
+        [ "DynExp::LinkedObjectWrapperContainer< DynExpHardware::SmarActHardwareAdapter >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
+        [ "DynExp::LinkedObjectWrapperContainer< DynExpHardware::SIPulseStreamerHardwareAdapter >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
         [ "DynExp::LinkedObjectWrapperContainer< DynExpHardware::ZILabOneHardwareAdapter >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
+        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::FunctionGenerator >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
+        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::Camera >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
+        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::AnalogOut >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
+        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::InterModuleCommunicator >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
         [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::InputPort >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
+        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::LockinAmplifier >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
+        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::DigitalOut >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
         [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::OutputPort >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
         [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::Spectrometer >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
-        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::DataStreamInstrument >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
-        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::WidefieldLocalization >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
-        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::FunctionGenerator >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
-        [ "DynExp::LinkedObjectWrapperContainer< DynExpHardware::PVCamHardwareAdapter >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
         [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::PositionerStage >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
-        [ "DynExp::LinkedObjectWrapperContainer< DynExpHardware::QutoolsTDCHardwareAdapter >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
         [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::DigitalIn >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
+        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::AnalogIn >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
+        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::WidefieldLocalization >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
+        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::TimeTagger >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
         [ "DynExp::LinkedObjectWrapperContainer< ObjectT >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ]
       ] ],
       [ "DynExp::RunnableInstance", "classDynExp_1_1RunnableInstance.html", [
@@ -363,6 +363,7 @@ var hierarchy =
             [ "DynExpInstr::PVCam", "classDynExpInstr_1_1PVCam.html", null ]
           ] ],
           [ "DynExpInstr::DataStreamInstrument", "classDynExpInstr_1_1DataStreamInstrument.html", [
+            [ "DynExpInstr::gRPCInstrument< DataStreamInstrument, 0, gRPCStubs... >", "classDynExpInstr_1_1gRPCInstrument.html", null ],
             [ "DynExpInstr::FunctionGenerator", "classDynExpInstr_1_1FunctionGenerator.html", [
               [ "DynExpInstr::DummyDataStreamInstrument", "classDynExpInstr_1_1DummyDataStreamInstrument.html", null ],
               [ "DynExpInstr::OutputPort", "classDynExpInstr_1_1OutputPort.html", [
@@ -636,12 +637,6 @@ var hierarchy =
     [ "DynExp::TaskBase::InstrumentBaseOnlyType", "classDynExp_1_1TaskBase_1_1InstrumentBaseOnlyType.html", null ],
     [ "DynExp::TaskBase::InstrumentDataBaseOnlyType", "classDynExp_1_1TaskBase_1_1InstrumentDataBaseOnlyType.html", null ],
     [ "BaseInstr::InstrumentDataType", null, [
-      [ "DynExpInstr::gRPCInstrumentData< Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer >", "classDynExpInstr_1_1gRPCInstrumentData.html", [
-        [ "DynExpInstr::NetworkSpectrometerData", "classDynExpInstr_1_1NetworkSpectrometerData.html", null ]
-      ] ],
-      [ "DynExpInstr::gRPCInstrumentData< DynExp::InstrumentBase, 0, DynExpProto::WidefieldLocalization::WidefieldLocalization >", "classDynExpInstr_1_1gRPCInstrumentData.html", [
-        [ "DynExpInstr::WidefieldLocalizationData", "classDynExpInstr_1_1WidefieldLocalizationData.html", null ]
-      ] ],
       [ "DynExpInstr::gRPCInstrumentData< BaseInstr, 0, gRPCStubs... >", "classDynExpInstr_1_1gRPCInstrumentData.html", [
         [ "DynExpInstr::NetworkDataStreamInstrumentData< BaseInstr, 0, gRPCStubs... >", "classDynExpInstr_1_1NetworkDataStreamInstrumentData.html", [
           [ "DynExpInstr::NetworkAnalogInData< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1NetworkAnalogInData.html", null ],
@@ -651,6 +646,12 @@ var hierarchy =
           [ "DynExpInstr::NetworkTimeTaggerData< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1NetworkTimeTaggerData.html", null ]
         ] ],
         [ "DynExpInstr::NetworkDataStreamInstrumentData< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1NetworkDataStreamInstrumentData.html", null ]
+      ] ],
+      [ "DynExpInstr::gRPCInstrumentData< Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer >", "classDynExpInstr_1_1gRPCInstrumentData.html", [
+        [ "DynExpInstr::NetworkSpectrometerData", "classDynExpInstr_1_1NetworkSpectrometerData.html", null ]
+      ] ],
+      [ "DynExpInstr::gRPCInstrumentData< DynExp::InstrumentBase, 0, DynExpProto::WidefieldLocalization::WidefieldLocalization >", "classDynExpInstr_1_1gRPCInstrumentData.html", [
+        [ "DynExpInstr::WidefieldLocalizationData", "classDynExpInstr_1_1WidefieldLocalizationData.html", null ]
       ] ],
       [ "DynExpInstr::gRPCInstrumentData< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1gRPCInstrumentData.html", null ]
     ] ],
@@ -687,6 +688,28 @@ var hierarchy =
     [ "DynExp::LinkedObjectWrapperContainerList< DynExpInstr::FunctionGenerator >", "classDynExp_1_1LinkedObjectWrapperContainerList.html", null ],
     [ "DynExp::Object::LinkedObjectWrapperOnlyType", "classDynExp_1_1Object_1_1LinkedObjectWrapperOnlyType.html", null ],
     [ "DynExp::LinkedObjectWrapperPointer< ObjectT >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExp::SerialCommunicationHardwareAdapter >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpHardware::NIDAQHardwareAdapter >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpHardware::PVCamHardwareAdapter >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpHardware::QutoolsTDCHardwareAdapter >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpHardware::SIPulseStreamerHardwareAdapter >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpHardware::SmarActHardwareAdapter >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpHardware::ZILabOneHardwareAdapter >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::AnalogIn >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::AnalogOut >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::Camera >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::DataStreamInstrument >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::DigitalIn >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::DigitalOut >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::FunctionGenerator >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::InputPort >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::InterModuleCommunicator >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::LockinAmplifier >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::OutputPort >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::PositionerStage >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::Spectrometer >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::TimeTagger >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::WidefieldLocalization >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
     [ "CircuitDiagram::CircuitDiagramItem::LinkedParamType", "classCircuitDiagram_1_1CircuitDiagramItem.html#structCircuitDiagram_1_1CircuitDiagramItem_1_1LinkedParamType", null ],
     [ "DynExp::ParamsBase::LinkParamStarter", "classDynExp_1_1ParamsBase_1_1LinkParamStarter.html", null ],
     [ "DynExp::ParamsBase::ListParam< ParamType, typename >", "classDynExp_1_1ParamsBase.html#classDynExp_1_1ParamsBase_1_1ListParam", null ],
@@ -764,12 +787,6 @@ var hierarchy =
     [ "ParamInfo", "structParamInfo.html", null ],
     [ "DynExp::ParamsBase::ParamBase::ParamsBaseOnlyType", "classDynExp_1_1ParamsBase_1_1ParamBase_1_1ParamsBaseOnlyType.html", null ],
     [ "BaseInstr::ParamsType", null, [
-      [ "DynExpInstr::gRPCInstrumentParams< Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer >", "classDynExpInstr_1_1gRPCInstrumentParams.html", [
-        [ "DynExpInstr::NetworkSpectrometerParams", "classDynExpInstr_1_1NetworkSpectrometerParams.html", null ]
-      ] ],
-      [ "DynExpInstr::gRPCInstrumentParams< DynExp::InstrumentBase, 0, DynExpProto::WidefieldLocalization::WidefieldLocalization >", "classDynExpInstr_1_1gRPCInstrumentParams.html", [
-        [ "DynExpInstr::WidefieldLocalizationParams", "classDynExpInstr_1_1WidefieldLocalizationParams.html", null ]
-      ] ],
       [ "DynExpInstr::gRPCInstrumentParams< BaseInstr, 0, gRPCStubs... >", "classDynExpInstr_1_1gRPCInstrumentParams.html", [
         [ "DynExpInstr::NetworkDataStreamInstrumentParams< BaseInstr, 0, gRPCStubs... >", "classDynExpInstr_1_1NetworkDataStreamInstrumentParams.html", [
           [ "DynExpInstr::NetworkAnalogInParams< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1NetworkAnalogInParams.html", null ],
@@ -779,6 +796,12 @@ var hierarchy =
           [ "DynExpInstr::NetworkTimeTaggerParams< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1NetworkTimeTaggerParams.html", null ]
         ] ],
         [ "DynExpInstr::NetworkDataStreamInstrumentParams< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1NetworkDataStreamInstrumentParams.html", null ]
+      ] ],
+      [ "DynExpInstr::gRPCInstrumentParams< Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer >", "classDynExpInstr_1_1gRPCInstrumentParams.html", [
+        [ "DynExpInstr::NetworkSpectrometerParams", "classDynExpInstr_1_1NetworkSpectrometerParams.html", null ]
+      ] ],
+      [ "DynExpInstr::gRPCInstrumentParams< DynExp::InstrumentBase, 0, DynExpProto::WidefieldLocalization::WidefieldLocalization >", "classDynExpInstr_1_1gRPCInstrumentParams.html", [
+        [ "DynExpInstr::WidefieldLocalizationParams", "classDynExpInstr_1_1WidefieldLocalizationParams.html", null ]
       ] ],
       [ "DynExpInstr::gRPCInstrumentParams< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1gRPCInstrumentParams.html", null ]
     ] ],

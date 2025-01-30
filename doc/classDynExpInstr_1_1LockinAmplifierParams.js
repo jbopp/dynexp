@@ -9,7 +9,7 @@ var classDynExpInstr_1_1LockinAmplifierParams =
     [ "AutoApplyParamsTypeStrList", "classDynExpInstr_1_1LockinAmplifierParams.html#accf77606327e939ee0df66641c82d2f2", null ],
     [ "ConfigureParamsImpl", "classDynExpInstr_1_1LockinAmplifierParams.html#ab2094769fa97709e916f1955d8353766", null ],
     [ "ConfigureParamsImpl", "classDynExpInstr_1_1LockinAmplifierParams.html#ab95e2f97d486a62e7638c19a6b38a7ab", null ],
-    [ "GetParamClassTag", "classDynExpInstr_1_1LockinAmplifierParams.html#a0e63344d22ac5b6da0b08f7545047863", null ],
+    [ "GetParamClassTag", "classDynExpInstr_1_1LockinAmplifierParams.html#ad5a00dd013c1cc9d3a333b8399ebb6a3", null ],
     [ "AutoApplyParams", "classDynExpInstr_1_1LockinAmplifierParams.html#a4de31b308f4911fd8470d0c746b69a00", null ],
     [ "Enable", "classDynExpInstr_1_1LockinAmplifierParams.html#ab6dfaab20b514bcb921ce0cbfcea359a", null ],
     [ "FilterOrder", "classDynExpInstr_1_1LockinAmplifierParams.html#abb4d4099ccd5adc5ad2d7376270ff94e", null ],

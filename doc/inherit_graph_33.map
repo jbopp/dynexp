@@ -1,3 +1,36 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classDynExp_1_1LinkedObjectWrapperPointer.html" title="This class describes a pointer to a LinkedObjectWrapper instance. It is a simple wrapper class which ..." alt="" coords="5,5,224,47"/>
+<area shape="rect" id="Node000000" href="$classDynExp_1_1LinkBase.html" title="Abstract base class of link parameters (to be saved in project files) describing relations between mu..." alt="" coords="265,699,404,725"/>
+<area shape="rect" id="Node000001" href="$classDynExp_1_1ParamsBase_1_1LinkListParamBase.html" title="Base class for link list parameters to multiple Object of any (but all the same) type specifying the ..." alt="" coords="601,749,761,789"/>
+<area shape="poly" id="edge196_Node000000_Node000001" title=" " alt="" coords="418,723,601,754,600,759,417,728"/>
+<area shape="rect" id="Node000009" href="$classDynExp_1_1ParamsBase_1_1LinkParamBase.html" title="Base class for link parameters to a single Object of any type specifying the underlying parameter typ..." alt="" coords="601,685,761,725"/>
+<area shape="poly" id="edge198_Node000000_Node000009" title=" " alt="" coords="418,708,601,704,601,710,418,713"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1ParamsBase_1_1ListParam_3_01LinkType_00_01std_1_1enable__if__t_3_01std_1_1is__basd243784fc46965d1256228ffb7d1529c.html" title="Parameter for link lists to multiple Object. If LinkType is derived from ObjectLinkBase,..." alt="" coords="907,750,1141,834"/>
+<area shape="poly" id="edge197_Node000001_Node000002" title=" " alt="" coords="775,773,906,782,906,787,775,778"/>
+<area shape="rect" id="Node000010" href="$classDynExp_1_1ParamsBase_1_1Param_3_01LinkType_00_01std_1_1enable__if__t_3_01std_1_1is__base__odd85ddee3349917fa7e32c83ff1f8ec2.html" title="Parameter for links to a single Object. If LinkType is derived from ObjectLinkBase,..." alt="" coords="917,642,1131,726"/>
+<area shape="poly" id="edge199_Node000009_Node000010" title=" " alt="" coords="775,697,916,688,917,693,776,702"/>
+<area shape="rect" id="Node000006" href="$classDynExp_1_1ParamsBase_1_1ParamBase.html" title="Abstract base class for a single object parameter. Parameters derived from this class are automatical..." alt="" coords="5,751,165,791"/>
+<area shape="rect" id="Node000007" href="$classDynExp_1_1ParamsBase_1_1DummyParam.html" title="Dummy parameter which is to be owned once by parameter classes that do not contain any other paramete..." alt="" coords="255,751,415,791"/>
+<area shape="poly" id="edge200_Node000006_Node000007" title=" " alt="" coords="179,768,255,768,255,773,179,773"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1ParamsBase_1_1TypedListParamBase.html" title="Base class of parameters containing lists of values." alt="" coords="253,818,417,873"/>
+<area shape="poly" id="edge201_Node000006_Node000003" title=" " alt="" coords="166,792,253,818,252,823,165,797"/>
+<area shape="rect" id="Node000008" href="$classDynExp_1_1ParamsBase_1_1TypedParamBase.html" title="Base class of parameters containing a single value." alt="" coords="213,463,456,503"/>
+<area shape="poly" id="edge205_Node000006_Node000008" title=" " alt="" coords="111,739,314,501,318,505,115,742"/>
+<area shape="poly" id="edge202_Node000003_Node000001" title=" " alt="" coords="429,817,503,799,601,780,602,785,505,804,431,822"/>
+<area shape="rect" id="Node000004" href="$classDynExp_1_1ParamsBase_1_1ListParam_3_01ArithmeticType_00_01std_1_1enable__if__t_3_01std_1_1i54eb4f851b57d383b238b8718ca67a95.html" title="List parameter for numbers. If ParamType is an arithmetic type (integral or floating point),..." alt="" coords="547,813,816,883"/>
+<area shape="poly" id="edge203_Node000003_Node000004" title=" " alt="" coords="431,843,547,844,547,850,431,849"/>
+<area shape="rect" id="Node000005" href="$classDynExp_1_1ParamsBase_1_1ListParam_3_01ParamType_00_01std_1_1enable__if__t_3_01_9std_1_1is__b8374ac5460e5f4598c20a5ad4c0acf7.html" title="General list parameter for any ParamType (except the ones which are further specified below)." alt="" coords="550,907,813,1005"/>
+<area shape="poly" id="edge204_Node000003_Node000005" title=" " alt="" coords="431,873,550,912,549,917,429,878"/>
+<area shape="poly" id="edge206_Node000008_Node000009" title=" " alt="" coords="357,513,382,551,416,594,457,636,505,671,552,690,602,700,601,705,551,695,503,676,454,640,412,598,377,554,352,516"/>
+<area shape="rect" id="Node000011" href="$classDynExp_1_1ParamsBase_1_1Param_3_01ArithmeticType_00_01std_1_1enable__if__t_3_01std_1_1is__a36b43486ae7f42f950ffc5a7719f2151.html" title="Parameter for numbers. If ParamType is an arithmetic type (integral or floating point),..." alt="" coords="537,499,825,568"/>
+<area shape="poly" id="edge207_Node000008_Node000011" title=" " alt="" coords="470,500,538,510,537,515,470,505"/>
+<area shape="rect" id="Node000012" href="$classDynExp_1_1ParamsBase_1_1Param_3_01EnumType_00_01std_1_1enable__if__t_3_01std_1_1is__enum__v_3_01EnumType_01_4_01_4_01_4.html" title="Parameter for enumerations which are convertible to a numeric type. If ParamType is an enum,..." alt="" coords="577,592,785,661"/>
+<area shape="poly" id="edge208_Node000008_Node000012" title=" " alt="" coords="378,508,437,544,505,578,578,602,576,607,503,582,434,548,375,513"/>
+<area shape="rect" id="Node000013" href="$classDynExp_1_1ParamsBase_1_1Param_3_01ParamType_00_01std_1_1enable__if__t_3_01_9std_1_1is__arit5c6f823427478a0e4e010e91feab235c.html" title="General parameter for any ParamType (except the ones which are further specified below)." alt="" coords="504,5,859,163"/>
+<area shape="poly" id="edge209_Node000008_Node000013" title=" " alt="" coords="344,449,366,391,400,318,445,242,472,206,502,173,515,161,519,165,506,177,476,209,449,245,404,321,371,393,349,450"/>
+<area shape="rect" id="Node000014" href="$classDynExp_1_1ParamsBase_1_1Param_3_01ParamType_00_01std_1_1enable__if__t_3_01std_1_1is__base__61e5ea03adee3aef656dbb91b4f60725.html" title="Parameter for indexed strings selected from a predefined list of strings. If ParamType is of type Par..." alt="" coords="564,187,799,271"/>
+<area shape="poly" id="edge210_Node000008_Node000014" title=" " alt="" coords="353,449,378,411,413,366,455,321,503,282,532,266,563,253,565,258,534,270,505,286,458,324,417,369,382,414,357,452"/>
+<area shape="rect" id="Node000015" href="$classDynExp_1_1ParamsBase_1_1Param_3_01ParamType_00_01std_1_1enable__if__t_3_01std_1_1is__base__25c315537ff24e78133025dad145e98b.html" title="Parameter for strings. If ParamType is of type ParamsBase::Text, then extend TypedParamBase&#39;s functio..." alt="" coords="541,296,821,365"/>
+<area shape="poly" id="edge211_Node000008_Node000015" title=" " alt="" coords="372,452,432,413,503,375,540,361,542,366,505,380,435,417,375,457"/>
+<area shape="rect" id="Node000016" href="$classDynExp_1_1ParamsBase_1_1Param_3_01ParamType_00_01std_1_1enable__if__t_3_01std_1_1is__base__2b5582aed1efd379ec593c5120d42ff9.html" title="Parameter for strings selected from a predefined list of strings. If ParamType is of type ParamsBase:..." alt="" coords="590,390,773,474"/>
+<area shape="poly" id="edge212_Node000008_Node000016" title=" " alt="" coords="469,460,589,443,590,448,470,466"/>
 </map>

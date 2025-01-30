@@ -1,5 +1,7 @@
 <map id="DynExpInstr::NetworkSpectrometerTasks::UpdateTask" name="DynExpInstr::NetworkSpectrometerTasks::UpdateTask">
-<area shape="rect" id="node1" title=" " alt="" coords="576,20,828,61"/>
-<area shape="rect" id="node2" href="$classDynExpInstr_1_1gRPCInstrumentTasks_1_1UpdateTask.html" title=" " alt="" coords="251,5,528,76"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,27,203,54"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="576,20,828,60"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1gRPCInstrumentTasks_1_1UpdateTask.html" title=" " alt="" coords="251,5,528,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="542,37,576,37,576,43,542,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,27,203,53"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="216,37,250,37,250,43,216,43"/>
 </map>

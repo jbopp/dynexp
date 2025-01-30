@@ -2,8 +2,8 @@ var classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerData =
 [
     [ "SpectrumViewerData", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerData.html#a87d4828c7084d092d96091d749bf1f13", null ],
     [ "~SpectrumViewerData", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerData.html#a2ae81f9a99e8c22f245e6b4705c433b5", null ],
-    [ "GetCommunicator", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerData.html#ac6561667f7b1c6058e8c03385367b73e", null ],
-    [ "GetSpectrometer", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerData.html#a652b25a371312b81bb115f3060ed213a", null ],
+    [ "GetCommunicator", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerData.html#ae0beedb57aa99e375014aafeb7ec9bca", null ],
+    [ "GetSpectrometer", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerData.html#a5bc6cbef15bc0e5468b8e4610d1e67e5", null ],
     [ "Init", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerData.html#ad036e49b8131125bfa3a2ca82f6dde24", null ],
     [ "IsUIInitialized", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerData.html#a77161b73c3ef3f9c3e1009aca3bc7c26", null ],
     [ "ResetImpl", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerData.html#a76342ae9b9336be1e0d7296813984555", null ],

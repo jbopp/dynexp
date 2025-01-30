@@ -1,11 +1,19 @@
 <map id="DynExpInstr::gRPCInstrumentTasks::UpdateTask&lt; BaseInstr,, gRPCStubs &gt;" name="DynExpInstr::gRPCInstrumentTasks::UpdateTask&lt; BaseInstr,, gRPCStubs &gt;">
-<area shape="rect" id="node1" title="Defines a task for updating an instrument within an instrument inheritance hierarchy...." alt="" coords="251,213,473,269"/>
-<area shape="rect" id="node3" href="$classDynExpInstr_1_1NetworkDataStreamInstrumentTasks_1_1UpdateTask.html" title=" " alt="" coords="521,158,716,229"/>
-<area shape="rect" id="node9" href="$classDynExpInstr_1_1NetworkDataStreamInstrumentTasks_1_1UpdateTask.html" title=" " alt="" coords="521,253,716,323"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,228,203,255"/>
-<area shape="rect" id="node4" href="$classDynExpInstr_1_1NetworkAnalogInTasks_1_1UpdateTask.html" title=" " alt="" coords="769,5,1004,61"/>
-<area shape="rect" id="node5" href="$classDynExpInstr_1_1NetworkAnalogOutTasks_1_1UpdateTask.html" title=" " alt="" coords="764,85,1009,141"/>
-<area shape="rect" id="node6" href="$classDynExpInstr_1_1NetworkDigitalInTasks_1_1UpdateTask.html" title=" " alt="" coords="769,165,1004,221"/>
-<area shape="rect" id="node7" href="$classDynExpInstr_1_1NetworkDigitalOutTasks_1_1UpdateTask.html" title=" " alt="" coords="764,245,1009,301"/>
-<area shape="rect" id="node8" href="$classDynExpInstr_1_1NetworkTimeTaggerTasks_1_1UpdateTask.html" title=" " alt="" coords="788,325,985,381"/>
+<area shape="rect" id="Node000001" title="Defines a task for updating an instrument within an instrument inheritance hierarchy...." alt="" coords="251,209,473,264"/>
+<area shape="rect" id="Node000003" href="$classDynExpInstr_1_1NetworkDataStreamInstrumentTasks_1_1UpdateTask.html" title=" " alt="" coords="521,155,716,225"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="487,211,521,205,522,210,488,217"/>
+<area shape="rect" id="Node000009" href="$classDynExpInstr_1_1NetworkDataStreamInstrumentTasks_1_1UpdateTask.html" title=" " alt="" coords="521,249,716,318"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="488,257,522,263,521,268,487,262"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,224,203,249"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,234,250,234,250,239,217,239"/>
+<area shape="rect" id="Node000004" href="$classDynExpInstr_1_1NetworkAnalogInTasks_1_1UpdateTask.html" title=" " alt="" coords="769,5,1004,60"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="663,144,709,105,763,69,787,58,789,62,765,74,712,109,666,148"/>
+<area shape="rect" id="Node000005" href="$classDynExpInstr_1_1NetworkAnalogOutTasks_1_1UpdateTask.html" title=" " alt="" coords="764,84,1009,139"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="728,155,792,136,794,141,730,160"/>
+<area shape="rect" id="Node000006" href="$classDynExpInstr_1_1NetworkDigitalInTasks_1_1UpdateTask.html" title=" " alt="" coords="769,163,1004,217"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="730,187,769,187,769,193,730,193"/>
+<area shape="rect" id="Node000007" href="$classDynExpInstr_1_1NetworkDigitalOutTasks_1_1UpdateTask.html" title=" " alt="" coords="764,241,1009,296"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="730,220,794,239,792,244,728,225"/>
+<area shape="rect" id="Node000008" href="$classDynExpInstr_1_1NetworkTimeTaggerTasks_1_1UpdateTask.html" title=" " alt="" coords="788,320,985,375"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="713,231,718,235,734,254,742,272,750,290,766,307,789,321,786,325,762,311,745,293,737,275,729,257,714,239,710,235"/>
 </map>

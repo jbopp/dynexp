@@ -31,7 +31,7 @@ var classDynExpInstr_1_1CameraData =
     [ "GetImage", "classDynExpInstr_1_1CameraData.html#a1f6bc360c2b9e6bf80caca16fd2f78a0", null ],
     [ "GetImageCopy", "classDynExpInstr_1_1CameraData.html#a17ec102d703a584643f874140041da46", null ],
     [ "GetImageHeight", "classDynExpInstr_1_1CameraData.html#a9568d4c7e4f752ec2a347e6a6e7be82d", null ],
-    [ "GetImageTransformation", "classDynExpInstr_1_1CameraData.html#a432792bea3dc17fbc00545c5207c43f0", null ],
+    [ "GetImageTransformation", "classDynExpInstr_1_1CameraData.html#a1c41536c117f974197debd66c9f6121b", null ],
     [ "GetImageWidth", "classDynExpInstr_1_1CameraData.html#a252b698295b59df72482b49b8753d9a0", null ],
     [ "GetIntensityHistogram", "classDynExpInstr_1_1CameraData.html#a2357d017912b5ca47064d716dc09f6eb", null ],
     [ "GetMaxExposureTime", "classDynExpInstr_1_1CameraData.html#a45b695a753f95ab0be1e81687342fd3d", null ],

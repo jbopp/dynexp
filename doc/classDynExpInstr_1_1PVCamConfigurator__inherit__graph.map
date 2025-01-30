@@ -1,7 +1,11 @@
 <map id="DynExpInstr::PVCamConfigurator" name="DynExpInstr::PVCamConfigurator">
-<area shape="rect" id="node1" title=" " alt="" coords="19,304,255,331"/>
-<area shape="rect" id="node2" href="$classDynExpInstr_1_1CameraConfigurator.html" title="Configurator class for Camera." alt="" coords="17,229,257,256"/>
-<area shape="rect" id="node3" href="$classDynExp_1_1InstrumentConfiguratorBase.html" title="Configurator class for InstrumentBase." alt="" coords="5,155,268,181"/>
-<area shape="rect" id="node4" href="$classDynExp_1_1RunnableObjectConfigurator.html" title="Configurator class for RunnableObject." alt="" coords="5,80,268,107"/>
-<area shape="rect" id="node5" href="$classDynExp_1_1ConfiguratorBase.html" title="The configurator classes have the task to generate parameter objects (refer to DynExp::ParamsBase) of..." alt="" coords="41,5,233,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="19,299,255,324"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1CameraConfigurator.html" title="Configurator class for Camera." alt="" coords="17,225,257,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,264,139,299,134,299,134,264"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1InstrumentConfiguratorBase.html" title="Configurator class for InstrumentBase." alt="" coords="5,152,268,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="139,191,139,225,134,225,134,191"/>
+<area shape="rect" id="Node000004" href="$classDynExp_1_1RunnableObjectConfigurator.html" title="Configurator class for RunnableObject." alt="" coords="5,79,268,104"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="139,118,139,152,134,152,134,118"/>
+<area shape="rect" id="Node000005" href="$classDynExp_1_1ConfiguratorBase.html" title="The configurator classes have the task to generate parameter objects (refer to DynExp::ParamsBase) of..." alt="" coords="41,5,233,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="139,44,139,79,134,79,134,44"/>
 </map>

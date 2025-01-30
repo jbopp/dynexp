@@ -1,4 +1,5 @@
 <map id="DynExpModule::NetworkTimeTaggerT&lt; gRPCServices &gt;::CallDataSetExposureTime" name="DynExpModule::NetworkTimeTaggerT&lt; gRPCServices &gt;::CallDataSetExposureTime">
-<area shape="rect" id="node1" title=" " alt="" coords="327,27,543,83"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,279,105"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="327,27,543,82"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,279,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="292,52,326,52,326,57,292,57"/>
 </map>

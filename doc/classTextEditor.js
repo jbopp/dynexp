@@ -5,7 +5,7 @@ var classTextEditor =
     [ "~TextEditor", "classTextEditor.html#a1827a06c69340ab671ff64d4d68d27f3", null ],
     [ "closeEvent", "classTextEditor.html#ae253404736201469dac54b27c0e25763", null ],
     [ "DoSave", "classTextEditor.html#ab1a5e62ca90d07d000b6a541fe0b834c", null ],
-    [ "GetFilename", "classTextEditor.html#a81c4641fba5edbef58d29b9e58fe4be2", null ],
+    [ "GetFilename", "classTextEditor.html#ad829522714251916120d2f4806a1c8d9", null ],
     [ "OnClose", "classTextEditor.html#af06daa5255afb31ed8408f5d1e2b621a", null ],
     [ "OnSave", "classTextEditor.html#afb807a0707dd93d2fa6c6a923853365c", null ],
     [ "showEvent", "classTextEditor.html#a5f8a24594709ceb4f0acc5ca628b4c3b", null ],

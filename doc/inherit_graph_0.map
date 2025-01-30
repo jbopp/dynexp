@@ -1,9 +1,25 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,132,80,159"/>
-<area shape="rect" id="node2" href="$classBusyDialog.html" title=" " alt="" coords="157,5,253,32"/>
-<area shape="rect" id="node3" href="$classChoiceListDialog.html" title=" " alt="" coords="139,56,270,83"/>
-<area shape="rect" id="node4" href="$classCircuitDiagram.html" title=" " alt="" coords="145,107,265,133"/>
-<area shape="rect" id="node5" href="$classDynExpAbout.html" title=" " alt="" coords="149,157,260,184"/>
-<area shape="rect" id="node6" href="$classErrorListDialog.html" title=" " alt="" coords="145,208,264,235"/>
-<area shape="rect" id="node7" href="$classParamsConfigDialog.html" title="Defines the configuration dialog. The dialog must be displayed by calling ParamsConfigDialog::Display..." alt="" coords="128,259,281,285"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,271,88,297"/>
+<area shape="rect" id="Node000001" href="$classDynExpInstr_1_1gRPCInstrument.html" title=" " alt="" coords="136,217,355,257"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="101,269,159,255,160,260,102,274"/>
+<area shape="rect" id="Node000009" href="$classDynExpInstr_1_1gRPCInstrument.html" title="Meta instrument template for transforming meta instruments into network instruments,..." alt="" coords="138,296,353,336"/>
+<area shape="poly" id="edge9_Node000000_Node000009" title=" " alt="" coords="102,290,138,296,137,301,101,295"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1NetworkDataStreamInstrumentT.html" title=" " alt="" coords="413,129,641,183"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="328,211,431,181,432,186,329,216"/>
+<area shape="rect" id="Node000008" href="$classDynExpInstr_1_1NetworkDataStreamInstrumentT.html" title="Data stream instrument for bidirectional gRPC communication." alt="" coords="413,210,641,265"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="369,235,413,235,413,240,369,240"/>
+<area shape="rect" id="Node000003" href="$classDynExpInstr_1_1NetworkAnalogInT.html" title=" " alt="" coords="716,5,931,45"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="579,119,636,86,699,55,733,43,735,48,701,60,638,90,582,124"/>
+<area shape="rect" id="Node000004" href="$classDynExpInstr_1_1NetworkAnalogOutT.html" title=" " alt="" coords="710,69,937,109"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="654,125,733,107,734,112,656,130"/>
+<area shape="rect" id="Node000005" href="$classDynExpInstr_1_1NetworkDigitalInT.html" title=" " alt="" coords="716,133,931,173"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="655,152,716,152,716,157,656,158"/>
+<area shape="rect" id="Node000006" href="$classDynExpInstr_1_1NetworkDigitalOutT.html" title=" " alt="" coords="710,197,937,237"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="655,180,727,195,726,200,654,185"/>
+<area shape="rect" id="Node000007" href="$classDynExpInstr_1_1NetworkTimeTaggerT.html" title=" " alt="" coords="700,261,947,301"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="640,187,654,195,669,209,678,222,687,235,701,247,726,259,724,264,699,252,683,239,674,225,665,212,650,199,637,192"/>
+<area shape="rect" id="Node000010" href="$classDynExpInstr_1_1NetworkDataStreamInstrumentT.html" title=" " alt="" coords="403,294,652,378"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="366,322,402,324,402,330,366,327"/>
+<area shape="rect" id="Node000011" href="$classDynExpInstr_1_1NetworkDataStreamInstrument.html" title="Explicit instantiation of derivable class NetworkDataStreamInstrumentT to create the network data str..." alt="" coords="726,325,921,365"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="666,338,726,340,726,345,666,343"/>
 </map>

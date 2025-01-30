@@ -13,7 +13,7 @@ var classDynExpInstr_1_1CircularDataStream =
     [ "GetStreamSizeWrite", "classDynExpInstr_1_1CircularDataStream.html#a6c190c691bead06eeaf2f8d68d323e4f", null ],
     [ "GetWritePosition", "classDynExpInstr_1_1CircularDataStream.html#a343d836cc574605be4ea89fb1ae6e5db", null ],
     [ "ReadSample", "classDynExpInstr_1_1CircularDataStream.html#a30723df743ae5113ee653542a804266a", null ],
-    [ "ReadSamples", "classDynExpInstr_1_1CircularDataStream.html#ab78c005b3a5e455bd4b9b187a23ce1ed", null ],
+    [ "ReadSamples", "classDynExpInstr_1_1CircularDataStream.html#a9e35c7389fdfbbd5995b21015814f36c", null ],
     [ "SeekAbs", "classDynExpInstr_1_1CircularDataStream.html#a1a29806822b7935c8ff08a4e953deab9", null ],
     [ "SeekBeg", "classDynExpInstr_1_1CircularDataStream.html#aad614740b9d2ba1507cd9f3f23fa9ddf", null ],
     [ "SeekEnd", "classDynExpInstr_1_1CircularDataStream.html#aab4cb5f1122a2bbc25048a2cc6eef67d", null ],

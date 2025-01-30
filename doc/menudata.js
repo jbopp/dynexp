@@ -256,7 +256,7 @@ var menudata={children:[
 {text:"u",url:"functions_eval.html#index_u"},
 {text:"v",url:"functions_eval.html#index_v"},
 {text:"z",url:"functions_eval.html#index_z"}]},
-{text:"Related Functions",url:"functions_rela.html",children:[
+{text:"Related Symbols",url:"functions_rela.html",children:[
 {text:"d",url:"functions_rela.html#index_d"},
 {text:"f",url:"functions_rela.html#index_f"},
 {text:"g",url:"functions_rela.html#index_g"},

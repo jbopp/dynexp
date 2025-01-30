@@ -1,5 +1,7 @@
 <map id="Util::DigitalOnlyItemDelegate" name="Util::DigitalOnlyItemDelegate">
-<area shape="rect" id="node1" title="Implements a QItemDelegate which forces e.g. a QTableWidgetItem&#39;s content to be boolean (0 or 1)." alt="" coords="11,155,226,181"/>
-<area shape="rect" id="node2" href="$classUtil_1_1NumericOnlyItemDelegate.html" title="Implements a QItemDelegate which forces e.g. a QTableWidgetItem&#39;s content to be numeric (double&#45;preci..." alt="" coords="5,80,232,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="58,5,179,32"/>
+<area shape="rect" id="Node000001" title="Implements a QItemDelegate which forces e.g. a QTableWidgetItem&#39;s content to be boolean (0 or 1)." alt="" coords="11,152,226,177"/>
+<area shape="rect" id="Node000002" href="$classUtil_1_1NumericOnlyItemDelegate.html" title="Implements a QItemDelegate which forces e.g. a QTableWidgetItem&#39;s content to be numeric (double&#45;preci..." alt="" coords="5,79,232,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,118,121,152,116,152,116,118"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="58,5,179,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="121,44,121,79,116,79,116,44"/>
 </map>

@@ -1,7 +1,11 @@
 <map id="DynExp::NetworkException" name="DynExp::NetworkException">
-<area shape="rect" id="node1" title="Defines an exception caused by a hardware operation on an ethernet interface (e.g...." alt="" coords="16,319,215,345"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1SerialCommunicationException.html" title="Defines an exception caused by a serial communication operation of a hardware adapter." alt="" coords="5,229,225,271"/>
-<area shape="rect" id="node3" href="$classUtil_1_1Exception.html" title="DynExp exceptions are derived from this class. It contains basic information about the cause of the e..." alt="" coords="57,155,174,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="46,80,185,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="58,5,173,32"/>
+<area shape="rect" id="Node000001" title="Defines an exception caused by a hardware operation on an ethernet interface (e.g...." alt="" coords="16,313,215,339"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1SerialCommunicationException.html" title="Defines an exception caused by a serial communication operation of a hardware adapter." alt="" coords="5,225,225,265"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,279,118,313,113,313,113,279"/>
+<area shape="rect" id="Node000003" href="$classUtil_1_1Exception.html" title="DynExp exceptions are derived from this class. It contains basic information about the cause of the e..." alt="" coords="57,152,174,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="118,191,118,225,113,225,113,191"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="46,79,185,104"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="118,118,118,152,113,152,113,118"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="58,5,173,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="118,44,118,79,113,79,113,44"/>
 </map>

@@ -1,5 +1,7 @@
 <map id="DynExp::ParamsBase::Param&lt; ArithmeticType, std::enable_if_t&lt; std::is_arithmetic_v&lt; ArithmeticType &gt; &gt; &gt;" name="DynExp::ParamsBase::Param&lt; ArithmeticType, std::enable_if_t&lt; std::is_arithmetic_v&lt; ArithmeticType &gt; &gt; &gt;">
-<area shape="rect" id="node1" title="Parameter for numbers. If ParamType is an arithmetic type (integral or floating point),..." alt="" coords="5,184,293,255"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1ParamsBase_1_1TypedParamBase.html" title="Base class of parameters containing a single value." alt="" coords="48,95,251,136"/>
-<area shape="rect" id="node3" href="$classDynExp_1_1ParamsBase_1_1ParamBase.html" title="Abstract base class for a single object parameter. Parameters derived from this class are automatical..." alt="" coords="69,5,229,47"/>
+<area shape="rect" id="Node000001" title="Parameter for numbers. If ParamType is an arithmetic type (integral or floating point),..." alt="" coords="5,181,293,251"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1ParamsBase_1_1TypedParamBase.html" title="Base class of parameters containing a single value." alt="" coords="48,93,251,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,147,152,181,147,181,147,147"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1ParamsBase_1_1ParamBase.html" title="Abstract base class for a single object parameter. Parameters derived from this class are automatical..." alt="" coords="69,5,229,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="152,59,152,93,147,93,147,59"/>
 </map>

@@ -1,4 +1,5 @@
 <map id="DynExpInstr::PVCamTasks::StopCapturingTask" name="DynExpInstr::PVCamTasks::StopCapturingTask">
-<area shape="rect" id="node1" title=" " alt="" coords="5,80,197,121"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="31,5,172,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,197,119"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="31,5,172,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,44,104,79,99,79,99,44"/>
 </map>

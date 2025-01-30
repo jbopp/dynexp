@@ -1,6 +1,9 @@
 <map id="DynExp::RunnableInstance" name="DynExp::RunnableInstance">
-<area shape="rect" id="node1" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R..." alt="" coords="120,80,316,107"/>
-<area shape="rect" id="node3" href="$classDynExp_1_1InstrumentInstance.html" title="Defines data for a thread belonging to a InstrumentBase instance. Refer to RunnableInstance." alt="" coords="5,155,212,181"/>
-<area shape="rect" id="node4" href="$classDynExp_1_1ModuleInstance.html" title="Defines data for a thread belonging to a ModuleBase instance. Refer to RunnableInstance." alt="" coords="236,155,419,181"/>
-<area shape="rect" id="node2" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="146,5,290,32"/>
+<area shape="rect" id="Node000001" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R..." alt="" coords="120,79,316,104"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1InstrumentInstance.html" title="Defines data for a thread belonging to a InstrumentBase instance. Refer to RunnableInstance." alt="" coords="5,152,212,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="190,114,128,154,125,150,188,109"/>
+<area shape="rect" id="Node000004" href="$classDynExp_1_1ModuleInstance.html" title="Defines data for a thread belonging to a ModuleBase instance. Refer to RunnableInstance." alt="" coords="236,152,419,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="248,109,311,150,308,154,246,114"/>
+<area shape="rect" id="Node000002" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="146,5,290,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,44,221,79,215,79,215,44"/>
 </map>

@@ -1,3 +1,27 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structCircuitDiagram_1_1CircuitDiagramItem_1_1LinkedParamType_1_1LinkedItemType.html" title=" " alt="" coords="5,5,288,47"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,121,176,146"/>
+<area shape="rect" id="Node000001" href="$classDynExpInstr_1_1gRPCInstrumentTasks_1_1InitTask.html" title=" " alt="" coords="251,5,528,75"/>
+<area shape="poly" id="edge37_Node000000_Node000001" title=" " alt="" coords="138,113,223,84,262,72,264,77,225,89,140,118"/>
+<area shape="rect" id="Node000003" href="$classDynExpInstr_1_1gRPCInstrumentTasks_1_1InitTask.html" title=" " alt="" coords="224,99,555,168"/>
+<area shape="poly" id="edge39_Node000000_Node000003" title=" " alt="" coords="190,131,224,131,224,136,190,136"/>
+<area shape="rect" id="Node000005" href="$classDynExpInstr_1_1gRPCInstrumentTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="282,193,497,247"/>
+<area shape="poly" id="edge41_Node000000_Node000005" title=" " alt="" coords="139,148,225,177,282,193,281,198,223,183,137,153"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1NetworkSpectrometerTasks_1_1InitTask.html" title=" " alt="" coords="603,20,855,60"/>
+<area shape="poly" id="edge38_Node000001_Node000002" title=" " alt="" coords="542,37,602,37,602,43,542,43"/>
+<area shape="rect" id="Node000004" href="$classDynExpInstr_1_1WidefieldLocalizationTasks_1_1InitTask.html" title=" " alt="" coords="605,113,853,153"/>
+<area shape="poly" id="edge40_Node000003_Node000004" title=" " alt="" coords="569,131,605,131,605,136,569,136"/>
+<area shape="rect" id="Node000006" href="$classDynExpInstr_1_1NetworkDataStreamInstrumentTasks_1_1InitTask.html" title=" " alt="" coords="631,181,826,251"/>
+<area shape="poly" id="edge42_Node000005_Node000006" title=" " alt="" coords="510,216,631,214,631,220,511,221"/>
+<area shape="rect" id="Node000012" href="$classDynExpInstr_1_1NetworkDataStreamInstrumentTasks_1_1InitTask.html" title=" " alt="" coords="631,275,826,344"/>
+<area shape="poly" id="edge48_Node000005_Node000012" title=" " alt="" coords="508,248,632,281,630,286,506,253"/>
+<area shape="rect" id="Node000007" href="$classDynExpInstr_1_1NetworkAnalogInTasks_1_1InitTask.html" title=" " alt="" coords="907,31,1117,86"/>
+<area shape="poly" id="edge43_Node000006_Node000007" title=" " alt="" coords="837,174,853,163,868,147,876,130,885,113,901,95,919,84,921,88,904,99,889,116,881,132,872,150,856,167,840,179"/>
+<area shape="rect" id="Node000008" href="$classDynExpInstr_1_1NetworkAnalogOutTasks_1_1InitTask.html" title=" " alt="" coords="903,110,1121,165"/>
+<area shape="poly" id="edge44_Node000006_Node000008" title=" " alt="" coords="838,183,912,162,913,167,840,188"/>
+<area shape="rect" id="Node000009" href="$classDynExpInstr_1_1NetworkDigitalInTasks_1_1InitTask.html" title=" " alt="" coords="908,189,1116,243"/>
+<area shape="poly" id="edge45_Node000006_Node000009" title=" " alt="" coords="840,213,908,213,908,219,840,219"/>
+<area shape="rect" id="Node000010" href="$classDynExpInstr_1_1NetworkDigitalOutTasks_1_1InitTask.html" title=" " alt="" coords="903,267,1121,322"/>
+<area shape="poly" id="edge46_Node000006_Node000010" title=" " alt="" coords="840,244,913,265,912,270,838,249"/>
+<area shape="rect" id="Node000011" href="$classDynExpInstr_1_1NetworkTimeTaggerTasks_1_1InitTask.html" title=" " alt="" coords="913,346,1111,401"/>
+<area shape="poly" id="edge47_Node000006_Node000011" title=" " alt="" coords="840,249,856,261,873,279,881,298,889,315,904,333,921,344,918,348,901,337,884,318,876,300,868,282,853,265,837,254"/>
 </map>

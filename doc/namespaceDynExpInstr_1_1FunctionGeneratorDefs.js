@@ -1,11 +1,11 @@
 var namespaceDynExpInstr_1_1FunctionGeneratorDefs =
 [
     [ "FunctionDescType", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1FunctionDescType.html", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1FunctionDescType" ],
-    [ "SineFunctionDescType", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1SineFunctionDescType.html", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1SineFunctionDescType" ],
-    [ "RectFunctionDescType", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1RectFunctionDescType.html", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1RectFunctionDescType" ],
-    [ "RampFunctionDescType", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1RampFunctionDescType.html", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1RampFunctionDescType" ],
-    [ "PulsesDescType", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1PulsesDescType.html", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1PulsesDescType" ],
     [ "ModulationDescType", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1ModulationDescType.html", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1ModulationDescType" ],
+    [ "PulsesDescType", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1PulsesDescType.html", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1PulsesDescType" ],
+    [ "RampFunctionDescType", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1RampFunctionDescType.html", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1RampFunctionDescType" ],
+    [ "RectFunctionDescType", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1RectFunctionDescType.html", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1RectFunctionDescType" ],
+    [ "SineFunctionDescType", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1SineFunctionDescType.html", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1SineFunctionDescType" ],
     [ "SweepDescType", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1SweepDescType.html", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1SweepDescType" ],
     [ "TriggerDescType", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1TriggerDescType.html", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1TriggerDescType" ],
     [ "WaveformTypes", "namespaceDynExpInstr_1_1FunctionGeneratorDefs.html#a805e150dcf1777bc4f136f4a14fd4857", [

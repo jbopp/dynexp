@@ -5,7 +5,7 @@ var classDynExpModule_1_1ODMR_1_1ODMRWidget =
     [ "~ODMRWidget", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#a0d3557eafa5c07f80bc69ae8dfd11ea1", null ],
     [ "AllowResize", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#aa1a1f6c9e127c9d6df806bc473f37b2e", null ],
     [ "GetODMRDataSeries", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#a0879a7f899e2a7d6d1c53f6c6ebb2b85", null ],
-    [ "GetUI", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#a87bc509d0382315d31ce7ad126e032fd", null ],
+    [ "GetUI", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#afdb96bbc26ce272fb5ee538aa4ece101", null ],
     [ "GetUIInitialized", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#af7cbc430294e9ff316a61c52eceb9881", null ],
     [ "InitializeUI", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#a5f1e2ec8fedbdf566cb22c56b69f79a0", null ],
     [ "OnBrowseSavePathClicked", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#aa047e33369a29ca36268fa54db13f538", null ],

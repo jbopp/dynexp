@@ -1,5 +1,7 @@
 <map id="DynExpInstr::NetworkSpectrometerData" name="DynExpInstr::NetworkSpectrometerData">
-<area shape="rect" id="node1" title=" " alt="" coords="663,20,945,47"/>
-<area shape="rect" id="node2" href="$classDynExpInstr_1_1gRPCInstrumentData.html" title=" " alt="" coords="276,5,615,61"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,20,228,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="663,20,945,45"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1gRPCInstrumentData.html" title=" " alt="" coords="276,5,615,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="628,30,663,30,663,35,628,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,20,228,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="242,30,276,30,276,35,242,35"/>
 </map>

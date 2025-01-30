@@ -1,8 +1,8 @@
 var namespaceDynExpInstr_1_1NetworkAnalogOutTasks =
 [
-    [ "InitTask", "classDynExpInstr_1_1NetworkAnalogOutTasks_1_1InitTask.html", "classDynExpInstr_1_1NetworkAnalogOutTasks_1_1InitTask" ],
     [ "ExitTask", "classDynExpInstr_1_1NetworkAnalogOutTasks_1_1ExitTask.html", "classDynExpInstr_1_1NetworkAnalogOutTasks_1_1ExitTask" ],
-    [ "UpdateTask", "classDynExpInstr_1_1NetworkAnalogOutTasks_1_1UpdateTask.html", "classDynExpInstr_1_1NetworkAnalogOutTasks_1_1UpdateTask" ],
+    [ "InitTask", "classDynExpInstr_1_1NetworkAnalogOutTasks_1_1InitTask.html", "classDynExpInstr_1_1NetworkAnalogOutTasks_1_1InitTask" ],
+    [ "SetDefaultTask", "classDynExpInstr_1_1NetworkAnalogOutTasks_1_1SetDefaultTask.html", "classDynExpInstr_1_1NetworkAnalogOutTasks_1_1SetDefaultTask" ],
     [ "SetTask", "classDynExpInstr_1_1NetworkAnalogOutTasks_1_1SetTask.html", "classDynExpInstr_1_1NetworkAnalogOutTasks_1_1SetTask" ],
-    [ "SetDefaultTask", "classDynExpInstr_1_1NetworkAnalogOutTasks_1_1SetDefaultTask.html", "classDynExpInstr_1_1NetworkAnalogOutTasks_1_1SetDefaultTask" ]
+    [ "UpdateTask", "classDynExpInstr_1_1NetworkAnalogOutTasks_1_1UpdateTask.html", "classDynExpInstr_1_1NetworkAnalogOutTasks_1_1UpdateTask" ]
 ];

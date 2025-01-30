@@ -8,6 +8,6 @@ var classDynExp_1_1DefaultEvent =
     [ "DefaultEvent", "classDynExp_1_1DefaultEvent.html#a33207b9941227515b790064fa6e119c1", null ],
     [ "~DefaultEvent", "classDynExp_1_1DefaultEvent.html#a4b965da655f44a7f6270c8d79977efc3", null ],
     [ "InvokeChild", "classDynExp_1_1DefaultEvent.html#a8cc22f7e8c33658b592cb6da8dfc3e4b", null ],
-    [ "MakeEventFuncTraits", "classDynExp_1_1DefaultEvent.html#aeaf92270eba9132f5e77be754fd3beb7", null ],
+    [ "MakeEventFuncTraits", "classDynExp_1_1DefaultEvent.html#ae35d7c412b556f0398aee85036f571c0", null ],
     [ "EventFunc", "classDynExp_1_1DefaultEvent.html#ad778cae107742435a92dfece7a775aa1", null ]
 ];

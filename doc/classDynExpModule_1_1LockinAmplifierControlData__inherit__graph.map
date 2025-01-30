@@ -1,7 +1,11 @@
 <map id="DynExpModule::LockinAmplifierControlData" name="DynExpModule::LockinAmplifierControlData">
-<area shape="rect" id="node1" title=" " alt="" coords="5,319,235,360"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1QModuleDataBase.html" title="Data class for QModuleBase." alt="" coords="19,244,221,271"/>
-<area shape="rect" id="node3" href="$classDynExp_1_1ModuleDataBase.html" title="Data structure to contain data which is synchronized in between different threads...." alt="" coords="25,169,215,196"/>
-<area shape="rect" id="node4" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="25,80,215,121"/>
-<area shape="rect" id="node5" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="48,5,192,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,313,235,353"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1QModuleDataBase.html" title="Data class for QModuleBase." alt="" coords="19,240,221,265"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,279,123,313,117,313,117,279"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1ModuleDataBase.html" title="Data structure to contain data which is synchronized in between different threads...." alt="" coords="25,167,215,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="123,206,123,240,117,240,117,206"/>
+<area shape="rect" id="Node000004" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="25,79,215,119"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="123,132,123,166,117,166,117,132"/>
+<area shape="rect" id="Node000005" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="48,5,192,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="123,44,123,79,117,79,117,44"/>
 </map>

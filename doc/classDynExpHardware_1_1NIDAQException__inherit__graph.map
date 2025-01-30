@@ -1,6 +1,9 @@
 <map id="DynExpHardware::NIDAQException" name="DynExpHardware::NIDAQException">
-<area shape="rect" id="node1" title=" " alt="" coords="5,229,256,256"/>
-<area shape="rect" id="node2" href="$classUtil_1_1Exception.html" title="DynExp exceptions are derived from this class. It contains basic information about the cause of the e..." alt="" coords="72,155,189,181"/>
-<area shape="rect" id="node3" title=" " alt="" coords="61,80,200,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="73,5,188,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,225,256,251"/>
+<area shape="rect" id="Node000002" href="$classUtil_1_1Exception.html" title="DynExp exceptions are derived from this class. It contains basic information about the cause of the e..." alt="" coords="72,152,189,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,191,133,225,128,225,128,191"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="61,79,200,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="133,118,133,152,128,152,128,118"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="73,5,188,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="133,44,133,79,128,79,128,44"/>
 </map>

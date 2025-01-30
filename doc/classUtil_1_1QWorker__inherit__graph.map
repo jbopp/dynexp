@@ -1,7 +1,11 @@
 <map id="Util::QWorker" name="Util::QWorker">
-<area shape="rect" id="node1" title="Implements a QObject belonging to a hardware adapter (derived from DynExp::HardwareAdapterBase) that ..." alt="" coords="189,80,297,107"/>
-<area shape="rect" id="node3" href="$classDynExp_1_1QSerialCommunicationHardwareAdapterWorker.html" title="Qt worker which performs actual serial communication hardware operations in a separate thread in orde..." alt="" coords="128,155,359,196"/>
-<area shape="rect" id="node2" title=" " alt="" coords="206,5,281,32"/>
-<area shape="rect" id="node4" href="$classDynExp_1_1HardwareAdapterSerialPortWorker.html" title="Qt worker for serial/COM port communication in a separate thread." alt="" coords="5,244,236,285"/>
-<area shape="rect" id="node5" href="$classDynExp_1_1HardwareAdapterTcpSocketWorker.html" title="Qt worker for network communication in a separate thread." alt="" coords="260,244,475,285"/>
+<area shape="rect" id="Node000001" title="Implements a QObject belonging to a hardware adapter (derived from DynExp::HardwareAdapterBase) that ..." alt="" coords="189,79,297,104"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1QSerialCommunicationHardwareAdapterWorker.html" title="Qt worker which performs actual serial communication hardware operations in a separate thread in orde..." alt="" coords="128,152,359,192"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="246,118,246,152,241,152,241,118"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="206,5,281,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="246,44,246,79,241,79,241,44"/>
+<area shape="rect" id="Node000004" href="$classDynExp_1_1HardwareAdapterSerialPortWorker.html" title="Qt worker for serial/COM port communication in a separate thread." alt="" coords="5,240,236,280"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="207,202,149,242,146,238,204,198"/>
+<area shape="rect" id="Node000005" href="$classDynExp_1_1HardwareAdapterTcpSocketWorker.html" title="Qt worker for network communication in a separate thread." alt="" coords="260,240,475,280"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="284,198,341,238,338,242,281,202"/>
 </map>

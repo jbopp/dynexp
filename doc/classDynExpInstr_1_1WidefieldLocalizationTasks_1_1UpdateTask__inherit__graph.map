@@ -1,5 +1,7 @@
 <map id="DynExpInstr::WidefieldLocalizationTasks::UpdateTask" name="DynExpInstr::WidefieldLocalizationTasks::UpdateTask">
-<area shape="rect" id="node1" title=" " alt="" coords="629,20,877,61"/>
-<area shape="rect" id="node2" href="$classDynExpInstr_1_1gRPCInstrumentTasks_1_1UpdateTask.html" title=" " alt="" coords="251,5,581,76"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,27,203,54"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="629,20,877,60"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1gRPCInstrumentTasks_1_1UpdateTask.html" title=" " alt="" coords="251,5,581,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="595,37,629,37,629,43,595,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,27,203,53"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="216,37,250,37,250,43,216,43"/>
 </map>

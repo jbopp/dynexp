@@ -1,3 +1,15 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$namespaceUtil.html#structUtil_1_1member__fn__ptr__traits_3_01ReturnT_07ObjectT_1_1_5_08_07ArgumentTs_8_8_8_08_01noexcept_01_4" title="Extracts the return value type, the class type the callable is member of, and the argument types of a..." alt="" coords="5,5,225,61"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,129,80,155"/>
+<area shape="rect" id="Node000001" href="$classBusyDialog.html" title=" " alt="" coords="157,5,253,31"/>
+<area shape="poly" id="edge517_Node000000_Node000001" title=" " alt="" coords="56,116,86,77,105,57,127,40,155,26,158,31,129,44,108,61,90,81,61,120"/>
+<area shape="rect" id="Node000002" href="$classChoiceListDialog.html" title=" " alt="" coords="139,55,270,80"/>
+<area shape="poly" id="edge518_Node000000_Node000002" title=" " alt="" coords="73,119,127,89,156,78,158,83,129,94,75,124"/>
+<area shape="rect" id="Node000003" href="$classCircuitDiagram.html" title=" " alt="" coords="145,104,265,129"/>
+<area shape="poly" id="edge519_Node000000_Node000003" title=" " alt="" coords="93,131,144,123,145,129,94,137"/>
+<area shape="rect" id="Node000004" href="$classDynExpAbout.html" title=" " alt="" coords="149,153,260,179"/>
+<area shape="poly" id="edge520_Node000000_Node000004" title=" " alt="" coords="94,147,150,155,149,160,93,152"/>
+<area shape="rect" id="Node000005" href="$classErrorListDialog.html" title=" " alt="" coords="145,203,264,228"/>
+<area shape="poly" id="edge521_Node000000_Node000005" title=" " alt="" coords="77,159,129,188,162,200,160,205,127,192,74,164"/>
+<area shape="rect" id="Node000006" href="$classParamsConfigDialog.html" title="Defines the configuration dialog. The dialog must be displayed by calling ParamsConfigDialog::Display..." alt="" coords="128,252,281,277"/>
+<area shape="poly" id="edge522_Node000000_Node000006" title=" " alt="" coords="62,165,91,202,130,237,154,250,152,254,126,242,87,206,58,169"/>
 </map>

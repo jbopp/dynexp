@@ -1,6 +1,9 @@
 <map id="DynExp::ProjectParams" name="DynExp::ProjectParams">
-<area shape="rect" id="node1" title="Defines a parameter class with parameters common to all DynExp projects." alt="" coords="14,244,187,271"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1ParamsBase.html" title="Abstract base class for object parameter classes. Each class derived from class Object must be accomp..." alt="" coords="21,169,181,196"/>
-<area shape="rect" id="node3" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="5,80,196,121"/>
-<area shape="rect" id="node4" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="29,5,173,32"/>
+<area shape="rect" id="Node000001" title="Defines a parameter class with parameters common to all DynExp projects." alt="" coords="14,240,187,265"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1ParamsBase.html" title="Abstract base class for object parameter classes. Each class derived from class Object must be accomp..." alt="" coords="21,167,181,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,206,103,240,98,240,98,206"/>
+<area shape="rect" id="Node000003" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="5,79,196,119"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="103,132,103,166,98,166,98,132"/>
+<area shape="rect" id="Node000004" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="29,5,173,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="103,44,103,79,98,79,98,44"/>
 </map>

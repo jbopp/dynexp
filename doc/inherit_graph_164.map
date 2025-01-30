@@ -1,3 +1,29 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classUtil_1_1PyGilReleasedInterpreter.html" title="Initialize Python interpreter and directly release the GIL after construction." alt="" coords="5,5,221,32"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,358,84,383"/>
+<area shape="rect" id="Node000001" href="$classDynExp_1_1QModuleWidget.html" title="Window class for Qt&#45;based user interfaces belonging to DynExp modules. User interface Qt window class..." alt="" coords="132,333,316,358"/>
+<area shape="poly" id="edge531_Node000000_Node000001" title=" " alt="" coords="97,361,134,355,134,361,98,366"/>
+<area shape="rect" id="Node000013" href="$classTextEditor.html" title=" " alt="" coords="181,382,267,407"/>
+<area shape="poly" id="edge543_Node000000_Node000013" title=" " alt="" coords="98,375,180,386,180,392,98,380"/>
+<area shape="rect" id="Node000002" href="$classDynExpModule_1_1ImageViewer_1_1ImageViewerWidget.html" title=" " alt="" coords="374,5,589,45"/>
+<area shape="poly" id="edge532_Node000001_Node000002" title=" " alt="" coords="228,318,242,263,268,192,286,155,307,118,333,85,362,55,380,43,383,48,366,59,337,88,311,121,290,157,273,194,247,265,233,319"/>
+<area shape="rect" id="Node000003" href="$classDynExpModule_1_1InputPortReaderWidget.html" title=" " alt="" coords="365,69,598,109"/>
+<area shape="poly" id="edge533_Node000001_Node000003" title=" " alt="" coords="232,319,249,275,277,221,314,166,337,141,362,119,383,107,386,112,366,123,341,145,319,170,281,224,254,277,236,321"/>
+<area shape="rect" id="Node000004" href="$classDynExpModule_1_1LockinAmplifierControlWidget.html" title=" " alt="" coords="367,133,596,173"/>
+<area shape="poly" id="edge534_Node000001_Node000004" title=" " alt="" coords="238,319,287,251,322,214,363,183,386,171,389,176,365,188,326,218,291,255,242,322"/>
+<area shape="rect" id="Node000005" href="$classDynExpModule_1_1ODMR_1_1ODMRWidget.html" title=" " alt="" coords="397,197,566,237"/>
+<area shape="poly" id="edge535_Node000001_Node000005" title=" " alt="" coords="249,322,300,284,363,247,395,234,397,239,365,252,303,288,252,326"/>
+<area shape="rect" id="Node000006" href="$classDynExpModule_1_1OutputPortWriterWidget.html" title=" " alt="" coords="382,261,581,301"/>
+<area shape="poly" id="edge536_Node000001_Node000006" title=" " alt="" coords="289,327,399,299,401,304,290,332"/>
+<area shape="rect" id="Node000007" href="$classDynExpModule_1_1SignalDesignerWidget.html" title=" " alt="" coords="368,325,595,365"/>
+<area shape="poly" id="edge537_Node000001_Node000007" title=" " alt="" coords="330,343,368,343,368,348,330,348"/>
+<area shape="rect" id="Node000008" href="$classDynExpModule_1_1SignalPlotterWidget.html" title=" " alt="" coords="376,389,587,429"/>
+<area shape="poly" id="edge538_Node000001_Node000008" title=" " alt="" coords="290,359,401,387,399,392,289,364"/>
+<area shape="rect" id="Node000009" href="$classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerWidget.html" title=" " alt="" coords="364,453,599,493"/>
+<area shape="poly" id="edge539_Node000001_Node000009" title=" " alt="" coords="309,362,318,367,335,385,343,404,350,422,366,439,386,451,383,455,362,443,346,425,338,406,330,388,314,371,306,366"/>
+<area shape="rect" id="Node000010" href="$classDynExpModule_1_1Stage1DWidget.html" title=" " alt="" coords="367,518,596,543"/>
+<area shape="poly" id="edge540_Node000001_Node000010" title=" " alt="" coords="313,363,318,367,332,385,339,402,342,437,345,472,352,488,366,503,385,516,382,520,362,507,348,491,340,473,337,438,334,404,327,387,314,371,309,367"/>
+<area shape="rect" id="Node000011" href="$classDynExpModule_1_1Trajectory1DWidget.html" title=" " alt="" coords="381,568,581,608"/>
+<area shape="poly" id="edge541_Node000001_Node000011" title=" " alt="" coords="314,364,318,368,335,391,343,415,345,438,343,462,341,485,343,508,350,530,366,553,382,566,379,570,362,557,345,533,337,509,336,485,338,462,339,438,338,416,330,393,314,371,310,368"/>
+<area shape="rect" id="Node000012" href="$classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html" title=" " alt="" coords="376,632,587,672"/>
+<area shape="poly" id="edge542_Node000001_Node000012" title=" " alt="" coords="315,364,318,368,340,399,348,431,348,463,343,495,338,526,338,557,345,588,366,618,380,630,377,634,362,622,341,590,332,558,333,526,338,494,342,463,343,432,335,402,314,371,311,368"/>
 </map>

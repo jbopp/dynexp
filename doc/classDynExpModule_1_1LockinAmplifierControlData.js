@@ -2,8 +2,8 @@ var classDynExpModule_1_1LockinAmplifierControlData =
 [
     [ "LockinAmplifierControlData", "classDynExpModule_1_1LockinAmplifierControlData.html#ad1b1409bf08b2f9218088dc38a754faa", null ],
     [ "~LockinAmplifierControlData", "classDynExpModule_1_1LockinAmplifierControlData.html#a93ae920856f679f1b92dd6268534e260", null ],
-    [ "GetLockinAmplifier", "classDynExpModule_1_1LockinAmplifierControlData.html#a771d8e2dd6ba31a7e05b5c861f653a34", null ],
-    [ "GetLockinAmplifier", "classDynExpModule_1_1LockinAmplifierControlData.html#acbd2467ff656a4ca70c85f5b4b8e388e", null ],
+    [ "GetLockinAmplifier", "classDynExpModule_1_1LockinAmplifierControlData.html#ad7f3e1040e95f97a20c1c228e6cbf468", null ],
+    [ "GetLockinAmplifier", "classDynExpModule_1_1LockinAmplifierControlData.html#af372121e636063f7a49269b3bc505199", null ],
     [ "Init", "classDynExpModule_1_1LockinAmplifierControlData.html#a9f2b5f972ea7dc246bd99fd96aa930b1", null ],
     [ "ResetImpl", "classDynExpModule_1_1LockinAmplifierControlData.html#a74b0b9418c5e00744286967d08bcda5c", null ],
     [ "ResetImpl", "classDynExpModule_1_1LockinAmplifierControlData.html#a1ea802fdb0ab3d35b8bc8ea37806b00f", null ],

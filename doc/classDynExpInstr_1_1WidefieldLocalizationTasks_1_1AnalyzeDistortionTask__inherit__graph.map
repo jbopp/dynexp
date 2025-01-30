@@ -1,5 +1,7 @@
 <map id="DynExpInstr::WidefieldLocalizationTasks::AnalyzeDistortionTask" name="DynExpInstr::WidefieldLocalizationTasks::AnalyzeDistortionTask">
-<area shape="rect" id="node1" title=" " alt="" coords="61,95,309,136"/>
-<area shape="rect" id="node2" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="5,13,147,39"/>
-<area shape="rect" id="node3" href="$classDynExpInstr_1_1WidefieldLocalizationTasks_1_1ImageProcessingTaskBase.html" title=" " alt="" coords="171,5,419,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="61,93,309,133"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="5,13,147,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,45,163,91,160,95,100,49"/>
+<area shape="rect" id="Node000003" href="$classDynExpInstr_1_1WidefieldLocalizationTasks_1_1ImageProcessingTaskBase.html" title=" " alt="" coords="171,5,419,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="261,56,211,95,208,91,258,52"/>
 </map>

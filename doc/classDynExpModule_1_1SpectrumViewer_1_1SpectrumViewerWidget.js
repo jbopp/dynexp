@@ -6,7 +6,7 @@ var classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerWidget =
     [ "~SpectrumViewerWidget", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerWidget.html#acf4757698ade6f996001a5df35641748", null ],
     [ "AllowResize", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerWidget.html#a791a0398a8103aaed935ae15cc1baa1c", null ],
     [ "FinishedSavingData", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerWidget.html#a9b831ef7326cf7c96137beda49d0aa8e", null ],
-    [ "GetUI", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerWidget.html#a95fe4c1087b749c76f04e6ae1de9d33c", null ],
+    [ "GetUI", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerWidget.html#a80f1cb14f4927404d4200ec8a6e46d55", null ],
     [ "InitializeUI", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerWidget.html#aae2ce4d1bc4604930007ca3ef0069f72", null ],
     [ "OnSaveCSVClicked", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerWidget.html#abade9548a326034c82ebb3af3dbfba3d", null ],
     [ "SetData", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerWidget.html#af42ceecf7368f98f171bdd343c73254f", null ],

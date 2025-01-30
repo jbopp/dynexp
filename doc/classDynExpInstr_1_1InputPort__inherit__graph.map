@@ -1,12 +1,21 @@
 <map id="DynExpInstr::InputPort" name="DynExpInstr::InputPort">
-<area shape="rect" id="node1" title="Generic input port meta instrument based on the data stream meta instrument to read data from hardwar..." alt="" coords="142,304,310,331"/>
-<area shape="rect" id="node7" href="$classDynExpInstr_1_1AnalogIn.html" title="Meta instrument for a single analog input port based on the data stream and generic input port meta i..." alt="" coords="48,379,215,405"/>
-<area shape="rect" id="node9" href="$classDynExpInstr_1_1DigitalIn.html" title="Meta instrument for a single digital input port based on the data stream and generic input port meta ..." alt="" coords="249,379,413,405"/>
-<area shape="rect" id="node2" href="$classDynExpInstr_1_1DataStreamInstrument.html" title="Implementation of the data stream meta instrument, which is a base class for all instruments reading/..." alt="" coords="97,229,355,256"/>
-<area shape="rect" id="node3" href="$classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic..." alt="" coords="135,155,317,181"/>
-<area shape="rect" id="node4" href="$classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ..." alt="" coords="135,80,317,107"/>
-<area shape="rect" id="node5" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="75,5,219,32"/>
-<area shape="rect" id="node6" href="$classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),..." alt="" coords="243,5,366,32"/>
-<area shape="rect" id="node8" href="$classDynExpInstr_1_1NIDAQAnalogIn.html" title=" " alt="" coords="5,453,215,480"/>
-<area shape="rect" id="node10" href="$classDynExpInstr_1_1NIDAQDigitalIn.html" title=" " alt="" coords="239,453,445,480"/>
+<area shape="rect" id="Node000001" title="Generic input port meta instrument based on the data stream meta instrument to read data from hardwar..." alt="" coords="142,299,310,324"/>
+<area shape="rect" id="Node000007" href="$classDynExpInstr_1_1AnalogIn.html" title="Meta instrument for a single analog input port based on the data stream and generic input port meta i..." alt="" coords="48,372,215,397"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="201,334,148,374,145,370,198,330"/>
+<area shape="rect" id="Node000009" href="$classDynExpInstr_1_1DigitalIn.html" title="Meta instrument for a single digital input port based on the data stream and generic input port meta ..." alt="" coords="249,372,413,397"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="256,330,316,370,313,374,253,334"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1DataStreamInstrument.html" title="Implementation of the data stream meta instrument, which is a base class for all instruments reading/..." alt="" coords="97,225,355,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,264,229,299,223,299,223,264"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic..." alt="" coords="135,152,317,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="229,191,229,225,223,225,223,191"/>
+<area shape="rect" id="Node000004" href="$classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ..." alt="" coords="135,79,317,104"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="229,118,229,152,223,152,223,118"/>
+<area shape="rect" id="Node000005" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="75,5,219,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="172,38,215,76,211,80,168,42"/>
+<area shape="rect" id="Node000006" href="$classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),..." alt="" coords="243,5,366,31"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="284,42,241,80,237,76,280,38"/>
+<area shape="rect" id="Node000008" href="$classDynExpInstr_1_1NIDAQAnalogIn.html" title=" " alt="" coords="5,445,215,471"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="126,412,116,446,111,444,121,410"/>
+<area shape="rect" id="Node000010" href="$classDynExpInstr_1_1NIDAQDigitalIn.html" title=" " alt="" coords="239,445,445,471"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="338,411,343,445,338,446,332,412"/>
 </map>

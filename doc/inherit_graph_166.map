@@ -1,3 +1,63 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classUtil_1_1PyObject.html" title="Wraps a class derived from pybind11::object and ensures that the GIL is acquired when the PyObject is..." alt="" coords="5,5,159,32"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,596,120,621"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="168,596,307,621"/>
+<area shape="poly" id="edge545_Node000000_Node000001" title=" " alt="" coords="134,606,168,606,168,611,134,611"/>
+<area shape="rect" id="Node000002" href="$classUtil_1_1Exception.html" title="DynExp exceptions are derived from this class. It contains basic information about the cause of the e..." alt="" coords="355,596,472,621"/>
+<area shape="poly" id="edge546_Node000001_Node000002" title=" " alt="" coords="320,606,354,606,354,611,320,611"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1SerialCommunicationException.html" title="Defines an exception caused by a serial communication operation of a hardware adapter." alt="" coords="552,22,772,62"/>
+<area shape="poly" id="edge547_Node000002_Node000003" title=" " alt="" coords="414,582,422,472,441,319,455,241,472,170,493,112,518,72,533,60,551,51,553,55,536,64,522,76,498,114,477,172,460,242,446,320,427,472,419,582"/>
+<area shape="rect" id="Node000006" href="$classDynExpHardware_1_1NIDAQException.html" title=" " alt="" coords="537,87,787,112"/>
+<area shape="poly" id="edge550_Node000002_Node000006" title=" " alt="" coords="414,582,424,480,443,342,457,272,474,208,494,157,518,121,535,109,538,113,522,125,499,159,479,210,462,273,448,343,429,481,419,582"/>
+<area shape="rect" id="Node000007" href="$classDynExpHardware_1_1PVCamException.html" title=" " alt="" coords="535,136,789,161"/>
+<area shape="poly" id="edge551_Node000002_Node000007" title=" " alt="" coords="415,582,426,490,446,367,460,304,477,248,496,202,518,171,533,160,536,164,522,175,501,204,482,250,466,306,452,368,431,491,420,583"/>
+<area shape="rect" id="Node000008" href="$classDynExpHardware_1_1QutoolsTDCException.html" title=" " alt="" coords="520,185,804,211"/>
+<area shape="poly" id="edge552_Node000002_Node000008" title=" " alt="" coords="416,582,428,499,450,390,480,287,498,247,518,220,534,209,537,213,522,224,503,250,485,289,455,392,434,500,421,582"/>
+<area shape="rect" id="Node000009" href="$classDynExpHardware_1_1SmarActException.html" title=" " alt="" coords="531,235,793,260"/>
+<area shape="poly" id="edge553_Node000002_Node000009" title=" " alt="" coords="412,582,415,518,430,434,443,389,462,345,487,305,518,271,537,258,540,262,522,275,491,309,467,348,448,391,435,435,421,519,417,582"/>
+<area shape="rect" id="Node000010" href="$classDynExpHardware_1_1ZILabOneException.html" title=" " alt="" coords="559,285,765,325"/>
+<area shape="poly" id="edge554_Node000002_Node000010" title=" " alt="" coords="414,582,422,529,440,462,453,427,471,393,492,362,518,335,537,322,558,313,560,318,540,326,522,339,496,365,475,396,458,430,445,464,428,530,420,582"/>
+<area shape="rect" id="Node000011" href="$classDynExpHardware_1_1gRPCException.html" title="Defines an exception caused by an operation involving the gRPC library and communication over a TCP s..." alt="" coords="541,349,783,375"/>
+<area shape="poly" id="edge555_Node000002_Node000011" title=" " alt="" coords="417,581,427,537,446,484,476,429,495,405,518,384,540,371,543,376,522,388,499,408,480,432,451,486,432,539,422,583"/>
+<area shape="rect" id="Node000012" href="$classUtil_1_1EmptyException.html" title="Thrown when a list is expected to contain entries and when a query results in an empty answer or an e..." alt="" coords="583,399,741,424"/>
+<area shape="poly" id="edge556_Node000002_Node000012" title=" " alt="" coords="420,582,434,547,454,506,482,466,518,433,549,418,582,410,583,415,551,423,522,438,486,470,459,509,439,549,425,583"/>
+<area shape="rect" id="Node000013" href="$classUtil_1_1FileIOErrorException.html" title="Thrown when reading from or writing to a file failed." alt="" coords="569,448,755,473"/>
+<area shape="poly" id="edge557_Node000002_Node000013" title=" " alt="" coords="426,583,463,531,489,504,519,482,543,471,569,464,570,469,545,476,521,487,492,508,467,534,430,586"/>
+<area shape="rect" id="Node000014" href="$classUtil_1_1ForwardedException.html" title="Class to forward an Exception instance from one DynExp::Object instance to another DynExp::Object ins..." alt="" coords="569,497,755,523"/>
+<area shape="poly" id="edge558_Node000002_Node000014" title=" " alt="" coords="437,585,474,557,519,532,569,517,570,522,521,536,477,561,440,589"/>
+<area shape="rect" id="Node000015" href="$classUtil_1_1InvalidArgException.html" title="An invalid argument like a null pointer has been passed to a function." alt="" coords="571,547,753,572"/>
+<area shape="poly" id="edge559_Node000002_Node000015" title=" " alt="" coords="477,590,519,581,580,569,581,575,521,586,478,595"/>
+<area shape="rect" id="Node000016" href="$classUtil_1_1InvalidCallException.html" title="Thrown when a function call is not allowed to a specific thread in a multi&#45;threading context." alt="" coords="569,596,755,621"/>
+<area shape="poly" id="edge560_Node000002_Node000016" title=" " alt="" coords="486,606,568,606,568,611,486,611"/>
+<area shape="rect" id="Node000017" href="$classUtil_1_1InvalidDataException.html" title="Data to operate on is invalid for a specific purpose. This indicates a corrupted data structure or fu..." alt="" coords="566,645,758,671"/>
+<area shape="poly" id="edge561_Node000002_Node000017" title=" " alt="" coords="482,622,521,630,587,643,586,648,519,635,481,627"/>
+<area shape="rect" id="Node000018" href="$classUtil_1_1InvalidStateException.html" title="An operation cannot be performed currently since the related object is in an invalid state like an er..." alt="" coords="565,695,759,720"/>
+<area shape="poly" id="edge562_Node000002_Node000018" title=" " alt="" coords="441,629,478,656,521,680,565,693,564,698,519,684,475,660,438,633"/>
+<area shape="rect" id="Node000021" href="$classUtil_1_1NotAvailableException.html" title="Thrown when some operation or feature is temporarily or permanently not available." alt="" coords="562,744,762,769"/>
+<area shape="poly" id="edge565_Node000002_Node000021" title=" " alt="" coords="431,632,467,682,493,708,521,729,563,745,561,750,519,734,489,712,463,686,426,635"/>
+<area shape="rect" id="Node000022" href="$classUtil_1_1NotFoundException.html" title="Thrown when a requested ressource does not exist." alt="" coords="573,793,751,819"/>
+<area shape="poly" id="edge566_Node000002_Node000022" title=" " alt="" coords="425,634,439,668,459,707,487,746,522,778,546,791,573,799,572,804,544,796,518,783,483,750,455,710,434,670,420,636"/>
+<area shape="rect" id="Node000023" href="$classUtil_1_1NotImplementedException.html" title="Thrown when a requested feature is either under development and thus not implemented yet or when a sp..." alt="" coords="549,843,775,868"/>
+<area shape="poly" id="edge567_Node000002_Node000023" title=" " alt="" coords="422,634,432,678,451,731,481,784,500,808,522,828,550,843,547,848,518,832,496,811,476,787,447,733,427,679,417,636"/>
+<area shape="rect" id="Node000024" href="$classUtil_1_1OutOfRangeException.html" title="Thrown when an argument passed to a function exceeds the valid range." alt="" coords="564,892,760,917"/>
+<area shape="poly" id="edge568_Node000002_Node000024" title=" " alt="" coords="419,634,427,687,444,753,457,787,474,821,496,851,522,877,542,890,565,898,563,903,539,895,518,881,492,855,470,823,453,790,439,755,422,688,414,635"/>
+<area shape="rect" id="Node000025" href="$classUtil_1_1OverflowException.html" title="Thrown when a numeric operation would result in an overflow (e.g. due to incompatible data types)" alt="" coords="575,941,749,967"/>
+<area shape="poly" id="edge569_Node000002_Node000025" title=" " alt="" coords="418,635,422,696,437,775,451,817,469,858,492,895,522,927,547,942,575,951,574,956,544,947,518,931,488,898,464,860,446,819,432,777,417,697,412,635"/>
+<area shape="rect" id="Node000026" href="$classUtil_1_1ServiceFailedException.html" title="Denotes that e.g. a remote gRPC service failed." alt="" coords="561,991,763,1016"/>
+<area shape="poly" id="edge570_Node000002_Node000026" title=" " alt="" coords="421,634,435,713,457,816,486,914,503,951,522,976,540,989,561,997,559,1002,538,993,518,980,499,954,481,916,451,818,429,714,416,635"/>
+<area shape="rect" id="Node000027" href="$classUtil_1_1TimeoutException.html" title="Thrown when an operation timed out before it could be completed, especially used for locking shared d..." alt="" coords="577,1040,747,1065"/>
+<area shape="poly" id="edge571_Node000002_Node000027" title=" " alt="" coords="420,634,432,723,453,842,467,901,483,955,501,998,522,1027,547,1043,577,1051,576,1056,545,1048,518,1031,497,1001,478,957,462,903,448,843,427,724,415,635"/>
+<area shape="rect" id="Node000029" href="$classUtil_1_1TypeErrorException.html" title="Thrown when an attempt was made to convert two incompatible types into each other." alt="" coords="573,1089,751,1115"/>
+<area shape="poly" id="edge573_Node000002_Node000029" title=" " alt="" coords="419,635,430,733,449,866,463,934,480,994,499,1044,522,1076,546,1092,573,1100,572,1105,543,1096,518,1080,495,1046,475,996,458,935,444,867,424,734,414,635"/>
+<area shape="rect" id="Node000030" href="$classUtil_1_1UnderflowException.html" title="Thrown when a numeric operation would result in an underflow (e.g. due to incompatible data types)" alt="" coords="571,1139,753,1164"/>
+<area shape="poly" id="edge574_Node000002_Node000030" title=" " alt="" coords="419,635,428,742,446,891,460,966,477,1034,498,1089,522,1125,545,1141,571,1149,570,1155,542,1146,518,1129,493,1091,472,1035,455,967,441,891,422,743,414,635"/>
+<area shape="rect" id="Node000004" href="$classDynExp_1_1NetworkException.html" title="Defines an exception caused by a hardware operation on an ethernet interface (e.g...." alt="" coords="868,5,1067,31"/>
+<area shape="poly" id="edge548_Node000003_Node000004" title=" " alt="" coords="785,30,867,23,868,28,786,35"/>
+<area shape="rect" id="Node000005" href="$classDynExp_1_1SerialPortException.html" title="Defines an exception caused by a hardware operation on a COM port (e.g. reading/writing data to a COM..." alt="" coords="864,55,1071,80"/>
+<area shape="poly" id="edge549_Node000003_Node000005" title=" " alt="" coords="786,50,864,56,863,61,785,55"/>
+<area shape="rect" id="Node000019" href="$classUtil_1_1InvalidObjectLinkException.html" title="Thrown when RunnableInstance cannot lock an object to be used by another object due to an invalid lin..." alt="" coords="852,667,1083,692"/>
+<area shape="poly" id="edge563_Node000018_Node000019" title=" " alt="" coords="773,695,851,687,852,693,773,700"/>
+<area shape="rect" id="Node000020" href="$classUtil_1_1LinkedObjectNotLockedException.html" title="Thrown when RunnableInstance::LockObject() has not been called on an object link parameter to establi..." alt="" coords="865,717,1070,757"/>
+<area shape="poly" id="edge564_Node000018_Node000020" title=" " alt="" coords="773,715,865,724,864,729,773,721"/>
+<area shape="rect" id="Node000028" href="$classUtil_1_1ThreadDidNotRespondException.html" title="Thrown in a multi&#45;threading context when an answer is expected from another thread an when the commun..." alt="" coords="868,1033,1067,1073"/>
+<area shape="poly" id="edge572_Node000027_Node000028" title=" " alt="" coords="761,1050,868,1050,868,1055,761,1055"/>
 </map>

@@ -4,7 +4,7 @@ var classDynExpInstr_1_1FunctionGeneratorParams =
     [ "~FunctionGeneratorParams", "classDynExpInstr_1_1FunctionGeneratorParams.html#a004fe309df8aa6ce8c2a6e29ca474a2c", null ],
     [ "ConfigureParamsImpl", "classDynExpInstr_1_1FunctionGeneratorParams.html#ae53c3d8aacf644bad1bf54d6a6a759f3", null ],
     [ "ConfigureParamsImpl", "classDynExpInstr_1_1FunctionGeneratorParams.html#aebcf3dbc8d194c1fe7f5f67aedcabf85", null ],
-    [ "GetParamClassTag", "classDynExpInstr_1_1FunctionGeneratorParams.html#a7fba2d918988f532bef93b42a8283128", null ],
+    [ "GetParamClassTag", "classDynExpInstr_1_1FunctionGeneratorParams.html#ab33f4e9d376005d077db2e44b85c7803", null ],
     [ "Amplitude", "classDynExpInstr_1_1FunctionGeneratorParams.html#a8e836a326300ca5b1ced5ad2ad57aedf", null ],
     [ "Autostart", "classDynExpInstr_1_1FunctionGeneratorParams.html#aa65d24a6903366d459fbe89da25dd6d6", null ],
     [ "DutyCycle", "classDynExpInstr_1_1FunctionGeneratorParams.html#a27817aaa3cae18821ade983569267dbf", null ],

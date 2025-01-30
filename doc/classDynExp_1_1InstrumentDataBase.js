@@ -16,7 +16,7 @@ var classDynExp_1_1InstrumentDataBase =
     [ "EnqueueTask", "classDynExp_1_1InstrumentDataBase.html#afe1b32e63b29daad639f9a830ede1cc3", null ],
     [ "GetException", "classDynExp_1_1InstrumentDataBase.html#adbbac61586c0bbb9060bb2c1e283c3bf", null ],
     [ "GetLastUpdateTime", "classDynExp_1_1InstrumentDataBase.html#a18239b855a8a0f734257f27ec8337354", null ],
-    [ "GetNewTaskNotifier", "classDynExp_1_1InstrumentDataBase.html#a03ed91bd8aec88e709083754f625edf6", null ],
+    [ "GetNewTaskNotifier", "classDynExp_1_1InstrumentDataBase.html#a32ce5433e4655111eae679da4ae2f18d", null ],
     [ "GetNumEnqueuedTasks", "classDynExp_1_1InstrumentDataBase.html#ae9fd92c93ba7aeb0110fcfc33bb5a7c8", null ],
     [ "GetNumFinishedTasks", "classDynExp_1_1InstrumentDataBase.html#aceb556f61f486eace3fe82992a96cfda", null ],
     [ "GetTaskBack", "classDynExp_1_1InstrumentDataBase.html#afe7b0705c4bc6f8b7a5f78c311019461", null ],

@@ -1,6 +1,9 @@
 <map id="DynExpInstr::SmarActTasks::UpdateTask" name="DynExpInstr::SmarActTasks::UpdateTask">
-<area shape="rect" id="node1" title=" " alt="" coords="11,244,211,285"/>
-<area shape="rect" id="node2" href="$classDynExpInstr_1_1PositionerStageTasks_1_1UpdateTask.html" title="Defines a task for updating an instrument within an instrument inheritance hierarchy...." alt="" coords="5,155,216,196"/>
-<area shape="rect" id="node3" href="$classDynExp_1_1UpdateTaskBase.html" title="Defines a task for updating an instrument within an instrument inheritance hierarchy...." alt="" coords="17,80,205,107"/>
-<area shape="rect" id="node4" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="40,5,181,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="11,240,211,280"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1PositionerStageTasks_1_1UpdateTask.html" title="Defines a task for updating an instrument within an instrument inheritance hierarchy...." alt="" coords="5,152,216,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,206,113,240,108,240,108,206"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1UpdateTaskBase.html" title="Defines a task for updating an instrument within an instrument inheritance hierarchy...." alt="" coords="17,79,205,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="113,118,113,152,108,152,108,118"/>
+<area shape="rect" id="Node000004" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="40,5,181,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="113,44,113,79,108,79,108,44"/>
 </map>
