@@ -417,7 +417,11 @@ namespace DynExpHardware
 		CheckError(Result);
 		this->BufferSize = BufferSize;
 
+#ifdef QUTOOLSQUTAG_VARIANT_S
+		ChannelCount = 5;
+#else
 		ChannelCount = QutoolsTDCSyms::TDC_getChannelCount();
+#endif
 
 		SetTimestampBufferSizeUnsafe(TimestampBufferSize);
 		SetExposureTimeUnsafe(ExposureTime);
