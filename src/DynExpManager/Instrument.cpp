@@ -9,6 +9,7 @@ namespace DynExp
 	{
 		bool IsExiting = false;
 		bool IsFirstRun = true;
+		InstrumentBase::TaskHandlingContinuationType DoContinue = InstrumentBase::TaskHandlingContinuationType::Continue;
 		std::chrono::time_point<std::chrono::system_clock> LastUpdate;	// LastUpdate.time_since_epoch() == 0 now.
 
 		try
@@ -22,18 +23,24 @@ namespace DynExp
 
 				// Loop through all pending tasks. Potential change in between loop condition and function call is taken care of by HandleTask()
 				while (Instrument->GetInstrumentData()->GetNumEnqueuedTasks())
-					if (!Instrument->InstrumentThreadOnly.HandleTask(Instance))
+				{
+					DoContinue = Instrument->InstrumentThreadOnly.HandleTask(Instance);
+					if (DoContinue != InstrumentBase::TaskHandlingContinuationType::Continue)
 					{
-						IsExiting = true;
+						if (DoContinue == InstrumentBase::TaskHandlingContinuationType::Terminate)
+							IsExiting = true;
+
 						break;
 					}
+				}
 
 				if (!IsExiting)
 				{
 					auto TaskQueueDelay = Instrument->GetTaskQueueDelay();
 					auto Now = std::chrono::system_clock::now();
 
-					if (Now - LastUpdate >= TaskQueueDelay || TaskQueueDelay == decltype(TaskQueueDelay)::max())
+					if (DoContinue != InstrumentBase::TaskHandlingContinuationType::Defer &&
+						(Now - LastUpdate >= TaskQueueDelay || TaskQueueDelay == decltype(TaskQueueDelay)::max()))
 					{
 						Instrument->InstrumentThreadOnly.UpdateData();
 
@@ -251,12 +258,12 @@ namespace DynExp
 		GetNonConstInstrumentData()->EnqueueTask(std::move(Task));
 	}
 
-	bool InstrumentBase::HandleTask(InstrumentInstance& Instance)
+	InstrumentBase::TaskHandlingContinuationType InstrumentBase::HandleTask(InstrumentInstance& Instance)
 	{
 		EnsureCallFromRunnableThread();
 
 		if (!HandleAdditionalTask())
-			return false;
+			return TaskHandlingContinuationType::Terminate;
 
 		InstrumentDataBase::TaskQueueIteratorType Task;
 
@@ -265,16 +272,26 @@ namespace DynExp
 			auto InstrumentDataPtr = GetInstrumentData();
 
 			if (!InstrumentDataPtr->GetNumEnqueuedTasks())
-				return true;
+				return TaskHandlingContinuationType::Continue;
 
 			Task = InstrumentDataPtr->GetTaskFront();
+			if (Task->get()->IsAborting())
+			{
+				Task->get()->InstrumentBaseOnly.SetAborted();
+				GetInstrumentData()->InstrumentBaseOnly.RemoveTaskFromQueue(Task);
+
+				return TaskHandlingContinuationType::Continue;
+			}
+			if (Task->get()->GetDeferUntil() > std::chrono::system_clock::now())
+				return TaskHandlingContinuationType::Defer;
+
 			Task->get()->InstrumentBaseOnly.Lock();
 		} // InstrumentData unlocked here
 
-		auto Result = Task->get()->InstrumentBaseOnly.Run(Instance);
+		auto DoContinue = Task->get()->InstrumentBaseOnly.Run(Instance);
 		GetInstrumentData()->InstrumentBaseOnly.RemoveTaskFromQueue(Task);
 
-		return Result;
+		return DoContinue;
 	}
 
 	void InstrumentBase::UpdateDataInternal()
@@ -439,6 +456,12 @@ namespace DynExp
 	{
 	}
 
+	constexpr InstrumentBase::TaskHandlingContinuationType TaskResultType::ToTaskHandlingContinuationType() const noexcept
+	{
+		return Continue == ContinuationType::Continue ?
+			InstrumentBase::TaskHandlingContinuationType::Continue : InstrumentBase::TaskHandlingContinuationType::Terminate;
+	}
+
 	TaskBase::~TaskBase()
 	{
 		// Ensure that CallbackFunc gets called in any case.
@@ -478,7 +501,7 @@ namespace DynExp
 		State = TaskState::Locked;
 	}
 
-	bool TaskBase::Run(InstrumentInstance& Instance)
+	InstrumentBase::TaskHandlingContinuationType TaskBase::Run(InstrumentInstance& Instance)
 	{
 		if (State != TaskState::Waiting && State != TaskState::Locked)
 			throw Util::InvalidStateException("An instrument's task cannot be started since it is not in a pending or locked state.");
@@ -499,7 +522,7 @@ namespace DynExp
 				CallbackFunc(*this, Exception);
 			}
 
-			return Result.ShouldContinue();
+			return Result.ToTaskHandlingContinuationType();
 		}
 		catch (...)
 		{
@@ -511,7 +534,7 @@ namespace DynExp
 			{
 				CallbackFunc(*this, Exception);
 				if (!Exception.IsError())
-					return true;
+					InstrumentBase::TaskHandlingContinuationType::Continue;
 			}
 
 			throw;
@@ -537,7 +560,7 @@ namespace DynExp
 		Util::EventLog().Log("Instrument \"" + Instance.ParamsGetter()->ObjectName.Get() + "\" has been shut down.");
 #endif // DYNEXP_DEBUG
 		
-		return { TaskResultType::ContinueTaskHandlingType::Terminate };
+		return { TaskResultType::ContinuationType::Terminate };
 	}
 
 	TaskResultType UpdateTaskBase::RunChild(InstrumentInstance& Instance)
