@@ -464,7 +464,7 @@ namespace DynExp
 			*/
 			constexpr InstrumenThreadOnlyType(InstrumentBase& Parent) noexcept : Parent(Parent) {}
 
-			bool HandleTask(InstrumentInstance& Instance) { return Parent.HandleTask(Instance); }			//!< @copydoc InstrumentBase::HandleTask
+			auto HandleTask(InstrumentInstance& Instance) { return Parent.HandleTask(Instance); }			//!< @copydoc InstrumentBase::HandleTask
 			void UpdateData() { Parent.UpdateDataInternal(); }												//!< @copydoc InstrumentBase::UpdateDataInternal
 			void OnError() { Parent.OnError(); }															//!< @copydoc InstrumentBase::OnError
 			void SetInitialized() { Parent.Initialized = true; }											//!< Sets InstrumentBase::Initialized to true.
@@ -473,6 +473,24 @@ namespace DynExp
 		};
 
 	public:
+		/**
+		 * @brief Indicates how an instrument should proceed after handling a task.
+		*/
+		enum class TaskHandlingContinuationType { Continue, Terminate, Defer };
+		/**
+		 * @var InstrumentBase::TaskHandlingContinuationType InstrumentBase::Continue
+		 * Task handling should continue, the instrument does not terminate.
+		*/
+		/**
+		 * @var InstrumentBase::TaskHandlingContinuationType InstrumentBase::Terminate
+		 * Task handling should not continue, the instrument should terminate.
+		*/
+		/**
+		 * @var InstrumentBase::TaskHandlingContinuationType InstrumentBase::Defer
+		 * Task handling should continue. However, a deferred task currently blocks the
+		 * instrument queue. Hence, do not enqueue update tasks.
+		*/
+
 		using ParamsType = InstrumentParamsBase;															//!< @copydoc Object::ParamsType
 		using ConfigType = InstrumentConfiguratorBase;														//!< @copydoc Object::ConfigType
 		
@@ -673,9 +691,11 @@ namespace DynExp
 		/**
 		 * @brief Executes and removes the next pending task from the instrument's task queue.
 		 * @param Instance Handle to the instrument thread's data
-		 * @return Returns false if task handling (the instrument) should stop, true otherwise.
+		 * @return Returns how the instrument should proceed after handling a task at front of the
+		 * task queue. Always indicates @p InstrumentBase::TaskHandlingContinuationType::Continue if there
+		 * is no task to be handled.
 		*/
-		bool HandleTask(InstrumentInstance& Instance);
+		TaskHandlingContinuationType HandleTask(InstrumentInstance& Instance);
 
 		/**
 		 * @brief Inserts an update task (@p UpdateTaskBase) into the instrument's task queue.
@@ -824,63 +844,59 @@ namespace DynExp
 	{
 	public:
 		/**
-		 * @brief Determines whether an instrument should terminate after handling the task.
+		 * @brief Determines whether an instrument should terminate after handling a task.
 		*/
-		enum class ContinueTaskHandlingType : bool { Continue, Terminate };
-		/**
-		 * @var TaskResultType::ContinueTaskHandlingType TaskResultType::Continue
-		 * Task handling should continue, the instrument does not terminate.
-		*/
-		/**
-		 * @var TaskResultType::ContinueTaskHandlingType TaskResultType::Terminate
-		 * Task handling should not continue, the instrument should terminate.
-		*/
+		enum class ContinuationType : bool {
+			Continue,	//!< Task handling should continue, the instrument does not terminate.
+			Terminate	//!< Task handling should not continue, the instrument should terminate.
+		};
 
 		/**
 		 * @brief Determines whether a task has been aborted.
 		*/
-		enum class AbortedType : bool { NotAborted, Aborted };
-		/**
-		 * @var TaskResultType::AbortedType TaskResultType::NotAborted
-		 * The task has not been aborted.
-		*/
-		/**
-		 * @var TaskResultType::AbortedType TaskResultType::Aborted
-		 * The task has been aborted.
-		*/
+		enum class AbortedType : bool {
+			NotAborted,	//!< The task has not been aborted.
+			Aborted		//!< The task has been aborted.
+		};
 
 		/**
 		 * @brief Constructs a @p TaskResultType instance.
-		 * @param ContinueTaskHandling @copybrief ContinueTaskHandlingType
+		 * @param Continue @copybrief ContinuationType
 		 * @param Aborted @copybrief AbortedType
 		 * @param ErrorCode @copybrief #ErrorCode
 		*/
-		constexpr TaskResultType(const ContinueTaskHandlingType ContinueTaskHandling = ContinueTaskHandlingType::Continue,
-			const AbortedType Aborted = AbortedType::NotAborted, const int ErrorCode = 0) noexcept
-			: ContinueTaskHandling(ContinueTaskHandling), Aborted(Aborted), ErrorCode(ErrorCode) {}
+		constexpr TaskResultType(const ContinuationType Continue = ContinuationType::Continue, const AbortedType Aborted = AbortedType::NotAborted,
+			const int ErrorCode = 0) noexcept
+			: Continue(Continue), Aborted(Aborted), ErrorCode(ErrorCode) {}
 
 		/**
 		 * @brief Determines whether the instrument having handled this task should continue or terminate.
 		 * @return Returns true if the instrument should continue handling other tasks or false if the instrument should terminate.
-		 */
-		constexpr bool ShouldContinue() const noexcept { return ContinueTaskHandling == ContinueTaskHandlingType::Continue; }
+		*/
+		constexpr bool ShouldContinue() const noexcept { return Continue == ContinuationType::Continue; }
+
+		/**
+		 * @brief Converts #Continue to @p InstrumentBase::TaskHandlingContinuationType.
+		 * @return Returns an instance of @p InstrumentBase::TaskHandlingContinuationType.
+		*/
+		constexpr InstrumentBase::TaskHandlingContinuationType ToTaskHandlingContinuationType() const noexcept;
 
 		/**
 		 * @brief Determines whether this task has been aborted.
 		 * @return Returns true if the task has been aborted, false otherwise.
-		 */
+		*/
 		constexpr bool HasAborted() const noexcept { return Aborted == AbortedType::Aborted; }
 
 		/**
 		 * @brief Getter for the error code of an error which occurred during execution of the task function.
 		 * @return Returns #ErrorCode.
-		 */
+		*/
 		constexpr int GetErrorCode() const noexcept { return ErrorCode; }
 
 	private:
-		const ContinueTaskHandlingType ContinueTaskHandling;	//!< @copybrief ContinueTaskHandlingType
-		const AbortedType Aborted;								//!< @copybrief AbortedType
-		const int ErrorCode;									//!< %DynExp error code from DynExpErrorCodes::DynExpErrorCodes. Anything else than 0 indicates an error.
+		const ContinuationType Continue;	//!< @copybrief ContinuationType
+		const AbortedType Aborted;			//!< @copybrief AbortedType
+		const int ErrorCode;				//!< %DynExp error code from DynExpErrorCodes::DynExpErrorCodes. Anything else than 0 indicates an error.
 	};
 
 	/**
@@ -905,7 +921,8 @@ namespace DynExp
 			constexpr InstrumentBaseOnlyType(TaskBase& Parent) noexcept : Parent(Parent) {}
 
 			void Lock() { Parent.Lock(); }													//!< @copydoc TaskBase::Lock
-			bool Run(InstrumentInstance& Instance) { return Parent.Run(Instance); }			//!< @copydoc TaskBase::Run
+			auto Run(InstrumentInstance& Instance) { return Parent.Run(Instance); }			//!< @copydoc TaskBase::Run
+			void SetAborted() { Parent.State = TaskState::Aborted; }						//!< Sets @p TaskBase::State to @p TaskBase::TaskState::Aborted.
 
 			TaskBase& Parent;		//!< Owning @p TaskBase instance
 		};
@@ -975,10 +992,13 @@ namespace DynExp
 		/**
 		 * @brief Constructs an instrument task.
 		 * @param CallbackFunc @copybrief #CallbackFunc
+		 * @param DeferUntil @copybrief #DeferUntil
+		 * If the task does not support being deferred, the @p DeferUntil parameter is not available in the task's constructor.
 		*/
-		TaskBase(CallbackType CallbackFunc = nullptr) noexcept
+		TaskBase(CallbackType CallbackFunc = nullptr, std::chrono::system_clock::time_point DeferUntil = {}) noexcept
 			: InstrumentBaseOnly(*this), InstrumentDataBaseOnly(*this),
-			CallbackFunc(std::move(CallbackFunc)), State(TaskState::Waiting), ErrorCode(0), ShouldAbort(false) {}
+			CallbackFunc(std::move(CallbackFunc)), DeferUntil(DeferUntil),
+			State(TaskState::Waiting), ErrorCode(0), ShouldAbort(false) {}
 
 		/**
 		 * @brief The destructor aborts a waiting task setting #State to TaskState::Aborted. Then, it
@@ -990,6 +1010,12 @@ namespace DynExp
 		 * Methods can be called from any thread. Only atomic operations are performed.
 		*/
 		///@{
+		/**
+		 * @brief Getter for the instrument task's earliest execution time point.
+		 * @return Returns #DeferUntil.
+		*/
+		auto GetDeferUntil() const noexcept { return DeferUntil; }
+
 		/**
 		 * @brief Getter for the instrument task's current state.
 		 * @return Returns #State.
@@ -1043,11 +1069,11 @@ namespace DynExp
 		 * @p KeepFinishedTask() returns false) and if no #CallbackFunc has been set.
 		 * @p RunChild() is supposed to check the return value of @p IsAborting().
 		 * @param Instance Handle to the instrument thread's data
-		 * @return Returns true if task handling should continue, false if the instrument thread should terminate.
+		 * @return Returns whether task handling should continue or whether the instrument thread should terminate.
 		 * @throws Util::InvalidStateException is thrown if the task is not in the TaskState::Waiting
 		 * or TaskState::Locked state.
 		*/
-		bool Run(InstrumentInstance& Instance);
+		InstrumentBase::TaskHandlingContinuationType Run(InstrumentInstance& Instance);
 
 		/** @name Override
 		 * Override by derived classes.
@@ -1070,6 +1096,14 @@ namespace DynExp
 		 * the task execution (if an exception has occurred).
 		*/
 		const CallbackType CallbackFunc;
+
+		/**
+		 * @brief The execution of this task is deferred until the specified point in time is reached if
+		 * @p time_since_epoch() of #DeferUntil is non-zero. Tasks being deferred block the task queue of the
+		 * instrument they are assigned to, i.e., other enqueued tasks do not run before this task to maintain
+		 * the task order.
+		*/
+		const std::chrono::system_clock::time_point DeferUntil;
 
 		/** @name Instrument-to-other communication
 		 * These variables are for communication from the instrument thread to other thread(s) only.
