@@ -193,9 +193,21 @@ namespace DynExpHardware
 	{
 		auto lock = AcquireLock(HardwareOperationTimeout);
 
-		// Using direction configured as 'Safe Direction' on the SmarAct controller. Not allwing
+		// Using direction configured as 'Safe Direction' on the SmarAct controller. Not allowing
 		// to change this setting, because this requires recalibration.
 		auto Result = SmarActSyms::SA_CTL_Reference(SmarActHandle, Channel, 0);
+		CheckError(Result);
+	}
+
+	void SmarActHardwareAdapter::SetHoldTime(const ChannelType Channel, const std::chrono::milliseconds HoldTime) const
+	{
+		auto lock = AcquireLock(HardwareOperationTimeout);
+
+		SmarActSyms::SA_CTL_Result_t Result;
+		if (HoldTime.count() < 0)
+			Result = SmarActSyms::SA_CTL_SetProperty_i32(SmarActHandle, Channel, SA_CTL_PKEY_HOLD_TIME, SA_CTL_HOLD_TIME_INFINITE);
+		else
+			Result = SmarActSyms::SA_CTL_SetProperty_i32(SmarActHandle, Channel, SA_CTL_PKEY_HOLD_TIME, Util::NumToT<int32_t>(HoldTime.count()));
 		CheckError(Result);
 	}
 
