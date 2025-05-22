@@ -93,6 +93,8 @@ namespace DynExpHardware
 		void Calibrate(const ChannelType Channel) const;
 		void Reference(const ChannelType Channel) const;
 
+		void SetHoldTime(const ChannelType Channel, const std::chrono::milliseconds HoldTime) const;
+
 		// Velocity in pm/s or ndeg/s
 		void SetVelocity(const ChannelType Channel, PositionType Velocity) const;
 

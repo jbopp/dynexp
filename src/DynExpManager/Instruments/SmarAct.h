@@ -186,6 +186,9 @@ namespace DynExpInstr
 			"HardwareAdapter", "SmarAct controller", "Underlying hardware adapter of this instrument", DynExpUI::Icons::HardwareAdapter };
 		Param<ParamsConfigDialog::NumberType> Channel = { *this, "Channel", "Channel",
 			"Channel of the SmarAct controller this instrument refers to", true, 0, 0, std::numeric_limits<uint8_t>::max(), 1, 0 };
+		Param<ParamsConfigDialog::NumberType> HoldTime = { *this, "HoldTime", "Closed-loop hold time in ms",
+			"Specifies duration in ms of actively holding target position in closed-loop mode (-2 means do not set, -1 means infinite)",
+			true, -1, -2, std::numeric_limits<int32_t>::max(), 1, 0 };
 
 	private:
 		void ConfigureParamsImpl(dispatch_tag<PositionerStageParams>) override final { ConfigureParamsImpl(dispatch_tag<SmarActParams>()); }
