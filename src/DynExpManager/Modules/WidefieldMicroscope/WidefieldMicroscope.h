@@ -352,7 +352,7 @@ namespace DynExpModule::Widefield
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::DigitalOut> PumpSwitch;
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::DigitalOut> WidefieldConfocalSwitch;
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::DigitalIn> WidefieldConfocalIndicator;
-		DynExp::LinkedObjectWrapperContainer<DynExpInstr::FunctionGenerator> WidefieldHBTSwitch;
+		DynExp::LinkedObjectWrapperContainer<DynExpInstr::DigitalOut> WidefieldHBTSwitch;
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::AnalogOut> PumpPower;
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::AnalogIn> PumpPowerIndicator;
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::Camera> WidefieldCamera;
@@ -484,21 +484,14 @@ namespace DynExpModule::Widefield
 			"Digital indicator which is LOW if in widefield mode and HIGH if in confocal mode", DynExpUI::Icons::Instrument, true };
 		Param<ParamsConfigDialog::NumberType> WidefieldConfocalTransitionTime = { *this, "WidefieldConfocalTransitionTime",
 			"Widefield/confocal transition time (ms)",
-			"Time it takes to transition from widefield into confocal mode or vice versa once the widefield/confocal mode switch has been triggered",
+			"Time it takes to transition from widefield to confocal mode or vice versa once the widefield/confocal mode switch has been triggered",
 			false, 500, 0, 10000, 10, 0 };
-		Param<DynExp::ObjectLink<DynExpInstr::FunctionGenerator>> WidefieldHBTSwitch = { *this, GetCore().GetInstrumentManager(),
-			"WidefieldHBTSwitch", "HBT flip mirror servo actuator (DO)", "Servo actuator to switch to HBT measurement mode", DynExpUI::Icons::Instrument, true };
-		Param<ParamsConfigDialog::NumberType> WidefieldHBTSwitchLowDutyCycle = { *this, "WidefieldHBTSwitchLowDutyCycle",
-			"HBT flip mirror low duty cycle",
-			"Duty cycle of rectangular pulses applied to the HBT flip mirror servo actuator in order to make it flip the mirror into the low position",
-			false, .2, 0, 1, .1, 2 };
-		Param<ParamsConfigDialog::NumberType> WidefieldHBTSwitchHighDutyCycle = { *this, "WidefieldHBTSwitchHighDutyCycle",
-			"HBT flip mirror high duty cycle",
-			"Duty cycle of rectangular pulses applied to the HBT flip mirror servo actuator in order to make it flip the mirror into the high position",
-			false, .8, 0, 1, .1, 2 };
+		Param<DynExp::ObjectLink<DynExpInstr::DigitalOut>> WidefieldHBTSwitch = { *this, GetCore().GetInstrumentManager(),
+			"WidefieldHBTSwitch", "Spectrometer/HBT mode switch (DO)",
+			"Digital switch to change from spectrometer mode (LOW) to HBT mode (HIGH)", DynExpUI::Icons::Instrument, true };
 		Param<ParamsConfigDialog::NumberType> WidefieldHBTTransitionTime = { *this, "WidefieldHBTTransitionTime",
-			"HBT flip mirror transition time (ms)",
-			"Time it takes to flip the HBT mirror once the duty cycle of the rectangular pulses applied to the flip mirror servo actuator has changed",
+			"Spectrometer/HBT transition time (ms)",
+			"Time it takes to transition from spectrometer to HBT mode or vice versa once the spectrometer/HBT mode switch has been triggered",
 			false, 500, 0, 10000, 10, 0 };
 		Param<DynExp::ObjectLink<DynExpInstr::AnalogOut>> PumpPower = { *this, GetCore().GetInstrumentManager(),
 			"PumpPower", "Pump power (AO)", "Analog output to adjust the power of the pump light source", DynExpUI::Icons::Instrument, true };
