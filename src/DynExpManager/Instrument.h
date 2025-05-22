@@ -1125,12 +1125,17 @@ namespace DynExp
 	 * @brief Default task which does not do anything. Though, calling it ensures that TaskBase::CallbackFunc
 	 * gets called. This is required to avoid InstrumentBase::AsSyncTask() getting stuck in an infinite loop.
 	 * All functions overridden from meta instruments, which are expected to enqueue a task, must at least
-	 * enqueue a @p DefaultTask (by calling @p MakeAndEnqueueTask< DynExp::DefaultTask >(CallbackFunc);)
+	 * enqueue a @p DefaultTask (by calling @p MakeAndEnqueueTask< DynExp::DefaultTask >(CallbackFunc);).
+	 * Moreover, this task can be used to defer the task queue execution by setting the #DeferUntil parameter.
 	*/
 	class DefaultTask final : public TaskBase
 	{
 	public:
-		DefaultTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}				//!< @copydoc TaskBase::TaskBase
+		/**
+		 * @copydoc TaskBase::TaskBase
+		*/
+		DefaultTask(CallbackType CallbackFunc, std::chrono::system_clock::time_point DeferUntil = {}) noexcept
+			: TaskBase(CallbackFunc, DeferUntil) {}
 
 	private:
 		virtual TaskResultType RunChild(InstrumentInstance& Instance) override { return {}; }
