@@ -1082,10 +1082,7 @@ namespace DynExpModule::Widefield
 	void WidefieldMicroscope::SetHBTSwitch(Util::SynchronizedPointer<const ParamsType>& ModuleParams,
 		Util::SynchronizedPointer<ModuleDataType>& ModuleData, bool IsHBTMode) const
 	{
-		ModuleData->GetWidefieldHBTSwitch()->Clear();
-		ModuleData->GetWidefieldHBTSwitch()->SetRectFunction({ 1, 1, 0, 0,
-			IsHBTMode ? ModuleParams->WidefieldHBTSwitchHighDutyCycle : ModuleParams->WidefieldHBTSwitchLowDutyCycle },
-			false, true);
+		ModuleData->GetWidefieldHBTSwitch()->Set(IsHBTMode);
 	}
 
 	void WidefieldMicroscope::InitializeHBT(Util::SynchronizedPointer<ModuleDataType>& ModuleData) const
