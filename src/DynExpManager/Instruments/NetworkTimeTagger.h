@@ -290,9 +290,14 @@ namespace DynExpInstr
 
 				StubPtrType<DynExpProto::NetworkTimeTagger::NetworkTimeTagger> StubPtr;
 				{
+					auto InstrParams = DynExp::dynamic_Params_cast<NetworkTimeTaggerT<BaseInstr, 0, gRPCStubs...>>(Instance.ParamsGetter());
 					auto InstrData = dynamic_InstrumentData_cast<NetworkTimeTaggerT<BaseInstr, 0, gRPCStubs...>>(Instance.InstrumentDataGetter());
 					StubPtr = InstrData->template GetStub<DynExpProto::NetworkTimeTagger::NetworkTimeTagger>();
-				} // InstrData unlocked here.
+
+					// On the remote site, activating the HBT can take several seconds, so delay the next task a bit.
+					InstrData->EnqueuePriorityTask(DynExp::MakeTask<DynExp::DefaultTask>(nullptr,
+						std::chrono::system_clock::now() + std::chrono::milliseconds(InstrParams->HeavyOperationWaitTime)));
+				} // InstrParams and InstrData unlocked here.
 
 				InvokeStubFunc(StubPtr, &DynExpProto::NetworkTimeTagger::NetworkTimeTagger::Stub::SetHBTActive, HBTActiveMsg);
 
@@ -399,6 +404,11 @@ namespace DynExpInstr
 
 		virtual const char* GetParamClassTag() const noexcept override { return "NetworkTimeTaggerParams"; }
 
+		DynExp::ParamsBase::Param<ParamsConfigDialog::NumberType> HeavyOperationWaitTime = { *this,
+			"HeavyOperationWaitTime", "Heavy operation wait time in ms",
+			"Wait time in ms for heavy operations on the remote site, like enabling the HBT feature of qutools time taggers.",
+			false, 4000, 0 };
+
 	private:
 		void ConfigureParamsImpl(DynExp::ParamsBase::dispatch_tag<NetworkDataStreamInstrumentParams<BaseInstr, 0, gRPCStubs...>>) override final
 		{
@@ -406,8 +416,6 @@ namespace DynExpInstr
 		}
 		
 		virtual void ConfigureParamsImpl(DynExp::ParamsBase::dispatch_tag<NetworkTimeTaggerParams>) {}
-
-		DynExp::ParamsBase::DummyParam Dummy = { *this };
 	};
 
 	template <typename BaseInstr, typename std::enable_if_t<std::is_base_of_v<TimeTagger, BaseInstr>, int>, typename... gRPCStubs>
