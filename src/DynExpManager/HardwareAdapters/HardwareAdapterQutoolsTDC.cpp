@@ -474,7 +474,7 @@ namespace DynExpHardware
 	void QutoolsTDCHardwareAdapter::EnableChannelsUnsafe(bool EnableStartChannel, QutoolsTDCSyms::Int32 ChannelMask) const
 	{
 #ifdef QUTOOLSQUTAG_VARIANT_S
-		ChannelMask |= EnableStartChannel;
+		ChannelMask |= static_cast<decltype(ChannelMask)>(EnableStartChannel);
 		auto Result = QutoolsTDCSyms::TDC_enableChannels(ChannelMask);
 #else
 		auto Result = QutoolsTDCSyms::TDC_enableChannels(EnableStartChannel, ChannelMask);
