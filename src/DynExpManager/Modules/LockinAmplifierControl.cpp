@@ -102,7 +102,7 @@ namespace DynExpModule
 		Connect(Widget->GetUI().BForceTrigger, &QPushButton::clicked, this, &LockinAmplifierControl::OnForceTriggerClicked);
 		Connect(Widget->GetUI().CBQuantity, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &LockinAmplifierControl::OnSignalTypeChanged);
 		Connect(Widget->GetUI().SBSamplingRate, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &LockinAmplifierControl::OnSamplingRateChanged);
-		Connect(Widget->GetUI().CBEnable, &QCheckBox::stateChanged, this, &LockinAmplifierControl::OnEnableClicked);
+		Connect(Widget->GetUI().CBEnable, &QCheckBox::checkStateChanged, this, &LockinAmplifierControl::OnEnableClicked);
 		Connect(Widget->GetUI().BPersist, &QPushButton::clicked, this, &LockinAmplifierControl::OnPersistParamsClicked);
 
 		return Widget;
@@ -285,10 +285,10 @@ namespace DynExpModule
 		ModuleData->GetLockinAmplifier()->SetSamplingRate(Value);
 	}
 
-	void LockinAmplifierControl::OnEnableClicked(DynExp::ModuleInstance* Instance, int Value) const
+	void LockinAmplifierControl::OnEnableClicked(DynExp::ModuleInstance* Instance, Qt::CheckState State) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LockinAmplifierControl>(Instance->ModuleDataGetter());
-		ModuleData->GetLockinAmplifier()->SetEnable(Value);
+		ModuleData->GetLockinAmplifier()->SetEnable(State == Qt::CheckState::Checked);
 	}
 
 	void LockinAmplifierControl::OnPersistParamsClicked(DynExp::ModuleInstance* Instance, bool) const

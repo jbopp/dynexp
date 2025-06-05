@@ -15,11 +15,11 @@ done
 sudo apt-get install git curl zip unzip tar build-essential ninja-build cmake
 
 # Clone vcpkg
-LIB_DIR="../vendor"
+LIB_DIR="../vendor/vcpkg"
 if [ ! -d "$LIB_DIR" ]; then
-    mkdir "$LIB_DIR"
-    git clone https://github.com/microsoft/vcpkg.git "$LIB_DIR/vcpkg"
-    "$LIB_DIR/vcpkg/bootstrap-vcpkg.sh" -disableMetrics
+    mkdir -p "$LIB_DIR"
+    git clone https://github.com/microsoft/vcpkg.git "$LIB_DIR"
+    "$LIB_DIR/bootstrap-vcpkg.sh" -disableMetrics
 else
     echo "$LIB_DIR already exists. Skipping vcpkg installation."
 fi
@@ -44,17 +44,17 @@ sudo apt-get install libsystemd-dev
 cmd=""
 
 if [ "$SKIP_INSTALL_QT" = false ]; then
-    cmd+="\"$LIB_DIR/vcpkg/vcpkg\" install qtbase:x64-linux && "
-    cmd+="\"$LIB_DIR/vcpkg/vcpkg\" install qtserialport:x64-linux && "
-    cmd+="\"$LIB_DIR/vcpkg/vcpkg\" install qtcharts:x64-linux && "
-    cmd+="\"$LIB_DIR/vcpkg/vcpkg\" install qtdatavis3d:x64-linux && "
-    cmd+="\"$LIB_DIR/vcpkg/vcpkg\" install qtsvg:x64-linux && "
+    cmd+="\"$LIB_DIR/vcpkg\" install qtbase:x64-linux && "
+    cmd+="\"$LIB_DIR/vcpkg\" install qtserialport:x64-linux && "
+    cmd+="\"$LIB_DIR/vcpkg\" install qtcharts:x64-linux && "
+    cmd+="\"$LIB_DIR/vcpkg\" install qtdatavis3d:x64-linux && "
+    cmd+="\"$LIB_DIR/vcpkg\" install qtsvg:x64-linux && "
 fi
 
-cmd+="\"$LIB_DIR/vcpkg/vcpkg\" install gsl:x64-linux && "
-cmd+="\"$LIB_DIR/vcpkg/vcpkg\" install grpc:x64-linux && "
-cmd+="\"$LIB_DIR/vcpkg/vcpkg\" install python3:x64-linux && "
-cmd+="\"$LIB_DIR/vcpkg/vcpkg\" install pybind11:x64-linux"
+cmd+="\"$LIB_DIR/vcpkg\" install gsl:x64-linux && "
+cmd+="\"$LIB_DIR/vcpkg\" install grpc:x64-linux && "
+cmd+="\"$LIB_DIR/vcpkg\" install python3:x64-linux && "
+cmd+="\"$LIB_DIR/vcpkg\" install pybind11:x64-linux"
 
 eval $cmd
 if [ $? -ne 0 ]; then

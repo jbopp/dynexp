@@ -124,11 +124,11 @@ namespace DynExp
 		File.close();
 
 		QDomDocument Document;
-		QString ErrorMsg;
-		int Line = 0, Column = 0;
-		if (!Document.setContent(QString::fromStdString(Contents), false, &ErrorMsg, &Line, &Column))
+		const auto ParseResults = Document.setContent(QString::fromStdString(Contents));
+		if (!ParseResults)
 			throw Util::InvalidDataException("Error parsing the specified project file at line "
-				+ Util::ToStr(Line) + ", column " + Util::ToStr(Column) + ": " + ErrorMsg.toStdString());
+				+ Util::ToStr(ParseResults.errorLine) + ", column " + Util::ToStr(ParseResults.errorColumn)
+				+ ": " + ParseResults.errorMessage.toStdString());
 
 		auto RootNode = Document.documentElement();
 		auto ProjectNode = Util::GetSingleChildDOMElement(RootNode, "Project");
