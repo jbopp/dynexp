@@ -713,7 +713,7 @@ namespace DynExpModule::Widefield
 
 	void WidefieldMicroscopeWidget::OnImageMouseMove(QMouseEvent* Event)
 	{
-		auto LocalPoint = MainGraphicsView->mapFromGlobal(Event->globalPos());
+		auto LocalPoint = MainGraphicsView->mapFromGlobal(Event->globalPosition().toPoint());
 
 		if (!MainGraphicsView->items(LocalPoint).empty())
 		{

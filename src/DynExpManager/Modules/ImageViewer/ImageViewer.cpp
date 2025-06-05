@@ -260,7 +260,7 @@ namespace DynExpModule::ImageViewer
 
 	void ImageViewerWidget::OnImageMouseMove(QMouseEvent* Event)
 	{
-		auto LocalPoint = GraphicsView->mapFromGlobal(Event->globalPos());
+		auto LocalPoint = GraphicsView->mapFromGlobal(Event->globalPosition().toPoint());
 
 		if (!GraphicsView->items(LocalPoint).empty())
 		{

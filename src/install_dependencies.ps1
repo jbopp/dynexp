@@ -4,11 +4,11 @@ param(
 )
 
 # Clone vcpkg
-$LIB_DIR = "..\vendor"
+$LIB_DIR = "..\vendor\vcpkg"
 if (-not (Test-Path -Path $LIB_DIR -PathType Container)) {
     New-Item -ItemType directory -Path $LIB_DIR
-    git clone https://github.com/microsoft/vcpkg.git "$LIB_DIR\vcpkg"
-    & "$LIB_DIR\vcpkg\bootstrap-vcpkg.bat" -disableMetrics
+    git clone https://github.com/microsoft/vcpkg.git "$LIB_DIR"
+    & "$LIB_DIR\bootstrap-vcpkg.bat" -disableMetrics
 } else {
     Write-Output "$LIB_DIR already exists. Skipping vcpkg installation."
 }
@@ -17,17 +17,17 @@ if (-not (Test-Path -Path $LIB_DIR -PathType Container)) {
 $cmd = ""
 
 if (-not ${skip-install-qt}) {
-    $cmd += "& `"$LIB_DIR\vcpkg\vcpkg`" install qtbase:x64-windows; "
-    $cmd += "& `"$LIB_DIR\vcpkg\vcpkg`" install qtserialport:x64-windows; "
-    $cmd += "& `"$LIB_DIR\vcpkg\vcpkg`" install qtcharts:x64-windows; "
-    $cmd += "& `"$LIB_DIR\vcpkg\vcpkg`" install qtdatavis3d:x64-windows; "
-    $cmd += "& `"$LIB_DIR\vcpkg\vcpkg`" install qtsvg:x64-windows; "
+    $cmd += "& `"$LIB_DIR\vcpkg`" install qtbase:x64-windows; "
+    $cmd += "& `"$LIB_DIR\vcpkg`" install qtserialport:x64-windows; "
+    $cmd += "& `"$LIB_DIR\vcpkg`" install qtcharts:x64-windows; "
+    $cmd += "& `"$LIB_DIR\vcpkg`" install qtdatavis3d:x64-windows; "
+    $cmd += "& `"$LIB_DIR\vcpkg`" install qtsvg:x64-windows; "
 }
 
-$cmd += "& `"$LIB_DIR\vcpkg\vcpkg`" install gsl:x64-windows; "
-$cmd += "& `"$LIB_DIR\vcpkg\vcpkg`" install grpc:x64-windows; "
-$cmd += "& `"$LIB_DIR\vcpkg\vcpkg`" install python3:x64-windows; "
-$cmd += "& `"$LIB_DIR\vcpkg\vcpkg`" install pybind11:x64-windows"
+$cmd += "& `"$LIB_DIR\vcpkg`" install gsl:x64-windows; "
+$cmd += "& `"$LIB_DIR\vcpkg`" install grpc:x64-windows; "
+$cmd += "& `"$LIB_DIR\vcpkg`" install python3:x64-windows; "
+$cmd += "& `"$LIB_DIR\vcpkg`" install pybind11:x64-windows"
 
 try {
     Invoke-Expression $cmd

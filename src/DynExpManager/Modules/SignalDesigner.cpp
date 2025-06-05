@@ -16,9 +16,9 @@ namespace DynExpModule
 		ui.TWPulses->setItemDelegateForColumn(0, new Util::NumericOnlyItemDelegate(this, 0));
 		connect(ui.TWPulses, &QTableWidget::itemChanged, this, &SignalDesignerWidget::OnPulsesChanged);
 
-		AddPulseAction = PulsesContextMenu->addAction("&New Pulse", this, &SignalDesignerWidget::OnAddPulse, QKeySequence(Qt::Key_N));
+		AddPulseAction = PulsesContextMenu->addAction("&New Pulse", QKeySequence(Qt::Key_N), this, &SignalDesignerWidget::OnAddPulse);
 		addAction(AddPulseAction);		// for shortcuts
-		RemovePulseAction = PulsesContextMenu->addAction("&Delete selected Pulse(s)", this, &SignalDesignerWidget::OnRemovePulse, QKeySequence(Qt::Key_Delete));
+		RemovePulseAction = PulsesContextMenu->addAction("&Delete selected Pulse(s)", QKeySequence(Qt::Key_Delete), this, &SignalDesignerWidget::OnRemovePulse);
 		addAction(RemovePulseAction);	// for shortcuts
 		ClearPulsesAction = PulsesContextMenu->addAction(QIcon(DynExpUI::Icons::Delete), "&Clear all Pulses", this, &SignalDesignerWidget::OnClearPulses);
 	}
@@ -368,7 +368,7 @@ namespace DynExpModule
 		Connect(Widget->GetUI().SBDutyCycle, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &SignalDesigner::OnDutyCycleChanged);
 		Connect(Widget->GetUI().CBTriggerMode, &QComboBox::currentTextChanged, this, &SignalDesigner::OnTriggerModeChanged);
 		Connect(Widget->GetUI().CBTriggerEdge, &QComboBox::currentTextChanged, this, &SignalDesigner::OnTriggerEdgeChanged);
-		Connect(Widget->GetUI().CBAutostart, &QCheckBox::stateChanged, this, &SignalDesigner::OnAutostartChanged);
+		Connect(Widget->GetUI().CBAutostart, &QCheckBox::checkStateChanged, this, &SignalDesigner::OnAutostartChanged);
 		Connect(Widget->GetUI().BPersist, &QPushButton::clicked, this, &SignalDesigner::OnPersistParametersClicked);
 		Connect(Widget->GetUI().BStart, &QPushButton::clicked, this, &SignalDesigner::OnStart);
 		Connect(Widget->GetUI().BStop, &QPushButton::clicked, this, &SignalDesigner::OnStop);
@@ -585,10 +585,10 @@ namespace DynExpModule
 		ModuleData->GetFuncGen()->SetTrigger({ ModuleData->CurrentTriggerMode, ModuleData->CurrentTriggerEdge }, ModuleData->CurrentPersistParameters);
 	}
 
-	void SignalDesigner::OnAutostartChanged(DynExp::ModuleInstance* Instance, int Value) const
+	void SignalDesigner::OnAutostartChanged(DynExp::ModuleInstance* Instance, Qt::CheckState State) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<SignalDesigner>(Instance->ModuleDataGetter());
-		ModuleData->CurrentAutostart = Value == Qt::CheckState::Checked;
+		ModuleData->CurrentAutostart = State == Qt::CheckState::Checked;
 
 		UpdateWaveform(ModuleData);
 	}
