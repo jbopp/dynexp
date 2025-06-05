@@ -958,7 +958,7 @@ void DynExpManager::UpdateModuleWindowsActionShortcuts() noexcept
 	for (std::remove_const_t<decltype(NumModules)> i = 0; i < NumModules; ++i)
 	{
 		if (i < 9)
-			ModuleWindowsActionGroup->actions()[i]->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_1 + i));
+			ModuleWindowsActionGroup->actions()[i]->setShortcut(QKeySequence(Qt::CTRL | static_cast<Qt::Key>(Qt::Key_1 + i)));
 		else
 			ModuleWindowsActionGroup->actions()[i]->setShortcut(QKeySequence());
 	}

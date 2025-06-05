@@ -689,9 +689,9 @@ namespace DynExpModule::Widefield
 		void OnAutoMeasureInitialImageSetWaitTimeChanged(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnAutoMeasureImagePositionScatterRadius(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnAutoMeasureLocalizationTypeChanged(DynExp::ModuleInstance* Instance, int Value) const;
-		void OnToggleAutoMeasureOptimizeEnabled(DynExp::ModuleInstance* Instance, int State) const;
-		void OnToggleAutoMeasureSpectrumEnabled(DynExp::ModuleInstance* Instance, int State) const;
-		void OnToggleAutoMeasureHBTEnabled(DynExp::ModuleInstance* Instance, int State) const;
+		void OnToggleAutoMeasureOptimizeEnabled(DynExp::ModuleInstance* Instance, Qt::CheckState State) const;
+		void OnToggleAutoMeasureSpectrumEnabled(DynExp::ModuleInstance* Instance, Qt::CheckState State) const;
+		void OnToggleAutoMeasureHBTEnabled(DynExp::ModuleInstance* Instance, Qt::CheckState State) const;
 		void OnAutoMeasureNumOptimizationAttemptsChanged(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnAutoMeasureMaxOptimizationRerunsChanged(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnAutoMeasureOptimizationMaxDistanceChanged(DynExp::ModuleInstance* Instance, int Value) const;

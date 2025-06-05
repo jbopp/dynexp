@@ -174,7 +174,7 @@ namespace DynExpModule
 		void OnPulsesChanged(DynExp::ModuleInstance* Instance) const;
 		void OnTriggerModeChanged(DynExp::ModuleInstance* Instance, QString Text) const;
 		void OnTriggerEdgeChanged(DynExp::ModuleInstance* Instance, QString Text) const;
-		void OnAutostartChanged(DynExp::ModuleInstance* Instance, int Value) const;
+		void OnAutostartChanged(DynExp::ModuleInstance* Instance, Qt::CheckState State) const;
 		void OnPersistParametersClicked(DynExp::ModuleInstance* Instance, bool Value) const;
 		void OnStart(DynExp::ModuleInstance* Instance, bool) const;
 		void OnStop(DynExp::ModuleInstance* Instance, bool) const;

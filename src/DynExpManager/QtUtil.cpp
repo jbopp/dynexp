@@ -303,7 +303,7 @@ namespace Util
 		EditMarkersAction = ContextMenu->addAction("&Edit Markers");
 		EditMarkersAction->setCheckable(true);
 		EditMarkersAction->setChecked(false);
-		ShowMarkersAction = ContextMenu->addAction("S&how Markers", this, &MarkerGraphicsView::OnShowMarkers, QKeySequence(Qt::Key_NumberSign));
+		ShowMarkersAction = ContextMenu->addAction("S&how Markers", QKeySequence(Qt::Key_NumberSign), this, &MarkerGraphicsView::OnShowMarkers);
 		addAction(ShowMarkersAction);	// for shortcuts
 		ShowMarkersAction->setCheckable(true);
 		ShowMarkersAction->setChecked(true);
@@ -319,7 +319,7 @@ namespace Util
 		if (!scene())
 			return;
 
-		auto LocalPoint = mapFromGlobal(Event->globalPos());
+		auto LocalPoint = mapFromGlobal(Event->globalPosition().toPoint());
 		const auto MarkerPos = mapToScene(LocalPoint).toPoint();
 
 		if (!MarkersHidden && EditMarkersAction->isChecked() && Event->button() == Qt::MouseButton::LeftButton

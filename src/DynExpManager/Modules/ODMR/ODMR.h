@@ -190,7 +190,7 @@ namespace DynExpModule::ODMR
 		void OnExit(DynExp::ModuleInstance* Instance) const override final;
 		
 		void OnRFPowerChanged(DynExp::ModuleInstance* Instance, double Value) const;
-		void OnRFAutoEnableClicked(DynExp::ModuleInstance* Instance, int Checked) const;
+		void OnRFAutoEnableClicked(DynExp::ModuleInstance* Instance, Qt::CheckState Checked) const;
 		void OnRFCenterFreqChanged(DynExp::ModuleInstance* Instance, double Value) const;
 		void OnRFFreqSpanChanged(DynExp::ModuleInstance* Instance, double Value) const;
 		void OnRFFreqSpacingChanged(DynExp::ModuleInstance* Instance, double Value) const;
@@ -206,11 +206,11 @@ namespace DynExpModule::ODMR
 
 		void OnSavePathChanged(DynExp::ModuleInstance* Instance, QString Path) const;
 		void OnSaveIndexChanged(DynExp::ModuleInstance* Instance, int Index) const;
-		void OnAutosaveClicked(DynExp::ModuleInstance* Instance, int Checked) const;
+		void OnAutosaveClicked(DynExp::ModuleInstance* Instance, Qt::CheckState Checked) const;
 
-		void OnRecordSensitivityClicked(DynExp::ModuleInstance* Instance, int Checked) const;
-		void OnRecordSensitivityOncePerSweepClicked(DynExp::ModuleInstance* Instance, int Checked) const;
-		void OnRecordSensitivityOffResonanceClicked(DynExp::ModuleInstance* Instance, int Checked) const;
+		void OnRecordSensitivityClicked(DynExp::ModuleInstance* Instance, Qt::CheckState Checked) const;
+		void OnRecordSensitivityOncePerSweepClicked(DynExp::ModuleInstance* Instance, Qt::CheckState Checked) const;
+		void OnRecordSensitivityOffResonanceClicked(DynExp::ModuleInstance* Instance, Qt::CheckState Checked) const;
 		void OnSensitivityResonanceFreqChanged(DynExp::ModuleInstance* Instance, double Value) const;
 		void OnSensitivityOffResonanceFreqChanged(DynExp::ModuleInstance* Instance, double Value) const;
 		void OnSensitivityResonanceSpanChanged(DynExp::ModuleInstance* Instance, double Value) const;
@@ -220,13 +220,13 @@ namespace DynExpModule::ODMR
 		void OnEnableSensitivityAnalysisClicked(DynExp::ModuleInstance* Instance, bool Checked) const;
 		void OnGyromagneticRatioChanged(DynExp::ModuleInstance* Instance, double Value) const;
 
-		void OnEnableSweepSeriesClicked(DynExp::ModuleInstance* Instance, int Checked) const;
+		void OnEnableSweepSeriesClicked(DynExp::ModuleInstance* Instance, Qt::CheckState Checked) const;
 		void OnSweepSeriesParamChanged(DynExp::ModuleInstance* Instance, int Index) const;
 		void OnSweepSeriesStartChanged(DynExp::ModuleInstance* Instance, double Value) const;
 		void OnSweepSeriesStopChanged(DynExp::ModuleInstance* Instance, double Value) const;
 		void OnSweepSeriesStepChanged(DynExp::ModuleInstance* Instance, double Value) const;
-		void OnSweepSeriesRetraceClicked(DynExp::ModuleInstance* Instance, int Checked) const;
-		void OnSweepSeriesAdvanceLastValueClicked(DynExp::ModuleInstance* Instance, int Checked) const;
+		void OnSweepSeriesRetraceClicked(DynExp::ModuleInstance* Instance, Qt::CheckState Checked) const;
+		void OnSweepSeriesAdvanceLastValueClicked(DynExp::ModuleInstance* Instance, Qt::CheckState Checked) const;
 
 		void OnStartClicked(DynExp::ModuleInstance* Instance, bool) const;
 		void OnStartSensitivityClicked(DynExp::ModuleInstance* Instance, bool) const;

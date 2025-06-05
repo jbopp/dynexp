@@ -144,7 +144,7 @@ namespace DynExpModule
 		void OnForceTriggerClicked(DynExp::ModuleInstance* Instance, bool) const;
 		void OnSignalTypeChanged(DynExp::ModuleInstance* Instance, int Index) const;
 		void OnSamplingRateChanged(DynExp::ModuleInstance* Instance, double Value) const;
-		void OnEnableClicked(DynExp::ModuleInstance* Instance, int Value) const;
+		void OnEnableClicked(DynExp::ModuleInstance* Instance, Qt::CheckState State) const;
 		void OnPersistParamsClicked(DynExp::ModuleInstance* Instance, bool) const;
 
 		static const char* ProgressBarRedStylesheet;

@@ -416,8 +416,8 @@ namespace DynExp
 
 	QModuleWidget::QModuleWidget(QModuleBase& Owner, QWidget* Parent)
 		: QWidget(Parent), Owner(Owner), DynExpMgr(nullptr),
-		DockWindowShortcut(new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_D), this)),
-		FocusMainWindowShortcut(new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_0), this))
+		DockWindowShortcut(new QShortcut(QKeySequence(Qt::CTRL | Qt::Key_D), this)),
+		FocusMainWindowShortcut(new QShortcut(QKeySequence(Qt::CTRL | Qt::Key_0), this))
 	{
 		connect(DockWindowShortcut, &QShortcut::activated, this, &QModuleWidget::OnDockWindow);
 		connect(FocusMainWindowShortcut, &QShortcut::activated, this, &QModuleWidget::OnFocusMainWindow);
