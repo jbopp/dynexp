@@ -332,6 +332,8 @@ namespace DynExpModule::Widefield
 		int GetAutoMeasureCurrentCellIndex() const;
 		auto& GetAutoMeasureCellSkip() const noexcept { return AutoMeasureCellSkip; }
 		auto& GetAutoMeasureCellSkip() noexcept { return AutoMeasureCellSkip; }
+		bool GetAutoMeasureSampleRotated() const noexcept { return AutoMeasureSampleRotated; }
+		void SetAutoMeasureSampleRotated(bool IsRotated) noexcept { AutoMeasureSampleRotated = IsRotated; }
 		auto GetAutoMeasureFirstEmitter() const noexcept { return AutoMeasureFirstEmitter; }
 		bool SetAutoMeasureFirstEmitter(Util::MarkerGraphicsView::MarkerType::IDType FirstEmitterID) noexcept;	//!< Returns true in case of success, false otherwise.
 		auto GetAutoMeasureCurrentEmitter() const noexcept { return AutoMeasureCurrentEmitter; }
@@ -449,6 +451,7 @@ namespace DynExpModule::Widefield
 		QPoint AutoMeasureCellRangeFrom;
 		QPoint AutoMeasureCellRangeTo;
 		QPoint AutoMeasureCellSkip;
+		bool AutoMeasureSampleRotated;
 		LocalizedPositionsMapType::iterator AutoMeasureFirstEmitter;	//!< Iterator to the first emitter to be characterized.
 		LocalizedPositionsMapType::iterator AutoMeasureCurrentEmitter;	//!< Iterator to the emitter being characterized.
 	};
@@ -702,6 +705,7 @@ namespace DynExpModule::Widefield
 		void OnAutoMeasureCellRangeToYChanged(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnAutoMeasureCellSkipXChanged(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnAutoMeasureCellSkipYChanged(DynExp::ModuleInstance* Instance, int Value) const;
+		void OnToggleAutoMeasureSampleRotated(DynExp::ModuleInstance* Instance, Qt::CheckState State) const;
 		void OnAutoMeasureRunLocalization(DynExp::ModuleInstance* Instance, bool) const;
 		void OnAutoMeasureRunCharacterization(DynExp::ModuleInstance* Instance, bool) const;
 		void OnAutoMeasureRunSampleCharacterization(DynExp::ModuleInstance* Instance, bool) const;

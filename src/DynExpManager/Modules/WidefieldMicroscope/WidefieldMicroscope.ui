@@ -109,7 +109,7 @@
           </size>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="TabGeneral">
           <attribute name="title">
@@ -1425,6 +1425,32 @@
                 <string>Sample cell settings</string>
                </property>
                <layout class="QGridLayout" name="gridLayout">
+                <item row="1" column="1">
+                 <widget class="QLabel" name="LAutoMeasureCellSkipX">
+                  <property name="maximumSize">
+                   <size>
+                    <width>50</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>(x)</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QSpinBox" name="SBAutoMeasureCellRangeFromX">
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="maximum">
+                   <number>10000</number>
+                  </property>
+                  <property name="value">
+                   <number>0</number>
+                  </property>
+                 </widget>
+                </item>
                 <item row="0" column="6">
                  <widget class="QLabel" name="LAutoMeasureCellRangeFromY">
                   <property name="maximumSize">
@@ -1460,18 +1486,34 @@
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="9">
-                 <widget class="QSpinBox" name="SBAutoMeasureCellRangeToY">
-                  <property name="showGroupSeparator" stdset="0">
-                   <bool>true</bool>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="LAutoMeasureCellRange">
+                  <property name="minimumSize">
+                   <size>
+                    <width>190</width>
+                    <height>0</height>
+                   </size>
                   </property>
-                  <property name="maximum">
-                   <number>10000</number>
-                  </property>
-                  <property name="value">
-                   <number>10</number>
+                  <property name="text">
+                   <string>Cell range on sample</string>
                   </property>
                  </widget>
+                </item>
+                <item row="0" column="5">
+                 <spacer name="horizontalSpacer_5">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Fixed</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>10</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                 <item row="0" column="1">
                  <widget class="QLabel" name="LAutoMeasureCellRangeFromX">
@@ -1483,19 +1525,6 @@
                   </property>
                   <property name="text">
                    <string>(x) from</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="6">
-                 <widget class="QLabel" name="LAutoMeasureCellSkipY">
-                  <property name="maximumSize">
-                   <size>
-                    <width>50</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string>(y)</string>
                   </property>
                  </widget>
                 </item>
@@ -1525,32 +1554,6 @@
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="2">
-                 <widget class="QSpinBox" name="SBAutoMeasureCellRangeFromX">
-                  <property name="showGroupSeparator" stdset="0">
-                   <bool>true</bool>
-                  </property>
-                  <property name="maximum">
-                   <number>10000</number>
-                  </property>
-                  <property name="value">
-                   <number>0</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="8">
-                 <widget class="QLabel" name="LAutoMeasureCellRangeToY">
-                  <property name="maximumSize">
-                   <size>
-                    <width>14</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string>to</string>
-                  </property>
-                 </widget>
-                </item>
                 <item row="0" column="7">
                  <widget class="QSpinBox" name="SBAutoMeasureCellRangeFromY">
                   <property name="showGroupSeparator" stdset="0">
@@ -1564,29 +1567,16 @@
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="LAutoMeasureCellRange">
-                  <property name="minimumSize">
-                   <size>
-                    <width>190</width>
-                    <height>0</height>
-                   </size>
+                <item row="0" column="9">
+                 <widget class="QSpinBox" name="SBAutoMeasureCellRangeToY">
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
                   </property>
-                  <property name="text">
-                   <string>Cell range on sample</string>
+                  <property name="maximum">
+                   <number>10000</number>
                   </property>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QLabel" name="LAutoMeasureCellSkipX">
-                  <property name="maximumSize">
-                   <size>
-                    <width>50</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string>(x)</string>
+                  <property name="value">
+                   <number>10</number>
                   </property>
                  </widget>
                 </item>
@@ -1603,7 +1593,33 @@
                   </property>
                  </widget>
                 </item>
-                <item row="1" column="7">
+                <item row="0" column="8">
+                 <widget class="QLabel" name="LAutoMeasureCellRangeToY">
+                  <property name="maximumSize">
+                   <size>
+                    <width>14</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>to</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="3">
+                 <widget class="QLabel" name="LAutoMeasureCellSkipY">
+                  <property name="maximumSize">
+                   <size>
+                    <width>50</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>(y)</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="4">
                  <widget class="QSpinBox" name="SBAutoMeasureCellSkipY">
                   <property name="showGroupSeparator" stdset="0">
                    <bool>true</bool>
@@ -1625,21 +1641,12 @@
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="5">
-                 <spacer name="horizontalSpacer_5">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
+                <item row="1" column="7">
+                 <widget class="QCheckBox" name="CBAutoMeasureSampleRotated">
+                  <property name="text">
+                   <string>Sample rotated by 90°?</string>
                   </property>
-                  <property name="sizeType">
-                   <enum>QSizePolicy::Fixed</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>10</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -2221,6 +2228,7 @@
   <tabstop>SBAutoMeasureCellRangeToY</tabstop>
   <tabstop>SBAutoMeasureCellSkipX</tabstop>
   <tabstop>SBAutoMeasureCellSkipY</tabstop>
+  <tabstop>CBAutoMeasureSampleRotated</tabstop>
   <tabstop>BAutoMeasureRunLocalization</tabstop>
   <tabstop>BAutoMeasureRunCharacterization</tabstop>
   <tabstop>BAutoMeasureRunSampleCharacterization</tabstop>
