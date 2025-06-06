@@ -164,6 +164,7 @@ namespace DynExpModule::Widefield
 			CSVData << "AutoMeasureCellRangeToY = " << AutoMeasureCellRangeTo.y() << "\n";
 			CSVData << "AutoMeasureCellSkipX = " << AutoMeasureCellSkip.x() << "\n";
 			CSVData << "AutoMeasureCellSkipY = " << AutoMeasureCellSkip.y() << "\n";
+			CSVData << "AutoMeasureSampleRotated = " << (AutoMeasureSampleRotated ? "yes" : "no") << "\n";
 			if (AutoMeasureFirstEmitter != LocalizedPositions.cend())
 				CSVData << "AutoMeasureFirstEmitter = " << AutoMeasureFirstEmitter->first << "\n";
 			if (AutoMeasureCurrentEmitter != LocalizedPositions.cend())
@@ -392,8 +393,9 @@ namespace DynExpModule::Widefield
 		AutoMeasureOptimizationMaxDistance = 1000;
 		AutoMeasureCountRateThreshold = 40000;
 		AutoMeasureCellRangeFrom = { 0, 0 };
-		AutoMeasureCellRangeTo = { 10, 10 };
-		AutoMeasureCellSkip = { 100000, 100000 };
+		AutoMeasureCellRangeTo = { 20, 20 };
+		AutoMeasureCellSkip = { 80000, 80000 };
+		AutoMeasureSampleRotated = false;
 
 		ResetAutoMeasureCurrentEmitter();
 	}
@@ -750,6 +752,7 @@ namespace DynExpModule::Widefield
 		Connect(Widget->GetUI().SBAutoMeasureCellRangeToY, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureCellRangeToYChanged);
 		Connect(Widget->GetUI().SBAutoMeasureCellSkipX, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureCellSkipXChanged);
 		Connect(Widget->GetUI().SBAutoMeasureCellSkipY, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureCellSkipYChanged);
+		Connect(Widget->GetUI().CBAutoMeasureSampleRotated, &QCheckBox::checkStateChanged, this, &WidefieldMicroscope::OnToggleAutoMeasureSampleRotated);
 		Connect(Widget->GetUI().BAutoMeasureRunLocalization, &QPushButton::clicked, this, &WidefieldMicroscope::OnAutoMeasureRunLocalization);
 		Connect(Widget->GetUI().BAutoMeasureRunCharacterization, &QPushButton::clicked, this, &WidefieldMicroscope::OnAutoMeasureRunCharacterization);
 		Connect(Widget->GetUI().BAutoMeasureRunSampleCharacterization, &QPushButton::clicked, this, &WidefieldMicroscope::OnAutoMeasureRunSampleCharacterization);
@@ -2051,6 +2054,12 @@ namespace DynExpModule::Widefield
 		ModuleData->GetAutoMeasureCellSkip().setY(Value);
 	}
 
+	void WidefieldMicroscope::OnToggleAutoMeasureSampleRotated(DynExp::ModuleInstance* Instance, Qt::CheckState State) const
+	{
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance->ModuleDataGetter());
+		ModuleData->SetAutoMeasureSampleRotated(State == Qt::CheckState::Checked);
+	}
+
 	void WidefieldMicroscope::OnAutoMeasureRunLocalization(DynExp::ModuleInstance* Instance, bool) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance->ModuleDataGetter());
@@ -3014,7 +3023,9 @@ namespace DynExpModule::Widefield
 			return ResetState(ModuleData);
 		}
 
-		if (ModuleData->GetLastCellID().Valid && ModuleData->GetLastCellID() >= ModuleData->GetCellID())
+		if (ModuleData->GetLastCellID().Valid &&
+			(!ModuleData->GetAutoMeasureSampleRotated() && ModuleData->GetLastCellID() >= ModuleData->GetCellID()) ||
+			(ModuleData->GetAutoMeasureSampleRotated() && ModuleData->GetLastCellID().SwapCoords() >= ModuleData->GetCellID().SwapCoords()))
 		{
 			ModuleData->SetUIMessage("The current cell's ID is not larger than the previous cell's ID. Probably moved in wrong direction? Characterizing the sample cannot continue.");
 
