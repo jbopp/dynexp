@@ -32,7 +32,7 @@ namespace DynExpInstr
 		int32_t CellShift_px_y = 0;
 
 		constexpr bool HasCellShift() const noexcept { return CellShift_px_x || CellShift_px_y; }
-		WidefieldLocalizationCellIDType SwapCoords() const { return { IDString, Y_id, X_id, Valid }; }
+		WidefieldLocalizationCellIDType SwapCoords() const { return { "", Y_id, X_id, Valid }; }
 	};
 
 	std::strong_ordering operator<=>(const WidefieldLocalizationCellIDType& lhs, const WidefieldLocalizationCellIDType& rhs);

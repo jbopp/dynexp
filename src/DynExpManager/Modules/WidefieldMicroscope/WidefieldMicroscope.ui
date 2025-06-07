@@ -74,7 +74,7 @@
    <item>
     <widget class="Line" name="line">
      <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
     </widget>
    </item>
@@ -93,7 +93,7 @@
          </sizepolicy>
         </property>
         <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+         <enum>Qt::Orientation::Horizontal</enum>
         </property>
         <widget class="QTabWidget" name="TabWidget">
          <property name="sizePolicy">
@@ -251,7 +251,7 @@
            <item>
             <spacer name="verticalSpacer_2">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -516,10 +516,10 @@
            <item>
             <spacer name="verticalSpacer">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
+              <enum>QSizePolicy::Policy::Fixed</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -538,10 +538,10 @@
               </size>
              </property>
              <property name="contextMenuPolicy">
-              <enum>Qt::CustomContextMenu</enum>
+              <enum>Qt::ContextMenuPolicy::CustomContextMenu</enum>
              </property>
              <property name="editTriggers">
-              <set>QAbstractItemView::NoEditTriggers</set>
+              <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
              </property>
              <property name="tabKeyNavigation">
               <bool>false</bool>
@@ -550,10 +550,10 @@
               <bool>true</bool>
              </property>
              <property name="selectionBehavior">
-              <enum>QAbstractItemView::SelectRows</enum>
+              <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
              </property>
              <property name="horizontalScrollMode">
-              <enum>QAbstractItemView::ScrollPerPixel</enum>
+              <enum>QAbstractItemView::ScrollMode::ScrollPerPixel</enum>
              </property>
              <property name="showGrid">
               <bool>false</bool>
@@ -787,7 +787,7 @@
                  <double>1000.000000000000000</double>
                 </property>
                 <property name="stepType">
-                 <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                 <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
                 </property>
                 <property name="value">
                  <double>20.000000000000000</double>
@@ -806,7 +806,7 @@
                  <double>1000.000000000000000</double>
                 </property>
                 <property name="stepType">
-                 <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                 <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
                 </property>
                 <property name="value">
                  <double>10.000000000000000</double>
@@ -825,7 +825,7 @@
                  <double>1000.000000000000000</double>
                 </property>
                 <property name="stepType">
-                 <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                 <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
                 </property>
                 <property name="value">
                  <double>1.000000000000000</double>
@@ -843,7 +843,7 @@
              <item>
               <spacer name="horizontalSpacer">
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
@@ -1188,7 +1188,7 @@
                    <number>100000000</number>
                   </property>
                   <property name="stepType">
-                   <enum>QAbstractSpinBox::DefaultStepType</enum>
+                   <enum>QAbstractSpinBox::StepType::DefaultStepType</enum>
                   </property>
                  </widget>
                 </item>
@@ -1242,7 +1242,7 @@
                    <item>
                     <spacer name="horizontalSpacer_8">
                      <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
+                      <enum>Qt::Orientation::Horizontal</enum>
                      </property>
                      <property name="sizeHint" stdset="0">
                       <size>
@@ -1265,7 +1265,7 @@
                    <item>
                     <spacer name="horizontalSpacer_3">
                      <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
+                      <enum>Qt::Orientation::Horizontal</enum>
                      </property>
                      <property name="sizeHint" stdset="0">
                       <size>
@@ -1288,7 +1288,7 @@
                    <item>
                     <spacer name="horizontalSpacer_4">
                      <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
+                      <enum>Qt::Orientation::Horizontal</enum>
                      </property>
                      <property name="sizeHint" stdset="0">
                       <size>
@@ -1376,7 +1376,7 @@
                       <number>10000000</number>
                      </property>
                      <property name="stepType">
-                      <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                      <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
                      </property>
                      <property name="value">
                       <number>1000</number>
@@ -1407,7 +1407,7 @@
                      <number>1000000000</number>
                     </property>
                     <property name="stepType">
-                     <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                     <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
                     </property>
                     <property name="value">
                      <number>40000</number>
@@ -1479,7 +1479,7 @@
                    <number>100000000</number>
                   </property>
                   <property name="stepType">
-                   <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                   <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
                   </property>
                   <property name="value">
                    <number>100000</number>
@@ -1502,10 +1502,10 @@
                 <item row="0" column="5">
                  <spacer name="horizontalSpacer_5">
                   <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
+                   <enum>Qt::Orientation::Horizontal</enum>
                   </property>
                   <property name="sizeType">
-                   <enum>QSizePolicy::Fixed</enum>
+                   <enum>QSizePolicy::Policy::Fixed</enum>
                   </property>
                   <property name="sizeHint" stdset="0">
                    <size>
@@ -1634,7 +1634,7 @@
                    <number>100000000</number>
                   </property>
                   <property name="stepType">
-                   <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                   <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
                   </property>
                   <property name="value">
                    <number>100000</number>
@@ -1643,6 +1643,9 @@
                 </item>
                 <item row="1" column="7">
                  <widget class="QCheckBox" name="CBAutoMeasureSampleRotated">
+                  <property name="toolTip">
+                   <string>Indicates that the sample is rotated, meaning that advancing from one cell to the next cell increments first y instead of x. After characterizing one row, x is incremented instead of y.</string>
+                  </property>
                   <property name="text">
                    <string>Sample rotated by 90°?</string>
                   </property>
@@ -1697,10 +1700,10 @@
                    <item>
                     <spacer name="horizontalSpacer_2">
                      <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
+                      <enum>Qt::Orientation::Horizontal</enum>
                      </property>
                      <property name="sizeType">
-                      <enum>QSizePolicy::Fixed</enum>
+                      <enum>QSizePolicy::Policy::Fixed</enum>
                      </property>
                      <property name="sizeHint" stdset="0">
                       <size>
@@ -1723,10 +1726,10 @@
                 <item>
                  <spacer name="horizontalSpacer_6">
                   <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
+                   <enum>Qt::Orientation::Horizontal</enum>
                   </property>
                   <property name="sizeType">
-                   <enum>QSizePolicy::Fixed</enum>
+                   <enum>QSizePolicy::Policy::Fixed</enum>
                   </property>
                   <property name="sizeHint" stdset="0">
                    <size>
@@ -1773,10 +1776,10 @@
                    <item>
                     <spacer name="horizontalSpacer_7">
                      <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
+                      <enum>Qt::Orientation::Horizontal</enum>
                      </property>
                      <property name="sizeType">
-                      <enum>QSizePolicy::Fixed</enum>
+                      <enum>QSizePolicy::Policy::Fixed</enum>
                      </property>
                      <property name="sizeHint" stdset="0">
                       <size>
@@ -1802,7 +1805,7 @@
              <item>
               <spacer name="verticalSpacer_3">
                <property name="orientation">
-                <enum>Qt::Vertical</enum>
+                <enum>Qt::Orientation::Vertical</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
