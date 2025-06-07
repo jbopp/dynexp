@@ -3110,7 +3110,8 @@ namespace DynExpModule::Widefield
 		if ((!ModuleData->GetAutoMeasureSampleRotated() && Util::NumToT<int>(ModuleData->GetCellID().X_id) == ModuleData->GetAutoMeasureCellRangeTo().x()) ||
 			(ModuleData->GetAutoMeasureSampleRotated() && Util::NumToT<int>(ModuleData->GetCellID().Y_id) == ModuleData->GetAutoMeasureCellRangeTo().y()))
 			MoveSampleTo({
-				ModuleData->GetWidefieldPosition().x - Util::NumToT<WidefieldMicroscopeData::PositionType>(ModuleData->GetAutoMeasureCellSkip().x()) * (ModuleData->GetAutoMeasureCellLineLength() - 1),
+				ModuleData->GetWidefieldPosition().x - Util::NumToT<WidefieldMicroscopeData::PositionType>(ModuleData->GetAutoMeasureCellSkip().x()) *
+					((ModuleData->GetAutoMeasureSampleRotated() ? ModuleData->GetAutoMeasureCellColumnLength() : ModuleData->GetAutoMeasureCellLineLength()) - 1),
 				ModuleData->GetWidefieldPosition().y + Util::NumToT<WidefieldMicroscopeData::PositionType>(ModuleData->GetAutoMeasureCellSkip().y())
 			}, ModuleData);
 		else
