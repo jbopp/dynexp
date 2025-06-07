@@ -291,8 +291,12 @@ namespace DynExpModule::Widefield
 		if (!CurrentCellID.Valid)
 			throw Util::InvalidDataException("The current cell ID is invalid.");
 
-		return (Util::NumToT<int>(CurrentCellID.Y_id) - AutoMeasureCellRangeFrom.y()) * GetAutoMeasureCellLineLength() +
-			Util::NumToT<int>(CurrentCellID.X_id) - AutoMeasureCellRangeFrom.x();
+		if (!AutoMeasureSampleRotated)
+			return (Util::NumToT<int>(CurrentCellID.Y_id) - AutoMeasureCellRangeFrom.y()) * GetAutoMeasureCellLineLength() +
+				Util::NumToT<int>(CurrentCellID.X_id) - AutoMeasureCellRangeFrom.x();
+		else
+			return (Util::NumToT<int>(CurrentCellID.X_id) - AutoMeasureCellRangeFrom.x()) * GetAutoMeasureCellColumnLength() +
+				Util::NumToT<int>(CurrentCellID.Y_id) - AutoMeasureCellRangeFrom.y();
 	}
 
 	bool WidefieldMicroscopeData::SetAutoMeasureFirstEmitter(Util::MarkerGraphicsView::MarkerType::IDType FirstEmitterID) noexcept
@@ -3024,8 +3028,8 @@ namespace DynExpModule::Widefield
 		}
 
 		if (ModuleData->GetLastCellID().Valid &&
-			(!ModuleData->GetAutoMeasureSampleRotated() && ModuleData->GetLastCellID() >= ModuleData->GetCellID()) ||
-			(ModuleData->GetAutoMeasureSampleRotated() && ModuleData->GetLastCellID().SwapCoords() >= ModuleData->GetCellID().SwapCoords()))
+			((!ModuleData->GetAutoMeasureSampleRotated() && ModuleData->GetLastCellID() >= ModuleData->GetCellID()) ||
+			(ModuleData->GetAutoMeasureSampleRotated() && ModuleData->GetLastCellID().SwapCoords() >= ModuleData->GetCellID().SwapCoords())))
 		{
 			ModuleData->SetUIMessage("The current cell's ID is not larger than the previous cell's ID. Probably moved in wrong direction? Characterizing the sample cannot continue.");
 
@@ -3103,7 +3107,8 @@ namespace DynExpModule::Widefield
 			return StateType::AutoMeasureSampleFinished;
 
 		// Not finished yet, so advance to next cell.
-		if (Util::NumToT<int>(ModuleData->GetCellID().X_id) == ModuleData->GetAutoMeasureCellRangeTo().x())
+		if ((!ModuleData->GetAutoMeasureSampleRotated() && Util::NumToT<int>(ModuleData->GetCellID().X_id) == ModuleData->GetAutoMeasureCellRangeTo().x()) ||
+			(ModuleData->GetAutoMeasureSampleRotated() && Util::NumToT<int>(ModuleData->GetCellID().Y_id) == ModuleData->GetAutoMeasureCellRangeTo().y()))
 			MoveSampleTo({
 				ModuleData->GetWidefieldPosition().x - Util::NumToT<WidefieldMicroscopeData::PositionType>(ModuleData->GetAutoMeasureCellSkip().x()) * (ModuleData->GetAutoMeasureCellLineLength() - 1),
 				ModuleData->GetWidefieldPosition().y + Util::NumToT<WidefieldMicroscopeData::PositionType>(ModuleData->GetAutoMeasureCellSkip().y())
