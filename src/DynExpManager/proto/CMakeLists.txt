@@ -7,6 +7,7 @@ list(APPEND PROTO_FILES "proto/NetworkDataStreamInstrument.proto")
 list(APPEND PROTO_FILES "proto/NetworkDigitalIn.proto")
 list(APPEND PROTO_FILES "proto/NetworkDigitalOut.proto")
 list(APPEND PROTO_FILES "proto/NetworkSpectrometer.proto")
+list(APPEND PROTO_FILES "proto/NetworkLaser.proto")
 list(APPEND PROTO_FILES "proto/NetworkTimeTagger.proto")
 list(APPEND PROTO_FILES "proto/WidefieldLocalization.proto")
 
