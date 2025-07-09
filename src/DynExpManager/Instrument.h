@@ -1001,6 +1001,17 @@ namespace DynExp
 			State(TaskState::Waiting), ErrorCode(0), ShouldAbort(false) {}
 
 		/**
+		 * @brief Constructs an instrument task, moving #CallbackFunc from another task to this task. The other task
+		 * is left with an empty #CallbackFunc after this operation. Using this constructor is useful, if a running
+		 * task enqueues (an)other task(s). In this case, the callback function should not be called by the original
+		 * task but by the last task in this chain of tasks.
+		 * @param Other Other task to steal #CallbackFunc from.
+		 * @param DeferUntil @copybrief #DeferUntil
+		*/
+		TaskBase(TaskBase& Other, std::chrono::system_clock::time_point DeferUntil = {}) noexcept
+			: TaskBase(std::move(Other.CallbackFunc), DeferUntil) { Other.CallbackFunc = nullptr; }
+
+		/**
 		 * @brief The destructor aborts a waiting task setting #State to TaskState::Aborted. Then, it
 		 * calls #CallbackFunc with a default-constructed @p ExceptionContainer instance.
 		*/
@@ -1095,7 +1106,7 @@ namespace DynExp
 		 * with a reference to the current task and with a reference to the exception which occurred during
 		 * the task execution (if an exception has occurred).
 		*/
-		const CallbackType CallbackFunc;
+		CallbackType CallbackFunc;
 
 		/**
 		 * @brief The execution of this task is deferred until the specified point in time is reached if
