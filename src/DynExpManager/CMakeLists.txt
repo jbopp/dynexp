@@ -104,7 +104,7 @@ set_target_properties(Python3::Module PROPERTIES MAP_IMPORTED_CONFIG_DEBUG ";REL
 find_package(pybind11 REQUIRED)
 
 # DynExp target definition
-add_executable(DynExp "${CMAKE_CURRENT_BINARY_DIR}/main.cpp")
+add_executable(DynExp "${CMAKE_CURRENT_BINARY_DIR}/main.cpp" "MetaInstruments/Laser.h")
 
 # Export less symbols in GCC and Clang
 set_target_properties(DynExp PROPERTIES CXX_VISIBILITY_PRESET hidden)
@@ -206,14 +206,14 @@ endif()
 list(TRANSFORM EXTRA_LIBS PREPEND "../../../vendor/")
 list(TRANSFORM SHARED_LIBS PREPEND "../../../vendor/")
 target_link_libraries(DynExp PRIVATE
-	Qt::Core
-	Qt::Gui
-	Qt::Widgets
-	Qt::Xml
-	Qt::Network
-	Qt::SerialPort
-	Qt::Charts
-	Qt::DataVisualization
+	Qt6::Core
+	Qt6::Gui
+	Qt6::Widgets
+	Qt6::Xml
+	Qt6::Network
+	Qt6::SerialPort
+	Qt6::Charts
+	Qt6::DataVisualization
 	GSL::gsl
 	gRPC::grpc++
 	Python3::Module
