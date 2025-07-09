@@ -1,5 +1,6 @@
 # This file is part of DynExp.
 
+target_sources(DynExp PRIVATE "NP_Conex_CC.cpp" "NP_Conex_CC.h")
 target_sources(DynExp PRIVATE "DummyCamera.cpp" "DummyCamera.h")
 target_sources(DynExp PRIVATE "DummyDataStreamInstrument.cpp" "DummyDataStreamInstrument.h")
 target_sources(DynExp PRIVATE "InterModuleCommunicator.cpp" "InterModuleCommunicator.h")
