@@ -3,6 +3,7 @@
 target_sources(DynExp PRIVATE "ArbitraryFunctionFromCSV.cpp" "ArbitraryFunctionFromCSV.h")
 target_sources(DynExp PRIVATE "gRPCModule.cpp" "gRPCModule.h")
 target_sources(DynExp PRIVATE "InputPortReader.cpp" "InputPortReader.h" "InputPortReader.ui")
+target_sources(DynExp PRIVATE "LaserControl.cpp" "LaserControl.h" "LaserControl.ui")
 target_sources(DynExp PRIVATE "LockinAmplifierControl.cpp" "LockinAmplifierControl.h" "LockinAmplifierControl.ui")
 target_sources(DynExp PRIVATE "NetworkAnalogInModule.cpp" "NetworkAnalogInModule.h")
 target_sources(DynExp PRIVATE "NetworkAnalogOutModule.cpp" "NetworkAnalogOutModule.h")

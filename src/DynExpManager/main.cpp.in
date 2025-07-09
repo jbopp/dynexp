@@ -53,6 +53,7 @@
 #include "Instruments/NetworkDigitalInInstr.h"
 #include "Instruments/NetworkDigitalOutInstr.h"
 #include "Instruments/NetworkSpectrometer.h"
+#include "Instruments/NetworkLaser.h"
 #include "Instruments/NetworkTimeTagger.h"
 #include "Instruments/PI-C-862.h"
 #include "Instruments/RS_SMB100B.h"
@@ -84,6 +85,7 @@
 #include "Modules/ArbitraryFunctionFromCSV.h"
 #include "Modules/ImageViewer/ImageViewer.h"
 #include "Modules/InputPortReader.h"
+#include "Modules/LaserControl.h"
 #include "Modules/LockinAmplifierControl.h"
 #include "Modules/NetworkAnalogInModule.h"
 #include "Modules/NetworkAnalogOutModule.h"
@@ -147,6 +149,7 @@ int main(int argc, char *argv[])
 		DynExpInstr::NetworkDigitalIn,
 		DynExpInstr::NetworkDigitalOut,
 		DynExpInstr::NetworkSpectrometer,
+		DynExpInstr::NetworkLaser,
 		DynExpInstr::NetworkTimeTagger,
 		DynExpInstr::PI_C_862,
 		DynExpInstr::RS_SMB100B,
@@ -179,6 +182,7 @@ int main(int argc, char *argv[])
 		DynExpModule::ArbitraryFunctionFromCSV,
 		DynExpModule::ImageViewer::ImageViewer,
 		DynExpModule::InputPortReader,
+		DynExpModule::LaserControl,
 		DynExpModule::LockinAmplifierControl,
 		DynExpModule::NetworkAnalogIn,
 		DynExpModule::NetworkAnalogOut,
