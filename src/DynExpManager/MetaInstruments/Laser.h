@@ -126,7 +126,7 @@ namespace DynExpInstr
 		 * @brief Returns the laser's current state.
 		 * @return State of type LaserData::StateType
 		*/
-		auto GetState() const noexcept { return GetLaserStateChild(); }
+		auto GetLaserState() const noexcept { return GetLaserStateChild(); }
 
 		/**
 			* @brief Determines whether the laser is currently in emission state.

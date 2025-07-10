@@ -10,79 +10,131 @@
     <height>341</height>
    </rect>
   </property>
+  <property name="acceptDrops">
+   <bool>false</bool>
+  </property>
   <property name="locale">
    <locale language="English" country="AntiguaAndBarbuda"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
-   <item alignment="Qt::AlignmentFlag::AlignLeft">
-    <widget class="QToolBox" name="MainToolBar">
-     <property name="whatsThis">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Disables emission&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-     <property name="currentIndex">
-      <number>1</number>
-     </property>
-     <widget class="QWidget" name="action_Enable">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>54</width>
-        <height>81</height>
-       </rect>
-      </property>
-      <attribute name="label">
-       <string>Enable</string>
-      </attribute>
-     </widget>
-     <widget class="QWidget" name="action_Disable">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>54</width>
-        <height>81</height>
-       </rect>
-      </property>
-      <attribute name="label">
-       <string>Disable</string>
-      </attribute>
-     </widget>
-    </widget>
-   </item>
    <item>
-    <widget class="QToolButton" name="toolButton">
-     <property name="text">
-      <string>...</string>
+    <widget class="QToolBar" name="MainToolBar">
+     <property name="windowTitle">
+      <string>toolBar</string>
      </property>
+     <property name="movable">
+      <bool>false</bool>
+     </property>
+     <property name="floatable">
+      <bool>false</bool>
+     </property>
+     <addaction name="separator"/>
+     <addaction name="action_Enable"/>
+     <addaction name="action_Disable"/>
+     <addaction name="action_EnableScan"/>
+     <addaction name="separator"/>
     </widget>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_2"/>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="LScanRate">
+         <property name="text">
+          <string>Scan Rate</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDoubleSpinBox" name="SBScanRate">
+         <property name="suffix">
+          <string> THz/s</string>
+         </property>
+         <property name="maximum">
+          <double>5600000000.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="LScanRange">
+         <property name="text">
+          <string>Scan Bandwidth</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDoubleSpinBox" name="SBScanRange">
+         <property name="suffix">
+          <string>THz</string>
+         </property>
+         <property name="minimum">
+          <double>1.000000000000000</double>
+         </property>
+         <property name="maximum">
+          <double>28.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
      </item>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="LFrequency">
          <property name="text">
           <string>Frequency</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QDoubleSpinBox" name="doubleSpinBox_2"/>
+        <widget class="QDoubleSpinBox" name="SBFrequency">
+         <property name="suffix">
+          <string>THz</string>
+         </property>
+         <property name="minimum">
+          <double>200.000000000000000</double>
+         </property>
+         <property name="maximum">
+          <double>300.000000000000000</double>
+         </property>
+         <property name="value">
+          <double>300.000000000000000</double>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="LIntensity">
          <property name="text">
           <string>Intensity</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+        <widget class="QDoubleSpinBox" name="SBIntensity">
+         <property name="suffix">
+          <string>mW</string>
+         </property>
+         <property name="minimum">
+          <double>200.000000000000000</double>
+         </property>
+         <property name="maximum">
+          <double>700.000000000000000</double>
+         </property>
+        </widget>
        </item>
        <item>
         <spacer name="verticalSpacer">
@@ -99,27 +151,37 @@
        </item>
       </layout>
      </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <widget class="QDoubleSpinBox" name="doubleSpinBox_3"/>
-       </item>
-       <item>
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>ScanRate</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <widget class="QLabel" name="LState">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
     </layout>
    </item>
   </layout>
   <action name="action_Enable">
    <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::MediaPlaybackStart" resource="../QModules.qrc">
-     <normaloff>:/QModules/icons/Dialog-information_on.svg</normaloff>:/QModules/icons/Dialog-information_on.svg</iconset>
+    <iconset resource="../DynExpManager.qrc">
+     <normaloff>:/DynExpManager/icons/Media-playback-start.svg</normaloff>:/DynExpManager/icons/Media-playback-start.svg</iconset>
    </property>
    <property name="text">
     <string>Enable</string>
@@ -139,7 +201,7 @@
   </action>
   <action name="action_Disable">
    <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::ApplicationExit" resource="../QModules.qrc">
+    <iconset resource="../QModules.qrc">
      <normaloff>:/QModules/icons/Dialog-STOP.svg</normaloff>:/QModules/icons/Dialog-STOP.svg</iconset>
    </property>
    <property name="text">
@@ -153,6 +215,21 @@
    </property>
    <property name="menuRole">
     <enum>QAction::MenuRole::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="action_EnableScan">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../QModules.qrc">
+     <normaloff>:/QModules/icons/Ramp.svg</normaloff>:/QModules/icons/Ramp.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Scan</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
  </widget>
