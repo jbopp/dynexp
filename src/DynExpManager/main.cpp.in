@@ -182,7 +182,7 @@ int main(int argc, char *argv[])
 		DynExpModule::ArbitraryFunctionFromCSV,
 		DynExpModule::ImageViewer::ImageViewer,
 		DynExpModule::InputPortReader,
-		DynExpModule::LaserControl,
+		DynExpModule::LaserControl::LaserControl,
 		DynExpModule::LockinAmplifierControl,
 		DynExpModule::NetworkAnalogIn,
 		DynExpModule::NetworkAnalogOut,
