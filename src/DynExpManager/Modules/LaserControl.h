@@ -40,6 +40,7 @@ namespace DynExpModule::LaserControl
 		virtual ~LaserControlData() = default;
 
 		bool IsUIInitialized() const noexcept { return UIInitialized; }
+		void SetUIInitialized() noexcept { UIInitialized = true; }
 		auto& GetLaser() { return Laser; }
 
 		DynExpInstr::LaserData::FrequencyUnitType FrequencyUnit;
@@ -134,8 +135,8 @@ namespace DynExpModule::LaserControl
 
 		void OnEnableClicked(DynExp::ModuleInstance* Instance, bool) const;
 		void OnDisableClicked(DynExp::ModuleInstance* Instance, bool) const;
-		void OnScanClicked(DynExp::ModuleInstance* Instance, bool) const;
-		void OnDisableScanClicked(DynExp::ModuleInstance* Instance, bool) const;
+		void OnScanToggled(DynExp::ModuleInstance* Instance, bool Checked) const;
+		//void OnDisableScanClicked(DynExp::ModuleInstance* Instance, bool) const;
 
 
 		size_t NumFailedUpdateAttempts = 0;

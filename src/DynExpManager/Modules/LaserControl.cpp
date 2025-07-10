@@ -21,7 +21,7 @@ namespace DynExpModule::LaserControl
 		ui.SBFrequency->setRange(ModuleData->HardwareMinFrequency, ModuleData->HardwareMaxFrequency);
 		ui.SBIntensity->setRange(ModuleData->HardwareMinIntensity, ModuleData->HardwareMaxIntensity);
 		ui.SBScanRange->setRange(ModuleData->HardwareMinBandwidth, ModuleData->HardwareMaxBandwidth);
-		ui.SBScanRate->setRate(0.0, ModuleData->HardwareMaxRate);
+		ui.SBScanRate->setRange(0.0, ModuleData->HardwareMaxRate);
 
 		ui.SBFrequency->setSuffix(" " + QString(DynExpInstr::LaserData::FrequencyUnitTypeToStr(ModuleData->FrequencyUnit)));
 		ui.SBIntensity->setSuffix(" " + QString(DynExpInstr::LaserData::IntensityUnitTypeToStr(ModuleData->IntensityUnit)));
@@ -35,32 +35,32 @@ namespace DynExpModule::LaserControl
 		ui.action_Enable->setEnabled(ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::Ready);
 		ui.action_EnableScan->setEnabled(ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::Ready);
 		ui.action_Disable->setEnabled(ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::EmissionEnabledConstant || ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::EmissionEnabledScanning);
-		ui.action_DisableScan->setEnabled(ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::EmissionEnabledScanning);
+		//ui.action_EnableScan->setDisabled(ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::EmissionEnabledScanning);
 		ui.SBFrequency->setEnabled(ModuleData->LaserState != DynExpInstr::LaserData::LaserStateType::Startup);
-
-		ui.CBScanning->setChecked(ModuleData->IsScanning);
+		//ui.CBScanning->setChecked(ModuleData->IsScanning);
 
 		if (!ui.SBFrequency->hasFocus())
 		{
 			const QSignalBlocker Blocker(ui.SBFrequency);
-			ui.SBFrequency->setValue(ModuleData->CurrentFrequency.count());
+			ui.SBFrequency->setValue(ModuleData->Frequency);
 		}
 
 		if (!ui.SBIntensity->hasFocus())
 		{
 			const QSignalBlocker Blocker(ui.SBIntensity);
-			ui.SBIntensity->setValue(ModuleData->CurrentIntensity);
+			ui.SBIntensity->setValue(ModuleData->Intensity);
 		}
 
 		if (!ui.SBScanRange->hasFocus())
 		{
 			const QSignalBlocker Blocker(ui.SBScanRange);
-			ui.SBScanRange->setValue(ModuleData->CurrentScanRange); 
-			
-		if (!ui.SBScanRtge->hasFocus())
+			ui.SBScanRange->setValue(ModuleData->ScanRange); 
+		}
+
+		if (!ui.SBScanRate->hasFocus())
 		{
 			const QSignalBlocker Blocker(ui.SBScanRate);
-			ui.SBScanRate->setValue(ModuleData->CurrentScanRate);
+			ui.SBScanRate->setValue(ModuleData->ScanRate);
 		}
 
 
@@ -151,10 +151,10 @@ namespace DynExpModule::LaserControl
 
 		Connect(Widget->GetUI().action_Enable, &QAction::triggered, this, &LaserControl::OnEnableClicked);
 		Connect(Widget->GetUI().action_Disable, &QAction::triggered, this, &LaserControl::OnDisableClicked);
-		Connect(Widget->GetUI().action_Scan, &QAction::toggled, this, &LaserControl::OnScanClicked);
-		Connect(Widget->GetUI().action_DisableScan, &QAction::triggered, this, &LaserControl::OnDisableScanClicked);
+		Connect(Widget->GetUI().action_EnableScan, &QAction::toggled, this, &LaserControl::OnScanToggled);
+		//Connect(Widget->GetUI().action_DisableScan, &QAction::triggered, this, &LaserControl::OnDisableScanClicked);
 
-		Connect(Widget->GetUI().SBFrequency, QOverload<int>::of(&QSpinBox::valueChanged), this, &LaserControl::OnFrequencyValueChanged);
+		Connect(Widget->GetUI().SBFrequency, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &LaserControl::OnFrequencyValueChanged);
 		Connect(Widget->GetUI().SBIntensity, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &LaserControl::OnIntensityValueChanged);
 		Connect(Widget->GetUI().SBScanRange, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &LaserControl::OnScanRangeValueChanged);
 		Connect(Widget->GetUI().SBScanRate, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &LaserControl::OnScanRateValueChanged);
@@ -178,21 +178,20 @@ namespace DynExpModule::LaserControl
 
 	void LaserControl::OnInit(DynExp::ModuleInstance* Instance) const
 	{
-		auto ModuleParams = DynExp::dynamic_Params_cast<DynExpModule::LaserControl>(Instance->ParamsGetter());
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<DynExpModule::LaserControl>(Instance->ModuleDataGetter());
+		auto ModuleParams = DynExp::dynamic_Params_cast<DynExpModule::LaserControl::LaserControl>(Instance->ParamsGetter());
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<DynExpModule::LaserControl::LaserControl>(Instance->ModuleDataGetter());
 
 		Instance->LockObject(ModuleParams->Laser, ModuleData->GetLaser());
 		
 		ModuleData->FrequencyUnit = ModuleData->GetLaser()->GetFrequencyUnit();
 		ModuleData->IntensityUnit = ModuleData->GetLaser()->GetIntensityUnit();
-		ModuleData->HardwareMinFrequency = ModuleData->GetLaser()->GetHardwareMinFrequency();
-		ModuleData->HardwareMaxFrequency = ModuleData->GetLaser()->GetHardwareMaxFrequency();
-		ModuleData->HardwareMinIntensity = ModuleData->GetLaser()->GetHardwareMinIntensity();
-		ModuleData->HardwareMaxIntensity = ModuleData->GetLaser()->GetHardwareMaxIntensity();
-		ModuleData->HardwareMinBandwidth = ModuleData->GetLaser()->GetHardwareBandwidth();
-		ModuleData->HardwareMaxBandwidth = ModuleData->GetLaser()->GetHardwareBandwidth();
-		ModuleData->HardwareMinRate = ModuleData->GetLaser()->GetHardwarRate();
-		ModuleData->HardwareMaxRate = ModuleData->GetLaser()->GetHardwarRate();
+		ModuleData->HardwareMinFrequency = ModuleData->GetLaser()->GetMinFrequency();
+		ModuleData->HardwareMaxFrequency = ModuleData->GetLaser()->GetMaxFrequency();
+		ModuleData->HardwareMinIntensity = ModuleData->GetLaser()->GetMinIntensity();
+		ModuleData->HardwareMaxIntensity = ModuleData->GetLaser()->GetMaxIntensity();
+		ModuleData->HardwareMinBandwidth = ModuleData->GetLaser()->GetMinBandwidth();
+		ModuleData->HardwareMaxBandwidth = ModuleData->GetLaser()->GetMaxBandwidth();
+		ModuleData->HardwareMaxRate = ModuleData->GetLaser()->GetMaxRate();
 
 		// auto InstrData = DynExp::dynamic_InstrumentData_cast<DynExpInstr::Laser>(ModuleData->GetLaser()->GetInstrumentData());
 		// muss hier etwas zu instrument data cast anstatt zu module data?
@@ -219,46 +218,50 @@ namespace DynExpModule::LaserControl
 		ModuleData->GetLaser()->Disable();
 	}
 
-	void LaserControl::OnScanClicked(DynExp::ModuleInstance* Instance, bool) const
+	void LaserControl::OnScanToggled(DynExp::ModuleInstance* Instance, bool Checked) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserControl>(Instance->ModuleDataGetter());
 
-		ModuleData->GetLaser()->ScanContinuously();
+		if (Checked)
+			ModuleData->GetLaser()->ScanContinuously();
+		else
+			ModuleData->GetLaser()->DisableScan();
 	}
 
-	void LaserControl::OnDisableScanClicked(DynExp::ModuleInstance* Instance, bool) const
+	void LaserControl::OnFrequencyValueChanged(DynExp::ModuleInstance* Instance, double Value) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserControl>(Instance->ModuleDataGetter());
+		// unit conversion from THz to Hz
+		double Value_in_Laser_unit{ Value * 1e12 };
 
-		ModuleData->GetLaser()->DisableScan();
+		ModuleData->GetLaser()->SetFrequency(Value_in_Laser_unit);
 	}
 
-	void LaserControl::OnFrequencyChanged(DynExp::ModuleInstance* Instance, double Value) const
+	void LaserControl::OnIntensityValueChanged(DynExp::ModuleInstance* Instance, double Value) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserControl>(Instance->ModuleDataGetter());
+		// unit conversion from mW to W
+		double Value_in_Laser_unit{ Value * 1e-3 };
 
-		ModuleData->GetLaser()->SetFrequency(double Value);
+		ModuleData->GetLaser()->SetIntensity(Value_in_Laser_unit);
 	}
 
-	void LaserControl::OnIntensityChanged(DynExp::ModuleInstance* Instance, double Value) const
+	void LaserControl::OnScanRangeValueChanged(DynExp::ModuleInstance* Instance, double Value) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserControl>(Instance->ModuleDataGetter());
+		// unit conversion from THz to Hz
+		double Value_in_Laser_unit{ Value * 1e12 };
 
-		ModuleData->GetLaser()->SetIntensity(double Value);
+		ModuleData->GetLaser()->SetScanRange(Value_in_Laser_unit);
 	}
 
-	void LaserControl::OnScanRangeChanged(DynExp::ModuleInstance* Instance, double Value) const
+	void LaserControl::OnScanRateValueChanged(DynExp::ModuleInstance* Instance, double Value) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserControl>(Instance->ModuleDataGetter());
+		// unit conversion from THz to Hz
+		double Value_in_Laser_unit{ Value * 1e12 };
 
-		ModuleData->GetLaser()->SetScanRange(double Value);
-	}
-
-	void LaserControl::OnScanRateChanged(DynExp::ModuleInstance* Instance, double Value) const
-	{
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserControl>(Instance->ModuleDataGetter());
-
-		ModuleData->GetLaser()->SetScanRate(double Value);
+		ModuleData->GetLaser()->SetScanRate(Value_in_Laser_unit);
 	}
 
 
