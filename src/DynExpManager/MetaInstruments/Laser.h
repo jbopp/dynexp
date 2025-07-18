@@ -113,14 +113,14 @@ namespace DynExpInstr
 		LaserData() = default;
 		virtual ~LaserData() = default;
 
-		//void SetFrequency(double CurrentFrequency) noexcept { this->CurrentFrequency = CurrentFrequency; }			//!< Setter for #Frequency.
-		//void SetIntensity(double CurrentIntensity) noexcept { this->CurrentIntensity = CurrentIntensity; }			//!< Setter for #Intensity.
-		auto GetFrequency() const noexcept { return CurrentFrequency; }												//!< Getter for #Frequency.
-		auto GetIntensity() const noexcept { return CurrentIntensity; }												//!< Getter for #Intensity.
-		//void SetScanRange(double ScanRange) noexcept { this->ScanRange = ScanRange; }								//!< Setter for #ScanRange.
-		//void SetScanRate(double ScanRate) noexcept { this->ScanRate = ScanRate; }									//!< Setter for #ScanRate.
-		auto GetScanRange() const noexcept { return ScanRange; }													//!< Getter for #ScanRange.
-		auto GetScanRate() const noexcept { return ScanRate; }														//!< Getter for #ScanRate.
+		void SetFrequencyValue(double Frequency) noexcept { this->Frequency = Frequency; }								//!< Setter for #Frequency.
+		void SetIntensityValue(double Intensity) noexcept { this->Intensity = Intensity; }								//!< Setter for #Intensity.
+		auto GetFrequencyValue() const noexcept { return Frequency; }													//!< Getter for #Frequency.
+		auto GetIntensityValue() const noexcept { return Intensity; }													//!< Getter for #Intensity.
+		void SetScanRangeValue(double ScanRange) noexcept { this->ScanRange = ScanRange; }								//!< Setter for #ScanRange.
+		void SetScanRateValue(double ScanRate) noexcept { this->ScanRate = ScanRate; }									//!< Setter for #ScanRate.
+		auto GetScanRangeValue() const noexcept { return ScanRange; }													//!< Getter for #ScanRange.
+		auto GetScanRateValue() const noexcept { return ScanRate; }														//!< Getter for #ScanRate.
 
 		/**
 		 * @brief Returns the laser's current state.
@@ -132,9 +132,9 @@ namespace DynExpInstr
 			* @brief Determines whether the laser is currently in emission state.
 			* @return Returns true if @p GetEmissionState() returns
 			* LaserStateType::EmissionEnabledConstant or LaserStateType::EmissionEnabledScanning, false otherwise.
-		*/
+		
 		bool IsLasing() const noexcept { return GetLaserStateChild() == LaserStateType::EmissionEnabledConstant || GetLaserStateChild() == LaserStateType::EmissionEnabledScanning; }
-
+		*/
 		
 	private:
 		
@@ -148,10 +148,10 @@ namespace DynExpInstr
 		virtual LaserStateType GetLaserStateChild() const noexcept = 0;		//!< @copydoc GetLaserState
 		///@}
 
-		double CurrentFrequency = 0.0;		//!< Current frequency measured by WLM
-		double CurrentIntensity = 0.0;		//!< Current intensity at SHG output
-		double ScanRange = 0.0;				//!< Current scan range
-		double ScanRate = 0.0;				//!< Current scan rate
+		double Frequency = 0.0;				//!< Current frequency 
+		double Intensity = 0.0;				//!< Current intensity at SHG output
+		double ScanRange = 28 * 1e9;		//!< Current scan range
+		double ScanRate = 4 * 1e9;			//!< Current scan rate
 
 	};
 
@@ -224,6 +224,8 @@ namespace DynExpInstr
 
 		virtual std::string GetName() const override { return Name(); }
 		virtual std::string GetCategory() const override { return Category(); }
+
+		virtual std::chrono::milliseconds GetTaskQueueDelay() const override { return std::chrono::milliseconds(50); }
 
 		/** @name Override (instrument information)
 			* Override by derived classes to provide information about the instrument.
