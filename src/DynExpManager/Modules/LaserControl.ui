@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>613</width>
-    <height>341</height>
+    <width>425</width>
+    <height>315</height>
    </rect>
   </property>
   <property name="acceptDrops">
@@ -38,6 +38,87 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QLabel" name="LFrequency">
+         <property name="text">
+          <string>Frequency</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QDoubleSpinBox" name="SBFrequency_THz">
+           <property name="keyboardTracking">
+            <bool>false</bool>
+           </property>
+           <property name="suffix">
+            <string> THz</string>
+           </property>
+           <property name="minimum">
+            <double>218.000000000000000</double>
+           </property>
+           <property name="maximum">
+            <double>288.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="SBFrequency_nm">
+           <property name="keyboardTracking">
+            <bool>false</bool>
+           </property>
+           <property name="suffix">
+            <string> nm</string>
+           </property>
+           <property name="maximum">
+            <double>1000.000000000000000</double>
+           </property>
+           <property name="value">
+            <double>650.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="LIntensity">
+         <property name="text">
+          <string>Intensity</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QDoubleSpinBox" name="SBIntensity">
+           <property name="keyboardTracking">
+            <bool>false</bool>
+           </property>
+           <property name="suffix">
+            <string> mW</string>
+           </property>
+           <property name="minimum">
+            <double>200.000000000000000</double>
+           </property>
+           <property name="maximum">
+            <double>700.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="LPowerloss">
+           <property name="text">
+            <string> </string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QLabel" name="LScanRate">
@@ -48,11 +129,20 @@
        </item>
        <item>
         <widget class="QDoubleSpinBox" name="SBScanRate">
-         <property name="suffix">
-          <string> THz/s</string>
+         <property name="keyboardTracking">
+          <bool>false</bool>
          </property>
-         <property name="maximum">
-          <double>5600000000.000000000000000</double>
+         <property name="suffix">
+          <string> GHz/s</string>
+         </property>
+         <property name="minimum">
+          <double>1.000000000000000</double>
+         </property>
+         <property name="singleStep">
+          <double>0.100000000000000</double>
+         </property>
+         <property name="stepType">
+          <enum>QAbstractSpinBox::StepType::DefaultStepType</enum>
          </property>
         </widget>
        </item>
@@ -65,8 +155,11 @@
        </item>
        <item>
         <widget class="QDoubleSpinBox" name="SBScanRange">
+         <property name="keyboardTracking">
+          <bool>false</bool>
+         </property>
          <property name="suffix">
-          <string>THz</string>
+          <string> GHz</string>
          </property>
          <property name="minimum">
           <double>1.000000000000000</double>
@@ -76,89 +169,29 @@
          </property>
         </widget>
        </item>
-       <item>
-        <spacer name="verticalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Orientation::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <item>
-        <widget class="QLabel" name="LFrequency">
-         <property name="text">
-          <string>Frequency</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QDoubleSpinBox" name="SBFrequency">
-         <property name="suffix">
-          <string>THz</string>
-         </property>
-         <property name="minimum">
-          <double>200.000000000000000</double>
-         </property>
-         <property name="maximum">
-          <double>300.000000000000000</double>
-         </property>
-         <property name="value">
-          <double>300.000000000000000</double>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="LIntensity">
-         <property name="text">
-          <string>Intensity</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QDoubleSpinBox" name="SBIntensity">
-         <property name="suffix">
-          <string>mW</string>
-         </property>
-         <property name="minimum">
-          <double>200.000000000000000</double>
-         </property>
-         <property name="maximum">
-          <double>700.000000000000000</double>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Orientation::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
       </layout>
      </item>
     </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Orientation::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QLabel" name="LState">
        <property name="text">
-        <string/>
+        <string>Laser State: unknown</string>
        </property>
       </widget>
      </item>
@@ -233,6 +266,10 @@
    </property>
   </action>
  </widget>
+ <tabstops>
+  <tabstop>SBScanRate</tabstop>
+  <tabstop>SBScanRange</tabstop>
+ </tabstops>
  <resources>
   <include location="../QModules.qrc"/>
   <include location="../DynExpManager.qrc"/>

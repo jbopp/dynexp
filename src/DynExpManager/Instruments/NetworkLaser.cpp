@@ -71,6 +71,19 @@ namespace DynExpInstr
 		auto ScanRangeResponse = InvokeStubFunc(StubPtr, &DynExpProto::NetworkLaser::NetworkLaser::Stub::GetScanRange, {});
 		auto ScanRateResponse = InvokeStubFunc(StubPtr, &DynExpProto::NetworkLaser::NetworkLaser::Stub::GetScanRate, {});
 
+		{
+			auto InstrData = DynExp::dynamic_InstrumentData_cast<NetworkLaser>(Instance.InstrumentDataGetter());
+			auto tempvar = IntensityResponse.intensity();
+
+			InstrData->LaserState = ToLaserStateType(StateResponse.state());
+			InstrData->SetFrequencyValue(FrequencyResponse.frequency());
+			
+			InstrData->SetIntensityValue(IntensityResponse.intensity());
+			InstrData->SetScanRangeValue(ScanRangeResponse.bandwidthinfrequnit());
+			InstrData->SetScanRateValue(ScanRateResponse.speedinfrequnitpersecond());
+
+		}
+
 		// Update derived instrument.
 		UpdateFuncImpl(dispatch_tag<UpdateTask>(), Instance);
 	}
@@ -85,21 +98,18 @@ namespace DynExpInstr
 			StubPtr = InstrData->template GetStub<DynExpProto::NetworkLaser::NetworkLaser>();
 		} // InstrData unlocked here.
 
-		auto Response = InvokeStubFunc(StubPtr, &DynExpProto::NetworkLaser::NetworkLaser::Stub::SetFrequency, {});
+		DynExpProto::NetworkLaser::FrequencyMessage Message;
+		Message.set_frequency(Frequency);
+
+		auto Response = InvokeStubFunc(StubPtr, &DynExpProto::NetworkLaser::NetworkLaser::Stub::SetFrequency, Message);
 		if (Response.status() == DynExpProto::NetworkLaser::ValidationStatus::InvalidValue)
 		{	
 			Instance.GetOwner().SetWarning("Invalid frequency value.", Util::DynExpErrorCodes::InvalidArg);
-			return {};
 		}
 		else if (Response.status() == DynExpProto::NetworkLaser::ValidationStatus::InvalidMethod)
 		{
 			Instance.GetOwner().SetWarning("Invalid method for this laser.", Util::DynExpErrorCodes::NotAvailable);
-			return {};
 		}
-		DynExpProto::NetworkLaser::FrequencyMessage Message;
-		Message.set_frequency(Frequency);
-
-		InvokeStubFunc(StubPtr, &DynExpProto::NetworkLaser::NetworkLaser::Stub::SetFrequency, Message);
 
 		return {};
 	}
@@ -112,22 +122,18 @@ namespace DynExpInstr
 			StubPtr = InstrData->template GetStub<DynExpProto::NetworkLaser::NetworkLaser>();
 		} // InstrData unlocked here.
 
-		auto Response = InvokeStubFunc(StubPtr, &DynExpProto::NetworkLaser::NetworkLaser::Stub::SetIntensity, {});
+		DynExpProto::NetworkLaser::IntensityMessage Message;
+		Message.set_intensity(Intensity);
+
+		auto Response = InvokeStubFunc(StubPtr, &DynExpProto::NetworkLaser::NetworkLaser::Stub::SetIntensity, Message);
 		if (Response.status() == DynExpProto::NetworkLaser::ValidationStatus::InvalidValue)
 		{	
 			Instance.GetOwner().SetWarning("Invalid intensity value.", Util::DynExpErrorCodes::InvalidArg);
-			return {};
 		}
 		else if (Response.status() == DynExpProto::NetworkLaser::ValidationStatus::InvalidMethod)
 		{
 			Instance.GetOwner().SetWarning("Invalid method for this laser.", Util::DynExpErrorCodes::NotAvailable);
-			return {};
 		}
-
-		DynExpProto::NetworkLaser::IntensityMessage Message;
-		Message.set_intensity(Intensity);
-
-		InvokeStubFunc(StubPtr, &DynExpProto::NetworkLaser::NetworkLaser::Stub::SetIntensity, Message);
 
 		return {};
 	}
@@ -140,22 +146,18 @@ namespace DynExpInstr
 			StubPtr = InstrData->template GetStub<DynExpProto::NetworkLaser::NetworkLaser>();
 		} // InstrData unlocked here.
 
-		auto Response = InvokeStubFunc(StubPtr, &DynExpProto::NetworkLaser::NetworkLaser::Stub::SetScanRange, {});
+		DynExpProto::NetworkLaser::RangeMessage Message;
+		Message.set_bandwidthinfrequnit(ScanRange);
+
+		auto Response = InvokeStubFunc(StubPtr, &DynExpProto::NetworkLaser::NetworkLaser::Stub::SetScanRange, Message);
 		if (Response.status() == DynExpProto::NetworkLaser::ValidationStatus::InvalidValue)
 		{	
 			Instance.GetOwner().SetWarning("Invalid scan range value.", Util::DynExpErrorCodes::InvalidArg);
-			return {};
 		}
 		else if (Response.status() == DynExpProto::NetworkLaser::ValidationStatus::InvalidMethod)
 		{
 			Instance.GetOwner().SetWarning("Invalid method for this laser.", Util::DynExpErrorCodes::NotAvailable);
-			return {};
 		}
-
-		DynExpProto::NetworkLaser::RangeMessage Message;
-		Message.set_bandwidthinfrequnit(ScanRange);
-
-		InvokeStubFunc(StubPtr, &DynExpProto::NetworkLaser::NetworkLaser::Stub::SetScanRange, Message);
 
 		return {};
 	}
@@ -168,22 +170,18 @@ namespace DynExpInstr
 			StubPtr = InstrData->template GetStub<DynExpProto::NetworkLaser::NetworkLaser>();
 		} // InstrData unlocked here.
 
-		auto Response = InvokeStubFunc(StubPtr, &DynExpProto::NetworkLaser::NetworkLaser::Stub::SetScanRate, {});
+		DynExpProto::NetworkLaser::RateMessage Message;
+		Message.set_speedinfrequnitpersecond(ScanRate);
+
+		auto Response = InvokeStubFunc(StubPtr, &DynExpProto::NetworkLaser::NetworkLaser::Stub::SetScanRate, Message);
 		if (Response.status() == DynExpProto::NetworkLaser::ValidationStatus::InvalidValue)
 		{	
 			Instance.GetOwner().SetWarning("Invalid scan rate value.", Util::DynExpErrorCodes::InvalidArg);
-			return {};
 		}
 		else if (Response.status() == DynExpProto::NetworkLaser::ValidationStatus::InvalidMethod)
 		{
 			Instance.GetOwner().SetWarning("Invalid method for this laser.", Util::DynExpErrorCodes::NotAvailable);
-			return {};
 		}
-
-		DynExpProto::NetworkLaser::RateMessage Message;
-		Message.set_speedinfrequnitpersecond(ScanRate);
-
-		InvokeStubFunc(StubPtr, &DynExpProto::NetworkLaser::NetworkLaser::Stub::SetScanRate, Message);
 
 		return {};
 	}

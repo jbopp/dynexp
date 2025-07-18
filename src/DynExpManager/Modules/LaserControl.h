@@ -52,7 +52,8 @@ namespace DynExpModule::LaserControl
 		double HardwareMinBandwidth;
 		double HardwareMaxBandwidth;
 		double HardwareMaxRate;
-		double Frequency;
+		double Frequency_THz;
+		double Frequency_nm;
 		double Intensity;
 		double ScanRange;
 		double ScanRate;
@@ -128,7 +129,8 @@ namespace DynExpModule::LaserControl
 		void OnInit(DynExp::ModuleInstance* Instance) const override final;
 		void OnExit(DynExp::ModuleInstance* Instance) const override final;
 
-		void OnFrequencyValueChanged(DynExp::ModuleInstance* Instance, const double Frequency) const;
+		void OnFrequencyTHzValueChanged(DynExp::ModuleInstance* Instance, const double Frequency_THz) const;
+		void OnFrequencyNmValueChanged(DynExp::ModuleInstance* Instance, const double Frequency_nm) const;
 		void OnIntensityValueChanged(DynExp::ModuleInstance* Instance, const double Intensity) const;
 		void OnScanRangeValueChanged(DynExp::ModuleInstance* Instance, const double ScanRange) const;
 		void OnScanRateValueChanged(DynExp::ModuleInstance* Instance, const double ScanRate) const;
