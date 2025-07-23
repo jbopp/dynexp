@@ -73,7 +73,6 @@ namespace DynExpInstr
 		enum class FrequencyUnitType {
 			Hz,			//!< Frequency in Hz
 			nm,			//!< Wavelength in nm
-			Inv_cm		//!< Wavenumber in 1/cm
 		};
 
 		/**
@@ -86,15 +85,15 @@ namespace DynExpInstr
 		};
 		
 		/**
-		 * @brief Returns a descriptive string of a respective frequency unit to be e.g. used in plots.
-		 * @param Unit Frequency unit type as used by spectrometer instruments.
+		 * @brief Returns a descriptive string of a respective frequency unit to be e.g. used in the UI.
+		 * @param Unit Frequency unit type as used by laser instruments.
 		 * @return Unit string
 		*/
 		static const char* FrequencyUnitTypeToStr(const FrequencyUnitType& Unit);
 
 		/**
-		 * @brief Returns a descriptive string of a respective intensity unit to be e.g. used in plots.
-		 * @param Unit Intensity unit type as used by spectrometer instruments.
+		 * @brief Returns a descriptive string of a respective intensity unit to be e.g. used in the UI.
+		 * @param Unit Intensity unit type as used by laser instruments.
 		 * @return Unit string
 		*/
 		static const char* IntensityUnitTypeToStr(const IntensityUnitType& Unit);
@@ -103,8 +102,8 @@ namespace DynExpInstr
 		 * @brief Possible laser states.
 		*/
 		enum class LaserStateType {
-			Startup,
-			Ready,						//!< The wavelength is set and the laser is ready for emission.
+			Startup,					//!< The laser is tuning to the set frequency.
+			Ready,						//!< The frequency is set and the laser is ready for emission.
 			EmissionEnabledConstant,	//!< The laser is emitting in controle mode.
 			EmissionEnabledScanning,	//!< The laser is emitting in scan mode.
 			Error,						//!< The laser is in an error state.
@@ -113,28 +112,20 @@ namespace DynExpInstr
 		LaserData() = default;
 		virtual ~LaserData() = default;
 
-		void SetFrequencyValue(double Frequency) noexcept { this->Frequency = Frequency; }								//!< Setter for #Frequency.
-		void SetIntensityValue(double Intensity) noexcept { this->Intensity = Intensity; }								//!< Setter for #Intensity.
-		auto GetFrequencyValue() const noexcept { return Frequency; }													//!< Getter for #Frequency.
-		auto GetIntensityValue() const noexcept { return Intensity; }													//!< Getter for #Intensity.
-		void SetScanRangeValue(double ScanRange) noexcept { this->ScanRange = ScanRange; }								//!< Setter for #ScanRange.
-		void SetScanRateValue(double ScanRate) noexcept { this->ScanRate = ScanRate; }									//!< Setter for #ScanRate.
-		auto GetScanRangeValue() const noexcept { return ScanRange; }													//!< Getter for #ScanRange.
-		auto GetScanRateValue() const noexcept { return ScanRate; }														//!< Getter for #ScanRate.
+		void SetFrequencyValue(double Frequency) noexcept { this->Frequency = Frequency; }				//!< Setter for #Frequency.
+		auto GetFrequencyValue() const noexcept { return Frequency; }									//!< Getter for #Frequency.
+		void SetIntensityValue(double Intensity) noexcept { this->Intensity = Intensity; }				//!< Setter for #Intensity.
+		auto GetIntensityValue() const noexcept { return Intensity; }									//!< Getter for #Intensity.
+		void SetScanRangeValue(double ScanRange) noexcept { this->ScanRange = ScanRange; }				//!< Setter for #ScanRange.
+		auto GetScanRangeValue() const noexcept { return ScanRange; }									//!< Getter for #ScanRange.
+		void SetScanRateValue(double ScanRate) noexcept { this->ScanRate = ScanRate; }					//!< Setter for #ScanRate.
+		auto GetScanRateValue() const noexcept { return ScanRate; }										//!< Getter for #ScanRate.
 
 		/**
 		 * @brief Returns the laser's current state.
 		 * @return State of type LaserData::StateType
 		*/
 		auto GetLaserState() const noexcept { return GetLaserStateChild(); }
-
-		/**
-			* @brief Determines whether the laser is currently in emission state.
-			* @return Returns true if @p GetEmissionState() returns
-			* LaserStateType::EmissionEnabledConstant or LaserStateType::EmissionEnabledScanning, false otherwise.
-		
-		bool IsLasing() const noexcept { return GetLaserStateChild() == LaserStateType::EmissionEnabledConstant || GetLaserStateChild() == LaserStateType::EmissionEnabledScanning; }
-		*/
 		
 	private:
 		
@@ -150,8 +141,8 @@ namespace DynExpInstr
 
 		double Frequency = 0.0;				//!< Current frequency 
 		double Intensity = 0.0;				//!< Current intensity at SHG output
-		double ScanRange = 28 * 1e9;		//!< Current scan range
-		double ScanRate = 4 * 1e9;			//!< Current scan rate
+		double ScanRange = 0.0;				//!< Current scan range
+		double ScanRate = 0.0;				//!< Current scan rate
 
 	};
 
@@ -244,14 +235,14 @@ namespace DynExpInstr
 		virtual LaserData::IntensityUnitType GetIntensityUnit() const = 0;
 
 		/**
-		 * @brief Determines the minimal lower frequency limit of emission.
-		 * @return Minimal lower frequency limit in units of @p GetFrequencyUnit().
+		 * @brief Determines the minimal emission frequency.
+		 * @return Minimal emission frequency in units of @p GetFrequencyUnit().
 		*/
 		virtual double GetMinFrequency() const = 0;
 
 		/**
-		 * @brief Determines the maximal upper frequency limit of emission.
-		 * @return Maximal upper frequency limit in units of @p GetFrequencyUnit().
+		 * @brief Determines the maximal emission frequency.
+		 * @return Maximal emission frequency in units of @p GetFrequencyUnit().
 		*/
 		virtual double GetMaxFrequency() const = 0;
 
@@ -293,14 +284,14 @@ namespace DynExpInstr
 		*/
 		///@{
 		/**
-		 * @brief Sets the laser's dial frequency.
-		 * @param Frequency Frequency to dial
+		 * @brief Sets the laser's emission frequency.
+		 * @param Frequency Emission frequency
 		 * @param CallbackFunc @copybrief DynExp::TaskBase::CallbackFunc
 		*/
 		virtual void SetFrequency(double Frequency, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const = 0;
 
 		/**
-		 * @brief Sets the laser's intensity.
+		 * @brief Sets the laser's output intensity.
 		 * @param Intensity Output intensity
 		 * @param CallbackFunc @copybrief DynExp::TaskBase::CallbackFunc
 		*/
@@ -321,7 +312,7 @@ namespace DynExpInstr
 		virtual void SetScanRate(double ScanRate, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const = 0;
 
 		/**
-		 * @brief Enables emission.
+		 * @brief Enables emission in constant mode.
 		 * @param CallbackFunc @copybrief DynExp::TaskBase::CallbackFunc
 		*/
 		virtual void Enable(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const = 0;
@@ -333,13 +324,13 @@ namespace DynExpInstr
 		virtual void Disable(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const = 0;
 
 		/**
-		 * @brief Starts scan.
+		 * @brief Enables emission in scan mode.
 		 * @param CallbackFunc @copybrief DynExp::TaskBase::CallbackFunc
 		*/
 		virtual void ScanContinuously(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const = 0;
 
 		/**
-		 * @brief Stops scan.
+		 * @brief Disables scan and changes to constant emission mode.
 		 * @param CallbackFunc @copybrief DynExp::TaskBase::CallbackFunc
 		*/
 		virtual void DisableScan(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const = 0;

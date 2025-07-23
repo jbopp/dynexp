@@ -193,7 +193,7 @@ namespace DynExpInstr
 		{
 			auto InstrData = DynExp::dynamic_InstrumentData_cast<NetworkLaser>(Instance.InstrumentDataGetter());
 			StubPtr = InstrData->template GetStub<DynExpProto::NetworkLaser::NetworkLaser>();
-		} // InstrData unlocked here.
+		}
 
 		InvokeStubFunc(StubPtr, &DynExpProto::NetworkLaser::NetworkLaser::Stub::Enable, {});
 
@@ -210,7 +210,7 @@ namespace DynExpInstr
 		{
 			auto InstrData = DynExp::dynamic_InstrumentData_cast<NetworkLaser>(Instance.InstrumentDataGetter());
 			StubPtr = InstrData->template GetStub<DynExpProto::NetworkLaser::NetworkLaser>();
-		} // InstrData unlocked here.
+		}
 
 		InvokeStubFunc(StubPtr, &DynExpProto::NetworkLaser::NetworkLaser::Stub::Disable, {});
 
@@ -223,13 +223,9 @@ namespace DynExpInstr
 		{
 			auto InstrData = DynExp::dynamic_InstrumentData_cast<NetworkLaser>(Instance.InstrumentDataGetter());
 			StubPtr = InstrData->template GetStub<DynExpProto::NetworkLaser::NetworkLaser>();
-		} // InstrData unlocked here.
+		}
 
 		InvokeStubFunc(StubPtr, &DynExpProto::NetworkLaser::NetworkLaser::Stub::ScanContinuously, {});
-
-		auto StateResponse = InvokeStubFunc(StubPtr, &DynExpProto::NetworkLaser::NetworkLaser::Stub::GetState, {});
-		if (StateResponse.state() != DynExpProto::NetworkLaser::StateType::EmissionEnabledScanning)
-			Instance.GetOwner().SetWarning("Emission in scan mode could not be enabled.", Util::DynExpErrorCodes::ServiceFailed);
 
 		return {};
 	}
@@ -240,7 +236,7 @@ namespace DynExpInstr
 		{
 			auto InstrData = DynExp::dynamic_InstrumentData_cast<NetworkLaser>(Instance.InstrumentDataGetter());
 			StubPtr = InstrData->template GetStub<DynExpProto::NetworkLaser::NetworkLaser>();
-		} // InstrData unlocked here.
+		}
 
 		InvokeStubFunc(StubPtr, &DynExpProto::NetworkLaser::NetworkLaser::Stub::DisableScan, {});
 
