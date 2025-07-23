@@ -52,8 +52,8 @@
 #include "Instruments/NetworkDataStreamInstrument.h"
 #include "Instruments/NetworkDigitalInInstr.h"
 #include "Instruments/NetworkDigitalOutInstr.h"
-#include "Instruments/NetworkSpectrometer.h"
 #include "Instruments/NetworkLaser.h"
+#include "Instruments/NetworkSpectrometer.h"
 #include "Instruments/NetworkTimeTagger.h"
 #include "Instruments/PI-C-862.h"
 #include "Instruments/RS_SMB100B.h"
@@ -148,8 +148,8 @@ int main(int argc, char *argv[])
 		DynExpInstr::NetworkDataStreamInstrument,
 		DynExpInstr::NetworkDigitalIn,
 		DynExpInstr::NetworkDigitalOut,
-		DynExpInstr::NetworkSpectrometer,
 		DynExpInstr::NetworkLaser,
+		DynExpInstr::NetworkSpectrometer,
 		DynExpInstr::NetworkTimeTagger,
 		DynExpInstr::PI_C_862,
 		DynExpInstr::RS_SMB100B,

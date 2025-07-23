@@ -11,7 +11,6 @@ namespace DynExpInstr
 		{
 		case FrequencyUnitType::Hz: return "Hz";
 		case FrequencyUnitType::nm: return "nm";
-		case FrequencyUnitType::Inv_cm: return "1/cm";
 		default: return "<unknown unit>";
 		}
 	}
