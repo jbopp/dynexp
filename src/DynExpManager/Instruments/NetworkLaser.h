@@ -25,7 +25,6 @@ namespace DynExpInstr
 		{
 		case LaserData::FrequencyUnitType::Hz: return DynExpProto::Common::FrequencyUnitType::Hz;
 		case LaserData::FrequencyUnitType::nm: return DynExpProto::Common::FrequencyUnitType::nm;
-		case LaserData::FrequencyUnitType::Inv_cm: return DynExpProto::Common::FrequencyUnitType::Inv_cm;
 		default: throw Util::InvalidDataException("The given unit does not exist in the LaserData::FrequencyUnitType enumeration. Did you forget to adjust the FrequencyUnitType enumeration in class \"LaserData\"?");
 		}
 	}
@@ -36,7 +35,6 @@ namespace DynExpInstr
 		{
 		case DynExpProto::Common::FrequencyUnitType::Hz: return LaserData::FrequencyUnitType::Hz;
 		case DynExpProto::Common::FrequencyUnitType::nm: return LaserData::FrequencyUnitType::nm;
-		case DynExpProto::Common::FrequencyUnitType::Inv_cm: return LaserData::FrequencyUnitType::Inv_cm;
 		default: throw Util::InvalidDataException("The given unit does not exist in the DynExpProto::Common::FrequencyUnitType enumeration. Did you forget to adjust the FrequencyUnitType enumeration in file \"Common.proto\"?");
 		}
 	}

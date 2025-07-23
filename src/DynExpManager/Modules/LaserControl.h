@@ -52,8 +52,8 @@ namespace DynExpModule::LaserControl
 		double HardwareMinBandwidth;
 		double HardwareMaxBandwidth;
 		double HardwareMaxRate;
-		double Frequency_THz;
-		double Frequency_nm;
+		double Frequency;
+		double Wavelength;
 		double Intensity;
 		double ScanRange;
 		double ScanRate;
@@ -129,8 +129,8 @@ namespace DynExpModule::LaserControl
 		void OnInit(DynExp::ModuleInstance* Instance) const override final;
 		void OnExit(DynExp::ModuleInstance* Instance) const override final;
 
-		void OnFrequencyTHzValueChanged(DynExp::ModuleInstance* Instance, const double Frequency_THz) const;
-		void OnFrequencyNmValueChanged(DynExp::ModuleInstance* Instance, const double Frequency_nm) const;
+		void OnFrequencyValueChanged(DynExp::ModuleInstance* Instance, const double Frequency) const;
+		void OnWavelengthValueChanged(DynExp::ModuleInstance* Instance, const double Wavelength) const;
 		void OnIntensityValueChanged(DynExp::ModuleInstance* Instance, const double Intensity) const;
 		void OnScanRangeValueChanged(DynExp::ModuleInstance* Instance, const double ScanRange) const;
 		void OnScanRateValueChanged(DynExp::ModuleInstance* Instance, const double ScanRate) const;
@@ -138,8 +138,6 @@ namespace DynExpModule::LaserControl
 		void OnEnableClicked(DynExp::ModuleInstance* Instance, bool) const;
 		void OnDisableClicked(DynExp::ModuleInstance* Instance, bool) const;
 		void OnScanToggled(DynExp::ModuleInstance* Instance, bool Checked) const;
-		//void OnDisableScanClicked(DynExp::ModuleInstance* Instance, bool) const;
-
 
 		size_t NumFailedUpdateAttempts = 0;
 	};
