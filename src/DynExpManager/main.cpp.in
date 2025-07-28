@@ -43,7 +43,6 @@
 #include "HardwareAdapters/HardwareAdapterEthernet.h"
 
 // Instruments
-#include "Instruments/NP_Conex_CC.h"
 #include "Instruments/DummyCamera.h"
 #include "Instruments/DummyDataStreamInstrument.h"
 #include "Instruments/InterModuleCommunicator.h"
@@ -55,6 +54,7 @@
 #include "Instruments/NetworkDigitalOutInstr.h"
 #include "Instruments/NetworkSpectrometer.h"
 #include "Instruments/NetworkTimeTagger.h"
+#include "Instruments/NP_Conex_CC.h"
 #include "Instruments/PI-C-862.h"
 #include "Instruments/RS_SMB100B.h"
 #include "Instruments/RS_SMC100A.h"
@@ -138,7 +138,6 @@ int main(int argc, char *argv[])
 	> HardwareAdapterLib;
 
 	constexpr DynExp::InstrumentLibrary<
-		DynExpInstr::NP_Conex_CC,
 		DynExpInstr::DummyCamera,
 		DynExpInstr::DummyDataStreamInstrument,
 		DynExpInstr::InterModuleCommunicator,
@@ -150,6 +149,7 @@ int main(int argc, char *argv[])
 		DynExpInstr::NetworkDigitalOut,
 		DynExpInstr::NetworkSpectrometer,
 		DynExpInstr::NetworkTimeTagger,
+		DynExpInstr::NP_Conex_CC,
 		DynExpInstr::PI_C_862,
 		DynExpInstr::RS_SMB100B,
 		DynExpInstr::RS_SMC100A,
