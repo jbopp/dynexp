@@ -8,13 +8,6 @@ In turn, the abstraction of instruments enables to write hardware-agnostic progr
 This allows for greatest flexibility since the experiment modules do not depend on specific hardware.
 Instead, instruments can be assigned to modules without any programming at runtime.
 
--> [Installation Quickstart](./QUICKSTART.md)  
--> [Documentation](https://jbopp.github.io/dynexp/doc/index.html) (Status: ![doxygen-gh-pages workflow status](https://github.com/jbopp/dynexp/actions/workflows/doxygen-gh-pages.yml/badge.svg))  
--> Article published in SoftwareX at [DOI](https://doi.org/10.1016/j.softx.2024.101964). Please cite this article in your publication as follows if you use DynExp:
-
-> J\. M. Bopp, T. Schröder, 'DynExp—Highly flexible laboratory automation for dynamically changing classical and quantum experiments', SoftwareX **28**, 101964 (2024)
-
-
 
 ## Features and core concepts
 ### Feature list
