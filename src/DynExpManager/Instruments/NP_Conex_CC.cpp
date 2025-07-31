@@ -69,9 +69,6 @@ namespace DynExpInstr
 				StatusStream.read(ErrorMapBuffer, 4);  // Read the first 4 characters
 				std::istringstream ErrorMapStream(ErrorMapBuffer);
 
-				//int tempErrorMap;
-				//ErrorMapStream >> std::hex >> tempErrorMap;
-				//ErrorMap = static_cast<uint16_t>(tempErrorMap);
 				ErrorMapStream >> std::hex >> ErrorMap;
 				InstrData->ErrorCode = static_cast<NP_Conex_CC_StageData::ErrorCodeType>(ErrorMap); // Only 0 is no error
 
@@ -80,9 +77,6 @@ namespace DynExpInstr
 				StatusStream.read(StateBuffer, 2);  // Read the next 2 characters
 				std::istringstream StateStream(StateBuffer);
 
-				//int tempState;
-				//StateStream >> std::hex >> tempState;
-				//State = static_cast<uint8_t>(tempState);
 				StateStream >> std::hex >> State;
 				InstrData->Conex_CCStatus.Set(State);
 
@@ -298,8 +292,7 @@ namespace DynExpInstr
 		auto InstrData = DynExp::dynamic_InstrumentData_cast<NP_Conex_CC>(Instance.InstrumentDataGetter());
 		auto Owner = DynExp::dynamic_Object_cast<NP_Conex_CC>(&Instance.GetOwner());
 
-		auto MR = Util::ToStr(InstrData->GetChannel()) + "PR" + Util::ToStr(Position / Owner->GetInputValuePositionTypeRatio());
-		*InstrData->HardwareAdapter << MR;
+		*InstrData->HardwareAdapter << Util::ToStr(InstrData->GetChannel()) + "PR" + Util::ToStr(Position / Owner->GetInputValuePositionTypeRatio());
 
 		return {};
 	}
