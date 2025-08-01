@@ -52,12 +52,15 @@ namespace DynExpModule::LaserControl
 		double HardwareMinBandwidth;
 		double HardwareMaxBandwidth;
 		double HardwareMaxRate;
+		double HardwareModeHopFreeTuningRange;
 		double Frequency;
 		double Wavelength;
 		double Intensity;
 		double ScanRange;
 		double ScanRate;
 		DynExpInstr::LaserData::LaserStateType LaserState;
+
+		constexpr auto ConvertToNm() const noexcept { return 299792458 / Frequency * 1e9; }
 
 	private:
 		void ResetImpl(dispatch_tag<QModuleDataBase>) override final;
@@ -81,8 +84,7 @@ namespace DynExpModule::LaserControl
 			"Laser", "Laser", "Underlying laser instrument to be controlled by this module", DynExpUI::Icons::Instrument };
 
 	private:
-		void ConfigureParamsImpl(dispatch_tag<QModuleParamsBase>) override final {}
-		
+		void ConfigureParamsImpl(dispatch_tag<QModuleParamsBase>) override final {}	
 	};
 
 	class LaserControlConfigurator : public DynExp::QModuleConfiguratorBase
@@ -135,9 +137,9 @@ namespace DynExpModule::LaserControl
 		void OnScanRangeValueChanged(DynExp::ModuleInstance* Instance, const double ScanRange) const;
 		void OnScanRateValueChanged(DynExp::ModuleInstance* Instance, const double ScanRate) const;
 
-		void OnEnableClicked(DynExp::ModuleInstance* Instance, bool) const;
-		void OnDisableClicked(DynExp::ModuleInstance* Instance, bool) const;
-		void OnScanToggled(DynExp::ModuleInstance* Instance, bool Checked) const;
+		void OnEnableClicked(DynExp::ModuleInstance* Instance) const;
+		void OnDisableClicked(DynExp::ModuleInstance* Instance) const;
+		void OnScanToggled(DynExp::ModuleInstance* Instance) const;
 
 		size_t NumFailedUpdateAttempts = 0;
 	};

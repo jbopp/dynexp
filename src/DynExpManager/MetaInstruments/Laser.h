@@ -99,6 +99,13 @@ namespace DynExpInstr
 		static const char* IntensityUnitTypeToStr(const IntensityUnitType& Unit);
 
 		/**
+		 * @brief Converts a frequency value in Hz to the wavelength in nm and vice versa
+		 * @param Value Frequency in Hz or wavelength in nm
+		 * @return Value double
+		*/
+		static const double FrequencyWavelengthConversion(double Frequency) noexcept { return 299792458 / Frequency * 1e9; }
+
+		/**
 		 * @brief Possible laser states.
 		*/
 		enum class LaserStateType {
@@ -143,7 +150,7 @@ namespace DynExpInstr
 		double Intensity = 0.0;				//!< Current intensity at SHG output
 		double ScanRange = 0.0;				//!< Current scan range
 		double ScanRate = 0.0;				//!< Current scan rate
-
+		
 	};
 
 	/**
@@ -275,6 +282,12 @@ namespace DynExpInstr
 		 * @return Maximal scan rate in units of @p GetFrequencyUnit() per second.
 		*/
 		virtual double GetMaxRate() const = 0;
+
+		/**
+		 * @brief Determines the mode hop free tuning range.
+		 * @return Mode hop free tuning range in units of @p GetFrequencyUnit().
+		*/
+		virtual double GetModeHopFreeTuningRange() const = 0;
 		///@}
 
 		/** @name Override (instrument tasks)

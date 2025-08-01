@@ -192,6 +192,7 @@ namespace DynExpInstr
 		auto GetMinBandwidth() const noexcept { return HardwareMinBandwidth; }
 		auto GetMaxBandwidth() const noexcept { return HardwareMaxBandwidth; }
 		auto GetMaxRate() const noexcept { return HardwareMaxRate; }
+		auto GetModeHopFreeTuningRange() const noexcept { return HardwareModeHopFreeTuningRange; }
 
 	private:
 		void ResetImpl(dispatch_tag<gRPCInstrumentData<Laser, 0, DynExpProto::NetworkLaser::NetworkLaser>>) override final;
@@ -208,6 +209,7 @@ namespace DynExpInstr
 		double HardwareMinBandwidth = 0.0;
 		double HardwareMaxBandwidth = 0.0;
 		double HardwareMaxRate = 0.0;
+		double HardwareModeHopFreeTuningRange = 0.0;
 
 		LaserStateType LaserState = LaserStateType::Ready;
 	};

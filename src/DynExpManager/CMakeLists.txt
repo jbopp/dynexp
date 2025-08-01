@@ -104,7 +104,7 @@ set_target_properties(Python3::Module PROPERTIES MAP_IMPORTED_CONFIG_DEBUG ";REL
 find_package(pybind11 REQUIRED)
 
 # DynExp target definition
-add_executable(DynExp "${CMAKE_CURRENT_BINARY_DIR}/main.cpp" "MetaInstruments/Laser.h")
+add_executable(DynExp "${CMAKE_CURRENT_BINARY_DIR}/main.cpp" "MetaInstruments/Laser.h" "Modules/PLE/PLEEvents.cpp" "Modules/PLE/PLEEvents.h")
 
 # Export less symbols in GCC and Clang
 set_target_properties(DynExp PROPERTIES CXX_VISIBILITY_PRESET hidden)
