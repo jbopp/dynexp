@@ -24,10 +24,9 @@ namespace DynExpModule::LaserControl
 		ui.SBFrequency->setValue(ModuleData->HardwareMinFrequency * 1e-12);
 
 		const QSignalBlocker blockFreq_nm(ui.SBWavelength);
-		const int c = 299792458;
-		ui.SBWavelength->setRange(c/ModuleData->HardwareMaxFrequency *1e9, c/ModuleData->HardwareMinFrequency * 1e9);
+		ui.SBWavelength->setRange(DynExpInstr::LaserData::FrequencyWavelengthConversion(ModuleData->HardwareMaxFrequency), DynExpInstr::LaserData::FrequencyWavelengthConversion(ModuleData->HardwareMinFrequency));
 		ui.SBWavelength->setSuffix(" nm");
-		ui.SBWavelength->setValue(c/ModuleData->HardwareMaxFrequency * 1e9);
+		ui.SBWavelength->setValue(DynExpInstr::LaserData::FrequencyWavelengthConversion(ModuleData->HardwareMaxFrequency));
 
 		const QSignalBlocker blockInt(ui.SBIntensity);
 		ui.SBIntensity->setRange(ModuleData->HardwareMinIntensity * 1e3, ModuleData->HardwareMaxIntensity * 1e3);
@@ -43,7 +42,6 @@ namespace DynExpModule::LaserControl
 		ui.SBScanRate->setSuffix(" G" + QString(DynExpInstr::LaserData::FrequencyUnitTypeToStr(ModuleData->FrequencyUnit)) + "/s");
 	}
 
-	
 	void LaserControlWidget::UpdateUI(Util::SynchronizedPointer<LaserControlData>& ModuleData)
 	{
 		ui.action_Enable->setEnabled(ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::Ready);
@@ -71,13 +69,11 @@ namespace DynExpModule::LaserControl
 			const QSignalBlocker Blocker(ui.SBScanRange);
 			ui.SBScanRange->setValue(ModuleData->ScanRange * 1e-9);
 		}
-
 		if (!ui.SBScanRate->hasFocus())
 		{
 			const QSignalBlocker Blocker(ui.SBScanRate);
 			ui.SBScanRate->setValue(ModuleData->ScanRate * 1e-9);
 		}
-
 
 		switch (ModuleData->LaserState)
 		{
@@ -123,6 +119,7 @@ namespace DynExpModule::LaserControl
 		HardwareMinBandwidth = 0.0;
 		HardwareMaxBandwidth = 0.0;
 		HardwareMaxRate = 0.0;
+		HardwareModeHopFreeTuningRange = 0.0;
 		Frequency = 0.0;
 		Wavelength = 0.0;
 		Intensity = 0.0;
@@ -139,10 +136,9 @@ namespace DynExpModule::LaserControl
 		{
 			auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserControl>(Instance.ModuleDataGetter());
 			auto InstrData = DynExp::dynamic_InstrumentData_cast<DynExpInstr::Laser>(ModuleData->GetLaser()->GetInstrumentData());
-			const int c = 299792458;
 
 			ModuleData->Frequency = InstrData->GetFrequencyValue();
-			ModuleData->Wavelength = c/ InstrData->GetFrequencyValue() *1e9;
+			ModuleData->Wavelength = DynExpInstr::LaserData::FrequencyWavelengthConversion(InstrData->GetFrequencyValue());
 			ModuleData->Intensity = InstrData->GetIntensityValue();
 			ModuleData->ScanRange = InstrData->GetScanRangeValue();
 			ModuleData->ScanRate = InstrData->GetScanRateValue();
@@ -197,8 +193,8 @@ namespace DynExpModule::LaserControl
 
 	void LaserControl::OnInit(DynExp::ModuleInstance* Instance) const
 	{
-		auto ModuleParams = DynExp::dynamic_Params_cast<DynExpModule::LaserControl::LaserControl>(Instance->ParamsGetter());
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<DynExpModule::LaserControl::LaserControl>(Instance->ModuleDataGetter());
+		auto ModuleParams = DynExp::dynamic_Params_cast<LaserControl>(Instance->ParamsGetter());
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserControl>(Instance->ModuleDataGetter());
 
 		Instance->LockObject(ModuleParams->Laser, ModuleData->GetLaser());
 		
@@ -211,6 +207,7 @@ namespace DynExpModule::LaserControl
 		ModuleData->HardwareMinBandwidth = ModuleData->GetLaser()->GetMinBandwidth();
 		ModuleData->HardwareMaxBandwidth = ModuleData->GetLaser()->GetMaxBandwidth();
 		ModuleData->HardwareMaxRate = ModuleData->GetLaser()->GetMaxRate();
+		ModuleData->HardwareModeHopFreeTuningRange = ModuleData->GetLaser()->GetModeHopFreeTuningRange();
 	}
 
 	void LaserControl::OnExit(DynExp::ModuleInstance* Instance) const
@@ -220,21 +217,21 @@ namespace DynExpModule::LaserControl
 		Instance->UnlockObject(ModuleData->GetLaser());
 	}
 
-	void LaserControl::OnEnableClicked(DynExp::ModuleInstance* Instance, bool) const
+	void LaserControl::OnEnableClicked(DynExp::ModuleInstance* Instance) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserControl>(Instance->ModuleDataGetter());
 
 		ModuleData->GetLaser()->Enable();
 	}
 
-	void LaserControl::OnDisableClicked(DynExp::ModuleInstance* Instance, bool) const
+	void LaserControl::OnDisableClicked(DynExp::ModuleInstance* Instance) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserControl>(Instance->ModuleDataGetter());
 
 		ModuleData->GetLaser()->Disable();
 	}
 
-	void LaserControl::OnScanToggled(DynExp::ModuleInstance* Instance, bool Checked) const
+	void LaserControl::OnScanToggled(DynExp::ModuleInstance* Instance) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserControl>(Instance->ModuleDataGetter());
 
@@ -250,9 +247,8 @@ namespace DynExpModule::LaserControl
 		auto InstrData = DynExp::dynamic_InstrumentData_cast<DynExpInstr::Laser>(ModuleData->GetLaser()->GetInstrumentData());
 
 		// unit conversion from nm to Hz
-		const int c = 299792458;
-		const double Value_in_Laser_unit{ c/ (Value * 1e-9) };
-		if (Value_in_Laser_unit != c / (InstrData->GetFrequencyValue() * 1e-9))
+		const double Value_in_Laser_unit{ DynExpInstr::LaserData::FrequencyWavelengthConversion(Value) };
+		if (Value_in_Laser_unit != DynExpInstr::LaserData::FrequencyWavelengthConversion(InstrData->GetFrequencyValue()))
 			ModuleData->GetLaser()->SetFrequency(Value_in_Laser_unit);
 	}
 
