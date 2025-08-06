@@ -873,9 +873,14 @@ namespace DynExp
 		 * @brief Deregisters/unsubscribes module @p Listener from the event.
 		 * Indirectly calls ModuleBase::RemoveRegisteredEvent().
 		 * @param Listener Module to deregister/unsubscribe.
+		 * @param CommunicatorID ID of the inter-module communicator instrument (instance of
+		 * DynExpInstr::InterModuleCommunicator) of @p Listener to deregister.
+		 * If the default value @p ItemIDNotSet is passed, all communicator instances of
+		 * @p Listener are deregistered.
 		 * @param Timeout Time to wait for locking the mutex of this @p EventListenersBase instance.
 		*/
-		virtual void Deregister(const ModuleBase& Listener, const std::chrono::milliseconds Timeout = std::chrono::milliseconds(0)) = 0;
+		virtual void Deregister(const ModuleBase& Listener, ItemIDType CommunicatorID = ItemIDNotSet,
+			const std::chrono::milliseconds Timeout = std::chrono::milliseconds(0)) = 0;
 	};
 
 	/**
@@ -908,16 +913,23 @@ namespace DynExp
 		 * invoke for @p Listener when the event is triggered.
 		 * @param Listener Module to register/subscribe.
 		 * @param EventFunc Event function to invoke on module @p Listener when the event is triggered.
+		 * @param CommunicatorID ID of the inter-module communicator instrument (instance of
+		 * DynExpInstr::InterModuleCommunicator) of @p Listener the event function should be registered to.
+		 * @p EventFunc is only trigggered if the event is received from the specified communicator instance.
+		 * If the default value @p ItemIDNotSet is passed, @p EventFunc is triggered regardless of the
+		 * communicator instance receiving the event.
 		 * @param Timeout Time to wait for locking the mutex of this @p EventListenersBase instance.
 		*/
 		template <typename CallableT>
-		void Register(const ModuleBase& Listener, CallableT EventFunc, const std::chrono::milliseconds Timeout = std::chrono::milliseconds(0))
+		void Register(const ModuleBase& Listener, CallableT EventFunc, ItemIDType CommunicatorID = ItemIDNotSet,
+			const std::chrono::milliseconds Timeout = std::chrono::milliseconds(0))
 		{
 			auto lock = AcquireLock(Timeout);
 			RegisterUnsafe(Listener, EventFunc);
 		}
 
-		virtual void Deregister(const ModuleBase& Listener, const std::chrono::milliseconds Timeout = std::chrono::milliseconds(0)) override
+		virtual void Deregister(const ModuleBase& Listener, ItemIDType CommunicatorID = ItemIDNotSet,
+			const std::chrono::milliseconds Timeout = std::chrono::milliseconds(0)) override
 		{
 			auto lock = AcquireLock(Timeout);
 			DeregisterUnsafe(Listener);
@@ -996,8 +1008,26 @@ namespace DynExp
 	class InterModuleEventBase : public EventBase
 	{
 	public:
-		InterModuleEventBase() = default;
+		/**
+		 * @brief Constructs an inter-module event.
+		*/
+		InterModuleEventBase() : CommunicatorID(ItemIDNotSet) {}
+
+		/**
+		 * @brief Copy-constrcuts an inter-module event setting the #CommunicatorID.
+		 * @param CommunicatorID @copybrief #CommunicatorID
+		*/
+		InterModuleEventBase(const InterModuleEventBase& Other, ItemIDType CommunicatorID) : CommunicatorID(CommunicatorID) {}
+		
 		virtual ~InterModuleEventBase() = 0;
+
+		auto GetCommunicatorID() const noexcept { return CommunicatorID; }
+
+	private:
+		/**
+		 * @brief ID of the DynExpInstr::InterModuleCommunicator instance that sends the event.
+		*/
+		const ItemIDType CommunicatorID;
 	};
 
 	/**
@@ -1017,7 +1047,16 @@ namespace DynExp
 		*/
 		using EventListenersType = TypedEventListeners<EventFuncArgs...>;
 
+		/**
+		 * @copydoc InterModuleEventBase::InterModuleEventBase
+		*/
 		InterModuleEvent() = default;
+
+		/**
+		 * @copydoc InterModuleEventBase::InterModuleEventBase(const InterModuleEventBase&, ItemIDType)
+		*/
+		InterModuleEvent(const InterModuleEventBase& Other, ItemIDType CommunicatorID) : InterModuleEventBase(Other, CommunicatorID) {}
+
 		virtual ~InterModuleEvent() {}
 
 		/**

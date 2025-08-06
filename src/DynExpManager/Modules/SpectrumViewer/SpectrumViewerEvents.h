@@ -13,32 +13,11 @@
 
 namespace DynExpModule::SpectrumViewer
 {
-	class RecordSpectrumEvent : public DynExp::InterModuleEvent<RecordSpectrumEvent, std::string>
-	{
-	public:
-		RecordSpectrumEvent(std::string SaveDataFilename) : SaveDataFilename(SaveDataFilename) {}
-		virtual ~RecordSpectrumEvent() {}
-
-	private:
-		virtual void InvokeWithParamsChild(DynExp::ModuleInstance& Instance, EventListenersType::EventFunctionType EventFunc) const override;
-
-		const std::string SaveDataFilename;
-	};
-
-	class SpectrumFinishedRecordingEvent : public DynExp::InterModuleEvent<SpectrumFinishedRecordingEvent>
-	{
-	public:
-		SpectrumFinishedRecordingEvent() = default;
-		virtual ~SpectrumFinishedRecordingEvent() {}
-
-	private:
-		virtual void InvokeWithParamsChild(DynExp::ModuleInstance& Instance, EventListenersType::EventFunctionType EventFunc) const override;
-	};
-
 	class PauseSpectrumRecordingEvent : public DynExp::InterModuleEvent<PauseSpectrumRecordingEvent>
 	{
 	public:
 		PauseSpectrumRecordingEvent() = default;
+		PauseSpectrumRecordingEvent(const PauseSpectrumRecordingEvent& Other, DynExp::ItemIDType CommunicatorID) : InterModuleEvent(Other, CommunicatorID) {}
 		virtual ~PauseSpectrumRecordingEvent() {}
 
 	private:
@@ -49,16 +28,18 @@ namespace DynExpModule::SpectrumViewer
 	{
 	public:
 		ResumeSpectrumRecordingEvent() = default;
+		ResumeSpectrumRecordingEvent(const ResumeSpectrumRecordingEvent& Other, DynExp::ItemIDType CommunicatorID) : InterModuleEvent(Other, CommunicatorID) {}
 		virtual ~ResumeSpectrumRecordingEvent() {}
 
 	private:
 		virtual void InvokeWithParamsChild(DynExp::ModuleInstance& Instance, EventListenersType::EventFunctionType EventFunc) const override;
 	};
 
-	class SetSilentModeEvent : public DynExp::InterModuleEvent<RecordSpectrumEvent, bool>
+	class SetSilentModeEvent : public DynExp::InterModuleEvent<SetSilentModeEvent, bool>
 	{
 	public:
 		SetSilentModeEvent(bool Enable) : Enable(Enable) {}
+		SetSilentModeEvent(const SetSilentModeEvent& Other, DynExp::ItemIDType CommunicatorID) : InterModuleEvent(Other, CommunicatorID), Enable(Other.Enable) {}
 		virtual ~SetSilentModeEvent() {}
 
 	private:

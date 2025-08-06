@@ -14,17 +14,83 @@
 namespace DynExpModule
 {
 	/**
-	 * @brief This event is intended to make the receiver either directly start
-	 * an action (like a measurement) or to prepare the receiver to await a trigger
-	 * event (@p TriggerEvent) which starts the action.
+	 * @brief This event signals that an action (like a measurement) started
+	 * by a @p TriggerEvent has been completed.
+	*/
+	class FinishedEvent : public DynExp::InterModuleEvent<FinishedEvent>
+	{
+	public:
+		/**
+		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase
+		*/
+		FinishedEvent() = default;
+
+		/**
+		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase(const InterModuleEventBase&, ItemIDType)
+		*/
+		FinishedEvent(const FinishedEvent& Other, DynExp::ItemIDType CommunicatorID) : InterModuleEvent(Other, CommunicatorID) {}
+
+		virtual ~FinishedEvent() {}
+
+	private:
+		/**
+		 * @copydoc DynExp::InterModuleEvent::InvokeWithParamsChild
+		*/
+		virtual void InvokeWithParamsChild(DynExp::ModuleInstance& Instance, EventListenersType::EventFunctionType EventFunc) const override;
+	};
+
+	/**
+	 * @brief This event tells the receiver where to store e.g. acquired data.
+	*/
+	class SetFilenameEvent : public DynExp::InterModuleEvent<SetFilenameEvent, std::string>
+	{
+	public:
+		/**
+		 * @brief Constructs a @p SetFilenameEvent event.
+		 * @param Filename @copybrief #Filename
+		*/
+		SetFilenameEvent(const std::string& Filename) : Filename(Filename) {}
+
+		/**
+		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase(const InterModuleEventBase&, ItemIDType)
+		*/
+		SetFilenameEvent(const SetFilenameEvent& Other, DynExp::ItemIDType CommunicatorID) : InterModuleEvent(Other, CommunicatorID), Filename(Other.Filename) {}
+
+		virtual ~SetFilenameEvent() {}
+
+	private:
+		/**
+		 * @copydoc DynExp::InterModuleEvent::InvokeWithParamsChild
+		*/
+		virtual void InvokeWithParamsChild(DynExp::ModuleInstance& Instance, EventListenersType::EventFunctionType EventFunc) const override;
+
+		const std::string Filename;		//!< Filename where to store data.
+	};
+
+	/**
+	 * @brief This event is intended to make the receiver prepare an action
+	 * (like a measurement) that is started when the receiver receives a
+	 * subsequent trigger event (@p TriggerEvent).
 	*/
 	class StartEvent : public DynExp::InterModuleEvent<StartEvent>
 	{
 	public:
+		/**
+		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase
+		*/
 		StartEvent() = default;
+
+		/**
+		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase(const InterModuleEventBase&, ItemIDType)
+		*/
+		StartEvent(const StartEvent& Other, DynExp::ItemIDType CommunicatorID) : InterModuleEvent(Other, CommunicatorID) {}
+
 		virtual ~StartEvent() {}
 
 	private:
+		/**
+		 * @copydoc DynExp::InterModuleEvent::InvokeWithParamsChild
+		*/
 		virtual void InvokeWithParamsChild(DynExp::ModuleInstance& Instance, EventListenersType::EventFunctionType EventFunc) const override;
 	};
 
@@ -35,10 +101,22 @@ namespace DynExpModule
 	class StopEvent : public DynExp::InterModuleEvent<StopEvent>
 	{
 	public:
+		/**
+		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase
+		*/
 		StopEvent() = default;
+
+		/**
+		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase(const InterModuleEventBase&, ItemIDType)
+		*/
+		StopEvent(const StopEvent& Other, DynExp::ItemIDType CommunicatorID) : InterModuleEvent(Other, CommunicatorID) {}
+
 		virtual ~StopEvent() {}
 
 	private:
+		/**
+		 * @copydoc DynExp::InterModuleEvent::InvokeWithParamsChild
+		*/
 		virtual void InvokeWithParamsChild(DynExp::ModuleInstance& Instance, EventListenersType::EventFunctionType EventFunc) const override;
 	};
 
@@ -49,10 +127,22 @@ namespace DynExpModule
 	class TriggerEvent : public DynExp::InterModuleEvent<TriggerEvent>
 	{
 	public:
+		/**
+		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase
+		*/
 		TriggerEvent() = default;
+
+		/**
+		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase(const InterModuleEventBase&, ItemIDType)
+		*/
+		TriggerEvent(const TriggerEvent& Other, DynExp::ItemIDType CommunicatorID) : InterModuleEvent(Other, CommunicatorID) {}
+
 		virtual ~TriggerEvent() {}
 
 	private:
+		/**
+		 * @copydoc DynExp::InterModuleEvent::InvokeWithParamsChild
+		*/
 		virtual void InvokeWithParamsChild(DynExp::ModuleInstance& Instance, EventListenersType::EventFunctionType EventFunc) const override;
 	};
 }

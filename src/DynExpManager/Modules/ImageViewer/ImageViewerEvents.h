@@ -17,6 +17,7 @@ namespace DynExpModule::ImageViewer
 	{
 	public:
 		PauseImageCapturingEvent(bool ResetImageTransformation = false) : ResetImageTransformation(ResetImageTransformation) {}
+		PauseImageCapturingEvent(const PauseImageCapturingEvent& Other, DynExp::ItemIDType CommunicatorID) : InterModuleEvent(Other, CommunicatorID), ResetImageTransformation(Other.ResetImageTransformation) {}
 		virtual ~PauseImageCapturingEvent() {}
 
 	private:
@@ -29,6 +30,7 @@ namespace DynExpModule::ImageViewer
 	{
 	public:
 		ImageCapturingPausedEvent() = default;
+		ImageCapturingPausedEvent(const ImageCapturingPausedEvent& Other, DynExp::ItemIDType CommunicatorID) : InterModuleEvent(Other, CommunicatorID) {}
 		virtual ~ImageCapturingPausedEvent() {}
 
 	private:
@@ -39,6 +41,7 @@ namespace DynExpModule::ImageViewer
 	{
 	public:
 		ResumeImageCapturingEvent() = default;
+		ResumeImageCapturingEvent(const ResumeImageCapturingEvent& Other, DynExp::ItemIDType CommunicatorID) : InterModuleEvent(Other, CommunicatorID) {}
 		virtual ~ResumeImageCapturingEvent() {}
 
 	private:
@@ -49,6 +52,7 @@ namespace DynExpModule::ImageViewer
 	{
 	public:
 		ImageCapturingResumedEvent() = default;
+		ImageCapturingResumedEvent(const ImageCapturingResumedEvent& Other, DynExp::ItemIDType CommunicatorID) : InterModuleEvent(Other, CommunicatorID) {}
 		virtual ~ImageCapturingResumedEvent() {}
 
 	private:
@@ -59,6 +63,7 @@ namespace DynExpModule::ImageViewer
 	{
 	public:
 		AutofocusEvent(bool ResetImageTransformation = false) : ResetImageTransformation(ResetImageTransformation) {}
+		AutofocusEvent(const AutofocusEvent& Other, DynExp::ItemIDType CommunicatorID) : InterModuleEvent(Other, CommunicatorID), ResetImageTransformation(Other.ResetImageTransformation) {}
 		virtual ~AutofocusEvent() {}
 
 	private:
@@ -71,6 +76,7 @@ namespace DynExpModule::ImageViewer
 	{
 	public:
 		FinishedAutofocusEvent(bool Success, double Voltage = .0) : Success(Success), Voltage(Voltage) {}
+		FinishedAutofocusEvent(const FinishedAutofocusEvent& Other, DynExp::ItemIDType CommunicatorID) : InterModuleEvent(Other, CommunicatorID), Success(Other.Success), Voltage(Other.Voltage) {}
 		virtual ~FinishedAutofocusEvent() {}
 
 	private:

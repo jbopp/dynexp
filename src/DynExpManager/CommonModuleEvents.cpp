@@ -5,6 +5,16 @@
 
 namespace DynExpModule
 {
+	void FinishedEvent::InvokeWithParamsChild(DynExp::ModuleInstance& Instance, EventListenersType::EventFunctionType EventFunc) const
+	{
+		EventFunc(&Instance);
+	}
+
+	void SetFilenameEvent::InvokeWithParamsChild(DynExp::ModuleInstance& Instance, EventListenersType::EventFunctionType EventFunc) const
+	{
+		EventFunc(&Instance, Filename);
+	}
+
 	void StartEvent::InvokeWithParamsChild(DynExp::ModuleInstance& Instance, EventListenersType::EventFunctionType EventFunc) const
 	{
 		EventFunc(&Instance);

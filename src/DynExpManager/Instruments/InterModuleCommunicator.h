@@ -167,7 +167,10 @@ namespace DynExpInstr
 					try
 					{
 						if (Resource->IsReady())
-							Resource->EnqueueEvent(std::make_unique<DerivedEvent>(InterModuleEvent));
+						{
+							// Makes a copy of the event for each receiver.
+							Resource->EnqueueEvent(std::make_unique<DerivedEvent>(InterModuleEvent, GetID()));
+						}
 					}
 					catch ([[maybe_unused]] const Util::TimeoutException& e)
 					{

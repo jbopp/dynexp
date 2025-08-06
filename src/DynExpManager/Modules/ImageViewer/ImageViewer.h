@@ -13,6 +13,7 @@
 #include "../../MetaInstruments/AnalogOut.h"
 #include "../../Instruments/InterModuleCommunicator.h"
 
+#include "CommonModuleEvents.h"
 #include "ImageViewerEvents.h"
 
 #include <QWidget>
