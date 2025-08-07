@@ -243,10 +243,6 @@ namespace DynExp
 	{
 		EnsureCallFromRunnableThread();
 
-		auto RegisteredEvent = std::find(RegisteredEvents.cbegin(), RegisteredEvents.cend(), &EventListeners);
-		if (RegisteredEvent != RegisteredEvents.cend())
-			return;
-
 		RegisteredEvents.push_back(&EventListeners);
 	}
 

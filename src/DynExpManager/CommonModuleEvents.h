@@ -28,7 +28,8 @@ namespace DynExpModule
 		/**
 		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase(const InterModuleEventBase&, ItemIDType)
 		*/
-		FinishedEvent(const FinishedEvent& Other, DynExp::ItemIDType CommunicatorID) : InterModuleEvent(Other, CommunicatorID) {}
+		FinishedEvent(const FinishedEvent& Other, DynExp::ItemIDType CommunicatorID)
+			: InterModuleEvent(Other, CommunicatorID) {}
 
 		virtual ~FinishedEvent() {}
 
@@ -54,7 +55,8 @@ namespace DynExpModule
 		/**
 		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase(const InterModuleEventBase&, ItemIDType)
 		*/
-		SetFilenameEvent(const SetFilenameEvent& Other, DynExp::ItemIDType CommunicatorID) : InterModuleEvent(Other, CommunicatorID), Filename(Other.Filename) {}
+		SetFilenameEvent(const SetFilenameEvent& Other, DynExp::ItemIDType CommunicatorID)
+			: InterModuleEvent(Other, CommunicatorID), Filename(Other.Filename) {}
 
 		virtual ~SetFilenameEvent() {}
 
@@ -83,7 +85,8 @@ namespace DynExpModule
 		/**
 		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase(const InterModuleEventBase&, ItemIDType)
 		*/
-		StartEvent(const StartEvent& Other, DynExp::ItemIDType CommunicatorID) : InterModuleEvent(Other, CommunicatorID) {}
+		StartEvent(const StartEvent& Other, DynExp::ItemIDType CommunicatorID)
+			: InterModuleEvent(Other, CommunicatorID) {}
 
 		virtual ~StartEvent() {}
 
@@ -109,7 +112,8 @@ namespace DynExpModule
 		/**
 		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase(const InterModuleEventBase&, ItemIDType)
 		*/
-		StopEvent(const StopEvent& Other, DynExp::ItemIDType CommunicatorID) : InterModuleEvent(Other, CommunicatorID) {}
+		StopEvent(const StopEvent& Other, DynExp::ItemIDType CommunicatorID)
+			: InterModuleEvent(Other, CommunicatorID) {}
 
 		virtual ~StopEvent() {}
 
@@ -135,7 +139,8 @@ namespace DynExpModule
 		/**
 		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase(const InterModuleEventBase&, ItemIDType)
 		*/
-		TriggerEvent(const TriggerEvent& Other, DynExp::ItemIDType CommunicatorID) : InterModuleEvent(Other, CommunicatorID) {}
+		TriggerEvent(const TriggerEvent& Other, DynExp::ItemIDType CommunicatorID)
+			: InterModuleEvent(Other, CommunicatorID) {}
 
 		virtual ~TriggerEvent() {}
 

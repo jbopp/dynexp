@@ -1299,10 +1299,6 @@ namespace DynExpModule::Widefield
 
 	void WidefieldMicroscope::OnInit(DynExp::ModuleInstance* Instance) const
 	{
-		ImageViewer::ImageCapturingPausedEvent::Register(*this, &WidefieldMicroscope::OnImageCapturingPaused);
-		ImageViewer::FinishedAutofocusEvent::Register(*this, &WidefieldMicroscope::OnFinishedAutofocus);
-		SpectrumViewer::SpectrumFinishedRecordingEvent::Register(*this, &WidefieldMicroscope::OnSpectrumFinishedRecording);
-
 		auto ModuleParams = DynExp::dynamic_Params_cast<WidefieldMicroscope>(Instance->ParamsGetter());
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance->ModuleDataGetter());
 
@@ -1310,12 +1306,17 @@ namespace DynExpModule::Widefield
 		{
 			Instance->LockObject(ModuleParams->ImageAcqCommunicator, ModuleData->GetImageAcqCommunicator());
 			ModuleData->SetFeature(WidefieldMicroscopeData::FeatureType::ImageInterModuleCommunicator);
+
+			ImageViewer::ImageCapturingPausedEvent::Register(*this, &WidefieldMicroscope::OnImageCapturingPaused, ModuleData->GetImageAcqCommunicator()->GetID());
+			ImageViewer::FinishedAutofocusEvent::Register(*this, &WidefieldMicroscope::OnFinishedAutofocus, ModuleData->GetImageAcqCommunicator()->GetID());
 		}
 
 		if (ModuleParams->SpectrumAcqCommunicator.ContainsID())
 		{
 			Instance->LockObject(ModuleParams->SpectrumAcqCommunicator, ModuleData->GetSpectrumAcqCommunicator());
 			ModuleData->SetFeature(WidefieldMicroscopeData::FeatureType::SpectrumInterModuleCommunicator);
+
+			FinishedEvent::Register(*this, &WidefieldMicroscope::OnSpectrumFinishedRecording, ModuleData->GetSpectrumAcqCommunicator()->GetID());
 		}
 
 		if (ModuleParams->WidefieldCamera.ContainsID())
@@ -1462,7 +1463,7 @@ namespace DynExpModule::Widefield
 
 		ImageViewer::ImageCapturingPausedEvent::Deregister(*this);
 		ImageViewer::FinishedAutofocusEvent::Deregister(*this);
-		SpectrumViewer::SpectrumFinishedRecordingEvent::Deregister(*this);
+		FinishedEvent::Deregister(*this);
 	}
 
 	void WidefieldMicroscope::OnTerminate(DynExp::ModuleInstance* Instance, bool) const

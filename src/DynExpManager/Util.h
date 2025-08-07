@@ -572,6 +572,20 @@ namespace Util
 		Values Value;																									//!< Internal value
 	};
 
+	/**
+	 * @brief Combines the std::hash @p seed with the hash of @p value.
+	 * Resembles hash_combine() from the Boost library published under the Boost Software License.
+	 * @tparam T Type of @p value.
+	 * @param seed std::hash to combine the hash of @p value with.
+	 * @param value Value to calculate the hash to be combined from with, using std::hash.
+	*/
+	template <class T>
+	inline void HashCombine(std::size_t& seed, const T& value)
+	{
+		std::hash<T> hasher;
+		seed ^= hasher(value) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
+	}
+
 	/** @name Conversion functions
 	 * These functions can be used to convert between different number and string types.
 	*/
