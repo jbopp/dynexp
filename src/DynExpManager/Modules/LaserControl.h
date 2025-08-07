@@ -137,9 +137,9 @@ namespace DynExpModule::LaserControl
 		void OnScanRangeValueChanged(DynExp::ModuleInstance* Instance, const double ScanRange) const;
 		void OnScanRateValueChanged(DynExp::ModuleInstance* Instance, const double ScanRate) const;
 
-		void OnEnableClicked(DynExp::ModuleInstance* Instance) const;
-		void OnDisableClicked(DynExp::ModuleInstance* Instance) const;
-		void OnScanToggled(DynExp::ModuleInstance* Instance) const;
+		void OnEnableClicked(DynExp::ModuleInstance* Instance, bool) const;
+		void OnDisableClicked(DynExp::ModuleInstance* Instance, bool) const;
+		void OnScanToggled(DynExp::ModuleInstance* Instance, bool) const;
 
 		size_t NumFailedUpdateAttempts = 0;
 	};
