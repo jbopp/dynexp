@@ -244,7 +244,7 @@ namespace DynExpModule
 		{
 			// Swallow any exception which might arise from the shutdown of the module's Python part
 			// since a failure of that is not considered a severe error.
-			Util::EventLogger().Log("Shutting down Python part of module \"" + GetObjectName() + "\" failed.", Util::ErrorType::Warning);
+			Util::EventLog().Log("[StreamManipulator] Shutting down Python part of module \"" + GetObjectName() + "\" failed.", Util::ErrorType::Warning);
 		}
 	}
 }

@@ -228,9 +228,9 @@ namespace DynExpModule::SpectrumViewer
 			{
 				ModuleData->CurrentSpectrum = ProcessSpectrum(InstrData->GetSpectrum(), ModuleData);
 
-				if (!ModuleData->CurrentSpectrum.Points.empty())
+				if (!ModuleData->CurrentSpectrum.Points.empty() && !ModuleData->AutoSaveFilename.empty())
 				{
-					if (ModuleData->GetCommunicator().valid() && !ModuleData->AutoSaveFilename.empty())
+					if (ModuleData->GetCommunicator().valid())
 						ModuleData->GetCommunicator()->PostEvent(*this, FinishedEvent{});
 
 					ModuleData->AutoSaveFilename.clear();
@@ -306,7 +306,7 @@ namespace DynExpModule::SpectrumViewer
 		TransformedSpectrum.MinValues = { Spectrum.GetSpectrum().begin()->first, YMin};
 		TransformedSpectrum.MaxValues = { Spectrum.GetSpectrum().rbegin()->first, YMax};
 
-		if (!ModuleData->AutoSaveFilename.empty())
+		if (!ModuleData->CurrentSpectrum.Points.empty() && !ModuleData->AutoSaveFilename.empty())
 			SaveSpectrum(TransformedSpectrum, ModuleData);
 
 		return TransformedSpectrum;
@@ -316,9 +316,7 @@ namespace DynExpModule::SpectrumViewer
 		Util::SynchronizedPointer<SpectrumViewerData>& ModuleData)
 	{
 		if (!Util::SaveToFile(QString::fromStdString(ModuleData->AutoSaveFilename), Spectrum.ToStr(ModuleData->CurrentExposureTime)))
-			Util::EventLogger().Log("Saving spectrum as \"" + ModuleData->AutoSaveFilename + "\" to file failed.", Util::ErrorType::Error);
-		else
-			Util::EventLogger().Log("Saved spectrum as \"" + ModuleData->AutoSaveFilename + "\" to file.");
+			Util::EventLog().Log("[SpectrumViewer] Saving spectrum as \"" + ModuleData->AutoSaveFilename + "\" to file failed.", Util::ErrorType::Error);
 	}
 
 	void SpectrumViewer::OnInit(DynExp::ModuleInstance* Instance) const
@@ -419,9 +417,7 @@ namespace DynExpModule::SpectrumViewer
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<SpectrumViewer>(Instance->ModuleDataGetter());
 
-		if (ModuleData->CapturingState == DynExpInstr::SpectrometerData::CapturingStateType::Capturing)
-			return;
-
+		OnStop(Instance);
 		ModuleData->AutoSaveFilename = SaveFilename;
 	}
 

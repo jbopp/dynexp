@@ -594,7 +594,7 @@ namespace DynExpModule::Widefield
 
 	void WidefieldMicroscope::OnSaveCurrentImage(DynExp::ModuleInstance* Instance, QString Filename) const
 	{
-		static constexpr const char* SaveErrorMsg = "Saving an image failed.";
+		static constexpr const char* SaveErrorMsg = "[WidefieldMicroscope] Saving an image failed.";
 
 		QImage Image;
 		{
@@ -605,7 +605,7 @@ namespace DynExpModule::Widefield
 		if (!Image.save(Filename))
 		{
 			if (LogUIMessagesOnly)
-				Util::EventLogger().Log(SaveErrorMsg, Util::ErrorType::Error);
+				Util::EventLog().Log(SaveErrorMsg, Util::ErrorType::Error);
 			else
 			{
 				auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance->ModuleDataGetter());
@@ -1002,7 +1002,7 @@ namespace DynExpModule::Widefield
 						*CellIDState = WidefieldImageProcessingStateType::Failed;
 						Exception.ClearError();
 
-						Util::EventLog().Log("Reading the cell ID from the current image, the error listed below occurred.", Util::ErrorType::Error);
+						Util::EventLog().Log("[WidefieldMicroscope] Reading the cell ID from the current image, the error listed below occurred.", Util::ErrorType::Error);
 						Util::EventLog().Log(e.what());
 
 						return;
@@ -1032,7 +1032,7 @@ namespace DynExpModule::Widefield
 					*LocalizerState = WidefieldImageProcessingStateType::Failed;
 					Exception.ClearError();
 
-					Util::EventLog().Log("Localizing emitters in the widefield image, the error listed below occurred.", Util::ErrorType::Error);
+					Util::EventLog().Log("[WidefieldMicroscope] Localizing emitters in the widefield image, the error listed below occurred.", Util::ErrorType::Error);
 					Util::EventLog().Log(e.what());
 
 					return;
@@ -1923,7 +1923,7 @@ namespace DynExpModule::Widefield
 
 	void WidefieldMicroscope::OnFinishedAutofocus(DynExp::ModuleInstance* Instance, bool Success, double Voltage) const
 	{
-		static constexpr const char* AutofocusFailedErrorMsg = "Autofocusing failed!";
+		static constexpr const char* AutofocusFailedErrorMsg = "[WidefieldMicroscope] Autofocusing failed!";
 
 		if (StateMachine.GetCurrentState()->GetState() != StateType::AutofocusWaiting)
 			return;
@@ -1941,7 +1941,7 @@ namespace DynExpModule::Widefield
 		else
 		{
 			if (LogUIMessagesOnly)
-				Util::EventLogger().Log(AutofocusFailedErrorMsg, Util::ErrorType::Error);
+				Util::EventLog().Log(AutofocusFailedErrorMsg, Util::ErrorType::Error);
 			else
 			{
 				auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance->ModuleDataGetter());
@@ -2319,7 +2319,7 @@ namespace DynExpModule::Widefield
 
 	StateType WidefieldMicroscope::WaitingForWidefieldCellIDStateFunc(DynExp::ModuleInstance& Instance)
 	{
-		static constexpr const char* ReadCellIDErrorMsg = "Reading cell ID from current image failed. See log for further information.";
+		static constexpr const char* ReadCellIDErrorMsg = "[WidefieldMicroscope] Reading cell ID from current image failed. See log for further information.";
 
 		if (*WidefieldCellIDState == WidefieldImageProcessingStateType::Waiting)
 			return StateType::WaitingForWidefieldCellID;
@@ -2346,7 +2346,7 @@ namespace DynExpModule::Widefield
 			ModuleData->ResetCellID();
 
 			if (LogUIMessagesOnly)
-				Util::EventLogger().Log(ReadCellIDErrorMsg, Util::ErrorType::Error);
+				Util::EventLog().Log(ReadCellIDErrorMsg, Util::ErrorType::Error);
 			else
 				ModuleData->SetUIMessage(ReadCellIDErrorMsg);
 		}
@@ -2373,7 +2373,7 @@ namespace DynExpModule::Widefield
 
 	StateType WidefieldMicroscope::WaitingForWidefieldLocalizationStateFunc(DynExp::ModuleInstance& Instance)
 	{
-		static constexpr const char* LocalizationFailedErrorMsg = "Localization of emitters in widefield image failed. See log for further information.";
+		static constexpr const char* LocalizationFailedErrorMsg = "[WidefieldMicroscope] Localization of emitters in widefield image failed. See log for further information.";
 
 		if (*WidefieldLocalizationState == WidefieldImageProcessingStateType::Waiting)
 			return StateType::WaitingForWidefieldLocalization;
@@ -2396,7 +2396,7 @@ namespace DynExpModule::Widefield
 			ModuleData->ClearLocalizedPositions();
 			
 			if (LogUIMessagesOnly)
-				Util::EventLogger().Log(LocalizationFailedErrorMsg, Util::ErrorType::Error);
+				Util::EventLog().Log(LocalizationFailedErrorMsg, Util::ErrorType::Error);
 			else
 				ModuleData->SetUIMessage(LocalizationFailedErrorMsg);
 		}
@@ -2607,8 +2607,8 @@ namespace DynExpModule::Widefield
 
 	StateType WidefieldMicroscope::ConfocalOptimizationStepStateFunc(DynExp::ModuleInstance& Instance)
 	{
-		static constexpr const char* OptimizationMaxIterReachedErrorMsg = "Optimizing confocal count rate failed - maximal number of iterations reached!";
-		static constexpr const char* OptimizationFailedErrorMsg = "Optimizing confocal count rate failed!";
+		static constexpr const char* OptimizationMaxIterReachedErrorMsg = "[WidefieldMicroscope] Optimizing confocal count rate failed - maximal number of iterations reached!";
+		static constexpr const char* OptimizationFailedErrorMsg = "[WidefieldMicroscope] Optimizing confocal count rate failed!";
 
 		{
 			auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance.ModuleDataGetter());
@@ -2628,7 +2628,7 @@ namespace DynExpModule::Widefield
 			{
 				auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance.ModuleDataGetter());
 				if (LogUIMessagesOnly)
-					Util::EventLogger().Log(OptimizationMaxIterReachedErrorMsg, Util::ErrorType::Error);
+					Util::EventLog().Log(OptimizationMaxIterReachedErrorMsg, Util::ErrorType::Error);
 				else
 					ModuleData->SetUIMessage(OptimizationMaxIterReachedErrorMsg);
 			}
@@ -2639,7 +2639,7 @@ namespace DynExpModule::Widefield
 			{
 				auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance.ModuleDataGetter());
 				if (LogUIMessagesOnly)
-					Util::EventLogger().Log(OptimizationFailedErrorMsg, Util::ErrorType::Error);
+					Util::EventLog().Log(OptimizationFailedErrorMsg, Util::ErrorType::Error);
 				else
 					ModuleData->SetUIMessage(OptimizationFailedErrorMsg);
 			}
@@ -2790,7 +2790,7 @@ namespace DynExpModule::Widefield
 			<< WidefieldMicroscopeData::GetLocalizedEmitterStateString(Position.second.State) << "\n";
 
 		if (!Util::SaveToFile(QString::fromUtf16(BuildFilename(ModuleData, "_Emitters.csv").u16string().c_str()), CSVData.str()))
-			Util::EventLogger().Log("Saving the emitter list failed.", Util::ErrorType::Error);
+			Util::EventLog().Log("[WidefieldMicroscope] Saving the emitter list failed.", Util::ErrorType::Error);
 
 		if (ModuleData->GetAutoMeasureCurrentEmitter() == ModuleData->GetLocalizedPositions().cend())
 		{
@@ -2984,7 +2984,7 @@ namespace DynExpModule::Widefield
 		ModuleData->SetLocalizedPositionsStateChanged();
 
 		if (!Util::SaveToFile(QString::fromUtf16(Filename.u16string().c_str()), CSVData.str()))
-			Util::EventLogger().Log("Saving the g2 result failed.", Util::ErrorType::Error);
+			Util::EventLog().Log("[WidefieldMicroscope] Saving the g2 result failed.", Util::ErrorType::Error);
 
 		ModuleData->IncrementAutoMeasureCurrentEmitter();
 		return StateType::AutoMeasureCharacterizationStep;
@@ -3019,7 +3019,7 @@ namespace DynExpModule::Widefield
 			ModuleData->SetCellIDToLastCellID();
 			ModuleData->IncrementCellID();
 
-			Util::EventLogger().Log("Reading a cell ID failed. Estimating it to " +
+			Util::EventLog().Log("[WidefieldMicroscope] Reading a cell ID failed. Estimating it to " +
 				ModuleData->GetCellID().IDString + ".", Util::ErrorType::Warning);
 		}
 

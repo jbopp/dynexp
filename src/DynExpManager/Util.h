@@ -1073,7 +1073,8 @@ namespace Util
 	*/
 	class EventLogger : public ILockable
 	{
-	public:
+		friend EventLogger& EventLog();
+
 		/**
 		 * @brief Constructs the event logger without opening a log file on disk. Events are only
 		 * stored in the internal log until OpenLogFile() is called to open a log file on disk.
@@ -1086,6 +1087,7 @@ namespace Util
 		*/
 		EventLogger(std::string Filename) : EventLogger() { OpenLogFile(Filename); }
 
+	public:
 		/**
 		 * @brief Destructor closes the log file on disk.
 		*/

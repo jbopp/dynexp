@@ -316,6 +316,7 @@ namespace DynExpModule::ImageViewer
 		TimeType CurrentExposureTime = TimeType();
 		CurrentFPS = 0.f;
 		ComputeHistogram = DynExpInstr::CameraData::ComputeHistogramType::NoHistogram;
+		AutoSaveFilename.clear();
 
 		CurrentImage = QImage();
 		HasImageChanged = false;
@@ -348,7 +349,7 @@ namespace DynExpModule::ImageViewer
 		} // ModuleData unlocked here for heavy save operation.
 
 		if (!Image.save(Filename))
-			Util::EventLog().Log("Image Viewer: Saving the current image failed.", Util::ErrorType::Error);
+			Util::EventLog().Log("[ImageViewer] Saving image as \"" + Filename.toStdString() + "\" to file failed.", Util::ErrorType::Error);
 	}
 
 	Util::DynExpErrorCodes::DynExpErrorCodes ImageViewer::ModuleMainLoop(DynExp::ModuleInstance& Instance)
@@ -543,6 +544,9 @@ namespace DynExpModule::ImageViewer
 
 	void ImageViewer::OnInit(DynExp::ModuleInstance* Instance) const
 	{
+		SetFilenameEvent::Register(*this, &ImageViewer::OnSetFilename);
+		TriggerEvent::Register(*this, &ImageViewer::OnTrigger);
+		StopEvent::Register(*this, &ImageViewer::OnStop);
 		PauseImageCapturingEvent::Register(*this, &ImageViewer::OnPauseImageCapturing);
 		ResumeImageCapturingEvent::Register(*this, &ImageViewer::OnResumeImageCapturing);
 		AutofocusEvent::Register(*this, &ImageViewer::OnAutofocus);
@@ -620,6 +624,7 @@ namespace DynExpModule::ImageViewer
 	void ImageViewer::OnCaptureSingle(DynExp::ModuleInstance* Instance, bool) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<ImageViewer>(Instance->ModuleDataGetter());
+		ModuleData->AutoSaveFilename.clear();
 		ModuleData->ImageCapturingPaused = false;
 		ModuleData->CaptureAfterPause = false;
 
@@ -629,6 +634,7 @@ namespace DynExpModule::ImageViewer
 	void ImageViewer::OnCaptureContinuously(DynExp::ModuleInstance* Instance, bool Checked) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<ImageViewer>(Instance->ModuleDataGetter());
+		ModuleData->AutoSaveFilename.clear();
 		ModuleData->ImageCapturingPaused = false;
 		ModuleData->CaptureAfterPause = false;
 
@@ -636,6 +642,24 @@ namespace DynExpModule::ImageViewer
 			ModuleData->Camera->StartCapturing();
 		else
 			ModuleData->Camera->StopCapturing();
+	}
+
+	void ImageViewer::OnSetFilename(DynExp::ModuleInstance* Instance, std::string SaveFilename) const
+	{
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<ImageViewer>(Instance->ModuleDataGetter());
+
+		OnStop(Instance);
+		ModuleData->AutoSaveFilename = SaveFilename;
+	}
+
+	void ImageViewer::OnTrigger(DynExp::ModuleInstance* Instance) const
+	{
+		OnCaptureSingle(Instance, false);
+	}
+
+	void ImageViewer::OnStop(DynExp::ModuleInstance* Instance) const
+	{
+		OnCaptureContinuously(Instance, false);
 	}
 
 	void ImageViewer::OnPauseImageCapturing(DynExp::ModuleInstance* Instance, bool ResetImageTransformation) const
@@ -748,6 +772,18 @@ namespace DynExpModule::ImageViewer
 			if (ModuleData->ComputeHistogram == CHT::RGBHistogram ||
 				ModuleData->ComputeHistogram == CHT::IntensityAndRGBHistogram)
 				ModuleData->RGBHistogram = CameraData->GetRGBHistogram();
+
+			if (!ModuleData->AutoSaveFilename.empty())
+			{
+				QImage Image = ModuleData->CurrentImage.copy();
+				if (!Image.save(QString::fromStdString(ModuleData->AutoSaveFilename)))
+					Util::EventLog().Log("[ImageViewer] Saving image as \"" + ModuleData->AutoSaveFilename + "\" to file failed.", Util::ErrorType::Error);
+
+				if (ModuleData->Communicator.valid())
+					ModuleData->Communicator->PostEvent(*this, FinishedEvent{});
+
+				ModuleData->AutoSaveFilename.clear();
+			}
 		}
 
 		return StateType::Ready;

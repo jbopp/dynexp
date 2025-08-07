@@ -121,6 +121,7 @@ namespace DynExpModule::ImageViewer
 		TimeType CurrentExposureTime;
 		float CurrentFPS = 0.f;
 		DynExpInstr::CameraData::ComputeHistogramType ComputeHistogram = DynExpInstr::CameraData::ComputeHistogramType::NoHistogram;
+		std::string AutoSaveFilename;
 
 		QImage CurrentImage;
 		bool HasImageChanged = false;
@@ -243,6 +244,9 @@ namespace DynExpModule::ImageViewer
 		void OnExposureTimeChanged(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnCaptureSingle(DynExp::ModuleInstance* Instance, bool) const;
 		void OnCaptureContinuously(DynExp::ModuleInstance* Instance, bool Checked) const;
+		void OnSetFilename(DynExp::ModuleInstance* Instance, std::string SaveFilename) const;
+		void OnTrigger(DynExp::ModuleInstance* Instance) const;
+		void OnStop(DynExp::ModuleInstance* Instance) const;
 		void OnPauseImageCapturing(DynExp::ModuleInstance* Instance, bool ResetImageTransformation = false) const;
 		void OnResumeImageCapturing(DynExp::ModuleInstance* Instance) const;
 		void OnAutofocusClicked(DynExp::ModuleInstance* Instance, bool Checked) const;
