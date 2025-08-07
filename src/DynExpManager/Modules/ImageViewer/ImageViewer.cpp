@@ -577,6 +577,9 @@ namespace DynExpModule::ImageViewer
 		Instance->UnlockObject(ModuleData->Focus);
 		Instance->UnlockObject(ModuleData->Communicator);
 
+		SetFilenameEvent::Deregister(*this);
+		TriggerEvent::Deregister(*this);
+		StopEvent::Deregister(*this);
 		PauseImageCapturingEvent::Deregister(*this);
 		ResumeImageCapturingEvent::Deregister(*this);
 		AutofocusEvent::Deregister(*this);
