@@ -217,21 +217,21 @@ namespace DynExpModule::LaserControl
 		Instance->UnlockObject(ModuleData->GetLaser());
 	}
 
-	void LaserControl::OnEnableClicked(DynExp::ModuleInstance* Instance) const
+	void LaserControl::OnEnableClicked(DynExp::ModuleInstance* Instance, bool) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserControl>(Instance->ModuleDataGetter());
 
 		ModuleData->GetLaser()->Enable();
 	}
 
-	void LaserControl::OnDisableClicked(DynExp::ModuleInstance* Instance) const
+	void LaserControl::OnDisableClicked(DynExp::ModuleInstance* Instance, bool) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserControl>(Instance->ModuleDataGetter());
 
 		ModuleData->GetLaser()->Disable();
 	}
 
-	void LaserControl::OnScanToggled(DynExp::ModuleInstance* Instance) const
+	void LaserControl::OnScanToggled(DynExp::ModuleInstance* Instance, bool) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserControl>(Instance->ModuleDataGetter());
 

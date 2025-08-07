@@ -265,6 +265,7 @@ namespace DynExpInstr
 		virtual double GetMinBandwidth() const;
 		virtual double GetMaxBandwidth() const;
 		virtual double GetMaxRate() const;
+		virtual double GetModeHopFreeTuningRange() const;
 
 		// Logical const-ness: const member functions to allow inserting tasks into task queue.
 		virtual void SetFrequency(double Frequency, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NetworkLaserTasks::SetFrequencyTask>(Frequency, CallbackFunc); }
