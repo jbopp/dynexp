@@ -87,8 +87,6 @@ namespace DynExpInstr
 		UpdateFuncImpl(dispatch_tag<UpdateTask>(), Instance);
 	}
 
-	// specific tasks that appear in RPC protocol
-
 	DynExp::TaskResultType NetworkLaserTasks::SetFrequencyTask::RunChild(DynExp::InstrumentInstance& Instance)
 	{
 		StubPtrType<DynExpProto::NetworkLaser::NetworkLaser> StubPtr;
@@ -169,14 +167,13 @@ namespace DynExpInstr
 		return {};
 	}
 
-
 	DynExp::TaskResultType NetworkLaserTasks::EnableTask::RunChild(DynExp::InstrumentInstance& Instance)
 	{
 		StubPtrType<DynExpProto::NetworkLaser::NetworkLaser> StubPtr;
 		{
 			auto InstrData = DynExp::dynamic_InstrumentData_cast<NetworkLaser>(Instance.InstrumentDataGetter());
 			StubPtr = InstrData->template GetStub<DynExpProto::NetworkLaser::NetworkLaser>();
-		}
+		} // InstrData unlocked here.
 
 		InvokeStubFunc(StubPtr, &DynExpProto::NetworkLaser::NetworkLaser::Stub::Enable, {});
 
@@ -310,6 +307,13 @@ namespace DynExpInstr
 		auto InstrData = DynExp::dynamic_InstrumentData_cast<NetworkLaser>(GetInstrumentData());
 
 		return InstrData->GetMaxRate();
+	}
+
+	double NetworkLaser::GetModeHopFreeTuningRange() const
+	{
+		auto InstrData = DynExp::dynamic_InstrumentData_cast<NetworkLaser>(GetInstrumentData());
+
+		return InstrData->GetModeHopFreeTuningRange();
 	}
 
 	void NetworkLaser::ResetImpl(dispatch_tag<gRPCInstrument<Laser, 0, DynExpProto::NetworkLaser::NetworkLaser>>)

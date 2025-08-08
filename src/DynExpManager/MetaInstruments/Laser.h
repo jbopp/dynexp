@@ -135,7 +135,6 @@ namespace DynExpInstr
 		auto GetLaserState() const noexcept { return GetLaserStateChild(); }
 		
 	private:
-		
 		void ResetImpl(dispatch_tag<InstrumentDataBase>) override final;
 		virtual void ResetImpl(dispatch_tag<LaserData>) {};					//!< @copydoc ResetImpl(dispatch_tag<DynExp::InstrumentDataBase>)
 
@@ -147,10 +146,9 @@ namespace DynExpInstr
 		///@}
 
 		double Frequency = 0.0;				//!< Current frequency 
-		double Intensity = 0.0;				//!< Current intensity at SHG output
+		double Intensity = 0.0;				//!< Current intensity
 		double ScanRange = 0.0;				//!< Current scan range
 		double ScanRate = 0.0;				//!< Current scan rate
-		
 	};
 
 	/**
