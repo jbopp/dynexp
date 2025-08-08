@@ -69,6 +69,7 @@ namespace DynExpModule::LaserControl
 			const QSignalBlocker Blocker(ui.SBScanRange);
 			ui.SBScanRange->setValue(ModuleData->ScanRange * 1e-9);
 		}
+
 		if (!ui.SBScanRate->hasFocus())
 		{
 			const QSignalBlocker Blocker(ui.SBScanRate);
@@ -167,7 +168,6 @@ namespace DynExpModule::LaserControl
 		Connect(Widget->GetUI().action_Enable, &QAction::triggered, this, &LaserControl::OnEnableClicked);
 		Connect(Widget->GetUI().action_Disable, &QAction::triggered, this, &LaserControl::OnDisableClicked);
 		Connect(Widget->GetUI().action_EnableScan, &QAction::toggled, this, &LaserControl::OnScanToggled);
-
 		Connect(Widget->GetUI().SBFrequency, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &LaserControl::OnFrequencyValueChanged);
 		Connect(Widget->GetUI().SBWavelength, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &LaserControl::OnWavelengthValueChanged);
 		Connect(Widget->GetUI().SBIntensity, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &LaserControl::OnIntensityValueChanged);

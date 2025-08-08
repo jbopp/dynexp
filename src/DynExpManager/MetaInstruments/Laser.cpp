@@ -28,8 +28,8 @@ namespace DynExpInstr
 	{
 		double CurrentFrequency = 0.0;		
 		double CurrentIntensity = 0.0;		
-		double ScanRange = 28 *1e9;				
-		double ScanRate = 4 *1e9;				
+		double ScanRange = 0.0;				
+		double ScanRate = 0.0;				
 
 		ResetImpl(dispatch_tag<LaserData>());
 	}

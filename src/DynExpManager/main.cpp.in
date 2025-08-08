@@ -104,7 +104,6 @@
 // Experiment modules
 #include "Modules/WidefieldMicroscope/WidefieldMicroscope.h"
 #include "Modules/ODMR/ODMR.h"
-#include "Modules/PLE/PLE.h"
 
 /**
  * @brief %DynExpManager's main entry point
@@ -202,7 +201,6 @@ int main(int argc, char *argv[])
 		// Experiments
 		DynExpModule::Widefield::WidefieldMicroscope,
 		DynExpModule::ODMR::ODMR
-		DynExpModule::PLE::PLE
 	> ModuleLib;
 
 	int ErrorReturnCode = Util::DynExpErrorCodes::GeneralError;
