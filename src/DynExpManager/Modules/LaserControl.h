@@ -131,15 +131,14 @@ namespace DynExpModule::LaserControl
 		void OnInit(DynExp::ModuleInstance* Instance) const override final;
 		void OnExit(DynExp::ModuleInstance* Instance) const override final;
 
+		void OnEnableClicked(DynExp::ModuleInstance* Instance, bool) const;
+		void OnDisableClicked(DynExp::ModuleInstance* Instance, bool) const;
+		void OnScanToggled(DynExp::ModuleInstance* Instance, bool) const;		
 		void OnFrequencyValueChanged(DynExp::ModuleInstance* Instance, const double Frequency) const;
 		void OnWavelengthValueChanged(DynExp::ModuleInstance* Instance, const double Wavelength) const;
 		void OnIntensityValueChanged(DynExp::ModuleInstance* Instance, const double Intensity) const;
 		void OnScanRangeValueChanged(DynExp::ModuleInstance* Instance, const double ScanRange) const;
 		void OnScanRateValueChanged(DynExp::ModuleInstance* Instance, const double ScanRate) const;
-
-		void OnEnableClicked(DynExp::ModuleInstance* Instance, bool) const;
-		void OnDisableClicked(DynExp::ModuleInstance* Instance, bool) const;
-		void OnScanToggled(DynExp::ModuleInstance* Instance, bool) const;
 
 		size_t NumFailedUpdateAttempts = 0;
 	};
