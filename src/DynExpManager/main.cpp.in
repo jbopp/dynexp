@@ -94,6 +94,7 @@
 #include "Modules/NetworkDigitalOutModule.h"
 #include "Modules/NetworkTimeTaggerModule.h"
 #include "Modules/OutputPortWriter.h"
+#include "Modules/PLE/PLE.h"
 #include "Modules/SignalDesigner.h"
 #include "Modules/SignalPlotter.h"
 #include "Modules/SpectrumViewer/SpectrumViewer.h"
@@ -191,6 +192,7 @@ int main(int argc, char *argv[])
 		DynExpModule::NetworkDigitalOut,
 		DynExpModule::NetworkTimeTagger,
 		DynExpModule::OutputPortWriter,
+		DynExpModule::PLE::PLE,
 		DynExpModule::SignalDesigner,
 		DynExpModule::SignalPlotter,
 		DynExpModule::SpectrumViewer::SpectrumViewer,
@@ -201,6 +203,7 @@ int main(int argc, char *argv[])
 		// Experiments
 		DynExpModule::Widefield::WidefieldMicroscope,
 		DynExpModule::ODMR::ODMR
+
 	> ModuleLib;
 
 	int ErrorReturnCode = Util::DynExpErrorCodes::GeneralError;

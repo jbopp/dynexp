@@ -142,4 +142,3 @@ namespace DynExpModule::LaserControl
 
 		size_t NumFailedUpdateAttempts = 0;
 	};
-}
