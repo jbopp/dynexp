@@ -26,6 +26,34 @@ namespace DynExpInstr
 		static void import();
 
 		/**
+		 * @brief Default-constructs a PyDataStreamInstrument object.
+		*/
+		PyDataStreamInstrument() noexcept = default;
+
+		/** @name Not mapped to Python
+		 * These functions cannot be accessed through the Python interface.
+		*/
+		///@{
+		/**
+		 * @brief Constructs a PyDataStreamInstrument object.
+		 * @param IsTimeUsed @copydoc #IsTimeUsed
+		 * @param ValueUnit @copydoc #ValueUnit
+		*/
+		PyDataStreamInstrument(bool IsTimeUsed, DataStreamInstrumentData::UnitType ValueUnit) noexcept
+			: IsTimeUsed(IsTimeUsed), ValueUnit(ValueUnit) {}
+
+		/**
+		 * @brief Resets #ShouldClearFlag to false.
+		*/
+		void Cleared() { ShouldClearFlag = false; }
+
+		/**
+		 * @brief Getter for #ShouldClearFlag.
+		*/
+		auto ShouldCLear() const noexcept { return ShouldClearFlag; }
+		///@}
+
+		/**
 		 * @brief Allows to calculate the ID of the last consumed sample based on the amount of samples consumed from the stream.
 		 * @param NumConsumedSamples Number of samples consumed from @p Samples 
 		 * @return ID of the last consumed sample
@@ -33,14 +61,20 @@ namespace DynExpInstr
 		size_t CalcLastConsumedSampleID(size_t NumConsumedSamples);
 
 		/**
+		 * @brief Requests a call to DataStreamBase::Clear() on the related data stream instrument.
+		 * Sets #ShouldClearFlag to true.
+		*/
+		void Clear() { ShouldClearFlag = true; }
+
+		/**
 		 * @brief Contains the result of DynExpInstr::DataStreamBase::IsBasicSampleTimeUsed().
 		*/
-		bool IsTimeUsed{};
+		bool IsTimeUsed{ false };
 		
 		/**
 		 * @brief Refer to DynExpInstr::DataStreamInstrumentData::UnitType.
 		*/
-		DataStreamInstrumentData::UnitType ValueUnit{DataStreamInstrumentData::UnitType::Arbitrary};
+		DataStreamInstrumentData::UnitType ValueUnit{ DataStreamInstrumentData::UnitType::Arbitrary };
 
 		/**
 		 * @brief Contains the result of DynExpInstr::DataStreamBase::GetStreamSizeRead().
@@ -61,5 +95,11 @@ namespace DynExpInstr
 		 * @brief Samples of the data stream instrument
 		*/
 		DataStreamBase::BasicSampleListType Samples;
+
+	private:
+		/**
+		 * @brief Indicates whether DataStreamBase::Clear() should be called on the related data stream instrument.
+		*/
+		bool ShouldClearFlag{ false };
 	};
 }

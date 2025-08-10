@@ -188,7 +188,7 @@ namespace DynExpModule::SpectrumViewer
 		void OnExposureTimeChanged(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnLowerLimitChanged(DynExp::ModuleInstance* Instance, double Value) const;
 		void OnUpperLimitChanged(DynExp::ModuleInstance* Instance, double Value) const;
-		void OnSetFilename(DynExp::ModuleInstance* Instance, std::string SaveFilename) const;
+		void OnSetFilename(DynExp::ModuleInstance* Instance, const std::string& SaveFilename) const;
 		void OnTrigger(DynExp::ModuleInstance* Instance) const;
 		void OnStop(DynExp::ModuleInstance* Instance) const;
 		void OnPauseSpectrumRecording(DynExp::ModuleInstance* Instance) const;

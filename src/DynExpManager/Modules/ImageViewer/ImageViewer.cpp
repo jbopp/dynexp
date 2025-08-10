@@ -647,7 +647,7 @@ namespace DynExpModule::ImageViewer
 			ModuleData->Camera->StopCapturing();
 	}
 
-	void ImageViewer::OnSetFilename(DynExp::ModuleInstance* Instance, std::string SaveFilename) const
+	void ImageViewer::OnSetFilename(DynExp::ModuleInstance* Instance, const std::string& SaveFilename) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<ImageViewer>(Instance->ModuleDataGetter());
 

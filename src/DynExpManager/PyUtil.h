@@ -96,6 +96,12 @@ namespace Util
 		}
 
 		/**
+		 * @brief Evaluates this @p PyObject instance to true if #Object is not nullptr and
+		 * if the wrapped object is not pybind11::none.
+		*/
+		explicit operator bool() const noexcept { return Object && !Object->is_none(); }
+
+		/**
 		 * @brief Returns the wrapped @p pybind11::object
 		 * @return Owned object or nullptr if no object is owned
 		*/

@@ -18,7 +18,8 @@ PYBIND11_EMBEDDED_MODULE(PyModuleStreamManipulator, m)
 		.def_readonly("ModuleID", &PyStreamManipulatorInputData::ModuleID)
 		.def_readonly("LastExecutionTime", &PyStreamManipulatorInputData::LastExecutionTime)
 		.def_readwrite("InputStreams", &PyStreamManipulatorInputData::InputStreams)
-		.def_readwrite("OutputStreams", &PyStreamManipulatorInputData::OutputStreams);
+		.def_readwrite("OutputStreams", &PyStreamManipulatorInputData::OutputStreams)
+		.def_readonly("SaveFilename",  & PyStreamManipulatorInputData::SaveFilename);
 
 	py::class_<PyStreamManipulatorOutputData>(m, "OutputData")
 		.def(py::init<>())
@@ -36,6 +37,8 @@ namespace DynExpModule
 
 		InputStreams.clear();
 		OutputStreams.clear();
+
+		SaveFilename.clear();
 	}
 
 	void PyStreamManipulatorOutputData::Reset()
@@ -79,7 +82,7 @@ namespace DynExpModule
 			if ((ManipulatorPyFuncOutput.MaxNextExecutionDelay.count() && now - LastManipulatorPyFuncExecution >= ManipulatorPyFuncOutput.MaxNextExecutionDelay) ||
 				(IsNewDataAvlbl && now - LastManipulatorPyFuncExecution >= ManipulatorPyFuncOutput.MinNextExecutionDelay) ||
 				!LastManipulatorPyFuncExecution.time_since_epoch().count())
-				Step(ModuleData);
+				Step(ModuleData, ManipulatorPyFuncStep);
 
 			NumFailedUpdateAttempts = 0;
 		} // ModuleData and instruments' data unlocked here.
@@ -100,6 +103,9 @@ namespace DynExpModule
 		ManipulatorPyFuncInit.Reset();
 		ManipulatorPyFuncStep.Reset();
 		ManipulatorPyFuncExit.Reset();
+		ManipulatorPyFuncStart.Reset();
+		ManipulatorPyFuncStop.Reset();
+		ManipulatorPyFuncTrigger.Reset();
 		ManipulatorPyFuncInput.Reset();
 		ManipulatorPyFuncOutput.Reset();
 
@@ -107,7 +113,7 @@ namespace DynExpModule
 		LastManipulatorPyFuncExecution = {};
 	}
 
-	void StreamManipulator::Step(Util::SynchronizedPointer<ModuleDataType>& ModuleData)
+	void StreamManipulator::Step(Util::SynchronizedPointer<ModuleDataType>& ModuleData, const PyFuncType& StepFunction, bool UpdateLastExecutionTime) const
 	{
 		for (size_t i = 0; i < ManipulatorPyFuncInput.InputStreams.size(); ++i)
 		{
@@ -138,12 +144,13 @@ namespace DynExpModule
 		{
 			py::gil_scoped_acquire acquire;
 
-			auto PyResult = ManipulatorPyFuncStep(&ManipulatorPyFuncInput);
+			auto PyResult = StepFunction(&ManipulatorPyFuncInput);
 			if (!PyResult.is_none())
 				FuncOutput = PyResult.cast<PyStreamManipulatorOutputData>();
 		} // GIL released here.
 		
-		LastManipulatorPyFuncExecution = std::chrono::system_clock::now();
+		if (UpdateLastExecutionTime)
+			LastManipulatorPyFuncExecution = std::chrono::system_clock::now();
 		ManipulatorPyFuncOutput.MinNextExecutionDelay = FuncOutput.MinNextExecutionDelay;
 		ManipulatorPyFuncOutput.MaxNextExecutionDelay = FuncOutput.MaxNextExecutionDelay;
 
@@ -159,12 +166,24 @@ namespace DynExpModule
 				ManipulatorPyFuncOutput.LastConsumedSampleIDsPerInputStream[i] = FuncOutput.LastConsumedSampleIDsPerInputStream[i];
 			else
 				ManipulatorPyFuncOutput.LastConsumedSampleIDsPerInputStream[i] = SampleStream->GetNumSamplesWritten();
+
+			if (ManipulatorPyFuncInput.InputStreams[i].ShouldCLear())
+			{
+				SampleStream->Clear();
+				ManipulatorPyFuncInput.InputStreams[i].Cleared();
+			}
 		}
 		for (size_t i = 0; i < ManipulatorPyFuncInput.OutputStreams.size(); ++i)
 		{
 			auto& Instrument = ModuleData->GetOutputDataStreams()[i];
 			auto InstrData = DynExp::dynamic_InstrumentData_cast<DynExpInstr::DataStreamInstrument>(Instrument->GetInstrumentData());
 			auto SampleStream = InstrData->GetCastSampleStream<SampleStreamType>();
+
+			if (ManipulatorPyFuncInput.OutputStreams[i].ShouldCLear())
+			{
+				SampleStream->Clear();
+				ManipulatorPyFuncInput.OutputStreams[i].Cleared();
+			}
 
 			if (!ManipulatorPyFuncInput.OutputStreams[i].Samples.empty())
 			{
@@ -176,11 +195,15 @@ namespace DynExpModule
 
 	void StreamManipulator::OnInit(DynExp::ModuleInstance* Instance) const
 	{
+		SetFilenameEvent::Register(*this, &StreamManipulator::OnSetFilename);
+
 		auto ModuleParams = DynExp::dynamic_Params_cast<StreamManipulator>(Instance->ParamsGetter());
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<StreamManipulator>(Instance->ModuleDataGetter());
 
 		Instance->LockObject(ModuleParams->InputDataStreams, ModuleData->GetInputDataStreams());
 		Instance->LockObject(ModuleParams->OutputDataStreams, ModuleData->GetOutputDataStreams());
+		if (ModuleParams->Communicator.ContainsID())
+			Instance->LockObject(ModuleParams->Communicator, ModuleData->GetCommunicator());
 
 		auto PythonCode = Util::ReadFromFile(ModuleParams->PythonCodePath.GetPath());
 		PythonCode = std::regex_replace(PythonCode, std::regex("\r\n"), "\n");
@@ -196,12 +219,28 @@ namespace DynExpModule
 			Util::PyTab + "if 'on_step' in locals() and callable(on_step):\n" +
 			Util::PyTab + Util::PyTab + ManipulatorPyFuncName + ".step = on_step\n" +
 			Util::PyTab + "if 'on_exit' in locals() and callable(on_exit):\n" +
-			Util::PyTab + Util::PyTab + ManipulatorPyFuncName + ".exit = on_exit");
+			Util::PyTab + Util::PyTab + ManipulatorPyFuncName + ".exit = on_exit\n" +
+			Util::PyTab + "if 'on_start' in locals() and callable(on_start):\n" +
+			Util::PyTab + Util::PyTab + ManipulatorPyFuncName + ".start = on_start\n" +
+			Util::PyTab + "if 'on_stop' in locals() and callable(on_stop):\n" +
+			Util::PyTab + Util::PyTab + ManipulatorPyFuncName + ".stop = on_stop\n" +
+			Util::PyTab + "if 'on_trigger' in locals() and callable(on_trigger):\n" +
+			Util::PyTab + Util::PyTab + ManipulatorPyFuncName + ".trigger = on_trigger");
 		auto ManipulatorPyFunc = py::eval(ManipulatorPyFuncName);
 		ManipulatorPyFunc();
 		ManipulatorPyFuncInit = py::hasattr(ManipulatorPyFunc, "init") ? py::getattr(ManipulatorPyFunc, "init") : py::none();
 		ManipulatorPyFuncStep = py::hasattr(ManipulatorPyFunc, "step") ? py::getattr(ManipulatorPyFunc, "step") : py::none();
 		ManipulatorPyFuncExit = py::hasattr(ManipulatorPyFunc, "exit") ? py::getattr(ManipulatorPyFunc, "exit") : py::none();
+		ManipulatorPyFuncStart = py::hasattr(ManipulatorPyFunc, "start") ? py::getattr(ManipulatorPyFunc, "start") : py::none();
+		ManipulatorPyFuncStop = py::hasattr(ManipulatorPyFunc, "stop") ? py::getattr(ManipulatorPyFunc, "stop") : py::none();
+		ManipulatorPyFuncTrigger = py::hasattr(ManipulatorPyFunc, "trigger") ? py::getattr(ManipulatorPyFunc, "trigger") : py::none();
+
+		if (ModuleParams->Communicator.ContainsID() && ManipulatorPyFuncStart)
+			StartEvent::Register(*this, &StreamManipulator::OnStart);
+		if (ModuleParams->Communicator.ContainsID() && ManipulatorPyFuncStop)
+			StopEvent::Register(*this, &StreamManipulator::OnStop);
+		if (ModuleParams->Communicator.ContainsID() && ManipulatorPyFuncTrigger)
+			TriggerEvent::Register(*this, &StreamManipulator::OnTrigger);
 
 		ManipulatorPyFuncInput.ModuleID = GetID();
 		for (size_t i = 0; i < ModuleData->GetInputDataStreams().GetList().size(); ++i)
@@ -229,11 +268,6 @@ namespace DynExpModule
 
 	void StreamManipulator::OnExit(DynExp::ModuleInstance* Instance) const
 	{
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<StreamManipulator>(Instance->ModuleDataGetter());
-
-		Instance->UnlockObject(ModuleData->GetInputDataStreams());
-		Instance->UnlockObject(ModuleData->GetOutputDataStreams());
-
 		try 
 		{
 			py::gil_scoped_acquire acquire;
@@ -246,5 +280,42 @@ namespace DynExpModule
 			// since a failure of that is not considered a severe error.
 			Util::EventLog().Log("[StreamManipulator] Shutting down Python part of module \"" + GetObjectName() + "\" failed.", Util::ErrorType::Warning);
 		}
+
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<StreamManipulator>(Instance->ModuleDataGetter());
+
+		Instance->UnlockObject(ModuleData->GetInputDataStreams());
+		Instance->UnlockObject(ModuleData->GetOutputDataStreams());
+		Instance->UnlockObject(ModuleData->GetCommunicator());
+
+		SetFilenameEvent::Deregister(*this);
+		StartEvent::Deregister(*this);
+		StopEvent::Deregister(*this);
+		TriggerEvent::Deregister(*this);
+	}
+
+	void StreamManipulator::OnSetFilename(DynExp::ModuleInstance* Instance, const std::string& SaveFilename) const
+	{
+		ManipulatorPyFuncInput.SaveFilename = SaveFilename;
+	}
+
+	void StreamManipulator::OnStart(DynExp::ModuleInstance* Instance) const
+	{
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<StreamManipulator>(Instance->ModuleDataGetter());
+
+		Step(ModuleData, ManipulatorPyFuncStart, false);
+	}
+
+	void StreamManipulator::OnStop(DynExp::ModuleInstance* Instance) const
+	{
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<StreamManipulator>(Instance->ModuleDataGetter());
+
+		Step(ModuleData, ManipulatorPyFuncStop, false);
+	}
+
+	void StreamManipulator::OnTrigger(DynExp::ModuleInstance* Instance) const
+	{
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<StreamManipulator>(Instance->ModuleDataGetter());
+
+		Step(ModuleData, ManipulatorPyFuncTrigger, false);
 	}
 }

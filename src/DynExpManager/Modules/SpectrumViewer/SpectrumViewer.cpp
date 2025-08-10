@@ -413,7 +413,7 @@ namespace DynExpModule::SpectrumViewer
 			ModuleData->GetSpectrometer()->SetFrequencyRange(InstrData->GetCurrentLowerFrequency(), Value);
 	}
 
-	void SpectrumViewer::OnSetFilename(DynExp::ModuleInstance* Instance, std::string SaveFilename) const
+	void SpectrumViewer::OnSetFilename(DynExp::ModuleInstance* Instance, const std::string& SaveFilename) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<SpectrumViewer>(Instance->ModuleDataGetter());
 
