@@ -11,6 +11,9 @@
 #include "stdafx.h"
 #include "DynExpCore.h"
 #include "../MetaInstruments/FunctionGenerator.h"
+#include "../Instruments/InterModuleCommunicator.h"
+
+#include "CommonModuleEvents.h"
 
 namespace DynExpModule
 {
@@ -23,6 +26,7 @@ namespace DynExpModule
 		virtual ~ArbitraryFunctionFromCSVData() = default;
 
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::FunctionGenerator> FunctionGenerator;
+		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> Communicator;
 
 	private:
 		void ResetImpl(dispatch_tag<ModuleDataBase>) override final;
@@ -41,6 +45,8 @@ namespace DynExpModule
 
 		Param<DynExp::ObjectLink<DynExpInstr::FunctionGenerator>> FunctionGenerator = { *this, GetCore().GetInstrumentManager(),
 			"FunctionGenerator", "Function generator", "Underlying data stream instrument to be used as a function generator", DynExpUI::Icons::Instrument };
+		Param<DynExp::ObjectLink<DynExpInstr::InterModuleCommunicator>> Communicator = { *this, GetCore().GetInstrumentManager(),
+			"InterModuleCommunicator", "Inter-module communicator", "Inter-module communicator to control this module with", DynExpUI::Icons::Instrument, true };
 		Param<ParamsConfigDialog::TextType> CSVDataPath = { *this, "CSVDataPath", "CSV data path",
 			"Path to a CSV file containing the arbitrary function data as a single column (values) or as two columns (times;values)", true, "", DynExp::TextUsageType::Code };
 		Param<ParamsConfigDialog::NumberType> SkipLines = { *this, "SkipLines", "Skip lines",
@@ -106,5 +112,6 @@ namespace DynExpModule
 		// Events, run in module thread
 		void OnInit(DynExp::ModuleInstance* Instance) const override final;
 		void OnExit(DynExp::ModuleInstance* Instance) const override final;
+		void OnTrigger(DynExp::ModuleInstance* Instance) const;
 	};
 }
