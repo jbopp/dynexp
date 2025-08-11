@@ -217,14 +217,6 @@ namespace DynExpInstr
 		virtual double GetStepNanoMeterRatio() const noexcept { return 1; }
 
 		/**
-		 * @brief Determines the conversion factor between the type the underlying hardware expects (e.g. float with a specific precision)
-		 * and the internal PositionerStageData::PositionType (e.g. an integer) position and velocities.
-		 * @return Returns a factor positions and velocities have to be divided by before sending the values to
-		 * the hardware. This is useful if the underlying hardware e.g. operates with a floating point number as input value instead of an integer.
-		*/
-		virtual double GetInputValuePositionTypeRatio() const noexcept { return 1; }
-
-		/**
 		 * @brief Determines whether the underlying hardware expects SI units for positions
 		 * and velocities or arbitrary units.
 		 * @return Return true if the underlying hardware deals with SI units, false otherwise.

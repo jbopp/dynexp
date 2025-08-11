@@ -2,7 +2,7 @@
 
 /**
  * @file NP_Conex_CC.h
- * @brief Implementation of an instrument to control the Newport rotation stage with the Conex-CC controller.
+ * @brief Implementation of an instrument to control Newport stages with the Conex-CC controller.
 */
 
 #pragma once
@@ -58,14 +58,14 @@ namespace DynExpInstr
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
 		};
 
-		///@{
-		/// @brief In this task, some commands cannot be send right after each other to the controller. There has to be some waiting time in between. 
-		/// Therefore, this tasks calls the subtasks ResetTask, SetHomeExecutionTask and SetReadyTask in this order with a delay in between.
+		/**
+		 * @brief In this task, some commands cannot be send right after each other to the controller. There has to be some waiting time in between. 
+		 Therefore, this tasks calls the subtasks ResetTask, SetHomeExecutionTask and SetReadyTask in this order with a delay in between.
+		*/
 		class SetHomeTask final : public DynExp::TaskBase
 		{
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
 		};
-		///@}
 
 		class SetHomeExecutionTask final : public DynExp::TaskBase
 		{
@@ -77,9 +77,10 @@ namespace DynExpInstr
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
 		};
 
-		///@{
-		/// @brief In this task, some commands cannot be send right after each other to the controller. There has to be some waiting time in between. 
-		/// Therefore, this tasks calls the subtasks ResetTask, ReferenceExecutionTask and SetReadyTask in this order with a delay in between.
+		/**
+		 * @brief In this task, some commands cannot be send right after each other to the controller. There has to be some waiting time in between.
+		Therefore, this tasks calls the subtasks ResetTask, ReferenceExecutionTask and SetReadyTask in this order with a delay in between.
+		*/
 		class ReferenceTask final : public DynExp::TaskBase
 		{
 		public:
@@ -91,7 +92,6 @@ namespace DynExpInstr
 
 			const PositionerStage::DirectionType Direction;
 		};
-		///@}
 
 		class ReferenceExecutionTask final : public DynExp::TaskBase
 		{
@@ -115,9 +115,10 @@ namespace DynExpInstr
 			const PositionerStageData::PositionType Velocity;
 		};
 
-		///@{
-		/// @brief In this task, some commands cannot be send right after each other to the controller. There has to be some waiting time in between. 
-		/// Therefore, this tasks calls the subtasks StopMotionTask and MoveToHomeExecutionTask in this order with a delay in between.
+		/**
+		 * @brief In this task, some commands cannot be send right after each other to the controller. There has to be some waiting time in between. 
+		Therefore, this tasks calls the subtasks StopMotionTask and MoveToHomeExecutionTask in this order with a delay in between.
+		*/
 		class MoveToHomeTask final : public DynExp::TaskBase
 		{
 		public:
@@ -126,7 +127,6 @@ namespace DynExpInstr
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
 		};
-		///@}
 
 		class MoveToHomeExecutionTask final : public DynExp::TaskBase
 		{
@@ -138,9 +138,10 @@ namespace DynExpInstr
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
 		};
 
-		///@{
-		/// @brief In this task, some commands cannot be send right after each other to the controller. There has to be some waiting time in between. 
-		/// Therefore, this tasks calls the subtasks StopMotionTask and MoveAbsoluteExecutionTask in this order with a delay in between.
+		/**
+		 * @brief In this task, some commands cannot be send right after each other to the controller. There has to be some waiting time in between. 
+		Therefore, this tasks calls the subtasks StopMotionTask and MoveAbsoluteExecutionTask in this order with a delay in between.
+		*/
 		class MoveAbsoluteTask final : public DynExp::TaskBase
 		{
 		public:
@@ -152,7 +153,6 @@ namespace DynExpInstr
 
 			const PositionerStageData::PositionType Position;
 		};
-		///@}
 
 		class MoveAbsoluteExecutionTask final : public DynExp::TaskBase
 		{
@@ -167,9 +167,10 @@ namespace DynExpInstr
 
 		};
 
-		///@{
-		/// @brief In this task, some commands cannot be send right after each other to the controller. There has to be some waiting time in between. 
-		/// Therefore, this tasks calls the subtasks StopMotionTask and MoveRelativeExecutionTask in this order with a delay in between.
+		/**
+		 * @brief In this task, some commands cannot be send right after each other to the controller. There has to be some waiting time in between.
+		Therefore, this tasks calls the subtasks StopMotionTask and MoveRelativeExecutionTask in this order with a delay in between.
+		*/
 		class MoveRelativeTask final : public DynExp::TaskBase
 		{
 		public:
@@ -181,7 +182,6 @@ namespace DynExpInstr
 
 			const PositionerStageData::PositionType Position;
 		};
-		///@}
 
 		class MoveRelativeExecutionTask final : public DynExp::TaskBase
 		{
@@ -212,7 +212,7 @@ namespace DynExpInstr
 
 		/**
 		 * @brief Interprets and queries the controller's internal state based on the TS command byte code.
-		 */
+		*/
 		struct Conex_CCStatusType
 		{
 			constexpr void Set(uint8_t ByteCode) noexcept { this->ByteCode = ByteCode; }
@@ -220,7 +220,7 @@ namespace DynExpInstr
 			/** @name Newport Conex-CC controller states
 			 * These methods identify the current internal state of the CONEX-CC motion controller,
 			 * based on the `ByteCode` value returned by the `TS` command.
-			 */
+			*/
 			///@{
 			// NOT REFERENCED STATES
 			/// @brief Controller is NOT REFERENCED, entered from RESET. (`ByteCode == 0x0A`)
@@ -370,7 +370,7 @@ namespace DynExpInstr
 		virtual PositionerStageData::PositionType GetMinVelocity() const noexcept override { return 0; }
 		virtual PositionerStageData::PositionType GetMaxVelocity() const noexcept override { return 1e17; }
 		virtual PositionerStageData::PositionType GetDefaultVelocity() const noexcept override { return 10e6; } // The maximum velocity is 1e11 * GetInputValuePositionTypeRatio().
-		virtual double GetInputValuePositionTypeRatio() const noexcept { return 1e6; } // the controller expects a float as position with 6 digits of precision
+		double GetInputValuePositionTypeRatio() const noexcept { return 1e6; } // the controller expects a float as position with 6 digits of precision
 
 		virtual std::chrono::milliseconds GetTaskQueueDelay() const override { return std::chrono::milliseconds(1000); }
 

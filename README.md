@@ -51,7 +51,7 @@ Currently supported hardware:
 - Imaging
 	- Teledyne Photometrics PVCam
 - Motion Control
-	- Nenion Leakvalve F3 
+	- Nenion Leakvalve F3
 	- Newport Conex-CC Controller
 	- Physik Instrumente (PI) C-862
 	- SmarAct MCS2
