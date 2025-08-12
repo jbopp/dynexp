@@ -20,6 +20,6 @@ target_sources(DynExp PRIVATE "Trajectory1D.cpp" "Trajectory1D.h" "Trajectory1D.
 
 add_subdirectory(ImageViewer)
 add_subdirectory(ODMR)
-add_subdirectory(PLE)
+add_subdirectory(LaserScanningSpectroscopy)
 add_subdirectory(SpectrumViewer)
 add_subdirectory(WidefieldMicroscope)

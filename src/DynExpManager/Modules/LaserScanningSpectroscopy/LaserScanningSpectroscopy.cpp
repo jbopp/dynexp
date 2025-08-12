@@ -1,12 +1,12 @@
 // This file is part of DynExp.
 
 #include "stdafx.h"
-#include "moc_PLE.cpp"
-#include "PLE.h"
+#include "moc_LaserScanningSpectroscopy.cpp"
+#include "LaserScanningSpectroscopy.h"
 
-namespace DynExpModule::PLE
+namespace DynExpModule::LaserScanningSpectroscopy
 {
-	PLEWidget::PLEWidget(PLE& Owner, QModuleWidget* parent)
+	LaserScanningSpectroscopyWidget::LaserScanningSpectroscopyWidget(LaserScanningSpectroscopy& Owner, QModuleWidget* parent)
 		: QModuleWidget(Owner, parent)
 	{
 		ui.setupUi(this);
@@ -16,9 +16,8 @@ namespace DynExpModule::PLE
 		this->addAction(ui.action_Stop);
 	}
 
-	void PLEWidget::InitializeUI(Util::SynchronizedPointer<PLEData>& ModuleData)
+	void LaserScanningSpectroscopyWidget::InitializeUI(Util::SynchronizedPointer<LaserScanningSpectroscopyData>& ModuleData)
 		{
-		//will ich Frequenz in THz oder GHz angeben?
 		ui.SBLowerFrequencyLimit->setRange(ModuleData->GetLaser()->GetMinFrequency() * 1e-9, ModuleData->GetLaser()->GetMaxFrequency() * 1e-9);
 		ui.SBLowerFrequencyLimit->setSuffix(" G" + QString(DynExpInstr::LaserData::FrequencyUnitTypeToStr(ModuleData->GetLaser()->GetFrequencyUnit())));
 		ui.SBLowerFrequencyLimit->setValue(ModuleData->GetLaser()->GetMinFrequency() * 1e-9);
@@ -31,30 +30,24 @@ namespace DynExpModule::PLE
 		ui.SBCenterFrequency->setRange(ModuleData->GetLaser()->GetMinFrequency() * 1e-9 + 0.5 * ModuleData->GetLaser()->GetModeHopFreeTuningRange(), ModuleData->GetLaser()->GetMinFrequency() * 1e-9 - 0.5 * ModuleData->GetLaser()->GetModeHopFreeTuningRange());
 		ui.SBCenterFrequency->setSuffix(" G" + QString(DynExpInstr::LaserData::FrequencyUnitTypeToStr(ModuleData->GetLaser()->GetFrequencyUnit())));
 		ui.SBCenterFrequency->setValue(ModuleData->GetLaser()->GetMinFrequency() * 1e-9 + 0.5 * ModuleData->GetLaser()->GetModeHopFreeTuningRange());
-		ui.SBRepetitions->setRange(1, 100);
+		ui.SBRepetitions->setRange(1, 10000);
 		ui.SBRepetitions->setValue(1);
-		ui.SBStepsize->setRange(0.4, 1.6);
-		ui.SBStepsize->setSuffix(" G" + QString(DynExpInstr::LaserData::FrequencyUnitTypeToStr(ModuleData->GetLaser()->GetFrequencyUnit())));
-		ui.SBStepsize->setValue(0.4);
-		ui.SBNumberOfSteps->setRange(1, 100);
+		ui.SBStepsize->setRange(1, 4000);
+		ui.SBStepsize->setSuffix(" M" + QString(DynExpInstr::LaserData::FrequencyUnitTypeToStr(ModuleData->GetLaser()->GetFrequencyUnit())));
+		ui.SBStepsize->setValue(1000);
+		ui.SBNumberOfSteps->setRange(1, 10000);
 		ui.SBNumberOfSteps->setValue(ui.SBFrequencyRange->value() / ui.SBStepsize->value());
 	}
-	/*
-	std::filesystem::path PLEData::GetAutoMeasureSavePath() const
-	{
-		return CurrentCellID.Valid ?
-			(AutoMeasureSavePath.parent_path() / CurrentCellID.IDString / AutoMeasureSavePath.filename()) : AutoMeasureSavePath;
-	}*/
 
-	void PLEData::ResetImpl(dispatch_tag<QModuleDataBase>)
+	void LaserScanningSpectroscopyData::ResetImpl(dispatch_tag<QModuleDataBase>)
 	{
 		Init();
 	}
 
-	void PLEData::Init()
+	void LaserScanningSpectroscopyData::Init()
 	{
 		UIInitialized = false;
-		PLEState = StateType::Ready;
+		LaserScanningSpectroscopyState = StateType::Ready;
 		LowerFrequencyLimit = 0.0;
 		UpperFrequencyLimit = 0.0;
 		FrequencyRange = 0.0;
@@ -68,22 +61,21 @@ namespace DynExpModule::PLE
 		ScanBackAndForth = false;
 		StepCount = 0;
 		RepCount = 0;
-		PLEProgress = 0.0;
-		//AutoMeasureSavePath.clear();
+		LaserScanningSpectroscopyProgress = 0.0;
 	}
 
-	/*PLE::PLE(const std::thread::id OwnerThreadID, DynExp::ParamsBasePtrType&& Params)
+	LaserScanningSpectroscopy::LaserScanningSpectroscopy(const std::thread::id OwnerThreadID, DynExp::ParamsBasePtrType&& Params)
 		: QModuleBase(OwnerThreadID, std::move(Params)),
-		StateMachine(ReadyState, WaitForSettingFrequencyState, PLEStepState, WaitForCapturingState),
+		StateMachine(ReadyState, WaitForSettingFrequencyState, FrequencyStepState, WaitForCapturingState),
 		PauseUpdatingUI(std::make_shared<std::atomic<bool>>(false))
 	{
-	}*/
+	}
 
-	PLE::~PLE()
+	LaserScanningSpectroscopy::~LaserScanningSpectroscopy()
 	{
 	}
 
-	Util::DynExpErrorCodes::DynExpErrorCodes PLE::ModuleMainLoop(DynExp::ModuleInstance& Instance)
+	Util::DynExpErrorCodes::DynExpErrorCodes LaserScanningSpectroscopy::ModuleMainLoop(DynExp::ModuleInstance& Instance)
 	{
 		try
 		{
@@ -101,39 +93,39 @@ namespace DynExpModule::PLE
 		return Util::DynExpErrorCodes::NoError;
 	}
 
-	void PLE::ResetImpl(dispatch_tag<QModuleBase>)
+	void LaserScanningSpectroscopy::ResetImpl(dispatch_tag<QModuleBase>)
 	{
 		StateMachine.SetCurrentState(StateType::Ready);
 
 		NumFailedUpdateAttempts = 0;
 	}
 
-	std::unique_ptr<DynExp::QModuleWidget> PLE::MakeUIWidget()
+	std::unique_ptr<DynExp::QModuleWidget> LaserScanningSpectroscopy::MakeUIWidget()
 	{
-		auto Widget = std::make_unique<PLEWidget>(*this);
+		auto Widget = std::make_unique<LaserScanningSpectroscopyWidget>(*this);
 
-		Connect(Widget->GetUI().action_Start, &QAction::triggered, this, &PLE::OnStartClicked);
-		Connect(Widget->GetUI().action_Stop, &QAction::triggered, this, &PLE::OnStopClicked);
+		Connect(Widget->GetUI().action_Start, &QAction::triggered, this, &LaserScanningSpectroscopy::OnStartClicked);
+		Connect(Widget->GetUI().action_Stop, &QAction::triggered, this, &LaserScanningSpectroscopy::OnStopClicked);
 
-		Connect(Widget->GetUI().SBLowerFrequencyLimit, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &PLE::OnLowerFrequencyLimitChanged);
-		Connect(Widget->GetUI().SBUpperFrequencyLimit, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &PLE::OnUpperFrequencyLimitChanged);
-		Connect(Widget->GetUI().SBFrequencyRange, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &PLE::OnFrequencyRangeChanged);
-		Connect(Widget->GetUI().SBCenterFrequency, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &PLE::OnFrequencyCenterChanged);
-		Connect(Widget->GetUI().SBStepsize, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &PLE::OnStepsizeChanged);
-		Connect(Widget->GetUI().SBNumberOfSteps, QOverload<int>::of(&QSpinBox::valueChanged), this, &PLE::OnNumberOfStepsChanged);
-		Connect(Widget->GetUI().SBRepetitions, QOverload<int>::of(&QSpinBox::valueChanged), this, &PLE::OnRepetitionsChanged);
-		Connect(Widget->GetUI().RBStartAtMinimum, &QRadioButton::toggled, this, &PLE::OnStartAtMinimumToggled);
-		Connect(Widget->GetUI().RBStartAtMaximum, &QRadioButton::toggled, this, &PLE::OnStartAtMaximumToggled);
-		Connect(Widget->GetUI().CBScanBackAndForth, &QCheckBox::toggled, this, &PLE::OnScanBackAndForthToggled);
-		//Connect(Widget->GetUI().LEAutoMeasureSavePath, &QLineEdit::textChanged, this, &PLE::OnAutoMeasureSavePathChanged);
+		Connect(Widget->GetUI().SBLowerFrequencyLimit, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &LaserScanningSpectroscopy::OnLowerFrequencyLimitChanged);
+		Connect(Widget->GetUI().SBUpperFrequencyLimit, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &LaserScanningSpectroscopy::OnUpperFrequencyLimitChanged);
+		Connect(Widget->GetUI().SBFrequencyRange, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &LaserScanningSpectroscopy::OnFrequencyRangeChanged);
+		Connect(Widget->GetUI().SBCenterFrequency, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &LaserScanningSpectroscopy::OnFrequencyCenterChanged);
+		Connect(Widget->GetUI().SBStepsize, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &LaserScanningSpectroscopy::OnStepsizeChanged);
+		Connect(Widget->GetUI().SBNumberOfSteps, QOverload<int>::of(&QSpinBox::valueChanged), this, &LaserScanningSpectroscopy::OnNumberOfStepsChanged);
+		Connect(Widget->GetUI().SBRepetitions, QOverload<int>::of(&QSpinBox::valueChanged), this, &LaserScanningSpectroscopy::OnRepetitionsChanged);
+		Connect(Widget->GetUI().RBStartAtMinimum, &QRadioButton::toggled, this, &LaserScanningSpectroscopy::OnStartAtMinimumToggled);
+		Connect(Widget->GetUI().RBStartAtMaximum, &QRadioButton::toggled, this, &LaserScanningSpectroscopy::OnStartAtMaximumToggled);
+		Connect(Widget->GetUI().CBScanBackAndForth, &QCheckBox::toggled, this, &LaserScanningSpectroscopy::OnScanBackAndForthToggled);
+		Connect(Widget->GetUI().LEPath, &QLineEdit::textChanged, this, &LaserScanningSpectroscopy::OnPathChanged);
 
 		return Widget;
 	}
 
-	void PLE::UpdateUIChild(const ModuleBase::ModuleDataGetterType& ModuleDataGetter)
+	void LaserScanningSpectroscopy::UpdateUIChild(const ModuleBase::ModuleDataGetterType& ModuleDataGetter)
 	{ 
-		auto Widget = GetWidget<PLEWidget>();
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<PLE>(ModuleDataGetter());
+		auto Widget = GetWidget<LaserScanningSpectroscopyWidget>();
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(ModuleDataGetter());
 
 		if (!ModuleData->IsUIInitialized())
 		{
@@ -160,76 +152,74 @@ namespace DynExpModule::PLE
 		Widget->ui.SBRepetitions->setEnabled(Ready);
 
 		if (Ready)
-			Widget->ui.LPLEState->setText(" PLE state: Ready");
+			Widget->ui.LLaserScanningSpectroscopyState->setText(" LaserScanningSpectroscopy state: Ready");
 		else if (SettingFrequency)
-			Widget->ui.LPLEState->setText(" PLE state: Stabilizing at target frequency");
+			Widget->ui.LLaserScanningSpectroscopyState->setText(" LaserScanningSpectroscopy state: Stabilizing at target frequency");
 		else if (Capturing)
-			Widget->ui.LPLEState->setText(" PLE state: Capturing");
+			Widget->ui.LLaserScanningSpectroscopyState->setText(" LaserScanningSpectroscopy state: Capturing");
 		else
-			Widget->ui.LPLEState->setText(" PLE state: ");
+			Widget->ui.LLaserScanningSpectroscopyState->setText(" LaserScanningSpectroscopy state: ");
 
-		Widget->ui.PBProgress->setVisible(ModuleData->PLEState != StateType::Ready
-			&& ModuleData->PLEProgress > 0);
-		Widget->ui.PBProgress->setValue(ModuleData->PLEProgress > 0 ? Util::NumToT<int>(ModuleData->PLEProgress) : 0);
+		Widget->ui.PBLaserScanningSpectroscopyProgress->setVisible(ModuleData->LaserScanningSpectroscopyState != StateType::Ready
+			&& ModuleData->LaserScanningSpectroscopyProgress > 0);
+		Widget->ui.PBLaserScanningSpectroscopyProgress->setValue(ModuleData->LaserScanningSpectroscopyProgress > 0 ? Util::NumToT<int>(ModuleData->LaserScanningSpectroscopyProgress) : 0);
 	}
 
-	bool PLE::IsReadyState() const
+	bool LaserScanningSpectroscopy::IsReadyState() const
 	{
 		const auto CurrentState = StateMachine.GetCurrentState()->GetState();
 
 		return CurrentState == StateType::Ready;
 	}
 
-	bool PLE::IsSettingFrequencyState() const
+	bool LaserScanningSpectroscopy::IsSettingFrequencyState() const
 	{
 		const auto CurrentState = StateMachine.GetCurrentState()->GetState();
 
-		return CurrentState == StateType::PLEStep ||
-			CurrentState == StateType::LaserInit ||
+		return CurrentState == StateType::FrequencyStep ||
 			CurrentState == StateType::WaitForSettingFrequency;
 	}
 
-	bool PLE::IsCapturingState() const
+	bool LaserScanningSpectroscopy::IsCapturingState() const
 	{
 		const auto CurrentState = StateMachine.GetCurrentState()->GetState();
 
 		return CurrentState == StateType::WaitForCapturing;
 	}
-
-	/* 
-	void PLE::StartCapturing(Util::SynchronizedPointer<ModuleDataType>& ModuleData, const StartCapturingEvent& Event) const
+ 
+	void LaserScanningSpectroscopy::StartCapturing(Util::SynchronizedPointer<ModuleDataType>& ModuleData, const StartCapturingEvent& Event) const
 	{
 		// wir wollen irgendwie den file path mit schicken, damit capturing module weiß in welches csv file es schreiben soll
-		// std::filesystem::path Filename;
+		// ModuleData->std::filesystem::path Filename;
 
 		if (ModuleData->Communicator.valid())
 			ModuleData->Communicator->PostEvent(*this, Event);
 	}
-	*/
 
-	void PLE::OnInit(DynExp::ModuleInstance* Instance) const
+	void LaserScanningSpectroscopy::OnInit(DynExp::ModuleInstance* Instance) const
 	{
-		auto ModuleParams = DynExp::dynamic_Params_cast<PLE>(Instance->ParamsGetter());
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<PLE>(Instance->ModuleDataGetter());
+		auto ModuleParams = DynExp::dynamic_Params_cast<LaserScanningSpectroscopy>(Instance->ParamsGetter());
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
 
 		Instance->LockObject(ModuleParams->Laser, ModuleData->GetLaser());
 
 		auto LaserInstrData = DynExp::dynamic_InstrumentData_cast<DynExpInstr::Laser>(ModuleData->Laser->GetInstrumentData());
 	}
 
-	void PLE::OnExit(DynExp::ModuleInstance* Instance) const
+	void LaserScanningSpectroscopy::OnExit(DynExp::ModuleInstance* Instance) const
 	{
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<PLE>(Instance->ModuleDataGetter());
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
 
 		Instance->UnlockObject(ModuleData->Laser);
 		Instance->UnlockObject(ModuleData->Communicator);
 	}
 
-	void PLE::OnStartClicked(DynExp::ModuleInstance* Instance, bool) const
+	void LaserScanningSpectroscopy::OnStartClicked(DynExp::ModuleInstance* Instance, bool) const
 	{
-		auto Widget = GetWidget<PLEWidget>();
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<PLE>(Instance->ModuleDataGetter());
+		auto Widget = GetWidget<LaserScanningSpectroscopyWidget>();
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
 
+		// wo sollte das hin? lieber in die update task?
 		ModuleData->LowerFrequencyLimit = Widget->ui.SBLowerFrequencyLimit->value() * 1e9;
 		ModuleData->UpperFrequencyLimit = Widget->ui.SBUpperFrequencyLimit->value() * 1e9;
 		ModuleData->FrequencyRange = Widget->ui.SBFrequencyRange->value() * 1e9;
@@ -240,21 +230,22 @@ namespace DynExpModule::PLE
 		ModuleData->StartingPoint = Widget->ui.RBStartAtMinimum->isChecked() ? ModuleData->LowerFrequencyLimit : ModuleData->UpperFrequencyLimit * 1e9;
 		ModuleData->EndingPoint = Widget->ui.RBStartAtMinimum->isChecked() ? ModuleData->UpperFrequencyLimit : ModuleData->LowerFrequencyLimit * 1e9;
 		ModuleData->ScanBackAndForth = Widget->ui.CBScanBackAndForth->isChecked();
+		// das muss glaube ich hier bleiben
 		ModuleData->StepCount = 0;
 		ModuleData->RepCount = 0;
-		ModuleData->PLEProgress = 0;
+		ModuleData->LaserScanningSpectroscopyProgress = 0;
 
-		StateMachine.SetCurrentState(StateType::LaserInit);
+		StateMachine.SetCurrentState(StateType::FrequencyStep);
 	}
 
-	void PLE::OnStopClicked(DynExp::ModuleInstance* Instance, bool) const
+	void LaserScanningSpectroscopy::OnStopClicked(DynExp::ModuleInstance* Instance, bool) const
 	{
 		StateMachine.SetCurrentState(StateType::Ready);
 	}
 
-	void PLE::OnLowerFrequencyLimitChanged(DynExp::ModuleInstance* Instance, double LowerFrequencyLimit) const
+	void LaserScanningSpectroscopy::OnLowerFrequencyLimitChanged(DynExp::ModuleInstance* Instance, double LowerFrequencyLimit) const
 	{
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<PLE>(Instance->ModuleDataGetter());
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
 		double NewFrequencyRange{};
 
 		// modify FrequencyRange, FrequencyCenter and UpperFrequencyLimit to match new LowerFrequencyLimit
@@ -269,9 +260,9 @@ namespace DynExpModule::PLE
 		ModuleData->FrequencyRange = NewFrequencyRange;
 	}	
 	
-	void PLE::OnUpperFrequencyLimitChanged(DynExp::ModuleInstance* Instance, double UpperFrequencyLimit) const
+	void LaserScanningSpectroscopy::OnUpperFrequencyLimitChanged(DynExp::ModuleInstance* Instance, double UpperFrequencyLimit) const
 	{
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<PLE>(Instance->ModuleDataGetter());
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
 		double NewFrequencyRange;
 
 		// modify FrequencyRange, FrequencyCenter and LowerFrequencyLimit to match new UpperFrequencyLimit
@@ -287,9 +278,9 @@ namespace DynExpModule::PLE
 		ModuleData->FrequencyRange = NewFrequencyRange;
 	}
 	
-	void PLE::OnFrequencyRangeChanged(DynExp::ModuleInstance* Instance, double FrequencyRange) const
+	void LaserScanningSpectroscopy::OnFrequencyRangeChanged(DynExp::ModuleInstance* Instance, double FrequencyRange) const
 	{
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<PLE>(Instance->ModuleDataGetter());
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
 		double NewFrequencyRange;
 
 		// modify FrequencyCenter and UpperFrequencyLimit to match new FrequencyRange
@@ -305,39 +296,39 @@ namespace DynExpModule::PLE
 		ModuleData->FrequencyRange = NewFrequencyRange;
 	}
 
-	void PLE::OnFrequencyCenterChanged(DynExp::ModuleInstance* Instance, double FrequencyCenter) const
+	void LaserScanningSpectroscopy::OnFrequencyCenterChanged(DynExp::ModuleInstance* Instance, double FrequencyCenter) const
 	{
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<PLE>(Instance->ModuleDataGetter());
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
 
 		// modify LowerFrequencyLimit and UpperFrequencyLimit to match new FrequencyCenter
 		ModuleData->UpperFrequencyLimit = FrequencyCenter + ModuleData->FrequencyRange/2;
 		ModuleData->LowerFrequencyLimit = FrequencyCenter - ModuleData->FrequencyRange/2;
 	}
 
-	void PLE::OnStepsizeChanged(DynExp::ModuleInstance* Instance, double Stepsize) const
+	void LaserScanningSpectroscopy::OnStepsizeChanged(DynExp::ModuleInstance* Instance, double Stepsize) const
 	{
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<PLE>(Instance->ModuleDataGetter());
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
 
 		// modify NumberOfSteps to match new Stepsize
 		ModuleData->NumberOfSteps = ModuleData->FrequencyRange / Stepsize;
 	}
 
-	void PLE::OnNumberOfStepsChanged(DynExp::ModuleInstance* Instance, int NumberOfSteps) const
+	void LaserScanningSpectroscopy::OnNumberOfStepsChanged(DynExp::ModuleInstance* Instance, int NumberOfSteps) const
 	{
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<PLE>(Instance->ModuleDataGetter());
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
 
 		// modify Stepsize to match new NumberOfSteps
 		ModuleData->Stepsize = ModuleData->FrequencyRange / NumberOfSteps;
 	}
 
-	void PLE::OnRepetitionsChanged(DynExp::ModuleInstance* Instance, int Repetitions) const
+	void LaserScanningSpectroscopy::OnRepetitionsChanged(DynExp::ModuleInstance* Instance, int Repetitions) const
 	{
 	}
 
-	void PLE::OnStartAtMinimumToggled(DynExp::ModuleInstance* Instance) const
+	void LaserScanningSpectroscopy::OnStartAtMinimumToggled(DynExp::ModuleInstance* Instance) const
 	{
-		auto Widget = GetWidget<PLEWidget>();
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<PLE>(Instance->ModuleDataGetter());
+		auto Widget = GetWidget<LaserScanningSpectroscopyWidget>();
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
 
 		if (Widget->ui.RBStartAtMinimum->isChecked())
 		{
@@ -353,10 +344,10 @@ namespace DynExpModule::PLE
 		}
 	}
 
-	void PLE::OnStartAtMaximumToggled(DynExp::ModuleInstance* Instance) const
+	void LaserScanningSpectroscopy::OnStartAtMaximumToggled(DynExp::ModuleInstance* Instance) const
 	{
-		auto Widget = GetWidget<PLEWidget>();
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<PLE>(Instance->ModuleDataGetter());
+		auto Widget = GetWidget<LaserScanningSpectroscopyWidget>();
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
 
 		if (Widget->ui.RBStartAtMaximum->isChecked())
 		{
@@ -372,26 +363,26 @@ namespace DynExpModule::PLE
 		}
 	}
 
-	void PLE::OnScanBackAndForthToggled(DynExp::ModuleInstance* Instance) const
+	void LaserScanningSpectroscopy::OnScanBackAndForthToggled(DynExp::ModuleInstance* Instance) const
 	{
-		auto Widget = GetWidget<PLEWidget>();
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<PLE>(Instance->ModuleDataGetter());
+		auto Widget = GetWidget<LaserScanningSpectroscopyWidget>();
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
 
 		if (Widget->ui.CBScanBackAndForth->isChecked())
 			ModuleData->ScanBackAndForth = true;
 		else
 			ModuleData->ScanBackAndForth = false;
 	}
-	/*
-	void PLE::OnAutoMeasureSavePathChanged(DynExp::ModuleInstance* Instance, QString Path) const
+	
+	void LaserScanningSpectroscopy::OnPathChanged(DynExp::ModuleInstance* Instance, QString Path) const
 	{
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<PLE>(Instance->ModuleDataGetter());
-		ModuleData->SetAutoMeasureSavePath(Path.toStdString());
-	}*/
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
+		ModuleData->Filepath = Path.toStdString();
+	}
 
-	StateType PLE::ReadyStateFunc(DynExp::ModuleInstance& Instance)
+	StateType LaserScanningSpectroscopy::ReadyStateFunc(DynExp::ModuleInstance& Instance)
 	{
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<PLE>(Instance.ModuleDataGetter());
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance.ModuleDataGetter());
 		auto LaserInstrData = DynExp::dynamic_InstrumentData_cast<DynExpInstr::Laser>(ModuleData->GetLaser()->GetInstrumentData());
 
 		ModuleData->LaserState = LaserInstrData->GetLaserState();
@@ -399,17 +390,9 @@ namespace DynExpModule::PLE
 		return StateType::Ready;
 	}
 
-	StateType PLE::LaserInitStateFunc(DynExp::ModuleInstance& Instance)
+	StateType LaserScanningSpectroscopy::WaitForSettingFrequencyStateFunc(DynExp::ModuleInstance& Instance)
 	{
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<PLE>(Instance.ModuleDataGetter());
-		ModuleData->GetLaser()->SetFrequency(ModuleData->StartingPoint);
-
-		return StateType::WaitForSettingFrequency;
-	}
-
-	StateType PLE::WaitForSettingFrequencyStateFunc(DynExp::ModuleInstance& Instance)
-	{
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<PLE>(Instance.ModuleDataGetter());
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance.ModuleDataGetter());
 		auto LaserInstrData = DynExp::dynamic_InstrumentData_cast<DynExpInstr::Laser>(ModuleData->GetLaser()->GetInstrumentData());
 
 		if (LaserInstrData->GetLaserState() == DynExpInstr::LaserData::LaserStateType::Ready ||
@@ -417,7 +400,7 @@ namespace DynExpModule::PLE
 			//&& (ModuleData->LowerFrequencyLimit - ModuleData->FrequencyRange/2 < LaserInstrData->GetFrequencyValue() < ModuleData->UpperFrequencyLimit + ModuleData->FrequencyRange/2))
 			{
 			if (ModuleData->StepCount == 0)
-				return StateType::PLEStep;
+				return StateType::FrequencyStep;
 				else
 					{
 					//StartCapturing(ModuleData, StartCapturingEvent)
@@ -428,9 +411,9 @@ namespace DynExpModule::PLE
 			return StateType::WaitForSettingFrequency;
 	}
 
-	StateType PLE::PLEStepStateFunc(DynExp::ModuleInstance& Instance)
+	StateType LaserScanningSpectroscopy::FrequencyStepStateFunc(DynExp::ModuleInstance& Instance)
 	{
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<PLE>(Instance.ModuleDataGetter());
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance.ModuleDataGetter());
 		double Frequency = 0.0;
 
 		if (ModuleData->StepCount == 0)
@@ -461,35 +444,24 @@ namespace DynExpModule::PLE
 
 		ModuleData->GetLaser()->SetFrequency(Frequency);
 		ModuleData->StepCount++;
-		ModuleData->PLEProgress++;
+		ModuleData->LaserScanningSpectroscopyProgress++;
 
 		return StateType::WaitForSettingFrequency;
 	}
 
-	StateType PLE::WaitForCapturingStateFunc(DynExp::ModuleInstance& Instance)
+	StateType LaserScanningSpectroscopy::WaitForCapturingStateFunc(DynExp::ModuleInstance& Instance)
 	{
-		// abfragen ob "Finished Capturing" event angekommen ist. Wenn angekommen dann:
-	
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<PLE>(Instance.ModuleDataGetter());
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance.ModuleDataGetter());
 
 		if (ModuleData->StepCount < ModuleData->NumberOfSteps)
-			return StateType::PLEStep;
+			return StateType::FrequencyStep;
 		else
 		{
 			ModuleData->RepCount++;
 			if (ModuleData->RepCount = ModuleData->Repetitions)
 				return StateType::Ready;
 			else
-				return StateType::PLEStep;
+				return StateType::FrequencyStep;
 		}
 	}
-
-	/*std::filesystem::path PLE::BuildFilename(Util::SynchronizedPointer<ModuleDataType>& ModuleData, std::string_view FilenameSuffix) const
-    {
-        auto SavePath = ModuleData->GetAutoMeasureSavePath();
-        SavePath.replace_filename(SavePath.filename().stem().concat(FilenameSuffix));
-        std::filesystem::create_directories(SavePath.parent_path());
- 
-        return SavePath;
-    }*/
 }
