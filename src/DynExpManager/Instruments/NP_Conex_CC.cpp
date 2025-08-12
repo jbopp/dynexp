@@ -64,21 +64,21 @@ namespace DynExpInstr
 				std::stringstream StatusStream(NP_Conex_CC::AnswerToNumberString(InstrData->HardwareAdapter->WaitForLine(1, std::chrono::milliseconds(25)), "TS"));
 				StatusStream.exceptions(std::ofstream::failbit | std::ofstream::badbit);
 
-				uint16_t ErrorMap; // Variable to hold the error map (16 bits)
 				char ErrorMapBuffer[5]{ 0 };  // 4 characters + 1 for null terminator
 				StatusStream.read(ErrorMapBuffer, 4);  // Read the first 4 characters
 				std::istringstream ErrorMapStream(ErrorMapBuffer);
 
+				uint16_t ErrorMap; // Variable to hold the error map (16 bits)
 				ErrorMapStream >> std::hex >> ErrorMap;
 				InstrData->ErrorCode = static_cast<NP_Conex_CC_StageData::ErrorCodeType>(ErrorMap); // Only 0 is no error
 
-				uint16_t State; // Variable to hold the state (8 bits). However, uint16_t is used, since on many systems, uint8_t is treated like a char instead of an int.
 				char StateBuffer[3]{ 0 };  // 2 characters + 1 for null terminator
 				StatusStream.read(StateBuffer, 2);  // Read the next 2 characters
 				std::istringstream StateStream(StateBuffer);
 
+				uint16_t State; // The state is only an 8 bit value. However, std::istringstream::operator>> treats single digits as single characters when using uint8_t.
 				StateStream >> std::hex >> State;
-				InstrData->Conex_CCStatus.Set(Util::NumToT<uint8_t>(State)); // Type-conversion to uint8_t. The controller state is exactly two hex characters (8 bit), so it should never exceed 8 bits.
+				InstrData->Conex_CCStatus.Set(Util::NumToT<uint8_t>(State)); // The controller state is exactly two hex characters, so it should never exceed 8 bits.
 	
 				auto Conex_CCStatus = InstrData->GetConex_CCStatus();
 				// Check if stage is in READY state. If not, set it to READY:
