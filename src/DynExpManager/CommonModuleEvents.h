@@ -33,6 +33,8 @@ namespace DynExpModule
 
 		virtual ~FinishedEvent() {}
 
+		virtual std::string GetName() const override { return "Finished"; }
+
 	private:
 		/**
 		 * @copydoc DynExp::InterModuleEvent::InvokeWithParamsChild
@@ -50,7 +52,7 @@ namespace DynExpModule
 		 * @brief Constructs a @p SetFilenameEvent event.
 		 * @param Filename @copybrief #Filename
 		*/
-		SetFilenameEvent(const std::string& Filename) : Filename(Filename) {}
+		SetFilenameEvent(const std::string& Filename = "Unknown.dat") : Filename(Filename) {}
 
 		/**
 		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase(const InterModuleEventBase&, ItemIDType)
@@ -59,6 +61,8 @@ namespace DynExpModule
 			: InterModuleEvent(Other, CommunicatorID), Filename(Other.Filename) {}
 
 		virtual ~SetFilenameEvent() {}
+
+		virtual std::string GetName() const override { return "Set filename to Unknown.dat"; }
 
 	private:
 		/**
@@ -90,6 +94,8 @@ namespace DynExpModule
 
 		virtual ~StartEvent() {}
 
+		virtual std::string GetName() const override { return "Start"; }
+
 	private:
 		/**
 		 * @copydoc DynExp::InterModuleEvent::InvokeWithParamsChild
@@ -117,6 +123,8 @@ namespace DynExpModule
 
 		virtual ~StopEvent() {}
 
+		virtual std::string GetName() const override { return "Stop"; }
+
 	private:
 		/**
 		 * @copydoc DynExp::InterModuleEvent::InvokeWithParamsChild
@@ -143,6 +151,8 @@ namespace DynExpModule
 			: InterModuleEvent(Other, CommunicatorID) {}
 
 		virtual ~TriggerEvent() {}
+
+		virtual std::string GetName() const override { return "Trigger"; }
 
 	private:
 		/**

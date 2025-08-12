@@ -48,6 +48,7 @@ namespace DynExpModule
 
 		ModuleData->FunctionGenerator->Stop();
 		Instance->UnlockObject(ModuleData->FunctionGenerator);
+		Instance->UnlockObject(ModuleData->Communicator);
 
 		TriggerEvent::Deregister(*this);
 	}

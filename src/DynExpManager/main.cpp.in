@@ -83,6 +83,7 @@
 
 // Modules
 #include "Modules/ArbitraryFunctionFromCSV.h"
+#include "Modules/EventSender.h"
 #include "Modules/ImageViewer/ImageViewer.h"
 #include "Modules/InputPortReader.h"
 #include "Modules/LockinAmplifierControl.h"
@@ -179,6 +180,7 @@ int main(int argc, char *argv[])
 
 	constexpr DynExp::ModuleLibrary<
 		DynExpModule::ArbitraryFunctionFromCSV,
+		DynExpModule::EventSender,
 		DynExpModule::ImageViewer::ImageViewer,
 		DynExpModule::InputPortReader,
 		DynExpModule::LockinAmplifierControl,

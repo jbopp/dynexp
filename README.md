@@ -58,6 +58,7 @@ Currently supported hardware:
 
 Available modules:
 - *ArbitraryFunctionFromCSV*: Fills a *DataStreamInstrument* with samples loaded from a CSV file.
+- *EventSender*: Allows to manually issue inter-module events.
 - *ImageViewer*: Displays images provided by a *Camera* instrument.
 - *InputPortReader*: Reads and displays single samples from an analog or digital *InputPort* instrument.
 - *LockinAmplifierControl*: Allows to control a *LockinAmplifier* instrument.

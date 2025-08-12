@@ -142,52 +142,11 @@ namespace DynExpInstr
 		 * @brief Inserts the event passed to the function into the event queues of the modules making use of
 		 * this @p InterModuleCommunicator instance if they are in a ready state (i.e. DynExp::Object::IsReady()
 		 * returns true). The event is not inserted into the @p Caller's event queue.
-		 * @tparam DerivedEvent Type of the event to post (derived from DynExp::InterModuleEvent).
 		 * @param Caller Reference to the module calling this function.
 		 * @param InterModuleEvent Event to post to the modules using this @p InterModuleCommunicator instance.
+		 * Each module receives its own individual (deep) copy of this event.
 		*/
-		template <typename DerivedEvent,
-			std::enable_if_t<std::is_base_of_v<DynExp::InterModuleEventBase, DerivedEvent>, int> = 0>
-		void PostEvent(const DynExp::ModuleBase& Caller, const DerivedEvent& InterModuleEvent) const
-		{
-			auto& ModuleMgr = Core.GetModuleManager();
-			const auto UserIDs = GetUserIDs();
-
-			for (auto ID : UserIDs)
-			{
-				// Do not send the event back to the caller.
-				if (Caller.GetID() == ID)
-					continue;
-
-				auto Resource = ModuleMgr.GetResource(ID);
-
-				// Retry in case of Util::TimeoutException a couple of times to not lose events.
-				for (int NumTries = 0; true; NumTries++)
-				{
-					try
-					{
-						if (Resource->IsReady())
-						{
-							// Makes a copy of the event for each receiver.
-							Resource->EnqueueEvent(std::make_unique<DerivedEvent>(InterModuleEvent, GetID()));
-						}
-					}
-					catch ([[maybe_unused]] const Util::TimeoutException& e)
-					{
-						if (NumTries >= 100)
-							throw;
-						else
-						{
-							std::this_thread::yield();
-
-							continue;
-						}
-					}
-
-					break;
-				}
-			}
-		}
+		void PostEvent(const DynExp::ModuleBase& Caller, const DynExp::InterModuleEventBase& InterModuleEvent) const;
 
 	private:
 		void ResetImpl(dispatch_tag<DynExp::InstrumentBase>) override final;

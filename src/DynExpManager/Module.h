@@ -15,6 +15,7 @@ namespace DynExp
 	class ModuleBase;
 	class ModuleInstance;
 	class EventListenersBase;
+	class InterModuleEventLibrary;
 	class QModuleBase;
 
 	/**
@@ -71,6 +72,7 @@ namespace DynExp
 
 		/**
 		 * @brief Invokes the event passing the receiving module's instance reference to it.
+		 * Only to be called from @p ModuleBase.
 		 * @param Instance Module instance handle.
 		*/
 		void Invoke(ModuleInstance& Instance) const { InvokeChild(Instance); }
@@ -248,14 +250,14 @@ namespace DynExp
 		 * @throws Util::InvalidArgException is thrown if @p Event is nullptr.
 		*/
 		void EnqueueEvent(EventPtrType&& Event);
-		
+
 		/**
 		 * @brief Removes one event from the event queue's front and returns the event.
 		 * Ownership of the event is transferred to the caller of this method.
 		 * @return Pointer to the popped event or nullptr if the event queue is empty.
 		*/
 		EventPtrType PopEvent();
-		
+
 		/**
 		 * @brief Returns a pointer to the event in the front of the module's event queue
 		 * without transferring ownership and without removing the event from the queue.
@@ -274,6 +276,11 @@ namespace DynExp
 		 * @return Returns the number of currently enqueued events.
 		*/
 		size_t GetNumEnqueuedEvents() const noexcept { return EventQueue.size(); }
+
+		/**
+		 * @brief Wakes up a module waiting for events and forces it to run its main loop once.
+		*/
+		void RunQueue() { NewEventNotifier.Notify(); }
 		///@}
 
 		/**
@@ -1108,6 +1115,11 @@ namespace DynExp
 	{
 	public:
 		/**
+		 * @brief Pointer type to store an inter-module event (@p InterModuleEventBase).
+		*/
+		using InterModuleEventPtrType = std::unique_ptr<InterModuleEventBase>;
+
+		/**
 		 * @brief Constructs an inter-module event.
 		*/
 		InterModuleEventBase() : CommunicatorID(ItemIDNotSet) {}
@@ -1122,6 +1134,25 @@ namespace DynExp
 		
 		virtual ~InterModuleEventBase() = 0;
 
+		/**
+		 * @brief Creates a deep copy of this inter-module instance.
+		 * @param CommunicatorID @copybrief #CommunicatorID
+		 * @return Returns the copy.
+		*/
+		virtual InterModuleEventPtrType Clone(ItemIDType CommunicatorID) const = 0;
+
+		virtual size_t GetID() const noexcept = 0;			//!< Returns the unique ID of this event type.
+
+		/** @name Override
+		 * Override by derived events to provide information about the derived events.
+		*/
+		///@{
+		virtual std::string GetName() const = 0;			//!< Returns the name of this event type.
+		///@}
+
+		/**
+		 * @brief Getter for #CommunicatorID
+		*/
 		auto GetCommunicatorID() const noexcept { return CommunicatorID; }
 
 	private:
@@ -1160,6 +1191,30 @@ namespace DynExp
 			: InterModuleEventBase(Other, CommunicatorID) {}
 
 		virtual ~InterModuleEvent() {}
+
+		/**
+		 * @brief Getter for #EventID.
+		 * @return Returns #EventID.
+		 */
+		static auto ID() { return EventID; }
+
+		/**
+		 * @brief Publishes this event type to the @p InterModuleEventLibrary.
+		 * This function should not be called manually.
+		 * @param Library @p InterModuleEventLibrary instance to publish this event type to.
+		 * @return Returns the unique ID of this event type.
+		*/
+		static size_t Publish(InterModuleEventLibrary& Library);
+
+		/**
+		 * @brief Factory function for events of type @p DerivedEvent.
+		 * @return Returns a pointer to a new, default-constructed inter-module event.
+		*/
+		static InterModuleEventPtrType Make() { return std::make_unique<DerivedEvent>(); }
+
+		virtual InterModuleEventPtrType Clone(ItemIDType CommunicatorID) const override final { return std::make_unique<DerivedEvent>(*static_cast<const DerivedEvent*>(this), CommunicatorID); }
+		virtual size_t GetID() const noexcept override final { return ID(); }
+		virtual std::string GetName() const override { return typeid(DerivedEvent).name(); }
 
 		/**
 		 * @copybrief DynExp::TypedEventListeners::Register
@@ -1213,11 +1268,78 @@ namespace DynExp
 		///@}
 
 		/**
+		 * @brief Unique ID assigned to this inter-module event.
+		*/
+		static const size_t EventID;
+
+		/**
 		 * @brief Holds one @p EventListenersType instance per derived event, which
 		 * manages all the subscribers of @p DerivedEvent.
 		*/
 		static EventListenersType Listeners;
 	};
+
+	/**
+	 * @brief Library type that holds factory functions to all available inter-module events.
+	*/
+	class InterModuleEventLibrary
+	{
+	public:
+		/**
+		 * @brief Type of a function pointer pointing to a factory function to create an instance of
+		 * an inter-module event derived from @p InterModuleEventBase.
+		*/
+		using EventFactoryFuncPtrType = std::function<InterModuleEventBase::InterModuleEventPtrType(void)>;
+
+		/**
+		 * @brief Getter for the singleton instance of @p InterModuleEventLibrary.
+		 * @return Returns the single instance of @p InterModuleEventLibrary.
+		*/
+		static InterModuleEventLibrary& Get();
+
+		/**
+		 * @brief Adds an inter-module event derived from @p InterModuleEventBase to this library.
+		 * @param ID Uniqe ID of the event derived from @p InterModuleEventBase.
+		 * @param EventFactoryFuncPtr Factory function of the event derived from @p InterModuleEventBase.
+		*/
+		void Register(size_t ID, EventFactoryFuncPtrType EventFactoryFuncPtr) { Events.try_emplace(ID, std::move(EventFactoryFuncPtr)); }
+
+		/**
+		 * @brief Getter for #Events.
+		 * @return Returns #Events.
+		*/
+		auto& GetEvents() const noexcept { return Events; }
+
+	private:
+		/**
+		 * @brief Constructs an instance of @p InterModuleEventLibrary. Private to make singleton class.
+		*/
+		InterModuleEventLibrary() = default;
+
+		/**
+		 * @brief Maps the unique ID of inter-module events derived from @p InterModuleEventBase to
+		 * their respective factory function.
+		*/
+		std::map<size_t, EventFactoryFuncPtrType> Events;
+	};
+
+	template <typename DerivedEvent, typename ...EventFuncArgs>
+	size_t InterModuleEvent<DerivedEvent, EventFuncArgs...>::Publish(InterModuleEventLibrary& Library)
+	{
+		auto ID = Util::UniqueID::Get<DerivedEvent>();
+
+		Library.Register(ID, &Make);
+
+		return ID;
+	}
+
+	/**
+	 * @brief Initializes the static InterModuleEvent::EventID variable to the unique type ID of @p DerivedEvent.
+	 * Also ensures that InterModuleEvent::Publish() is called for each inter-module event type.
+	 * @copydetails InterModuleEvent
+	*/
+	template <typename DerivedEvent, typename... EventFuncArgs>
+	const size_t InterModuleEvent<DerivedEvent, EventFuncArgs...>::EventID = InterModuleEvent<DerivedEvent, EventFuncArgs...>::Publish(InterModuleEventLibrary::Get());
 
 	/**
 	 * @brief Instantiate the respective static InterModuleEvent::Listeners variable to avoid linker errors.

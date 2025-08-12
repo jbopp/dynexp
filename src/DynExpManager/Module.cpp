@@ -398,6 +398,13 @@ namespace DynExp
 	{
 	}
 
+	InterModuleEventLibrary& InterModuleEventLibrary::Get()
+	{
+		static InterModuleEventLibrary Lib;
+
+		return Lib;
+	}
+
 	constexpr Qt::WindowFlags QModuleWidget::GetQtWindowFlagsResizable()
 	{
 		return Qt::CustomizeWindowHint | Qt::WindowTitleHint |

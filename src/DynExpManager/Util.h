@@ -573,13 +573,41 @@ namespace Util
 	};
 
 	/**
+	 * @brief Collection of static functions to generate a unique ID for data types.
+	*/
+	class UniqueID
+	{
+	public:
+		/**
+		 * @brief Generates a unique ID for each template instantiation.
+		 * The first ID is 1 to allow assigning a special meaning to 0.
+		 * @tparam T Type to return an ID for.
+		 * @return Returns the ID related to @p T.
+		*/
+		template <typename T>
+		static size_t Get() noexcept
+		{
+			static const size_t ID = Make();
+
+			return ID;
+		}
+
+	private:
+		/**
+		 * @brief Creates a new ID for each call.
+		 * @return Returns the new unique ID.
+		*/
+		static size_t Make() noexcept;
+	};
+
+	/**
 	 * @brief Combines the std::hash @p seed with the hash of @p value.
 	 * Resembles hash_combine() from the Boost library published under the Boost Software License.
 	 * @tparam T Type of @p value.
 	 * @param seed std::hash to combine the hash of @p value with.
 	 * @param value Value to calculate the hash to be combined from with, using std::hash.
 	*/
-	template <class T>
+	template <typename T>
 	inline void HashCombine(std::size_t& seed, const T& value)
 	{
 		std::hash<T> hasher;

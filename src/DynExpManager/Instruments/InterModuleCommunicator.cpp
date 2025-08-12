@@ -33,6 +33,47 @@ namespace DynExpInstr
 	{
 	}
 
+	void InterModuleCommunicator::PostEvent(const DynExp::ModuleBase& Caller, const DynExp::InterModuleEventBase& InterModuleEvent) const
+	{
+		auto& ModuleMgr = Core.GetModuleManager();
+		const auto UserIDs = GetUserIDs();
+
+		for (auto ID : UserIDs)
+		{
+			// Do not send the event back to the caller.
+			if (Caller.GetID() == ID)
+				continue;
+
+			auto Resource = ModuleMgr.GetResource(ID);
+
+			// Retry in case of Util::TimeoutException a couple of times to not lose events.
+			for (int NumTries = 0; true; NumTries++)
+			{
+				try
+				{
+					if (Resource->IsReady())
+					{
+						// Makes a copy of the event for each receiver.
+						Resource->EnqueueEvent(InterModuleEvent.Clone(GetID()));
+					}
+				}
+				catch ([[maybe_unused]] const Util::TimeoutException& e)
+				{
+					if (NumTries >= 100)
+						throw;
+					else
+					{
+						std::this_thread::yield();
+
+						continue;
+					}
+				}
+
+				break;
+			}
+		}
+	}
+
 	void InterModuleCommunicator::ResetImpl(dispatch_tag<DynExp::InstrumentBase>)
 	{
 		ResetImpl(dispatch_tag<InterModuleCommunicator>());

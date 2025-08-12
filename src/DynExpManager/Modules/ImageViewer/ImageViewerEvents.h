@@ -75,7 +75,7 @@ namespace DynExpModule::ImageViewer
 	class FinishedAutofocusEvent : public DynExp::InterModuleEvent<FinishedAutofocusEvent, bool, double>
 	{
 	public:
-		FinishedAutofocusEvent(bool Success, double Voltage = .0) : Success(Success), Voltage(Voltage) {}
+		FinishedAutofocusEvent(bool Success = true, double Voltage = .0) : Success(Success), Voltage(Voltage) {}
 		FinishedAutofocusEvent(const FinishedAutofocusEvent& Other, DynExp::ItemIDType CommunicatorID) : InterModuleEvent(Other, CommunicatorID), Success(Other.Success), Voltage(Other.Voltage) {}
 		virtual ~FinishedAutofocusEvent() {}
 

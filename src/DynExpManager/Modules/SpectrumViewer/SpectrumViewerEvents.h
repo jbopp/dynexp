@@ -38,7 +38,7 @@ namespace DynExpModule::SpectrumViewer
 	class SetSilentModeEvent : public DynExp::InterModuleEvent<SetSilentModeEvent, bool>
 	{
 	public:
-		SetSilentModeEvent(bool Enable) : Enable(Enable) {}
+		SetSilentModeEvent(bool Enable = false) : Enable(Enable) {}
 		SetSilentModeEvent(const SetSilentModeEvent& Other, DynExp::ItemIDType CommunicatorID) : InterModuleEvent(Other, CommunicatorID), Enable(Other.Enable) {}
 		virtual ~SetSilentModeEvent() {}
 
