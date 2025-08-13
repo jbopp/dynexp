@@ -657,12 +657,25 @@ namespace DynExpModule::ImageViewer
 
 	void ImageViewer::OnTrigger(DynExp::ModuleInstance* Instance) const
 	{
-		OnCaptureSingle(Instance, false);
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<ImageViewer>(Instance->ModuleDataGetter());
+		// Keep ModuleData->AutoSaveFilename to save the image.
+		ModuleData->ImageCapturingPaused = false;
+		ModuleData->CaptureAfterPause = false;
+
+		ModuleData->Camera->CaptureSingle();
 	}
 
 	void ImageViewer::OnStop(DynExp::ModuleInstance* Instance) const
 	{
-		OnCaptureContinuously(Instance, false);
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<ImageViewer>(Instance->ModuleDataGetter());
+
+		if (IsReadyState())
+			OnCaptureContinuously(Instance, false);
+		else
+		{
+			StateMachine.SetCurrentState(StateType::Ready);
+			ModuleData->Communicator->PostEvent(*this, FinishedAutofocusEvent{ false });
+		}
 	}
 
 	void ImageViewer::OnPauseImageCapturing(DynExp::ModuleInstance* Instance, bool ResetImageTransformation) const

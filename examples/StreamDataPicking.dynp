@@ -216,9 +216,17 @@
       <RunnableObjectParams>
        <Startup>0</Startup>
        <ModuleParamsBase>
-        <EventSenderParams>
-         <InterModuleCommunicator>3</InterModuleCommunicator>
-        </EventSenderParams>
+        <QModuleParamsBase>
+         <WindowPosX>0</WindowPosX>
+         <WindowPosY>0</WindowPosY>
+         <WindowWidth>0</WindowWidth>
+         <WindowHeight>0</WindowHeight>
+         <WindowState>0</WindowState>
+         <WindowDockingState>0</WindowDockingState>
+         <EventSenderParams>
+          <InterModuleCommunicator>3</InterModuleCommunicator>
+         </EventSenderParams>
+        </QModuleParamsBase>
        </ModuleParamsBase>
       </RunnableObjectParams>
      </ParamsBase>

@@ -17,7 +17,7 @@ namespace DynExpModule
 		EventID = Item->data(Qt::UserRole).value<size_t>();
 	}
 
-	void EventSenderData::ResetImpl(dispatch_tag<ModuleDataBase>)
+	void EventSenderData::ResetImpl(dispatch_tag<QModuleDataBase>)
 	{
 		Init();
 	}

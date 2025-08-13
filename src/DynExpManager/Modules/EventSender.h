@@ -38,7 +38,7 @@ namespace DynExpModule
 		void OnEventDoubleClicked(QListWidgetItem* Item);
 	};
 
-	class EventSenderData : public DynExp::ModuleDataBase
+	class EventSenderData : public DynExp::QModuleDataBase
 	{
 	public:
 		EventSenderData() { Init(); }
@@ -51,16 +51,16 @@ namespace DynExpModule
 		size_t EventID;
 
 	private:
-		void ResetImpl(dispatch_tag<ModuleDataBase>) override final;
+		void ResetImpl(dispatch_tag<QModuleDataBase>) override final;
 		virtual void ResetImpl(dispatch_tag<EventSenderData>) {};
 
 		void Init();
 	};
 
-	class EventSenderParams : public DynExp::ModuleParamsBase
+	class EventSenderParams : public DynExp::QModuleParamsBase
 	{
 	public:
-		EventSenderParams(DynExp::ItemIDType ID, const DynExp::DynExpCore& Core) : ModuleParamsBase(ID, Core) {}
+		EventSenderParams(DynExp::ItemIDType ID, const DynExp::DynExpCore& Core) : QModuleParamsBase(ID, Core) {}
 		virtual ~EventSenderParams() = default;
 
 		virtual const char* GetParamClassTag() const noexcept override { return "EventSenderParams"; }
@@ -69,10 +69,10 @@ namespace DynExpModule
 			"InterModuleCommunicator", "Inter-module communicator", "Inter-module communicator to send inter-module events to", DynExpUI::Icons::Instrument };
 
 	private:
-		void ConfigureParamsImpl(dispatch_tag<ModuleParamsBase>) override final {}
+		void ConfigureParamsImpl(dispatch_tag<QModuleParamsBase>) override final {}
 	};
 
-	class EventSenderConfigurator : public DynExp::ModuleConfiguratorBase
+	class EventSenderConfigurator : public DynExp::QModuleConfiguratorBase
 	{
 	public:
 		using ObjectType = EventSender;
