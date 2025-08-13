@@ -306,7 +306,7 @@ namespace DynExpModule::SpectrumViewer
 		TransformedSpectrum.MinValues = { Spectrum.GetSpectrum().begin()->first, YMin};
 		TransformedSpectrum.MaxValues = { Spectrum.GetSpectrum().rbegin()->first, YMax};
 
-		if (!ModuleData->CurrentSpectrum.Points.empty() && !ModuleData->AutoSaveFilename.empty())
+		if (!TransformedSpectrum.Points.empty() && !ModuleData->AutoSaveFilename.empty())
 			SaveSpectrum(TransformedSpectrum, ModuleData);
 
 		return TransformedSpectrum;

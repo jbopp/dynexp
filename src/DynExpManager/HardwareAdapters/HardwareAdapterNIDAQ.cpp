@@ -516,7 +516,7 @@ namespace DynExpHardware
 		else
 		{
 			// Only a warning has occurred.
-			Util::EventLogger().Log(NIDAQException(ErrorString, Result, Util::ErrorType::Warning, Location));
+			Util::EventLog().Log(NIDAQException(ErrorString, Result, Util::ErrorType::Warning, Location));
 		}
 	}
 
