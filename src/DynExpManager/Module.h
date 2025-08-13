@@ -52,14 +52,14 @@ namespace DynExp
 	/**
 	 * @brief Modules run in their own thread. This is the module thread's main
 	 * function.
-	 * @param Instance Handle to the module thread's data related to the module
-	 * running this thread. The module thread is expected to let the lifetime of
-	 * @p Instance expire upon termination.
-	 * @param Module Pointer to the module running this thread
+	 * @param InstancePtr Pointer to a handle to the module thread's data related to the
+	 * module running this thread. The module thread takes ownership of @p InstancePtr
+	 * and is expected to let the lifetime of @p InstancePtr expire upon termination.
+	 * @param BaseObject Pointer to the module running this thread.
 	 * @return Util::DynExpErrorCodes::NoError if the thread terminated without an error,
 	 * the respective error code otherwise.
 	*/
-	int ModuleThreadMain(ModuleInstance Instance, ModuleBase* const Module);
+	int ModuleThreadMain(std::unique_ptr<RunnableInstance>&& InstancePtr, RunnableObject* BaseObject);
 
 	/**
 	 * @brief Common base class for all events to store them in a FIFO queue to be invoked later.
@@ -219,7 +219,7 @@ namespace DynExp
 		class ModuleThreadOnlyType
 		{
 			friend class ModuleDataBase;
-			friend int ModuleThreadMain(ModuleInstance, ModuleBase* const);
+			friend int ModuleThreadMain(std::unique_ptr<RunnableInstance>&&, RunnableObject*);
 
 			/**
 			 * @brief Construcs an instance - one for each @p ModuleDataBase instance
@@ -404,7 +404,7 @@ namespace DynExp
 		class ModuleThreadOnlyType
 		{
 			friend class ModuleBase;
-			friend int ModuleThreadMain(ModuleInstance, ModuleBase* const);
+			friend int ModuleThreadMain(std::unique_ptr<RunnableInstance>&&, RunnableObject*);
 
 			/**
 			 * @brief Construcs an instance - one for each @p ModuleBase instance

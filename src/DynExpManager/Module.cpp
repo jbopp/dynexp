@@ -7,8 +7,10 @@
 
 namespace DynExp
 {
-	int ModuleThreadMain(ModuleInstance Instance, ModuleBase* const Module)
+	int ModuleThreadMain(std::unique_ptr<RunnableInstance>&& InstancePtr, RunnableObject* BaseObject)
 	{
+		auto const Module = static_cast<ModuleBase*>(BaseObject);
+		auto& Instance = static_cast<ModuleInstance&>(*InstancePtr);
 		bool IsExiting = false;
 		std::chrono::time_point<std::chrono::system_clock> LastMainLoopExecution;	// LastUpdate.time_since_epoch() == 0 now.
 		auto ReturnCode = Util::DynExpErrorCodes::NoError;
@@ -314,11 +316,11 @@ namespace DynExp
 	{
 		MakeAndEnqueueEvent(this, &ModuleBase::OnInit);
 
-		StoreThread(std::thread(ModuleThreadMain, ModuleInstance(
-			*this,
-			MakeThreadExitedPromise(),
-			{ *this, &ModuleBase::GetModuleData, { ModuleBase::GetModuleDataTimeoutDefault } }
-		), this));
+		auto InstancePtr = std::make_unique<ModuleInstance>(*this, MakeThreadExitedPromise(), ModuleBase::ModuleDataGetterType{
+			*this, &ModuleBase::GetModuleData, { ModuleBase::GetModuleDataTimeoutDefault }
+		});
+
+		MakeThread(ModuleThreadMain, std::move(InstancePtr));
 	}
 
 	void ModuleBase::NotifyChild()

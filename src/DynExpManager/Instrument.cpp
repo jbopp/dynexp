@@ -5,8 +5,10 @@
 
 namespace DynExp
 {
-	int InstrumentThreadMain(InstrumentInstance Instance, InstrumentBase* const Instrument)
+	int InstrumentThreadMain(std::unique_ptr<RunnableInstance>&& InstancePtr, RunnableObject* BaseObject)
 	{
+		auto const Instrument = static_cast<InstrumentBase*>(BaseObject);
+		auto& Instance = static_cast<InstrumentInstance&>(*InstancePtr);
 		bool IsExiting = false;
 		bool IsFirstRun = true;
 		InstrumentBase::TaskHandlingContinuationType DoContinue = InstrumentBase::TaskHandlingContinuationType::Continue;
@@ -347,11 +349,11 @@ namespace DynExp
 		if (Task)
 			InstrumentData->EnqueueTask(std::move(Task));
 
-		StoreThread(std::thread(InstrumentThreadMain, InstrumentInstance(
-			*this,
-			MakeThreadExitedPromise(),
-			{ *this, &InstrumentBase::GetInstrumentData, { InstrumentBase::GetInstrumentDataTimeoutDefault } }
-		), this));
+		auto InstancePtr = std::make_unique<InstrumentInstance>(*this, MakeThreadExitedPromise(), InstrumentBase::InstrumentDataGetterType{
+			*this, &InstrumentBase::GetInstrumentData, { InstrumentBase::GetInstrumentDataTimeoutDefault }
+		});
+
+		MakeThread(InstrumentThreadMain, std::move(InstancePtr));
 	}
 
 	void InstrumentBase::NotifyChild()

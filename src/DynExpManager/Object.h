@@ -2557,8 +2557,13 @@ namespace DynExp
 		RunnableInstanceOnlyType RunnableInstanceOnly;						//!< @copydoc RunnableInstanceOnlyType
 
 	protected:
-		void Init();														//!< Initializes member variables in case of a reset.
+		/**
+		 * @brief Type of the thread function executed by @p RunnableObject instances. 
+		*/
+		using ThreadFuncType = std::function<int(std::unique_ptr<RunnableInstance>&&, RunnableObject*)>;
 
+		void Init();														//!< Initializes member variables in case of a reset.
+		
 		/**
 		 * @brief Helper function to be used by overridden @p RunChild() functions in derived classes to
 		 * (re)initialize the #ThreadExitedSignal future and to provide the derived class a promise
@@ -2568,11 +2573,14 @@ namespace DynExp
 		std::promise<void> MakeThreadExitedPromise();
 		
 		/**
-		 * @brief Stores a thread constructed by a derived class overriding @p RunChild() in @p Thread
-		 * taking ownership of the thread. Only call this function within @p RunChild()!
-		 * @param Thread Thread to store. 
+		 * @brief Creates and runs the thread of the @p RunnableObject instance. Call this
+		 * function in the derived class overriding @p RunChild() and nowhere else!
+		 * @param ThreadFunc Pointer to the thread function to execute.
+		 * @param InstancePtr Pointer to a handle to this @p RunnableObject instance thread's data.
+		 * The thread takes ownership of @p InstancePtr and is expected to let the lifetime of
+		 * @p InstancePtr expire upon termination.
 		*/
-		void StoreThread(std::thread&& Thread) noexcept;
+		void MakeThread(ThreadFuncType ThreadFunc, std::unique_ptr<RunnableInstance>&& InstancePtr);
 
 		/**
 		 * @brief Checks whether @p Thread's id matches the id of the calling thread.
@@ -3518,9 +3526,9 @@ namespace DynExp
 		*/
 		RunnableInstance(RunnableInstance&& Other);
 
+	public:
 		~RunnableInstance();
 
-	public:
 		const auto& GetOwner() const noexcept { return Owner; }		//!< Returns #Owner.
 
 		/**

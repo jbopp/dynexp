@@ -648,9 +648,9 @@ namespace DynExp
 		return ThreadExitedPromise;
 	}
 
-	void RunnableObject::StoreThread(std::thread&& Thread) noexcept
+	void RunnableObject::MakeThread(ThreadFuncType ThreadFunc, std::unique_ptr<RunnableInstance>&& InstancePtr)
 	{
-		this->Thread = std::move(Thread);
+		Thread = std::thread(ThreadFunc, std::move(InstancePtr), this);
 	}
 
 	bool RunnableObject::IsCallFromRunnableThread() const

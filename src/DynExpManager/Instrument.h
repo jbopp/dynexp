@@ -68,14 +68,14 @@ namespace DynExp
 	/**
 	 * @brief Instruments run in their own thread. This is the instrument thread's main
 	 * function.
-	 * @param Instance Handle to the instrument thread's data related to the instrument
-	 * running this thread. The instrument thread is expected to let the lifetime of
-	 * @p Instance expire upon termination.
-	 * @param Instrument Pointer to the instrument running this thread
+	 * @param InstancePtr Pointer to a handle to the instrument thread's data related to the
+	 * instrument running this thread. The instrument thread takes ownership of @p InstancePtr
+	 * and is expected to let the lifetime of @p InstancePtr expire upon termination.
+	 * @param BaseObject Pointer to the instrument running this thread.
 	 * @return Util::DynExpErrorCodes::NoError if the thread terminated without an error,
 	 * the respective error code otherwise.
 	*/
-	int InstrumentThreadMain(InstrumentInstance Instance, InstrumentBase* const Instrument);
+	int InstrumentThreadMain(std::unique_ptr<RunnableInstance>&& InstancePtr, RunnableObject* BaseObject);
 
 	/**
 	 * @brief Wrapper holding a pointer to an exception and providing functionality for
@@ -180,7 +180,7 @@ namespace DynExp
 		class InstrumenThreadOnlyType
 		{
 			friend class InstrumentDataBase;
-			friend int InstrumentThreadMain(InstrumentInstance, InstrumentBase* const);
+			friend int InstrumentThreadMain(std::unique_ptr<RunnableInstance>&&, RunnableObject*);
 
 			/**
 			 * @brief Construcs an instance - one for each @p InstrumentDataBase instance
@@ -456,7 +456,7 @@ namespace DynExp
 		class InstrumenThreadOnlyType
 		{
 			friend class InstrumentBase;
-			friend int InstrumentThreadMain(InstrumentInstance, InstrumentBase* const);
+			friend int InstrumentThreadMain(std::unique_ptr<RunnableInstance>&&, RunnableObject*);
 
 			/**
 			 * @brief Construcs an instance - one for each @p InstrumentBase instance
