@@ -228,10 +228,10 @@ namespace DynExpModule::SpectrumViewer
 			{
 				ModuleData->CurrentSpectrum = ProcessSpectrum(InstrData->GetSpectrum(), ModuleData);
 
-				if (!ModuleData->CurrentSpectrum.Points.empty())
+				if (!ModuleData->CurrentSpectrum.Points.empty() && !ModuleData->AutoSaveFilename.empty())
 				{
-					if (ModuleData->GetCommunicator().valid() && !ModuleData->AutoSaveFilename.empty())
-						ModuleData->GetCommunicator()->PostEvent(*this, SpectrumFinishedRecordingEvent{});
+					if (ModuleData->GetCommunicator().valid())
+						ModuleData->GetCommunicator()->PostEvent(*this, FinishedEvent{});
 
 					ModuleData->AutoSaveFilename.clear();
 				}
@@ -306,7 +306,7 @@ namespace DynExpModule::SpectrumViewer
 		TransformedSpectrum.MinValues = { Spectrum.GetSpectrum().begin()->first, YMin};
 		TransformedSpectrum.MaxValues = { Spectrum.GetSpectrum().rbegin()->first, YMax};
 
-		if (!ModuleData->AutoSaveFilename.empty())
+		if (!ModuleData->CurrentSpectrum.Points.empty() && !ModuleData->AutoSaveFilename.empty())
 			SaveSpectrum(TransformedSpectrum, ModuleData);
 
 		return TransformedSpectrum;
@@ -316,14 +316,14 @@ namespace DynExpModule::SpectrumViewer
 		Util::SynchronizedPointer<SpectrumViewerData>& ModuleData)
 	{
 		if (!Util::SaveToFile(QString::fromStdString(ModuleData->AutoSaveFilename), Spectrum.ToStr(ModuleData->CurrentExposureTime)))
-			Util::EventLogger().Log("Saving spectrum as \"" + ModuleData->AutoSaveFilename + "\" to file failed.", Util::ErrorType::Error);
-		else
-			Util::EventLogger().Log("Saved spectrum as \"" + ModuleData->AutoSaveFilename + "\" to file.");
+			Util::EventLog().Log("[SpectrumViewer] Saving spectrum as \"" + ModuleData->AutoSaveFilename + "\" to file failed.", Util::ErrorType::Error);
 	}
 
 	void SpectrumViewer::OnInit(DynExp::ModuleInstance* Instance) const
 	{
-		RecordSpectrumEvent::Register(*this, &SpectrumViewer::OnRecordAndSaveSpectrum);
+		SetFilenameEvent::Register(*this, &SpectrumViewer::OnSetFilename);
+		TriggerEvent::Register(*this, &SpectrumViewer::OnTrigger);
+		StopEvent::Register(*this, &SpectrumViewer::OnStop);
 		PauseSpectrumRecordingEvent::Register(*this, &SpectrumViewer::OnPauseSpectrumRecording);
 		ResumeSpectrumRecordingEvent::Register(*this, &SpectrumViewer::OnResumeSpectrumRecording);
 		SetSilentModeEvent::Register(*this, &SpectrumViewer::OnSilentModeToggled);
@@ -352,7 +352,9 @@ namespace DynExpModule::SpectrumViewer
 		Instance->UnlockObject(ModuleData->GetSpectrometer());
 		Instance->UnlockObject(ModuleData->GetCommunicator());
 
-		RecordSpectrumEvent::Deregister(*this);
+		SetFilenameEvent::Deregister(*this);
+		TriggerEvent::Deregister(*this);
+		StopEvent::Deregister(*this);
 		PauseSpectrumRecordingEvent::Deregister(*this);
 		ResumeSpectrumRecordingEvent::Deregister(*this);
 		SetSilentModeEvent::Deregister(*this);
@@ -361,6 +363,9 @@ namespace DynExpModule::SpectrumViewer
 	void SpectrumViewer::OnRunClicked(DynExp::ModuleInstance* Instance, bool) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<SpectrumViewer>(Instance->ModuleDataGetter());
+
+		if (ModuleData->CapturingState == DynExpInstr::SpectrometerData::CapturingStateType::Capturing)
+			return;
 
 		ModuleData->SpectrumRecordingPaused = false;
 		ModuleData->AcquisitionExposureTime = ModuleData->CurrentExposureTime;
@@ -408,19 +413,22 @@ namespace DynExpModule::SpectrumViewer
 			ModuleData->GetSpectrometer()->SetFrequencyRange(InstrData->GetCurrentLowerFrequency(), Value);
 	}
 
-	void SpectrumViewer::OnRecordAndSaveSpectrum(DynExp::ModuleInstance* Instance, std::string SaveDataFilename) const
+	void SpectrumViewer::OnSetFilename(DynExp::ModuleInstance* Instance, const std::string& SaveFilename) const
 	{
-		{
-			auto ModuleData = DynExp::dynamic_ModuleData_cast<SpectrumViewer>(Instance->ModuleDataGetter());
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<SpectrumViewer>(Instance->ModuleDataGetter());
 
-			if (ModuleData->CapturingState == DynExpInstr::SpectrometerData::CapturingStateType::Capturing)
-				return;
+		OnStop(Instance);
+		ModuleData->AutoSaveFilename = SaveFilename;
+	}
 
-			ModuleData->SpectrumRecordingPaused = false;
-			ModuleData->AutoSaveFilename = SaveDataFilename;
-		} // ModuleData unlocked here.
-
+	void SpectrumViewer::OnTrigger(DynExp::ModuleInstance* Instance) const
+	{
 		OnRunClicked(Instance, false);
+	}
+
+	void SpectrumViewer::OnStop(DynExp::ModuleInstance* Instance) const
+	{
+		OnStopClicked(Instance, false);
 	}
 
 	void SpectrumViewer::OnPauseSpectrumRecording(DynExp::ModuleInstance* Instance) const

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EventSender</class>
+ <widget class="QWidget" name="EventSender">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>361</width>
+    <height>328</height>
+   </rect>
+  </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QListWidget" name="LWEvents">
+     <property name="toolTip">
+      <string>Send event by double-clicking.</string>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+     </property>
+     <property name="showDropIndicator" stdset="0">
+      <bool>false</bool>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../QModules.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>LWEvents</sender>
+   <signal>itemDoubleClicked(QListWidgetItem*)</signal>
+   <receiver>EventSender</receiver>
+   <slot>OnEventDoubleClicked(QListWidgetItem*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>180</x>
+     <y>163</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>180</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>OnEventDoubleClicked(QListWidgetItem*)</slot>
+ </slots>
+</ui>

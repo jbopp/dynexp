@@ -210,9 +210,9 @@ namespace DynExpInstr
 
 		/**
 		 * @brief Determines the conversion factor in between internal PositionerStageData::PositionType
-		 * positiond and velocities and the units the underlying hardware expects.
+		 * position and velocities and the units the underlying hardware expects.
 		 * @return Returns a factor positions and velocities are divided by before sending the values to
-		 * the hardware. This is useful if the underlying hardware e.g. operates in mm instead of nm. 
+		 * the hardware. This is useful if the underlying hardware e.g. operates in mm instead of nm.
 		*/
 		virtual double GetStepNanoMeterRatio() const noexcept { return 1; }
 

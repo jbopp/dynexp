@@ -12,6 +12,7 @@ target_sources(DynExp PRIVATE "NetworkDigitalOutInstr.cpp" "NetworkDigitalOutIns
 target_sources(DynExp PRIVATE "NetworkLaser.cpp" "NetworkLaser.h")
 target_sources(DynExp PRIVATE "NetworkSpectrometer.cpp" "NetworkSpectrometer.h")
 target_sources(DynExp PRIVATE "NetworkTimeTagger.cpp" "NetworkTimeTagger.h")
+target_sources(DynExp PRIVATE "NP_Conex_CC.cpp" "NP_Conex_CC.h")
 target_sources(DynExp PRIVATE "PI-C-862.cpp" "PI-C-862.h")
 target_sources(DynExp PRIVATE "RS_SMB100B.cpp" "RS_SMB100B.h")
 target_sources(DynExp PRIVATE "RS_SMC100A.cpp" "RS_SMC100A.h")

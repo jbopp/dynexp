@@ -55,6 +55,7 @@
 #include "Instruments/NetworkLaser.h"
 #include "Instruments/NetworkSpectrometer.h"
 #include "Instruments/NetworkTimeTagger.h"
+#include "Instruments/NP_Conex_CC.h"
 #include "Instruments/PI-C-862.h"
 #include "Instruments/RS_SMB100B.h"
 #include "Instruments/RS_SMC100A.h"
@@ -83,6 +84,7 @@
 
 // Modules
 #include "Modules/ArbitraryFunctionFromCSV.h"
+#include "Modules/EventSender.h"
 #include "Modules/ImageViewer/ImageViewer.h"
 #include "Modules/InputPortReader.h"
 #include "Modules/LaserControl.h"
@@ -152,6 +154,7 @@ int main(int argc, char *argv[])
 		DynExpInstr::NetworkLaser,
 		DynExpInstr::NetworkSpectrometer,
 		DynExpInstr::NetworkTimeTagger,
+		DynExpInstr::NP_Conex_CC,
 		DynExpInstr::PI_C_862,
 		DynExpInstr::RS_SMB100B,
 		DynExpInstr::RS_SMC100A,
@@ -181,6 +184,7 @@ int main(int argc, char *argv[])
 
 	constexpr DynExp::ModuleLibrary<
 		DynExpModule::ArbitraryFunctionFromCSV,
+		DynExpModule::EventSender,
 		DynExpModule::ImageViewer::ImageViewer,
 		DynExpModule::InputPortReader,
 		DynExpModule::LaserControl::LaserControl,

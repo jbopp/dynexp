@@ -18,6 +18,8 @@
 #include "../../MetaInstruments/TimeTagger.h"
 #include "../../Instruments/InterModuleCommunicator.h"
 #include "../../Instruments/WidefieldLocalization.h"
+
+#include "CommonModuleEvents.h"
 #include "../../Modules/ImageViewer/ImageViewerEvents.h"
 #include "../../Modules/SpectrumViewer/SpectrumViewerEvents.h"
 
@@ -33,7 +35,8 @@ namespace DynExpModule::Widefield
 			Confocal, ConfocalOptimization, HBT,
 			LEDLightToggle, PumpLightToggle, SetPumpPower, MeasurePumpPower,
 			WidefieldConfocalSwitch, WidefieldConfocalIndicator, HBTSwitch,
-			InterModuleCommunicator, NUM_ELEMENTS};
+			ImageInterModuleCommunicator, SpectrumInterModuleCommunicator,
+			NUM_ELEMENTS};
 		enum class SetupModeType { Unknown, Widefield, Confocal };
 		enum class LocalizedEmitterStateType { NotSet, Characterizing, Finished, Failed };
 
@@ -139,8 +142,10 @@ namespace DynExpModule::Widefield
 		auto& GetSPD1() const noexcept { return SPD1; }
 		auto& GetSPD2() noexcept { return SPD2; }
 		auto& GetSPD2() const noexcept { return SPD2; }
-		auto& GetAcqCommunicator() noexcept { return AcqCommunicator; }
-		auto& GetAcqCommunicator() const noexcept { return AcqCommunicator; }
+		auto& GetImageAcqCommunicator() noexcept { return ImageAcqCommunicator; }
+		auto& GetImageAcqCommunicator() const noexcept { return ImageAcqCommunicator; }
+		auto& GetSpectrumAcqCommunicator() noexcept { return SpectrumAcqCommunicator; }
+		auto& GetSpectrumAcqCommunicator() const noexcept { return SpectrumAcqCommunicator; }
 
 		template <size_t N>
 		bool TestFeature(const std::array<FeatureType, N>& Flags) const { return Features.Test(Flags); }
@@ -361,7 +366,8 @@ namespace DynExpModule::Widefield
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::WidefieldLocalization> WidefieldLocalizer;
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::TimeTagger> SPD1;
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::TimeTagger> SPD2;
-		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> AcqCommunicator;
+		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> ImageAcqCommunicator;
+		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> SpectrumAcqCommunicator;
 
 		Util::FeatureTester<FeatureType> Features;
 		std::string UIMessage;
@@ -519,8 +525,10 @@ namespace DynExpModule::Widefield
 			"SPD1", "SPD 1", "First single photon detector for confocal light collection", DynExpUI::Icons::Instrument, true };
 		Param<DynExp::ObjectLink<DynExpInstr::TimeTagger>> SPD2 = { *this, GetCore().GetInstrumentManager(),
 			"SPD2", "SPD 2", "Second single photon detector for confocal light collection", DynExpUI::Icons::Instrument, true };
-		Param<DynExp::ObjectLink<DynExpInstr::InterModuleCommunicator>> AcqCommunicator = { *this, GetCore().GetInstrumentManager(),
-			"AcqInterModuleCommunicator", "Acq. inter-module communicator", "Inter-module communicator to control image and spectrum capturing modules with", DynExpUI::Icons::Instrument, true };
+		Param<DynExp::ObjectLink<DynExpInstr::InterModuleCommunicator>> ImageAcqCommunicator = { *this, GetCore().GetInstrumentManager(),
+			"ImageAcqInterModuleCommunicator", "Image acq. inter-module communicator", "Inter-module communicator to control image capturing modules", DynExpUI::Icons::Instrument, true };
+		Param<DynExp::ObjectLink<DynExpInstr::InterModuleCommunicator>> SpectrumAcqCommunicator = { *this, GetCore().GetInstrumentManager(),
+			"SpectrumAcqInterModuleCommunicator", "Spectrum acq. inter-module communicator", "Inter-module communicator to control spectrum acquisition modules", DynExpUI::Icons::Instrument, true };
 
 	private:
 		void ConfigureParamsImpl(dispatch_tag<QModuleParamsBase>) override final {}

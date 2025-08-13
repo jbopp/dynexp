@@ -59,11 +59,13 @@ Currently supported hardware:
 	- Teledyne Photometrics PVCam
 - Motion Control
 	- Nenion Leakvalve F3
+	- Newport Conex-CC Controller
 	- Physik Instrumente (PI) C-862
-	- SmarAct MCS2 
+	- SmarAct MCS2
 
 Available modules:
 - *ArbitraryFunctionFromCSV*: Fills a *DataStreamInstrument* with samples loaded from a CSV file.
+- *EventSender*: Allows to manually issue inter-module events.
 - *ImageViewer*: Displays images provided by a *Camera* instrument.
 - *InputPortReader*: Reads and displays single samples from an analog or digital *InputPort* instrument.
 - *LockinAmplifierControl*: Allows to control a *LockinAmplifier* instrument.
@@ -232,6 +234,16 @@ The Python script connects to qudi (assuming it listening on localhost's port 65
 Its `on_step` function reads data samples and populates the data stream instrument connected to the *StreamManipulator* module.
 A *SignalPlotter* module displays the received samples.
 When stopping the *StreamManipulator* module, the function `on_exit` in the Python file is called to close the ethernet connection to qudi.
+
+### Python-based controlled data picking from continuous data streams
+DynExp comes with powerful inter-module communication that can trigger data acquisition from continuous streams of measurement data.
+For that purpose, the project `StreamDataPicking.dynp` uses the `stream_randomize.py` Python file to simulate continuous measurement data.
+A second *StreamManipulator* module employs the `stream_data_pick.py` script to extract single data samples from the continuous data stream when it receives a trigger inter-module event.
+In this case, the `on_trigger` function from `stream_data_pick.py` is called.
+This function performs the data extraction and writes the extracted samples to another data stream.
+When receiving a start event (`on_start`), this data stream is cleared.
+It is saved to a file in case of a stop event (`on_stop`).
+All inter-module events can be issued manually using an *EventSender* module.
 
 
 ## Documentation

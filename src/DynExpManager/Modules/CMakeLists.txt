@@ -1,6 +1,7 @@
 # This file is part of DynExp.
 
 target_sources(DynExp PRIVATE "ArbitraryFunctionFromCSV.cpp" "ArbitraryFunctionFromCSV.h")
+target_sources(DynExp PRIVATE "EventSender.cpp" "EventSender.h" "EventSender.ui")
 target_sources(DynExp PRIVATE "gRPCModule.cpp" "gRPCModule.h")
 target_sources(DynExp PRIVATE "InputPortReader.cpp" "InputPortReader.h" "InputPortReader.ui")
 target_sources(DynExp PRIVATE "LaserControl.cpp" "LaserControl.h" "LaserControl.ui")

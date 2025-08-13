@@ -179,9 +179,9 @@ namespace DynExpHardware
 
 	void QutoolsTDCHardwareAdapter::ConfigureHBTChannels(ChannelType FirstChannel, ChannelType SecondChannel) const
 	{
-		if (FirstChannel >= 31 || SecondChannel >= 31)
+		if (FirstChannel >= NumChannels || SecondChannel >= NumChannels)
 			ThrowExceptionUnsafe(std::make_exception_ptr(Util::OutOfRangeException(
-				"Specify valid channels between 0 and 31.")));
+				"Specify valid channels between 0 and " + Util::ToStr(NumChannels) + ".")));
 
 		auto TDCLock = QutoolsTDCSynchronizer::Lock();
 		AddressThisTDCDeviceUnsafe();
@@ -270,7 +270,7 @@ namespace DynExpHardware
 		AddressThisTDCDeviceUnsafe();
 
 		// See documentation for TDC_getCoincCounters()
-		std::vector<QutoolsTDCSyms::Int32> Counts(59);
+		std::vector<QutoolsTDCSyms::Int32> Counts(NumCoincidenceChannels);
 		QutoolsTDCSyms::Int32 NumUpdates{};
 
 		auto Result = QutoolsTDCSyms::TDC_getCoincCounters(Counts.data(), &NumUpdates);
@@ -287,9 +287,9 @@ namespace DynExpHardware
 	std::pair<QutoolsTDCSyms::Int32, QutoolsTDCSyms::Int32> QutoolsTDCHardwareAdapter::GetCoincidenceCounts(ChannelType Channel) const
 	{
 		// See documentation for TDC_getCoincCounters()
-		if (Channel < 0 || Channel >= 59)
+		if (Channel < 0 || Channel >= NumCoincidenceChannels)
 			ThrowExceptionUnsafe(std::make_exception_ptr(Util::OutOfRangeException(
-				"Specify a channel between 0 and 59.")));
+				"Specify a channel between 0 and " + Util::ToStr(NumCoincidenceChannels) + ".")));
 
 		GetCoincidenceCounts();
 
@@ -473,7 +473,12 @@ namespace DynExpHardware
 	// QutoolsTDCSynchronizer::Lock() and AddressThisTDCDeviceUnsafe() must be called manually before calling this function!
 	void QutoolsTDCHardwareAdapter::EnableChannelsUnsafe(bool EnableStartChannel, QutoolsTDCSyms::Int32 ChannelMask) const
 	{
+#ifdef QUTOOLSQUTAG_VARIANT_S
+		ChannelMask |= static_cast<decltype(ChannelMask)>(EnableStartChannel);
+		auto Result = QutoolsTDCSyms::TDC_enableChannels(ChannelMask);
+#else
 		auto Result = QutoolsTDCSyms::TDC_enableChannels(EnableStartChannel, ChannelMask);
+#endif
 		CheckError(Result);
 	}
 
@@ -484,7 +489,12 @@ namespace DynExpHardware
 		QutoolsTDCSyms::Bln32 StartEnabled{};
 		QutoolsTDCSyms::Int32 ChannelMask{};
 
+#ifdef QUTOOLSQUTAG_VARIANT_S
+		auto Result = QutoolsTDCSyms::TDC_getChannelsEnabled(&ChannelMask);
+		StartEnabled = ChannelMask & 1;
+#else
 		auto Result = QutoolsTDCSyms::TDC_getChannelsEnabled(&StartEnabled, &ChannelMask);
+#endif
 		CheckError(Result);
 
 		return std::make_pair(static_cast<bool>(StartEnabled), ChannelMask);
@@ -504,8 +514,13 @@ namespace DynExpHardware
 
 	void QutoolsTDCHardwareAdapter::SetChannelDelayUnsafe(ChannelType Channel, Util::picoseconds ChannelDelay) const
 	{
+#ifdef QUTOOLSQUTAG_VARIANT_S
+		ThrowExceptionUnsafe(std::make_exception_ptr(Util::NotImplementedException(
+			"The quTAG Standard does not support setting the channel delay.")));
+#else
 		auto Result = QutoolsTDCSyms::TDC_setChannelDelay(Channel, Util::NumToT<QutoolsTDCSyms::Int32>(ChannelDelay.count()));
 		CheckError(Result);
+#endif
 	}
 
 	void QutoolsTDCHardwareAdapter::SetTimestampBufferSizeUnsafe(QutoolsTDCSyms::Int32 Size) const

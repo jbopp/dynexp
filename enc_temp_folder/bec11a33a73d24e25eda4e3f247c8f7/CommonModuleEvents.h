@@ -20,20 +20,8 @@ namespace DynExpModule
 	class FinishedEvent : public DynExp::InterModuleEvent<FinishedEvent>
 	{
 	public:
-		/**
-		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase
-		*/
 		FinishedEvent() = default;
-
-		/**
-		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase(const InterModuleEventBase&, ItemIDType)
-		*/
-		FinishedEvent(const FinishedEvent& Other, DynExp::ItemIDType CommunicatorID)
-			: InterModuleEvent(Other, CommunicatorID) {}
-
 		virtual ~FinishedEvent() {}
-
-		virtual std::string GetName() const override { return "Finished"; }
 
 	private:
 		/**
@@ -49,20 +37,11 @@ namespace DynExpModule
 	{
 	public:
 		/**
-		 * @brief Constructs a @p SetFilenameEvent event.
+		 * @brief Constructs an @p SetFilenameEvent event.
 		 * @param Filename @copybrief #Filename
 		*/
-		SetFilenameEvent(const std::string& Filename = "Unknown.dat") : Filename(Filename) {}
-
-		/**
-		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase(const InterModuleEventBase&, ItemIDType)
-		*/
-		SetFilenameEvent(const SetFilenameEvent& Other, DynExp::ItemIDType CommunicatorID)
-			: InterModuleEvent(Other, CommunicatorID), Filename(Other.Filename) {}
-
+		SetFilenameEvent(const std::string& Filename) : Filename(Filename) {}
 		virtual ~SetFilenameEvent() {}
-
-		virtual std::string GetName() const override { return "Set filename to Unknown.dat"; }
 
 	private:
 		/**
@@ -81,20 +60,8 @@ namespace DynExpModule
 	class StartEvent : public DynExp::InterModuleEvent<StartEvent>
 	{
 	public:
-		/**
-		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase
-		*/
 		StartEvent() = default;
-
-		/**
-		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase(const InterModuleEventBase&, ItemIDType)
-		*/
-		StartEvent(const StartEvent& Other, DynExp::ItemIDType CommunicatorID)
-			: InterModuleEvent(Other, CommunicatorID) {}
-
 		virtual ~StartEvent() {}
-
-		virtual std::string GetName() const override { return "Start"; }
 
 	private:
 		/**
@@ -110,20 +77,8 @@ namespace DynExpModule
 	class StopEvent : public DynExp::InterModuleEvent<StopEvent>
 	{
 	public:
-		/**
-		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase
-		*/
 		StopEvent() = default;
-
-		/**
-		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase(const InterModuleEventBase&, ItemIDType)
-		*/
-		StopEvent(const StopEvent& Other, DynExp::ItemIDType CommunicatorID)
-			: InterModuleEvent(Other, CommunicatorID) {}
-
 		virtual ~StopEvent() {}
-
-		virtual std::string GetName() const override { return "Stop"; }
 
 	private:
 		/**
@@ -139,20 +94,8 @@ namespace DynExpModule
 	class TriggerEvent : public DynExp::InterModuleEvent<TriggerEvent>
 	{
 	public:
-		/**
-		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase
-		*/
 		TriggerEvent() = default;
-
-		/**
-		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase(const InterModuleEventBase&, ItemIDType)
-		*/
-		TriggerEvent(const TriggerEvent& Other, DynExp::ItemIDType CommunicatorID)
-			: InterModuleEvent(Other, CommunicatorID) {}
-
 		virtual ~TriggerEvent() {}
-
-		virtual std::string GetName() const override { return "Trigger"; }
 
 	private:
 		/**

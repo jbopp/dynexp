@@ -15,12 +15,16 @@ set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 project("DynExp")
 set(PROJECT_VERSION 1.0.0)
 
+# Set options and variable values in CMakeUserPresets.json.
 option(USE_NIDAQ "Compile with third-party NI-DAQmx support" OFF)
 option(USE_PVCAM "Compile with third-party PVCam support" OFF)
-option(USE_QUTOOLSQUTAG "Compile with third-party Qutools QuTAG support" OFF)
+option(USE_QUTOOLSQUTAG "Compile with third-party Qutools quTAG support" OFF)
 option(USE_SMARACT "Compile with third-party SmarAct support" OFF)
 option(USE_SWABIANPULSESTREAMER "Compile with third-party Swabian Instruments Pulse Streamer support" OFF)
 option(USE_ZIMFLI "Compile with third-party Zurich Instruments MFLI support" OFF)
+
+set(QUTOOLSQUTAG_VARIANT "MC" CACHE STRING "Qutools quTAG device variant (supports (MC) multi-channel [default], (S) standard")
+add_compile_definitions(QUTOOLSQUTAG_VARIANT_${QUTOOLSQUTAG_VARIANT})
 
 # Apply parameters to template files
 configure_file(main.cpp.in main.cpp)

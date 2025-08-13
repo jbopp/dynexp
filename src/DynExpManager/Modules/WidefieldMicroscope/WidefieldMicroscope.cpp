@@ -594,7 +594,7 @@ namespace DynExpModule::Widefield
 
 	void WidefieldMicroscope::OnSaveCurrentImage(DynExp::ModuleInstance* Instance, QString Filename) const
 	{
-		static constexpr const char* SaveErrorMsg = "Saving an image failed.";
+		static constexpr const char* SaveErrorMsg = "[WidefieldMicroscope] Saving an image failed.";
 
 		QImage Image;
 		{
@@ -605,7 +605,7 @@ namespace DynExpModule::Widefield
 		if (!Image.save(Filename))
 		{
 			if (LogUIMessagesOnly)
-				Util::EventLogger().Log(SaveErrorMsg, Util::ErrorType::Error);
+				Util::EventLog().Log(SaveErrorMsg, Util::ErrorType::Error);
 			else
 			{
 				auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance->ModuleDataGetter());
@@ -802,8 +802,8 @@ namespace DynExpModule::Widefield
 	*/
 	StateType WidefieldMicroscope::ResetState(Util::SynchronizedPointer<ModuleDataType>& ModuleData) const
 	{
-		if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::InterModuleCommunicator))
-			ModuleData->GetAcqCommunicator()->PostEvent(*this, SpectrumViewer::SetSilentModeEvent{ false });
+		if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::SpectrumInterModuleCommunicator))
+			ModuleData->GetSpectrumAcqCommunicator()->PostEvent(*this, SpectrumViewer::SetSilentModeEvent{ false });
 
 		ModuleData->ResetAutoMeasureCurrentImageSet();
 		ModuleData->SetAutoMeasureRunning(false);
@@ -968,8 +968,8 @@ namespace DynExpModule::Widefield
 	void WidefieldMicroscope::PrepareImageRecording(Util::SynchronizedPointer<ModuleDataType>& ModuleData) const
 	{
 		ImageCapturingPaused = false;
-		if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::InterModuleCommunicator))
-			ModuleData->GetAcqCommunicator()->PostEvent(*this, ImageViewer::PauseImageCapturingEvent{ true });
+		if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::ImageInterModuleCommunicator))
+			ModuleData->GetImageAcqCommunicator()->PostEvent(*this, ImageViewer::PauseImageCapturingEvent{ true });
 
 		ModuleData->GetWidefieldCamera()->StopCapturingSync();
 
@@ -1002,7 +1002,7 @@ namespace DynExpModule::Widefield
 						*CellIDState = WidefieldImageProcessingStateType::Failed;
 						Exception.ClearError();
 
-						Util::EventLog().Log("Reading the cell ID from the current image, the error listed below occurred.", Util::ErrorType::Error);
+						Util::EventLog().Log("[WidefieldMicroscope] Reading the cell ID from the current image, the error listed below occurred.", Util::ErrorType::Error);
 						Util::EventLog().Log(e.what());
 
 						return;
@@ -1032,7 +1032,7 @@ namespace DynExpModule::Widefield
 					*LocalizerState = WidefieldImageProcessingStateType::Failed;
 					Exception.ClearError();
 
-					Util::EventLog().Log("Localizing emitters in the widefield image, the error listed below occurred.", Util::ErrorType::Error);
+					Util::EventLog().Log("[WidefieldMicroscope] Localizing emitters in the widefield image, the error listed below occurred.", Util::ErrorType::Error);
 					Util::EventLog().Log(e.what());
 
 					return;
@@ -1134,8 +1134,8 @@ namespace DynExpModule::Widefield
 
 	StateType WidefieldMicroscope::StartAutoMeasureLocalization(Util::SynchronizedPointer<ModuleDataType>& ModuleData) const
 	{
-		if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::InterModuleCommunicator))
-			ModuleData->GetAcqCommunicator()->PostEvent(*this, SpectrumViewer::SetSilentModeEvent{ true });
+		if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::SpectrumInterModuleCommunicator))
+			ModuleData->GetSpectrumAcqCommunicator()->PostEvent(*this, SpectrumViewer::SetSilentModeEvent{ true });
 
 		ModuleData->SetAutoMeasureCurrentCellPosition(ModuleData->GetSamplePosition());
 		ModuleData->ResetAutoMeasureCurrentImageSet();
@@ -1299,17 +1299,24 @@ namespace DynExpModule::Widefield
 
 	void WidefieldMicroscope::OnInit(DynExp::ModuleInstance* Instance) const
 	{
-		ImageViewer::ImageCapturingPausedEvent::Register(*this, &WidefieldMicroscope::OnImageCapturingPaused);
-		ImageViewer::FinishedAutofocusEvent::Register(*this, &WidefieldMicroscope::OnFinishedAutofocus);
-		SpectrumViewer::SpectrumFinishedRecordingEvent::Register(*this, &WidefieldMicroscope::OnSpectrumFinishedRecording);
-
 		auto ModuleParams = DynExp::dynamic_Params_cast<WidefieldMicroscope>(Instance->ParamsGetter());
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance->ModuleDataGetter());
 
-		if (ModuleParams->AcqCommunicator.ContainsID())
+		if (ModuleParams->ImageAcqCommunicator.ContainsID())
 		{
-			Instance->LockObject(ModuleParams->AcqCommunicator, ModuleData->GetAcqCommunicator());
-			ModuleData->SetFeature(WidefieldMicroscopeData::FeatureType::InterModuleCommunicator);
+			Instance->LockObject(ModuleParams->ImageAcqCommunicator, ModuleData->GetImageAcqCommunicator());
+			ModuleData->SetFeature(WidefieldMicroscopeData::FeatureType::ImageInterModuleCommunicator);
+
+			ImageViewer::ImageCapturingPausedEvent::Register(*this, &WidefieldMicroscope::OnImageCapturingPaused, ModuleData->GetImageAcqCommunicator()->GetID());
+			ImageViewer::FinishedAutofocusEvent::Register(*this, &WidefieldMicroscope::OnFinishedAutofocus, ModuleData->GetImageAcqCommunicator()->GetID());
+		}
+
+		if (ModuleParams->SpectrumAcqCommunicator.ContainsID())
+		{
+			Instance->LockObject(ModuleParams->SpectrumAcqCommunicator, ModuleData->GetSpectrumAcqCommunicator());
+			ModuleData->SetFeature(WidefieldMicroscopeData::FeatureType::SpectrumInterModuleCommunicator);
+
+			FinishedEvent::Register(*this, &WidefieldMicroscope::OnSpectrumFinishedRecording, ModuleData->GetSpectrumAcqCommunicator()->GetID());
 		}
 
 		if (ModuleParams->WidefieldCamera.ContainsID())
@@ -1354,7 +1361,7 @@ namespace DynExpModule::Widefield
 		{
 			Instance->LockObject(ModuleParams->FocusPiezoZ, ModuleData->GetSampleFocusPiezoZ());
 
-			if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::InterModuleCommunicator))
+			if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::ImageInterModuleCommunicator))
 				ModuleData->SetFeature(WidefieldMicroscopeData::FeatureType::FocusAdjustment);
 			if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::SampleXYPositioning))
 				ModuleData->SetFeature(WidefieldMicroscopeData::FeatureType::ConfocalOptimization);
@@ -1436,7 +1443,8 @@ namespace DynExpModule::Widefield
 
 		OnStopAction(Instance, false);
 
-		Instance->UnlockObject(ModuleData->GetAcqCommunicator());
+		Instance->UnlockObject(ModuleData->GetImageAcqCommunicator());
+		Instance->UnlockObject(ModuleData->GetSpectrumAcqCommunicator());
 		Instance->UnlockObject(ModuleData->GetSampleStageX());
 		Instance->UnlockObject(ModuleData->GetSampleStageY());
 		Instance->UnlockObject(ModuleData->GetSampleStageZ());
@@ -1455,7 +1463,7 @@ namespace DynExpModule::Widefield
 
 		ImageViewer::ImageCapturingPausedEvent::Deregister(*this);
 		ImageViewer::FinishedAutofocusEvent::Deregister(*this);
-		SpectrumViewer::SpectrumFinishedRecordingEvent::Deregister(*this);
+		FinishedEvent::Deregister(*this);
 	}
 
 	void WidefieldMicroscope::OnTerminate(DynExp::ModuleInstance* Instance, bool) const
@@ -1915,7 +1923,7 @@ namespace DynExpModule::Widefield
 
 	void WidefieldMicroscope::OnFinishedAutofocus(DynExp::ModuleInstance* Instance, bool Success, double Voltage) const
 	{
-		static constexpr const char* AutofocusFailedErrorMsg = "Autofocusing failed!";
+		static constexpr const char* AutofocusFailedErrorMsg = "[WidefieldMicroscope] Autofocusing failed!";
 
 		if (StateMachine.GetCurrentState()->GetState() != StateType::AutofocusWaiting)
 			return;
@@ -1933,7 +1941,7 @@ namespace DynExpModule::Widefield
 		else
 		{
 			if (LogUIMessagesOnly)
-				Util::EventLogger().Log(AutofocusFailedErrorMsg, Util::ErrorType::Error);
+				Util::EventLog().Log(AutofocusFailedErrorMsg, Util::ErrorType::Error);
 			else
 			{
 				auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance->ModuleDataGetter());
@@ -2212,7 +2220,7 @@ namespace DynExpModule::Widefield
 			ModuleData->SetPumpLightTurnedOn(false);
 
 		ModuleData->ResetAutofocusFinished();
-		ModuleData->GetAcqCommunicator()->PostEvent(*this, ImageViewer::AutofocusEvent{ true });
+		ModuleData->GetImageAcqCommunicator()->PostEvent(*this, ImageViewer::AutofocusEvent{ true });
 
 		return StateType::AutofocusWaiting;
 	}
@@ -2270,7 +2278,7 @@ namespace DynExpModule::Widefield
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance.ModuleDataGetter());
 
-		if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::InterModuleCommunicator) && !ImageCapturingPaused)
+		if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::ImageInterModuleCommunicator) && !ImageCapturingPaused)
 			return StateMachine.GetCurrentState()->GetState();
 
 		RecordImage(ModuleData);
@@ -2299,8 +2307,8 @@ namespace DynExpModule::Widefield
 			if (StateMachine.GetCurrentState()->GetState() == StateType::WaitingForWidefieldImage)
 				ModuleData->SetWidefieldPosition(ModuleData->GetSamplePosition());
 
-			if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::InterModuleCommunicator))
-				ModuleData->GetAcqCommunicator()->PostEvent(*this, ImageViewer::ResumeImageCapturingEvent{});
+			if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::ImageInterModuleCommunicator))
+				ModuleData->GetImageAcqCommunicator()->PostEvent(*this, ImageViewer::ResumeImageCapturingEvent{});
 
 			return StateMachine.GetCurrentState()->GetState() == StateType::WaitingForLEDImage ?
 				StateType::WaitingForLEDImageFinished : StateType::WaitingForWidefieldImageFinished;
@@ -2311,7 +2319,7 @@ namespace DynExpModule::Widefield
 
 	StateType WidefieldMicroscope::WaitingForWidefieldCellIDStateFunc(DynExp::ModuleInstance& Instance)
 	{
-		static constexpr const char* ReadCellIDErrorMsg = "Reading cell ID from current image failed. See log for further information.";
+		static constexpr const char* ReadCellIDErrorMsg = "[WidefieldMicroscope] Reading cell ID from current image failed. See log for further information.";
 
 		if (*WidefieldCellIDState == WidefieldImageProcessingStateType::Waiting)
 			return StateType::WaitingForWidefieldCellID;
@@ -2338,7 +2346,7 @@ namespace DynExpModule::Widefield
 			ModuleData->ResetCellID();
 
 			if (LogUIMessagesOnly)
-				Util::EventLogger().Log(ReadCellIDErrorMsg, Util::ErrorType::Error);
+				Util::EventLog().Log(ReadCellIDErrorMsg, Util::ErrorType::Error);
 			else
 				ModuleData->SetUIMessage(ReadCellIDErrorMsg);
 		}
@@ -2365,7 +2373,7 @@ namespace DynExpModule::Widefield
 
 	StateType WidefieldMicroscope::WaitingForWidefieldLocalizationStateFunc(DynExp::ModuleInstance& Instance)
 	{
-		static constexpr const char* LocalizationFailedErrorMsg = "Localization of emitters in widefield image failed. See log for further information.";
+		static constexpr const char* LocalizationFailedErrorMsg = "[WidefieldMicroscope] Localization of emitters in widefield image failed. See log for further information.";
 
 		if (*WidefieldLocalizationState == WidefieldImageProcessingStateType::Waiting)
 			return StateType::WaitingForWidefieldLocalization;
@@ -2388,7 +2396,7 @@ namespace DynExpModule::Widefield
 			ModuleData->ClearLocalizedPositions();
 			
 			if (LogUIMessagesOnly)
-				Util::EventLogger().Log(LocalizationFailedErrorMsg, Util::ErrorType::Error);
+				Util::EventLog().Log(LocalizationFailedErrorMsg, Util::ErrorType::Error);
 			else
 				ModuleData->SetUIMessage(LocalizationFailedErrorMsg);
 		}
@@ -2599,8 +2607,8 @@ namespace DynExpModule::Widefield
 
 	StateType WidefieldMicroscope::ConfocalOptimizationStepStateFunc(DynExp::ModuleInstance& Instance)
 	{
-		static constexpr const char* OptimizationMaxIterReachedErrorMsg = "Optimizing confocal count rate failed - maximal number of iterations reached!";
-		static constexpr const char* OptimizationFailedErrorMsg = "Optimizing confocal count rate failed!";
+		static constexpr const char* OptimizationMaxIterReachedErrorMsg = "[WidefieldMicroscope] Optimizing confocal count rate failed - maximal number of iterations reached!";
+		static constexpr const char* OptimizationFailedErrorMsg = "[WidefieldMicroscope] Optimizing confocal count rate failed!";
 
 		{
 			auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance.ModuleDataGetter());
@@ -2620,7 +2628,7 @@ namespace DynExpModule::Widefield
 			{
 				auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance.ModuleDataGetter());
 				if (LogUIMessagesOnly)
-					Util::EventLogger().Log(OptimizationMaxIterReachedErrorMsg, Util::ErrorType::Error);
+					Util::EventLog().Log(OptimizationMaxIterReachedErrorMsg, Util::ErrorType::Error);
 				else
 					ModuleData->SetUIMessage(OptimizationMaxIterReachedErrorMsg);
 			}
@@ -2631,7 +2639,7 @@ namespace DynExpModule::Widefield
 			{
 				auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance.ModuleDataGetter());
 				if (LogUIMessagesOnly)
-					Util::EventLogger().Log(OptimizationFailedErrorMsg, Util::ErrorType::Error);
+					Util::EventLog().Log(OptimizationFailedErrorMsg, Util::ErrorType::Error);
 				else
 					ModuleData->SetUIMessage(OptimizationFailedErrorMsg);
 			}
@@ -2782,7 +2790,7 @@ namespace DynExpModule::Widefield
 			<< WidefieldMicroscopeData::GetLocalizedEmitterStateString(Position.second.State) << "\n";
 
 		if (!Util::SaveToFile(QString::fromUtf16(BuildFilename(ModuleData, "_Emitters.csv").u16string().c_str()), CSVData.str()))
-			Util::EventLogger().Log("Saving the emitter list failed.", Util::ErrorType::Error);
+			Util::EventLog().Log("[WidefieldMicroscope] Saving the emitter list failed.", Util::ErrorType::Error);
 
 		if (ModuleData->GetAutoMeasureCurrentEmitter() == ModuleData->GetLocalizedPositions().cend())
 		{
@@ -2851,7 +2859,7 @@ namespace DynExpModule::Widefield
 			EmitterDestiny.DistTo(ModuleData->GetSamplePosition()) <= ModuleData->GetAutoMeasureOptimizationMaxDistance())
 		{
 			// Optimization succeeded.
-			if (ModuleData->GetAutoMeasureSpectrumEnabled() && ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::InterModuleCommunicator))
+			if (ModuleData->GetAutoMeasureSpectrumEnabled() && ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::SpectrumInterModuleCommunicator))
 			{
 				if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::HBTSwitch))
 				{
@@ -2901,8 +2909,9 @@ namespace DynExpModule::Widefield
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance.ModuleDataGetter());
 
-		ModuleData->GetAcqCommunicator()->PostEvent(*this, SpectrumViewer::RecordSpectrumEvent {
+		ModuleData->GetSpectrumAcqCommunicator()->PostEvent(*this, SetFilenameEvent {
 			BuildFilename(ModuleData, "_Emitter" + Util::ToStr(ModuleData->GetAutoMeasureCurrentEmitter()->first) + "_Spectrum.csv").string() });
+		ModuleData->GetSpectrumAcqCommunicator()->PostEvent(*this, TriggerEvent{});
 
 		return StateType::SpectrumAcquisitionWaiting;
 	}
@@ -2975,7 +2984,7 @@ namespace DynExpModule::Widefield
 		ModuleData->SetLocalizedPositionsStateChanged();
 
 		if (!Util::SaveToFile(QString::fromUtf16(Filename.u16string().c_str()), CSVData.str()))
-			Util::EventLogger().Log("Saving the g2 result failed.", Util::ErrorType::Error);
+			Util::EventLog().Log("[WidefieldMicroscope] Saving the g2 result failed.", Util::ErrorType::Error);
 
 		ModuleData->IncrementAutoMeasureCurrentEmitter();
 		return StateType::AutoMeasureCharacterizationStep;
@@ -3010,7 +3019,7 @@ namespace DynExpModule::Widefield
 			ModuleData->SetCellIDToLastCellID();
 			ModuleData->IncrementCellID();
 
-			Util::EventLogger().Log("Reading a cell ID failed. Estimating it to " +
+			Util::EventLog().Log("[WidefieldMicroscope] Reading a cell ID failed. Estimating it to " +
 				ModuleData->GetCellID().IDString + ".", Util::ErrorType::Warning);
 		}
 
@@ -3064,8 +3073,8 @@ namespace DynExpModule::Widefield
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance.ModuleDataGetter());
 
-		if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::InterModuleCommunicator))
-			ModuleData->GetAcqCommunicator()->PostEvent(*this, SpectrumViewer::SetSilentModeEvent{ false });
+		if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::SpectrumInterModuleCommunicator))
+			ModuleData->GetSpectrumAcqCommunicator()->PostEvent(*this, SpectrumViewer::SetSilentModeEvent{ false });
 
 		if (ModuleData->GetAutoMeasureLocalizationType() == WidefieldMicroscopeWidget::LocalizationType::LocalizeEmittersFromImage)
 			return InitiateLocalizationFromImage(ModuleData);

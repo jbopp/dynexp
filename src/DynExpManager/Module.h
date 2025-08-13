@@ -15,6 +15,7 @@ namespace DynExp
 	class ModuleBase;
 	class ModuleInstance;
 	class EventListenersBase;
+	class InterModuleEventLibrary;
 	class QModuleBase;
 
 	/**
@@ -71,6 +72,7 @@ namespace DynExp
 
 		/**
 		 * @brief Invokes the event passing the receiving module's instance reference to it.
+		 * Only to be called from @p ModuleBase.
 		 * @param Instance Module instance handle.
 		*/
 		void Invoke(ModuleInstance& Instance) const { InvokeChild(Instance); }
@@ -248,14 +250,14 @@ namespace DynExp
 		 * @throws Util::InvalidArgException is thrown if @p Event is nullptr.
 		*/
 		void EnqueueEvent(EventPtrType&& Event);
-		
+
 		/**
 		 * @brief Removes one event from the event queue's front and returns the event.
 		 * Ownership of the event is transferred to the caller of this method.
 		 * @return Pointer to the popped event or nullptr if the event queue is empty.
 		*/
 		EventPtrType PopEvent();
-		
+
 		/**
 		 * @brief Returns a pointer to the event in the front of the module's event queue
 		 * without transferring ownership and without removing the event from the queue.
@@ -274,6 +276,11 @@ namespace DynExp
 		 * @return Returns the number of currently enqueued events.
 		*/
 		size_t GetNumEnqueuedEvents() const noexcept { return EventQueue.size(); }
+
+		/**
+		 * @brief Wakes up a module waiting for events and forces it to run its main loop once.
+		*/
+		void RunQueue() { NewEventNotifier.Notify(); }
 		///@}
 
 		/**
@@ -621,7 +628,7 @@ namespace DynExp
 		void HandleEvent(ModuleInstance& Instance);
 
 		/**
-		 * @brief Adds a manager of event listeners to #RegisteredEvents if it was not already added before.
+		 * @brief Adds a manager of event listeners to #RegisteredEvents.
 		 * Called indirectly by TypedEventListeners::Register().
 		 * @param EventListeners Manager of event listeners to add
 		*/
@@ -746,6 +753,8 @@ namespace DynExp
 		 * @brief Holds a list of pointers to managers of event listeners of the events this module
 		 * has registered/subscribed to. The stored pointers always outlive all module
 		 * instances since they are static members of types derived from @p InterModuleEvent.
+		 * The same event listener may occur multiple times in this list if this module registered
+		 * to the same event multiple times for different inter-module communicators.
 		*/
 		std::vector<EventListenersBase*> RegisteredEvents;
 	};
@@ -870,12 +879,25 @@ namespace DynExp
 
 	public:
 		/**
-		 * @brief Deregisters/unsubscribes module @p Listener from the event.
+		 * @brief Deregisters/unsubscribes module @p Listener from the event, regardless of the
+		 * inter-module communicator instance used to register @p Listener to the event.
 		 * Indirectly calls ModuleBase::RemoveRegisteredEvent().
 		 * @param Listener Module to deregister/unsubscribe.
 		 * @param Timeout Time to wait for locking the mutex of this @p EventListenersBase instance.
 		*/
-		virtual void Deregister(const ModuleBase& Listener, const std::chrono::milliseconds Timeout = std::chrono::milliseconds(0)) = 0;
+		virtual void Deregister(const ModuleBase& Listener,
+			const std::chrono::milliseconds Timeout = std::chrono::milliseconds(0)) = 0;
+
+		/**
+		 * @brief Deregisters/unsubscribes module @p Listener from the event, removing a single
+		 * registration for a particular module/inter-module communicator combination.
+		 * Indirectly calls ModuleBase::RemoveRegisteredEvent().
+		 * @copydetails Deregister(const ModuleBase&, const std::chrono::milliseconds)
+		 * @param CommunicatorID ID of the inter-module communicator instrument (instance of
+		 * DynExpInstr::InterModuleCommunicator) of @p Listener to deregister.
+		*/
+		virtual void Deregister(const ModuleBase& Listener, ItemIDType CommunicatorID,
+			const std::chrono::milliseconds Timeout = std::chrono::milliseconds(0)) = 0;
 	};
 
 	/**
@@ -889,6 +911,55 @@ namespace DynExp
 	template <typename... EventFuncArgs>
 	class TypedEventListeners : public EventListenersBase
 	{
+		/**
+		 * @brief Key type of the @p unordered_map storing module/inter-module communicator combinations
+		 * that registered to an inter-module event.
+		*/
+		struct ListenersTypeKey
+		{
+			/**
+			 * @brief Module that registered to the event.
+			*/
+			const ModuleBase* Module;
+
+			/**
+			 * @brief ID of the inter-module communicator instrument (instance of
+			 * DynExpInstr::InterModuleCommunicator) belonging to #Module that registered to the event
+			 * or DynExp::ItemIDNotSet if the registration is independent of an inter-module communicator.
+			*/
+			const ItemIDType CommunicatorID;
+
+			/**
+			 * @brief Checks for equality of #Module and #CommunicatorID
+			 * @param Other Instance to compare this instance with.
+			 * @return Returns true if this is equal to @p Other, false otherwise.
+			*/
+			inline bool operator==(const ListenersTypeKey& Other) const
+			{
+				return Module == Other.Module && CommunicatorID == Other.CommunicatorID;
+			}
+		};
+
+		/**
+		 * @brief Hasher required to use @p ListenersTypeKey as the key type for the
+		 * std::unordered_map #Listeners.
+		*/
+		struct ListenersTypeKeyHasher
+		{
+			/**
+			 * @brief Computes the hash of @p v.
+			 * @param v @p ListenersTypeKey instance to compute the hash from.
+			 * @return Returns the computed hash.
+			*/
+			inline size_t operator()(const ListenersTypeKey& v) const
+			{
+				size_t seed = std::hash<decltype(ListenersTypeKey::Module)>()(v.Module);
+				Util::HashCombine(seed, v.CommunicatorID);
+
+				return seed;
+			}
+		};
+
 	public:
 		/**
 		 * @brief Type of event functions to be invoked when the event is triggered.
@@ -903,66 +974,92 @@ namespace DynExp
 
 		/**
 		 * @brief Registers/Subscribes module @p Listener to the event with the event function @p EventFunc.
-		 * Indirectly calls ModuleBase::AddRegisteredEvent().
+		 * Indirectly calls ModuleBase::AddRegisteredEvent(). If a module-communicator combination has
+		 * already been registered, this registration is updated.
 		 * @tparam CallableT Type of the event function (member function of @p Listener's derived type) to
 		 * invoke for @p Listener when the event is triggered.
 		 * @param Listener Module to register/subscribe.
 		 * @param EventFunc Event function to invoke on module @p Listener when the event is triggered.
+		 * @param CommunicatorID ID of the inter-module communicator instrument (instance of
+		 * DynExpInstr::InterModuleCommunicator) of @p Listener the event function should be registered to.
+		 * @p EventFunc is only trigggered if the event is received from the specified communicator instance.
+		 * If the default value DynExp::ItemIDNotSet is passed, @p EventFunc is triggered regardless of the
+		 * communicator instance receiving the event. If @p Listener registers again with a @p CommunicatorID
+		 * that is not DynExp::ItemIDNotSet, the latter, more specific registration is prioritized.
 		 * @param Timeout Time to wait for locking the mutex of this @p EventListenersBase instance.
 		*/
 		template <typename CallableT>
-		void Register(const ModuleBase& Listener, CallableT EventFunc, const std::chrono::milliseconds Timeout = std::chrono::milliseconds(0))
+		void Register(const ModuleBase& Listener, CallableT EventFunc, ItemIDType CommunicatorID = ItemIDNotSet,
+			const std::chrono::milliseconds Timeout = std::chrono::milliseconds(0))
 		{
 			auto lock = AcquireLock(Timeout);
-			RegisterUnsafe(Listener, EventFunc);
+			RegisterUnsafe(Listener, EventFunc, CommunicatorID);
 		}
 
-		virtual void Deregister(const ModuleBase& Listener, const std::chrono::milliseconds Timeout = std::chrono::milliseconds(0)) override
+		virtual void Deregister(const ModuleBase& Listener, ItemIDType CommunicatorID,
+			const std::chrono::milliseconds Timeout = std::chrono::milliseconds(0)) override
 		{
 			auto lock = AcquireLock(Timeout);
-			DeregisterUnsafe(Listener);
+			DeregisterUnsafe(Listener, CommunicatorID);
+		}
+
+		virtual void Deregister(const ModuleBase& Listener,
+			const std::chrono::milliseconds Timeout = std::chrono::milliseconds(0)) override
+		{
+			auto lock = AcquireLock(Timeout);
+			DeregisterAllUnsafe(Listener);
 		}
 
 		/**
 		 * @brief Looks up the event function the module @p Listener has registered/subscribed with.
-		 * @param Listener Module to look up the registered event function for
+		 * @param Listener Module to look up the registered event function for.
+		 * @param CommunicatorID ID of the inter-module communicator instrument (instance of
+		 * DynExpInstr::InterModuleCommunicator) of @p Listener to look up the registered event function for.
 		 * @param Timeout Time to wait for locking the mutex of this @p EventListenersBase instance.
 		 * @return Returns the registered event function or @p nullptr if @p Listener has not
 		 * registered/subscribed for this event.
 		*/
-		EventFunctionType GetFunc(const ModuleBase& Listener, const std::chrono::milliseconds Timeout = DefaultTimeout) const
+		EventFunctionType GetFunc(const ModuleBase& Listener, ItemIDType CommunicatorID = ItemIDNotSet,
+			const std::chrono::milliseconds Timeout = DefaultTimeout) const
 		{
 			auto lock = AcquireLock(Timeout);
-			return GetFuncUnsafe(Listener);
+			return GetFuncUnsafe(Listener, CommunicatorID);
 		}
 
 	private:
 		/**
-		 * @brief This function is the version of @p Register() which is not thread-safe (assuming
-		 * @p EventListenersBase's mutex has already been locked before.
+		 * @brief This function is not thread-safe (assuming @p EventListenersBase's mutex has already
+		 * been locked before by TypedEventListeners::Register(). Registers a listener-communicator
+		 * combination to an event.
 		 * @tparam CallableT Type of the event function (member function of @p Listener's derived type) to
 		 * invoke for @p Listener when the event is triggered.
 		 * @param Listener Module to register/subscribe.
 		 * @param EventFunc Event function to invoke on module @p Listener when the event is triggered.
+		 * @param CommunicatorID Refer to TypedEventListeners::Register().
 		*/
 		template <typename CallableT>
-		void RegisterUnsafe(const ModuleBase& Listener, CallableT EventFunc) 
+		void RegisterUnsafe(const ModuleBase& Listener, CallableT EventFunc, ItemIDType CommunicatorID)
 		{
-			Listeners[&Listener] = [&Listener, EventFunc](ModuleInstance* Instance, EventFuncArgs... Args) {
+			const auto NumListeners = Listeners.size();
+			Listeners[ListenersTypeKey{ &Listener, CommunicatorID }] = [&Listener, EventFunc](ModuleInstance* Instance, EventFuncArgs... Args) {
 				(dynamic_cast<std::add_const_t<typename Util::member_fn_ptr_traits<CallableT>::instance_type>&>(Listener).*EventFunc)(Instance, Args...);
 			};
 
-			Listener.EventListenersOnly.AddRegisteredEvent(*this);
+			// New Listener has been added (not a pure update).
+			if (Listeners.size() > NumListeners)
+				Listener.EventListenersOnly.AddRegisteredEvent(*this);
 		}
 
 		/**
-		 * @brief This function is the version of @p Deregister() which is not thread-safe (assuming
-		 * @p EventListenersBase's mutex has already been locked before.
+		 * @brief This function is not thread-safe (assuming @p EventListenersBase's mutex has already
+		 * been locked before by TypedEventListeners::Deregister(). Deregisters a listener-communicator
+		 * combination from an event.
 		 * @param Listener Module to deregister/unsubscribe.
+		 * @param CommunicatorID Refer to TypedEventListeners::Deregister().
 		*/
-		void DeregisterUnsafe(const ModuleBase& Listener)
+		void DeregisterUnsafe(const ModuleBase& Listener, ItemIDType CommunicatorID)
 		{
-			auto ListenerIt = Listeners.find(&Listener);
+			auto ListenerIt = Listeners.find(ListenersTypeKey{ &Listener, CommunicatorID });
 			if (ListenerIt == Listeners.cend())
 				return;
 
@@ -971,15 +1068,36 @@ namespace DynExp
 		}
 
 		/**
+		 * @brief This function is not thread-safe (assuming @p EventListenersBase's mutex has already
+		 * been locked before by TypedEventListeners::Deregister(). Deregisters @p Listener from an event,
+		 * regardless of its communicators.
+		 * @param Listener Module to deregister/unsubscribe.
+		*/
+		void DeregisterAllUnsafe(const ModuleBase& Listener)
+		{
+			const auto NumErased = std::erase_if(Listeners, [&Listener](const auto& v) { return v.first.Module == &Listener; });
+			
+			for (std::remove_const_t<decltype(NumErased)> i = 0; i < NumErased; ++i)
+				Listener.EventListenersOnly.RemoveRegisteredEvent(*this);
+		}
+
+		/**
 		 * @brief This function is the version of @p GetFunc() which is not thread-safe (assuming
 		 * @p EventListenersBase's mutex has already been locked before.
-		 * @param Listener Module to look up the registered event function for
+		 * @param Listener Module to look up the registered event function for.
+		 * @param CommunicatorID Refer to TypedEventListeners::GetFunc().
 		 * @return Returns the registered event function or @p nullptr if @p Listener has not
 		 * registered/subscribed for this event.
 		*/
-		EventFunctionType GetFuncUnsafe(const ModuleBase& Listener) const
+		EventFunctionType GetFuncUnsafe(const ModuleBase& Listener, ItemIDType CommunicatorID) const
 		{
-			auto ListenerIt = Listeners.find(&Listener);
+			// First, find event function assigned to a module-communicator pair.
+			auto ListenerIt = Listeners.find(ListenersTypeKey{ &Listener, CommunicatorID });
+			if (ListenerIt != Listeners.cend())
+				return ListenerIt->second;
+
+			// If none has been found, find event function assigned to a module, ignoring the communicator instance.
+			ListenerIt = Listeners.find(ListenersTypeKey{ &Listener, ItemIDNotSet });
 			return ListenerIt != Listeners.cend() ? ListenerIt->second : nullptr;
 		}
 
@@ -987,7 +1105,7 @@ namespace DynExp
 		 * @brief Each module can register to each inter-module event with one event
 		 * function of type @p EventFunctionType. This mapping is stored here.
 		*/
-		std::unordered_map<const ModuleBase*, EventFunctionType> Listeners;
+		std::unordered_map<const ListenersTypeKey, EventFunctionType, ListenersTypeKeyHasher> Listeners;
 	};
 
 	/**
@@ -996,8 +1114,52 @@ namespace DynExp
 	class InterModuleEventBase : public EventBase
 	{
 	public:
-		InterModuleEventBase() = default;
+		/**
+		 * @brief Pointer type to store an inter-module event (@p InterModuleEventBase).
+		*/
+		using InterModuleEventPtrType = std::unique_ptr<InterModuleEventBase>;
+
+		/**
+		 * @brief Constructs an inter-module event.
+		*/
+		InterModuleEventBase() : CommunicatorID(ItemIDNotSet) {}
+
+		/**
+		 * @brief Copy-constrcuts an inter-module event setting the #CommunicatorID.
+		 * @param Other Inter-module event to copy.
+		 * @param CommunicatorID @copybrief #CommunicatorID
+		*/
+		InterModuleEventBase(const InterModuleEventBase& Other, ItemIDType CommunicatorID)
+			: EventBase(Other), CommunicatorID(CommunicatorID) {}
+		
 		virtual ~InterModuleEventBase() = 0;
+
+		/**
+		 * @brief Creates a deep copy of this inter-module instance.
+		 * @param CommunicatorID @copybrief #CommunicatorID
+		 * @return Returns the copy.
+		*/
+		virtual InterModuleEventPtrType Clone(ItemIDType CommunicatorID) const = 0;
+
+		virtual size_t GetID() const noexcept = 0;			//!< Returns the unique ID of this event type.
+
+		/** @name Override
+		 * Override by derived events to provide information about the derived events.
+		*/
+		///@{
+		virtual std::string GetName() const = 0;			//!< Returns the name of this event type.
+		///@}
+
+		/**
+		 * @brief Getter for #CommunicatorID
+		*/
+		auto GetCommunicatorID() const noexcept { return CommunicatorID; }
+
+	private:
+		/**
+		 * @brief ID of the DynExpInstr::InterModuleCommunicator instance that sends the event.
+		*/
+		const ItemIDType CommunicatorID;
 	};
 
 	/**
@@ -1017,26 +1179,75 @@ namespace DynExp
 		*/
 		using EventListenersType = TypedEventListeners<EventFuncArgs...>;
 
+		/**
+		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase()
+		*/
 		InterModuleEvent() = default;
+
+		/**
+		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase(const InterModuleEventBase&, ItemIDType)
+		*/
+		InterModuleEvent(const InterModuleEventBase& Other, ItemIDType CommunicatorID)
+			: InterModuleEventBase(Other, CommunicatorID) {}
+
 		virtual ~InterModuleEvent() {}
+
+		/**
+		 * @brief Getter for #EventID.
+		 * @return Returns #EventID.
+		*/
+		static auto ID() { return EventID; }
+
+		/**
+		 * @brief Publishes this event type to the @p InterModuleEventLibrary.
+		 * This function should not be called manually.
+		 * @param Library @p InterModuleEventLibrary instance to publish this event type to.
+		 * @return Returns the unique ID of this event type.
+		*/
+		static size_t Publish(InterModuleEventLibrary& Library);
+
+		/**
+		 * @brief Factory function for events of type @p DerivedEvent.
+		 * @return Returns a pointer to a new, default-constructed inter-module event.
+		*/
+		static InterModuleEventPtrType Make() { return std::make_unique<DerivedEvent>(); }
+
+		virtual InterModuleEventPtrType Clone(ItemIDType CommunicatorID) const override final { return std::make_unique<DerivedEvent>(*static_cast<const DerivedEvent*>(this), CommunicatorID); }
+		virtual size_t GetID() const noexcept override final { return ID(); }
+		virtual std::string GetName() const override { return typeid(DerivedEvent).name(); }
 
 		/**
 		 * @copybrief DynExp::TypedEventListeners::Register
 		 * @copydetails TypedEventListeners::RegisterUnsafe
 		*/
 		template <typename CallableT>
-		static void Register(const ModuleBase& Listener, CallableT EventFunc) { Listeners.Register(Listener, EventFunc); }
+		static void Register(const ModuleBase& Listener, CallableT EventFunc, ItemIDType CommunicatorID = ItemIDNotSet)
+		{
+			Listeners.Register(Listener, EventFunc, CommunicatorID);
+		}
 
 		/**
-		 * @copybrief DynExp::EventListenersBase::Deregister
+		 * @copybrief DynExp::EventListenersBase::Deregister(const ModuleBase&, const std::chrono::milliseconds)
+		 * @copydetails TypedEventListeners::DeregisterAllUnsafe
+		*/
+		static void Deregister(const ModuleBase& Listener)
+		{
+			Listeners.Deregister(Listener);
+		}
+
+		/**
+		 * @copybrief DynExp::EventListenersBase::Deregister(const ModuleBase&, ItemIDType, const std::chrono::milliseconds) 
 		 * @copydetails TypedEventListeners::DeregisterUnsafe
 		*/
-		static void Deregister(const ModuleBase& Listener) { Listeners.Deregister(Listener); }
+		static void Deregister(const ModuleBase& Listener, ItemIDType CommunicatorID)
+		{
+			Listeners.Deregister(Listener, CommunicatorID);
+		}
 
 	private:
 		virtual void InvokeChild(ModuleInstance& Instance) const override final
 		{
-			auto EventFunc = Listeners.GetFunc(static_cast<const ModuleBase&>(Instance.GetOwner()));
+			auto EventFunc = Listeners.GetFunc(static_cast<const ModuleBase&>(Instance.GetOwner()), GetCommunicatorID());
 
 			if (EventFunc)
 				InvokeWithParamsChild(Instance, EventFunc);
@@ -1057,11 +1268,78 @@ namespace DynExp
 		///@}
 
 		/**
+		 * @brief Unique ID assigned to this inter-module event.
+		*/
+		static const size_t EventID;
+
+		/**
 		 * @brief Holds one @p EventListenersType instance per derived event, which
 		 * manages all the subscribers of @p DerivedEvent.
 		*/
 		static EventListenersType Listeners;
 	};
+
+	/**
+	 * @brief Library type that holds factory functions to all available inter-module events.
+	*/
+	class InterModuleEventLibrary
+	{
+	public:
+		/**
+		 * @brief Type of a function pointer pointing to a factory function to create an instance of
+		 * an inter-module event derived from @p InterModuleEventBase.
+		*/
+		using EventFactoryFuncPtrType = std::function<InterModuleEventBase::InterModuleEventPtrType(void)>;
+
+		/**
+		 * @brief Getter for the singleton instance of @p InterModuleEventLibrary.
+		 * @return Returns the single instance of @p InterModuleEventLibrary.
+		*/
+		static InterModuleEventLibrary& Get();
+
+		/**
+		 * @brief Adds an inter-module event derived from @p InterModuleEventBase to this library.
+		 * @param ID Uniqe ID of the event derived from @p InterModuleEventBase.
+		 * @param EventFactoryFuncPtr Factory function of the event derived from @p InterModuleEventBase.
+		*/
+		void Register(size_t ID, EventFactoryFuncPtrType EventFactoryFuncPtr) { Events.try_emplace(ID, std::move(EventFactoryFuncPtr)); }
+
+		/**
+		 * @brief Getter for #Events.
+		 * @return Returns #Events.
+		*/
+		auto& GetEvents() const noexcept { return Events; }
+
+	private:
+		/**
+		 * @brief Constructs an instance of @p InterModuleEventLibrary. Private to make singleton class.
+		*/
+		InterModuleEventLibrary() = default;
+
+		/**
+		 * @brief Maps the unique ID of inter-module events derived from @p InterModuleEventBase to
+		 * their respective factory function.
+		*/
+		std::map<size_t, EventFactoryFuncPtrType> Events;
+	};
+
+	template <typename DerivedEvent, typename ...EventFuncArgs>
+	size_t InterModuleEvent<DerivedEvent, EventFuncArgs...>::Publish(InterModuleEventLibrary& Library)
+	{
+		auto ID = Util::UniqueID::Get<DerivedEvent>();
+
+		Library.Register(ID, &Make);
+
+		return ID;
+	}
+
+	/**
+	 * @brief Initializes the static InterModuleEvent::EventID variable to the unique type ID of @p DerivedEvent.
+	 * Also ensures that InterModuleEvent::Publish() is called for each inter-module event type.
+	 * @copydetails InterModuleEvent
+	*/
+	template <typename DerivedEvent, typename... EventFuncArgs>
+	const size_t InterModuleEvent<DerivedEvent, EventFuncArgs...>::EventID = InterModuleEvent<DerivedEvent, EventFuncArgs...>::Publish(InterModuleEventLibrary::Get());
 
 	/**
 	 * @brief Instantiate the respective static InterModuleEvent::Listeners variable to avoid linker errors.
