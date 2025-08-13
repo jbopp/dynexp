@@ -66,8 +66,8 @@ namespace DynExpModule::LaserScanningSpectroscopy
 
 	LaserScanningSpectroscopy::LaserScanningSpectroscopy(const std::thread::id OwnerThreadID, DynExp::ParamsBasePtrType&& Params)
 		: QModuleBase(OwnerThreadID, std::move(Params)),
-		StateMachine(ReadyState, WaitForSettingFrequencyState, FrequencyStepState, WaitForCapturingState),
-		PauseUpdatingUI(std::make_shared<std::atomic<bool>>(false))
+		StateMachine(ReadyState, WaitForSettingFrequencyState, FrequencyStepState, WaitForCapturingState)
+		//PauseUpdatingUI(std::make_shared<std::atomic<bool>>(false))
 	{
 	}
 
@@ -77,6 +77,20 @@ namespace DynExpModule::LaserScanningSpectroscopy
 
 	Util::DynExpErrorCodes::DynExpErrorCodes LaserScanningSpectroscopy::ModuleMainLoop(DynExp::ModuleInstance& Instance)
 	{
+		auto Widget = GetWidget<LaserScanningSpectroscopyWidget>();
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
+
+		ModuleData->LowerFrequencyLimit = Widget->ui.SBLowerFrequencyLimit->value() * 1e9;
+		ModuleData->UpperFrequencyLimit = Widget->ui.SBUpperFrequencyLimit->value() * 1e9;
+		ModuleData->FrequencyRange = Widget->ui.SBFrequencyRange->value() * 1e9;
+		ModuleData->CenterFrequency = Widget->ui.SBCenterFrequency->value() * 1e9;
+		ModuleData->Stepsize = Widget->ui.SBStepsize->value() * 1e9;
+		ModuleData->NumberOfSteps = Widget->ui.SBNumberOfSteps->value();
+		ModuleData->Repetitions = Widget->ui.SBRepetitions->value();
+		ModuleData->StartingPoint = Widget->ui.RBStartAtMinimum->isChecked() ? ModuleData->LowerFrequencyLimit : ModuleData->UpperFrequencyLimit * 1e9;
+		ModuleData->EndingPoint = Widget->ui.RBStartAtMinimum->isChecked() ? ModuleData->UpperFrequencyLimit : ModuleData->LowerFrequencyLimit * 1e9;
+		ModuleData->ScanBackAndForth = Widget->ui.CBScanBackAndForth->isChecked();
+		
 		try
 		{
 			StateMachine.Invoke(*this, Instance);
@@ -190,7 +204,7 @@ namespace DynExpModule::LaserScanningSpectroscopy
 	void LaserScanningSpectroscopy::StartCapturing(Util::SynchronizedPointer<ModuleDataType>& ModuleData, const StartCapturingEvent& Event) const
 	{
 		// wir wollen irgendwie den file path mit schicken, damit capturing module weiß in welches csv file es schreiben soll
-		// ModuleData->std::filesystem::path Filename;
+		// ModuleData->Filename;
 
 		if (ModuleData->Communicator.valid())
 			ModuleData->Communicator->PostEvent(*this, Event);
@@ -216,21 +230,8 @@ namespace DynExpModule::LaserScanningSpectroscopy
 
 	void LaserScanningSpectroscopy::OnStartClicked(DynExp::ModuleInstance* Instance, bool) const
 	{
-		auto Widget = GetWidget<LaserScanningSpectroscopyWidget>();
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
 
-		// wo sollte das hin? lieber in die update task?
-		ModuleData->LowerFrequencyLimit = Widget->ui.SBLowerFrequencyLimit->value() * 1e9;
-		ModuleData->UpperFrequencyLimit = Widget->ui.SBUpperFrequencyLimit->value() * 1e9;
-		ModuleData->FrequencyRange = Widget->ui.SBFrequencyRange->value() * 1e9;
-		ModuleData->CenterFrequency = Widget->ui.SBCenterFrequency->value() * 1e9;
-		ModuleData->Stepsize = Widget->ui.SBStepsize->value() * 1e9;
-		ModuleData->NumberOfSteps = Widget->ui.SBNumberOfSteps->value();
-		ModuleData->Repetitions = Widget->ui.SBRepetitions->value();
-		ModuleData->StartingPoint = Widget->ui.RBStartAtMinimum->isChecked() ? ModuleData->LowerFrequencyLimit : ModuleData->UpperFrequencyLimit * 1e9;
-		ModuleData->EndingPoint = Widget->ui.RBStartAtMinimum->isChecked() ? ModuleData->UpperFrequencyLimit : ModuleData->LowerFrequencyLimit * 1e9;
-		ModuleData->ScanBackAndForth = Widget->ui.CBScanBackAndForth->isChecked();
-		// das muss glaube ich hier bleiben
 		ModuleData->StepCount = 0;
 		ModuleData->RepCount = 0;
 		ModuleData->LaserScanningSpectroscopyProgress = 0;
