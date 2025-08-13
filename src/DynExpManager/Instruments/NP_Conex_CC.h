@@ -59,8 +59,8 @@ namespace DynExpInstr
 		};
 
 		/**
-		 * @brief In this task, some commands cannot be send right after each other to the controller. There has to be some waiting time in between. 
-		 Therefore, this tasks calls the subtasks ResetTask, SetHomeExecutionTask and SetReadyTask in this order with a delay in between.
+		 * @brief In this task, some commands cannot be send right after each other to the controller. There has to be some waiting time in between.
+		 * Therefore, this tasks calls the subtasks ResetTask, SetHomeExecutionTask and SetReadyTask in this order with a delay in between.
 		*/
 		class SetHomeTask final : public DynExp::TaskBase
 		{
@@ -79,7 +79,7 @@ namespace DynExpInstr
 
 		/**
 		 * @brief In this task, some commands cannot be send right after each other to the controller. There has to be some waiting time in between.
-		Therefore, this tasks calls the subtasks ResetTask, ReferenceExecutionTask and SetReadyTask in this order with a delay in between.
+		 * Therefore, this tasks calls the subtasks ResetTask, ReferenceExecutionTask and SetReadyTask in this order with a delay in between.
 		*/
 		class ReferenceTask final : public DynExp::TaskBase
 		{
@@ -116,8 +116,8 @@ namespace DynExpInstr
 		};
 
 		/**
-		 * @brief In this task, some commands cannot be send right after each other to the controller. There has to be some waiting time in between. 
-		Therefore, this tasks calls the subtasks StopMotionTask and MoveToHomeExecutionTask in this order with a delay in between.
+		 * @brief In this task, some commands cannot be send right after each other to the controller. There has to be some waiting time in between.
+		 * Therefore, this tasks calls the subtasks StopMotionTask and MoveToHomeExecutionTask in this order with a delay in between.
 		*/
 		class MoveToHomeTask final : public DynExp::TaskBase
 		{
@@ -139,8 +139,8 @@ namespace DynExpInstr
 		};
 
 		/**
-		 * @brief In this task, some commands cannot be send right after each other to the controller. There has to be some waiting time in between. 
-		Therefore, this tasks calls the subtasks StopMotionTask and MoveAbsoluteExecutionTask in this order with a delay in between.
+		 * @brief In this task, some commands cannot be send right after each other to the controller. There has to be some waiting time in between.
+		 * Therefore, this tasks calls the subtasks StopMotionTask and MoveAbsoluteExecutionTask in this order with a delay in between.
 		*/
 		class MoveAbsoluteTask final : public DynExp::TaskBase
 		{
@@ -169,7 +169,7 @@ namespace DynExpInstr
 
 		/**
 		 * @brief In this task, some commands cannot be send right after each other to the controller. There has to be some waiting time in between.
-		Therefore, this tasks calls the subtasks StopMotionTask and MoveRelativeExecutionTask in this order with a delay in between.
+		 * Therefore, this tasks calls the subtasks StopMotionTask and MoveRelativeExecutionTask in this order with a delay in between.
 		*/
 		class MoveRelativeTask final : public DynExp::TaskBase
 		{
