@@ -58,7 +58,19 @@ namespace DynExpInstr
 		 * @param NumConsumedSamples Number of samples consumed from @p Samples 
 		 * @return ID of the last consumed sample
 		*/
-		size_t CalcLastConsumedSampleID(size_t NumConsumedSamples);
+		size_t CalcLastConsumedSampleID(size_t NumConsumedSamples) const;
+
+		/**
+		 * @brief Allows to calculate the ID of the last consumed sample for the situation that no samples was consumed.
+		 * @return ID of the last consumed sample
+		*/
+		size_t ConsumeNone() const { return CalcLastConsumedSampleID(0); }
+
+		/**
+		 * @brief Allows to calculate the ID of the last consumed sample for the situation that all samples were consumed.
+		 * @return ID of the last consumed sample
+		*/
+		size_t ConsumeAll() const;
 
 		/**
 		 * @brief Requests a call to DataStreamBase::Clear() on the related data stream instrument.

@@ -79,9 +79,10 @@ namespace DynExpModule
 			}
 
 			const auto now = std::chrono::system_clock::now();
-			if ((ManipulatorPyFuncOutput.MaxNextExecutionDelay.count() && now - LastManipulatorPyFuncExecution >= ManipulatorPyFuncOutput.MaxNextExecutionDelay) ||
+			if (ManipulatorPyFuncStep &&
+				((ManipulatorPyFuncOutput.MaxNextExecutionDelay.count() && now - LastManipulatorPyFuncExecution >= ManipulatorPyFuncOutput.MaxNextExecutionDelay) ||
 				(IsNewDataAvlbl && now - LastManipulatorPyFuncExecution >= ManipulatorPyFuncOutput.MinNextExecutionDelay) ||
-				!LastManipulatorPyFuncExecution.time_since_epoch().count())
+				!LastManipulatorPyFuncExecution.time_since_epoch().count()))
 				Step(ModuleData, ManipulatorPyFuncStep);
 
 			NumFailedUpdateAttempts = 0;
@@ -162,7 +163,7 @@ namespace DynExpModule
 
 			if (FuncOutput.LastConsumedSampleIDsPerInputStream.size() > i
 				&& FuncOutput.LastConsumedSampleIDsPerInputStream[i] < SampleStream->GetNumSamplesWritten()
-				&& FuncOutput.LastConsumedSampleIDsPerInputStream[i] >= SampleStream->GetNumSamplesWritten() - SampleStream->GetStreamSizeWrite())
+				&& FuncOutput.LastConsumedSampleIDsPerInputStream[i] >= SampleStream->GetNumSamplesWritten() - SampleStream->GetStreamSizeRead())
 				ManipulatorPyFuncOutput.LastConsumedSampleIDsPerInputStream[i] = FuncOutput.LastConsumedSampleIDsPerInputStream[i];
 			else
 				ManipulatorPyFuncOutput.LastConsumedSampleIDsPerInputStream[i] = SampleStream->GetNumSamplesWritten();
@@ -202,6 +203,7 @@ namespace DynExpModule
 
 		Instance->LockObject(ModuleParams->InputDataStreams, ModuleData->GetInputDataStreams());
 		Instance->LockObject(ModuleParams->OutputDataStreams, ModuleData->GetOutputDataStreams());
+
 		if (ModuleParams->Communicator.ContainsID())
 			Instance->LockObject(ModuleParams->Communicator, ModuleData->GetCommunicator());
 

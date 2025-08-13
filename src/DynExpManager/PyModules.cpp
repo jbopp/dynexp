@@ -36,6 +36,8 @@ PYBIND11_EMBEDDED_MODULE(PyModuleDataStreamInstrument, m)
 	py::class_<PyDataStreamInstrument>(m, "DataStreamInstrument")
 		.def(py::init<>())
 		.def("CalcLastConsumedSampleID", &PyDataStreamInstrument::CalcLastConsumedSampleID)
+		.def("ConsumeNone", &PyDataStreamInstrument::ConsumeNone)
+		.def("ConsumeAll", &PyDataStreamInstrument::ConsumeAll)
 		.def("Clear", &PyDataStreamInstrument::Clear)
 		.def_readonly("IsTimeUsed", &PyDataStreamInstrument::IsTimeUsed)
 		.def_readonly("ValueUnit", &PyDataStreamInstrument::ValueUnit)
@@ -52,8 +54,13 @@ namespace DynExpInstr
 		py::exec("import PyModuleDataStreamInstrument as DataStreamInstrument");
 	}
 
-	size_t PyDataStreamInstrument::CalcLastConsumedSampleID(size_t NumConsumedSamples)
+	size_t PyDataStreamInstrument::CalcLastConsumedSampleID(size_t NumConsumedSamples) const
 	{
 		return NumSamplesWritten - Samples.size() + std::min(Samples.size(), NumConsumedSamples);
+	}
+
+	size_t PyDataStreamInstrument::ConsumeAll() const
+	{
+		return NumSamplesWritten;
 	}
 }

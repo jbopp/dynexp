@@ -1195,7 +1195,7 @@ namespace DynExp
 		/**
 		 * @brief Getter for #EventID.
 		 * @return Returns #EventID.
-		 */
+		*/
 		static auto ID() { return EventID; }
 
 		/**

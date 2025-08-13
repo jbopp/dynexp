@@ -53,7 +53,7 @@ namespace DynExpInstr
 				{
 					if (Resource->IsReady())
 					{
-						// Makes a copy of the event for each receiver.
+						// Copies the event for each receiver.
 						Resource->EnqueueEvent(InterModuleEvent.Clone(GetID()));
 					}
 				}
