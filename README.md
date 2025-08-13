@@ -52,8 +52,9 @@ Currently supported hardware:
 	- Teledyne Photometrics PVCam
 - Motion Control
 	- Nenion Leakvalve F3
+	- Newport Conex-CC Controller
 	- Physik Instrumente (PI) C-862
-	- SmarAct MCS2 
+	- SmarAct MCS2
 
 Available modules:
 - *ArbitraryFunctionFromCSV*: Fills a *DataStreamInstrument* with samples loaded from a CSV file.
