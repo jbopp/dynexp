@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>PLE</class>
- <widget class="QWidget" name="PLE">
+ <class>LaserScanningSpectroscopy</class>
+ <widget class="QWidget" name="LaserScanningSpectroscopy">
   <property name="enabled">
    <bool>true</bool>
   </property>
@@ -277,21 +277,21 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_5">
         <item>
-         <widget class="QLabel" name="LAutoMeasureSavePath">
+         <widget class="QLabel" name="LPath">
           <property name="text">
            <string>Save file path</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="LEAutoMeasureSavePath">
+         <widget class="QLineEdit" name="LEPath">
           <property name="readOnly">
            <bool>true</bool>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="BAutoMeasureSavePathBrowse">
+         <widget class="QPushButton" name="BPathBrowse">
           <property name="minimumSize">
            <size>
             <width>80</width>
@@ -331,14 +331,14 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QLabel" name="LPLEState">
+      <widget class="QLabel" name="LLaserScanningSpectroscopyState">
        <property name="text">
-        <string>PLE state:</string>
+        <string>LaserScanningSpectroscopy state:</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QProgressBar" name="PBProgress">
+      <widget class="QProgressBar" name="PBLaserScanningSpectroscopyProgress">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
          <horstretch>0</horstretch>
@@ -362,7 +362,7 @@
     <string>Start</string>
    </property>
    <property name="toolTip">
-    <string>Start PLE</string>
+    <string>Start LaserScanningSpectroscopy</string>
    </property>
    <property name="menuRole">
     <enum>QAction::MenuRole::NoRole</enum>
@@ -377,7 +377,7 @@
     <string>Stop</string>
    </property>
    <property name="toolTip">
-    <string>Stop PLE</string>
+    <string>Stop LaserScanningSpectroscopy</string>
    </property>
    <property name="menuRole">
     <enum>QAction::MenuRole::NoRole</enum>

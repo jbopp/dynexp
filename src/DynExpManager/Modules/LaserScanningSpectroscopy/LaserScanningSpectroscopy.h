@@ -162,14 +162,17 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		void OnStepsizeChanged(DynExp::ModuleInstance* Instance, const double Stepsize) const;
 		void OnRepetitionsChanged(DynExp::ModuleInstance* Instance, const int Repititions) const;
 		void OnNumberOfStepsChanged(DynExp::ModuleInstance* Instance, const int NumberOfSteps) const;
-		void OnStartAtMinimumToggled(DynExp::ModuleInstance* Instance) const;
-		void OnStartAtMaximumToggled(DynExp::ModuleInstance* Instance) const;
-		void OnScanBackAndForthToggled(DynExp::ModuleInstance* Instance) const;
-		void OnPathChanged(DynExp::ModuleInstance* Instance, QString Path) const;
+		void OnStartAtMinimumToggled(DynExp::ModuleInstance* Instance, bool) const;
+		void OnStartAtMaximumToggled(DynExp::ModuleInstance* Instance, bool) const;
+		void OnScanBackAndForthToggled(DynExp::ModuleInstance* Instance, bool) const;
 		void OnFinishedCapturing(DynExp::ModuleInstance* Instance) const;
 
-		void OnStartClicked(DynExp::ModuleInstance* Instance, bool) const;
+		void OnStartClicked(DynExp::ModuleInstance* Instance, bool) const;								// Those function exist "twice" because Qt expects an additional parameter bool, the event does not
 		void OnStopClicked(DynExp::ModuleInstance* Instance, bool) const;
+		void OnStart(DynExp::ModuleInstance* Instance) const;
+		void OnStop(DynExp::ModuleInstance* Instance) const;
+		void OnPathChanged(DynExp::ModuleInstance* Instance, const std::string& SaveFilename) const;	// This function exists "twice" because Qt expects a QString while the SetFilenameEvent expects a std::string&
+		void OnPath(DynExp::ModuleInstance* Instance, const QString SaveFilename) const;
 
 		// State functions for state machine
 		StateType ReadyStateFunc(DynExp::ModuleInstance& Instance);
