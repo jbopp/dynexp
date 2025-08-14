@@ -104,6 +104,7 @@ namespace DynExpModule
 		ManipulatorPyFuncInit.Reset();
 		ManipulatorPyFuncStep.Reset();
 		ManipulatorPyFuncExit.Reset();
+		ManipulatorPyFuncFinished.Reset();
 		ManipulatorPyFuncStart.Reset();
 		ManipulatorPyFuncStop.Reset();
 		ManipulatorPyFuncTrigger.Reset();
@@ -222,6 +223,8 @@ namespace DynExpModule
 			Util::PyTab + Util::PyTab + ManipulatorPyFuncName + ".step = on_step\n" +
 			Util::PyTab + "if 'on_exit' in locals() and callable(on_exit):\n" +
 			Util::PyTab + Util::PyTab + ManipulatorPyFuncName + ".exit = on_exit\n" +
+			Util::PyTab + "if 'on_finished' in locals() and callable(on_finished):\n" +
+			Util::PyTab + Util::PyTab + ManipulatorPyFuncName + ".finished = on_finished\n" +
 			Util::PyTab + "if 'on_start' in locals() and callable(on_start):\n" +
 			Util::PyTab + Util::PyTab + ManipulatorPyFuncName + ".start = on_start\n" +
 			Util::PyTab + "if 'on_stop' in locals() and callable(on_stop):\n" +
@@ -233,10 +236,13 @@ namespace DynExpModule
 		ManipulatorPyFuncInit = py::hasattr(ManipulatorPyFunc, "init") ? py::getattr(ManipulatorPyFunc, "init") : py::none();
 		ManipulatorPyFuncStep = py::hasattr(ManipulatorPyFunc, "step") ? py::getattr(ManipulatorPyFunc, "step") : py::none();
 		ManipulatorPyFuncExit = py::hasattr(ManipulatorPyFunc, "exit") ? py::getattr(ManipulatorPyFunc, "exit") : py::none();
+		ManipulatorPyFuncFinished = py::hasattr(ManipulatorPyFunc, "finished") ? py::getattr(ManipulatorPyFunc, "finished") : py::none();
 		ManipulatorPyFuncStart = py::hasattr(ManipulatorPyFunc, "start") ? py::getattr(ManipulatorPyFunc, "start") : py::none();
 		ManipulatorPyFuncStop = py::hasattr(ManipulatorPyFunc, "stop") ? py::getattr(ManipulatorPyFunc, "stop") : py::none();
 		ManipulatorPyFuncTrigger = py::hasattr(ManipulatorPyFunc, "trigger") ? py::getattr(ManipulatorPyFunc, "trigger") : py::none();
 
+		if (ModuleParams->Communicator.ContainsID() && ManipulatorPyFuncFinished)
+			FinishedEvent::Register(*this, &StreamManipulator::OnFinished);
 		if (ModuleParams->Communicator.ContainsID() && ManipulatorPyFuncStart)
 			StartEvent::Register(*this, &StreamManipulator::OnStart);
 		if (ModuleParams->Communicator.ContainsID() && ManipulatorPyFuncStop)
@@ -290,6 +296,7 @@ namespace DynExpModule
 		Instance->UnlockObject(ModuleData->GetCommunicator());
 
 		SetFilenameEvent::Deregister(*this);
+		FinishedEvent::Deregister(*this);
 		StartEvent::Deregister(*this);
 		StopEvent::Deregister(*this);
 		TriggerEvent::Deregister(*this);
@@ -298,6 +305,13 @@ namespace DynExpModule
 	void StreamManipulator::OnSetFilename(DynExp::ModuleInstance* Instance, const std::string& SaveFilename) const
 	{
 		ManipulatorPyFuncInput.SaveFilename = SaveFilename;
+	}
+
+	void StreamManipulator::OnFinished(DynExp::ModuleInstance* Instance) const
+	{
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<StreamManipulator>(Instance->ModuleDataGetter());
+
+		Step(ModuleData, ManipulatorPyFuncFinished, false);
 	}
 
 	void StreamManipulator::OnStart(DynExp::ModuleInstance* Instance) const
@@ -319,5 +333,8 @@ namespace DynExpModule
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<StreamManipulator>(Instance->ModuleDataGetter());
 
 		Step(ModuleData, ManipulatorPyFuncTrigger, false);
+
+		if (ModuleData->GetCommunicator().valid())
+			ModuleData->GetCommunicator()->PostEvent(*this, FinishedEvent{});
 	}
 }

@@ -313,6 +313,12 @@ namespace DynExpModule
 		void OnSetFilename(DynExp::ModuleInstance* Instance, const std::string& Filename) const;
 
 		/**
+		 * @brief Called when receiving DynExpModule::FinishedEvent.
+		 * @param Instance Handle to the module thread's data
+		*/
+		void OnFinished(DynExp::ModuleInstance* Instance) const;
+
+		/**
 		 * @brief Called when receiving DynExpModule::StartEvent.
 		 * @param Instance Handle to the module thread's data
 		*/
@@ -349,6 +355,7 @@ namespace DynExpModule
 		mutable PyFuncType ManipulatorPyFuncInit;		//!< Handle to a Python function called on module initialization.
 		mutable PyFuncType ManipulatorPyFuncStep;		//!< Handle to a Python function called for each manipulation step.
 		mutable PyFuncType ManipulatorPyFuncExit;		//!< Handle to a Python function called on module termination.
+		mutable PyFuncType ManipulatorPyFuncFinished;	//!< Handle to a Python function called for DynExpModule::FinishedEvent.
 		mutable PyFuncType ManipulatorPyFuncStart;		//!< Handle to a Python function called for DynExpModule::StartEvent.
 		mutable PyFuncType ManipulatorPyFuncStop;		//!< Handle to a Python function called for DynExpModule::StopEvent.
 		mutable PyFuncType ManipulatorPyFuncTrigger;	//!< Handle to a Python function called for DynExpModule::TriggerEvent.

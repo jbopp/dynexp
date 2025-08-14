@@ -5,7 +5,7 @@ def on_start(input):
 
     return result
 
-def on_stop(input):
+def on_finished(input):
     result = StreamManipulator.OutputData()
 
     if len(input.InputStreams) > 1:
