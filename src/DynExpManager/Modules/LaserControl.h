@@ -9,7 +9,7 @@
 #include <QWidget>
 #include "ui_LaserControl.h"
 
-namespace DynExpModule::LaserControl
+namespace DynExpModule
 {
 	class LaserControl;
 	class LaserControlData;
@@ -28,7 +28,7 @@ namespace DynExpModule::LaserControl
 
 		void InitializeUI(Util::SynchronizedPointer<LaserControlData>& ModuleData);
 		void UpdateUI(Util::SynchronizedPointer<LaserControlData>& ModuleData);
-	
+
 	private:
 		Ui::LaserControl ui;
 	};
@@ -84,7 +84,7 @@ namespace DynExpModule::LaserControl
 			"Laser", "Laser", "Underlying laser instrument to be controlled by this module", DynExpUI::Icons::Instrument };
 
 	private:
-		void ConfigureParamsImpl(dispatch_tag<QModuleParamsBase>) override final {}	
+		void ConfigureParamsImpl(dispatch_tag<QModuleParamsBase>) override final {}
 	};
 
 	class LaserControlConfigurator : public DynExp::QModuleConfiguratorBase
@@ -111,7 +111,8 @@ namespace DynExpModule::LaserControl
 		constexpr static auto Category() noexcept { return "I/O"; }
 
 		LaserControl(const std::thread::id OwnerThreadID, DynExp::ParamsBasePtrType&& Params)
-			: QModuleBase(OwnerThreadID, std::move(Params)) {}
+			: QModuleBase(OwnerThreadID, std::move(Params)) {
+		}
 		virtual ~LaserControl() = default;
 
 		virtual std::string GetName() const override { return Name(); }
@@ -133,7 +134,7 @@ namespace DynExpModule::LaserControl
 
 		void OnEnableClicked(DynExp::ModuleInstance* Instance, bool) const;
 		void OnDisableClicked(DynExp::ModuleInstance* Instance, bool) const;
-		void OnScanToggled(DynExp::ModuleInstance* Instance, bool) const;		
+		void OnScanToggled(DynExp::ModuleInstance* Instance, bool) const;
 		void OnFrequencyValueChanged(DynExp::ModuleInstance* Instance, const double Frequency) const;
 		void OnWavelengthValueChanged(DynExp::ModuleInstance* Instance, const double Wavelength) const;
 		void OnIntensityValueChanged(DynExp::ModuleInstance* Instance, const double Intensity) const;
@@ -142,3 +143,4 @@ namespace DynExpModule::LaserControl
 
 		size_t NumFailedUpdateAttempts = 0;
 	};
+}

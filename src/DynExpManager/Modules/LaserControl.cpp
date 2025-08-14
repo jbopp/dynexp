@@ -4,7 +4,7 @@
 #include "moc_LaserControl.cpp"
 #include "LaserControl.h"
 
-namespace DynExpModule::LaserControl
+namespace DynExpModule
 {
 	LaserControlWidget::LaserControlWidget(LaserControl& Owner, QModuleWidget* parent)
 		: QModuleWidget(Owner, parent)

@@ -7,6 +7,7 @@
 #include "../../MetaInstruments/Laser.h"
 #include "../../Instruments/InterModuleCommunicator.h"
 
+#include "CommonModuleEvents.h"
 //#include "LaserScanningSpectroscopyEvents.h"
 
 #include <QWidget>
@@ -20,7 +21,6 @@ namespace DynExpModule::LaserScanningSpectroscopy
 	enum class StateType {
 		Ready,
 		WaitForSettingFrequency,
-		FrequencyStep,
 		WaitForCapturing,
 	};
 
@@ -51,8 +51,8 @@ namespace DynExpModule::LaserScanningSpectroscopy
 
 		bool IsUIInitialized() const noexcept { return UIInitialized; }
 		void SetUIInitialized() noexcept { UIInitialized = true; }
-		//auto& GetLaserScanningSpectroscopy() { return LaserScanningSpectroscopy; }
-		auto& GetCommunicator() { return Communicator; }
+		auto& GetPLECommunicator() { return PLECommunicator; }
+		auto& GetWFCommunicator() { return WFCommunicator; }
 		auto& GetLaser() { return Laser; }
 
 		double LowerFrequencyLimit;
@@ -75,8 +75,9 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		DynExpInstr::LaserData::LaserStateType LaserState = DynExpInstr::LaserData::LaserStateType::Ready;
 
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::Laser> Laser;
-		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> Communicator;
-		
+		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> PLECommunicator;
+		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> WFCommunicator;
+
 	private:
 		void ResetImpl(dispatch_tag<QModuleDataBase>) override final;
 		virtual void ResetImpl(dispatch_tag<LaserScanningSpectroscopyData>) {};
@@ -95,9 +96,10 @@ namespace DynExpModule::LaserScanningSpectroscopy
 
 		Param<DynExp::ObjectLink<DynExpInstr::Laser>> Laser = { *this, GetCore().GetInstrumentManager(),
 			"Laser", "Laser", "Underlying Laser instrument to be used as a data source", DynExpUI::Icons::Instrument };
-		Param<DynExp::ObjectLink<DynExpInstr::InterModuleCommunicator>> Communicator = { *this, GetCore().GetInstrumentManager(),
-			"InterModuleCommunicator", "Inter-module communicator", "Inter-module communicator to control this module with", DynExpUI::Icons::Instrument, true };
-
+		Param<DynExp::ObjectLink<DynExpInstr::InterModuleCommunicator>> PLECommunicator = { *this, GetCore().GetInstrumentManager(),
+			"PLEInterModuleCommunicator", "PLE inter-module communicator", "Inter-module communicator to control data aquisition", DynExpUI::Icons::Instrument, true };
+		Param<DynExp::ObjectLink<DynExpInstr::InterModuleCommunicator>> WFCommunicator = { *this, GetCore().GetInstrumentManager(),
+			"WFInterModuleCommunicator", "WF inter-module communicator", "Inter-module communicator to communicate with WF module", DynExpUI::Icons::Instrument, true };
 	private:
 		void ConfigureParamsImpl(dispatch_tag<QModuleParamsBase>) override final {}
 	};
@@ -142,11 +144,13 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		std::unique_ptr<DynExp::QModuleWidget> MakeUIWidget() override final;
 		void UpdateUIChild(const ModuleBase::ModuleDataGetterType& ModuleDataGetter) override final;
 
+		void FrequencyStep(DynExp::ModuleInstance* Instance) const;
+
 		// Helper functions
 		bool IsReadyState() const;
 		bool IsSettingFrequencyState() const;
-		//void StartCapturing(Util::SynchronizedPointer<ModuleDataType>& ModuleData, const FinishedSettingFrequencyEvent& Event) const;
 		bool IsCapturingState() const;
+		std::filesystem::path BuildFilename(Util::SynchronizedPointer<ModuleDataType>& ModuleData, std::string_view FilenameSuffix) const;
 
 		// Events, run in module thread
 		void OnInit(DynExp::ModuleInstance* Instance) const override final;
@@ -162,6 +166,7 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		void OnStartAtMaximumToggled(DynExp::ModuleInstance* Instance) const;
 		void OnScanBackAndForthToggled(DynExp::ModuleInstance* Instance) const;
 		void OnPathChanged(DynExp::ModuleInstance* Instance, QString Path) const;
+		void OnFinishedCapturing(DynExp::ModuleInstance* Instance) const;
 
 		void OnStartClicked(DynExp::ModuleInstance* Instance, bool) const;
 		void OnStopClicked(DynExp::ModuleInstance* Instance, bool) const;
@@ -169,19 +174,16 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		// State functions for state machine
 		StateType ReadyStateFunc(DynExp::ModuleInstance& Instance);
 		StateType WaitForSettingFrequencyStateFunc(DynExp::ModuleInstance& Instance);
-		StateType FrequencyStepStateFunc(DynExp::ModuleInstance& Instance);
 		StateType WaitForCapturingStateFunc(DynExp::ModuleInstance& Instance);
 
 		// States for state machine
 		static constexpr auto ReadyState = Util::StateMachineState(StateType::Ready,
 			&LaserScanningSpectroscopy::ReadyStateFunc, "Ready");
-		static constexpr auto LaserSettingFrequencyState = Util::StateMachineState(StateType::WaitForSettingFrequency,
+		static constexpr auto WaitForSettingFrequencyState = Util::StateMachineState(StateType::WaitForSettingFrequency,
 			&LaserScanningSpectroscopy::WaitForSettingFrequencyStateFunc, "Laser stabilizes at target Frequency...");
-		static constexpr auto FinishedCapturingState = Util::StateMachineState(StateType::WaitForCapturing,
+		static constexpr auto WaitForCapturingState = Util::StateMachineState(StateType::WaitForCapturing,
 			&LaserScanningSpectroscopy::WaitForCapturingStateFunc, "Capturing...");
-		static constexpr auto FrequencyStepState = Util::StateMachineState(StateType::FrequencyStep,
-			&LaserScanningSpectroscopy::FrequencyStepStateFunc, "Moving to next Frequency...");
-
+		
 		// Logical const-ness: allow events to set the state machine's current state.
 		mutable Util::StateMachine<StateMachineStateType> StateMachine;
 
