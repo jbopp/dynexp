@@ -3511,6 +3511,30 @@ namespace DynExp
 	*/
 	class RunnableInstance : public Util::INonCopyable
 	{
+	public:
+		/**
+		 * @brief Allow exclusive access to some of @p RunnableInstance's private variables to @p RunnableObject.
+		*/
+		class RunnableObjectOnlyType
+		{
+			friend class RunnableInstance;
+			friend class RunnableObject;
+
+			/**
+			 * @brief Construcs an instance - one for each @p RunnableInstance instance
+			 * @param Parent Owning @p RunnableInstance instance
+			*/
+			constexpr RunnableObjectOnlyType(RunnableInstance& Parent) noexcept : Parent(Parent) {}
+
+			/**
+			 * @brief Sets RunnableInstance::ThreadMayStart to true, indicating that the thread #Parent
+			 * belongs to may start working.
+			*/
+			void SetThreadMayStart() { Parent.ThreadMayStart = true; }
+
+			RunnableInstance& Parent;		//!< Owning @p RunnableInstance instance
+		};
+
 	protected:
 		/**
 		 * @brief Constructs a non-empty @p RunnableInstance instance.
@@ -3530,6 +3554,13 @@ namespace DynExp
 		~RunnableInstance();
 
 		const auto& GetOwner() const noexcept { return Owner; }		//!< Returns #Owner.
+
+		/**
+		 * @brief Blocks until #ThreadMayStart is set to true. Thread functions to be run by
+		 * @p RunnableObject instances are required to call this function before they access
+		 * the parameters passed to them (except to call this function).
+		*/
+		void BlockUntilReadyToStart() const noexcept;
 
 		/**
 		 * @brief Locks an @p Object instance referenced by a parameter @p LinkParam of type
@@ -3678,6 +3709,8 @@ namespace DynExp
 		*/
 		const Object::ParamsGetterType ParamsGetter;
 
+		RunnableObjectOnlyType RunnableObjectOnly;		//!< @copydoc RunnableObjectOnlyType
+
 	private:
 		/**
 		 * @brief Signals that #Owner's thread has exited. Refer to RunnableObject::OnThreadHasExited().
@@ -3711,6 +3744,13 @@ namespace DynExp
 		 * The @p RunnableObject instance's tasks/events might access the object itself via @p GetOwner().
 		*/
 		const RunnableObject& Owner;
+
+		/**
+		 * @brief Indicates whether the thread this @p RunnableInstance instance belongs to may start working.
+		 * The thread is required to check this flag first to avoid a race condition between
+		 * RunnableObject::MakeThread() and RunnableObject::IsCallFromRunnableThread().
+		*/
+		std::atomic<bool> ThreadMayStart = false;
 
 		/**
 		 * @brief Signals the @p RunnableObject instance owning the thread that its thread has terminated.

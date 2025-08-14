@@ -650,6 +650,8 @@ namespace DynExp
 
 	void RunnableObject::MakeThread(ThreadFuncType ThreadFunc, std::unique_ptr<RunnableInstance>&& InstancePtr)
 	{
+		Util::OnDestruction ThreadStartFunc(InstancePtr->RunnableObjectOnly, &RunnableInstance::RunnableObjectOnlyType::SetThreadMayStart);
+
 		Thread = std::thread(ThreadFunc, std::move(InstancePtr), this);
 	}
 
@@ -752,13 +754,16 @@ namespace DynExp
 
 	RunnableInstance::RunnableInstance(RunnableObject& Owner, std::promise<void>&& ThreadExitedPromise)
 		: ParamsGetter({ Owner, &Object::GetParams, { Object::GetParamsTimeoutDefault } }),
-		Owner(Owner), ThreadExitedPromise(std::move(ThreadExitedPromise))
+		RunnableObjectOnly(*this), Owner(Owner),
+		ThreadExitedPromise(std::move(ThreadExitedPromise))
 	{
 	}
 
 	// Not noexcept since move-constructor of std::list is not noexcept.
 	DynExp::RunnableInstance::RunnableInstance(RunnableInstance&& Other)
-		: ParamsGetter(Other.ParamsGetter), Owner(Other.Owner), ThreadExitedPromise(std::move(Other.ThreadExitedPromise)),
+		: ParamsGetter(Other.ParamsGetter),
+		RunnableObjectOnly(*this), Owner(Other.Owner),
+		ThreadExitedPromise(std::move(Other.ThreadExitedPromise)),
 		OwnedLinkedObjectWrappers(std::move(Other.OwnedLinkedObjectWrappers))
 	{
 		Other.Empty = true;
@@ -771,6 +776,12 @@ namespace DynExp
 		std::for_each(OwnedLinkedObjectWrappers.cbegin(), OwnedLinkedObjectWrappers.cend(), [](const auto& i) {
 			i.OwnedLinkedObjectWrapperContainer.Reset();
 		});
+	}
+
+	void RunnableInstance::BlockUntilReadyToStart() const noexcept
+	{
+		while (!ThreadMayStart)
+			std::this_thread::yield();
 	}
 
 	bool RunnableInstance::CareAboutWrappers()

@@ -9,6 +9,8 @@ namespace DynExp
 {
 	int ModuleThreadMain(std::unique_ptr<RunnableInstance>&& InstancePtr, RunnableObject* BaseObject)
 	{
+		InstancePtr->BlockUntilReadyToStart();
+
 		auto const Module = static_cast<ModuleBase*>(BaseObject);
 		auto& Instance = static_cast<ModuleInstance&>(*InstancePtr);
 		bool IsExiting = false;

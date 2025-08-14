@@ -7,6 +7,8 @@ namespace DynExp
 {
 	int InstrumentThreadMain(std::unique_ptr<RunnableInstance>&& InstancePtr, RunnableObject* BaseObject)
 	{
+		InstancePtr->BlockUntilReadyToStart();
+
 		auto const Instrument = static_cast<InstrumentBase*>(BaseObject);
 		auto& Instance = static_cast<InstrumentInstance&>(*InstancePtr);
 		bool IsExiting = false;
