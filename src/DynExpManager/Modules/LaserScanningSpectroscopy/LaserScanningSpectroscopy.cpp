@@ -25,13 +25,13 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		ui.SBLowerFrequencyLimit->setValue(ModuleData->GetLaser()->GetMinFrequency() * 1e-9);
 		ui.SBUpperFrequencyLimit->setRange(ModuleData->GetLaser()->GetMinFrequency() * 1e-9, ModuleData->GetLaser()->GetMaxFrequency() * 1e-9);
 		ui.SBUpperFrequencyLimit->setSuffix(" G" + QString(DynExpInstr::LaserData::FrequencyUnitTypeToStr(ModuleData->GetLaser()->GetFrequencyUnit())));
-		ui.SBUpperFrequencyLimit->setValue(ModuleData->GetLaser()->GetMinFrequency() * 1e-9 + ModuleData->GetLaser()->GetModeHopFreeTuningRange());
-		ui.SBFrequencyRange->setRange(0.0, ModuleData->GetLaser()->GetModeHopFreeTuningRange());
+		ui.SBUpperFrequencyLimit->setValue(ModuleData->GetLaser()->GetMinFrequency() * 1e-9 + ModuleData->GetLaser()->GetModeHopFreeTuningRange() * 1e-9);
+		ui.SBFrequencyRange->setRange(0.0, ModuleData->GetLaser()->GetModeHopFreeTuningRange() * 1e-9);
 		ui.SBFrequencyRange->setSuffix(" G" + QString(DynExpInstr::LaserData::FrequencyUnitTypeToStr(ModuleData->GetLaser()->GetFrequencyUnit())));
-		ui.SBFrequencyRange->setValue(ModuleData->GetLaser()->GetModeHopFreeTuningRange());
-		ui.SBCenterFrequency->setRange(ModuleData->GetLaser()->GetMinFrequency() * 1e-9 + 0.5 * ModuleData->GetLaser()->GetModeHopFreeTuningRange(), ModuleData->GetLaser()->GetMinFrequency() * 1e-9 - 0.5 * ModuleData->GetLaser()->GetModeHopFreeTuningRange());
+		ui.SBFrequencyRange->setValue(ModuleData->GetLaser()->GetModeHopFreeTuningRange() * 1e-9);
+		ui.SBCenterFrequency->setRange(ModuleData->GetLaser()->GetMinFrequency() * 1e-9 + 0.5 * ModuleData->GetLaser()->GetModeHopFreeTuningRange() * 1e-9, ModuleData->GetLaser()->GetMinFrequency() * 1e-9 - 0.5 * ModuleData->GetLaser()->GetModeHopFreeTuningRange() * 1e-9);
 		ui.SBCenterFrequency->setSuffix(" G" + QString(DynExpInstr::LaserData::FrequencyUnitTypeToStr(ModuleData->GetLaser()->GetFrequencyUnit())));
-		ui.SBCenterFrequency->setValue(ModuleData->GetLaser()->GetMinFrequency() * 1e-9 + 0.5 * ModuleData->GetLaser()->GetModeHopFreeTuningRange());
+		ui.SBCenterFrequency->setValue(ModuleData->GetLaser()->GetMinFrequency() * 1e-9 + 0.5 * ModuleData->GetLaser()->GetModeHopFreeTuningRange() * 1e-9);
 		ui.SBRepetitions->setRange(1, 10000);
 		ui.SBRepetitions->setValue(1);
 		ui.SBStepsize->setRange(1, 4000);
@@ -75,38 +75,6 @@ namespace DynExpModule::LaserScanningSpectroscopy
 
 	LaserScanningSpectroscopy::~LaserScanningSpectroscopy()
 	{
-	}
-
-	Util::DynExpErrorCodes::DynExpErrorCodes LaserScanningSpectroscopy::ModuleMainLoop(DynExp::ModuleInstance& Instance)
-	{
-		auto Widget = GetWidget<LaserScanningSpectroscopyWidget>();
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance.ModuleDataGetter());
-
-		ModuleData->LowerFrequencyLimit = Widget->ui.SBLowerFrequencyLimit->value() * 1e9;
-		ModuleData->UpperFrequencyLimit = Widget->ui.SBUpperFrequencyLimit->value() * 1e9;
-		ModuleData->FrequencyRange = Widget->ui.SBFrequencyRange->value() * 1e9;
-		ModuleData->CenterFrequency = Widget->ui.SBCenterFrequency->value() * 1e9;
-		ModuleData->Stepsize = Widget->ui.SBStepsize->value() * 1e9;
-		ModuleData->NumberOfSteps = Widget->ui.SBNumberOfSteps->value();
-		ModuleData->Repetitions = Widget->ui.SBRepetitions->value();
-		ModuleData->StartingPoint = Widget->ui.RBStartAtMinimum->isChecked() ? ModuleData->LowerFrequencyLimit : ModuleData->UpperFrequencyLimit * 1e9;
-		ModuleData->EndingPoint = Widget->ui.RBStartAtMinimum->isChecked() ? ModuleData->UpperFrequencyLimit : ModuleData->LowerFrequencyLimit * 1e9;
-		ModuleData->ScanBackAndForth = Widget->ui.CBScanBackAndForth->isChecked();
-		
-		try
-		{
-			StateMachine.Invoke(*this, Instance);
-
-			NumFailedUpdateAttempts = 0;
-		} // ModuleData and instruments' data unlocked here.
-
-		catch (const Util::TimeoutException& e)
-		{
-			if (NumFailedUpdateAttempts++ >= 3)
-				Instance.GetOwner().SetWarning(e);
-		}
-
-		return Util::DynExpErrorCodes::NoError;
 	}
 
 	void LaserScanningSpectroscopy::ResetImpl(dispatch_tag<QModuleBase>)
@@ -179,6 +147,35 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		Widget->ui.PBLaserScanningSpectroscopyProgress->setVisible(ModuleData->LaserScanningSpectroscopyState != StateType::Ready
 			&& ModuleData->LaserScanningSpectroscopyProgress > 0);
 		Widget->ui.PBLaserScanningSpectroscopyProgress->setValue(ModuleData->LaserScanningSpectroscopyProgress > 0 ? Util::NumToT<int>(ModuleData->LaserScanningSpectroscopyProgress) : 0);
+
+		ModuleData->LowerFrequencyLimit = Widget->ui.SBLowerFrequencyLimit->value() * 1e9;
+		ModuleData->UpperFrequencyLimit = Widget->ui.SBUpperFrequencyLimit->value() * 1e9;
+		ModuleData->FrequencyRange = Widget->ui.SBFrequencyRange->value() * 1e9;
+		ModuleData->CenterFrequency = Widget->ui.SBCenterFrequency->value() * 1e9;
+		ModuleData->Stepsize = Widget->ui.SBStepsize->value() * 1e9;
+		ModuleData->NumberOfSteps = Widget->ui.SBNumberOfSteps->value();
+		ModuleData->Repetitions = Widget->ui.SBRepetitions->value();
+		ModuleData->StartingPoint = Widget->ui.RBStartAtMinimum->isChecked() ? ModuleData->LowerFrequencyLimit : ModuleData->UpperFrequencyLimit * 1e9;
+		ModuleData->EndingPoint = Widget->ui.RBStartAtMinimum->isChecked() ? ModuleData->UpperFrequencyLimit : ModuleData->LowerFrequencyLimit * 1e9;
+		ModuleData->ScanBackAndForth = Widget->ui.CBScanBackAndForth->isChecked();
+	}
+
+	Util::DynExpErrorCodes::DynExpErrorCodes LaserScanningSpectroscopy::ModuleMainLoop(DynExp::ModuleInstance& Instance)
+	{
+		try
+		{
+			StateMachine.Invoke(*this, Instance);
+
+			NumFailedUpdateAttempts = 0;
+		} // ModuleData and instruments' data unlocked here.
+
+		catch (const Util::TimeoutException& e)
+		{
+			if (NumFailedUpdateAttempts++ >= 3)
+				Instance.GetOwner().SetWarning(e);
+		}
+
+		return Util::DynExpErrorCodes::NoError;
 	}
 
 	bool LaserScanningSpectroscopy::IsReadyState() const

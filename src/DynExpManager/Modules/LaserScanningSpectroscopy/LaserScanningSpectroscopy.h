@@ -137,11 +137,12 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		std::chrono::milliseconds GetMainLoopDelay() const override final { return std::chrono::milliseconds(10); }
 
 	private:
+		std::unique_ptr<DynExp::QModuleWidget> MakeUIWidget() override final;
+
 		Util::DynExpErrorCodes::DynExpErrorCodes ModuleMainLoop(DynExp::ModuleInstance& Instance) override final;
 
 		void ResetImpl(dispatch_tag<QModuleBase>) override final;
 
-		std::unique_ptr<DynExp::QModuleWidget> MakeUIWidget() override final;
 		void UpdateUIChild(const ModuleBase::ModuleDataGetterType& ModuleDataGetter) override final;
 
 		void FrequencyStep(DynExp::ModuleInstance* Instance) const;

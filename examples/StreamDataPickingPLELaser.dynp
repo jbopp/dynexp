@@ -308,6 +308,30 @@
      </ParamsBase>
     </Params>
    </Item>
+   <Item Category="I/O" ID="9" Name="Laser Control">
+    <Params>
+     <ParamsBase>
+      <ObjectName>Laser Control</ObjectName>
+      <Usage>1</Usage>
+      <RunnableObjectParams>
+       <Startup>1</Startup>
+       <ModuleParamsBase>
+        <QModuleParamsBase>
+         <WindowPosX>0</WindowPosX>
+         <WindowPosY>0</WindowPosY>
+         <WindowWidth>0</WindowWidth>
+         <WindowHeight>0</WindowHeight>
+         <WindowState>0</WindowState>
+         <WindowDockingState>0</WindowDockingState>
+         <LaserControlParams>
+          <Laser>4</Laser>
+         </LaserControlParams>
+        </QModuleParamsBase>
+       </ModuleParamsBase>
+      </RunnableObjectParams>
+     </ParamsBase>
+    </Params>
+   </Item>
   </Modules>
  </Project>
 </DynExp>
