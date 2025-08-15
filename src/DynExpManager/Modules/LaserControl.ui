@@ -61,6 +61,9 @@
           <property name="suffix">
            <string> THz</string>
           </property>
+          <property name="decimals">
+           <number>6</number>
+          </property>
           <property name="minimum">
            <double>218.000000000000000</double>
           </property>
@@ -76,6 +79,9 @@
           </property>
           <property name="suffix">
            <string> nm</string>
+          </property>
+          <property name="decimals">
+           <number>6</number>
           </property>
           <property name="maximum">
            <double>1000.000000000000000</double>
@@ -107,14 +113,14 @@
           <item>
            <widget class="QLabel" name="LActualFrequency">
             <property name="text">
-             <string> </string>
+             <string/>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QLabel" name="LActualWavelength">
             <property name="text">
-             <string> </string>
+             <string/>
             </property>
            </widget>
           </item>
@@ -172,7 +178,7 @@
           <item>
            <widget class="QLabel" name="LActualIntensity">
             <property name="text">
-             <string> </string>
+             <string/>
             </property>
            </widget>
           </item>

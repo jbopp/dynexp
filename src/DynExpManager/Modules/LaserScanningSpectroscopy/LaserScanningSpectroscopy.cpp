@@ -20,6 +20,14 @@ namespace DynExpModule::LaserScanningSpectroscopy
 
 	void LaserScanningSpectroscopyWidget::InitializeUI(Util::SynchronizedPointer<LaserScanningSpectroscopyData>& ModuleData)
 		{
+		const QSignalBlocker b1(ui.SBLowerFrequencyLimit);
+		const QSignalBlocker b2(ui.SBUpperFrequencyLimit);
+		const QSignalBlocker b3(ui.SBFrequencyRange);
+		const QSignalBlocker b4(ui.SBCenterFrequency);
+		const QSignalBlocker b5(ui.SBRepetitions);
+		const QSignalBlocker b6(ui.SBStepsize);
+		const QSignalBlocker b7(ui.SBNumberOfSteps);
+
 		ui.SBLowerFrequencyLimit->setRange(ModuleData->GetLaser()->GetMinFrequency() * 1e-9, ModuleData->GetLaser()->GetMaxFrequency() * 1e-9);
 		ui.SBLowerFrequencyLimit->setSuffix(" G" + QString(DynExpInstr::LaserData::FrequencyUnitTypeToStr(ModuleData->GetLaser()->GetFrequencyUnit())));
 		ui.SBLowerFrequencyLimit->setValue(ModuleData->GetLaser()->GetMinFrequency() * 1e-9);
@@ -39,6 +47,19 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		ui.SBStepsize->setValue(1000);
 		ui.SBNumberOfSteps->setRange(1, 10000);
 		ui.SBNumberOfSteps->setValue(ui.SBFrequencyRange->value() / ui.SBStepsize->value());
+
+		ModuleData->LowerFrequencyLimit = ui.SBLowerFrequencyLimit->value() * 1e9; 
+		ModuleData->UpperFrequencyLimit = ui.SBUpperFrequencyLimit->value() * 1e9;
+		ModuleData->FrequencyRange = ui.SBFrequencyRange->value() * 1e9; 
+		ModuleData->CenterFrequency = ui.SBCenterFrequency->value() * 1e9; 
+		ModuleData->Stepsize = ui.SBStepsize->value() * 1e9; 
+		ModuleData->NumberOfSteps = ui.SBNumberOfSteps->value(); 
+		ModuleData->Repetitions = ui.SBRepetitions->value(); 
+		ModuleData->StartingPoint = ui.RBStartAtMinimum->isChecked() ? 
+		ModuleData->LowerFrequencyLimit : ModuleData->UpperFrequencyLimit * 1e9; 
+		ModuleData->EndingPoint = ui.RBStartAtMinimum->isChecked() ? 
+		ModuleData->UpperFrequencyLimit : ModuleData->LowerFrequencyLimit * 1e9; 
+		ModuleData->ScanBackAndForth = ui.CBScanBackAndForth->isChecked();
 	}
 
 	void LaserScanningSpectroscopyData::ResetImpl(dispatch_tag<QModuleDataBase>)
@@ -102,6 +123,7 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		Connect(Widget->GetUI().RBStartAtMaximum, &QRadioButton::toggled, this, &LaserScanningSpectroscopy::OnStartAtMaximumToggled);
 		Connect(Widget->GetUI().CBScanBackAndForth, &QCheckBox::toggled, this, &LaserScanningSpectroscopy::OnScanBackAndForthToggled);
 		Connect(Widget->GetUI().LEPath, &QLineEdit::textChanged, this, &LaserScanningSpectroscopy::OnPath);
+		Connect(Widget->GetUI().BPathBrowse, &QPushButton::clicked, this, &LaserScanningSpectroscopy::OnPathBrowseClicked);
 
 		return Widget;
 	}
@@ -147,17 +169,22 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		Widget->ui.PBLaserScanningSpectroscopyProgress->setVisible(ModuleData->LaserScanningSpectroscopyState != StateType::Ready
 			&& ModuleData->LaserScanningSpectroscopyProgress > 0);
 		Widget->ui.PBLaserScanningSpectroscopyProgress->setValue(ModuleData->LaserScanningSpectroscopyProgress > 0 ? Util::NumToT<int>(ModuleData->LaserScanningSpectroscopyProgress) : 0);
+	
+		if (Widget->ui.RBStartAtMinimum->isChecked())
+		{
+			ModuleData->StartingPoint = ModuleData->LowerFrequencyLimit;
+			ModuleData->EndingPoint = ModuleData->UpperFrequencyLimit;
+		}
+		else if (Widget->ui.RBStartAtMaximum->isChecked())
+		{
+			ModuleData->EndingPoint = ModuleData->LowerFrequencyLimit;
+			ModuleData->StartingPoint = ModuleData->UpperFrequencyLimit;
+		}
 
-		ModuleData->LowerFrequencyLimit = Widget->ui.SBLowerFrequencyLimit->value() * 1e9;
-		ModuleData->UpperFrequencyLimit = Widget->ui.SBUpperFrequencyLimit->value() * 1e9;
-		ModuleData->FrequencyRange = Widget->ui.SBFrequencyRange->value() * 1e9;
-		ModuleData->CenterFrequency = Widget->ui.SBCenterFrequency->value() * 1e9;
-		ModuleData->Stepsize = Widget->ui.SBStepsize->value() * 1e9;
-		ModuleData->NumberOfSteps = Widget->ui.SBNumberOfSteps->value();
-		ModuleData->Repetitions = Widget->ui.SBRepetitions->value();
-		ModuleData->StartingPoint = Widget->ui.RBStartAtMinimum->isChecked() ? ModuleData->LowerFrequencyLimit : ModuleData->UpperFrequencyLimit * 1e9;
-		ModuleData->EndingPoint = Widget->ui.RBStartAtMinimum->isChecked() ? ModuleData->UpperFrequencyLimit : ModuleData->LowerFrequencyLimit * 1e9;
-		ModuleData->ScanBackAndForth = Widget->ui.CBScanBackAndForth->isChecked();
+		if (Widget->ui.CBScanBackAndForth->isChecked())
+			ModuleData->ScanBackAndForth = true;
+		else if (!Widget->ui.CBScanBackAndForth->isChecked())
+			ModuleData->ScanBackAndForth = false;
 	}
 
 	Util::DynExpErrorCodes::DynExpErrorCodes LaserScanningSpectroscopy::ModuleMainLoop(DynExp::ModuleInstance& Instance)
@@ -247,6 +274,7 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		ModuleData->LaserScanningSpectroscopyProgress = 0;
 
 		FrequencyStep(Instance);
+		StateMachine.SetCurrentState(StateType::WaitForSettingFrequency);
 	}
 
 	void LaserScanningSpectroscopy::OnStartClicked(DynExp::ModuleInstance* Instance, bool) const
@@ -279,49 +307,92 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		OnPath(Instance, QString::fromStdString(SaveFilename));
 	}
 
+	void LaserScanningSpectroscopy::OnPathBrowseClicked(DynExp::ModuleInstance* Instance, bool) const
+	{
+	}
+
 	void LaserScanningSpectroscopy::OnLowerFrequencyLimitChanged(DynExp::ModuleInstance* Instance, double LowerFrequencyLimit) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
+		auto Widget = GetWidget<LaserScanningSpectroscopyWidget>();
 		double NewFrequencyRange{};
+		const double diff = ModuleData->UpperFrequencyLimit - LowerFrequencyLimit * 1e9;
+		ModuleData->LowerFrequencyLimit = LowerFrequencyLimit * 1e9;
 
 		// modify FrequencyRange, FrequencyCenter and UpperFrequencyLimit to match new LowerFrequencyLimit
-		if (ModuleData->UpperFrequencyLimit - LowerFrequencyLimit <= ModuleData->ModeHopFreeTuningRange)
-			NewFrequencyRange = ModuleData->UpperFrequencyLimit - LowerFrequencyLimit;
+		if (diff < 0)
+		{
+			NewFrequencyRange = ModuleData->FrequencyRange;
+			ModuleData->UpperFrequencyLimit = LowerFrequencyLimit * 1e9 + NewFrequencyRange;
+		}
+		else if (0 < diff && diff <= ModuleData->ModeHopFreeTuningRange)
+			NewFrequencyRange = ModuleData->UpperFrequencyLimit - LowerFrequencyLimit * 1e9;
 		else
 		{
 			NewFrequencyRange = ModuleData->ModeHopFreeTuningRange;
-			ModuleData->UpperFrequencyLimit = LowerFrequencyLimit + NewFrequencyRange;
+			ModuleData->UpperFrequencyLimit = LowerFrequencyLimit * 1e9 + NewFrequencyRange;
 		}
-		ModuleData->CenterFrequency = LowerFrequencyLimit + NewFrequencyRange/2;
+
+		ModuleData->CenterFrequency = LowerFrequencyLimit * 1e9 + NewFrequencyRange/2;
 		ModuleData->FrequencyRange = NewFrequencyRange;
-	}	
+		ModuleData->NumberOfSteps = NewFrequencyRange / (ModuleData->Stepsize * 1e6);
+		
+		const QSignalBlocker b2(Widget->ui.SBUpperFrequencyLimit);
+		const QSignalBlocker b3(Widget->ui.SBFrequencyRange);
+		const QSignalBlocker b4(Widget->ui.SBCenterFrequency);
+		const QSignalBlocker b7(Widget->ui.SBNumberOfSteps);
+		Widget->ui.SBNumberOfSteps->setValue(ModuleData->NumberOfSteps);
+		Widget->ui.SBFrequencyRange->setValue(ModuleData->FrequencyRange / 1e9);
+		Widget->ui.SBCenterFrequency->setValue(ModuleData->CenterFrequency / 1e9);
+		Widget->ui.SBUpperFrequencyLimit->setValue(ModuleData->UpperFrequencyLimit / 1e9);
+	}
 	
 	void LaserScanningSpectroscopy::OnUpperFrequencyLimitChanged(DynExp::ModuleInstance* Instance, double UpperFrequencyLimit) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
+		auto Widget = GetWidget<LaserScanningSpectroscopyWidget>();
 		double NewFrequencyRange;
+		const double diff = UpperFrequencyLimit * 1e9 - ModuleData->LowerFrequencyLimit;
+		ModuleData->UpperFrequencyLimit = UpperFrequencyLimit * 1e9;
 
 		// modify FrequencyRange, FrequencyCenter and LowerFrequencyLimit to match new UpperFrequencyLimit
-		if (UpperFrequencyLimit - ModuleData->LowerFrequencyLimit <= ModuleData->ModeHopFreeTuningRange)
-			NewFrequencyRange = UpperFrequencyLimit - ModuleData->LowerFrequencyLimit;
+		if (diff < 0)
+		{
+			NewFrequencyRange = ModuleData->FrequencyRange;
+			ModuleData->LowerFrequencyLimit = UpperFrequencyLimit * 1e9 - NewFrequencyRange;
+		}
+		else if (0 < diff && diff <= ModuleData->ModeHopFreeTuningRange)
+			NewFrequencyRange = UpperFrequencyLimit * 1e9 - ModuleData->LowerFrequencyLimit;
 		else
 		{
 			NewFrequencyRange = ModuleData->ModeHopFreeTuningRange;
-			ModuleData->LowerFrequencyLimit = UpperFrequencyLimit - NewFrequencyRange;
+			ModuleData->LowerFrequencyLimit = UpperFrequencyLimit * 1e9 - NewFrequencyRange;
 		}
 
-		ModuleData->CenterFrequency = UpperFrequencyLimit - NewFrequencyRange/2;
+		ModuleData->CenterFrequency = UpperFrequencyLimit * 1e9 - NewFrequencyRange/2;
 		ModuleData->FrequencyRange = NewFrequencyRange;
+		ModuleData->NumberOfSteps = NewFrequencyRange / (ModuleData->Stepsize * 1e6);
+		
+		const QSignalBlocker b1(Widget->ui.SBLowerFrequencyLimit);
+		const QSignalBlocker b3(Widget->ui.SBFrequencyRange);
+		const QSignalBlocker b4(Widget->ui.SBCenterFrequency);
+		const QSignalBlocker b7(Widget->ui.SBNumberOfSteps);
+		Widget->ui.SBNumberOfSteps->setValue(ModuleData->NumberOfSteps);
+		Widget->ui.SBFrequencyRange->setValue(NewFrequencyRange / 1e9);
+		Widget->ui.SBCenterFrequency->setValue(ModuleData->CenterFrequency / 1e9);
+		Widget->ui.SBLowerFrequencyLimit->setValue(ModuleData->LowerFrequencyLimit / 1e9);
 	}
 	
 	void LaserScanningSpectroscopy::OnFrequencyRangeChanged(DynExp::ModuleInstance* Instance, double FrequencyRange) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
+		auto Widget = GetWidget<LaserScanningSpectroscopyWidget>();
 		double NewFrequencyRange;
+		ModuleData->FrequencyRange = FrequencyRange * 1e9;
 
 		// modify FrequencyCenter and UpperFrequencyLimit to match new FrequencyRange
-		if (FrequencyRange <= ModuleData->ModeHopFreeTuningRange)
-			NewFrequencyRange = FrequencyRange;
+		if (FrequencyRange * 1e9 <= ModuleData->ModeHopFreeTuningRange)
+			NewFrequencyRange = FrequencyRange * 1e9;
 		else
 		{
 			NewFrequencyRange = ModuleData->ModeHopFreeTuningRange;
@@ -330,35 +401,65 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		ModuleData->UpperFrequencyLimit = ModuleData->LowerFrequencyLimit + NewFrequencyRange;
 		ModuleData->CenterFrequency = ModuleData->LowerFrequencyLimit + NewFrequencyRange/2;
 		ModuleData->FrequencyRange = NewFrequencyRange;
+		ModuleData->NumberOfSteps = NewFrequencyRange / (ModuleData->Stepsize * 1e6);
+		
+		const QSignalBlocker b2(Widget->ui.SBUpperFrequencyLimit);
+		const QSignalBlocker b3(Widget->ui.SBFrequencyRange);
+		const QSignalBlocker b4(Widget->ui.SBCenterFrequency);
+		const QSignalBlocker b7(Widget->ui.SBNumberOfSteps);
+		Widget->ui.SBNumberOfSteps->setValue(ModuleData->NumberOfSteps);
+		Widget->ui.SBFrequencyRange->setValue(ModuleData->FrequencyRange / 1e9);
+		Widget->ui.SBCenterFrequency->setValue(ModuleData->CenterFrequency / 1e9);
+		Widget->ui.SBUpperFrequencyLimit->setValue(ModuleData->UpperFrequencyLimit / 1e9);
 	}
 
 	void LaserScanningSpectroscopy::OnFrequencyCenterChanged(DynExp::ModuleInstance* Instance, double FrequencyCenter) const
 	{
+		auto Widget = GetWidget<LaserScanningSpectroscopyWidget>();
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
+		ModuleData->CenterFrequency = FrequencyCenter * 1e9;
 
 		// modify LowerFrequencyLimit and UpperFrequencyLimit to match new FrequencyCenter
-		ModuleData->UpperFrequencyLimit = FrequencyCenter + ModuleData->FrequencyRange/2;
-		ModuleData->LowerFrequencyLimit = FrequencyCenter - ModuleData->FrequencyRange/2;
+		ModuleData->UpperFrequencyLimit = FrequencyCenter * 1e9 + ModuleData->FrequencyRange/2;
+		ModuleData->LowerFrequencyLimit = FrequencyCenter * 1e9 - ModuleData->FrequencyRange/2;
+		
+		const QSignalBlocker b1(Widget->ui.SBLowerFrequencyLimit);
+		const QSignalBlocker b2(Widget->ui.SBUpperFrequencyLimit);
+		Widget->ui.SBLowerFrequencyLimit->setValue(ModuleData->LowerFrequencyLimit / 1e9);
+		Widget->ui.SBUpperFrequencyLimit->setValue(ModuleData->UpperFrequencyLimit / 1e9);
 	}
 
 	void LaserScanningSpectroscopy::OnStepsizeChanged(DynExp::ModuleInstance* Instance, double Stepsize) const
 	{
+		auto Widget = GetWidget<LaserScanningSpectroscopyWidget>();
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
+		ModuleData->Stepsize = Stepsize * 1e6;
 
 		// modify NumberOfSteps to match new Stepsize
-		ModuleData->NumberOfSteps = ModuleData->FrequencyRange / Stepsize;
+		ModuleData->NumberOfSteps = ModuleData->FrequencyRange / (Stepsize * 1e6);
+
+		const QSignalBlocker b7(Widget->ui.SBNumberOfSteps);
+		Widget->ui.SBNumberOfSteps->setValue(ModuleData->NumberOfSteps);
 	}
 
 	void LaserScanningSpectroscopy::OnNumberOfStepsChanged(DynExp::ModuleInstance* Instance, int NumberOfSteps) const
 	{
+		auto Widget = GetWidget<LaserScanningSpectroscopyWidget>();
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
+		ModuleData->NumberOfSteps = NumberOfSteps * 1e9;
 
 		// modify Stepsize to match new NumberOfSteps
 		ModuleData->Stepsize = ModuleData->FrequencyRange / NumberOfSteps;
+
+		const QSignalBlocker b6(Widget->ui.SBStepsize);
+		Widget->ui.SBStepsize->setValue(ModuleData->Stepsize / 1e6);
 	}
 
 	void LaserScanningSpectroscopy::OnRepetitionsChanged(DynExp::ModuleInstance* Instance, int Repetitions) const
 	{
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
+		
+		ModuleData->Repetitions = Repetitions;
 	}
 
 	void LaserScanningSpectroscopy::OnStartAtMinimumToggled(DynExp::ModuleInstance* Instance, bool Checked) const
@@ -369,12 +470,14 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		//if (Widget->ui.RBStartAtMinimum->isChecked())
 		if (Checked)
 		{
+			const QSignalBlocker b8(Widget->ui.RBStartAtMaximum);
 			Widget->ui.RBStartAtMaximum->setChecked(false);
 			ModuleData->StartingPoint = ModuleData->LowerFrequencyLimit;
 			ModuleData->EndingPoint = ModuleData->UpperFrequencyLimit;
 		}
 		else
 		{
+			const QSignalBlocker b8(Widget->ui.RBStartAtMaximum);
 			Widget->ui.RBStartAtMaximum->setChecked(true);
 			ModuleData->StartingPoint = ModuleData->UpperFrequencyLimit;
 			ModuleData->EndingPoint = ModuleData->LowerFrequencyLimit;
@@ -389,12 +492,14 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		//if (Widget->ui.RBStartAtMaximum->isChecked())
 		if (Checked)
 		{
+			const QSignalBlocker b9(Widget->ui.RBStartAtMinimum);
 			Widget->ui.RBStartAtMinimum->setChecked(false);
 			ModuleData->StartingPoint = ModuleData->UpperFrequencyLimit;
 			ModuleData->EndingPoint = ModuleData->LowerFrequencyLimit;
 		}
 		else
 		{
+			const QSignalBlocker b9(Widget->ui.RBStartAtMinimum);
 			Widget->ui.RBStartAtMinimum->setChecked(true);
 			ModuleData->StartingPoint = ModuleData->LowerFrequencyLimit;
 			ModuleData->EndingPoint = ModuleData->UpperFrequencyLimit;
@@ -451,8 +556,8 @@ namespace DynExpModule::LaserScanningSpectroscopy
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
 
-		ModuleData->PLECommunicator->PostEvent(*this, SetFilenameEvent{
-			BuildFilename(ModuleData, Util::ToStr(ModuleData->Filepath) + "_PLE_rep_" + Util::ToStr(ModuleData->RepCount) + "_step_" + Util::ToStr(ModuleData->StepCount)).string() });
+		//ModuleData->PLECommunicator->PostEvent(*this, SetFilenameEvent{
+		//	BuildFilename(ModuleData, Util::ToStr(ModuleData->Filepath) + "_PLE_rep_" + Util::ToStr(ModuleData->RepCount) + "_step_" + Util::ToStr(ModuleData->StepCount)).string() });
 
 		double Frequency = 0.0;
 
@@ -486,7 +591,7 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		ModuleData->StepCount++;
 		ModuleData->LaserScanningSpectroscopyProgress++;
 
-		StateMachine.SetCurrentState(StateType::WaitForSettingFrequency);
+		//StateMachine.SetCurrentState(StateType::WaitForSettingFrequency);
 	}
 
 	StateType LaserScanningSpectroscopy::ReadyStateFunc(DynExp::ModuleInstance& Instance)

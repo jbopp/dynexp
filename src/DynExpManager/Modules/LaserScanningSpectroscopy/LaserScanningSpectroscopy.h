@@ -174,6 +174,7 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		void OnStop(DynExp::ModuleInstance* Instance) const;
 		void OnPathChanged(DynExp::ModuleInstance* Instance, const std::string& SaveFilename) const;	// This function exists "twice" because Qt expects a QString while the SetFilenameEvent expects a std::string&
 		void OnPath(DynExp::ModuleInstance* Instance, const QString SaveFilename) const;
+		void OnPathBrowseClicked(DynExp::ModuleInstance* Instance, bool) const;
 
 		// State functions for state machine
 		StateType ReadyStateFunc(DynExp::ModuleInstance& Instance);

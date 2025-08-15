@@ -129,7 +129,7 @@
       <ObjectName>Network Laser</ObjectName>
       <Usage>1</Usage>
       <RunnableObjectParams>
-       <Startup>1</Startup>
+       <Startup>0</Startup>
        <InstrumentParamsBase>
         <LaserParams>
          <gRPCInstrumentParams>
@@ -288,7 +288,7 @@
       <ObjectName>LaserScanningSpectroscopy</ObjectName>
       <Usage>1</Usage>
       <RunnableObjectParams>
-       <Startup>1</Startup>
+       <Startup>0</Startup>
        <ModuleParamsBase>
         <QModuleParamsBase>
          <WindowPosX>0</WindowPosX>
@@ -314,7 +314,7 @@
       <ObjectName>Laser Control</ObjectName>
       <Usage>1</Usage>
       <RunnableObjectParams>
-       <Startup>1</Startup>
+       <Startup>0</Startup>
        <ModuleParamsBase>
         <QModuleParamsBase>
          <WindowPosX>0</WindowPosX>
