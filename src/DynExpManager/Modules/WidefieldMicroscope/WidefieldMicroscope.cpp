@@ -2910,7 +2910,7 @@ namespace DynExpModule::Widefield
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance.ModuleDataGetter());
 
 		ModuleData->GetSpectrumAcqCommunicator()->PostEvent(*this, SetFilenameEvent {
-			BuildFilename(ModuleData, "_Emitter" + Util::ToStr(ModuleData->GetAutoMeasureCurrentEmitter()->first) + "_Spectrum.csv").string() });
+			BuildFilename(ModuleData, "_Emitter" + Util::ToStr(ModuleData->GetAutoMeasureCurrentEmitter()->first) + "_Spectrum").string() });
 		ModuleData->GetSpectrumAcqCommunicator()->PostEvent(*this, TriggerEvent{});
 
 		return StateType::SpectrumAcquisitionWaiting;

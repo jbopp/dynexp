@@ -9,7 +9,7 @@ def on_finished(input):
     result = StreamManipulator.OutputData()
 
     if len(input.InputStreams) > 1:
-        with open(input.SaveFilename, "w") as file:
+        with open(input.SaveFilename + ".csv", "w") as file:
             file.write("Time;Value\n")
             for i in range(len(input.InputStreams[1].Samples)):
                 file.write(f"{input.InputStreams[1].Samples[i].Time};{input.InputStreams[1].Samples[i].Value}\n")

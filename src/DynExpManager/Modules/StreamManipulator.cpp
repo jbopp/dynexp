@@ -304,6 +304,7 @@ namespace DynExpModule
 
 	void StreamManipulator::OnSetFilename(DynExp::ModuleInstance* Instance, const std::string& SaveFilename) const
 	{
+		// Add file extension on Python side.
 		ManipulatorPyFuncInput.SaveFilename = SaveFilename;
 	}
 

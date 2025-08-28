@@ -652,7 +652,7 @@ namespace DynExpModule::ImageViewer
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<ImageViewer>(Instance->ModuleDataGetter());
 
 		OnStop(Instance);
-		ModuleData->AutoSaveFilename = SaveFilename;
+		ModuleData->AutoSaveFilename = SaveFilename + ".png";
 	}
 
 	void ImageViewer::OnTrigger(DynExp::ModuleInstance* Instance) const
