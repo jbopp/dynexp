@@ -590,8 +590,6 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		ModuleData->GetLaser()->SetFrequency(Frequency);
 		ModuleData->StepCount++;
 		ModuleData->LaserScanningSpectroscopyProgress++;
-
-		//StateMachine.SetCurrentState(StateType::WaitForSettingFrequency);
 	}
 
 	StateType LaserScanningSpectroscopy::ReadyStateFunc(DynExp::ModuleInstance& Instance)
