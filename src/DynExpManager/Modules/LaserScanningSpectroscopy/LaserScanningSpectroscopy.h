@@ -41,6 +41,9 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		void UpdateUI(Util::SynchronizedPointer<LaserScanningSpectroscopyData>& ModuleData);
 	
 		Ui::LaserScanningSpectroscopy ui;
+
+	private slots:
+		void OnPathBrowseClicked();
 	};
 
 	class LaserScanningSpectroscopyData : public DynExp::QModuleDataBase
@@ -48,6 +51,10 @@ namespace DynExpModule::LaserScanningSpectroscopy
 	public:
 		LaserScanningSpectroscopyData() { Init(); }
 		virtual ~LaserScanningSpectroscopyData() = default;
+
+		DynExp::LinkedObjectWrapperContainer<DynExpInstr::Laser> Laser;
+		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> PLECommunicator;
+		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> WFCommunicator;
 
 		bool IsUIInitialized() const noexcept { return UIInitialized; }
 		void SetUIInitialized() noexcept { UIInitialized = true; }
@@ -73,10 +80,6 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		StateType LaserScanningSpectroscopyState = StateType::Ready;
 		double LaserScanningSpectroscopyProgress;
 		DynExpInstr::LaserData::LaserStateType LaserState = DynExpInstr::LaserData::LaserStateType::Ready;
-
-		DynExp::LinkedObjectWrapperContainer<DynExpInstr::Laser> Laser;
-		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> PLECommunicator;
-		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> WFCommunicator;
 
 	private:
 		void ResetImpl(dispatch_tag<QModuleDataBase>) override final;
@@ -134,7 +137,7 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		virtual std::string GetName() const override { return Name(); }
 		virtual std::string GetCategory() const override { return Category(); }
 
-		std::chrono::milliseconds GetMainLoopDelay() const override final { return std::chrono::milliseconds(10); }
+		std::chrono::milliseconds GetMainLoopDelay() const override final { return std::chrono::milliseconds(500); }
 
 	private:
 		std::unique_ptr<DynExp::QModuleWidget> MakeUIWidget() override final;
@@ -174,7 +177,7 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		void OnStop(DynExp::ModuleInstance* Instance) const;
 		void OnPathChanged(DynExp::ModuleInstance* Instance, const std::string& SaveFilename) const;	// This function exists "twice" because Qt expects a QString while the SetFilenameEvent expects a std::string&
 		void OnPath(DynExp::ModuleInstance* Instance, const QString SaveFilename) const;
-		void OnPathBrowseClicked(DynExp::ModuleInstance* Instance, bool) const;
+		//void OnPathBrowseClicked();
 
 		// State functions for state machine
 		StateType ReadyStateFunc(DynExp::ModuleInstance& Instance);

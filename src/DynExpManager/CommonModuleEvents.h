@@ -52,7 +52,7 @@ namespace DynExpModule
 		 * @brief Constructs a @p SetFilenameEvent event.
 		 * @param Filename @copybrief #Filename
 		*/
-		SetFilenameEvent(const std::string& Filename = "Unknown.dat") : Filename(Filename) {}
+		SetFilenameEvent(const std::string& Filename = "unknown") : Filename(Filename) {}
 
 		/**
 		 * @copydoc DynExp::InterModuleEventBase::InterModuleEventBase(const InterModuleEventBase&, ItemIDType)
@@ -62,7 +62,7 @@ namespace DynExpModule
 
 		virtual ~SetFilenameEvent() {}
 
-		virtual std::string GetName() const override { return "Set filename to Unknown.dat"; }
+		virtual std::string GetName() const override { return "Set filename to \"unknown.<ext>\"."; }
 
 	private:
 		/**
@@ -70,7 +70,11 @@ namespace DynExpModule
 		*/
 		virtual void InvokeWithParamsChild(DynExp::ModuleInstance& Instance, EventListenersType::EventFunctionType EventFunc) const override;
 
-		const std::string Filename;		//!< Filename where to store data.
+		/**
+		 * @brief Filename where to store data (path and name, no file extension).
+		 * The receiving module is responsible for adding the required file extension.
+		*/
+		const std::string Filename;
 	};
 
 	/**

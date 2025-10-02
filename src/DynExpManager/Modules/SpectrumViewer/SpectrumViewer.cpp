@@ -418,7 +418,7 @@ namespace DynExpModule::SpectrumViewer
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<SpectrumViewer>(Instance->ModuleDataGetter());
 
 		OnStop(Instance);
-		ModuleData->AutoSaveFilename = SaveFilename;
+		ModuleData->AutoSaveFilename = SaveFilename + ".csv";
 	}
 
 	void SpectrumViewer::OnTrigger(DynExp::ModuleInstance* Instance) const

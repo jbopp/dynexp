@@ -48,9 +48,9 @@ namespace DynExpModule
 		ui.action_EnableScan->setEnabled(ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::Ready || ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::EmissionEnabledConstant || ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::EmissionEnabledScanning);
 		ui.action_Disable->setEnabled(ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::EmissionEnabledConstant || ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::EmissionEnabledScanning);
 		
-		ui.SBFrequency->setEnabled(ModuleData->LaserState != DynExpInstr::LaserData::LaserStateType::Startup);
+		//ui.SBFrequency->setEnabled(ModuleData->LaserState != DynExpInstr::LaserData::LaserStateType::Startup);
 		ui.LActualFrequency->setText(QString::number(ModuleData->Frequency * 1e-12, 'f', 6) + " T" + QString(DynExpInstr::LaserData::FrequencyUnitTypeToStr(ModuleData->FrequencyUnit)));
-		ui.SBWavelength->setEnabled(ModuleData->LaserState != DynExpInstr::LaserData::LaserStateType::Startup);
+		//ui.SBWavelength->setEnabled(ModuleData->LaserState != DynExpInstr::LaserData::LaserStateType::Startup);
 		ui.LActualWavelength->setText(QString::number(ModuleData->Wavelength, 'f', 6) + " nm");
 		
 		if (ModuleData->Intensity < ModuleData->HardwareMinIntensity)
