@@ -5,6 +5,7 @@
 #include "LaserScanningSpectroscopy.h"
 
 #include <QDir>
+#include <thread>
 #include <chrono>
 
 namespace DynExpModule::LaserScanningSpectroscopy
@@ -37,7 +38,7 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		ui.SBUpperFrequencyLimit->setValue(ModuleData->GetLaser()->GetMinFrequency() * 1e-9 + ModuleData->GetLaser()->GetModeHopFreeTuningRange() * 1e-9);
 		ui.SBFrequencyRange->setRange(0.0, ModuleData->GetLaser()->GetModeHopFreeTuningRange() * 1e-9);
 		ui.SBFrequencyRange->setSuffix(" G" + QString(DynExpInstr::LaserData::FrequencyUnitTypeToStr(ModuleData->GetLaser()->GetFrequencyUnit())));
-		ui.SBFrequencyRange->setValue(ModuleData->GetLaser()->GetModeHopFreeTuningRange() * 1e-9);
+		ui.SBFrequencyRange->setValue(1);
 		ui.SBCenterFrequency->setRange(ModuleData->GetLaser()->GetMinFrequency() * 1e-9 + 0.5 * ModuleData->GetLaser()->GetModeHopFreeTuningRange() * 1e-9, ModuleData->GetLaser()->GetMaxFrequency() * 1e-9 - 0.5 * ModuleData->GetLaser()->GetModeHopFreeTuningRange() * 1e-9);
 		ui.SBCenterFrequency->setSuffix(" G" + QString(DynExpInstr::LaserData::FrequencyUnitTypeToStr(ModuleData->GetLaser()->GetFrequencyUnit())));
 		ui.SBCenterFrequency->setValue(ModuleData->GetLaser()->GetMinFrequency() * 1e-9 + 0.5 * ModuleData->GetLaser()->GetModeHopFreeTuningRange() * 1e-9);
@@ -47,7 +48,7 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		ui.SBStepsize->setSuffix(" M" + QString(DynExpInstr::LaserData::FrequencyUnitTypeToStr(ModuleData->GetLaser()->GetFrequencyUnit())));
 		ui.SBStepsize->setValue(100);
 		ui.SBNumberOfSteps->setRange(1, 10000);
-		ui.SBNumberOfSteps->setValue(ModuleData->GetLaser()->GetModeHopFreeTuningRange() * 1e-6 / ui.SBStepsize->value());
+		ui.SBNumberOfSteps->setValue(ui.SBFrequencyRange->value() * 1e3 / ui.SBStepsize->value());
 
 		ModuleData->LowerFrequencyLimit = ui.SBLowerFrequencyLimit->value() * 1e9; 
 		ModuleData->UpperFrequencyLimit = ui.SBUpperFrequencyLimit->value() * 1e9;
@@ -56,10 +57,8 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		ModuleData->Stepsize = ui.SBStepsize->value() * 1e6; 
 		ModuleData->NumberOfSteps = ui.SBNumberOfSteps->value(); 
 		ModuleData->Repetitions = ui.SBRepetitions->value(); 
-		ModuleData->StartingPoint = ui.RBStartAtMinimum->isChecked() ? 
-		ModuleData->LowerFrequencyLimit : ModuleData->UpperFrequencyLimit * 1e9; 
-		ModuleData->EndingPoint = ui.RBStartAtMinimum->isChecked() ? 
-		ModuleData->UpperFrequencyLimit : ModuleData->LowerFrequencyLimit * 1e9; 
+		ModuleData->StartingPoint = ui.RBStartAtMinimum->isChecked() ? ModuleData->LowerFrequencyLimit : ModuleData->UpperFrequencyLimit; 
+		ModuleData->EndingPoint = ui.RBStartAtMinimum->isChecked() ? ModuleData->UpperFrequencyLimit : ModuleData->LowerFrequencyLimit; 
 		ModuleData->ScanBackAndForth = ui.CBScanBackAndForth->isChecked();
 	}
 
@@ -78,14 +77,14 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		CenterFrequency = 0.0;
 		ModeHopFreeTuningRange = 0.0;
 		Stepsize = 0.0;
-		NumberOfSteps = 0.0;
-		Repetitions = 0.0;
+		NumberOfSteps = 0;
+		Repetitions = 0;
 		StartingPoint = 0.0;
 		EndingPoint = 0.0;
 		ScanBackAndForth = false;
 		StepCount = 0;
 		RepCount = 0;
-		LaserScanningSpectroscopyProgress = 0.0;
+		LaserScanningSpectroscopyProgress = 0;
 	}
 
 	LaserScanningSpectroscopy::LaserScanningSpectroscopy(const std::thread::id OwnerThreadID, DynExp::ParamsBasePtrType&& Params)
@@ -156,35 +155,24 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		Widget->ui.RBStartAtMaximum->setEnabled(Ready);
 		Widget->ui.CBScanBackAndForth->setEnabled(Ready);
 		Widget->ui.SBRepetitions->setEnabled(Ready);
-
+		Widget->ui.PBLaserScanningSpectroscopyProgress->setVisible(true);
+		Widget->ui.PBLaserScanningSpectroscopyProgress->setValue(static_cast<int>(100.0 * ModuleData->LaserScanningSpectroscopyProgress/(ModuleData->Repetitions*(ModuleData->NumberOfSteps+1))));
+		
 		if (Ready)
-			Widget->ui.LLaserScanningSpectroscopyState->setText(" LaserScanningSpectroscopy state: Ready");
+		{
+			Widget->ui.LLaserScanningSpectroscopyState->setText(" State: Ready");
+			Widget->ui.PBLaserScanningSpectroscopyProgress->setVisible(false);
+		}
 		else if (SettingFrequency)
-			Widget->ui.LLaserScanningSpectroscopyState->setText(" LaserScanningSpectroscopy state: Stabilizing at target frequency");
+			Widget->ui.LLaserScanningSpectroscopyState->setText(" State: Stabilizing");
 		else if (Capturing)
-			Widget->ui.LLaserScanningSpectroscopyState->setText(" LaserScanningSpectroscopy state: Capturing");
+			Widget->ui.LLaserScanningSpectroscopyState->setText(" State: Capturing");
 		else
-			Widget->ui.LLaserScanningSpectroscopyState->setText(" LaserScanningSpectroscopy state: ");
+			Widget->ui.LLaserScanningSpectroscopyState->setText(" State: ");
 
-		Widget->ui.PBLaserScanningSpectroscopyProgress->setVisible(ModuleData->LaserScanningSpectroscopyState != StateType::Ready
-			&& ModuleData->LaserScanningSpectroscopyProgress > 0);
-		Widget->ui.PBLaserScanningSpectroscopyProgress->setValue(ModuleData->LaserScanningSpectroscopyProgress > 0 ? Util::NumToT<int>(ModuleData->LaserScanningSpectroscopyProgress) : 0);
-	
-		if (Widget->ui.RBStartAtMinimum->isChecked())
-		{
-			ModuleData->StartingPoint = ModuleData->LowerFrequencyLimit;
-			ModuleData->EndingPoint = ModuleData->UpperFrequencyLimit;
-		}
-		else if (Widget->ui.RBStartAtMaximum->isChecked())
-		{
-			ModuleData->EndingPoint = ModuleData->LowerFrequencyLimit;
-			ModuleData->StartingPoint = ModuleData->UpperFrequencyLimit;
-		}
-
-		if (Widget->ui.CBScanBackAndForth->isChecked())
-			ModuleData->ScanBackAndForth = true;
-		else if (!Widget->ui.CBScanBackAndForth->isChecked())
-			ModuleData->ScanBackAndForth = false;
+		ModuleData->StartingPoint = Widget->ui.RBStartAtMinimum->isChecked() ? ModuleData->LowerFrequencyLimit : ModuleData->UpperFrequencyLimit;
+		ModuleData->EndingPoint = Widget->ui.RBStartAtMinimum->isChecked() ? ModuleData->UpperFrequencyLimit : ModuleData->LowerFrequencyLimit;
+		ModuleData->ScanBackAndForth = Widget->ui.CBScanBackAndForth->isChecked();
 	}
 
 	Util::DynExpErrorCodes::DynExpErrorCodes LaserScanningSpectroscopy::ModuleMainLoop(DynExp::ModuleInstance& Instance)
@@ -200,6 +188,14 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		{
 			if (NumFailedUpdateAttempts++ >= 3)
 				Instance.GetOwner().SetWarning(e);
+		}
+		/*catch (const Util::LinkedObjectNotLockedException& e)
+		{
+			Instance.GetOwner().SetWarning(e);
+		}*/
+		catch (const Util::ServiceFailedException& e)
+		{
+			Instance.GetOwner().SetWarning(e);
 		}
 
 		return Util::DynExpErrorCodes::NoError;
@@ -228,7 +224,6 @@ namespace DynExpModule::LaserScanningSpectroscopy
 
 	void LaserScanningSpectroscopy::OnInit(DynExp::ModuleInstance* Instance) const
 	{
-
 		auto ModuleParams = DynExp::dynamic_Params_cast<LaserScanningSpectroscopy>(Instance->ParamsGetter());
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
 
@@ -237,13 +232,13 @@ namespace DynExpModule::LaserScanningSpectroscopy
 			Instance->LockObject(ModuleParams->PLECommunicator, ModuleData->PLECommunicator);
 			FinishedEvent::Register(*this, &LaserScanningSpectroscopy::OnFinishedCapturing, ModuleData->GetPLECommunicator()->GetID());
 		}
-		if (ModuleParams->WFCommunicator.ContainsID())
+		/*if (ModuleParams->WFCommunicator.ContainsID())
 		{
 			Instance->LockObject(ModuleParams->WFCommunicator, ModuleData->WFCommunicator);
 			StartEvent::Register(*this, &LaserScanningSpectroscopy::OnStart, ModuleData->GetWFCommunicator()->GetID());
 			StopEvent::Register(*this, &LaserScanningSpectroscopy::OnStop, ModuleData->GetWFCommunicator()->GetID());
 			SetFilenameEvent::Register(*this, &LaserScanningSpectroscopy::OnPathChanged, ModuleData->GetWFCommunicator()->GetID());
-		}
+		}*/
 
 		Instance->LockObject(ModuleParams->Laser, ModuleData->GetLaser());
 		ModuleData->ModeHopFreeTuningRange = ModuleData->GetLaser()->GetModeHopFreeTuningRange();
@@ -252,15 +247,17 @@ namespace DynExpModule::LaserScanningSpectroscopy
 	void LaserScanningSpectroscopy::OnExit(DynExp::ModuleInstance* Instance) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
+		auto ModuleParams = DynExp::dynamic_Params_cast<LaserScanningSpectroscopy>(Instance->ParamsGetter());
 
 		Instance->UnlockObject(ModuleData->Laser);
 		Instance->UnlockObject(ModuleData->PLECommunicator);
+		/*
 		Instance->UnlockObject(ModuleData->WFCommunicator);
-
-		FinishedEvent::Deregister(*this);
+		
 		StartEvent::Deregister(*this);
 		StopEvent::Deregister(*this);
-		SetFilenameEvent::Deregister(*this);
+		SetFilenameEvent::Deregister(*this);*/
+		FinishedEvent::Deregister(*this);
 	}
 
 	void LaserScanningSpectroscopy::OnStart(DynExp::ModuleInstance* Instance) const
@@ -289,6 +286,10 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		ModuleData->PLECommunicator->PostEvent(*this, StopEvent{});
 
 		StateMachine.SetCurrentState(StateType::Ready);
+
+		ModuleData->StepCount = 0;
+		ModuleData->RepCount = 0;
+		ModuleData->LaserScanningSpectroscopyProgress = 0;
 	}
 
 	void LaserScanningSpectroscopy::OnStopClicked(DynExp::ModuleInstance* Instance, bool) const
@@ -309,7 +310,7 @@ namespace DynExpModule::LaserScanningSpectroscopy
 
 	void LaserScanningSpectroscopyWidget::OnPathBrowseClicked()
 	{
-		auto Filename = Util::PromptSaveFilePathModule(this, "Select directory and filename prefix for saving data in auto-measure mode",
+		auto Filename = Util::PromptSaveFilePathModule(this, "Select directory and filename prefix for saving data",
 			".csv", " Comma-separated values file (*.csv)");
 		if (Filename.isEmpty())
 			return;
@@ -453,7 +454,7 @@ namespace DynExpModule::LaserScanningSpectroscopy
 	{
 		auto Widget = GetWidget<LaserScanningSpectroscopyWidget>();
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
-		ModuleData->NumberOfSteps = NumberOfSteps * 1e9;
+		ModuleData->NumberOfSteps = NumberOfSteps;
 
 		// modify Stepsize to match new NumberOfSteps
 		ModuleData->Stepsize = ModuleData->FrequencyRange / NumberOfSteps;
@@ -474,7 +475,6 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		auto Widget = GetWidget<LaserScanningSpectroscopyWidget>();
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
 
-		//if (Widget->ui.RBStartAtMinimum->isChecked())
 		if (Checked)
 		{
 			const QSignalBlocker b8(Widget->ui.RBStartAtMaximum);
@@ -496,7 +496,6 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		auto Widget = GetWidget<LaserScanningSpectroscopyWidget>();
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
 
-		//if (Widget->ui.RBStartAtMaximum->isChecked())
 		if (Checked)
 		{
 			const QSignalBlocker b9(Widget->ui.RBStartAtMinimum);
@@ -518,7 +517,6 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		auto Widget = GetWidget<LaserScanningSpectroscopyWidget>();
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
 
-		//if (Widget->ui.CBScanBackAndForth->isChecked())
 		if (Checked)
 			ModuleData->ScanBackAndForth = true;
 		else
@@ -529,7 +527,7 @@ namespace DynExpModule::LaserScanningSpectroscopy
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
 
-		if (ModuleData->StepCount < ModuleData->NumberOfSteps)
+		if (ModuleData->StepCount <= ModuleData->NumberOfSteps)
 		{
 			FrequencyStep(Instance);
 			StateMachine.SetCurrentState(StateType::WaitForSettingFrequency);
@@ -537,10 +535,14 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		else
 		{
 			ModuleData->RepCount++;
-			if (ModuleData->RepCount == ModuleData->Repetitions)
+			if (ModuleData->RepCount >= ModuleData->Repetitions)
 			{
-				ModuleData->WFCommunicator->PostEvent(*this, FinishedEvent{});
+				//ModuleData->WFCommunicator->PostEvent(*this, FinishedEvent{});
 				StateMachine.SetCurrentState(StateType::Ready);
+
+				ModuleData->StepCount = 0;
+				ModuleData->RepCount = 0;
+				ModuleData->LaserScanningSpectroscopyProgress = 0;
 			}
 			else
 			{
@@ -563,23 +565,22 @@ namespace DynExpModule::LaserScanningSpectroscopy
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
 
-		//ModuleData->PLECommunicator->PostEvent(*this, SetFilenameEvent{
-		//	BuildFilename(ModuleData, Util::ToStr(ModuleData->Filepath) + "_PLE_rep_" + Util::ToStr(ModuleData->RepCount) + "_step_" + Util::ToStr(ModuleData->StepCount)).string() });
-
 		double Frequency = 0.0;
 
 		if (ModuleData->StepCount == 0)
 			Frequency = ModuleData->StartingPoint;
-		else if (ModuleData->StepCount != 0 && ModuleData->StepCount < ModuleData->NumberOfSteps)
+		else if (ModuleData->StepCount != 0 && ModuleData->StepCount <= ModuleData->NumberOfSteps)
 		{
-			if ((ModuleData->StartingPoint == ModuleData->LowerFrequencyLimit && ModuleData->RepCount % 2 == 0) ||
-				(ModuleData->StartingPoint == ModuleData->UpperFrequencyLimit && ModuleData->RepCount % 2 == 1))
+			if ((ModuleData->StartingPoint == ModuleData->LowerFrequencyLimit && ModuleData->ScanBackAndForth && ModuleData->RepCount % 2 == 0) ||
+				(ModuleData->StartingPoint == ModuleData->UpperFrequencyLimit && ModuleData->ScanBackAndForth && ModuleData->RepCount % 2 == 1) ||
+				(ModuleData->StartingPoint == ModuleData->LowerFrequencyLimit && !ModuleData->ScanBackAndForth))
 				Frequency = ModuleData->LowerFrequencyLimit + ModuleData->StepCount * ModuleData->Stepsize;
 			else if ((ModuleData->StartingPoint == ModuleData->LowerFrequencyLimit && ModuleData->RepCount % 2 == 1) ||
-				(ModuleData->StartingPoint == ModuleData->UpperFrequencyLimit && ModuleData->RepCount % 2 == 0))
+				(ModuleData->StartingPoint == ModuleData->UpperFrequencyLimit && ModuleData->RepCount % 2 == 0) ||
+				(ModuleData->StartingPoint == ModuleData->UpperFrequencyLimit && !ModuleData->ScanBackAndForth))
 				Frequency = ModuleData->UpperFrequencyLimit - ModuleData->StepCount * ModuleData->Stepsize;
 		}
-		else if (ModuleData->StepCount >= ModuleData->NumberOfSteps)
+		else if (ModuleData->StepCount > ModuleData->NumberOfSteps)
 		{
 			ModuleData->StepCount = 0;
 
@@ -597,7 +598,6 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		ModuleData->GetLaser()->SetFrequency(Frequency);
 		ModuleData->StepCount++;
 		ModuleData->LaserScanningSpectroscopyProgress++;
-		//std::chrono::milliseconds(100);
 	}
 
 	StateType LaserScanningSpectroscopy::ReadyStateFunc(DynExp::ModuleInstance& Instance)
@@ -612,13 +612,12 @@ namespace DynExpModule::LaserScanningSpectroscopy
 
 	StateType LaserScanningSpectroscopy::WaitForSettingFrequencyStateFunc(DynExp::ModuleInstance& Instance)
 	{
+		std::this_thread::sleep_for(std::chrono::seconds(1));
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance.ModuleDataGetter());
 		auto LaserInstrData = DynExp::dynamic_InstrumentData_cast<DynExpInstr::Laser>(ModuleData->GetLaser()->GetInstrumentData());
-		//std::chrono::milliseconds(500);
 
 		if (LaserInstrData->GetLaserState() == DynExpInstr::LaserData::LaserStateType::Ready ||
 			LaserInstrData->GetLaserState() == DynExpInstr::LaserData::LaserStateType::EmissionEnabledConstant)
-			//&& (ModuleData->LowerFrequencyLimit - ModuleData->FrequencyRange/2 < LaserInstrData->GetFrequencyValue() < ModuleData->UpperFrequencyLimit + ModuleData->FrequencyRange/2))
 			{
 			ModuleData->PLECommunicator->PostEvent(*this, TriggerEvent{});
 			return StateType::WaitForCapturing;

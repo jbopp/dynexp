@@ -6,12 +6,10 @@
 #include "DynExpCore.h"
 #include "../../MetaInstruments/Laser.h"
 #include "../../Instruments/InterModuleCommunicator.h"
-
 #include "CommonModuleEvents.h"
-//#include "LaserScanningSpectroscopyEvents.h"
+#include "ui_LaserScanningSpectroscopy.h"
 
 #include <QWidget>
-#include "ui_LaserScanningSpectroscopy.h"
 
 namespace DynExpModule::LaserScanningSpectroscopy
 {
@@ -68,8 +66,8 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		double ModeHopFreeTuningRange;
 		double CenterFrequency;
 		double Stepsize;
-		double NumberOfSteps;
-		double Repetitions;
+		int NumberOfSteps;
+		int Repetitions;
 		double StartingPoint;
 		double EndingPoint;
 		bool ScanBackAndForth = false;
@@ -78,7 +76,7 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		std::filesystem::path Filepath;
 		
 		StateType LaserScanningSpectroscopyState = StateType::Ready;
-		double LaserScanningSpectroscopyProgress;
+		int LaserScanningSpectroscopyProgress = 0;
 		DynExpInstr::LaserData::LaserStateType LaserState = DynExpInstr::LaserData::LaserStateType::Ready;
 
 	private:
@@ -103,6 +101,7 @@ namespace DynExpModule::LaserScanningSpectroscopy
 			"PLEInterModuleCommunicator", "PLE inter-module communicator", "Inter-module communicator to control data aquisition", DynExpUI::Icons::Instrument, true };
 		Param<DynExp::ObjectLink<DynExpInstr::InterModuleCommunicator>> WFCommunicator = { *this, GetCore().GetInstrumentManager(),
 			"WFInterModuleCommunicator", "WF inter-module communicator", "Inter-module communicator to communicate with WF module", DynExpUI::Icons::Instrument, true };
+	
 	private:
 		void ConfigureParamsImpl(dispatch_tag<QModuleParamsBase>) override final {}
 	};
@@ -177,7 +176,6 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		void OnStop(DynExp::ModuleInstance* Instance) const;
 		void OnPathChanged(DynExp::ModuleInstance* Instance, const std::string& SaveFilename) const;	// This function exists "twice" because Qt expects a QString while the SetFilenameEvent expects a std::string&
 		void OnPath(DynExp::ModuleInstance* Instance, const QString SaveFilename) const;
-		//void OnPathBrowseClicked();
 
 		// State functions for state machine
 		StateType ReadyStateFunc(DynExp::ModuleInstance& Instance);

@@ -152,6 +152,10 @@ namespace DynExpModule
 			if (NumFailedUpdateAttempts++ >= 3)
 				Instance.GetOwner().SetWarning(e);
 		}
+		catch (const Util::ServiceFailedException& e)
+		{
+			Instance.GetOwner().SetWarning(e);
+		}
 
 		return Util::DynExpErrorCodes::NoError;
 	}

@@ -185,14 +185,16 @@
        <ModuleParamsBase>
         <StreamManipulatorParams>
          <InputDataStreams>
-          <Values/>
+          <Values>
+           <v>2</v>
+          </Values>
          </InputDataStreams>
          <OutputDataStreams>
           <Values>
            <v>1</v>
           </Values>
          </OutputDataStreams>
-         <PythonCodePath>stream_randomize.py</PythonCodePath>
+         <PythonCodePath>C:/Users/sturmlui/Masterthesis/DynExp/examples/qudi_read_stream_WLM.py</PythonCodePath>
          <InterModuleCommunicator>0</InterModuleCommunicator>
         </StreamManipulatorParams>
        </ModuleParamsBase>
@@ -212,7 +214,6 @@
          <InputDataStreams>
           <Values>
            <v>1</v>
-           <v>2</v>
           </Values>
          </InputDataStreams>
          <OutputDataStreams>
