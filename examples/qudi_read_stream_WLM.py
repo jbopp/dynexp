@@ -1,10 +1,12 @@
 import datetime
 import rpyc
+print(rpyc.__file__)
+print(rpyc.__version__)
 
 def on_init(input):
     host = '141.20.45.252'
     port = 12345
-    module_name = 'wavemeter'
+    module_name = 'wavemeter_cwave'
 
     protocol_config = {
         'allow_all_attrs': True,

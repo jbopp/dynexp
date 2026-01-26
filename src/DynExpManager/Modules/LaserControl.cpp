@@ -48,11 +48,17 @@ namespace DynExpModule
 		ui.action_EnableScan->setEnabled(ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::Ready || ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::EmissionEnabledConstant || ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::EmissionEnabledScanning);
 		ui.action_Disable->setEnabled(ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::EmissionEnabledConstant || ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::EmissionEnabledScanning);
 		
-		//ui.SBFrequency->setEnabled(ModuleData->LaserState != DynExpInstr::LaserData::LaserStateType::Startup);
-		ui.LActualFrequency->setText(QString::number(ModuleData->Frequency * 1e-12, 'f', 6) + " T" + QString(DynExpInstr::LaserData::FrequencyUnitTypeToStr(ModuleData->FrequencyUnit)));
-		//ui.SBWavelength->setEnabled(ModuleData->LaserState != DynExpInstr::LaserData::LaserStateType::Startup);
-		ui.LActualWavelength->setText(QString::number(ModuleData->Wavelength, 'f', 6) + " nm");
-		
+		if (std::isnan(ModuleData->Frequency))
+		{
+			ui.LActualFrequency->setText("Output unstable");
+			ui.LActualWavelength->setText("Output unstable");
+		}
+		else
+		{
+			ui.LActualFrequency->setText(QString::number(ModuleData->Frequency * 1e-12, 'f', 6) + " T" + QString(DynExpInstr::LaserData::FrequencyUnitTypeToStr(ModuleData->FrequencyUnit)));
+			ui.LActualWavelength->setText(QString::number(ModuleData->Wavelength, 'f', 6) + " nm");
+		}
+
 		if (ModuleData->Intensity < ModuleData->HardwareMinIntensity)
 		{
 			ui.LActualIntensity->setText(QString::number(ModuleData->Intensity * 1e3, 'f', 3) + " m" + QString(DynExpInstr::LaserData::IntensityUnitTypeToStr(ModuleData->IntensityUnit)) + " (Power low!)");
