@@ -159,6 +159,30 @@
    </Item>
   </Instruments>
   <Modules>
+   <Item Category="General" ID="10" Name="Inter-Module Event Sender">
+    <Params>
+     <ParamsBase>
+      <ObjectName>WF Event Sender</ObjectName>
+      <Usage>1</Usage>
+      <RunnableObjectParams>
+       <Startup>1</Startup>
+       <ModuleParamsBase>
+        <QModuleParamsBase>
+         <WindowPosX>0</WindowPosX>
+         <WindowPosY>0</WindowPosY>
+         <WindowWidth>0</WindowWidth>
+         <WindowHeight>0</WindowHeight>
+         <WindowState>0</WindowState>
+         <WindowDockingState>0</WindowDockingState>
+         <EventSenderParams>
+          <InterModuleCommunicator>5</InterModuleCommunicator>
+         </EventSenderParams>
+        </QModuleParamsBase>
+       </ModuleParamsBase>
+      </RunnableObjectParams>
+     </ParamsBase>
+    </Params>
+   </Item>
    <Item Category="I/O" ID="2" Name="Signal Plotter">
     <Params>
      <ParamsBase>

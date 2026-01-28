@@ -28,10 +28,11 @@ def on_step(input):
     result.MinNextExecutionDelay = datetime.timedelta(seconds=5)
 
     data = on_init.stream.read_data()
-    frequencies = data[0].reshape(-1, 4)
+    wavelengths = data[0].reshape(-1, 4) *1e9
+    #frequencies = data[0].reshape(-1, 4)
     times = data[1]
 
-    for v, t in zip(frequencies, times):
+    for v, t in zip(wavelengths, times):
         input.OutputStreams[0].Samples.append(DataStreamInstrument.BasicSample(v[3], t))
 
     return result

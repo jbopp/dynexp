@@ -200,9 +200,9 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
-           <widget class="QLabel" name="LScanRange">
+           <widget class="QLabel" name="LScanRate">
             <property name="text">
-             <string>Scan Bandwidth</string>
+             <string>Scan Rate</string>
             </property>
            </widget>
           </item>
@@ -230,9 +230,9 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
-           <widget class="QLabel" name="LScanRate">
+           <widget class="QLabel" name="LScanRange">
             <property name="text">
-             <string>Scan Rate</string>
+             <string>Scan Bandwidth</string>
             </property>
            </widget>
           </item>

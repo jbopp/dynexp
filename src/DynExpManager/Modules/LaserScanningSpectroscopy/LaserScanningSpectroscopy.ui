@@ -69,6 +69,7 @@
         <addaction name="separator"/>
         <addaction name="action_Stop"/>
         <addaction name="separator"/>
+        <addaction name="action_StepwiseScan"/>
        </widget>
       </item>
       <item>
@@ -405,6 +406,24 @@
    </property>
    <property name="toolTip">
     <string>Stop LaserScanningSpectroscopy</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="action_StepwiseScan">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../QModules.qrc">
+     <normaloff>:/QModules/icons/Rect.svg</normaloff>:/QModules/icons/Rect.svg</iconset>
+   </property>
+   <property name="text">
+    <string>StepwiseScan</string>
+   </property>
+   <property name="toolTip">
+    <string>Enables stepwise frequency tuning</string>
    </property>
    <property name="menuRole">
     <enum>QAction::MenuRole::NoRole</enum>

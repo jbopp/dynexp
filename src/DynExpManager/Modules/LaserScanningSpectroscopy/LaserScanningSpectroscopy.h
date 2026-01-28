@@ -60,6 +60,8 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		auto& GetWFCommunicator() { return WFCommunicator; }
 		auto& GetLaser() { return Laser; }
 
+		bool StepwiseScan;
+		int ContinuousScanMeasurementInterval;
 		double LowerFrequencyLimit;
 		double UpperFrequencyLimit;
 		double FrequencyRange;
@@ -136,7 +138,7 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		virtual std::string GetName() const override { return Name(); }
 		virtual std::string GetCategory() const override { return Category(); }
 
-		std::chrono::milliseconds GetMainLoopDelay() const override final { return std::chrono::milliseconds(500); }
+		std::chrono::milliseconds GetMainLoopDelay() const override final { return std::chrono::milliseconds(200); }
 
 	private:
 		std::unique_ptr<DynExp::QModuleWidget> MakeUIWidget() override final;
@@ -172,6 +174,7 @@ namespace DynExpModule::LaserScanningSpectroscopy
 
 		void OnStartClicked(DynExp::ModuleInstance* Instance, bool) const;								// Those function exist "twice" because Qt expects an additional parameter bool, the event does not
 		void OnStopClicked(DynExp::ModuleInstance* Instance, bool) const;
+		void OnStepwiseScanToggled(DynExp::ModuleInstance* Instance, bool) const;
 		void OnStart(DynExp::ModuleInstance* Instance) const;
 		void OnStop(DynExp::ModuleInstance* Instance) const;
 		void OnPathChanged(DynExp::ModuleInstance* Instance, const std::string& SaveFilename) const;	// This function exists "twice" because Qt expects a QString while the SetFilenameEvent expects a std::string&
