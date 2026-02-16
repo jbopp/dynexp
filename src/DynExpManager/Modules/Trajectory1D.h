@@ -43,6 +43,7 @@ namespace DynExpModule
 	{
 	public:
 		enum TriggerModeType { Continuous, ManualOnce, Manual, OnStreamChanged };
+		enum PositioningModeType { Absolute, Relative };
 
 		Trajectory1DData() { Init(); }
 		virtual ~Trajectory1DData() = default;
@@ -53,6 +54,8 @@ namespace DynExpModule
 
 		auto GetTriggerMode() const noexcept { return TriggerMode; }
 		void SetTriggerMode(TriggerModeType TriggerMode) noexcept { this->TriggerMode = TriggerMode; }
+		auto GetPositioningMode() const noexcept { return PositioningMode; }
+		void SetPositioningMode(PositioningModeType PositioningMode) noexcept { this->PositioningMode = PositioningMode; }
 		auto GetRepeatCount() const noexcept { return RepeatCount; }
 		void SetRepeatCount(size_t RepeatCount) noexcept { this->RepeatCount = RepeatCount; }
 		auto GetDwellTime() const noexcept { return DwellTime; }
@@ -85,6 +88,7 @@ namespace DynExpModule
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> Communicator;
 
 		TriggerModeType TriggerMode = TriggerModeType::Manual;
+		PositioningModeType PositioningMode = PositioningModeType::Absolute;
 		size_t RepeatCount = 1;
 		std::chrono::milliseconds DwellTime = std::chrono::milliseconds(100);
 
@@ -101,6 +105,7 @@ namespace DynExpModule
 	{
 	public:
 		static Util::TextValueListType<Trajectory1DData::TriggerModeType> TriggerModeTypeStrList();
+		static Util::TextValueListType<Trajectory1DData::PositioningModeType> PositioningModeTypeStrList();
 
 		Trajectory1DParams(DynExp::ItemIDType ID, const DynExp::DynExpCore& Core) : QModuleParamsBase(ID, Core) {}
 		virtual ~Trajectory1DParams() = default;
@@ -116,6 +121,8 @@ namespace DynExpModule
 
 		Param<Trajectory1DData::TriggerModeType> TriggerMode = { *this, TriggerModeTypeStrList(), "TriggerMode", "Trigger mode",
 			"Trigger action which starts streaming the position data", true, Trajectory1DData::TriggerModeType::Manual };
+		Param<Trajectory1DData::PositioningModeType> PositioningMode = { *this, PositioningModeTypeStrList(), "PositioningMode", "positioning mode",
+			"Indicates how position samples are treated", true, Trajectory1DData::PositioningModeType::Absolute };
 		Param<ParamsConfigDialog::NumberType> RepeatCount = { *this, "RepeatCount", "Number of repetitions",
 			"Determines how many times the trajectory data stream should be played back after a trigger event has occurred", true, 1, 1 };
 		Param<ParamsConfigDialog::NumberType> DwellTime = { *this, "DwellTime", "Dwell time in ms",
