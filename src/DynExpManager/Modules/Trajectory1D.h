@@ -56,6 +56,8 @@ namespace DynExpModule
 		void SetTriggerMode(TriggerModeType TriggerMode) noexcept { this->TriggerMode = TriggerMode; }
 		auto GetPositioningMode() const noexcept { return PositioningMode; }
 		void SetPositioningMode(PositioningModeType PositioningMode) noexcept { this->PositioningMode = PositioningMode; }
+		auto GetPosMultiplier() const noexcept { return PosMultiplier; }
+		void SetPosMultiplier(double PosMultiplier) noexcept { this->PosMultiplier = PosMultiplier; }
 		auto GetRepeatCount() const noexcept { return RepeatCount; }
 		void SetRepeatCount(size_t RepeatCount) noexcept { this->RepeatCount = RepeatCount; }
 		auto GetDwellTime() const noexcept { return DwellTime; }
@@ -89,6 +91,7 @@ namespace DynExpModule
 
 		TriggerModeType TriggerMode = TriggerModeType::Manual;
 		PositioningModeType PositioningMode = PositioningModeType::Absolute;
+		double PosMultiplier = 1.0;
 		size_t RepeatCount = 1;
 		std::chrono::milliseconds DwellTime = std::chrono::milliseconds(100);
 
@@ -123,6 +126,8 @@ namespace DynExpModule
 			"Trigger action which starts streaming the position data", true, Trajectory1DData::TriggerModeType::Manual };
 		Param<Trajectory1DData::PositioningModeType> PositioningMode = { *this, PositioningModeTypeStrList(), "PositioningMode", "positioning mode",
 			"Indicates how position samples are treated", true, Trajectory1DData::PositioningModeType::Absolute };
+		Param<ParamsConfigDialog::NumberType> PosMultiplier = { *this, "PosMultiplier", "Position multiplier",
+			"Factor to multiply each position sample with before moving", true, 1, -1e9, 1e9, 1, 2 };
 		Param<ParamsConfigDialog::NumberType> RepeatCount = { *this, "RepeatCount", "Number of repetitions",
 			"Determines how many times the trajectory data stream should be played back after a trigger event has occurred", true, 1, 1 };
 		Param<ParamsConfigDialog::NumberType> DwellTime = { *this, "DwellTime", "Dwell time in ms",

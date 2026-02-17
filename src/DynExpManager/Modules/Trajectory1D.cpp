@@ -20,6 +20,7 @@ namespace DynExpModule
 	{
 		TriggerMode = TriggerModeType::Manual;
 		PositioningMode = PositioningModeType::Absolute;
+		PosMultiplier = 1.0;
 		RepeatCount = 1;
 		DwellTime = std::chrono::milliseconds(100);
 
@@ -175,10 +176,11 @@ namespace DynExpModule
 			if ((ThisSampleStart <= TimeEllapsed && NextSampleStart > TimeEllapsed) ||
 				(ThisSampleStart <= TimeEllapsed && i + 1 == Samples.size()))
 			{
+				const auto Dest = Util::NumToT<DynExpInstr::PositionerStageData::PositionType>(Samples[i].Value * ModuleData->GetPosMultiplier());
 				if (ModuleData->GetPositioningMode() == Trajectory1DData::PositioningModeType::Absolute)
-					ModuleData->GetPositionerStage()->MoveAbsolute(Samples[i].Value);
+					ModuleData->GetPositionerStage()->MoveAbsolute(Dest);
 				else
-					ModuleData->GetPositionerStage()->MoveRelative(Samples[i].Value);
+					ModuleData->GetPositionerStage()->MoveRelative(Dest);
 
 				ModuleData->SetCurrentPlaybackPos(i + 2);
 
@@ -257,6 +259,7 @@ namespace DynExpModule
 
 		ModuleData->SetTriggerMode(ModuleParams->TriggerMode);
 		ModuleData->SetPositioningMode(ModuleParams->PositioningMode);
+		ModuleData->SetPosMultiplier(ModuleParams->PosMultiplier);
 		ModuleData->SetRepeatCount(std::max(static_cast<size_t>(1), Util::NumToT<size_t>(ModuleParams->RepeatCount)));
 		ModuleData->SetDwellTime(std::chrono::milliseconds(Util::NumToT<std::chrono::milliseconds::rep>(std::max(1.0, ModuleParams->DwellTime.Get()))));
 
