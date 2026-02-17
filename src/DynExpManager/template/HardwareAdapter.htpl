@@ -1,5 +1,10 @@
 // This file is part of DynExp.
 
+/**
+ * @file $Name$.h
+ * @brief Implementation of a hardware adapter to TODO.
+*/
+
 $$if($WindowsOnly)
 // Windows only
 $$endif

@@ -1,7 +1,11 @@
 # This file is part of DynExp.
 
+target_sources(DynExp PRIVATE "DummyAnalogIn.cpp" "DummyAnalogIn.h")
+target_sources(DynExp PRIVATE "DummyAnalogOut.cpp" "DummyAnalogOut.h")
 target_sources(DynExp PRIVATE "DummyCamera.cpp" "DummyCamera.h")
 target_sources(DynExp PRIVATE "DummyDataStreamInstrument.cpp" "DummyDataStreamInstrument.h")
+target_sources(DynExp PRIVATE "DummyDigitalIn.cpp" "DummyDigitalIn.h")
+target_sources(DynExp PRIVATE "DummyDigitalOut.cpp" "DummyDigitalOut.h")
 target_sources(DynExp PRIVATE "InterModuleCommunicator.cpp" "InterModuleCommunicator.h")
 target_sources(DynExp PRIVATE "NenionLeakvalveF3.cpp" "NenionLeakvalveF3.h")
 target_sources(DynExp PRIVATE "NetworkAnalogInInstr.cpp" "NetworkAnalogInInstr.h")

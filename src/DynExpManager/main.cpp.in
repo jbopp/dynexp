@@ -43,8 +43,12 @@
 #include "HardwareAdapters/HardwareAdapterEthernet.h"
 
 // Instruments
+#include "Instruments/DummyAnalogIn.h"
+#include "Instruments/DummyAnalogOut.h"
 #include "Instruments/DummyCamera.h"
 #include "Instruments/DummyDataStreamInstrument.h"
+#include "Instruments/DummyDigitalIn.h"
+#include "Instruments/DummyDigitalOut.h"
 #include "Instruments/InterModuleCommunicator.h"
 #include "Instruments/NenionLeakvalveF3.h"
 #include "Instruments/NetworkAnalogInInstr.h"
@@ -139,8 +143,12 @@ int main(int argc, char *argv[])
 	> HardwareAdapterLib;
 
 	constexpr DynExp::InstrumentLibrary<
+		DynExpInstr::DummyAnalogIn,
+		DynExpInstr::DummyAnalogOut,
 		DynExpInstr::DummyCamera,
 		DynExpInstr::DummyDataStreamInstrument,
+		DynExpInstr::DummyDigitalIn,
+		DynExpInstr::DummyDigitalOut,
 		DynExpInstr::InterModuleCommunicator,
 		DynExpInstr::NenionLeakvalveF3,
 		DynExpInstr::NetworkAnalogIn,
