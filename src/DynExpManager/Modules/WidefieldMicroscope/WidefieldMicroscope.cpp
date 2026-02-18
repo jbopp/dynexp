@@ -1,6 +1,7 @@
 // This file is part of DynExp.
 
 #include "stdafx.h"
+#include "ui_WidefieldMicroscope.h"
 #include "WidefieldMicroscope.h"
 
 namespace DynExpModule::Widefield
@@ -696,73 +697,73 @@ namespace DynExpModule::Widefield
 	{
 		auto Widget = std::make_unique<WidefieldMicroscopeWidget>(*this);
 
-		Connect(Widget->GetUI().action_Terminate, &QAction::triggered, this, &WidefieldMicroscope::OnTerminate);
-		Connect(Widget->GetUI().action_Stop_current_action, &QAction::triggered, this, &WidefieldMicroscope::OnStopAction);
-		Connect(Widget->GetUI().action_Set_home_position, &QAction::triggered, this, &WidefieldMicroscope::OnSetHomePosition);
-		Connect(Widget->GetUI().action_Go_home_position, &QAction::triggered, this, &WidefieldMicroscope::OnGoToHomePosition);
-		Connect(Widget->GetUI().action_Toogle_LED_light_source, &QAction::triggered, this, &WidefieldMicroscope::OnToggleLEDLightSource);
-		Connect(Widget->GetUI().action_Toogle_pump_light_source, &QAction::triggered, this, &WidefieldMicroscope::OnTogglePumpLightSource);
+		Connect(Widget->GetUI()->action_Terminate, &QAction::triggered, this, &WidefieldMicroscope::OnTerminate);
+		Connect(Widget->GetUI()->action_Stop_current_action, &QAction::triggered, this, &WidefieldMicroscope::OnStopAction);
+		Connect(Widget->GetUI()->action_Set_home_position, &QAction::triggered, this, &WidefieldMicroscope::OnSetHomePosition);
+		Connect(Widget->GetUI()->action_Go_home_position, &QAction::triggered, this, &WidefieldMicroscope::OnGoToHomePosition);
+		Connect(Widget->GetUI()->action_Toogle_LED_light_source, &QAction::triggered, this, &WidefieldMicroscope::OnToggleLEDLightSource);
+		Connect(Widget->GetUI()->action_Toogle_pump_light_source, &QAction::triggered, this, &WidefieldMicroscope::OnTogglePumpLightSource);
 		Connect(Widget->GetWidefieldConfocalModeActionGroup(), &QActionGroup::triggered, this, &WidefieldMicroscope::OnSetupModeChanged);
-		Connect(Widget->GetUI().action_Autofocus, &QAction::triggered, this, &WidefieldMicroscope::OnAutofocus);
-		Connect(Widget->GetUI().action_Optimize_positions, &QAction::triggered, this, &WidefieldMicroscope::OnOptimizePositions);
-		Connect(Widget->GetUI().action_Toggle_HBT_mirror, &QAction::triggered, this, &WidefieldMicroscope::OnToggleHBTMirror);
-		Connect(Widget->GetUI().action_Reset_CellID, &QAction::triggered, this, &WidefieldMicroscope::OnResetCellID);
-		Connect(Widget->GetUI().SBGeneralWidefieldPower, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &WidefieldMicroscope::OnGeneralWidefieldPowerChanged);
-		Connect(Widget->GetUI().SBGeneralConfocalPower, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &WidefieldMicroscope::OnGeneralConfocalPowerChanged);
-		Connect(Widget->GetUI().SBGeneralFocusCurrentVoltage, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &WidefieldMicroscope::OnGeneralFocusCurrentVoltageChanged);
-		Connect(Widget->GetUI().SBGeneralFocusZeroVoltage, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &WidefieldMicroscope::OnGeneralFocusZeroVoltageChanged);
-		Connect(Widget->GetUI().SBGeneralFocusConfocalOffsetVoltage, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &WidefieldMicroscope::OnGeneralFocusConfocalOffsetVoltageChanged);
-		Connect(Widget->GetUI().BGeneralFocusSetZeroVoltage, &QPushButton::clicked, this, &WidefieldMicroscope::OnGeneralSetZeroFocus);
-		Connect(Widget->GetUI().BGeneralFocusApplyZeroVoltage, &QPushButton::clicked, this, &WidefieldMicroscope::OnGeneralApplyZeroFocus);
-		Connect(Widget->GetUI().SBWidefieldLEDExposureTime, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnWidefieldLEDExposureTimeChanged);
-		Connect(Widget->GetUI().BWidefieldApplyLEDExposureTime, &QPushButton::clicked, this, &WidefieldMicroscope::OnWidefieldApplyLEDExposureTime);
-		Connect(Widget->GetUI().SBWidefieldPumpExposureTime, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnWidefieldPumpExposureTimeChanged);
-		Connect(Widget->GetUI().BWidefieldApplyPumpExposureTime, &QPushButton::clicked, this, &WidefieldMicroscope::OnWidefieldApplyPumpExposureTime);
-		Connect(Widget->GetUI().BWidefieldFindConfocalSpot, &QPushButton::clicked, this, &WidefieldMicroscope::OnWidefieldFindConfocalSpot);
-		Connect(Widget->GetUI().BWidefieldLEDCapture, &QPushButton::clicked, this, &WidefieldMicroscope::OnCaptureLEDImage);
-		Connect(Widget->GetUI().BWidefieldCapture, &QPushButton::clicked, this, &WidefieldMicroscope::OnCaptureWidefieldImage);
-		Connect(Widget->GetUI().BReadCellID, &QPushButton::clicked, this, &WidefieldMicroscope::OnWidefieldReadCellID);
-		Connect(Widget->GetUI().BAnalyzeImageDistortion, &QPushButton::clicked, this, &WidefieldMicroscope::OnWidefieldAnalyzeImageDistortion);
-		Connect(Widget->GetUI().BLocalizeEmitters, &QPushButton::clicked, this, &WidefieldMicroscope::OnWidefieldLocalizeEmitters);
+		Connect(Widget->GetUI()->action_Autofocus, &QAction::triggered, this, &WidefieldMicroscope::OnAutofocus);
+		Connect(Widget->GetUI()->action_Optimize_positions, &QAction::triggered, this, &WidefieldMicroscope::OnOptimizePositions);
+		Connect(Widget->GetUI()->action_Toggle_HBT_mirror, &QAction::triggered, this, &WidefieldMicroscope::OnToggleHBTMirror);
+		Connect(Widget->GetUI()->action_Reset_CellID, &QAction::triggered, this, &WidefieldMicroscope::OnResetCellID);
+		Connect(Widget->GetUI()->SBGeneralWidefieldPower, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &WidefieldMicroscope::OnGeneralWidefieldPowerChanged);
+		Connect(Widget->GetUI()->SBGeneralConfocalPower, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &WidefieldMicroscope::OnGeneralConfocalPowerChanged);
+		Connect(Widget->GetUI()->SBGeneralFocusCurrentVoltage, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &WidefieldMicroscope::OnGeneralFocusCurrentVoltageChanged);
+		Connect(Widget->GetUI()->SBGeneralFocusZeroVoltage, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &WidefieldMicroscope::OnGeneralFocusZeroVoltageChanged);
+		Connect(Widget->GetUI()->SBGeneralFocusConfocalOffsetVoltage, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &WidefieldMicroscope::OnGeneralFocusConfocalOffsetVoltageChanged);
+		Connect(Widget->GetUI()->BGeneralFocusSetZeroVoltage, &QPushButton::clicked, this, &WidefieldMicroscope::OnGeneralSetZeroFocus);
+		Connect(Widget->GetUI()->BGeneralFocusApplyZeroVoltage, &QPushButton::clicked, this, &WidefieldMicroscope::OnGeneralApplyZeroFocus);
+		Connect(Widget->GetUI()->SBWidefieldLEDExposureTime, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnWidefieldLEDExposureTimeChanged);
+		Connect(Widget->GetUI()->BWidefieldApplyLEDExposureTime, &QPushButton::clicked, this, &WidefieldMicroscope::OnWidefieldApplyLEDExposureTime);
+		Connect(Widget->GetUI()->SBWidefieldPumpExposureTime, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnWidefieldPumpExposureTimeChanged);
+		Connect(Widget->GetUI()->BWidefieldApplyPumpExposureTime, &QPushButton::clicked, this, &WidefieldMicroscope::OnWidefieldApplyPumpExposureTime);
+		Connect(Widget->GetUI()->BWidefieldFindConfocalSpot, &QPushButton::clicked, this, &WidefieldMicroscope::OnWidefieldFindConfocalSpot);
+		Connect(Widget->GetUI()->BWidefieldLEDCapture, &QPushButton::clicked, this, &WidefieldMicroscope::OnCaptureLEDImage);
+		Connect(Widget->GetUI()->BWidefieldCapture, &QPushButton::clicked, this, &WidefieldMicroscope::OnCaptureWidefieldImage);
+		Connect(Widget->GetUI()->BReadCellID, &QPushButton::clicked, this, &WidefieldMicroscope::OnWidefieldReadCellID);
+		Connect(Widget->GetUI()->BAnalyzeImageDistortion, &QPushButton::clicked, this, &WidefieldMicroscope::OnWidefieldAnalyzeImageDistortion);
+		Connect(Widget->GetUI()->BLocalizeEmitters, &QPushButton::clicked, this, &WidefieldMicroscope::OnWidefieldLocalizeEmitters);
 		Connect(Widget->GetMainGraphicsView(), &Util::MarkerGraphicsView::mouseClickEvent, this, &WidefieldMicroscope::OnWidefieldImageClicked);
-		Connect(Widget->GetUI().SBConfocalWidth, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnConfocalConfocalWidthChanged);
-		Connect(Widget->GetUI().SBConfocalHeight, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnConfocalConfocalHeightChanged);
-		Connect(Widget->GetUI().SBConfocalDistPerPixel, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnConfocalConfocalDistPerPixelChanged);
-		Connect(Widget->GetUI().SBConfocalSPDExposureTime, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnConfocalSPDExposureTimeChanged);
-		Connect(Widget->GetUI().SBConfocalOptimizationInitXYStepSize, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &WidefieldMicroscope::OnConfocalOptimizationInitXYStepSizeChanged);
-		Connect(Widget->GetUI().SBConfocalOptimizationInitZStepSize, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &WidefieldMicroscope::OnConfocalOptimizationInitZStepSizeChanged);
-		Connect(Widget->GetUI().SBConfocalOptimizationTolerance, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &WidefieldMicroscope::OnConfocalOptimizationToleranceChanged);
-		Connect(Widget->GetUI().BConfocalScan, &QPushButton::clicked, this, &WidefieldMicroscope::OnPerformConfocalScan);
+		Connect(Widget->GetUI()->SBConfocalWidth, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnConfocalConfocalWidthChanged);
+		Connect(Widget->GetUI()->SBConfocalHeight, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnConfocalConfocalHeightChanged);
+		Connect(Widget->GetUI()->SBConfocalDistPerPixel, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnConfocalConfocalDistPerPixelChanged);
+		Connect(Widget->GetUI()->SBConfocalSPDExposureTime, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnConfocalSPDExposureTimeChanged);
+		Connect(Widget->GetUI()->SBConfocalOptimizationInitXYStepSize, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &WidefieldMicroscope::OnConfocalOptimizationInitXYStepSizeChanged);
+		Connect(Widget->GetUI()->SBConfocalOptimizationInitZStepSize, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &WidefieldMicroscope::OnConfocalOptimizationInitZStepSizeChanged);
+		Connect(Widget->GetUI()->SBConfocalOptimizationTolerance, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &WidefieldMicroscope::OnConfocalOptimizationToleranceChanged);
+		Connect(Widget->GetUI()->BConfocalScan, &QPushButton::clicked, this, &WidefieldMicroscope::OnPerformConfocalScan);
 		Connect(Widget->GetConfocalSurface3DSeries(), &QSurface3DSeries::selectedPointChanged, this, &WidefieldMicroscope::ConfocalSurfaceSelectedPointChanged);
-		Connect(Widget->GetUI().SBHBTBinWidth, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnHBTBinWidthChanged);
-		Connect(Widget->GetUI().SBHBTBinCount, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnHBTBinCountChanged);
-		Connect(Widget->GetUI().SBHBTAcquisitionTime, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &WidefieldMicroscope::OnHHBTMaxIntegrationTimeChanged);
-		Connect(Widget->GetUI().BHBT, &QPushButton::clicked, this, &WidefieldMicroscope::OnMeasureHBT);
-		Connect(Widget->GetUI().LEAutoMeasureSavePath, &QLineEdit::textChanged, this, &WidefieldMicroscope::OnAutoMeasureSavePathChanged);
-		Connect(Widget->GetUI().SBAutoMeasureNumberImageSets, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureNumberImageSetsChanged);
-		Connect(Widget->GetUI().SBAutoMeasureInitialImageSetWaitTime, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureInitialImageSetWaitTimeChanged);
-		Connect(Widget->GetUI().SBAutoMeasureImagePositionScatterRadius, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureImagePositionScatterRadius);
-		Connect(Widget->GetUI().CBAutoMeasureLocalize, &QComboBox::currentIndexChanged, this, &WidefieldMicroscope::OnAutoMeasureLocalizationTypeChanged);
-		Connect(Widget->GetUI().CBAutoMeasureOptimize, &QCheckBox::checkStateChanged, this, &WidefieldMicroscope::OnToggleAutoMeasureOptimizeEnabled);
-		Connect(Widget->GetUI().CBAutoMeasureEnableSpectrum, &QCheckBox::checkStateChanged, this, &WidefieldMicroscope::OnToggleAutoMeasureSpectrumEnabled);
-		Connect(Widget->GetUI().CBAutoMeasureEnableHBT, &QCheckBox::checkStateChanged, this, &WidefieldMicroscope::OnToggleAutoMeasureHBTEnabled);
-		Connect(Widget->GetUI().SBAutoMeasureOptimizationAttempts, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureNumOptimizationAttemptsChanged);
-		Connect(Widget->GetUI().SBAutoMeasureOptimizationReruns, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureMaxOptimizationRerunsChanged);
-		Connect(Widget->GetUI().SBAutoMeasureOptimizationMaxDistance, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureOptimizationMaxDistanceChanged);
-		Connect(Widget->GetUI().SBAutoMeasureCountRateThreshold, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureCountRateThresholdChanged);
-		Connect(Widget->GetUI().SBAutoMeasureCellRangeFromX, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureCellRangeFromXChanged);
-		Connect(Widget->GetUI().SBAutoMeasureCellRangeFromY, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureCellRangeFromYChanged);
-		Connect(Widget->GetUI().SBAutoMeasureCellRangeToX, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureCellRangeToXChanged);
-		Connect(Widget->GetUI().SBAutoMeasureCellRangeToY, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureCellRangeToYChanged);
-		Connect(Widget->GetUI().SBAutoMeasureCellSkipX, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureCellSkipXChanged);
-		Connect(Widget->GetUI().SBAutoMeasureCellSkipY, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureCellSkipYChanged);
-		Connect(Widget->GetUI().CBAutoMeasureSampleRotated, &QCheckBox::checkStateChanged, this, &WidefieldMicroscope::OnToggleAutoMeasureSampleRotated);
-		Connect(Widget->GetUI().BAutoMeasureRunLocalization, &QPushButton::clicked, this, &WidefieldMicroscope::OnAutoMeasureRunLocalization);
-		Connect(Widget->GetUI().BAutoMeasureRunCharacterization, &QPushButton::clicked, this, &WidefieldMicroscope::OnAutoMeasureRunCharacterization);
-		Connect(Widget->GetUI().BAutoMeasureRunSampleCharacterization, &QPushButton::clicked, this, &WidefieldMicroscope::OnAutoMeasureRunSampleCharacterization);
+		Connect(Widget->GetUI()->SBHBTBinWidth, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnHBTBinWidthChanged);
+		Connect(Widget->GetUI()->SBHBTBinCount, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnHBTBinCountChanged);
+		Connect(Widget->GetUI()->SBHBTAcquisitionTime, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &WidefieldMicroscope::OnHHBTMaxIntegrationTimeChanged);
+		Connect(Widget->GetUI()->BHBT, &QPushButton::clicked, this, &WidefieldMicroscope::OnMeasureHBT);
+		Connect(Widget->GetUI()->LEAutoMeasureSavePath, &QLineEdit::textChanged, this, &WidefieldMicroscope::OnAutoMeasureSavePathChanged);
+		Connect(Widget->GetUI()->SBAutoMeasureNumberImageSets, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureNumberImageSetsChanged);
+		Connect(Widget->GetUI()->SBAutoMeasureInitialImageSetWaitTime, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureInitialImageSetWaitTimeChanged);
+		Connect(Widget->GetUI()->SBAutoMeasureImagePositionScatterRadius, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureImagePositionScatterRadius);
+		Connect(Widget->GetUI()->CBAutoMeasureLocalize, &QComboBox::currentIndexChanged, this, &WidefieldMicroscope::OnAutoMeasureLocalizationTypeChanged);
+		Connect(Widget->GetUI()->CBAutoMeasureOptimize, &QCheckBox::checkStateChanged, this, &WidefieldMicroscope::OnToggleAutoMeasureOptimizeEnabled);
+		Connect(Widget->GetUI()->CBAutoMeasureEnableSpectrum, &QCheckBox::checkStateChanged, this, &WidefieldMicroscope::OnToggleAutoMeasureSpectrumEnabled);
+		Connect(Widget->GetUI()->CBAutoMeasureEnableHBT, &QCheckBox::checkStateChanged, this, &WidefieldMicroscope::OnToggleAutoMeasureHBTEnabled);
+		Connect(Widget->GetUI()->SBAutoMeasureOptimizationAttempts, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureNumOptimizationAttemptsChanged);
+		Connect(Widget->GetUI()->SBAutoMeasureOptimizationReruns, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureMaxOptimizationRerunsChanged);
+		Connect(Widget->GetUI()->SBAutoMeasureOptimizationMaxDistance, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureOptimizationMaxDistanceChanged);
+		Connect(Widget->GetUI()->SBAutoMeasureCountRateThreshold, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureCountRateThresholdChanged);
+		Connect(Widget->GetUI()->SBAutoMeasureCellRangeFromX, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureCellRangeFromXChanged);
+		Connect(Widget->GetUI()->SBAutoMeasureCellRangeFromY, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureCellRangeFromYChanged);
+		Connect(Widget->GetUI()->SBAutoMeasureCellRangeToX, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureCellRangeToXChanged);
+		Connect(Widget->GetUI()->SBAutoMeasureCellRangeToY, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureCellRangeToYChanged);
+		Connect(Widget->GetUI()->SBAutoMeasureCellSkipX, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureCellSkipXChanged);
+		Connect(Widget->GetUI()->SBAutoMeasureCellSkipY, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureCellSkipYChanged);
+		Connect(Widget->GetUI()->CBAutoMeasureSampleRotated, &QCheckBox::checkStateChanged, this, &WidefieldMicroscope::OnToggleAutoMeasureSampleRotated);
+		Connect(Widget->GetUI()->BAutoMeasureRunLocalization, &QPushButton::clicked, this, &WidefieldMicroscope::OnAutoMeasureRunLocalization);
+		Connect(Widget->GetUI()->BAutoMeasureRunCharacterization, &QPushButton::clicked, this, &WidefieldMicroscope::OnAutoMeasureRunCharacterization);
+		Connect(Widget->GetUI()->BAutoMeasureRunSampleCharacterization, &QPushButton::clicked, this, &WidefieldMicroscope::OnAutoMeasureRunSampleCharacterization);
 
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(GetModuleData());
-		ModuleData->SetSPDExposureTime(std::chrono::milliseconds(Widget->GetUI().SBConfocalSPDExposureTime->value()));
+		ModuleData->SetSPDExposureTime(std::chrono::milliseconds(Widget->GetUI()->SBConfocalSPDExposureTime->value()));
 
 		return Widget;
 	}
@@ -1562,9 +1563,9 @@ namespace DynExpModule::Widefield
 		if (!IsReadyState() || !ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::WidefieldConfocalSwitch))
 			return;
 
-		if (Action == GetWidget<WidefieldMicroscopeWidget>()->GetUI().action_Widefield_mode)
+		if (Action == GetWidget<WidefieldMicroscopeWidget>()->GetUI()->action_Widefield_mode)
 			ModuleData->SetSetupMode(WidefieldMicroscopeData::SetupModeType::Widefield);
-		else if (Action == GetWidget<WidefieldMicroscopeWidget>()->GetUI().action_Confocal_mode)
+		else if (Action == GetWidget<WidefieldMicroscopeWidget>()->GetUI()->action_Confocal_mode)
 			ModuleData->SetSetupMode(WidefieldMicroscopeData::SetupModeType::Confocal);
 		else
 			return;

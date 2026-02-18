@@ -8,7 +8,11 @@
 #pragma once
 
 #include <QWidget>
-#include "ui_DynExpAbout.h"
+
+namespace Ui
+{
+	class DynExpAbout;
+}
 
 class DynExpAbout : public QDialog
 {
@@ -19,5 +23,5 @@ public:
 	~DynExpAbout();
 
 private:
-	Ui::DynExpAbout ui;
+	std::unique_ptr<Ui::DynExpAbout> ui;
 };

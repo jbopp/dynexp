@@ -15,7 +15,11 @@ $$endfor
 
 $$if($HasUI)
 #include <QWidget>
-#include "ui_$Name.h"
+
+namespace Ui
+{
+	class $Name;
+}
 $$endif
 
 namespace DynExpModule
@@ -33,7 +37,7 @@ $$if($HasUI)
 
 		// TODO: bool AllowResize() const noexcept override final { return true; }
 
-		Ui::$Name ui;
+		std::unique_ptr<Ui::$Name> ui;
 	};
 $$endif
 

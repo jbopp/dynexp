@@ -17,7 +17,11 @@
 #include "CommonModuleEvents.h"
 
 #include <QWidget>
-#include "ui_Trajectory1D.h"
+
+namespace Ui
+{
+	class Trajectory1D;
+}
 
 namespace DynExpModule
 {
@@ -33,10 +37,10 @@ namespace DynExpModule
 
 		bool AllowResize() const noexcept override final { return false; }
 
-		const auto& GetUI() const noexcept { return ui; }
+		const auto GetUI() const noexcept { return ui.get(); }
 
 	private:
-		Ui::Trajectory1D ui;
+		std::unique_ptr<Ui::Trajectory1D> ui;
 	};
 
 	class Trajectory1DData : public DynExp::QModuleDataBase

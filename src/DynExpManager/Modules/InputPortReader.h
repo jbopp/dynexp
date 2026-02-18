@@ -12,7 +12,11 @@
 #include "../MetaInstruments/InputPort.h"
 
 #include <QWidget>
-#include "ui_InputPortReader.h"
+
+namespace Ui
+{
+	class InputPortReader;
+}
 
 namespace DynExpModule
 {
@@ -26,7 +30,7 @@ namespace DynExpModule
 		InputPortReaderWidget(InputPortReader& Owner, QModuleWidget* parent = nullptr);
 		~InputPortReaderWidget() = default;
 
-		Ui::InputPortReader ui;
+		std::unique_ptr<Ui::InputPortReader> ui;
 	};
 
 	class InputPortReaderData : public DynExp::QModuleDataBase

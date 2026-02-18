@@ -2,17 +2,20 @@
 
 #include "stdafx.h"
 #include "moc_Stage1D.cpp"
+#include "ui_Stage1D.h"
 #include "Stage1D.h"
 
 namespace DynExpModule
 {
-	Stage1DWidget::Stage1DWidget(Stage1D& Owner, QModuleWidget* parent) : QModuleWidget(Owner, parent)
+	Stage1DWidget::Stage1DWidget(Stage1D& Owner, QModuleWidget* parent)
+		: QModuleWidget(Owner, parent),
+		ui(std::make_unique<Ui::Stage1D>())
 	{
-		ui.setupUi(this);
-		ui.SBPosition->blockSignals(true);
+		ui->setupUi(this);
+		ui->SBPosition->blockSignals(true);
 
 		// For shortcuts
-		this->addAction(ui.action_Stop_current_action);
+		this->addAction(ui->action_Stop_current_action);
 	}
 
 	void Stage1DData::ResetImpl(dispatch_tag<QModuleDataBase>)
@@ -63,18 +66,18 @@ namespace DynExpModule
 	{
 		auto Widget = std::make_unique<Stage1DWidget>(*this);
 
-		Connect(Widget->ui.action_Stop_current_action, &QAction::triggered, this, &Stage1D::OnStopClicked);
-		Connect(Widget->ui.ButtonReference, &QPushButton::clicked, this, &Stage1D::OnFindReferenceClicked);
-		Connect(Widget->ui.ButtonSetHome, &QPushButton::clicked, this, &Stage1D::OnSetHomeClicked);
-		Connect(Widget->ui.ButtonCalibrate, &QPushButton::clicked, this, &Stage1D::OnCalibrateClicked);
-		Connect(Widget->ui.ButtonFirst, &QPushButton::clicked, this, &Stage1D::OnMoveFirstClicked);
-		Connect(Widget->ui.ButtonLast, &QPushButton::clicked, this, &Stage1D::OnMoveLastClicked);
-		Connect(Widget->ui.ButtonLeft, &QPushButton::clicked, this, &Stage1D::OnMoveLeftClicked);
-		Connect(Widget->ui.ButtonRight, &QPushButton::clicked, this, &Stage1D::OnMoveRightClicked);
-		Connect(Widget->ui.ButtonHome, &QPushButton::clicked, this, &Stage1D::OnMoveHomeClicked);
-		Connect(Widget->ui.ButtonStop, &QPushButton::clicked, this, &Stage1D::OnStopClicked);
-		Connect(Widget->ui.SBVelocity, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &Stage1D::OnVelocityValueChanged);
-		Connect(Widget->ui.SBPosition, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &Stage1D::OnPositionValueChanged);
+		Connect(Widget->ui->action_Stop_current_action, &QAction::triggered, this, &Stage1D::OnStopClicked);
+		Connect(Widget->ui->ButtonReference, &QPushButton::clicked, this, &Stage1D::OnFindReferenceClicked);
+		Connect(Widget->ui->ButtonSetHome, &QPushButton::clicked, this, &Stage1D::OnSetHomeClicked);
+		Connect(Widget->ui->ButtonCalibrate, &QPushButton::clicked, this, &Stage1D::OnCalibrateClicked);
+		Connect(Widget->ui->ButtonFirst, &QPushButton::clicked, this, &Stage1D::OnMoveFirstClicked);
+		Connect(Widget->ui->ButtonLast, &QPushButton::clicked, this, &Stage1D::OnMoveLastClicked);
+		Connect(Widget->ui->ButtonLeft, &QPushButton::clicked, this, &Stage1D::OnMoveLeftClicked);
+		Connect(Widget->ui->ButtonRight, &QPushButton::clicked, this, &Stage1D::OnMoveRightClicked);
+		Connect(Widget->ui->ButtonHome, &QPushButton::clicked, this, &Stage1D::OnMoveHomeClicked);
+		Connect(Widget->ui->ButtonStop, &QPushButton::clicked, this, &Stage1D::OnStopClicked);
+		Connect(Widget->ui->SBVelocity, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &Stage1D::OnVelocityValueChanged);
+		Connect(Widget->ui->SBPosition, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &Stage1D::OnPositionValueChanged);
 
 		return Widget;
 	}
@@ -84,35 +87,35 @@ namespace DynExpModule
 		auto Widget = GetWidget<Stage1DWidget>();
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<Stage1D>(ModuleDataGetter());
 
-		if (!Widget->ui.SBVelocity->hasFocus())
+		if (!Widget->ui->SBVelocity->hasFocus())
 		{
-			const QSignalBlocker Blocker(Widget->ui.SBVelocity);
-			Widget->ui.SBVelocity->setValue(ModuleData->Velocity);
+			const QSignalBlocker Blocker(Widget->ui->SBVelocity);
+			Widget->ui->SBVelocity->setValue(ModuleData->Velocity);
 		}
-		if (!Widget->ui.SBPosition->hasFocus())
+		if (!Widget->ui->SBPosition->hasFocus())
 		{
-			const QSignalBlocker Blocker(Widget->ui.SBPosition);
-			Widget->ui.SBPosition->setValue(ModuleData->Position);
+			const QSignalBlocker Blocker(Widget->ui->SBPosition);
+			Widget->ui->SBPosition->setValue(ModuleData->Position);
 		}
 		
-		Widget->ui.CBMoving->setChecked(ModuleData->IsMoving);
-		Widget->ui.CBErrorState->setChecked(ModuleData->HasFailed);
+		Widget->ui->CBMoving->setChecked(ModuleData->IsMoving);
+		Widget->ui->CBErrorState->setChecked(ModuleData->HasFailed);
 
 		if (!ModuleData->LabelsUpdated)
 		{
 			ModuleData->LabelsUpdated = true;
-			Widget->ui.LVelocity->setText("Velocity (" + QString(ModuleData->IsUsingSIUnits ? "nm/s" : "steps/s") + ")");
-			Widget->ui.SBVelocity->setMaximum(ModuleData->PositionerStage->GetMaxVelocity());
-			Widget->ui.SBVelocity->setMinimum(ModuleData->PositionerStage->GetMinVelocity());
-			Widget->ui.SBVelocity->setDecimals(0);
-			Widget->ui.SBVelocity->setValue(ModuleData->PositionerStage->GetDefaultVelocity());
-			Widget->ui.LPosition->setText("Position (" + QString(ModuleData->IsUsingSIUnits ? "nm" : "steps") + ")");
-			Widget->ui.SBPosition->setMaximum(ModuleData->PositionerStage->GetMaxPosition());
-			Widget->ui.SBPosition->setMinimum(ModuleData->PositionerStage->GetMinPosition());
-			Widget->ui.SBPosition->setDecimals(0);
+			Widget->ui->LVelocity->setText("Velocity (" + QString(ModuleData->IsUsingSIUnits ? "nm/s" : "steps/s") + ")");
+			Widget->ui->SBVelocity->setMaximum(ModuleData->PositionerStage->GetMaxVelocity());
+			Widget->ui->SBVelocity->setMinimum(ModuleData->PositionerStage->GetMinVelocity());
+			Widget->ui->SBVelocity->setDecimals(0);
+			Widget->ui->SBVelocity->setValue(ModuleData->PositionerStage->GetDefaultVelocity());
+			Widget->ui->LPosition->setText("Position (" + QString(ModuleData->IsUsingSIUnits ? "nm" : "steps") + ")");
+			Widget->ui->SBPosition->setMaximum(ModuleData->PositionerStage->GetMaxPosition());
+			Widget->ui->SBPosition->setMinimum(ModuleData->PositionerStage->GetMinPosition());
+			Widget->ui->SBPosition->setDecimals(0);
 
 			// Now unblock signals (if they weren't blocked initially, stage would move to 0)
-			Widget->ui.SBPosition->blockSignals(false);
+			Widget->ui->SBPosition->blockSignals(false);
 		}
 	}
 

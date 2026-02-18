@@ -2,14 +2,17 @@
 
 #include "stdafx.h"
 #include "moc_EventSender.cpp"
+#include "ui_EventSender.h"
 #include "EventSender.h"
 
 namespace DynExpModule
 {
 	EventSenderWidget::EventSenderWidget(EventSender& Owner, QModuleWidget* parent)
-		: QModuleWidget(Owner, parent), EventID(0)
+		: QModuleWidget(Owner, parent),
+		ui(std::make_unique<Ui::EventSender>()),
+		EventID(0)
 	{
-		ui.setupUi(this);
+		ui->setupUi(this);
 	}
 
 	void EventSenderWidget::OnEventDoubleClicked(QListWidgetItem* Item)
@@ -67,7 +70,7 @@ namespace DynExpModule
 			{
 				const auto E = Event.second();
 
-				auto ListItem = new QListWidgetItem(QString::fromStdString(E->GetName()), Widget->ui.LWEvents);
+				auto ListItem = new QListWidgetItem(QString::fromStdString(E->GetName()), Widget->ui->LWEvents);
 				ListItem->setToolTip("ID " + QString::number(Event.first));
 				ListItem->setData(Qt::UserRole, QVariant::fromValue(Event.first));
 			}

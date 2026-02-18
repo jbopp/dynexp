@@ -17,7 +17,11 @@
 #include "ImageViewerEvents.h"
 
 #include <QWidget>
-#include "ui_ImageViewer.h"
+
+namespace Ui
+{
+	class ImageViewer;
+}
 
 namespace DynExpModule::ImageViewer
 {
@@ -54,7 +58,7 @@ namespace DynExpModule::ImageViewer
 		auto GetSaveImageFilename() const { return SaveImageFilename; }
 		void ResetSaveImageFilename() { SaveImageFilename.clear(); }
 
-		Ui::ImageViewer ui;
+		std::unique_ptr<Ui::ImageViewer> ui;
 
 	private:
 		bool eventFilter(QObject* obj, QEvent* event) override;

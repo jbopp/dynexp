@@ -1,6 +1,7 @@
 // This file is part of DynExp.
 
 #include "stdafx.h"
+#include "ui_ParamsConfig.h"
 #include "moc_ParamsConfig.cpp"
 #include "ParamsConfig.h"
 #include "Object.h"
@@ -33,9 +34,10 @@ using LinkListParamRefWrapperType = std::reference_wrapper<DynExp::ParamsBase::L
 
 ParamsConfigDialog::ParamsConfigDialog(QWidget* parent, const DynExp::DynExpCore& Core, std::string Title)
 	: QDialog(parent, Qt::Dialog | Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
+	ui(std::make_unique<Ui::ParamsConfig>()),
 	Core(Core), Object(nullptr), ResetRequired(false)
 {
-	ui.setupUi(this);
+	ui->setupUi(this);
 
 	setWindowTitle(QString::fromStdString(Title));
 }
@@ -215,7 +217,7 @@ void ParamsConfigDialog::InsertWidget(ParamInfo&& Info, Param&& ParamData)
 		SubLayout->addWidget(ResetButton);
 	}
 
-	ui.MainLayout->addRow(Label, SubLayout.release());
+	ui->MainLayout->addRow(Label, SubLayout.release());
 }
 
 void ParamsConfigDialog::HandleTextEditorDialogsOnClose()

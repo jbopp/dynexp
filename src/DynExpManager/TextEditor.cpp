@@ -2,19 +2,21 @@
 
 #include "stdafx.h"
 #include "moc_TextEditor.cpp"
+#include "ui_TextEditor.h"
 #include "TextEditor.h"
 
 TextEditor::TextEditor(QWidget* parent, const std::filesystem::path& Filename)
 	: QWidget(parent, Qt::Window | Qt::CustomizeWindowHint | Qt::WindowTitleHint | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint),
+	ui(std::make_unique<Ui::TextEditor>()),
 	Filename(Filename)
 {
-	ui.setupUi(this);
+	ui->setupUi(this);
 
 	setWindowTitle(QString("Edit \"") + QString::fromStdString(Filename.string()) + "\"");
 
 	if (this->Filename.extension().string() == ".py")
 	{
-		SyntaxHighlighter = new PythonSyntaxHighlighter(ui.TEText);
+		SyntaxHighlighter = new PythonSyntaxHighlighter(ui->TEText);
 	}
 }
 
@@ -38,7 +40,7 @@ void TextEditor::showEvent(QShowEvent* event)
 			return;
 		}
 
-		ui.TEText->setPlainText(QString::fromStdString(Text));
+		ui->TEText->setPlainText(QString::fromStdString(Text));
 	}
 
 	event->accept();
@@ -57,7 +59,7 @@ void TextEditor::closeEvent(QCloseEvent* event)
 		QWidget::closeEvent(event);
 	}
 
-	if (ui.TEText->toPlainText().toStdString() != Text)
+	if (ui->TEText->toPlainText().toStdString() != Text)
 	{
 		auto Reply = QMessageBox::question(this, "DynExp - Save changes?",
 			QString::fromStdString("The file \"" + Filename.string() + "\" has been edited. Save the changes?"),
@@ -86,7 +88,7 @@ void TextEditor::closeEvent(QCloseEvent* event)
 
 bool TextEditor::DoSave()
 {
-	if (!Util::SaveToFile(QString::fromStdString(Filename.string()), ui.TEText->toPlainText().toStdString()))
+	if (!Util::SaveToFile(QString::fromStdString(Filename.string()), ui->TEText->toPlainText().toStdString()))
 	{
 		QMessageBox::warning(this, "DynExp - Error", "Error writing data to file.");
 

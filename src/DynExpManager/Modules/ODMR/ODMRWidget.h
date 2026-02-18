@@ -11,7 +11,11 @@
 #include "DynExpCore.h"
 
 #include <QWidget>
-#include "ui_ODMR.h"
+
+namespace Ui
+{
+	class ODMR;
+}
 
 namespace DynExpModule::ODMR
 {
@@ -84,12 +88,12 @@ namespace DynExpModule::ODMR
 		void UpdateODMRPlot(const ODMRPlotType& ODMRPlot);
 		void UpdateSensitivityPlot(const SensitivityPlotType& SensitivityPlot);
 
-		const auto& GetUI() const noexcept { return ui; }
+		const auto GetUI() const noexcept { return ui.get(); }
 		bool GetUIInitialized() const noexcept { return UIInitialized; }
 		auto GetODMRDataSeries() const noexcept { return ODMRDataSeries; }
 
 	private:
-		Ui::ODMR ui;
+		std::unique_ptr<Ui::ODMR> ui;
 		StatusBarType StatusBar;
 
 		QLineSeries* ODMRDataSeries;

@@ -14,7 +14,11 @@
 #include "CommonModuleEvents.h"
 
 #include <QWidget>
-#include "ui_EventSender.h"
+
+namespace Ui
+{
+	class EventSender;
+}
 
 namespace DynExpModule
 {
@@ -30,7 +34,7 @@ namespace DynExpModule
 
 		bool AllowResize() const noexcept override final { return true; }
 
-		Ui::EventSender ui;
+		std::unique_ptr<Ui::EventSender> ui;
 
 		size_t EventID;
 

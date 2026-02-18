@@ -9,11 +9,15 @@
 #pragma once
 
 #include <QWidget>
-#include "ui_ParamsConfig.h"
 #include "ChoiceListDialog.h"
 #include "TextEditor.h"
 
 #include "stdafx.h"
+
+namespace Ui
+{
+	class ParamsConfig;
+}
 
 namespace DynExp
 {
@@ -365,7 +369,7 @@ private:
 	/**
 	 * @brief Bundles Qt widgets of the @p ParamsConfigDialog instance's user interface.
 	*/
-	Ui::ParamsConfig ui;
+	std::unique_ptr<Ui::ParamsConfig> ui;
 
 private slots:
 	void OnOpenParam();					//!< Called when clicking the 'Browse' button for a DynExp::TextUsageType::Path or DynExp::TextUsageType::Code parameter.

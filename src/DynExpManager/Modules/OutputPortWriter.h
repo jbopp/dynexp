@@ -12,7 +12,11 @@
 #include "../MetaInstruments/OutputPort.h"
 
 #include <QWidget>
-#include "ui_OutputPortWriter.h"
+
+namespace Ui
+{
+	class OutputPortWriter;
+}
 
 namespace DynExpModule
 {
@@ -26,7 +30,7 @@ namespace DynExpModule
 		OutputPortWriterWidget(OutputPortWriter& Owner, QModuleWidget* parent = nullptr);
 		~OutputPortWriterWidget() = default;
 
-		Ui::OutputPortWriter ui;
+		std::unique_ptr<Ui::OutputPortWriter> ui;
 	};
 
 	class OutputPortWriterData : public DynExp::QModuleDataBase

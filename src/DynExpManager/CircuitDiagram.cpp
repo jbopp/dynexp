@@ -2,6 +2,7 @@
 
 #include "stdafx.h"
 #include "moc_CircuitDiagram.cpp"
+#include "ui_CircuitDiagram.h"
 #include "CircuitDiagram.h"
 #include "DynExpCore.h"
 #include "HardwareAdapters/HardwareAdapterEthernet.h"
@@ -106,21 +107,22 @@ const QColor CircuitDiagram::SocketInnerColor = QColor("turquoise");
 
 CircuitDiagram::CircuitDiagram(QWidget *parent)
 	: QDialog(parent, Qt::WindowTitleHint | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint),
+	ui(std::make_unique<Ui::CircuitDiagram>()),
 	SelectionChanged(false), SelectedTreeWidgetItem(nullptr), ContextMenu(new QMenu(this))
 {
-	ui.setupUi(this);
+	ui->setupUi(this);
 
-	ContextMenu->addAction(ui.action_Zoom_in);
-	ContextMenu->addAction(ui.action_Zoom_out);
-	ContextMenu->addAction(ui.action_Zoom_reset);
+	ContextMenu->addAction(ui->action_Zoom_in);
+	ContextMenu->addAction(ui->action_Zoom_out);
+	ContextMenu->addAction(ui->action_Zoom_reset);
 	ContextMenu->addSeparator();
-	ContextMenu->addAction(ui.action_Save_Image);
+	ContextMenu->addAction(ui->action_Save_Image);
 
 	// For shortcuts
-	addAction(ui.action_Zoom_in);
-	addAction(ui.action_Zoom_out);
-	addAction(ui.action_Zoom_reset);
-	addAction(ui.action_Save_Image);
+	addAction(ui->action_Zoom_in);
+	addAction(ui->action_Zoom_out);
+	addAction(ui->action_Zoom_reset);
+	addAction(ui->action_Save_Image);
 }
 
 CircuitDiagram::~CircuitDiagram()
@@ -177,7 +179,7 @@ bool CircuitDiagram::UpdateStates(const DynExp::DynExpCore& DynExpCore)
 
 void CircuitDiagram::mouseDoubleClickEvent(QMouseEvent* Event)
 {
-	QGraphicsItem* Item = ui.GVCircuit->itemAt(Event->pos());
+	QGraphicsItem* Item = ui->GVCircuit->itemAt(Event->pos());
 
 	if (Item && Item->data(Qt::ItemDataRole::UserRole).canConvert<decltype(CircuitDiagramItem::TreeWidgetItem)>())
 	{
@@ -410,7 +412,7 @@ void CircuitDiagram::Render()
 		RenderLinks(Item.second);
 
 	Scene->setSceneRect(Scene->itemsBoundingRect());
-	ui.GVCircuit->setScene(Scene.get());
+	ui->GVCircuit->setScene(Scene.get());
 }
 
 void CircuitDiagram::RenderItem(CircuitDiagramItem& Item, bool DrawOutputSocket)
@@ -617,7 +619,7 @@ void CircuitDiagram::UpdateItem(CircuitDiagramItem& Item)
 
 int CircuitDiagram::TransformIconSize(int Size) const
 {
-	return ui.GVCircuit->transform().map(QPoint(Size, Size)).x();
+	return ui->GVCircuit->transform().map(QPoint(Size, Size)).x();
 }
 
 void CircuitDiagram::RescaleIcons()
@@ -638,22 +640,22 @@ void CircuitDiagram::RescaleIcons()
 
 void CircuitDiagram::ZoomIn()
 {
-	ui.GVCircuit->scale(ZoomFactor, ZoomFactor);
+	ui->GVCircuit->scale(ZoomFactor, ZoomFactor);
 
 	RescaleIcons();
 }
 
 void CircuitDiagram::ZoomOut()
 {
-	ui.GVCircuit->scale(1 / ZoomFactor, 1 / ZoomFactor);
+	ui->GVCircuit->scale(1 / ZoomFactor, 1 / ZoomFactor);
 
 	RescaleIcons();
 }
 
 void CircuitDiagram::ZoomReset()
 {
-	ui.GVCircuit->resetTransform();
-	ui.GVCircuit->centerOn(ui.GVCircuit->scene()->sceneRect().center());
+	ui->GVCircuit->resetTransform();
+	ui->GVCircuit->centerOn(ui->GVCircuit->scene()->sceneRect().center());
 
 	RescaleIcons();
 }
@@ -684,7 +686,7 @@ void CircuitDiagram::OnSaveDiagram()
 	if (Filename.isEmpty())
 		return;
 
-	QPixmap Pixmap = ui.GVCircuit->grab();
+	QPixmap Pixmap = ui->GVCircuit->grab();
 	if (!Pixmap.save(Filename))
 		Util::EventLog().Log("Saving the current circuit diagram failed.", Util::ErrorType::Error);
 }

@@ -1,13 +1,14 @@
 // This file is part of DynExp.
 
 #include "stdafx.h"
-#include "ui_BusyDialog.h"
 #include "moc_BusyDialog.cpp"
+#include "ui_BusyDialog.h"
 #include "BusyDialog.h"
 
 BusyDialog::BusyDialog(QWidget* parent)
 	: QDialog(parent, Qt::Dialog | Qt::WindowTitleHint),
-	ui(std::make_unique<Ui::BusyDialog>()), CheckFinishedTimer(new QTimer(this)), CheckFinishedFunction(nullptr)
+	ui(std::make_unique<Ui::BusyDialog>()),
+	CheckFinishedTimer(new QTimer(this)), CheckFinishedFunction(nullptr)
 {
 	ui->setupUi(this);
 

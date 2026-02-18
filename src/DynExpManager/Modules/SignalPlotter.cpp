@@ -2,16 +2,18 @@
 
 #include "stdafx.h"
 #include "moc_SignalPlotter.cpp"
+#include "ui_SignalPlotter.h"
 #include "SignalPlotter.h"
 
 namespace DynExpModule
 {
 	SignalPlotterWidget::SignalPlotterWidget(SignalPlotter& Owner, QModuleWidget* parent)
 		: QModuleWidget(Owner, parent),
+		ui(std::make_unique<Ui::SignalPlotter>()),
 		PlotContextMenu(new QMenu(this)),
 		DataSeries(nullptr), DataChart(nullptr), XAxis(nullptr), YAxis(nullptr)
 	{
-		ui.setupUi(this);
+		ui->setupUi(this);
 
 		PlotAutoscaleAction = PlotContextMenu->addAction("&Autoscale axes");
 		PlotAutoscaleAction->setCheckable(true);
@@ -22,11 +24,11 @@ namespace DynExpModule
 		PlotClearAction = PlotContextMenu->addAction("&Clear stream");
 		
 		DataChart = new QChart();
-		ui.Signal->setChart(DataChart);		// Takes ownership of DataChart.
-		ui.Signal->setRenderHint(QPainter::Antialiasing);
+		ui->Signal->setChart(DataChart);		// Takes ownership of DataChart.
+		ui->Signal->setRenderHint(QPainter::Antialiasing);
 		DataChart->setTheme(DynExpUI::DefaultQChartTheme);
 		DataChart->legend()->setVisible(false);
-		ui.action_Run->setChecked(true);
+		ui->action_Run->setChecked(true);
 	}
 
 	void SignalPlotterWidget::UpdateUI(bool IsRunning)
@@ -112,7 +114,7 @@ namespace DynExpModule
 
 	void SignalPlotterWidget::OnPlotContextMenuRequested(const QPoint& Position)
 	{
-		PlotContextMenu->exec(ui.Signal->mapToGlobal(Position));
+		PlotContextMenu->exec(ui->Signal->mapToGlobal(Position));
 	}
 
 	void SignalPlotterWidget::OnSaveCSVClicked()
@@ -238,8 +240,8 @@ namespace DynExpModule
 	{
 		auto Widget = std::make_unique<SignalPlotterWidget>(*this);
 
-		Connect(Widget->ui.action_Run, &QAction::triggered, this, &SignalPlotter::OnRunClicked);
-		Connect(Widget->ui.CBSource, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &SignalPlotter::OnSourceChanged);
+		Connect(Widget->ui->action_Run, &QAction::triggered, this, &SignalPlotter::OnRunClicked);
+		Connect(Widget->ui->CBSource, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &SignalPlotter::OnSourceChanged);
 		Connect(Widget->GetAutoscalePlotAction(), &QAction::triggered, this, &SignalPlotter::OnPlotAutoscaleClicked);
 		Connect(Widget->GetRollingViewPlotAction(), &QAction::triggered, this, &SignalPlotter::OnPlotRollingViewClicked);
 		Connect(Widget->GetClearPlotAction(), &QAction::triggered, this, &SignalPlotter::OnClearStream);
@@ -252,15 +254,15 @@ namespace DynExpModule
 		auto Widget = GetWidget<SignalPlotterWidget>();
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<SignalPlotter>(ModuleDataGetter());
 
-		if (!Widget->ui.CBSource->count())
+		if (!Widget->ui->CBSource->count())
 		{
-			const QSignalBlocker CBSourceBlocker(Widget->ui.CBSource);
+			const QSignalBlocker CBSourceBlocker(Widget->ui->CBSource);
 
 			for (const auto& InstrLabel : ModuleData->GetDataStreamInstrLabels())
-				Widget->ui.CBSource->addItem(QIcon(ModuleData->GetDataStreamInstrIconPath().data()), QString::fromStdString(InstrLabel));
+				Widget->ui->CBSource->addItem(QIcon(ModuleData->GetDataStreamInstrIconPath().data()), QString::fromStdString(InstrLabel));
 
-			Widget->ui.CBSource->setCurrentIndex(0);
-			Widget->ui.CBSource->setVisible(Widget->ui.CBSource->count() > 1);
+			Widget->ui->CBSource->setCurrentIndex(0);
+			Widget->ui->CBSource->setVisible(Widget->ui->CBSource->count() > 1);
 		}
 
 		if (!ModuleData->IsUIInitialized())
@@ -302,7 +304,7 @@ namespace DynExpModule
 		if (ModuleData->IsRunning)
 		{
 			Widget->SetData(ModuleData->SampleData);
-			Widget->ui.LNumSamples->setText(QString::number(ModuleData->SampleData.Points.size()) + " sample"
+			Widget->ui->LNumSamples->setText(QString::number(ModuleData->SampleData.Points.size()) + " sample"
 				+ (ModuleData->SampleData.Points.size() == 1 ? "" : "s"));
 		}
 

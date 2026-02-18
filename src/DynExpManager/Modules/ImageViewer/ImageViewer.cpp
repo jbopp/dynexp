@@ -2,20 +2,22 @@
 
 #include "stdafx.h"
 #include "moc_ImageViewer.cpp"
+#include "ui_ImageViewer.h"
 #include "ImageViewer.h"
 
 namespace DynExpModule::ImageViewer
 {
 	ImageViewerWidget::ImageViewerWidget(ImageViewer& Owner, QModuleWidget* parent)
 		: QModuleWidget(Owner, parent),
+		ui(std::make_unique<Ui::ImageViewer>()),
 		HistogramContextMenu(new QMenu(this)), HistogramLinLogActionGroup(new QActionGroup(this)),
 		HistogramBarSetI(nullptr), HistogramBarSetR(nullptr), HistogramBarSetG(nullptr), HistogramBarSetB(nullptr),
 		HistogramBarSeries(new QBarSeries(this)), HistogramChart(nullptr), HistogramXAxis(new QValueAxis(this)), HistogramYAxis(new QValueAxis(this)),
 		GraphicsView(nullptr), GraphicsPixmapItem(nullptr), GraphicsScene(new QGraphicsScene(this))
 	{
-		ui.setupUi(this);
+		ui->setupUi(this);
 
-		ui.action_Zoom_fit->setChecked(true);
+		ui->action_Zoom_fit->setChecked(true);
 
 		HistogramLinAction = HistogramLinLogActionGroup->addAction("&Linear");
 		HistogramLinAction->setCheckable(true);
@@ -31,8 +33,8 @@ namespace DynExpModule::ImageViewer
 		HistogramColorAction->setCheckable(true);
 
 		HistogramChart = new QChart();
-		ui.Histogram->setChart(HistogramChart);				// Takes ownership of HistogramChart.
-		ui.Histogram->setRenderHint(QPainter::Antialiasing);
+		ui->Histogram->setChart(HistogramChart);				// Takes ownership of HistogramChart.
+		ui->Histogram->setRenderHint(QPainter::Antialiasing);
 		HistogramChart->addSeries(HistogramBarSeries);
 		HistogramChart->setTheme(DynExpUI::DefaultQChartTheme);
 		HistogramChart->legend()->setVisible(false);
@@ -46,7 +48,7 @@ namespace DynExpModule::ImageViewer
 		HistogramYAxis->setRange(0, 1);
 		HistogramChart->addAxis(HistogramYAxis, Qt::AlignLeft);
 
-		GraphicsView = new Util::MarkerGraphicsView(ui.MainSplitter);
+		GraphicsView = new Util::MarkerGraphicsView(ui->MainSplitter);
 		GraphicsView->setObjectName(QString::fromUtf8("Image"));
 		QSizePolicy ImageSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 		ImageSizePolicy.setHorizontalStretch(1);
@@ -90,7 +92,7 @@ namespace DynExpModule::ImageViewer
 	{
 		using CHT = DynExpInstr::CameraData::ComputeHistogramType;
 
-		if (!ui.ExposureTimeGroupBox->isVisible() || ui.ExposureTimeGroupBox->visibleRegion().isEmpty())
+		if (!ui->ExposureTimeGroupBox->isVisible() || ui->ExposureTimeGroupBox->visibleRegion().isEmpty())
 			return CHT::NoHistogram;
 
 		if (HistogramBWAction->isChecked())
@@ -108,13 +110,13 @@ namespace DynExpModule::ImageViewer
 			GraphicsPixmapItem->setPixmap(Pixmap);
 			GraphicsScene->update();
 
-			OnZoomFitClicked(ui.action_Zoom_fit->isChecked());
+			OnZoomFitClicked(ui->action_Zoom_fit->isChecked());
 		}
 
-		if (ui.ExposureTimeGroupBox->isVisible() && !ui.ExposureTimeGroupBox->visibleRegion().isEmpty())
+		if (ui->ExposureTimeGroupBox->isVisible() && !ui->ExposureTimeGroupBox->visibleRegion().isEmpty())
 			UpdateHistogram();
 
-		ui.ImageGeometry->setText(QString::number(Pixmap.width()) + " x " + QString::number(Pixmap.height()));
+		ui->ImageGeometry->setText(QString::number(Pixmap.width()) + " x " + QString::number(Pixmap.height()));
 	}
 
 	bool ImageViewerWidget::eventFilter(QObject* obj, QEvent* event)
@@ -132,7 +134,7 @@ namespace DynExpModule::ImageViewer
 
 	void ImageViewerWidget::resizeEvent(QResizeEvent* event)
 	{
-		OnZoomFitClicked(ui.action_Zoom_fit->isChecked());
+		OnZoomFitClicked(ui->action_Zoom_fit->isChecked());
 	}
 
 	void ImageViewerWidget::UpdateHistogram()
@@ -222,7 +224,7 @@ namespace DynExpModule::ImageViewer
 
 	void ImageViewerWidget::OnHistogramContextMenuRequested(const QPoint& Position)
 	{
-		HistogramContextMenu->exec(ui.Histogram->mapToGlobal(Position));
+		HistogramContextMenu->exec(ui->Histogram->mapToGlobal(Position));
 	}
 
 	void ImageViewerWidget::OnSaveImageClicked()
@@ -236,19 +238,19 @@ namespace DynExpModule::ImageViewer
 
 	void ImageViewerWidget::OnZoomResetClicked()
 	{
-		ui.action_Zoom_fit->setChecked(false);
+		ui->action_Zoom_fit->setChecked(false);
 		GraphicsView->ZoomReset();
 	}
 
 	void ImageViewerWidget::OnZoomInClicked()
 	{
-		ui.action_Zoom_fit->setChecked(false);
+		ui->action_Zoom_fit->setChecked(false);
 		GraphicsView->ZoomIn();
 	}
 
 	void ImageViewerWidget::OnZoomOutClicked()
 	{
-		ui.action_Zoom_fit->setChecked(false);
+		ui->action_Zoom_fit->setChecked(false);
 		GraphicsView->ZoomOut();
 	}
 
@@ -266,7 +268,7 @@ namespace DynExpModule::ImageViewer
 		{
 			auto Point = GraphicsView->mapToScene(LocalPoint).toPoint();
 
-			ui.CursorPosition->setText("X:" + QString::number(Point.x()) + ", Y:" + QString::number(Point.y()));
+			ui->CursorPosition->setText("X:" + QString::number(Point.x()) + ", Y:" + QString::number(Point.y()));
 		}
 	}
 
@@ -387,11 +389,11 @@ namespace DynExpModule::ImageViewer
 	{
 		auto Widget = std::make_unique<ImageViewerWidget>(*this);
 
-		Connect(Widget->ui.CBCameraMode, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &ImageViewer::OnCameraModeChanged);
-		Connect(Widget->ui.ExposureTime, QOverload<int>::of(&QSpinBox::valueChanged), this, &ImageViewer::OnExposureTimeChanged);
-		Connect(Widget->ui.action_Capture_Frame, &QAction::triggered, this, &ImageViewer::OnCaptureSingle);
-		Connect(Widget->ui.action_Capture_continuously, &QAction::triggered, this, &ImageViewer::OnCaptureContinuously);
-		Connect(Widget->ui.action_Autofocus, &QAction::triggered, this, &ImageViewer::OnAutofocusClicked);
+		Connect(Widget->ui->CBCameraMode, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &ImageViewer::OnCameraModeChanged);
+		Connect(Widget->ui->ExposureTime, QOverload<int>::of(&QSpinBox::valueChanged), this, &ImageViewer::OnExposureTimeChanged);
+		Connect(Widget->ui->action_Capture_Frame, &QAction::triggered, this, &ImageViewer::OnCaptureSingle);
+		Connect(Widget->ui->action_Capture_continuously, &QAction::triggered, this, &ImageViewer::OnCaptureContinuously);
+		Connect(Widget->ui->action_Autofocus, &QAction::triggered, this, &ImageViewer::OnAutofocusClicked);
 
 		return Widget;
 	}
@@ -412,53 +414,53 @@ namespace DynExpModule::ImageViewer
 
 		if (!ModuleData->UIInitialized)
 		{
-			Widget->ui.action_Autofocus->setEnabled(ModuleData->Focus.valid());
+			Widget->ui->action_Autofocus->setEnabled(ModuleData->Focus.valid());
 
 			if (ModuleData->CameraModes.empty())
-				Widget->ui.CameraModeGroupBox->setVisible(false);
+				Widget->ui->CameraModeGroupBox->setVisible(false);
 			else
 			{
 				for (const auto& Mode : ModuleData->CameraModes)
 				{
-					Widget->ui.CBCameraMode->insertItem(Widget->ui.CBCameraMode->count(), QString::fromStdString(Mode));
-					Widget->ui.CBCameraMode->setItemData(Widget->ui.CBCameraMode->count() - 1, QString::fromStdString(Mode), Qt::ToolTipRole);
+					Widget->ui->CBCameraMode->insertItem(Widget->ui->CBCameraMode->count(), QString::fromStdString(Mode));
+					Widget->ui->CBCameraMode->setItemData(Widget->ui->CBCameraMode->count() - 1, QString::fromStdString(Mode), Qt::ToolTipRole);
 				}
 
 				// Triggers QComboBox::currentIndexChanged().
-				Widget->ui.CBCameraMode->setCurrentIndex(0);
+				Widget->ui->CBCameraMode->setCurrentIndex(0);
 			}
 
 			ModuleData->UIInitialized = true;
 		}
 
-		Widget->ui.action_Save_Image->setEnabled(Ready);
-		Widget->ui.action_Capture_Frame->setEnabled(Ready);
-		Widget->ui.action_Capture_continuously->setEnabled(Ready);
-		Widget->ui.CameraModeGroupBox->setEnabled(Ready);
-		Widget->ui.ImageModifiersGroupBox->setEnabled(Ready);
-		Widget->ui.Histogram->setEnabled(Ready);
+		Widget->ui->action_Save_Image->setEnabled(Ready);
+		Widget->ui->action_Capture_Frame->setEnabled(Ready);
+		Widget->ui->action_Capture_continuously->setEnabled(Ready);
+		Widget->ui->CameraModeGroupBox->setEnabled(Ready);
+		Widget->ui->ImageModifiersGroupBox->setEnabled(Ready);
+		Widget->ui->Histogram->setEnabled(Ready);
 		Widget->SetImageViewEnabled(Ready);
 
-		Widget->ui.ExposureTimeGroupBox->setEnabled(Ready && ModuleData->Camera->CanSetExposureTime());
-		Widget->ui.ExposureTimeMinValue->setText("min. " + QString::number(ModuleData->MinExposureTime.count()) + " ms");
-		Widget->ui.ExposureTimeMaxValue->setText("max. " + QString::number(ModuleData->MaxExposureTime.count()) + " ms");
-		Widget->ui.ExposureTime->setMinimum(ModuleData->MinExposureTime.count());
-		Widget->ui.ExposureTime->setMaximum(ModuleData->MaxExposureTime.count());
+		Widget->ui->ExposureTimeGroupBox->setEnabled(Ready && ModuleData->Camera->CanSetExposureTime());
+		Widget->ui->ExposureTimeMinValue->setText("min. " + QString::number(ModuleData->MinExposureTime.count()) + " ms");
+		Widget->ui->ExposureTimeMaxValue->setText("max. " + QString::number(ModuleData->MaxExposureTime.count()) + " ms");
+		Widget->ui->ExposureTime->setMinimum(ModuleData->MinExposureTime.count());
+		Widget->ui->ExposureTime->setMaximum(ModuleData->MaxExposureTime.count());
 
-		if (!Widget->ui.ExposureTime->hasFocus())
+		if (!Widget->ui->ExposureTime->hasFocus())
 		{
-			const QSignalBlocker Blocker(Widget->ui.ExposureTime);
-			Widget->ui.ExposureTime->setValue(Util::NumToT<int>(ModuleData->CurrentExposureTime.count()));
+			const QSignalBlocker Blocker(Widget->ui->ExposureTime);
+			Widget->ui->ExposureTime->setValue(Util::NumToT<int>(ModuleData->CurrentExposureTime.count()));
 		}
 
 		if (!Autofocusing && !ModuleData->ImageCapturingPaused)
 		{
 			DynExpInstr::CameraData::ImageTransformationType ImageTransformation;
-			if (Widget->ui.ImageModifiersGroupBox->isChecked())
+			if (Widget->ui->ImageModifiersGroupBox->isChecked())
 			{
 				// Values from controls ranging from -10 to 10.
-				ImageTransformation.BrightnessFactor = Widget->ui.ImageModifiersBrightness->value() / 10.f;
-				ImageTransformation.ContrastFactor = std::pow(10, Widget->ui.ImageModifiersContrast->value() / 10.f);
+				ImageTransformation.BrightnessFactor = Widget->ui->ImageModifiersBrightness->value() / 10.f;
+				ImageTransformation.ContrastFactor = std::pow(10, Widget->ui->ImageModifiersContrast->value() / 10.f);
 				ImageTransformation.IsEnabled = true;
 			}
 
@@ -494,24 +496,24 @@ namespace DynExpModule::ImageViewer
 			Widget->ResetSaveImageFilename();
 		}
 
-		Widget->ui.action_Capture_continuously->setChecked(ModuleData->CapturingState == DynExpInstr::CameraData::CapturingStateType::CapturingContinuously);
-		Widget->ui.action_Autofocus->setChecked(Autofocusing);
+		Widget->ui->action_Capture_continuously->setChecked(ModuleData->CapturingState == DynExpInstr::CameraData::CapturingStateType::CapturingContinuously);
+		Widget->ui->action_Autofocus->setChecked(Autofocusing);
 
 		if (Autofocusing)
-			Widget->ui.CurrentFPS->setText("Autofocusing...");
+			Widget->ui->CurrentFPS->setText("Autofocusing...");
 		else if (ModuleData->CapturingState == DynExpInstr::CameraData::CapturingStateType::CapturingSingle)
-			Widget->ui.CurrentFPS->setText("Capturing frame...");
+			Widget->ui->CurrentFPS->setText("Capturing frame...");
 		else if (ModuleData->CapturingState == DynExpInstr::CameraData::CapturingStateType::CapturingContinuously)
 		{
 #ifdef DYNEXP_DEBUG
-			Widget->ui.CurrentFPS->setText("Capturing... (FPS: " + QString::number(ModuleData->CurrentFPS, 'f', 1) +
+			Widget->ui->CurrentFPS->setText("Capturing... (FPS: " + QString::number(ModuleData->CurrentFPS, 'f', 1) +
 				+ ", Brenner gradient: " + QString::number(ModuleData->CalcBrennerGradientFromImage(), 'f', 3) + ")");
 #else
-			Widget->ui.CurrentFPS->setText("Capturing... (FPS: " + QString::number(ModuleData->CurrentFPS, 'f', 1) + ")");
+			Widget->ui->CurrentFPS->setText("Capturing... (FPS: " + QString::number(ModuleData->CurrentFPS, 'f', 1) + ")");
 #endif // DYNEXP_DEBUG
 		}
 		else
-			Widget->ui.CurrentFPS->setText("Stopped");
+			Widget->ui->CurrentFPS->setText("Stopped");
 	}
 
 	bool ImageViewer::IsReadyState() const

@@ -11,7 +11,11 @@
 #include "DynExpCore.h"
 
 #include <QWidget>
-#include "ui_WidefieldMicroscope.h"
+
+namespace Ui
+{
+	class WidefieldMicroscope;
+}
 
 namespace DynExpModule::Widefield
 {
@@ -132,7 +136,7 @@ namespace DynExpModule::Widefield
 		void UpdateHBTUIData(Util::SynchronizedPointer<WidefieldMicroscopeData>& ModuleData);
 		void UpdateAutoMeasureUIData(Util::SynchronizedPointer<WidefieldMicroscopeData>& ModuleData, bool IsCharacterizingSample);
 
-		const auto& GetUI() const noexcept { return ui; }
+		const auto GetUI() const noexcept { return ui.get(); }
 		const auto& GetWidefieldConfocalModeActionGroup() const noexcept { return WidefieldConfocalModeActionGroup; }
 		const auto& GetMainGraphicsView() const noexcept { return MainGraphicsView; }
 		const auto& GetConfocalSurface3DSeries() const noexcept { return ConfocalSurface3DSeries; }
@@ -153,7 +157,7 @@ namespace DynExpModule::Widefield
 		*/
 		bool StoreTWEmitterListSelection();
 
-		Ui::WidefieldMicroscope ui;
+		std::unique_ptr<Ui::WidefieldMicroscope> ui;
 		StatusBarType StatusBar;
 		
 		QActionGroup* WidefieldConfocalModeActionGroup;
@@ -186,7 +190,7 @@ namespace DynExpModule::Widefield
 
 		QPoint MarkerPos;
 		QPointF SamplePos;
-		Util::MarkerGraphicsView::MarkerType::IDType MarkerID;
+		Util::MarkerGraphicsView::MarkerType::IDType MarkerID{};
 		EmitterListTaskType EmitterListTask = EmitterListTaskType::None;
 
 	private slots:

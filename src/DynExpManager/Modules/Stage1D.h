@@ -12,7 +12,11 @@
 #include "../MetaInstruments/Stage.h"
 
 #include <QWidget>
-#include "ui_Stage1D.h"
+
+namespace Ui
+{
+	class Stage1D;
+}
 
 namespace DynExpModule
 {
@@ -26,7 +30,7 @@ namespace DynExpModule
 		Stage1DWidget(Stage1D& Owner, QModuleWidget* parent = nullptr);
 		~Stage1DWidget() = default;
 
-		Ui::Stage1D ui;
+		std::unique_ptr<Ui::Stage1D> ui;
 	};
 
 	class Stage1DData : public DynExp::QModuleDataBase

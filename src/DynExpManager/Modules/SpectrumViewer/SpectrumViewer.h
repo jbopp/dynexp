@@ -16,7 +16,11 @@
 #include "SpectrumViewerEvents.h"
 
 #include <QWidget>
-#include "ui_SpectrumViewer.h"
+
+namespace Ui
+{
+	class SpectrumViewer;
+}
 
 namespace DynExpModule::SpectrumViewer
 {
@@ -48,7 +52,7 @@ namespace DynExpModule::SpectrumViewer
 
 		bool AllowResize() const noexcept override final { return true; }
 
-		const auto& GetUI() const noexcept { return ui; }
+		const auto GetUI() const noexcept { return ui.get(); }
 
 		void InitializeUI(Util::SynchronizedPointer<SpectrumViewerData>& ModuleData);
 		void UpdateUI(Util::SynchronizedPointer<SpectrumViewerData>& ModuleData);
@@ -63,7 +67,7 @@ namespace DynExpModule::SpectrumViewer
 		QValueAxis* XAxis;
 		QValueAxis* YAxis;
 
-		Ui::SpectrumViewer ui;
+		std::unique_ptr<Ui::SpectrumViewer> ui;
 
 		SampleDataType CurrentSpectrum;
 		DynExpInstr::SpectrometerData::TimeType CurrentExposureTime{};

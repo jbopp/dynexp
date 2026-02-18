@@ -8,11 +8,15 @@
 #pragma once
 
 #include <QtWidgets/QMainWindow>
-#include "ui_DynExpManager.h"
 #include "DynExpAbout.h"
 #include "DynExpCore.h"
 #include "CircuitDiagram.h"
 #include "ErrorListDialog.h"
+
+namespace Ui
+{
+	class DynExpManagerClass;
+}
 
 /**
  * @brief Implements %DynExp's main window as a Qt-based user interface (UI).
@@ -254,7 +258,7 @@ private:
 
 	DynExp::DynExpCore& DynExpCore;						//!< Handle to %DynExp's internal data
 
-	Ui::DynExpManagerClass ui;							//!< Qt widgets belonging to the main window's user interface
+	std::unique_ptr<Ui::DynExpManagerClass> ui;			//!< Qt widgets belonging to the main window's user interface
 
 	QTimer* UpdateUITimer;								//!< Timer for periodically updating the user interface
 	DynExpAbout* AboutDialog;							//!< Dialog showing license and copyright information

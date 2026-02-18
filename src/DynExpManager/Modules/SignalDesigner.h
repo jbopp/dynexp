@@ -13,7 +13,11 @@
 #include "../MetaInstruments/FunctionGenerator.h"
 
 #include <QWidget>
-#include "ui_SignalDesigner.h"
+
+namespace Ui
+{
+	class SignalDesigner;
+}
 
 namespace DynExpModule
 {
@@ -30,14 +34,14 @@ namespace DynExpModule
 
 		bool AllowResize() const noexcept override final { return true; }
 
-		const auto& GetUI() const noexcept { return ui; }
+		const auto GetUI() const noexcept { return ui.get(); }
 		bool HavePulsesChanged() noexcept;
 		auto GetPulses() const { return Pulses; }
 
 		void InitializeUI(Util::SynchronizedPointer<SignalDesignerData>& ModuleData);
 
 	private:
-		Ui::SignalDesigner ui;
+		std::unique_ptr<Ui::SignalDesigner> ui;
 
 		QMenu* PulsesContextMenu;
 		QAction* AddPulseAction;
