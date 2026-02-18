@@ -48,7 +48,7 @@ namespace DynExpInstr
 		{
 		// There is also a TaskBase default constructor if no callback function is to be called.
 		public:
-			SomeUsefulTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			SomeUsefulTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -135,7 +135,7 @@ $$endif
 		// virtual bool IsUsingSIUnits() const noexcept override { return true; }
 
 		// TODO: Override virtual task functions here.
-		// virtual void SomeUsefulTask(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<$Name$Tasks::SomeUsefulTask>(CallbackFunc); }
+		// virtual void SomeUsefulTask(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<$Name$Tasks::SomeUsefulTask>(std::move(CallbackFunc)); }
 
 	private:
 		void ResetImpl(dispatch_tag<$ParentName>) override final;

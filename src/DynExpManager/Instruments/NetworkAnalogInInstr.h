@@ -181,7 +181,7 @@ namespace DynExpInstr
 		}
 
 		// Override in order to disable writing to an input instrument.
-		virtual void WriteData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<DynExp::DefaultTask>(CallbackFunc); }
+		virtual void WriteData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<DynExp::DefaultTask>(std::move(CallbackFunc)); }
 
 		virtual AnalogInData::SampleStreamType::SampleType Get(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const
 		{

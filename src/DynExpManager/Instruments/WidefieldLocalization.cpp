@@ -70,7 +70,7 @@ namespace DynExpInstr
 	}
 
 	WidefieldLocalizationTasks::ReadCellIDTask::ReadCellIDTask(const QImage& Image, CallbackType CallbackFunc) noexcept
-		: TaskBase(CallbackFunc), ImageProcessingTaskBase(Image)
+		: TaskBase(std::move(CallbackFunc)), ImageProcessingTaskBase(Image)
 	{
 	}
 
@@ -118,7 +118,7 @@ namespace DynExpInstr
 	}
 
 	WidefieldLocalizationTasks::AnalyzeWidefieldTask::AnalyzeWidefieldTask(const QImage& Image, CallbackType CallbackFunc) noexcept
-		: TaskBase(CallbackFunc), ImageProcessingTaskBase(Image)
+		: TaskBase(std::move(CallbackFunc)), ImageProcessingTaskBase(Image)
 	{
 	}
 
@@ -147,7 +147,7 @@ namespace DynExpInstr
 	}
 
 	WidefieldLocalizationTasks::AnalyzeDistortionTask::AnalyzeDistortionTask(const QImage& Image, CallbackType CallbackFunc) noexcept
-		: TaskBase(CallbackFunc), ImageProcessingTaskBase(Image)
+		: TaskBase(std::move(CallbackFunc)), ImageProcessingTaskBase(Image)
 	{
 	}
 
@@ -172,7 +172,7 @@ namespace DynExpInstr
 
 	WidefieldLocalizationTasks::RecallPositionsTask::RecallPositionsTask(const QImage& Image, const WidefieldLocalizationCellIDType& CellID,
 		std::string_view MeasureSavePath, CallbackType CallbackFunc) noexcept
-		: TaskBase(CallbackFunc), ImageProcessingTaskBase(Image), CellID(CellID), MeasureSavePath(MeasureSavePath)
+		: TaskBase(std::move(CallbackFunc)), ImageProcessingTaskBase(Image), CellID(CellID), MeasureSavePath(MeasureSavePath)
 	{
 	}
 

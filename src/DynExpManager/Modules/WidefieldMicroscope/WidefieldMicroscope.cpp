@@ -841,30 +841,30 @@ namespace DynExpModule::Widefield
 		{
 			*ConfocalScanPositionerStateX = PositionerStateType::WaitingForMovement;
 			ModuleData->GetSampleStageX()->MoveAbsolute(Point.x / ModuleData->GetSampleStageX()->GetStepNanoMeterRatio(),
-				[PositionerState = ConfocalScanPositionerStateX](const DynExp::TaskBase&, DynExp::ExceptionContainer&) {
+				DynExp::TaskBase::CallbackType::FuncType([PositionerState = ConfocalScanPositionerStateX](const DynExp::TaskBase*, DynExp::ExceptionContainer&) {
 					*PositionerState = PositionerStateType::Moving;
 				}
-			);
+			));
 		}
 
 		if (Point.UsingY && ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::SampleXYPositioning))
 		{
 			*ConfocalScanPositionerStateY = PositionerStateType::WaitingForMovement;
 			ModuleData->GetSampleStageY()->MoveAbsolute(Point.y / ModuleData->GetSampleStageX()->GetStepNanoMeterRatio(),
-				[PositionerState = ConfocalScanPositionerStateY](const DynExp::TaskBase&, DynExp::ExceptionContainer&) {
+				DynExp::TaskBase::CallbackType::FuncType([PositionerState = ConfocalScanPositionerStateY](const DynExp::TaskBase*, DynExp::ExceptionContainer&) {
 					*PositionerState = PositionerStateType::Moving;
 				}
-			);
+			));
 		}
 
 		if (Point.UsingZ && ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::SampleZPositioning))
 		{
 			*ConfocalScanPositionerStateZ = PositionerStateType::WaitingForMovement;
 			ModuleData->GetSampleStageZ()->MoveAbsolute(Point.z / ModuleData->GetSampleStageX()->GetStepNanoMeterRatio(),
-				[PositionerState = ConfocalScanPositionerStateZ](const DynExp::TaskBase&, DynExp::ExceptionContainer&) {
+				DynExp::TaskBase::CallbackType::FuncType([PositionerState = ConfocalScanPositionerStateZ](const DynExp::TaskBase*, DynExp::ExceptionContainer&) {
 					*PositionerState = PositionerStateType::Moving;
 				}
-			);
+			));
 		}
 	}
 
@@ -992,7 +992,7 @@ namespace DynExpModule::Widefield
 		{
 			*WidefieldCellIDState = WidefieldImageProcessingStateType::Waiting;
 			ModuleData->GetWidefieldLocalizer()->ReadCellID(ModuleData->GetCurrentImage(),
-				[CellIDState = WidefieldCellIDState](const DynExp::TaskBase&, DynExp::ExceptionContainer& Exception) {
+				DynExp::TaskBase::CallbackType::FuncType([CellIDState = WidefieldCellIDState](const DynExp::TaskBase*, DynExp::ExceptionContainer& Exception) {
 					try
 					{
 						Exception.Throw();
@@ -1010,7 +1010,7 @@ namespace DynExpModule::Widefield
 
 					*CellIDState = WidefieldImageProcessingStateType::Finished;
 				}
-			);
+			));
 		}
 
 		return StateType::WaitingForWidefieldCellID;
@@ -1022,7 +1022,7 @@ namespace DynExpModule::Widefield
 			*WidefieldLocalizationState = WidefieldImageProcessingStateType::Failed;
 		else
 		{
-			const auto CallbackFunc = [LocalizerState = WidefieldLocalizationState](const DynExp::TaskBase&, DynExp::ExceptionContainer& Exception) {
+			const auto CallbackFunc = [LocalizerState = WidefieldLocalizationState](const DynExp::TaskBase*, DynExp::ExceptionContainer& Exception) {
 				try
 				{
 					Exception.Throw();
@@ -1044,10 +1044,10 @@ namespace DynExpModule::Widefield
 			*WidefieldLocalizationState = WidefieldImageProcessingStateType::Waiting;
 
 			if (ModuleData->GetAutoMeasureLocalizationType() == WidefieldMicroscopeWidget::LocalizationType::LocalizeEmittersFromImage)
-				ModuleData->GetWidefieldLocalizer()->AnalyzeWidefield(ModuleData->GetCurrentImage(), CallbackFunc);
+				ModuleData->GetWidefieldLocalizer()->AnalyzeWidefield(ModuleData->GetCurrentImage(), DynExp::TaskBase::CallbackType::FuncType(CallbackFunc));
 			else
 				ModuleData->GetWidefieldLocalizer()->RecallPositions(ModuleData->GetCurrentImage(),
-					ModuleData->GetCellID(), ModuleData->GetAutoMeasureSavePath().string(), CallbackFunc);
+					ModuleData->GetCellID(), ModuleData->GetAutoMeasureSavePath().string(), DynExp::TaskBase::CallbackType::FuncType(CallbackFunc));
 		}
 
 		return StateType::WaitingForWidefieldLocalization;

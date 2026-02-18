@@ -48,7 +48,7 @@ namespace DynExpInstr
 		class ReferenceTask final : public DynExp::TaskBase
 		{
 		public:
-			ReferenceTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			ReferenceTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -57,7 +57,7 @@ namespace DynExpInstr
 		class CalibrateTask final : public DynExp::TaskBase
 		{
 		public:
-			CalibrateTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			CalibrateTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -77,7 +77,7 @@ namespace DynExpInstr
 		class MoveToHomeTask final : public DynExp::TaskBase
 		{
 		public:
-			MoveToHomeTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			MoveToHomeTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -87,7 +87,7 @@ namespace DynExpInstr
 		{
 		public:
 			MoveAbsoluteTask(PositionerStageData::PositionType Position, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), Position(Position) {}
+				: TaskBase(std::move(CallbackFunc)), Position(Position) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -99,7 +99,7 @@ namespace DynExpInstr
 		{
 		public:
 			MoveRelativeTask(PositionerStageData::PositionType Position, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), Position(Position) {}
+				: TaskBase(std::move(CallbackFunc)), Position(Position) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -232,13 +232,13 @@ namespace DynExpInstr
 		virtual bool IsUsingSIUnits() const noexcept override { return true; }				// Assuming SmarAct positioners with sensor
 
 		virtual void SetHome() const override { MakeAndEnqueueTask<SmarActTasks::SetHomeTask>(); }
-		virtual void Reference([[maybe_unused]] DirectionType Direction = DirectionType::Forward, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<SmarActTasks::ReferenceTask>(CallbackFunc); }
-		virtual void Calibrate(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<SmarActTasks::CalibrateTask>(CallbackFunc); }
+		virtual void Reference([[maybe_unused]] DirectionType Direction = DirectionType::Forward, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<SmarActTasks::ReferenceTask>(std::move(CallbackFunc)); }
+		virtual void Calibrate(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<SmarActTasks::CalibrateTask>(std::move(CallbackFunc)); }
 		virtual void SetVelocity(PositionerStageData::PositionType Velocity) const override { MakeAndEnqueueTask<SmarActTasks::SetVelocityTask>(Velocity); }
 
-		virtual void MoveToHome(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<SmarActTasks::MoveToHomeTask>(CallbackFunc); }
-		virtual void MoveAbsolute(PositionerStageData::PositionType Position, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<SmarActTasks::MoveAbsoluteTask>(Position, CallbackFunc); }
-		virtual void MoveRelative(PositionerStageData::PositionType Position, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<SmarActTasks::MoveRelativeTask>(Position, CallbackFunc); }
+		virtual void MoveToHome(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<SmarActTasks::MoveToHomeTask>(std::move(CallbackFunc)); }
+		virtual void MoveAbsolute(PositionerStageData::PositionType Position, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<SmarActTasks::MoveAbsoluteTask>(Position, std::move(CallbackFunc)); }
+		virtual void MoveRelative(PositionerStageData::PositionType Position, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<SmarActTasks::MoveRelativeTask>(Position, std::move(CallbackFunc)); }
 		virtual void StopMotion() const override { MakeAndEnqueueTask<SmarActTasks::StopMotionTask>(); }
 
 	private:

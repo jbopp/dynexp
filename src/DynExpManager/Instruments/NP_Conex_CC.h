@@ -42,7 +42,7 @@ namespace DynExpInstr
 		{
 		public:
 			ResetTask(CallbackType CallbackFunc = nullptr, std::chrono::system_clock::time_point DeferUntil = {}) noexcept
-				: TaskBase(CallbackFunc, DeferUntil) {}
+				: TaskBase(std::move(CallbackFunc), DeferUntil) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -52,7 +52,7 @@ namespace DynExpInstr
 		{
 		public:
 			SetReadyTask(CallbackType CallbackFunc = nullptr, std::chrono::system_clock::time_point DeferUntil = {}) noexcept
-				: TaskBase(CallbackFunc, DeferUntil) {}
+				: TaskBase(std::move(CallbackFunc), DeferUntil) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -71,7 +71,7 @@ namespace DynExpInstr
 		{
 		public:
 			SetHomeExecutionTask(CallbackType CallbackFunc, std::chrono::system_clock::time_point DeferUntil = {}) noexcept
-				: TaskBase(CallbackFunc, DeferUntil) {}
+				: TaskBase(std::move(CallbackFunc), DeferUntil) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -85,7 +85,7 @@ namespace DynExpInstr
 		{
 		public:
 			ReferenceTask(PositionerStage::DirectionType Direction, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), Direction(Direction) {}
+				: TaskBase(std::move(CallbackFunc)), Direction(Direction) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -97,7 +97,7 @@ namespace DynExpInstr
 		{
 		public:
 			ReferenceExecutionTask(CallbackType CallbackFunc, std::chrono::system_clock::time_point DeferUntil = {}) noexcept
-				: TaskBase(CallbackFunc, DeferUntil) {}
+				: TaskBase(std::move(CallbackFunc), DeferUntil) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -107,7 +107,7 @@ namespace DynExpInstr
 		{
 		public:
 			SetVelocityTask(PositionerStageData::PositionType Velocity, CallbackType CallbackFunc = nullptr, std::chrono::system_clock::time_point DeferUntil = {}) noexcept
-				: TaskBase(CallbackFunc, DeferUntil), Velocity(Velocity) {}
+				: TaskBase(std::move(CallbackFunc), DeferUntil), Velocity(Velocity) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -122,7 +122,7 @@ namespace DynExpInstr
 		class MoveToHomeTask final : public DynExp::TaskBase
 		{
 		public:
-			MoveToHomeTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			MoveToHomeTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -132,7 +132,7 @@ namespace DynExpInstr
 		{
 		public:
 			MoveToHomeExecutionTask(CallbackType CallbackFunc, std::chrono::system_clock::time_point DeferUntil = {}) noexcept
-				: TaskBase(CallbackFunc, DeferUntil) {}
+				: TaskBase(std::move(CallbackFunc), DeferUntil) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -146,7 +146,7 @@ namespace DynExpInstr
 		{
 		public:
 			MoveAbsoluteTask(PositionerStageData::PositionType Position, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), Position(Position) {}
+				: TaskBase(std::move(CallbackFunc)), Position(Position) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -158,7 +158,7 @@ namespace DynExpInstr
 		{
 		public:
 			MoveAbsoluteExecutionTask(PositionerStageData::PositionType Position, CallbackType CallbackFunc, std::chrono::system_clock::time_point DeferUntil = {}) noexcept
-				: TaskBase(CallbackFunc, DeferUntil), Position(Position) {}
+				: TaskBase(std::move(CallbackFunc), DeferUntil), Position(Position) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -175,7 +175,7 @@ namespace DynExpInstr
 		{
 		public:
 			MoveRelativeTask(PositionerStageData::PositionType Position, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), Position(Position) {}
+				: TaskBase(std::move(CallbackFunc)), Position(Position) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -187,7 +187,7 @@ namespace DynExpInstr
 		{
 		public:
 			MoveRelativeExecutionTask(PositionerStageData::PositionType Position, CallbackType CallbackFunc, std::chrono::system_clock::time_point DeferUntil = {}) noexcept
-				: TaskBase(CallbackFunc, DeferUntil), Position(Position) {}
+				: TaskBase(std::move(CallbackFunc), DeferUntil), Position(Position) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -375,12 +375,12 @@ namespace DynExpInstr
 		virtual std::chrono::milliseconds GetTaskQueueDelay() const override { return std::chrono::milliseconds(1000); }
 
 		virtual void SetHome() const override { MakeAndEnqueueTask<NP_Conex_CC_Tasks::SetHomeTask>(); }
-		virtual void Reference(DirectionType Direction = DirectionType::Forward, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NP_Conex_CC_Tasks::ReferenceTask>(Direction, CallbackFunc); }
+		virtual void Reference(DirectionType Direction = DirectionType::Forward, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NP_Conex_CC_Tasks::ReferenceTask>(Direction, std::move(CallbackFunc)); }
 		virtual void SetVelocity(PositionerStageData::PositionType Velocity) const override { MakeAndEnqueueTask<NP_Conex_CC_Tasks::SetVelocityTask>(Velocity); }
 
-		virtual void MoveToHome(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NP_Conex_CC_Tasks::MoveToHomeTask>(CallbackFunc); }
-		virtual void MoveAbsolute(PositionerStageData::PositionType Position, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NP_Conex_CC_Tasks::MoveAbsoluteTask>(Position, CallbackFunc); }
-		virtual void MoveRelative(PositionerStageData::PositionType Position, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NP_Conex_CC_Tasks::MoveRelativeTask>(Position, CallbackFunc); }
+		virtual void MoveToHome(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NP_Conex_CC_Tasks::MoveToHomeTask>(std::move(CallbackFunc)); }
+		virtual void MoveAbsolute(PositionerStageData::PositionType Position, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NP_Conex_CC_Tasks::MoveAbsoluteTask>(Position, std::move(CallbackFunc)); }
+		virtual void MoveRelative(PositionerStageData::PositionType Position, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NP_Conex_CC_Tasks::MoveRelativeTask>(Position, std::move(CallbackFunc)); }
 		virtual void StopMotion() const override { MakeAndEnqueueTask<NP_Conex_CC_Tasks::StopMotionTask>(); }
 
 	private:

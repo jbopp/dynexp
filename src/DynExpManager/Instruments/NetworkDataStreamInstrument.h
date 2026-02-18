@@ -137,7 +137,7 @@ namespace DynExpInstr
 		class ReadTask : public DynExp::TaskBase
 		{
 		public:
-			ReadTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			ReadTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -167,7 +167,7 @@ namespace DynExpInstr
 		class WriteTask : public DynExp::TaskBase
 		{
 		public:
-			WriteTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			WriteTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -207,7 +207,7 @@ namespace DynExpInstr
 		class ClearTask : public DynExp::TaskBase
 		{
 		public:
-			ClearTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			ClearTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -228,7 +228,7 @@ namespace DynExpInstr
 		class StartTask : public DynExp::TaskBase
 		{
 		public:
-			StartTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			StartTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -249,7 +249,7 @@ namespace DynExpInstr
 		class StopTask : public DynExp::TaskBase
 		{
 		public:
-			StopTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			StopTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -270,7 +270,7 @@ namespace DynExpInstr
 		class RestartTask : public DynExp::TaskBase
 		{
 		public:
-			RestartTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			RestartTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -292,7 +292,7 @@ namespace DynExpInstr
 		{
 		public:
 			SetStreamSizeTask(size_t StreamSizeInSamples, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), StreamSizeInSamples(StreamSizeInSamples) {}
+				: TaskBase(std::move(CallbackFunc)), StreamSizeInSamples(StreamSizeInSamples) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -327,7 +327,7 @@ namespace DynExpInstr
 		class ResetStreamSizeTask : public DynExp::TaskBase
 		{
 		public:
-			ResetStreamSizeTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			ResetStreamSizeTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -481,14 +481,14 @@ namespace DynExpInstr
 		}
 
 		// Tasks
-		virtual void ReadData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::ReadTask<BaseInstr, 0, gRPCStubs...>>(CallbackFunc); }
-		virtual void WriteData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::WriteTask<BaseInstr, 0, gRPCStubs...>>(CallbackFunc); }
-		virtual void ClearData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::ClearTask<BaseInstr, 0, gRPCStubs...>>(CallbackFunc); }
-		virtual void Start(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::StartTask<BaseInstr, 0, gRPCStubs...>>(CallbackFunc); }
-		virtual void Stop(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::StopTask<BaseInstr, 0, gRPCStubs...>>(CallbackFunc); }
-		virtual void Restart(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::RestartTask<BaseInstr, 0, gRPCStubs...>>(CallbackFunc); }
-		virtual void SetStreamSize(size_t BufferSizeInSamples, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::SetStreamSizeTask<BaseInstr, 0, gRPCStubs...>>(BufferSizeInSamples, CallbackFunc); }
-		virtual void ResetStreamSize(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::ResetStreamSizeTask<BaseInstr, 0, gRPCStubs...>>(CallbackFunc); }
+		virtual void ReadData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::ReadTask<BaseInstr, 0, gRPCStubs...>>(std::move(CallbackFunc)); }
+		virtual void WriteData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::WriteTask<BaseInstr, 0, gRPCStubs...>>(std::move(CallbackFunc)); }
+		virtual void ClearData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::ClearTask<BaseInstr, 0, gRPCStubs...>>(std::move(CallbackFunc)); }
+		virtual void Start(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::StartTask<BaseInstr, 0, gRPCStubs...>>(std::move(CallbackFunc)); }
+		virtual void Stop(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::StopTask<BaseInstr, 0, gRPCStubs...>>(std::move(CallbackFunc)); }
+		virtual void Restart(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::RestartTask<BaseInstr, 0, gRPCStubs...>>(std::move(CallbackFunc)); }
+		virtual void SetStreamSize(size_t BufferSizeInSamples, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::SetStreamSizeTask<BaseInstr, 0, gRPCStubs...>>(BufferSizeInSamples, std::move(CallbackFunc)); }
+		virtual void ResetStreamSize(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::ResetStreamSizeTask<BaseInstr, 0, gRPCStubs...>>(std::move(CallbackFunc)); }
 
 	private:
 		void ResetImpl(DynExp::Object::dispatch_tag<gRPCInstrument<BaseInstr, 0, gRPCStubs...>>) override final

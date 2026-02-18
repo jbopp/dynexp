@@ -142,12 +142,12 @@ namespace DynExpInstr
 	void DataStreamInstrument::Restart(DynExp::TaskBase::CallbackType CallbackFunc) const
 	{
 		Stop();
-		Start(CallbackFunc);
+		Start(std::move(CallbackFunc));
 	}
 
 	void DataStreamInstrument::SetStreamSize(size_t BufferSizeInSamples, DynExp::TaskBase::CallbackType CallbackFunc) const
 	{
-		MakeAndEnqueueTask<DataStreamInstrumentTasks::SetStreamSizeTask>(BufferSizeInSamples, CallbackFunc);
+		MakeAndEnqueueTask<DataStreamInstrumentTasks::SetStreamSizeTask>(BufferSizeInSamples, std::move(CallbackFunc));
 	}
 
 	bool DataStreamInstrument::CanRead(const std::chrono::milliseconds Timeout) const

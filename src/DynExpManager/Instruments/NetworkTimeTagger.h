@@ -115,7 +115,7 @@ namespace DynExpInstr
 		class ReadTask : public DynExp::TaskBase
 		{
 		public:
-			ReadTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			ReadTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -148,7 +148,7 @@ namespace DynExpInstr
 		class ClearTask : public DynExp::TaskBase
 		{
 		public:
-			ClearTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			ClearTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -170,7 +170,7 @@ namespace DynExpInstr
 		{
 		public:
 			ConfigureInputTask(bool UseRisingEdge, double ThresholdInVolts, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), UseRisingEdge(UseRisingEdge), ThresholdInVolts(ThresholdInVolts) {}
+				: TaskBase(std::move(CallbackFunc)), UseRisingEdge(UseRisingEdge), ThresholdInVolts(ThresholdInVolts) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -199,7 +199,7 @@ namespace DynExpInstr
 		{
 		public:
 			SetExposureTimeTask(Util::picoseconds ExposureTime, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), ExposureTime(ExposureTime) {}
+				: TaskBase(std::move(CallbackFunc)), ExposureTime(ExposureTime) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -226,7 +226,7 @@ namespace DynExpInstr
 		{
 		public:
 			SetCoincidenceWindowTask(Util::picoseconds CoincidenceWindow, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), CoincidenceWindow(CoincidenceWindow) {}
+				: TaskBase(std::move(CallbackFunc)), CoincidenceWindow(CoincidenceWindow) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -253,7 +253,7 @@ namespace DynExpInstr
 		{
 		public:
 			SetDelayTask(Util::picoseconds Delay, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), Delay(Delay) {}
+				: TaskBase(std::move(CallbackFunc)), Delay(Delay) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -280,7 +280,7 @@ namespace DynExpInstr
 		{
 		public:
 			SetHBTActiveTask(bool Enable, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), Enable(Enable) {}
+				: TaskBase(std::move(CallbackFunc)), Enable(Enable) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -312,7 +312,7 @@ namespace DynExpInstr
 		{
 		public:
 			ConfigureHBTTask(Util::picoseconds BinWidth, size_t BinCount, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), BinWidth(BinWidth), BinCount(BinCount) {}
+				: TaskBase(std::move(CallbackFunc)), BinWidth(BinWidth), BinCount(BinCount) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -340,7 +340,7 @@ namespace DynExpInstr
 		class ResetHBTTask : public DynExp::TaskBase
 		{
 		public:
-			ResetHBTTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			ResetHBTTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -478,17 +478,17 @@ namespace DynExpInstr
 		virtual void ReadData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override
 		{
 			NetworkDataStreamInstrumentT<BaseInstr, 0, gRPCStubs...>::ReadData();
-			DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkTimeTaggerTasks::ReadTask<BaseInstr, 0, gRPCStubs...>>(CallbackFunc);
+			DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkTimeTaggerTasks::ReadTask<BaseInstr, 0, gRPCStubs...>>(std::move(CallbackFunc));
 		}
 		
-		virtual void Clear(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkTimeTaggerTasks::ClearTask<BaseInstr, 0, gRPCStubs...>>(CallbackFunc); }
-		virtual void ConfigureInput(bool UseRisingEdge, double ThresholdInVolts, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkTimeTaggerTasks::ConfigureInputTask<BaseInstr, 0, gRPCStubs...>>(UseRisingEdge, ThresholdInVolts, CallbackFunc); }
-		virtual void SetExposureTime(Util::picoseconds ExposureTime, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkTimeTaggerTasks::SetExposureTimeTask<BaseInstr, 0, gRPCStubs...>>(ExposureTime, CallbackFunc); }
-		virtual void SetCoincidenceWindow(Util::picoseconds CoincidenceWindow, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkTimeTaggerTasks::SetCoincidenceWindowTask<BaseInstr, 0, gRPCStubs...>>(CoincidenceWindow, CallbackFunc); }
-		virtual void SetDelay(Util::picoseconds Delay, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkTimeTaggerTasks::SetDelayTask<BaseInstr, 0, gRPCStubs...>>(Delay, CallbackFunc); }
-		virtual void SetHBTActive(bool Enable, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkTimeTaggerTasks::SetHBTActiveTask<BaseInstr, 0, gRPCStubs...>>(Enable, CallbackFunc); }
-		virtual void ConfigureHBT(Util::picoseconds BinWidth, size_t BinCount, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkTimeTaggerTasks::ConfigureHBTTask<BaseInstr, 0, gRPCStubs...>>(BinWidth, BinCount, CallbackFunc); }
-		virtual void ResetHBT(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkTimeTaggerTasks::ResetHBTTask<BaseInstr, 0, gRPCStubs...>>(CallbackFunc); }
+		virtual void Clear(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkTimeTaggerTasks::ClearTask<BaseInstr, 0, gRPCStubs...>>(std::move(CallbackFunc)); }
+		virtual void ConfigureInput(bool UseRisingEdge, double ThresholdInVolts, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkTimeTaggerTasks::ConfigureInputTask<BaseInstr, 0, gRPCStubs...>>(UseRisingEdge, ThresholdInVolts, std::move(CallbackFunc)); }
+		virtual void SetExposureTime(Util::picoseconds ExposureTime, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkTimeTaggerTasks::SetExposureTimeTask<BaseInstr, 0, gRPCStubs...>>(ExposureTime, std::move(CallbackFunc)); }
+		virtual void SetCoincidenceWindow(Util::picoseconds CoincidenceWindow, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkTimeTaggerTasks::SetCoincidenceWindowTask<BaseInstr, 0, gRPCStubs...>>(CoincidenceWindow, std::move(CallbackFunc)); }
+		virtual void SetDelay(Util::picoseconds Delay, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkTimeTaggerTasks::SetDelayTask<BaseInstr, 0, gRPCStubs...>>(Delay, std::move(CallbackFunc)); }
+		virtual void SetHBTActive(bool Enable, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkTimeTaggerTasks::SetHBTActiveTask<BaseInstr, 0, gRPCStubs...>>(Enable, std::move(CallbackFunc)); }
+		virtual void ConfigureHBT(Util::picoseconds BinWidth, size_t BinCount, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkTimeTaggerTasks::ConfigureHBTTask<BaseInstr, 0, gRPCStubs...>>(BinWidth, BinCount, std::move(CallbackFunc)); }
+		virtual void ResetHBT(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkTimeTaggerTasks::ResetHBTTask<BaseInstr, 0, gRPCStubs...>>(std::move(CallbackFunc)); }
 
 	private:
 		void ResetImpl(DynExp::Object::dispatch_tag<NetworkDataStreamInstrumentT<BaseInstr, 0, gRPCStubs...>>) override final

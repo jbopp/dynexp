@@ -664,24 +664,7 @@ namespace DynExp
 		 * @return Return the exception possibly thrown by the task.
 		*/
 		template <typename DerivedInstrT, typename... TaskFuncArgTs, typename... ArgTs>
-		ExceptionContainer AsSyncTask(void (DerivedInstrT::* TaskFunc)(TaskFuncArgTs...) const, ArgTs&& ...Args) const
-		{
-			std::atomic<bool> FinishedFlag = false;
-			ExceptionContainer Exception;
-			auto CallbackFunc = [&FinishedFlag, &Exception](const TaskBase& Task, auto E) {
-				Exception = E;
-
-				// Must come last!
-				FinishedFlag = true;
-			};
-
-			(dynamic_cast<const DerivedInstrT&>(*this).*TaskFunc)(std::forward<ArgTs>(Args)..., CallbackFunc);
-
-			while (!FinishedFlag)
-				std::this_thread::yield();
-
-			return Exception;
-		}
+		ExceptionContainer AsSyncTask(void (DerivedInstrT::* TaskFunc)(TaskFuncArgTs...) const, ArgTs&& ...Args) const;
 
 	private:
 		/** @name Instrument thread only
@@ -948,12 +931,77 @@ namespace DynExp
 
 	public:
 		/**
-		 * @brief Type of a callback function which is invoked when a task has finished,
-		 * failed or has been aborted. The function receives a reference to the task it
-		 * originates from as well as a reference to a wrapper holding an exception
-		 * which might have occurred while executing the task.
+		 * @brief Type owning a callback function which is invoked when a task has finished,
+		 * failed, or has been aborted. It is ensured that the callback function is invoked
+		 * latest upon destruction of the respective @p CallbackType instance. A callback
+		 * function can only be invoked once through a @p CallbackType instance.
 		*/
-		using CallbackType = std::function<void(const TaskBase&, ExceptionContainer&)>;
+		class CallbackType
+		{
+		public:
+			/**
+			 * @brief Type of the owned callback function. The function receives a pointer to
+			 * the task the @p CallbackType instance is owned by. If it has no owner, @p nullptr
+			 * is passed. The second parameter is a reference to a wrapper holding an exception
+			 * which might have occurred while executing the owning task.
+			*/
+			using FuncType = std::function<void(const TaskBase*, ExceptionContainer&)>;
+
+			/**
+			 * @brief Constructs a @p CallbackType instance with an empty #CallbackFunc.
+			*/
+			CallbackType() : CallbackFunc() {}
+			
+			/**
+			 * @copydoc CallbackType()
+			*/
+			CallbackType(std::nullptr_t) : CallbackFunc() {}
+			
+			/**
+			 * @brief Constructs a @p CallbackType instance owning a callback function.
+			 * @param CallbackFunc Pointer to the callback function to take ownership of.
+			*/
+			CallbackType(FuncType&& CallbackFunc) : CallbackFunc(CallbackFunc) {}
+			
+			/**
+			 * @brief Copies #CallbackFunc and #HasBeenCalled from other and ensures that
+			 * @p Other will never be invoked.
+			 * @param Other @p CallbackType instance to move from.
+			*/
+			CallbackType(CallbackType&& Other);
+			
+			/**
+			 * @brief Calls @p operator()() passing @p nullptr to the first argument of @p FuncType.
+			 * Swallows all exceptions possibly occuring during the execution of #CallbackFunc.
+			*/
+			~CallbackType();
+
+			/**
+			 * @brief Invokes #CallbackFunc if it has not been invoked before.
+			 * @tparam ...ArgTs Types of arguments to pass to #CallbackFunc. Refer to @p FuncType.
+			 * @param ...Args Arguments to forward to #CallbackFunc.
+			*/
+			template <typename... ArgTs>
+			void operator()(ArgTs&& ...Args)
+			{
+				if (CallbackFunc && !HasBeenCalled)
+				{
+					HasBeenCalled = true;
+
+					CallbackFunc(std::forward<ArgTs>(Args)...);
+				}
+			}
+
+			/**
+			 * @brief Returns false if #CallbackFunc is empty, true otherwise.
+			*/
+			operator bool() const noexcept { return static_cast<bool>(CallbackFunc); }
+
+		private:
+			const FuncType CallbackFunc;	//!< Pointer to the owned callback function. 
+
+			bool HasBeenCalled = false;		//!< Indicates whether #CallbackFunc has been invoked already.
+		};
 
 		/**
 		 * @brief Defines states an instrument's task can undergo.
@@ -1002,14 +1050,14 @@ namespace DynExp
 
 		/**
 		 * @brief Constructs an instrument task, moving #CallbackFunc from another task to this task. The other task
-		 * is left with an empty #CallbackFunc after this operation. Using this constructor is useful, if a running
-		 * task enqueues (an)other task(s). In this case, the callback function should not be called by the original
-		 * task but by the last task in this chain of tasks.
+		 * is left with a #CallbackFunc that will not be executed anymore after this operation. Using this constructor
+		 * is useful, if a running task enqueues (an)other task(s). In this case, the callback function should not be
+		 * called by the original task but by the last task in this chain of tasks.
 		 * @param Other Other task to steal #CallbackFunc from.
 		 * @param DeferUntil @copybrief #DeferUntil
 		*/
 		TaskBase(TaskBase& Other, std::chrono::system_clock::time_point DeferUntil = {}) noexcept
-			: TaskBase(std::move(Other.CallbackFunc), DeferUntil) { Other.CallbackFunc = nullptr; }
+			: TaskBase(std::move(Other.CallbackFunc), DeferUntil) {}
 
 		/**
 		 * @brief The destructor aborts a waiting task setting #State to TaskState::Aborted. Then, it
@@ -1103,7 +1151,7 @@ namespace DynExp
 
 		/**
 		 * @brief This callback function is called after the task has finished (either successfully or not)
-		 * with a reference to the current task and with a reference to the exception which occurred during
+		 * with a pointer to the current task and with a reference to the exception which occurred during
 		 * the task execution (if an exception has occurred).
 		*/
 		CallbackType CallbackFunc;
@@ -1132,11 +1180,31 @@ namespace DynExp
 		///@}
 	};
 
+	template <typename DerivedInstrT, typename... TaskFuncArgTs, typename... ArgTs>
+	ExceptionContainer InstrumentBase::AsSyncTask(void (DerivedInstrT::* TaskFunc)(TaskFuncArgTs...) const, ArgTs&& ...Args) const
+	{
+		std::atomic<bool> FinishedFlag = false;
+		ExceptionContainer Exception;
+		auto CallbackFunc = TaskBase::CallbackType::FuncType([&FinishedFlag, &Exception](const TaskBase*, auto E) {
+			Exception = E;
+
+			// Must come last!
+			FinishedFlag = true;
+		});
+
+		(dynamic_cast<const DerivedInstrT&>(*this).*TaskFunc)(std::forward<ArgTs>(Args)..., std::move(CallbackFunc));
+
+		while (!FinishedFlag)
+			std::this_thread::yield();
+
+		return Exception;
+	}
+
 	/**
 	 * @brief Default task which does not do anything. Though, calling it ensures that TaskBase::CallbackFunc
 	 * gets called. This is required to avoid InstrumentBase::AsSyncTask() getting stuck in an infinite loop.
 	 * All functions overridden from meta instruments, which are expected to enqueue a task, must at least
-	 * enqueue a @p DefaultTask (by calling @p MakeAndEnqueueTask< DynExp::DefaultTask >(CallbackFunc);).
+	 * enqueue a @p DefaultTask (by calling @p MakeAndEnqueueTask< DynExp::DefaultTask >(std::move(CallbackFunc));).
 	 * Moreover, this task can be used to defer the task queue execution by setting the #DeferUntil parameter.
 	*/
 	class DefaultTask final : public TaskBase
@@ -1146,7 +1214,7 @@ namespace DynExp
 		 * @copydoc TaskBase::TaskBase
 		*/
 		DefaultTask(CallbackType CallbackFunc, std::chrono::system_clock::time_point DeferUntil = {}) noexcept
-			: TaskBase(CallbackFunc, DeferUntil) {}
+			: TaskBase(std::move(CallbackFunc), DeferUntil) {}
 
 	private:
 		virtual TaskResultType RunChild(InstrumentInstance& Instance) override { return {}; }
@@ -1259,7 +1327,7 @@ namespace DynExp
 		 * @param Latch @copybrief #Latch
 		*/
 		ArriveAtLatchTask(std::latch& Latch, CallbackType CallbackFunc = nullptr)
-			: TaskBase(CallbackFunc), Latch(Latch) {}
+			: TaskBase(std::move(CallbackFunc)), Latch(Latch) {}
 
 		/**
 		 * @brief If the task has been aborted or never executed, the destructor arrives

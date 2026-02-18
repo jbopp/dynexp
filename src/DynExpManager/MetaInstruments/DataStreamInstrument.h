@@ -70,7 +70,7 @@ namespace DynExpInstr
 			 * @param BufferSizeInSamples @copybrief #BufferSizeInSamples
 			 * @param CallbackFunc @copybrief DynExp::TaskBase::CallbackFunc
 			*/
-			SetStreamSizeTask(size_t BufferSizeInSamples, CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc), BufferSizeInSamples(BufferSizeInSamples) {}
+			SetStreamSizeTask(size_t BufferSizeInSamples, CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)), BufferSizeInSamples(BufferSizeInSamples) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;

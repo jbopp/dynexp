@@ -466,6 +466,26 @@ namespace DynExp
 			InstrumentBase::TaskHandlingContinuationType::Continue : InstrumentBase::TaskHandlingContinuationType::Terminate;
 	}
 
+	TaskBase::CallbackType::CallbackType(CallbackType&& Other)
+		: CallbackFunc(Other.CallbackFunc), HasBeenCalled(Other.HasBeenCalled)
+	{
+		Other.HasBeenCalled = true;
+	}
+
+	TaskBase::CallbackType::~CallbackType()
+	{
+		try
+		{
+			// Default-constructed ExceptionContainer does indicate a non-error state.
+			ExceptionContainer Exception;
+			this->operator()(nullptr, Exception);
+		}
+		catch (...)
+		{
+			// Swallow exceptions possibly thrown by callback execution to prevent them leaving the destructor.
+		}
+	}
+
 	TaskBase::~TaskBase()
 	{
 		// Ensure that CallbackFunc gets called in any case.
@@ -475,16 +495,13 @@ namespace DynExp
 
 			try
 			{
-				if (CallbackFunc)
-				{
-					// Default-constructed ExceptionContainer does indicate a non-error state.
-					ExceptionContainer Exception;
-					CallbackFunc(*this, Exception);
-				}
+				// Default-constructed ExceptionContainer does indicate a non-error state.
+				ExceptionContainer Exception;
+				CallbackFunc(this, Exception);
 			}
 			catch (...)
 			{
-				// Swallow exceptions possibly thrown by CallbackFunc to prevent them leave the destructor.
+				// Swallow exceptions possibly thrown by CallbackFunc to prevent them leaving the destructor.
 			}
 		}
 	}
@@ -519,12 +536,9 @@ namespace DynExp
 			State = Result.GetErrorCode() ? TaskState::Failed : (Result.HasAborted() ? TaskState::Aborted : TaskState::Finished);
 			ErrorCode = Result.GetErrorCode();
 
-			if (CallbackFunc)
-			{
-				// Default-constructed ExceptionContainer does indicate a non-error state.
-				ExceptionContainer Exception;
-				CallbackFunc(*this, Exception);
-			}
+			// Default-constructed ExceptionContainer does indicate a non-error state.
+			ExceptionContainer Exception;
+			CallbackFunc(this, Exception);
 
 			return Result.ToTaskHandlingContinuationType();
 		}
@@ -536,7 +550,7 @@ namespace DynExp
 			ExceptionContainer Exception(std::current_exception());
 			if (CallbackFunc)
 			{
-				CallbackFunc(*this, Exception);
+				CallbackFunc(this, Exception);
 				if (!Exception.IsError())
 					InstrumentBase::TaskHandlingContinuationType::Continue;
 			}

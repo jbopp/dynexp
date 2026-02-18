@@ -594,10 +594,10 @@ namespace DynExpModule::ImageViewer
 
 		*PauseUpdatingUI = true;
 		ModuleData->Camera->SetCameraMode(Util::NumToT<size_t>(Index),
-			[Pause = PauseUpdatingUI](const DynExp::TaskBase&, DynExp::ExceptionContainer&) {
+			DynExp::TaskBase::CallbackType::FuncType([Pause = PauseUpdatingUI](const DynExp::TaskBase*, DynExp::ExceptionContainer&) {
 				*Pause = false;
 			}
-		);
+		));
 	}
 
 	void ImageViewer::OnExposureTimeChanged(DynExp::ModuleInstance* Instance, int Value) const
@@ -610,10 +610,10 @@ namespace DynExpModule::ImageViewer
 			{
 				*PauseUpdatingUI = true;
 				ModuleData->Camera->SetExposureTime(std::chrono::milliseconds(Value),
-					[Pause = PauseUpdatingUI](const DynExp::TaskBase&, DynExp::ExceptionContainer&) {
+					DynExp::TaskBase::CallbackType::FuncType([Pause = PauseUpdatingUI](const DynExp::TaskBase*, DynExp::ExceptionContainer&) {
 						*Pause = false;
 					}
-				);
+				));
 			}
 		}
 		catch ([[maybe_unused]] const Util::TimeoutException& e)

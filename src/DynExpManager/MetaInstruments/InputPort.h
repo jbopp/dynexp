@@ -84,7 +84,7 @@ namespace DynExpInstr
 			 * @brief Constructs a @p ResetBufferSizeTask instance.
 			 * @param CallbackFunc @copybrief DynExp::TaskBase::CallbackFunc
 			*/
-			ResetBufferSizeTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			ResetBufferSizeTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -224,7 +224,7 @@ namespace DynExpInstr
 		 * the instrument's task queue.
 		*/
 		///@{
-		virtual void ResetStreamSize(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<InputPortTasks::ResetBufferSizeTask>(CallbackFunc); }
+		virtual void ResetStreamSize(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<InputPortTasks::ResetBufferSizeTask>(std::move(CallbackFunc)); }
 		///@}
 
 	private:

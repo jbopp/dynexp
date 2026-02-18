@@ -38,7 +38,7 @@ namespace DynExpInstr
 		class ResetStreamSizeTask : public DynExp::TaskBase
 		{
 		public:
-			ResetStreamSizeTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			ResetStreamSizeTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -103,7 +103,7 @@ namespace DynExpInstr
 		virtual DataStreamInstrumentData::UnitType GetValueUnit() const noexcept override { return DataStreamInstrumentData::UnitType::Arbitrary; }
 
 		// Override in order to suppress Util::NotImplementedException.
-		virtual void WriteData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<DynExp::DefaultTask>(CallbackFunc); }
+		virtual void WriteData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<DynExp::DefaultTask>(std::move(CallbackFunc)); }
 
 	private:
 		void ResetImpl(dispatch_tag<FunctionGenerator>) override final;
@@ -114,6 +114,6 @@ namespace DynExpInstr
 		virtual std::unique_ptr<DynExp::InitTaskBase> MakeInitTask() const override { return DynExp::MakeTask<DummyDataStreamInstrumentTasks::InitTask>(); }
 		virtual std::unique_ptr<DynExp::ExitTaskBase> MakeExitTask() const override { return DynExp::MakeTask<DummyDataStreamInstrumentTasks::ExitTask>(); }
 		virtual std::unique_ptr<DynExp::UpdateTaskBase> MakeUpdateTask() const override { return DynExp::MakeTask<DummyDataStreamInstrumentTasks::UpdateTask>(); }
-		virtual void ResetStreamSize(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<DummyDataStreamInstrumentTasks::ResetStreamSizeTask>(CallbackFunc); }
+		virtual void ResetStreamSize(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<DummyDataStreamInstrumentTasks::ResetStreamSizeTask>(std::move(CallbackFunc)); }
 	};
 }

@@ -40,7 +40,7 @@ namespace DynExpInstr
 		class WriteTask : public DynExp::TaskBase
 		{
 		public:
-			WriteTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			WriteTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -49,7 +49,7 @@ namespace DynExpInstr
 		class ClearTask : public DynExp::TaskBase
 		{
 		public:
-			ClearTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			ClearTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -58,7 +58,7 @@ namespace DynExpInstr
 		class StartTask : public DynExp::TaskBase
 		{
 		public:
-			StartTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			StartTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -67,7 +67,7 @@ namespace DynExpInstr
 		class StopTask : public DynExp::TaskBase
 		{
 		public:
-			StopTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			StopTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -76,7 +76,7 @@ namespace DynExpInstr
 		class RestartTask : public DynExp::TaskBase
 		{
 		public:
-			RestartTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			RestartTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -148,11 +148,11 @@ namespace DynExpInstr
 		virtual StreamSizeParamsExtension::ValueType GetStreamSizeParams() const override;
 		virtual NumericSampleStreamParamsExtension::ValueType GetNumericSampleStreamParams() const override;
 
-		virtual void WriteData(DynExp::TaskBase::CallbackType CallbackFunc) const override { MakeAndEnqueueTask<NIDAQDigitalOutTasks::WriteTask>(CallbackFunc); }
-		virtual void ClearData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NIDAQDigitalOutTasks::ClearTask>(CallbackFunc); }
-		virtual void Start(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NIDAQDigitalOutTasks::StartTask>(CallbackFunc); }
-		virtual void Stop(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NIDAQDigitalOutTasks::StopTask>(CallbackFunc); }
-		void Restart(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NIDAQDigitalOutTasks::RestartTask>(CallbackFunc); }
+		virtual void WriteData(DynExp::TaskBase::CallbackType CallbackFunc) const override { MakeAndEnqueueTask<NIDAQDigitalOutTasks::WriteTask>(std::move(CallbackFunc)); }
+		virtual void ClearData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NIDAQDigitalOutTasks::ClearTask>(std::move(CallbackFunc)); }
+		virtual void Start(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NIDAQDigitalOutTasks::StartTask>(std::move(CallbackFunc)); }
+		virtual void Stop(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NIDAQDigitalOutTasks::StopTask>(std::move(CallbackFunc)); }
+		void Restart(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NIDAQDigitalOutTasks::RestartTask>(std::move(CallbackFunc)); }
 		virtual Util::OptionalBool HasFinished() const override;
 		virtual void SetDefault(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override;
 
