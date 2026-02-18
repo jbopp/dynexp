@@ -11,9 +11,22 @@ endif()
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
+# Enable Qt tooling
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+
 # Project configuration
 project("DynExp")
 set(PROJECT_VERSION 1.0.0)
+
+# Add DynExp's targets
+add_library(DynExpConfig INTERFACE)
+add_library(DynExpCore STATIC)
+add_library(DynExpHardware STATIC)
+add_library(DynExpInstruments STATIC)
+add_library(DynExpModules STATIC)
+add_executable(DynExp "${CMAKE_CURRENT_BINARY_DIR}/main.cpp")
 
 # Set options and variable values in CMakeUserPresets.json.
 option(USE_NIDAQ "Compile with third-party NI-DAQmx support" OFF)
@@ -24,61 +37,66 @@ option(USE_SWABIANPULSESTREAMER "Compile with third-party Swabian Instruments Pu
 option(USE_ZIMFLI "Compile with third-party Zurich Instruments MFLI support" OFF)
 
 set(QUTOOLSQUTAG_VARIANT "MC" CACHE STRING "Qutools quTAG device variant (supports (MC) multi-channel [default], (S) standard")
-add_compile_definitions(QUTOOLSQUTAG_VARIANT_${QUTOOLSQUTAG_VARIANT})
+target_compile_definitions(DynExpConfig INTERFACE QUTOOLSQUTAG_VARIANT_${QUTOOLSQUTAG_VARIANT})
 
 # Apply parameters to template files
 configure_file(main.cpp.in main.cpp)
 configure_file(DynExpDefinitions.h.in DynExpDefinitions.h)
 
 # Additional include directories
-include_directories(${PROJECT_SOURCE_DIR})
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
+target_include_directories(DynExpConfig INTERFACE ${PROJECT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
 
 # Compiler and linker options
 if (MSVC)
 	# Warning level 3
-	add_compile_options(/W3)
+	target_compile_options(DynExpConfig INTERFACE /W3)
 
 	# Enable unwind semantics
-	add_compile_options(/EHsc)
+	target_compile_options(DynExpConfig INTERFACE /EHsc)
 
 	# Allow large .obj files (otherwise, compiler may complain).
-	add_compile_options(/bigobj)
+	target_compile_options(DynExpConfig INTERFACE /bigobj)
 else()
 	# lots of warnings
-	add_compile_options(-Wall -pedantic)
+	target_compile_options(DynExpConfig INTERFACE -Wall -pedantic)
 
 	# Turn off -Woverloaded-virtual since the warning is triggered heavily by the tag dispatch mechanism.
-	add_compile_options(-Wno-overloaded-virtual)
+	target_compile_options(DynExpConfig INTERFACE -Wno-overloaded-virtual)
 
 	# Colored error messages
-	add_compile_options(-fdiagnostics-color=always)
+	target_compile_options(DynExpConfig INTERFACE -fdiagnostics-color=always)
 endif()
 
 # Debug macro
 if (CMAKE_BUILD_TYPE MATCHES DEBUG|Debug)
 	set(DYNEXP_DEBUG TRUE)
-	add_compile_definitions(DYNEXP_DEBUG)
+	target_compile_definitions(DynExpConfig INTERFACE DYNEXP_DEBUG)
 endif()
 
 # OS macros
 if (MSVC)
-	add_compile_definitions(DYNEXP_MSVC)
+	target_compile_definitions(DynExpConfig INTERFACE DYNEXP_MSVC)
 elseif (UNIX)
-	add_compile_definitions(DYNEXP_UNIX)
+	target_compile_definitions(DynExpConfig INTERFACE DYNEXP_UNIX)
+endif()
+
+# Export less symbols in GCC and Clang
+set_target_properties(DynExpConfig PROPERTIES CXX_VISIBILITY_PRESET hidden)
+set_target_properties(DynExpConfig PROPERTIES VISIBILITY_INLINES_HIDDEN ON)
+
+# Build for edit and continue
+if (MSVC AND CMAKE_BUILD_TYPE MATCHES DEBUG|Debug AND NOT CMAKE_VERSION VERSION_LESS 3.25)
+	# Requires CMP0141 set to NEW.
+	set_property(TARGET DynExpConfig PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
 endif()
 
 # vcpkg
 include("../../vendor/vcpkg/scripts/buildsystems/vcpkg.cmake")
 
-# Qt
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
-
 # Disable use of API deprecated in Qt 5.15 and earlier
-add_compile_definitions(QT_DISABLE_DEPRECATED_BEFORE=0x050F00)
+target_compile_definitions(DynExpConfig INTERFACE QT_DISABLE_DEPRECATED_BEFORE=0x050F00)
 
+# Qt
 find_package(Qt6 COMPONENTS
 	Core
 	Gui
@@ -107,19 +125,6 @@ find_package(Python3 COMPONENTS Interpreter Development)
 set_target_properties(Python3::Module PROPERTIES MAP_IMPORTED_CONFIG_DEBUG ";RELEASE")
 find_package(pybind11 REQUIRED)
 
-# DynExp target definition
-add_executable(DynExp "${CMAKE_CURRENT_BINARY_DIR}/main.cpp")
-
-# Export less symbols in GCC and Clang
-set_target_properties(DynExp PROPERTIES CXX_VISIBILITY_PRESET hidden)
-set_target_properties(DynExp PROPERTIES VISIBILITY_INLINES_HIDDEN ON)
-
-# Build for edit and continue
-if (MSVC AND CMAKE_BUILD_TYPE MATCHES DEBUG|Debug AND NOT CMAKE_VERSION VERSION_LESS 3.25)
-	# Requires CMP0141 set to NEW.
-	set_property(TARGET DynExp PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
-endif()
-
 # Application meta data for Windows
 if (MSVC)
 	# No console window
@@ -130,8 +135,8 @@ if (MSVC)
 endif()
 
 # DynExp's source files
-target_precompile_headers(DynExp PRIVATE "stdafx.h")
-target_sources(DynExp PRIVATE
+target_precompile_headers(DynExpConfig INTERFACE "stdafx.h")
+target_sources(DynExpCore PRIVATE
 	"BusyDialog.cpp"
 	"BusyDialog.h"
 	"BusyDialog.ui"
@@ -203,13 +208,13 @@ if (PROTO_FILES)
 	include("include/grpc_generate_cpp.cmake")
 	protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS ${PROTO_FILES})
 	grpc_generate_cpp(GRPC_SRCS GRPC_HDRS "." ${PROTO_FILES})
-	target_sources(DynExp PRIVATE ${PROTO_SRCS} ${PROTO_HDRS} ${GRPC_SRCS} ${GRPC_HDRS})
+	target_sources(DynExpCore PRIVATE ${PROTO_SRCS} ${PROTO_HDRS} ${GRPC_SRCS} ${GRPC_HDRS})
 endif()
 
-# Libs
+# Link DynExp's config interface library
 list(TRANSFORM EXTRA_LIBS PREPEND "../../../vendor/")
 list(TRANSFORM SHARED_LIBS PREPEND "../../../vendor/")
-target_link_libraries(DynExp PRIVATE
+target_link_libraries(DynExpConfig INTERFACE
 	Qt::Core
 	Qt::Gui
 	Qt::Widgets
@@ -227,12 +232,30 @@ target_link_libraries(DynExp PRIVATE
 
 if (UNIX)
 	# Without that, SVG icons are not displayed under Linux
-	target_link_libraries(DynExp PRIVATE Qt6::QSvgIconPlugin)
+	target_link_libraries(DynExpConfig INTERFACE Qt6::QSvgIconPlugin)
+endif()
 
+# Link DynExp's static libraries
+target_link_libraries(DynExpCore PRIVATE DynExpConfig)
+target_link_libraries(DynExpHardware PRIVATE DynExpConfig)
+target_link_libraries(DynExpInstruments PRIVATE DynExpConfig)
+target_link_libraries(DynExpModules PRIVATE DynExpConfig)
+
+# Link DynExp executable
+target_link_libraries(DynExp PRIVATE
+	DynExpConfig
+	DynExpCore
+	DynExpHardware
+	DynExpInstruments
+	DynExpModules
+)
+
+if (UNIX)
 	# Add symbols required by embedded Python
 	target_link_options(DynExp PRIVATE -rdynamic)
 endif()
 
+# Deploy dependencies
 if (WIN32)
 	if (CMAKE_BUILD_TYPE MATCHES DEBUG|Debug)
 		# Copy Qt DLLs to build folder using debug libraries

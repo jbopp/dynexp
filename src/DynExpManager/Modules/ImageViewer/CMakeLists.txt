@@ -1,4 +1,4 @@
-target_sources(DynExp PRIVATE
+target_sources(DynExpModules PRIVATE
 	"ImageViewer.cpp"
 	"ImageViewer.h"
 	"ImageViewer.ui"
