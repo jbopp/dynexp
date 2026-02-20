@@ -17,6 +17,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
 # Project configuration
+set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_BINARY_DIR})
+set(CMAKE_FIND_NO_INSTALL_PREFIX TRUE)
 project("DynExp")
 set(PROJECT_VERSION 1.0.0)
 
@@ -87,7 +89,11 @@ set_target_properties(DynExpConfig PROPERTIES VISIBILITY_INLINES_HIDDEN ON)
 # Build for edit and continue
 if (MSVC AND CMAKE_BUILD_TYPE MATCHES DEBUG|Debug AND NOT CMAKE_VERSION VERSION_LESS 3.25)
 	# Requires CMP0141 set to NEW.
-	set_property(TARGET DynExpConfig PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
+	set_property(TARGET DynExpCore PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
+    set_property(TARGET DynExpHardware PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
+    set_property(TARGET DynExpInstruments PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
+    set_property(TARGET DynExpModules PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
+    set_property(TARGET DynExp PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
 endif()
 
 # vcpkg
@@ -160,7 +166,6 @@ target_sources(DynExpCore PRIVATE
 	"DynExpManager.cpp"
 	"DynExpManager.h"
 	"DynExpManager.ui"
-	"DynExpManager.qrc"
 	"ErrorListDialog.cpp"
 	"ErrorListDialog.h"
 	"ErrorListDialog.ui"
@@ -187,7 +192,6 @@ target_sources(DynExpCore PRIVATE
 	"PythonSyntaxHighlighter.h"
 	"PyUtil.cpp"
 	"PyUtil.h"
-	"QModules.qrc"
 	"QtUtil.cpp"
 	"QtUtil.h"
 	"TextEditor.cpp"
@@ -202,6 +206,11 @@ add_subdirectory(HardwareAdapters)
 add_subdirectory(MetaInstruments)
 add_subdirectory(Instruments)
 add_subdirectory(Modules)
+
+# Qt resources
+qt_add_resources(DYNEXP_MANAGER_RCC "DynExpManager.qrc")
+qt_add_resources(QMODULES_RCC "QModules.qrc")
+target_sources(DynExp PRIVATE ${DYNEXP_MANAGER_RCC} ${QMODULES_RCC})
 
 # Generate protobuf files for gRPC
 if (PROTO_FILES)
@@ -255,6 +264,50 @@ if (UNIX)
 	target_link_options(DynExp PRIVATE -rdynamic)
 endif()
 
+# Install pip for Python3...
+execute_process(COMMAND ${Python3_EXECUTABLE} -c "import pip" RESULT_VARIABLE PYTHON_PIP_AVAILABLE OUTPUT_QUIET ERROR_QUIET)
+if (NOT ${PYTHON_PIP_AVAILABLE} EQUAL 0)
+	message("Installing Python3/pip. This may take some time.")
+	execute_process(COMMAND ${Python3_EXECUTABLE} -m ensurepip --upgrade)
+endif()
+
+# ...and required Python modules if missing
+set(Python_REQUIRED_MODULES numpy rpyc simple-pid)
+list(APPEND Python_REQUIRED_MODULES ${Python_USER_REQUIRED_MODULES})
+foreach (Python_MODULE IN LISTS Python_REQUIRED_MODULES)
+	string(REGEX REPLACE "-" "_" Python_MODULE_IMPORT "${Python_MODULE}")
+	execute_process(COMMAND ${Python3_EXECUTABLE} -c "import ${Python_MODULE_IMPORT}" RESULT_VARIABLE PYTHON_MODULE_AVAILABLE OUTPUT_QUIET ERROR_QUIET)
+	if (NOT ${PYTHON_MODULE_AVAILABLE} EQUAL 0)
+		message("Installing Python3/${Python_MODULE}. This may take some time.")
+		execute_process(COMMAND ${Python3_EXECUTABLE} -m pip install --no-warn-script-location ${Python_MODULE})
+	endif()
+endforeach()
+
+# Under Windows, copy Python3 packages to build folder
+get_filename_component(Python3_directory ${Python3_EXECUTABLE} DIRECTORY)
+if (MSVC)
+	add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different "${Python3_directory}/Lib" "${CMAKE_CURRENT_BINARY_DIR}/Lib")
+	add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different "${Python3_directory}/DLLs" "${CMAKE_CURRENT_BINARY_DIR}/DLLs")
+endif()
+
+# Copy dynamic-link libraries to binary folder
+if (SHARED_LIBS)
+	if (WIN32)
+		list(REMOVE_DUPLICATES SHARED_LIBS)
+		list(TRANSFORM SHARED_LIBS APPEND ".dll")
+		foreach (SHARED_LIB IN LISTS SHARED_LIBS)
+			if (EXISTS ${SHARED_LIB})
+				add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${SHARED_LIB} "${CMAKE_CURRENT_BINARY_DIR}/")
+			else()
+				message(WARNING "Cannot copy ${SHARED_LIB}. File does not exist.")
+			endif()
+		endforeach()
+	else()
+		message("Copying shared third-party libraries automatically to the binary directory is not implemented for platforms other than Windows.")
+		message("Please copy the libraries manually if needed.")
+	endif()
+endif()
+
 # Deploy dependencies
 if (WIN32)
 	if (CMAKE_BUILD_TYPE MATCHES DEBUG|Debug)
@@ -273,56 +326,27 @@ if (WIN32)
 				string(REGEX REPLACE "/lib/z" "/bin/z" ZLIB_RUNTIME_LIBRARY_RELEASE "${ZLIB_LIBRARY_RELEASE}")
 				string(REGEX REPLACE "\.lib$" "1.dll" ZLIB_RUNTIME_LIBRARY_RELEASE "${ZLIB_RUNTIME_LIBRARY_RELEASE}")
 			endif()
-			add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${ZLIB_RUNTIME_LIBRARY_RELEASE} "${CMAKE_CURRENT_BINARY_DIR}/")
+			add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${ZLIB_RUNTIME_LIBRARY_RELEASE} "${CMAKE_CURRENT_BINARY_DIR}/")
 		endif()
 
 		# Fix bug regarding Python3 and pybind11 in debug mode: always use release version of Python.
-		add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${Python3_RUNTIME_LIBRARY_RELEASE} "${CMAKE_CURRENT_BINARY_DIR}/")
+		add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${Python3_RUNTIME_LIBRARY_RELEASE} "${CMAKE_CURRENT_BINARY_DIR}/")
 	else()
 		# Copy Qt DLLs to build folder
 		add_custom_command(TARGET DynExp POST_BUILD COMMAND Qt::windeployqt ARGS --no-translations $<TARGET_FILE:DynExp>)
 	endif()
-endif()
 
-# Install pip for Python3 and required modules if missing
-execute_process(COMMAND ${Python3_EXECUTABLE} -c "import pip" RESULT_VARIABLE PYTHON_PIP_AVAILABLE OUTPUT_QUIET ERROR_QUIET)
-if (NOT ${PYTHON_PIP_AVAILABLE} EQUAL 0)
-	message("Installing Python3/pip. This may take some time.")
-	execute_process(COMMAND ${Python3_EXECUTABLE} -m ensurepip --upgrade)
-endif()
-
-set(Python_REQUIRED_MODULES numpy rpyc simple-pid)
-list(APPEND Python_REQUIRED_MODULES ${Python_USER_REQUIRED_MODULES})
-foreach (Python_MODULE IN LISTS Python_REQUIRED_MODULES)
-	string(REGEX REPLACE "-" "_" Python_MODULE_IMPORT "${Python_MODULE}")
-	execute_process(COMMAND ${Python3_EXECUTABLE} -c "import ${Python_MODULE_IMPORT}" RESULT_VARIABLE PYTHON_MODULE_AVAILABLE OUTPUT_QUIET ERROR_QUIET)
-	if (NOT ${PYTHON_MODULE_AVAILABLE} EQUAL 0)
-		message("Installing Python3/${Python_MODULE}. This may take some time.")
-		execute_process(COMMAND ${Python3_EXECUTABLE} -m pip install --no-warn-script-location ${Python_MODULE})
-	endif()
-endforeach()
-
-# Under Windows, copy Python3 packages to build folder
-get_filename_component(Python3_directory ${Python3_EXECUTABLE} DIRECTORY)
-if (MSVC)
-	add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "${Python3_directory}/Lib" "${CMAKE_CURRENT_BINARY_DIR}/Lib")
-	add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "${Python3_directory}/DLLs" "${CMAKE_CURRENT_BINARY_DIR}/DLLs")
-endif()
-
-# Copy dynamic-link libraries to binary folder
-if (SHARED_LIBS)
-	if (WIN32)
-		list(REMOVE_DUPLICATES SHARED_LIBS)
-		list(TRANSFORM SHARED_LIBS APPEND ".dll")
-		foreach (SHARED_LIB IN LISTS SHARED_LIBS)
-			if (EXISTS ${SHARED_LIB})
-				add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${SHARED_LIB} "${CMAKE_CURRENT_BINARY_DIR}/")
-			else()
-				message(WARNING "Cannot copy ${SHARED_LIB}. File does not exist.")
-			endif()
-		endforeach()
+	# Install required DLLs. Must come last to avoid non-resolved runtime dependency errors.
+	if (CMAKE_BUILD_TYPE MATCHES DEBUG|Debug)
+		set(VCPKG_DLL_DIR "${VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/debug/bin")
 	else()
-		message("Copying shared third-party libraries automatically to the binary directory is not implemented for platforms other than Windows.")
-		message("Please copy the libraries manually if needed.")
+		set(VCPKG_DLL_DIR "${VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/bin")
 	endif()
+	install(TARGETS DynExp RUNTIME_DEPENDENCY_SET DYNEXP_DLL_DEPS)
+	install(RUNTIME_DEPENDENCY_SET DYNEXP_DLL_DEPS DESTINATION .
+		DIRECTORIES "${VCPKG_DLL_DIR}" 
+		PRE_EXCLUDE_REGEXES "api-ms-.*" "ext-ms-.*" "hvsifiletrust.*" "pdmutilities.*" "msvcp.*" "vcruntime.*" "concrt.*"
+		POST_EXCLUDE_REGEXES ".*system32.*"
+	)
+	add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} ARGS --install .)
 endif()
