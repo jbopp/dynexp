@@ -14,7 +14,7 @@ message StreamSizeMessage
 
 message StreamInfoMessage
 {
-	DynExpProto.Common.UnitType ValueUnit = 1;
+	DynExpProto.Common.IntensityUnitType ValueUnit = 1;
 	double HardwareMinValue = 2;
 	double HardwareMaxValue = 3;
 	bool IsBasicSampleTimeUsed = 4;

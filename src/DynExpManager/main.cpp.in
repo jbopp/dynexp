@@ -56,6 +56,7 @@
 #include "Instruments/NetworkDataStreamInstrument.h"
 #include "Instruments/NetworkDigitalInInstr.h"
 #include "Instruments/NetworkDigitalOutInstr.h"
+#include "Instruments/NetworkLaser.h"
 #include "Instruments/NetworkSpectrometer.h"
 #include "Instruments/NetworkTimeTagger.h"
 #include "Instruments/NP_Conex_CC.h"
@@ -90,6 +91,8 @@
 #include "Modules/EventSender.h"
 #include "Modules/ImageViewer/ImageViewer.h"
 #include "Modules/InputPortReader.h"
+#include "Modules/LaserControl.h"
+#include "Modules/LaserScanningSpectroscopy/LaserScanningSpectroscopy.h"
 #include "Modules/LockinAmplifierControl.h"
 #include "Modules/NetworkAnalogInModule.h"
 #include "Modules/NetworkAnalogOutModule.h"
@@ -156,6 +159,7 @@ int main(int argc, char *argv[])
 		DynExpInstr::NetworkDataStreamInstrument,
 		DynExpInstr::NetworkDigitalIn,
 		DynExpInstr::NetworkDigitalOut,
+		DynExpInstr::NetworkLaser,
 		DynExpInstr::NetworkSpectrometer,
 		DynExpInstr::NetworkTimeTagger,
 		DynExpInstr::NP_Conex_CC,
@@ -191,6 +195,8 @@ int main(int argc, char *argv[])
 		DynExpModule::EventSender,
 		DynExpModule::ImageViewer::ImageViewer,
 		DynExpModule::InputPortReader,
+		DynExpModule::LaserControl,
+		DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy,
 		DynExpModule::LockinAmplifierControl,
 		DynExpModule::NetworkAnalogIn,
 		DynExpModule::NetworkAnalogOut,

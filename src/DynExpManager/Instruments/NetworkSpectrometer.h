@@ -37,7 +37,7 @@ namespace DynExpInstr
 		case DynExpProto::Common::FrequencyUnitType::Hz: return SpectrometerData::FrequencyUnitType::Hz;
 		case DynExpProto::Common::FrequencyUnitType::nm: return SpectrometerData::FrequencyUnitType::nm;
 		case DynExpProto::Common::FrequencyUnitType::Inv_cm: return SpectrometerData::FrequencyUnitType::Inv_cm;
-		default: throw Util::InvalidDataException("The given unit does not exist in the DynExpProto::Common::FrequencyUnitType enumeration. Did you forget to adjust the FrequencyUnitType enumeration in file \"Common.proto\"?");
+		default: throw Util::InvalidDataException("The given unit does not exist in the DynExpProto::Common::FrequencyUnitType enumeration or is not supported by this instrument. Did you forget to adjust the FrequencyUnitType enumeration in file \"Common.proto\"?");
 		}
 	}
 
@@ -45,7 +45,7 @@ namespace DynExpInstr
 	{
 		switch (Unit)
 		{
-		case SpectrometerData::IntensityUnitType::Counts: return DynExpProto::Common::IntensityUnitType::IntensityCounts;
+		case SpectrometerData::IntensityUnitType::Counts: return DynExpProto::Common::IntensityUnitType::Counts;
 		default: throw Util::InvalidDataException("The given unit does not exist in the SpectrometerData::IntensityUnitType enumeration. Did you forget to adjust the IntensityUnitType enumeration in class \"SpectrometerData\"?");
 		}
 	}
@@ -54,8 +54,8 @@ namespace DynExpInstr
 	{
 		switch (Unit)
 		{
-		case DynExpProto::Common::IntensityUnitType::IntensityCounts: return SpectrometerData::IntensityUnitType::Counts;
-		default: throw Util::InvalidDataException("The given unit does not exist in the DynExpProto::Common::IntensityUnitType enumeration. Did you forget to adjust the IntensityUnitType enumeration in file \"Common.proto\"?");
+		case DynExpProto::Common::IntensityUnitType::Counts: return SpectrometerData::IntensityUnitType::Counts;
+		default: throw Util::InvalidDataException("The given unit does not exist in the DynExpProto::Common::IntensityUnitType enumeration or is not supported by this instrument. Did you forget to adjust the IntensityUnitType enumeration in file \"Common.proto\"?");
 		}
 	}
 
@@ -219,10 +219,10 @@ namespace DynExpInstr
 
 		virtual std::string GetName() const override { return Name(); }
 
-		virtual SpectrometerData::FrequencyUnitType GetFrequencyUnit() const;
-		virtual SpectrometerData::IntensityUnitType GetIntensityUnit() const;
-		virtual double GetMinFrequency() const;
-		virtual double GetMaxFrequency() const;
+		virtual SpectrometerData::FrequencyUnitType GetFrequencyUnit() const override;
+		virtual SpectrometerData::IntensityUnitType GetIntensityUnit() const override;
+		virtual double GetMinFrequency() const override;
+		virtual double GetMaxFrequency() const override;
 
 		// Logical const-ness: const member functions to allow inserting tasks into task queue.
 		virtual void SetExposureTime(SpectrometerData::TimeType ExposureTime, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NetworkSpectrometerTasks::SetExposureTimeTask>(ExposureTime, std::move(CallbackFunc)); }

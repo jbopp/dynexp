@@ -13,6 +13,7 @@ target_sources(DynExpInstruments PRIVATE "NetworkAnalogOutInstr.cpp" "NetworkAna
 target_sources(DynExpInstruments PRIVATE "NetworkDataStreamInstrument.cpp" "NetworkDataStreamInstrument.h")
 target_sources(DynExpInstruments PRIVATE "NetworkDigitalInInstr.cpp" "NetworkDigitalInInstr.h")
 target_sources(DynExpInstruments PRIVATE "NetworkDigitalOutInstr.cpp" "NetworkDigitalOutInstr.h")
+target_sources(DynExpInstruments PRIVATE "NetworkLaser.cpp" "NetworkLaser.h")
 target_sources(DynExpInstruments PRIVATE "NetworkSpectrometer.cpp" "NetworkSpectrometer.h")
 target_sources(DynExpInstruments PRIVATE "NetworkTimeTagger.cpp" "NetworkTimeTagger.h")
 target_sources(DynExpInstruments PRIVATE "NP_Conex_CC.cpp" "NP_Conex_CC.h")

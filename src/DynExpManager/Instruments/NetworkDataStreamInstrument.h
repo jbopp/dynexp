@@ -21,33 +21,33 @@ namespace DynExpInstr
 
 	using NetworkDataStreamInstrumentDataSampleStreamType = BasicSampleStream;
 
-	constexpr DynExpProto::Common::UnitType ToPrototUnitType(DataStreamInstrumentData::UnitType Unit)
+	constexpr DynExpProto::Common::IntensityUnitType ToPrototUnitType(DataStreamInstrumentData::UnitType Unit)
 	{
 		switch (Unit)
 		{
-		case DataStreamInstrumentData::UnitType::Arbitrary: return DynExpProto::Common::UnitType::Arbitrary;
-		case DataStreamInstrumentData::UnitType::LogicLevel: return DynExpProto::Common::UnitType::LogicLevel;
-		case DataStreamInstrumentData::UnitType::Counts: return DynExpProto::Common::UnitType::Counts;
-		case DataStreamInstrumentData::UnitType::Volt: return DynExpProto::Common::UnitType::Volt;
-		case DataStreamInstrumentData::UnitType::Ampere: return DynExpProto::Common::UnitType::Ampere;
-		case DataStreamInstrumentData::UnitType::Power_W: return DynExpProto::Common::UnitType::Power_W;
-		case DataStreamInstrumentData::UnitType::Power_dBm: return DynExpProto::Common::UnitType::Power_dBm;
+		case DataStreamInstrumentData::UnitType::Arbitrary: return DynExpProto::Common::IntensityUnitType::Arbitrary;
+		case DataStreamInstrumentData::UnitType::LogicLevel: return DynExpProto::Common::IntensityUnitType::LogicLevel;
+		case DataStreamInstrumentData::UnitType::Counts: return DynExpProto::Common::IntensityUnitType::Counts;
+		case DataStreamInstrumentData::UnitType::Volt: return DynExpProto::Common::IntensityUnitType::Volt;
+		case DataStreamInstrumentData::UnitType::Ampere: return DynExpProto::Common::IntensityUnitType::Ampere;
+		case DataStreamInstrumentData::UnitType::Power_W: return DynExpProto::Common::IntensityUnitType::Power_W;
+		case DataStreamInstrumentData::UnitType::Power_dBm: return DynExpProto::Common::IntensityUnitType::Power_dBm;
 		default: throw Util::InvalidDataException("The given unit does not exist in the DataStreamInstrumentData::UnitType enumeration. Did you forget to adjust the UnitType enumeration in class \"DataStreamInstrumentData\"?");
 		}
 	}
 
-	constexpr DataStreamInstrumentData::UnitType ToDataStreamInstrumentUnitType(DynExpProto::Common::UnitType Unit)
+	constexpr DataStreamInstrumentData::UnitType ToDataStreamInstrumentUnitType(DynExpProto::Common::IntensityUnitType Unit)
 	{
 		switch (Unit)
 		{
-		case DynExpProto::Common::UnitType::Arbitrary: return DataStreamInstrumentData::UnitType::Arbitrary;
-		case DynExpProto::Common::UnitType::LogicLevel: return DataStreamInstrumentData::UnitType::LogicLevel;
-		case DynExpProto::Common::UnitType::Counts: return DataStreamInstrumentData::UnitType::Counts;
-		case DynExpProto::Common::UnitType::Volt: return DataStreamInstrumentData::UnitType::Volt;
-		case DynExpProto::Common::UnitType::Ampere: return DataStreamInstrumentData::UnitType::Ampere;
-		case DynExpProto::Common::UnitType::Power_W: return DataStreamInstrumentData::UnitType::Power_W;
-		case DynExpProto::Common::UnitType::Power_dBm: return DataStreamInstrumentData::UnitType::Power_dBm;
-		default: throw Util::InvalidDataException("The given unit does not exist in the DynExpProto::Common::UnitType enumeration. Did you forget to adjust the UnitType enumeration in file \"Common.proto\"?");
+		case DynExpProto::Common::IntensityUnitType::Arbitrary: return DataStreamInstrumentData::UnitType::Arbitrary;
+		case DynExpProto::Common::IntensityUnitType::LogicLevel: return DataStreamInstrumentData::UnitType::LogicLevel;
+		case DynExpProto::Common::IntensityUnitType::Counts: return DataStreamInstrumentData::UnitType::Counts;
+		case DynExpProto::Common::IntensityUnitType::Volt: return DataStreamInstrumentData::UnitType::Volt;
+		case DynExpProto::Common::IntensityUnitType::Ampere: return DataStreamInstrumentData::UnitType::Ampere;
+		case DynExpProto::Common::IntensityUnitType::Power_W: return DataStreamInstrumentData::UnitType::Power_W;
+		case DynExpProto::Common::IntensityUnitType::Power_dBm: return DataStreamInstrumentData::UnitType::Power_dBm;
+		default: throw Util::InvalidDataException("The given unit does not exist in the DynExpProto::Common::IntensityUnitType enumeration or is not supported by this instrument. Did you forget to adjust the IntensityUnitType enumeration in file \"Common.proto\"?");
 		}
 	}
 

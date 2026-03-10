@@ -361,7 +361,7 @@ namespace DynExpModule::ImageViewer
 			StateMachine.Invoke(*this, Instance);
 
 			NumFailedUpdateAttempts = 0;
-		} // ModuleData and CameraData unlocked here.
+		}
 		catch (const Util::TimeoutException& e)
 		{
 			if (NumFailedUpdateAttempts++ >= 3)
@@ -769,39 +769,44 @@ namespace DynExpModule::ImageViewer
 		using CHT = DynExpInstr::CameraData::ComputeHistogramType;
 
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<ImageViewer>(Instance.ModuleDataGetter());
-		auto CameraData = DynExp::dynamic_InstrumentData_cast<DynExpInstr::Camera>(ModuleData->Camera->GetInstrumentData());
+		bool ImageAvailable = false;
 
-		ModuleData->CapturingState = CameraData->GetCapturingState();
-		ModuleData->MinExposureTime = CameraData->GetMinExposureTime();
-		ModuleData->MaxExposureTime = CameraData->GetMaxExposureTime();
-		ModuleData->CurrentExposureTime = CameraData->GetExposureTime();
-		ModuleData->CurrentFPS = CameraData->GetCurrentFPS();
-
-		CameraData->SetComputeHistogram(ModuleData->ComputeHistogram);
-
-		if (CameraData->IsImageAvailbale() && !ModuleData->ImageCapturingPaused)
 		{
-			ModuleData->CurrentImage = CameraData->GetImage();
-			ModuleData->HasImageChanged = true;
+			auto CameraData = DynExp::dynamic_InstrumentData_cast<DynExpInstr::Camera>(ModuleData->Camera->GetInstrumentData());
 
-			if (ModuleData->ComputeHistogram == CHT::IntensityHistogram ||
-				ModuleData->ComputeHistogram == CHT::IntensityAndRGBHistogram)
-				ModuleData->IntensityHistogram = CameraData->GetIntensityHistogram();
-			if (ModuleData->ComputeHistogram == CHT::RGBHistogram ||
-				ModuleData->ComputeHistogram == CHT::IntensityAndRGBHistogram)
-				ModuleData->RGBHistogram = CameraData->GetRGBHistogram();
+			ModuleData->CapturingState = CameraData->GetCapturingState();
+			ModuleData->MinExposureTime = CameraData->GetMinExposureTime();
+			ModuleData->MaxExposureTime = CameraData->GetMaxExposureTime();
+			ModuleData->CurrentExposureTime = CameraData->GetExposureTime();
+			ModuleData->CurrentFPS = CameraData->GetCurrentFPS();
 
-			if (!ModuleData->AutoSaveFilename.empty())
+			CameraData->SetComputeHistogram(ModuleData->ComputeHistogram);
+
+			ImageAvailable = CameraData->IsImageAvailbale() && !ModuleData->ImageCapturingPaused;
+			if (ImageAvailable)
 			{
-				QImage Image = ModuleData->CurrentImage.copy();
-				if (!Image.save(QString::fromStdString(ModuleData->AutoSaveFilename)))
-					Util::EventLog().Log("[ImageViewer] Saving image as \"" + ModuleData->AutoSaveFilename + "\" to file failed.", Util::ErrorType::Error);
+				ModuleData->CurrentImage = CameraData->GetImage();
+				ModuleData->HasImageChanged = true;
 
-				if (ModuleData->Communicator.valid())
-					ModuleData->Communicator->PostEvent(*this, FinishedEvent{});
-
-				ModuleData->AutoSaveFilename.clear();
+				if (ModuleData->ComputeHistogram == CHT::IntensityHistogram ||
+					ModuleData->ComputeHistogram == CHT::IntensityAndRGBHistogram)
+					ModuleData->IntensityHistogram = CameraData->GetIntensityHistogram();
+				if (ModuleData->ComputeHistogram == CHT::RGBHistogram ||
+					ModuleData->ComputeHistogram == CHT::IntensityAndRGBHistogram)
+					ModuleData->RGBHistogram = CameraData->GetRGBHistogram();
 			}
+		} // CameraData unlocked here.
+
+		if (ImageAvailable && !ModuleData->AutoSaveFilename.empty())
+		{
+			QImage Image = ModuleData->CurrentImage.copy();
+			if (!Image.save(QString::fromStdString(ModuleData->AutoSaveFilename)))
+				Util::EventLog().Log("[ImageViewer] Saving image as \"" + ModuleData->AutoSaveFilename + "\" to file failed.", Util::ErrorType::Error);
+
+			if (ModuleData->Communicator.valid())
+				ModuleData->Communicator->PostEvent(*this, FinishedEvent{});
+
+			ModuleData->AutoSaveFilename.clear();
 		}
 
 		return StateType::Ready;

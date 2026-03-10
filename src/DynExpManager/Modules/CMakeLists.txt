@@ -4,6 +4,7 @@ target_sources(DynExpModules PRIVATE "ArbitraryFunctionFromCSV.cpp" "ArbitraryFu
 target_sources(DynExpModules PRIVATE "EventSender.cpp" "EventSender.h" "EventSender.ui")
 target_sources(DynExpModules PRIVATE "gRPCModule.cpp" "gRPCModule.h")
 target_sources(DynExpModules PRIVATE "InputPortReader.cpp" "InputPortReader.h" "InputPortReader.ui")
+target_sources(DynExpModules PRIVATE "LaserControl.cpp" "LaserControl.h" "LaserControl.ui")
 target_sources(DynExpModules PRIVATE "LockinAmplifierControl.cpp" "LockinAmplifierControl.h" "LockinAmplifierControl.ui")
 target_sources(DynExpModules PRIVATE "NetworkAnalogInModule.cpp" "NetworkAnalogInModule.h")
 target_sources(DynExpModules PRIVATE "NetworkAnalogOutModule.cpp" "NetworkAnalogOutModule.h")
@@ -19,6 +20,7 @@ target_sources(DynExpModules PRIVATE "StreamManipulator.cpp" "StreamManipulator.
 target_sources(DynExpModules PRIVATE "Trajectory1D.cpp" "Trajectory1D.h" "Trajectory1D.ui")
 
 add_subdirectory(ImageViewer)
+add_subdirectory(LaserScanningSpectroscopy)
 add_subdirectory(ODMR)
 add_subdirectory(SpectrumViewer)
 add_subdirectory(WidefieldMicroscope)
