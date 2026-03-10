@@ -1,4 +1,4 @@
-﻿# This file is part of DynExp.
+# This file is part of DynExp.
 
 cmake_minimum_required(VERSION 3.22)
 
@@ -17,8 +17,6 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
 # Project configuration
-set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_BINARY_DIR})
-set(CMAKE_FIND_NO_INSTALL_PREFIX TRUE)
 project("DynExp")
 set(PROJECT_VERSION 1.0.0)
 
@@ -29,6 +27,11 @@ add_library(DynExpHardware STATIC)
 add_library(DynExpInstruments STATIC)
 add_library(DynExpModules STATIC)
 add_executable(DynExp "${CMAKE_CURRENT_BINARY_DIR}/main.cpp")
+
+# Set deploy path
+set(DYNEXP_DEPLOY_DIR "${CMAKE_CURRENT_BINARY_DIR}/bin")
+set(CMAKE_INSTALL_PREFIX "")
+set_target_properties(DynExp PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${DYNEXP_DEPLOY_DIR}")
 
 # Set options and variable values in CMakeUserPresets.json.
 option(USE_NIDAQ "Compile with third-party NI-DAQmx support" OFF)
@@ -46,7 +49,7 @@ configure_file(main.cpp.in main.cpp)
 configure_file(DynExpDefinitions.h.in DynExpDefinitions.h)
 
 # Additional include directories
-target_include_directories(DynExpConfig INTERFACE ${PROJECT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
+target_include_directories(DynExpConfig INTERFACE ${PROJECT_SOURCE_DIR} "${CMAKE_CURRENT_BINARY_DIR}")
 
 # Compiler and linker options
 if (MSVC)
@@ -90,10 +93,10 @@ set_target_properties(DynExpConfig PROPERTIES VISIBILITY_INLINES_HIDDEN ON)
 if (MSVC AND CMAKE_BUILD_TYPE MATCHES DEBUG|Debug AND NOT CMAKE_VERSION VERSION_LESS 3.25)
 	# Requires CMP0141 set to NEW.
 	set_property(TARGET DynExpCore PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
-    set_property(TARGET DynExpHardware PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
-    set_property(TARGET DynExpInstruments PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
-    set_property(TARGET DynExpModules PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
-    set_property(TARGET DynExp PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
+	set_property(TARGET DynExpHardware PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
+	set_property(TARGET DynExpInstruments PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
+	set_property(TARGET DynExpModules PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
+	set_property(TARGET DynExp PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
 endif()
 
 # vcpkg
@@ -286,8 +289,8 @@ endforeach()
 # Under Windows, copy Python3 packages to build folder
 get_filename_component(Python3_directory ${Python3_EXECUTABLE} DIRECTORY)
 if (MSVC)
-	add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different "${Python3_directory}/Lib" "${CMAKE_CURRENT_BINARY_DIR}/Lib")
-	add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different "${Python3_directory}/DLLs" "${CMAKE_CURRENT_BINARY_DIR}/DLLs")
+	add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different "${Python3_directory}/Lib" "${DYNEXP_DEPLOY_DIR}/Lib")
+	add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different "${Python3_directory}/DLLs" "${DYNEXP_DEPLOY_DIR}/DLLs")
 endif()
 
 # Copy dynamic-link libraries to binary folder
@@ -297,7 +300,7 @@ if (SHARED_LIBS)
 		list(TRANSFORM SHARED_LIBS APPEND ".dll")
 		foreach (SHARED_LIB IN LISTS SHARED_LIBS)
 			if (EXISTS ${SHARED_LIB})
-				add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${SHARED_LIB} "${CMAKE_CURRENT_BINARY_DIR}/")
+				add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${SHARED_LIB} "${DYNEXP_DEPLOY_DIR}")
 			else()
 				message(WARNING "Cannot copy ${SHARED_LIB}. File does not exist.")
 			endif()
@@ -314,9 +317,9 @@ if (WIN32)
 		# Copy Qt DLLs to build folder using debug libraries
 		string(REGEX REPLACE "\.exe$" "\.debug\.bat" WINDEPLOYQT_DEBUG_EXECUTABLE "${WINDEPLOYQT_EXECUTABLE}")
 		if (EXISTS "${WINDEPLOYQT_DEBUG_EXECUTABLE}")
-			add_custom_command(TARGET DynExp POST_BUILD COMMAND "${WINDEPLOYQT_DEBUG_EXECUTABLE}" ARGS --no-translations $<TARGET_FILE:DynExp>)
+			add_custom_command(TARGET DynExp POST_BUILD WORKING_DIRECTORY "${DYNEXP_DEPLOY_DIR}" COMMAND "${WINDEPLOYQT_DEBUG_EXECUTABLE}" ARGS --no-translations $<TARGET_FILE_NAME:DynExp>)
 		else()
-			add_custom_command(TARGET DynExp POST_BUILD COMMAND Qt::windeployqt ARGS --no-translations $<TARGET_FILE:DynExp>)
+			add_custom_command(TARGET DynExp POST_BUILD WORKING_DIRECTORY "${DYNEXP_DEPLOY_DIR}" COMMAND Qt::windeployqt ARGS --no-translations $<TARGET_FILE_NAME:DynExp>)
 		endif()
 
 		# Fix bug regarding zlib in debug mode (depending on configuration, zlib1.dll is also required in debug mode).
@@ -326,14 +329,14 @@ if (WIN32)
 				string(REGEX REPLACE "/lib/z" "/bin/z" ZLIB_RUNTIME_LIBRARY_RELEASE "${ZLIB_LIBRARY_RELEASE}")
 				string(REGEX REPLACE "\.lib$" "1.dll" ZLIB_RUNTIME_LIBRARY_RELEASE "${ZLIB_RUNTIME_LIBRARY_RELEASE}")
 			endif()
-			add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${ZLIB_RUNTIME_LIBRARY_RELEASE} "${CMAKE_CURRENT_BINARY_DIR}/")
+			add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${ZLIB_RUNTIME_LIBRARY_RELEASE} "${DYNEXP_DEPLOY_DIR}")
 		endif()
 
 		# Fix bug regarding Python3 and pybind11 in debug mode: always use release version of Python.
-		add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${Python3_RUNTIME_LIBRARY_RELEASE} "${CMAKE_CURRENT_BINARY_DIR}/")
+		add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${Python3_RUNTIME_LIBRARY_RELEASE} "${DYNEXP_DEPLOY_DIR}")
 	else()
 		# Copy Qt DLLs to build folder
-		add_custom_command(TARGET DynExp POST_BUILD COMMAND Qt::windeployqt ARGS --no-translations $<TARGET_FILE:DynExp>)
+		add_custom_command(TARGET DynExp POST_BUILD WORKING_DIRECTORY "${DYNEXP_DEPLOY_DIR}" COMMAND Qt::windeployqt ARGS --no-translations $<TARGET_FILE_NAME:DynExp>)
 	endif()
 
 	# Install required DLLs. Must come last to avoid non-resolved runtime dependency errors.
@@ -343,7 +346,7 @@ if (WIN32)
 		set(VCPKG_DLL_DIR "${VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/bin")
 	endif()
 	install(TARGETS DynExp RUNTIME_DEPENDENCY_SET DYNEXP_DLL_DEPS)
-	install(RUNTIME_DEPENDENCY_SET DYNEXP_DLL_DEPS DESTINATION .
+	install(RUNTIME_DEPENDENCY_SET DYNEXP_DLL_DEPS DESTINATION "${DYNEXP_DEPLOY_DIR}"
 		DIRECTORIES "${VCPKG_DLL_DIR}" 
 		PRE_EXCLUDE_REGEXES "api-ms-.*" "ext-ms-.*" "hvsifiletrust.*" "pdmutilities.*" "msvcp.*" "vcruntime.*" "concrt.*"
 		POST_EXCLUDE_REGEXES ".*system32.*"
