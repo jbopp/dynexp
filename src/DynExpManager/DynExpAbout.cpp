@@ -14,7 +14,8 @@ DynExpAbout::DynExpAbout(QWidget *parent)
 	setFixedSize(size());
 
 	ui->labelVersion->setText("Version " + QString(DynExp::DynExpVersion));
-	ui->labelCopyright->setText("Copyright (C) 2020-" + QString::number(CompilationYear()) + " Julian M. Bopp");
+	ui->labelCopyright->setText("Copyright (C) 2020-" + QString::number(CompilationYear()) + " " + QString(DYNEXP_AUTHORS));
+	ui->labelContributors->setText("Contributors: " + QString(DYNEXP_CONTRIBUTORS));
 	ui->labelQtVersion->setText("Using Qt " + QString(QT_VERSION_STR)
 		+ " under the terms of the GNU General Public License version 3.");
 	ui->labelGSLVersion->setText("Using the GNU Scientific Library " + QString(GSL_VERSION)

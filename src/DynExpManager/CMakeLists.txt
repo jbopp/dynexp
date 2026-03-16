@@ -18,7 +18,7 @@ set(CMAKE_AUTOUIC ON)
 
 # Project configuration
 project("DynExp")
-set(PROJECT_VERSION 1.0.0)
+set(PROJECT_VERSION 1.1.0)
 
 # Add DynExp's targets
 add_library(DynExpConfig INTERFACE)
@@ -47,6 +47,14 @@ target_compile_definitions(DynExpConfig INTERFACE QUTOOLSQUTAG_VARIANT_${QUTOOLS
 # Apply parameters to template files
 configure_file(main.cpp.in main.cpp)
 configure_file(DynExpDefinitions.h.in DynExpDefinitions.h)
+
+# Read AUTHORS.txt and CONTRIBUTORS.txt and pass to macros
+include("include/read_person_list.cmake")
+
+read_person_list("../../AUTHORS.txt" PERSONS_LIST)
+target_compile_definitions(DynExpConfig INTERFACE DYNEXP_AUTHORS="${PERSONS_LIST}")
+read_person_list("../../CONTRIBUTORS.txt" PERSONS_LIST)
+target_compile_definitions(DynExpConfig INTERFACE DYNEXP_CONTRIBUTORS="${PERSONS_LIST}")
 
 # Additional include directories
 target_include_directories(DynExpConfig INTERFACE ${PROJECT_SOURCE_DIR} "${CMAKE_CURRENT_BINARY_DIR}")
