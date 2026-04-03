@@ -53,7 +53,7 @@ public:
 	*/
 	DynExpManager(DynExp::DynExpCore& DynExpCore, QWidget *parent = Q_NULLPTR);
 
-	~DynExpManager() = default;
+	~DynExpManager();
 
 private:
 	/**

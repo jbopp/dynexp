@@ -94,6 +94,10 @@ DynExpManager::DynExpManager(DynExp::DynExpCore& DynExpCore, QWidget* parent)
 	UpdateUITimer->start();
 }
 
+DynExpManager::~DynExpManager()
+{
+}
+
 DynExpManager::StatusBarType::StatusBarType(DynExpManager* Owner)
 	: NumItemsInWarningState(0), NumItemsInErrorState(0),
 	State(new QPushButton(Owner)),

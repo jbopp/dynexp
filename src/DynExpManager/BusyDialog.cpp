@@ -21,6 +21,10 @@ BusyDialog::BusyDialog(QWidget* parent)
 	CheckFinishedTimer->setInterval(std::chrono::milliseconds(1));
 }
 
+BusyDialog::~BusyDialog()
+{
+}
+
 void BusyDialog::SetDescriptionText(QString Text)
 {
 	if (Text.isEmpty())

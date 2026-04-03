@@ -94,23 +94,21 @@ Compile via the Visual Studio user interface opening the folder `src/DynExpManag
 Do not forget to chose the desired build configuration (release, debug etc.).
 
 #### Linux
-Compilation was tested using gcc 13 on Ubuntu 22.04.3 LTS 64-bit.
+Compilation was tested using gcc 14 on Ubuntu 24.04.4 LTS 64-bit.
 
-##### Installation of gcc 13
-On Ubuntu 22, likely the gcc compiler needs to be upgraded manually to version 13. This can be performed running
-```bash
-sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-sudo apt update
-sudo apt install gcc-13 g++-13
-```
 ##### Configure and compile
 To compile, call
 ```bash
-cmake --preset linux-[debug|relwithdebinfo|release]-[default|user] ./DynExpManager
+cmake --preset linux-[debug|relwithdebinfo|release]-[default|user] -DCMAKE_C_COMPILER=gcc-14 -DCMAKE_CXX_COMPILER=g++-14 ./DynExpManager
 ```
 in the same folder where `install_dependencies.sh` is located and subsequently run `ninja` in folder `../out/build/linux-[debug|relwithdebinfo|release]-[default|user]`.
 
 ##### Troubleshooting
+If the embedded Python interpreter cannot find modules to be imported, adjust the `PYTHONPATH` environment variable when calling DynExp:
+```bash
+PYTHONPATH=/[...]/DynExp/vendor/vcpkg/installed/x64-linux/lib/python[3.X]/site-packages:/[...]/DynExp/vendor/vcpkg/installed/x64-linux/lib/python[3.X]/lib-dynload bash -c /[...]/DynExp/out/build/linux-[debug|relwithdebinfo|release]-[default|user]/bin/DynExp
+```
+
 If `"Fontconfig error: Cannot load default config file"` occurs and if DynExp's font looks strange, set the environment variable:
 ```bash
 export FONTCONFIG_PATH=/etc/fonts/

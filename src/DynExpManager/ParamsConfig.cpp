@@ -42,6 +42,10 @@ ParamsConfigDialog::ParamsConfigDialog(QWidget* parent, const DynExp::DynExpCore
 	setWindowTitle(QString::fromStdString(Title));
 }
 
+ParamsConfigDialog::~ParamsConfigDialog()
+{
+}
+
 void ParamsConfigDialog::AddParam(ParamInfo&& Info, const std::any Destiny, const NumberType Value,
 	const NumberType MinValue, const NumberType MaxValue, const NumberType Precision, const NumberType Increment)
 {

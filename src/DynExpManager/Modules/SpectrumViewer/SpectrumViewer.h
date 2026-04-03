@@ -62,12 +62,12 @@ namespace DynExpModule::SpectrumViewer
 		void FinishedSavingData() noexcept { IsSavingData = false; }
 		using FinishedSavingDataGuardType = Util::OnDestruction<SpectrumViewerWidget, decltype(&SpectrumViewerWidget::FinishedSavingData)>;
 
+		std::unique_ptr<Ui::SpectrumViewer> ui;
+
 		QXYSeries* DataSeries;
 		QChart* DataChart;
 		QValueAxis* XAxis;
 		QValueAxis* YAxis;
-
-		std::unique_ptr<Ui::SpectrumViewer> ui;
 
 		SampleDataType CurrentSpectrum;
 		DynExpInstr::SpectrometerData::TimeType CurrentExposureTime{};

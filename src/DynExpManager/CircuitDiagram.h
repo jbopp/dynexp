@@ -205,14 +205,14 @@ private:
 	NodeMapType InstrumentNodes;
 	NodeMapType ModuleNodes;
 
-	// Item currently selected by a double-click
-	bool SelectionChanged;
-	QTreeWidgetItem* SelectedTreeWidgetItem;
-
 	// UI
 	std::unique_ptr<Ui::CircuitDiagram> ui;
 	std::unique_ptr<QGraphicsScene> Scene;
 	QMenu* ContextMenu;
+
+	// Item currently selected by a double-click
+	bool SelectionChanged;
+	QTreeWidgetItem* SelectedTreeWidgetItem;
 
 private slots:
 	void OnContextMenuRequested(QPoint Position);

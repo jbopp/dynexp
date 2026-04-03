@@ -182,7 +182,7 @@ public:
 	*/
 	ParamsConfigDialog(QWidget* parent, const DynExp::DynExpCore& Core, std::string Title);
 
-	~ParamsConfigDialog() = default;
+	~ParamsConfigDialog();
 
 	/**
 	 * @brief Appends a parameter to the configuration dialog.
@@ -333,6 +333,11 @@ private:
 	void HandleTextEditorDialogsOnClose();
 
 	/**
+	 * @brief Bundles Qt widgets of the @p ParamsConfigDialog instance's user interface.
+	*/
+	std::unique_ptr<Ui::ParamsConfig> ui;
+
+	/**
 	 * @brief Reference to %DynExp's core
 	*/
 	const DynExp::DynExpCore& Core;
@@ -365,11 +370,6 @@ private:
 	 * @p ParamsConfigDialog instance is closed.
 	*/
 	std::vector<TextEditor*> TextEditorDialogs;
-
-	/**
-	 * @brief Bundles Qt widgets of the @p ParamsConfigDialog instance's user interface.
-	*/
-	std::unique_ptr<Ui::ParamsConfig> ui;
 
 private slots:
 	void OnOpenParam();					//!< Called when clicking the 'Browse' button for a DynExp::TextUsageType::Path or DynExp::TextUsageType::Code parameter.

@@ -251,7 +251,7 @@ endif()
 target_link_libraries(DynExpCore PRIVATE DynExpConfig)
 target_link_libraries(DynExpHardware PRIVATE DynExpConfig)
 target_link_libraries(DynExpInstruments PRIVATE DynExpConfig)
-target_link_libraries(DynExpModules PRIVATE DynExpConfig)
+target_link_libraries(DynExpModules PRIVATE DynExpConfig DynExpCore)
 
 # Link DynExp executable
 target_link_libraries(DynExp PRIVATE
@@ -263,6 +263,9 @@ target_link_libraries(DynExp PRIVATE
 )
 
 if (UNIX)
+	# Add symbols required by std::stacktrace
+	target_link_libraries(DynExp PRIVATE stdc++exp)
+
 	# Add symbols required by embedded Python
 	target_link_options(DynExp PRIVATE -rdynamic)
 endif()

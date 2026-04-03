@@ -108,7 +108,7 @@ const QColor CircuitDiagram::SocketInnerColor = QColor("turquoise");
 CircuitDiagram::CircuitDiagram(QWidget *parent)
 	: QDialog(parent, Qt::WindowTitleHint | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint),
 	ui(std::make_unique<Ui::CircuitDiagram>()),
-	SelectionChanged(false), SelectedTreeWidgetItem(nullptr), ContextMenu(new QMenu(this))
+	ContextMenu(new QMenu(this)), SelectionChanged(false), SelectedTreeWidgetItem(nullptr)
 {
 	ui->setupUi(this);
 

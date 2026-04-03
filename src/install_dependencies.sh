@@ -12,7 +12,7 @@ while [[ "$#" -gt 0 ]]; do
 done
 
 # Required by vcpkg and for building
-sudo apt-get install git curl zip unzip tar build-essential ninja-build cmake
+sudo apt-get install git curl zip unzip tar build-essential g++-14 ninja-build cmake python3-venv
 
 # Clone vcpkg
 LIB_DIR="../vendor/vcpkg"
@@ -25,9 +25,9 @@ else
 fi
 
 # Required to build qtbase and its dependencies.
-# Tested with Qt 6.4.2 on a clean Ubuntu 22.04.1 LTS.
-sudo apt-get install pkg-config bison python3-distutils python3-jinja2 autoconf autoconf-archive \
-    libtool libgl-dev libegl-dev libinput-dev libfontconfig1-dev \
+# Tested with Qt 6.10.2 on a clean Ubuntu 24.04.4 LTS.
+sudo apt-get install pkg-config bison flex python3-jinja2 autoconf autoconf-archive \
+    libtool libgl-dev libegl-dev libinput-dev libfontconfig1-dev libsm-dev \
     libfreetype6-dev libx11-dev libx11-xcb-dev '^libxcb.*-dev' libxext-dev libxfixes-dev libxkbcommon-dev \
     libxi-dev libxkbcommon-x11-dev libxrender-dev libgl1-mesa-dev libglu1-mesa-dev libegl1-mesa-dev
 
@@ -65,7 +65,7 @@ else
     echo ""
     echo "*** Compiled all dependencies successfully."
     echo "Compile DynExp with:"
-    echo "cmake --preset linux-[debug|relwithdebinfo|release]-[default|user] ./DynExpManager"
+    echo "cmake --preset linux-[debug|relwithdebinfo|release]-[default|user] -DCMAKE_C_COMPILER=gcc-14 -DCMAKE_CXX_COMPILER=g++-14 ./DynExpManager"
     echo "Subsequently, run 'ninja' in folder \"../out/build/linux-[debug|relwithdebinfo|release]-[default|user]\""
 fi
 

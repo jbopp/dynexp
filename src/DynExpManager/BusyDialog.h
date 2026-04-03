@@ -22,7 +22,7 @@ public:
 	using CheckFinishedFunctionType = std::function<bool(void)>;
 
 	BusyDialog(QWidget* parent);
-	~BusyDialog() = default;
+	~BusyDialog();
 
 	auto GetException() const noexcept { return Exception; }
 

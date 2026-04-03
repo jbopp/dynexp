@@ -24,8 +24,8 @@ namespace DynExpModule::ODMR
 	}
 
 	ODMRWidget::ODMRWidget(ODMR& Owner, QModuleWidget* parent)
-		: QModuleWidget(Owner, parent), StatusBar(this),
-		ui(std::make_unique<Ui::ODMR>()),
+		: QModuleWidget(Owner, parent),
+		ui(std::make_unique<Ui::ODMR>()), StatusBar(this),
 		ODMRDataSeries(nullptr), ODMRFitSeries(nullptr), ODMRDataChart(nullptr), ODMRXAxis(new QValueAxis(this)), ODMRYAxis(new QValueAxis(this)),
 		SensitivityDataSeries(nullptr), SensitivityDataChart(nullptr), SensitivityXAxis(new QLogValueAxis(this)), SensitivityYAxis(new QLogValueAxis(this))
 	{
