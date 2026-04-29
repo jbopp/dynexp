@@ -120,8 +120,7 @@ namespace DynExp
 			Util::EventLog().Log("A module has been terminated because of the error reported below.", Util::ErrorType::Error);
 			Util::EventLog().Log(e);
 
-			// std::abort() is called when (e.g. timeout) exception occurrs while setting the caught exception.
-			Module->GetModuleData()->ModuleThreadOnly.SetException(std::current_exception());
+			Module->ModuleThreadOnly.SetException(std::current_exception());
 			Module->ModuleThreadOnly.OnError(Instance);
 
 			return e.ErrorCode;
@@ -130,8 +129,7 @@ namespace DynExp
 		{
 			Util::EventLog().Log("A module has been terminated because of the following error: " + std::string(e.what()), Util::ErrorType::Error);
 
-			// std::abort() is called when (e.g. timeout) exception occurrs while setting the caught exception.
-			Module->GetModuleData()->ModuleThreadOnly.SetException(std::current_exception());
+			Module->ModuleThreadOnly.SetException(std::current_exception());
 			Module->ModuleThreadOnly.OnError(Instance);
 
 			return Util::DynExpErrorCodes::GeneralError;
@@ -140,8 +138,7 @@ namespace DynExp
 		{
 			Util::EventLog().Log("A module has been terminated because of an unknown error.", Util::ErrorType::Error);
 
-			// std::abort() is called when (e.g. timeout) exception occurrs while setting the caught exception.
-			Module->GetModuleData()->ModuleThreadOnly.SetException(std::current_exception());
+			Module->ModuleThreadOnly.SetException(std::current_exception());
 			Module->ModuleThreadOnly.OnError(Instance);
 
 			return Util::DynExpErrorCodes::GeneralError;
@@ -174,12 +171,28 @@ namespace DynExp
 		return Event;
 	}
 
+	std::exception_ptr ModuleDataBase::GetException() const noexcept
+	{
+		if (HasException && !ModuleException)
+			return std::make_exception_ptr(Util::Exception());
+
+		return ModuleException;
+	}
+
 	void ModuleDataBase::Reset()
 	{
+		HasException = false;
 		ModuleException = nullptr;
 		EventQueueType().swap(EventQueue);	// clear EventQueue
 
 		ResetImpl(dispatch_tag<ModuleDataBase>());
+	}
+
+	void ModuleDataBase::SetException(std::exception_ptr Exception) noexcept
+	{
+		IndicateException();
+
+		ModuleException = Exception;
 	}
 
 	ModuleParamsBase::~ModuleParamsBase()
@@ -266,6 +279,20 @@ namespace DynExp
 		EnsureCallFromRunnableThread();
 
 		return ModuleMainLoop(Instance);
+	}
+
+	void ModuleBase::SetException(std::exception_ptr Exception) noexcept
+	{
+		try
+		{
+			// Locking ModuleData may throw.
+			GetModuleData()->ModuleBaseOnly.SetException(Exception);
+		}
+		catch (...)
+		{
+			// Atomic operation avoids locking ModuleData.
+			ModuleData->ModuleBaseOnly.IndicateException();
+		}
 	}
 
 	void ModuleBase::OnPause(ModuleInstance& Instance)

@@ -205,9 +205,11 @@ namespace DynExp
 			*/
 			constexpr ModuleBaseOnlyType(ModuleDataBase& Parent) noexcept : Parent(Parent) {}
 
-			void Reset() { Parent.Reset(); }												//!< @copydoc ModuleDataBase::Reset
+			void Reset() { Parent.Reset(); }																//!< @copydoc ModuleDataBase::Reset
+			void IndicateException() noexcept { Parent.IndicateException(); }								//!< @copydoc ModuleDataBase::IndicateException
+			void SetException(std::exception_ptr Exception) noexcept { Parent.SetException(Exception); }	//!< @copydoc ModuleDataBase::SetException(std::exception_ptr)
 
-			auto& GetNewEventNotifier() noexcept { return Parent.GetNewEventNotifier(); }	//!< @copydoc ModuleDataBase::GetNewEventNotifier
+			auto& GetNewEventNotifier() noexcept { return Parent.GetNewEventNotifier(); }					//!< @copydoc ModuleDataBase::GetNewEventNotifier
 
 			ModuleDataBase& Parent;			//!< Owning @p ModuleDataBase instance
 		};
@@ -227,8 +229,7 @@ namespace DynExp
 			*/
 			constexpr ModuleThreadOnlyType(ModuleDataBase& Parent) noexcept : Parent(Parent) {}
 
-			auto& GetNewEventNotifier() noexcept { return Parent.GetNewEventNotifier(); }									//!< @copydoc ModuleDataBase::GetNewEventNotifier
-			void SetException(std::exception_ptr ModuleException) noexcept { Parent.ModuleException = ModuleException; }	//!< Setter for ModuleDataBase::ModuleException
+			auto& GetNewEventNotifier() noexcept { return Parent.GetNewEventNotifier(); }					//!< @copydoc ModuleDataBase::GetNewEventNotifier
 
 			ModuleDataBase& Parent;			//!< Owning @p ModuleDataBase instance
 		};
@@ -284,10 +285,18 @@ namespace DynExp
 		///@}
 
 		/**
-		 * @brief Getter for #ModuleException
+		 * @brief Getter for #HasException. Only performs atomic operations. Hence, this module
+		 * data instance does not need to be locked for this function call.
+		*/
+		bool IsExceptionIndicated() const noexcept { return HasException; }
+
+		/**
+		 * @brief Getter for ModuleDataBase::ModuleException. If ModuleDataBase::ModuleException
+		 * is nullptr and ModuleDataBase::HasException is still true, returns a pointer to a
+		 * Util::Exception instance.
 		 * @return Returns the exception being responsible for the module's current state.
 		*/
-		auto GetException() const noexcept { return ModuleException; }
+		std::exception_ptr GetException() const noexcept;
 
 		ModuleBaseOnlyType ModuleBaseOnly;				//!< @copydoc ModuleBaseOnlyType
 		ModuleThreadOnlyType ModuleThreadOnly;			//!< @copydoc ModuleThreadOnlyType
@@ -318,6 +327,19 @@ namespace DynExp
 		///@}
 
 		/**
+		 * @brief Indicates to the main thread that an exception has happened in the module thread.
+		 * Only performs atomic operations. Hence, this module data instance does not need to be
+		 * locked for this function call.
+		*/
+		void IndicateException() noexcept { HasException = true; }
+
+		/**
+		 * @brief Setter for #ModuleException
+		 * @param Exception Exception to store.
+		*/
+		void SetException(std::exception_ptr Exception) noexcept;
+
+		/**
 		 * @brief FIFO event queue of the module which owns the respective @p ModuleDataBase's instance
 		*/
 		EventQueueType EventQueue;
@@ -328,6 +350,13 @@ namespace DynExp
 		 * module thread to sleep until new events have to be handled.
 		*/
 		Util::OneToOneNotifier NewEventNotifier;
+
+		/**
+		 * @brief If set to true, indicates to the main (user interface) thread that an exception
+		 * has happened in the module thread. In that case, the exception is possibly stored in
+		 * #ModuleException.
+		*/
+		std::atomic<bool> HasException;
 
 		/**
 		 * @brief Used to transfer exceptions from the module thread to the main (user interface)
@@ -414,6 +443,7 @@ namespace DynExp
 
 			void HandleEvent(ModuleInstance& Instance) { Parent.HandleEvent(Instance); }														//<! @copydoc ModuleBase::HandleEvent
 			Util::DynExpErrorCodes::DynExpErrorCodes ModuleMainLoop(ModuleInstance& Instance) { return Parent.ExecModuleMainLoop(Instance); }	//<! @copydoc ModuleBase::ExecModuleMainLoop
+			void SetException(std::exception_ptr Exception) noexcept { Parent.SetException(Exception); }										//!< @copydoc ModuleBase::SetException
 			void OnPause(ModuleInstance& Instance) { Parent.OnPause(Instance); }																//<! @copydoc ModuleBase::OnPause
 			void OnResume(ModuleInstance& Instance) { Parent.OnResume(Instance); }																//<! @copydoc ModuleBase::OnResume
 			void OnError(ModuleInstance& Instance) { Parent.OnError(Instance); }																//<! @copydoc ModuleBase::OnError
@@ -646,6 +676,14 @@ namespace DynExp
 		 * @copydetails ModuleMainLoop
 		*/
 		Util::DynExpErrorCodes::DynExpErrorCodes ExecModuleMainLoop(ModuleInstance& Instance);
+
+		/**
+		 * @brief Sets this module instance to an error state and tries to store the exception responsible
+		 * for the error state in #ModuleData. If #ModuleData cannot be locked, still atomically sets
+		 * an error flag.
+		 * @param Exception Exception to store.
+		*/
+		void SetException(std::exception_ptr Exception) noexcept;
 
 		/**
 		 * @brief This handler gets called just after the module pauses due to e.g. an

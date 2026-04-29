@@ -161,6 +161,8 @@ namespace DynExp
 			constexpr InstrumentBaseOnlyType(InstrumentDataBase& Parent) noexcept : Parent(Parent) {}
 
 			void Reset() { Parent.Reset(); }																																								//!< @copydoc InstrumentDataBase::Reset
+			void IndicateException() noexcept { Parent.IndicateException(); }																																//!< @copydoc InstrumentDataBase::IndicateException
+			void SetException(std::exception_ptr Exception) noexcept { Parent.SetException(Exception); }																									//!< @copydoc InstrumentDataBase::SetException(std::exception_ptr)
 			void EnqueueTask(std::unique_ptr<TaskBase>&& Task, bool CallFromInstrThread, bool NotifyReceiver) { Parent.EnqueueTask(std::move(Task), CallFromInstrThread, NotifyReceiver); }					//!< @copydoc InstrumentDataBase::EnqueueTask(std::unique_ptr<TaskBase>&&, bool, bool)
 			void EnqueuePriorityTask(std::unique_ptr<TaskBase>&& Task, bool CallFromInstrThread, bool NotifyReceiver) { Parent.EnqueuePriorityTask(std::move(Task), CallFromInstrThread, NotifyReceiver); }	//!< @copydoc InstrumentDataBase::EnqueuePriorityTask(std::unique_ptr<TaskBase>&&, bool, bool)
 			void RemoveTaskFromQueue(TaskQueueIteratorType& Task) { Parent.RemoveTaskFromQueue(Task); }																										//!< @copydoc InstrumentDataBase::RemoveTaskFromQueue
@@ -190,7 +192,6 @@ namespace DynExp
 
 			auto& GetNewTaskNotifier() noexcept { return Parent.GetNewTaskNotifier(); }													//!< @copydoc InstrumentDataBase::GetNewTaskNotifier()
 			void SetLastUpdateTime(std::chrono::system_clock::time_point LastUpdate) { Parent.LastUpdate = LastUpdate; }				//!< Setter for InstrumentDataBase::LastUpdate
-			void SetException(std::exception_ptr InstrumentException) noexcept { Parent.InstrumentException = InstrumentException; }	//!< Setter for InstrumentDataBase::InstrumentException
 
 			InstrumentDataBase& Parent;		//!< Owning @p InstrumentDataBase instance
 		};
@@ -283,10 +284,18 @@ namespace DynExp
 		auto GetLastUpdateTime() const { return LastUpdate; }
 
 		/**
-		 * @brief Getter for InstrumentDataBase::InstrumentException
+		 * @brief Getter for #HasException. Only performs atomic operations. Hence, this instrument
+		 * data instance does not need to be locked for this function call.
+		*/
+		bool IsExceptionIndicated() const noexcept { return HasException; }
+
+		/**
+		 * @brief Getter for InstrumentDataBase::InstrumentException. If
+		 * InstrumentDataBase::InstrumentException is nullptr and InstrumentDataBase::HasException
+		 * is still true, returns a pointer to a Util::Exception instance.
 		 * @return Returns the exception being responsible for the instrument's current state.
 		*/
-		auto GetException() const noexcept { return InstrumentException; }
+		std::exception_ptr GetException() const noexcept;
 
 		InstrumentBaseOnlyType InstrumentBaseOnly;		//!< @copydoc InstrumentBaseOnlyType
 		InstrumenThreadOnlyType InstrumentThreadOnly;	//!< @copydoc InstrumenThreadOnlyType
@@ -360,6 +369,19 @@ namespace DynExp
 		///@}
 
 		/**
+		 * @brief Indicates to the main thread that an exception has happened in the instrument thread.
+		 * Only performs atomic operations. Hence, this instrument data instance does not need to be
+		 * locked for this function call.
+		*/
+		void IndicateException() noexcept { HasException = true; }
+
+		/**
+		 * @brief Setter for #InstrumentException
+		 * @param Exception Exception to store.
+		*/
+		void SetException(std::exception_ptr Exception) noexcept;
+
+		/**
 		 * @brief Throws #InstrumentException if it is not nullptr using Util::ForwardException().
 		*/
 		void CheckError() const;
@@ -385,6 +407,13 @@ namespace DynExp
 		Util::OneToOneNotifier NewTaskNotifier;
 
 		std::chrono::system_clock::time_point LastUpdate;	//!< Time point when the instrument thread called InstrumentBase::UpdateDataInternal() the last time.
+
+		/**
+		 * @brief If set to true, indicates to the main thread that an exception has happened
+		 * in the instrument thread. In that case, the exception is possibly stored in
+		 * #InstrumentException.
+		*/
+		std::atomic<bool> HasException;
 
 		/**
 		 * @brief Used to transfer exceptions from the instrument thread to the main thread.
@@ -466,6 +495,7 @@ namespace DynExp
 
 			auto HandleTask(InstrumentInstance& Instance) { return Parent.HandleTask(Instance); }			//!< @copydoc InstrumentBase::HandleTask
 			void UpdateData() { Parent.UpdateDataInternal(); }												//!< @copydoc InstrumentBase::UpdateDataInternal
+			void SetException(std::exception_ptr Exception) noexcept { Parent.SetException(Exception); }	//!< @copydoc InstrumentBase::SetException
 			void OnError() { Parent.OnError(); }															//!< @copydoc InstrumentBase::OnError
 			void SetInitialized() { Parent.Initialized = true; }											//!< Sets InstrumentBase::Initialized to true.
 
@@ -685,6 +715,14 @@ namespace DynExp
 		 * Override @p UpdateAdditionalData() to adjust behavior.
 		*/
 		void UpdateDataInternal();
+
+		/**
+		 * @brief Sets this instrument instance to an error state and tries to store the exception responsible
+		 * for the error state in #InstrumentData. If #InstrumentData cannot be locked, still atomically sets
+		 * an error flag.
+		 * @param Exception Exception to store.
+		*/
+		void SetException(std::exception_ptr Exception) noexcept;
 
 		/**
 		 * @brief Derived classes can perform critical shutdown actions after an error has occurred.

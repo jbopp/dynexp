@@ -76,8 +76,7 @@ namespace DynExp
 			Util::EventLog().Log("An instrument has been terminated because of the error reported below.", Util::ErrorType::Error);
 			Util::EventLog().Log(e);
 
-			// std::abort() is called when (e.g. timeout) exception occurrs while setting the caught exception.
-			Instrument->GetInstrumentData()->InstrumentThreadOnly.SetException(std::current_exception());
+			Instrument->InstrumentThreadOnly.SetException(std::current_exception());
 			Instrument->InstrumentThreadOnly.OnError();
 
 			return e.ErrorCode;
@@ -86,8 +85,7 @@ namespace DynExp
 		{
 			Util::EventLog().Log("An instrument has been terminated because of the following error: " + std::string(e.what()), Util::ErrorType::Error);
 
-			// std::abort() is called when (e.g. timeout) exception occurrs while setting the caught exception.
-			Instrument->GetInstrumentData()->InstrumentThreadOnly.SetException(std::current_exception());
+			Instrument->InstrumentThreadOnly.SetException(std::current_exception());
 			Instrument->InstrumentThreadOnly.OnError();
 
 			return Util::DynExpErrorCodes::GeneralError;
@@ -96,8 +94,7 @@ namespace DynExp
 		{
 			Util::EventLog().Log("An instrument has been terminated because of an unknown error.", Util::ErrorType::Error);
 
-			// std::abort() is called when (e.g. timeout) exception occurrs while setting the caught exception.
-			Instrument->GetInstrumentData()->InstrumentThreadOnly.SetException(std::current_exception());
+			Instrument->InstrumentThreadOnly.SetException(std::current_exception());
 			Instrument->InstrumentThreadOnly.OnError();
 
 			return Util::DynExpErrorCodes::GeneralError;
@@ -145,6 +142,14 @@ namespace DynExp
 		return Task;
 	}
 
+	std::exception_ptr InstrumentDataBase::GetException() const noexcept
+	{
+		if (HasException && !InstrumentException)
+			return std::make_exception_ptr(Util::Exception());
+
+		return InstrumentException;
+	}
+
 	void InstrumentDataBase::EnqueueTask(std::unique_ptr<TaskBase>&& Task, bool CallFromInstrThread, bool NotifyReceiver)
 	{
 		CheckError();
@@ -189,6 +194,7 @@ namespace DynExp
 	void InstrumentDataBase::Reset()
 	{
 		QueueClosed = false;
+		HasException = false;
 		InstrumentException = nullptr;
 
 		TaskQueue.clear();
@@ -197,9 +203,16 @@ namespace DynExp
 		ResetImpl(dispatch_tag<InstrumentDataBase>());
 	}
 
+	void InstrumentDataBase::SetException(std::exception_ptr Exception) noexcept
+	{
+		IndicateException();
+
+		InstrumentException = Exception;
+	}
+
 	void InstrumentDataBase::CheckError() const
 	{
-		Util::ForwardException(InstrumentException);
+		Util::ForwardException(GetException());
 	}
 
 	void InstrumentDataBase::CheckQueueState(bool CallFromInstrThread) const
@@ -306,6 +319,20 @@ namespace DynExp
 			return;
 
 		UpdateData();
+	}
+
+	void InstrumentBase::SetException(std::exception_ptr Exception) noexcept
+	{
+		try
+		{
+			// Locking InstrumentData may throw.
+			GetInstrumentData()->InstrumentBaseOnly.SetException(Exception);
+		}
+		catch (...)
+		{
+			// Atomic operation avoids locking InstrumentData.
+			InstrumentData->InstrumentBaseOnly.IndicateException();
+		}
 	}
 
 	void InstrumentBase::OnError()

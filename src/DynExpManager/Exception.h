@@ -59,7 +59,8 @@ namespace Util
 		 * @param Location Used to derive the origin of the exception. Pass the result of
 		 * std::source_location::current() as called by the constructor of the derived classes.
 		*/
-		Exception(std::string Description, const ErrorType Type = ErrorType::Error, const int ErrorCode = -1,
+		Exception(std::string Description = "No exception details available.",
+			const ErrorType Type = ErrorType::Error, const int ErrorCode = -1,
 			const std::source_location Location = std::source_location::current()) noexcept;
 		virtual ~Exception() = default;
 
