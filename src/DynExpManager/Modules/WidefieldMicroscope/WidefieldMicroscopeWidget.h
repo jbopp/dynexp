@@ -186,6 +186,8 @@ namespace DynExpModule::Widefield
 		QValueAxis* HBTXAxis;
 		QValueAxis* HBTYAxis;
 
+		QMenu* CharacterizationStepsContextMenu;
+
 		bool UIInitialized = false;
 
 		QPoint MarkerPos;
@@ -213,5 +215,6 @@ namespace DynExpModule::Widefield
 		void OnConfocalMapSaveRawDataClicked();
 		void OnHBTSaveRawDataClicked();
 		void OnAutoMeasureSavePathBrowseClicked();
+		void OnCharacterizationStepsContextMenuRequested();
 	};
 }

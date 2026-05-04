@@ -109,7 +109,7 @@
           </size>
          </property>
          <property name="currentIndex">
-          <number>4</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="TabGeneral">
           <attribute name="title">
@@ -1240,71 +1240,13 @@
                     </widget>
                    </item>
                    <item>
-                    <spacer name="horizontalSpacer_8">
-                     <property name="orientation">
-                      <enum>Qt::Orientation::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item>
-                    <widget class="QCheckBox" name="CBAutoMeasureOptimize">
+                    <widget class="QPushButton" name="BAutoMeasureCharacterizationSteps">
                      <property name="text">
-                      <string>Optimize emitter position</string>
+                      <string>Characterization steps...</string>
                      </property>
-                     <property name="checked">
-                      <bool>true</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <spacer name="horizontalSpacer_3">
-                     <property name="orientation">
-                      <enum>Qt::Orientation::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item>
-                    <widget class="QCheckBox" name="CBAutoMeasureEnableSpectrum">
-                     <property name="text">
-                      <string>Record spectrum</string>
-                     </property>
-                     <property name="checked">
-                      <bool>true</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <spacer name="horizontalSpacer_4">
-                     <property name="orientation">
-                      <enum>Qt::Orientation::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item>
-                    <widget class="QCheckBox" name="CBAutoMeasureEnableHBT">
-                     <property name="text">
-                      <string>Enable HBT</string>
-                     </property>
-                     <property name="checked">
-                      <bool>true</bool>
+                     <property name="icon">
+                      <iconset resource="../../DynExpManager.qrc">
+                       <normaloff>:/DynExpManager/icons/Preferences-system.svg</normaloff>:/DynExpManager/icons/Preferences-system.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -2166,6 +2108,76 @@
     <string>Run characterization from the emitter with this ID (including all emitters with higher IDs)</string>
    </property>
   </action>
+  <action name="action_CharacterizationSteps_Widefield_PLE">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Widefield PLE (per cell)</string>
+   </property>
+   <property name="toolTip">
+    <string>Widefield PLE (per cell)</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="action_CharacterizationSteps_Optimize">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Optimize emitter position</string>
+   </property>
+   <property name="toolTip">
+    <string>Optimize emitter position</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="action_CharacterizationSteps_Spectrum">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Spectrum acquisition</string>
+   </property>
+   <property name="toolTip">
+    <string>Spectrum acquisition</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="action_CharacterizationSteps_Confocal_PLE">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Confocal PLE (per emitter)</string>
+   </property>
+   <property name="toolTip">
+    <string>Confocal PLE (per emitter)</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="action_CharacterizationSteps_HBT">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;HBT acquisition</string>
+   </property>
+   <property name="toolTip">
+    <string>HBT acquisition</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::TextHeuristicRole</enum>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
@@ -2218,9 +2230,7 @@
   <tabstop>SBAutoMeasureInitialImageSetWaitTime</tabstop>
   <tabstop>SBAutoMeasureImagePositionScatterRadius</tabstop>
   <tabstop>CBAutoMeasureLocalize</tabstop>
-  <tabstop>CBAutoMeasureOptimize</tabstop>
-  <tabstop>CBAutoMeasureEnableSpectrum</tabstop>
-  <tabstop>CBAutoMeasureEnableHBT</tabstop>
+  <tabstop>BAutoMeasureCharacterizationSteps</tabstop>
   <tabstop>SBAutoMeasureOptimizationAttempts</tabstop>
   <tabstop>SBAutoMeasureOptimizationReruns</tabstop>
   <tabstop>SBAutoMeasureOptimizationMaxDistance</tabstop>

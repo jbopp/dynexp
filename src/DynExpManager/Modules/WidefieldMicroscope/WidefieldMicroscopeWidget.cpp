@@ -51,7 +51,8 @@ namespace DynExpModule::Widefield
 		ConfocalSurface3DSeries(new QSurface3DSeries(ConfocalSurfaceDataProxy)),
 		NumItemsInArray(0),
 		ConfocalSurfaceMinCounts(std::numeric_limits<decltype(ConfocalSurfaceMinCounts)>::max()), ConfocalSurfaceMaxCounts(0),
-		HBTDataSeries(nullptr), HBTDataChart(nullptr), HBTXAxis(new QValueAxis(this)), HBTYAxis(new QValueAxis(this))
+		HBTDataSeries(nullptr), HBTDataChart(nullptr), HBTXAxis(new QValueAxis(this)), HBTYAxis(new QValueAxis(this)),
+		CharacterizationStepsContextMenu(new QMenu(this))
 	{
 		ui->setupUi(this);
 
@@ -161,6 +162,15 @@ namespace DynExpModule::Widefield
 		// Chart takes ownership of axes.
 		HBTDataChart->addAxis(HBTXAxis, Qt::AlignBottom);
 		HBTDataChart->addAxis(HBTYAxis, Qt::AlignLeft);
+
+		// Characterization steps
+		CharacterizationStepsContextMenu->addAction(ui->action_CharacterizationSteps_Widefield_PLE);
+		CharacterizationStepsContextMenu->addAction(ui->action_CharacterizationSteps_Optimize);
+		CharacterizationStepsContextMenu->addAction(ui->action_CharacterizationSteps_Spectrum);
+		CharacterizationStepsContextMenu->addAction(ui->action_CharacterizationSteps_Confocal_PLE);
+		CharacterizationStepsContextMenu->addAction(ui->action_CharacterizationSteps_HBT);
+		connect(CharacterizationStepsContextMenu, &QMenu::aboutToShow, this, &WidefieldMicroscopeWidget::OnCharacterizationStepsContextMenuRequested);
+		ui->BAutoMeasureCharacterizationSteps->setMenu(CharacterizationStepsContextMenu);
 	}
 
 	const WidefieldMicroscope& WidefieldMicroscopeWidget::GetCastOwner() const noexcept
@@ -221,6 +231,12 @@ namespace DynExpModule::Widefield
 			ui->TWEmitterList->setColumnWidth(EmitterListColumnType::Sample_x, 134);
 			ui->TWEmitterList->setColumnWidth(EmitterListColumnType::Sample_y, 134);
 			ui->TWEmitterList->setColumnWidth(EmitterListColumnType::EmitterState, 134);
+
+			ui->action_CharacterizationSteps_Widefield_PLE->setVisible(ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::PLEInterModuleCommunicator));
+			ui->action_CharacterizationSteps_Optimize->setVisible(ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::ConfocalOptimization));
+			ui->action_CharacterizationSteps_Spectrum->setVisible(ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::SpectrumInterModuleCommunicator));
+			ui->action_CharacterizationSteps_Confocal_PLE->setVisible(ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::PLEInterModuleCommunicator));
+			ui->action_CharacterizationSteps_HBT->setVisible(ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::HBT));
 
 			UIInitialized = true;
 		}
@@ -564,12 +580,6 @@ namespace DynExpModule::Widefield
 			ui->SBAutoMeasureImagePositionScatterRadius->setValue(ModuleData->GetAutoMeasureImagePositionScatterRadius());
 		if (!ui->CBAutoMeasureLocalize->hasFocus())
 			ui->CBAutoMeasureLocalize->setCurrentIndex(ModuleData->GetAutoMeasureLocalizationType());
-		if (!ui->CBAutoMeasureOptimize->hasFocus())
-			ui->CBAutoMeasureOptimize->setChecked(ModuleData->GetAutoMeasureOptimizeEnabled());
-		if (!ui->CBAutoMeasureEnableSpectrum->hasFocus())
-			ui->CBAutoMeasureEnableSpectrum->setChecked(ModuleData->GetAutoMeasureSpectrumEnabled());
-		if (!ui->CBAutoMeasureEnableHBT->hasFocus())
-			ui->CBAutoMeasureEnableHBT->setChecked(ModuleData->GetAutoMeasureHBTEnabled());
 		if (!ui->SBAutoMeasureOptimizationAttempts->hasFocus())
 			ui->SBAutoMeasureOptimizationAttempts->setValue(ModuleData->GetAutoMeasureNumOptimizationAttempts());
 		if (!ui->SBAutoMeasureOptimizationReruns->hasFocus())
@@ -850,5 +860,16 @@ namespace DynExpModule::Widefield
 
 		// Emits signal to update module data accordingly.
 		ui->LEAutoMeasureSavePath->setText(Filename);
+	}
+
+	void WidefieldMicroscopeWidget::OnCharacterizationStepsContextMenuRequested()
+	{
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(GetOwner().GetModuleData());
+
+		ui->action_CharacterizationSteps_Widefield_PLE->setChecked(ModuleData->GetAutoMeasureWidefieldPLEEnabled());
+		ui->action_CharacterizationSteps_Optimize->setChecked(ModuleData->GetAutoMeasureOptimizeEnabled());
+		ui->action_CharacterizationSteps_Spectrum->setChecked(ModuleData->GetAutoMeasureSpectrumEnabled());
+		ui->action_CharacterizationSteps_Confocal_PLE->setChecked(ModuleData->GetAutoMeasureConfocalPLEEnabled());
+		ui->action_CharacterizationSteps_HBT->setChecked(ModuleData->GetAutoMeasureHBTEnabled());
 	}
 }

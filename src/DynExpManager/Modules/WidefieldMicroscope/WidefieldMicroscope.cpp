@@ -150,8 +150,10 @@ namespace DynExpModule::Widefield
 			CSVData << "AutoMeasureInitialImageSetWaitTime = " << AutoMeasureInitialImageSetWaitTime.count() << " s\n";
 			CSVData << "AutoMeasureImagePositionScatterRadius = " << AutoMeasureImagePositionScatterRadius << "\n";
 			CSVData << "AutoMeasureLocalizationType = " << AutoMeasureLocalizationType << "\n";
+			CSVData << "AutoMeasureWidefieldPLEEnabled = " << (AutoMeasureWidefieldPLEEnabled ? "yes" : "no") << "\n";
 			CSVData << "AutoMeasureOptimizeEnabled = " << (AutoMeasureOptimizeEnabled ? "yes" : "no") << "\n";
 			CSVData << "AutoMeasureSpectrumEnabled = " << (AutoMeasureSpectrumEnabled ? "yes" : "no") << "\n";
+			CSVData << "AutoMeasureConfocalPLEEnabled = " << (AutoMeasureConfocalPLEEnabled ? "yes" : "no") << "\n";
 			CSVData << "AutoMeasureHBTEnabled = " << (AutoMeasureHBTEnabled ? "yes" : "no") << "\n";
 			CSVData << "AutoMeasureNumOptimizationAttempts = " << AutoMeasureNumOptimizationAttempts << "\n";
 			CSVData << "AutoMeasureCurrentOptimizationAttempt = " << AutoMeasureCurrentOptimizationAttempt << "\n";
@@ -388,8 +390,10 @@ namespace DynExpModule::Widefield
 		AutoMeasureInitialImageSetWaitTime = std::chrono::seconds(30);
 		AutoMeasureImagePositionScatterRadius = 0;
 		AutoMeasureLocalizationType = WidefieldMicroscopeWidget::LocalizationType::LocalizeEmittersFromImage;
+		AutoMeasureWidefieldPLEEnabled = false;
 		AutoMeasureOptimizeEnabled = true;
 		AutoMeasureSpectrumEnabled = true;
+		AutoMeasureConfocalPLEEnabled = false;
 		AutoMeasureHBTEnabled = true;
 		AutoMeasureNumOptimizationAttempts = 2;
 		AutoMeasureCurrentOptimizationAttempt = 0;
@@ -744,9 +748,11 @@ namespace DynExpModule::Widefield
 		Connect(Widget->GetUI()->SBAutoMeasureInitialImageSetWaitTime, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureInitialImageSetWaitTimeChanged);
 		Connect(Widget->GetUI()->SBAutoMeasureImagePositionScatterRadius, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureImagePositionScatterRadius);
 		Connect(Widget->GetUI()->CBAutoMeasureLocalize, &QComboBox::currentIndexChanged, this, &WidefieldMicroscope::OnAutoMeasureLocalizationTypeChanged);
-		Connect(Widget->GetUI()->CBAutoMeasureOptimize, &QCheckBox::checkStateChanged, this, &WidefieldMicroscope::OnToggleAutoMeasureOptimizeEnabled);
-		Connect(Widget->GetUI()->CBAutoMeasureEnableSpectrum, &QCheckBox::checkStateChanged, this, &WidefieldMicroscope::OnToggleAutoMeasureSpectrumEnabled);
-		Connect(Widget->GetUI()->CBAutoMeasureEnableHBT, &QCheckBox::checkStateChanged, this, &WidefieldMicroscope::OnToggleAutoMeasureHBTEnabled);
+		Connect(Widget->GetUI()->action_CharacterizationSteps_Widefield_PLE, &QAction::toggled, this, &WidefieldMicroscope::OnToggleAutoMeasureWidefieldPLEEnabled);
+		Connect(Widget->GetUI()->action_CharacterizationSteps_Optimize, &QAction::toggled, this, &WidefieldMicroscope::OnToggleAutoMeasureOptimizeEnabled);
+		Connect(Widget->GetUI()->action_CharacterizationSteps_Spectrum, &QAction::toggled, this, &WidefieldMicroscope::OnToggleAutoMeasureSpectrumEnabled);
+		Connect(Widget->GetUI()->action_CharacterizationSteps_Confocal_PLE, &QAction::toggled, this, &WidefieldMicroscope::OnToggleAutoMeasureConfocalPLEEnabled);
+		Connect(Widget->GetUI()->action_CharacterizationSteps_HBT, &QAction::toggled, this, &WidefieldMicroscope::OnToggleAutoMeasureHBTEnabled);
 		Connect(Widget->GetUI()->SBAutoMeasureOptimizationAttempts, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureNumOptimizationAttemptsChanged);
 		Connect(Widget->GetUI()->SBAutoMeasureOptimizationReruns, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureMaxOptimizationRerunsChanged);
 		Connect(Widget->GetUI()->SBAutoMeasureOptimizationMaxDistance, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnAutoMeasureOptimizationMaxDistanceChanged);
@@ -1320,6 +1326,14 @@ namespace DynExpModule::Widefield
 			FinishedEvent::Register(*this, &WidefieldMicroscope::OnSpectrumFinishedRecording, ModuleData->GetSpectrumAcqCommunicator()->GetID());
 		}
 
+		if (ModuleParams->PLEAcqCommunicator.ContainsID())
+		{
+			Instance->LockObject(ModuleParams->PLEAcqCommunicator, ModuleData->GetPLEAcqCommunicator());
+			ModuleData->SetFeature(WidefieldMicroscopeData::FeatureType::PLEInterModuleCommunicator);
+
+			FinishedEvent::Register(*this, &WidefieldMicroscope::OnPLEAcquisitionFinished, ModuleData->GetPLEAcqCommunicator()->GetID());
+		}
+
 		if (ModuleParams->WidefieldCamera.ContainsID())
 		{
 			Instance->LockObject(ModuleParams->WidefieldCamera, ModuleData->GetWidefieldCamera());
@@ -1446,6 +1460,7 @@ namespace DynExpModule::Widefield
 
 		Instance->UnlockObject(ModuleData->GetImageAcqCommunicator());
 		Instance->UnlockObject(ModuleData->GetSpectrumAcqCommunicator());
+		Instance->UnlockObject(ModuleData->GetPLEAcqCommunicator());
 		Instance->UnlockObject(ModuleData->GetSampleStageX());
 		Instance->UnlockObject(ModuleData->GetSampleStageY());
 		Instance->UnlockObject(ModuleData->GetSampleStageZ());
@@ -1959,6 +1974,10 @@ namespace DynExpModule::Widefield
 		StateMachine.SetCurrentState(StateType::SpectrumAcquisitionFinished);
 	}
 
+	void WidefieldMicroscope::OnPLEAcquisitionFinished(DynExp::ModuleInstance* Instance) const
+	{
+	}
+
 	void WidefieldMicroscope::OnAutoMeasureSavePathChanged(DynExp::ModuleInstance* Instance, QString Path) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance->ModuleDataGetter());
@@ -1989,22 +2008,34 @@ namespace DynExpModule::Widefield
 		ModuleData->SetAutoMeasureLocalizationType(static_cast<WidefieldMicroscopeWidget::LocalizationType>(Value));
 	}
 
-	void WidefieldMicroscope::OnToggleAutoMeasureOptimizeEnabled(DynExp::ModuleInstance* Instance, Qt::CheckState State) const
+	void WidefieldMicroscope::OnToggleAutoMeasureWidefieldPLEEnabled(DynExp::ModuleInstance* Instance, bool State) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance->ModuleDataGetter());
-		ModuleData->SetAutoMeasureOptimizeEnabled(State == Qt::CheckState::Checked);
+		ModuleData->SetAutoMeasureWidefieldPLEEnabled(State);
 	}
 
-	void WidefieldMicroscope::OnToggleAutoMeasureSpectrumEnabled(DynExp::ModuleInstance* Instance, Qt::CheckState State) const
+	void WidefieldMicroscope::OnToggleAutoMeasureOptimizeEnabled(DynExp::ModuleInstance* Instance, bool State) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance->ModuleDataGetter());
-		ModuleData->SetAutoMeasureSpectrumEnabled(State == Qt::CheckState::Checked);
+		ModuleData->SetAutoMeasureOptimizeEnabled(State);
 	}
 
-	void WidefieldMicroscope::OnToggleAutoMeasureHBTEnabled(DynExp::ModuleInstance* Instance, Qt::CheckState State) const
+	void WidefieldMicroscope::OnToggleAutoMeasureSpectrumEnabled(DynExp::ModuleInstance* Instance, bool State) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance->ModuleDataGetter());
-		ModuleData->SetAutoMeasureHBTEnabled(State == Qt::CheckState::Checked);
+		ModuleData->SetAutoMeasureSpectrumEnabled(State);
+	}
+
+	void WidefieldMicroscope::OnToggleAutoMeasureConfocalPLEEnabled(DynExp::ModuleInstance* Instance, bool State) const
+	{
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance->ModuleDataGetter());
+		ModuleData->SetAutoMeasureConfocalPLEEnabled(State);
+	}
+
+	void WidefieldMicroscope::OnToggleAutoMeasureHBTEnabled(DynExp::ModuleInstance* Instance, bool State) const
+	{
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance->ModuleDataGetter());
+		ModuleData->SetAutoMeasureHBTEnabled(State);
 	}
 
 	void WidefieldMicroscope::OnAutoMeasureNumOptimizationAttemptsChanged(DynExp::ModuleInstance* Instance, int Value) const

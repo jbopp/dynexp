@@ -35,7 +35,7 @@ namespace DynExpModule::Widefield
 			Confocal, ConfocalOptimization, HBT,
 			LEDLightToggle, PumpLightToggle, SetPumpPower, MeasurePumpPower,
 			WidefieldConfocalSwitch, WidefieldConfocalIndicator, HBTSwitch,
-			ImageInterModuleCommunicator, SpectrumInterModuleCommunicator,
+			ImageInterModuleCommunicator, SpectrumInterModuleCommunicator, PLEInterModuleCommunicator,
 			NUM_ELEMENTS};
 		enum class SetupModeType { Unknown, Widefield, Confocal };
 		enum class LocalizedEmitterStateType { NotSet, Characterizing, Finished, Failed };
@@ -146,6 +146,8 @@ namespace DynExpModule::Widefield
 		auto& GetImageAcqCommunicator() const noexcept { return ImageAcqCommunicator; }
 		auto& GetSpectrumAcqCommunicator() noexcept { return SpectrumAcqCommunicator; }
 		auto& GetSpectrumAcqCommunicator() const noexcept { return SpectrumAcqCommunicator; }
+		auto& GetPLEAcqCommunicator() noexcept { return PLEAcqCommunicator; }
+		auto& GetPLEAcqCommunicator() const noexcept { return PLEAcqCommunicator; }
 
 		template <size_t N>
 		bool TestFeature(const std::array<FeatureType, N>& Flags) const { return Features.Test(Flags); }
@@ -306,10 +308,14 @@ namespace DynExpModule::Widefield
 		void SetAutoMeasureImagePositionScatterRadius(int ScatterRadius) noexcept { AutoMeasureImagePositionScatterRadius = ScatterRadius; }
 		auto GetAutoMeasureLocalizationType() const noexcept { return AutoMeasureLocalizationType; }
 		void SetAutoMeasureLocalizationType(WidefieldMicroscopeWidget::LocalizationType LocalizationType) noexcept { AutoMeasureLocalizationType = LocalizationType; }
+		auto GetAutoMeasureWidefieldPLEEnabled() const noexcept { return AutoMeasureWidefieldPLEEnabled; }
+		auto SetAutoMeasureWidefieldPLEEnabled(bool Enabled) noexcept { AutoMeasureWidefieldPLEEnabled = Enabled; }
 		auto GetAutoMeasureOptimizeEnabled() const noexcept { return AutoMeasureOptimizeEnabled; }
 		void SetAutoMeasureOptimizeEnabled(bool Enabled) noexcept { AutoMeasureOptimizeEnabled = Enabled; }
 		auto GetAutoMeasureSpectrumEnabled() const noexcept { return AutoMeasureSpectrumEnabled; }
 		void SetAutoMeasureSpectrumEnabled(bool Enabled) noexcept { AutoMeasureSpectrumEnabled = Enabled; }
+		auto GetAutoMeasureConfocalPLEEnabled() const noexcept { return AutoMeasureConfocalPLEEnabled; }
+		auto SetAutoMeasureConfocalPLEEnabled(bool Enabled) noexcept { AutoMeasureConfocalPLEEnabled = Enabled; }
 		auto GetAutoMeasureHBTEnabled() const noexcept { return AutoMeasureHBTEnabled; }
 		void SetAutoMeasureHBTEnabled(bool Enabled) noexcept { AutoMeasureHBTEnabled = Enabled; }
 		auto GetAutoMeasureNumOptimizationAttempts() const noexcept { return AutoMeasureNumOptimizationAttempts; }
@@ -368,6 +374,7 @@ namespace DynExpModule::Widefield
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::TimeTagger> SPD2;
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> ImageAcqCommunicator;
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> SpectrumAcqCommunicator;
+		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> PLEAcqCommunicator;
 
 		Util::FeatureTester<FeatureType> Features;
 		std::string UIMessage;
@@ -445,8 +452,10 @@ namespace DynExpModule::Widefield
 		std::chrono::seconds AutoMeasureInitialImageSetWaitTime;
 		int AutoMeasureImagePositionScatterRadius;
 		WidefieldMicroscopeWidget::LocalizationType AutoMeasureLocalizationType;
+		bool AutoMeasureWidefieldPLEEnabled;
 		bool AutoMeasureOptimizeEnabled;
 		bool AutoMeasureSpectrumEnabled;
+		bool AutoMeasureConfocalPLEEnabled;
 		bool AutoMeasureHBTEnabled;
 		int AutoMeasureNumOptimizationAttempts;
 		int AutoMeasureCurrentOptimizationAttempt;
@@ -529,6 +538,8 @@ namespace DynExpModule::Widefield
 			"ImageAcqInterModuleCommunicator", "Image acq. inter-module communicator", "Inter-module communicator to control image capturing modules", DynExpUI::Icons::Instrument, true };
 		Param<DynExp::ObjectLink<DynExpInstr::InterModuleCommunicator>> SpectrumAcqCommunicator = { *this, GetCore().GetInstrumentManager(),
 			"SpectrumAcqInterModuleCommunicator", "Spectrum acq. inter-module communicator", "Inter-module communicator to control spectrum acquisition modules", DynExpUI::Icons::Instrument, true };
+		Param<DynExp::ObjectLink<DynExpInstr::InterModuleCommunicator>> PLEAcqCommunicator = { *this, GetCore().GetInstrumentManager(),
+			"PLEAcqInterModuleCommunicator", "PLE acq. inter-module communicator", "Inter-module communicator to control PLE acquisition modules", DynExpUI::Icons::Instrument, true };
 
 	private:
 		void ConfigureParamsImpl(dispatch_tag<QModuleParamsBase>) override final {}
@@ -695,14 +706,17 @@ namespace DynExpModule::Widefield
 		void OnImageCapturingPaused(DynExp::ModuleInstance* Instance) const;
 		void OnFinishedAutofocus(DynExp::ModuleInstance* Instance, bool Success, double Voltage) const;
 		void OnSpectrumFinishedRecording(DynExp::ModuleInstance* Instance) const;
+		void OnPLEAcquisitionFinished(DynExp::ModuleInstance* Instance) const;
 		void OnAutoMeasureSavePathChanged(DynExp::ModuleInstance* Instance, QString Path) const;
 		void OnAutoMeasureNumberImageSetsChanged(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnAutoMeasureInitialImageSetWaitTimeChanged(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnAutoMeasureImagePositionScatterRadius(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnAutoMeasureLocalizationTypeChanged(DynExp::ModuleInstance* Instance, int Value) const;
-		void OnToggleAutoMeasureOptimizeEnabled(DynExp::ModuleInstance* Instance, Qt::CheckState State) const;
-		void OnToggleAutoMeasureSpectrumEnabled(DynExp::ModuleInstance* Instance, Qt::CheckState State) const;
-		void OnToggleAutoMeasureHBTEnabled(DynExp::ModuleInstance* Instance, Qt::CheckState State) const;
+		void OnToggleAutoMeasureWidefieldPLEEnabled(DynExp::ModuleInstance* Instance, bool State) const;
+		void OnToggleAutoMeasureOptimizeEnabled(DynExp::ModuleInstance* Instance, bool State) const;
+		void OnToggleAutoMeasureSpectrumEnabled(DynExp::ModuleInstance* Instance, bool State) const;
+		void OnToggleAutoMeasureConfocalPLEEnabled(DynExp::ModuleInstance* Instance, bool State) const;
+		void OnToggleAutoMeasureHBTEnabled(DynExp::ModuleInstance* Instance, bool State) const;
 		void OnAutoMeasureNumOptimizationAttemptsChanged(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnAutoMeasureMaxOptimizationRerunsChanged(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnAutoMeasureOptimizationMaxDistanceChanged(DynExp::ModuleInstance* Instance, int Value) const;
