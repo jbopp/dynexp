@@ -553,11 +553,15 @@ namespace DynExpModule::Widefield
 			ConfocalOptimizationInitState, ConfocalOptimizationInitSubStepState, ConfocalOptimizationWaitState, ConfocalOptimizationStepState, ConfocalOptimizationFinishedState,
 			HBTAcquiringState, HBTFinishedState,
 			WaitingState, WaitingFinishedState,
+			PLEAcquisitionWaitingState, PLEAcquisitionFinishedState,
 			SpectrumAcquisitionWaitingState, SpectrumAcquisitionFinishedState,
 			AutoMeasureLocalizationStepState, AutoMeasureLocalizationSaveLEDImageState, AutoMeasureLocalizationSaveWidefieldImageState,
-			AutoMeasureLocalizationMovingState, AutoMeasureLocalizationFinishedState,
+			AutoMeasureLocalizationMovingState,
+			AutoMeasureLocalizationPLEBeginState, AutoMeasureLocalizationPLEFinishedState,
+			AutoMeasureLocalizationFinishedState,
 			AutoMeasureCharacterizationStepState, AutoMeasureCharacterizationGotoEmitterState, AutoMeasureCharacterizationOptimizationFinishedState,
 			AutoMeasureCharacterizationSpectrumBeginState, AutoMeasureCharacterizationSpectrumFinishedState,
+			AutoMeasureCharacterizationPLEBeginState, AutoMeasureCharacterizationPLEFinishedState,
 			AutoMeasureCharacterizationHBTBeginState, AutoMeasureCharacterizationHBTWaitForInitState, AutoMeasureCharacterizationHBTFinishedState,
 			AutoMeasureCharacterizationFinishedState,
 			AutoMeasureSampleStepState, AutoMeasureSampleReadCellIDState, AutoMeasureSampleReadCellIDFinishedState,
@@ -838,6 +842,7 @@ namespace DynExpModule::Widefield
 			CurrentContext == &AutoMeasureSampleCharacterizationContext ||
 			CurrentContext == &AutoMeasureSampleCharacterizationOptimizationContext ||
 			CurrentContext == &AutoMeasureSampleCharacterizationSpectrumContext ||
+			CurrentContext == &AutoMeasureSampleCharacterizationPLEContext ||
 			CurrentContext == &AutoMeasureSampleCharacterizationHBTContext;
 	}
 
@@ -1503,6 +1508,13 @@ namespace DynExpModule::Widefield
 
 		StopHBT(ModuleData);
 
+		if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::SpectrumInterModuleCommunicator) &&
+			StateMachine.GetCurrentState()->GetState() == StateType::SpectrumAcquisitionWaiting)
+			ModuleData->GetSpectrumAcqCommunicator()->PostEvent(*this, StopEvent{});
+		if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::PLEInterModuleCommunicator) &&
+			StateMachine.GetCurrentState()->GetState() == StateType::PLEAcquisitionWaiting)
+			ModuleData->GetPLEAcqCommunicator()->PostEvent(*this, StopEvent{});
+
 		if (ConfocalOptimizationThreadReturnFuture.valid())
 		{
 			// Unblock ConfocalOptimizationThread (see above). Set ConfocalOptimizationPromisesRenewed to true
@@ -1976,6 +1988,7 @@ namespace DynExpModule::Widefield
 
 	void WidefieldMicroscope::OnPLEAcquisitionFinished(DynExp::ModuleInstance* Instance) const
 	{
+		StateMachine.SetCurrentState(StateType::PLEAcquisitionFinished);
 	}
 
 	void WidefieldMicroscope::OnAutoMeasureSavePathChanged(DynExp::ModuleInstance* Instance, QString Path) const
@@ -2728,9 +2741,15 @@ namespace DynExpModule::Widefield
 		return std::chrono::system_clock::now() >= WaitingEndTimePoint ? StateType::WaitingFinished : StateType::Waiting;
 	}
 
+	StateType WidefieldMicroscope::PLEAcquisitionWaitingStateFunc(DynExp::ModuleInstance& Instance)
+	{
+		// Nothing to do here. We await FinishedEvent.
+		return StateType::PLEAcquisitionWaiting;
+	}
+
 	StateType WidefieldMicroscope::SpectrumAcquisitionWaitingStateFunc(DynExp::ModuleInstance& Instance)
 	{
-		// Nothing to do here. We await SpectrumFinishedRecordingEvent.
+		// Nothing to do here. We await FinishedEvent.
 		return StateType::SpectrumAcquisitionWaiting;
 	}
 
@@ -2739,7 +2758,12 @@ namespace DynExpModule::Widefield
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance.ModuleDataGetter());
 
 		if (ModuleData->IncrementAutoMeasureCurrentImageSet() >= ModuleData->GetAutoMeasureNumberImageSets())
-			return StateType::AutoMeasureLocalizationFinished;
+		{
+			if (ModuleData->GetAutoMeasureWidefieldPLEEnabled() && ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::PLEInterModuleCommunicator))
+				return StateType::AutoMeasureLocalizationPLEBegin;
+			else
+				return StateType::AutoMeasureLocalizationFinished;
+		}
 
 		return StateType::LEDImageAcquisitionBegin;
 	}
@@ -2806,6 +2830,21 @@ namespace DynExpModule::Widefield
 		return StateType::AutoMeasureLocalizationStep;
 	}
 
+	StateType WidefieldMicroscope::AutoMeasureLocalizationPLEBeginStateFunc(DynExp::ModuleInstance& Instance)
+	{
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance.ModuleDataGetter());
+
+		ModuleData->GetPLEAcqCommunicator()->PostEvent(*this, SetFilenameEvent{ BuildFilename(ModuleData, "_WFPLE").string() });
+		ModuleData->GetPLEAcqCommunicator()->PostEvent(*this, StartEvent{});
+
+		return StateType::PLEAcquisitionWaiting;
+	}
+
+	StateType WidefieldMicroscope::AutoMeasureLocalizationPLEFinishedStateFunc(DynExp::ModuleInstance& Instance)
+	{
+		return StateType::AutoMeasureLocalizationFinished;
+	}
+
 	StateType WidefieldMicroscope::AutoMeasureCharacterizationStepStateFunc(DynExp::ModuleInstance& Instance)
 	{
 		auto ModuleParams = DynExp::dynamic_Params_cast<WidefieldMicroscope>(Instance.ParamsGetter());
@@ -2863,20 +2902,20 @@ namespace DynExpModule::Widefield
 			ModuleData->ResetAutoMeasureCurrentOptimizationRerun();
 			InitializeConfocalOptimizer(ModuleData);
 
+			StateMachine.SetContext(IsCharacterizingSample() ? &AutoMeasureSampleCharacterizationOptimizationContext : &AutoMeasureCharacterizationOptimizationContext);
 			if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::HBTSwitch))
 			{
 				SetHBTSwitch(ModuleParams, ModuleData, true);
 
 				WaitingEndTimePoint = std::chrono::system_clock::now() + std::chrono::milliseconds(ModuleParams->WidefieldHBTTransitionTime);
 
-				StateMachine.SetContext(IsCharacterizingSample() ? &AutoMeasureSampleCharacterizationOptimizationContext : &AutoMeasureCharacterizationOptimizationContext);
 				return StateType::Waiting;
 			}
 			else
 				return StateType::ConfocalOptimizationInit;
 		}
-		else
-			return StateType::AutoMeasureCharacterizationOptimizationFinished;
+		
+		return StateType::AutoMeasureCharacterizationOptimizationFinished;
 	}
 
 	StateType WidefieldMicroscope::AutoMeasureCharacterizationOptimizationFinishedStateFunc(DynExp::ModuleInstance& Instance)
@@ -2893,20 +2932,20 @@ namespace DynExpModule::Widefield
 			// Optimization succeeded.
 			if (ModuleData->GetAutoMeasureSpectrumEnabled() && ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::SpectrumInterModuleCommunicator))
 			{
+				StateMachine.SetContext(IsCharacterizingSample() ? &AutoMeasureSampleCharacterizationSpectrumContext : &AutoMeasureCharacterizationSpectrumContext);
 				if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::HBTSwitch))
 				{
 					SetHBTSwitch(ModuleParams, ModuleData, false);
 
 					WaitingEndTimePoint = std::chrono::system_clock::now() + std::chrono::milliseconds(ModuleParams->WidefieldHBTTransitionTime);
 
-					StateMachine.SetContext(IsCharacterizingSample() ? &AutoMeasureSampleCharacterizationSpectrumContext : &AutoMeasureCharacterizationSpectrumContext);
 					return StateType::Waiting;
 				}
 				else
 					return StateType::AutoMeasureCharacterizationSpectrumBegin;
 			}
-			else
-				return StateType::AutoMeasureCharacterizationSpectrumFinished;
+			
+			return StateType::AutoMeasureCharacterizationSpectrumFinished;
 		}
 
 		if (ModuleData->GetAutoMeasureOptimizeEnabled() && ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::ConfocalOptimization) &&
@@ -2941,7 +2980,7 @@ namespace DynExpModule::Widefield
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance.ModuleDataGetter());
 
-		ModuleData->GetSpectrumAcqCommunicator()->PostEvent(*this, SetFilenameEvent {
+		ModuleData->GetSpectrumAcqCommunicator()->PostEvent(*this, SetFilenameEvent{
 			BuildFilename(ModuleData, "_Emitter" + Util::ToStr(ModuleData->GetAutoMeasureCurrentEmitter()->first) + "_Spectrum").string() });
 		ModuleData->GetSpectrumAcqCommunicator()->PostEvent(*this, TriggerEvent{});
 
@@ -2953,26 +2992,56 @@ namespace DynExpModule::Widefield
 		auto ModuleParams = DynExp::dynamic_Params_cast<WidefieldMicroscope>(Instance.ParamsGetter());
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance.ModuleDataGetter());
 
-		if (ModuleData->GetAutoMeasureHBTEnabled() && ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::HBT))
+		if (ModuleData->GetAutoMeasureConfocalPLEEnabled() && ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::PLEInterModuleCommunicator))
 		{
+			StateMachine.SetContext(IsCharacterizingSample() ? &AutoMeasureSampleCharacterizationPLEContext : &AutoMeasureCharacterizationPLEContext);
 			if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::HBTSwitch))
 			{
 				SetHBTSwitch(ModuleParams, ModuleData, true);
 
 				WaitingEndTimePoint = std::chrono::system_clock::now() + std::chrono::milliseconds(ModuleParams->WidefieldHBTTransitionTime);
 
-				StateMachine.SetContext(IsCharacterizingSample() ? &AutoMeasureSampleCharacterizationHBTContext : &AutoMeasureCharacterizationHBTContext);
+				return StateType::Waiting;
+			}
+			else
+				return StateType::AutoMeasureCharacterizationPLEBegin;
+		}
+
+		return StateType::AutoMeasureCharacterizationPLEFinished;
+	}
+
+	StateType WidefieldMicroscope::AutoMeasureCharacterizationPLEBeginStateFunc(DynExp::ModuleInstance& Instance)
+	{
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance.ModuleDataGetter());
+
+		ModuleData->GetPLEAcqCommunicator()->PostEvent(*this, SetFilenameEvent{
+			BuildFilename(ModuleData, "_Emitter" + Util::ToStr(ModuleData->GetAutoMeasureCurrentEmitter()->first) + "_PLE").string() });
+		ModuleData->GetPLEAcqCommunicator()->PostEvent(*this, StartEvent{});
+
+		return StateType::PLEAcquisitionWaiting;
+	}
+
+	StateType WidefieldMicroscope::AutoMeasureCharacterizationPLEFinishedStateFunc(DynExp::ModuleInstance& Instance)
+	{
+		auto ModuleParams = DynExp::dynamic_Params_cast<WidefieldMicroscope>(Instance.ParamsGetter());
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance.ModuleDataGetter());
+
+		if (ModuleData->GetAutoMeasureHBTEnabled() && ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::HBT))
+		{
+			StateMachine.SetContext(IsCharacterizingSample() ? &AutoMeasureSampleCharacterizationHBTContext : &AutoMeasureCharacterizationHBTContext);
+			if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::HBTSwitch))
+			{
+				SetHBTSwitch(ModuleParams, ModuleData, true);
+
+				WaitingEndTimePoint = std::chrono::system_clock::now() + std::chrono::milliseconds(ModuleParams->WidefieldHBTTransitionTime);
+
 				return StateType::Waiting;
 			}
 			else
 				return StateType::AutoMeasureCharacterizationHBTBegin;
 		}
 
-		ModuleData->GetAutoMeasureCurrentEmitter()->second.State = WidefieldMicroscopeData::LocalizedEmitterStateType::Finished;
-		ModuleData->SetLocalizedPositionsStateChanged();
-
-		ModuleData->IncrementAutoMeasureCurrentEmitter();
-		return StateType::AutoMeasureCharacterizationStep;
+		return StateType::AutoMeasureCharacterizationHBTFinished;
 	}
 
 	StateType WidefieldMicroscope::AutoMeasureCharacterizationHBTBeginStateFunc(DynExp::ModuleInstance& Instance)
@@ -3006,17 +3075,20 @@ namespace DynExpModule::Widefield
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance.ModuleDataGetter());
 
-		auto Filename = BuildFilename(ModuleData, "_Emitter" + Util::ToStr(ModuleData->GetAutoMeasureCurrentEmitter()->first) + "_g2.csv");
-		std::stringstream CSVData;
+		if (ModuleData->GetAutoMeasureHBTEnabled() && ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::HBT))
+		{
+			auto Filename = BuildFilename(ModuleData, "_Emitter" + Util::ToStr(ModuleData->GetAutoMeasureCurrentEmitter()->first) + "_g2.csv");
+			std::stringstream CSVData;
 
-		CSVData = ModuleData->AssembleCSVHeader(false, true, false);
-		ModuleData->WriteHBTResults(CSVData);
+			CSVData = ModuleData->AssembleCSVHeader(false, true, false);
+			ModuleData->WriteHBTResults(CSVData);
+
+			if (!Util::SaveToFile(QString::fromUtf16(Filename.u16string().c_str()), CSVData.str()))
+				Util::EventLog().Log("[WidefieldMicroscope] Saving the g2 result failed.", Util::ErrorType::Error);
+		}
 
 		ModuleData->GetAutoMeasureCurrentEmitter()->second.State = WidefieldMicroscopeData::LocalizedEmitterStateType::Finished;
 		ModuleData->SetLocalizedPositionsStateChanged();
-
-		if (!Util::SaveToFile(QString::fromUtf16(Filename.u16string().c_str()), CSVData.str()))
-			Util::EventLog().Log("[WidefieldMicroscope] Saving the g2 result failed.", Util::ErrorType::Error);
 
 		ModuleData->IncrementAutoMeasureCurrentEmitter();
 		return StateType::AutoMeasureCharacterizationStep;
