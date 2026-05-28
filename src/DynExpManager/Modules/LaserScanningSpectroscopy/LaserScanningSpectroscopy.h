@@ -82,6 +82,7 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		int CurrentStepCount;
 		int CurrentRepCount;
 		std::filesystem::path FileSavePath;
+		bool FileSavePathChanged;
 		DynExpInstr::LaserData::LaserStateType LaserState;
 		
 		StateType LaserScanningSpectroscopyState;

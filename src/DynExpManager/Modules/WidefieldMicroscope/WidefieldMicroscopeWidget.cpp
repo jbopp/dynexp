@@ -316,7 +316,6 @@ namespace DynExpModule::Widefield
 		ui->BAutoMeasureRunLocalization->setEnabled(IsReady && ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::Widefield));
 		ui->BAutoMeasureRunCharacterization->setEnabled(IsReady);
 		ui->BAutoMeasureRunSampleCharacterization->setEnabled(IsReady && ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::Widefield) &&
-			ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::Confocal) &&
 			ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::WidefieldLocalization));
 	}
 

@@ -2131,8 +2131,7 @@ namespace DynExpModule::Widefield
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance->ModuleDataGetter());
 
-		if (!IsReadyState() || !ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::Confocal) ||
-			ModuleData->GetLocalizedPositions().empty() || ModuleData->GetWidefieldPosition().IsEmpty())
+		if (!IsReadyState() || ModuleData->GetLocalizedPositions().empty() || ModuleData->GetWidefieldPosition().IsEmpty())
 			return;
 
 		StateMachine.SetCurrentState(StartAutoMeasureCharacterization(ModuleData));
@@ -2143,7 +2142,6 @@ namespace DynExpModule::Widefield
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance->ModuleDataGetter());
 
 		if (!IsReadyState() || !ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::Widefield) ||
-			!ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::Confocal) ||
 			!ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::WidefieldLocalization))
 			return;
 

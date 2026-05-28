@@ -98,6 +98,7 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		CurrentRepCount = 0;
 		
 		FileSavePath.clear();
+		FileSavePathChanged = false;
 		LaserState = DynExpInstr::LaserData::LaserStateType::Ready;
 
 		LaserScanningSpectroscopyState = StateType::Ready;
@@ -198,6 +199,14 @@ namespace DynExpModule::LaserScanningSpectroscopy
 			Widget->GetUI()->LLaserScanningSpectroscopyState->setText(" Capturing");
 		else
 			Widget->GetUI()->LLaserScanningSpectroscopyState->setText(" Ready");
+
+		if (ModuleData->FileSavePathChanged)
+		{
+			const QSignalBlocker LEPathBlocker(Widget->GetUI()->LEPath);
+			Widget->GetUI()->LEPath->setText(QString::fromStdString(ModuleData->FileSavePath.string()));
+
+			ModuleData->FileSavePathChanged = false;
+		}
 	}
 
 	bool LaserScanningSpectroscopy::IsReadyState() const noexcept
@@ -508,6 +517,7 @@ namespace DynExpModule::LaserScanningSpectroscopy
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<LaserScanningSpectroscopy>(Instance->ModuleDataGetter());
 		ModuleData->FileSavePath = std::filesystem::path(SaveFilename);
+		ModuleData->FileSavePathChanged = true;
 	}
 	
 	void LaserScanningSpectroscopy::OnFinishedCapturing(DynExp::ModuleInstance* Instance) const
