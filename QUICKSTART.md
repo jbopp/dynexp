@@ -2,7 +2,7 @@
 Compiled [DynExp releases are available on GitHub](https://github.com/jbopp/dynexp/releases).
 If you wish to extend or change DynExp or to add support for hardware that uses proprietary third-party libraries, you have to compile DynExp yourself.
 This guide summarizes how to compile DynExp in a few steps.
-For details and a customized installation refer to the [Readme](./README.md).
+For details and a customized installation, refer to the [Readme](./README.md).
 
 ## First steps
 
@@ -24,16 +24,14 @@ git clone https://github.com/jbopp/dynexp.git
 6. Press `Ctrl + B` to build DynExp.
 
 #### Linux
-1. Make sure that gcc 13 is installed on your system. On Ubuntu 22, for instance, run
+1. Make sure that gcc 14 is installed on your system. On Ubuntu 24, for instance, run
 	```bash
-	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-	sudo apt update
-	sudo apt install gcc-13 g++-13
+	sudo apt install gcc-14 g++-14
 	```
 2. Run `install_dependencies.sh` in the folder `src` under the topmost folder of DynExp's repository. This might take several hours and consume about 90 GB disk space.
 3. In the folder `src`, call
 	```bash
-	cmake --preset linux-[debug|relwithdebinfo|release]-[default|user] ./DynExpManager
+	cmake --preset linux-[debug|relwithdebinfo|release]-[default|user] -DCMAKE_C_COMPILER=gcc-14 -DCMAKE_CXX_COMPILER=g++-14 ./DynExpManager
 	```
 4. In the folder `out/build/linux-[debug|relwithdebinfo|release]-[default|user]`, call
     ```bash
@@ -41,9 +39,9 @@ git clone https://github.com/jbopp/dynexp.git
 	```
 
 ### Run DynExp
-You will find the compiled DynExp executable in the folder `out/build/linux-[debug|relwithdebinfo|release]-[default|user]` depending on the chosen build configuration.
+You will find the compiled DynExp executable in the folder `out/build/linux-[debug|relwithdebinfo|release]-[default|user]/bin`, depending on the chosen build configuration.
 
 ## Next steps
 Refer to the [Readme](./README.md) to learn how to
 * enable compilation with support for devices requiring proprietary third-party libraries (section "Third-party support").
-* extend DynExp by adding hardware adapters, instruments or modules (section "Extending DynExp").
+* extend DynExp by adding hardware adapters, instruments, or modules (section "Extending DynExp").
