@@ -309,24 +309,24 @@ namespace DynExpInstr
 			InstrParams->Autostart = Autostart;
 		} // InstrParams unlocked here.
 
-		MakeAndEnqueueTask<RS_SMB100BTasks::SetSineFunctionTask>(FunctionDesc, Autostart, CallbackFunc);
+		MakeAndEnqueueTask<RS_SMB100BTasks::SetSineFunctionTask>(FunctionDesc, Autostart, std::move(CallbackFunc));
 	}
 
 	void RS_SMB100B::SetModulation(const FunctionGeneratorDefs::ModulationDescType& ModulationDesc,
 		bool PersistParams, DynExp::TaskBase::CallbackType CallbackFunc) const
 	{
-		MakeAndEnqueueTask<RS_SMB100BTasks::SetModulationTask>(ModulationDesc, CallbackFunc);
+		MakeAndEnqueueTask<RS_SMB100BTasks::SetModulationTask>(ModulationDesc, std::move(CallbackFunc));
 	}
 
 	void RS_SMB100B::SetSweep(const FunctionGeneratorDefs::SweepDescType& SweepDesc,
 		bool PersistParams, DynExp::TaskBase::CallbackType CallbackFunc) const
 	{
-		MakeAndEnqueueTask<RS_SMB100BTasks::SetSweepTask>(SweepDesc, CallbackFunc);
+		MakeAndEnqueueTask<RS_SMB100BTasks::SetSweepTask>(SweepDesc, std::move(CallbackFunc));
 	}
 
 	void RS_SMB100B::ForceTrigger(DynExp::TaskBase::CallbackType CallbackFunc) const
 	{
-		MakeAndEnqueueTask<RS_SMB100BTasks::ForceTriggerTask>(CallbackFunc);
+		MakeAndEnqueueTask<RS_SMB100BTasks::ForceTriggerTask>(std::move(CallbackFunc));
 	}
 
 	Util::OptionalBool RS_SMB100B::IsRunning() const
@@ -344,6 +344,6 @@ namespace DynExpInstr
 	void RS_SMB100B::SetTriggerChild(const FunctionGeneratorDefs::TriggerDescType& TriggerDesc,
 		bool PersistParams, DynExp::TaskBase::CallbackType CallbackFunc) const
 	{
-		MakeAndEnqueueTask<RS_SMB100BTasks::SetTriggerTask>(TriggerDesc, CallbackFunc);
+		MakeAndEnqueueTask<RS_SMB100BTasks::SetTriggerTask>(TriggerDesc, std::move(CallbackFunc));
 	}
 }

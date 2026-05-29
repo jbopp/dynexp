@@ -32,6 +32,7 @@ namespace DynExpInstr
 		int32_t CellShift_px_y = 0;
 
 		constexpr bool HasCellShift() const noexcept { return CellShift_px_x || CellShift_px_y; }
+		WidefieldLocalizationCellIDType SwapCoords() const { return { "", Y_id, X_id, Valid }; }
 	};
 
 	std::strong_ordering operator<=>(const WidefieldLocalizationCellIDType& lhs, const WidefieldLocalizationCellIDType& rhs);
@@ -178,10 +179,10 @@ namespace DynExpInstr
 
 		virtual std::string GetName() const override { return Name(); }
 
-		virtual void ReadCellID(const QImage& Image, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const { MakeAndEnqueueTask<WidefieldLocalizationTasks::ReadCellIDTask>(Image, CallbackFunc); }
-		virtual void AnalyzeWidefield(const QImage& Image, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const { MakeAndEnqueueTask<WidefieldLocalizationTasks::AnalyzeWidefieldTask>(Image, CallbackFunc); }
-		virtual void AnalyzeDistortion(const QImage& Image, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const { MakeAndEnqueueTask<WidefieldLocalizationTasks::AnalyzeDistortionTask>(Image, CallbackFunc); }
-		virtual void RecallPositions(const QImage& Image, const WidefieldLocalizationCellIDType& CellID, std::string_view MeasureSavePath, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const { MakeAndEnqueueTask<WidefieldLocalizationTasks::RecallPositionsTask>(Image, CellID, MeasureSavePath, CallbackFunc); }
+		virtual void ReadCellID(const QImage& Image, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const { MakeAndEnqueueTask<WidefieldLocalizationTasks::ReadCellIDTask>(Image, std::move(CallbackFunc)); }
+		virtual void AnalyzeWidefield(const QImage& Image, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const { MakeAndEnqueueTask<WidefieldLocalizationTasks::AnalyzeWidefieldTask>(Image, std::move(CallbackFunc)); }
+		virtual void AnalyzeDistortion(const QImage& Image, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const { MakeAndEnqueueTask<WidefieldLocalizationTasks::AnalyzeDistortionTask>(Image, std::move(CallbackFunc)); }
+		virtual void RecallPositions(const QImage& Image, const WidefieldLocalizationCellIDType& CellID, std::string_view MeasureSavePath, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const { MakeAndEnqueueTask<WidefieldLocalizationTasks::RecallPositionsTask>(Image, CellID, MeasureSavePath, std::move(CallbackFunc)); }
 
 	private:
 		void ResetImpl(dispatch_tag<gRPCInstrument>) override final;

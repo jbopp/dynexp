@@ -225,12 +225,12 @@ namespace DynExpInstr
 
 	void SwabianInstrumentsPulseStreamer::SetConstantOutput(const DynExpHardware::SIPulseStreamerHardwareAdapter::PulseType& Pulse, DynExp::TaskBase::CallbackType CallbackFunc) const
 	{
-		return MakeAndEnqueueTask<SwabianInstrumentsPulseStreamerTasks::SetConstantOutputTask>(Pulse, CallbackFunc);
+		return MakeAndEnqueueTask<SwabianInstrumentsPulseStreamerTasks::SetConstantOutputTask>(Pulse, std::move(CallbackFunc));
 	}
 
 	void SwabianInstrumentsPulseStreamer::SetNumRuns(int64_t NumRuns, DynExp::TaskBase::CallbackType CallbackFunc) const
 	{
-		return MakeAndEnqueueTask<SwabianInstrumentsPulseStreamerTasks::SetNumRunsTask>(NumRuns, CallbackFunc);
+		return MakeAndEnqueueTask<SwabianInstrumentsPulseStreamerTasks::SetNumRunsTask>(NumRuns, std::move(CallbackFunc));
 	}
 
 	Util::OptionalBool SwabianInstrumentsPulseStreamer::HasFinished() const
@@ -279,6 +279,6 @@ namespace DynExpInstr
 	void SwabianInstrumentsPulseStreamer::SetTriggerChild(const FunctionGeneratorDefs::TriggerDescType& TriggerDesc,
 		bool PersistParams, DynExp::TaskBase::CallbackType CallbackFunc) const
 	{
-		MakeAndEnqueueTask<SwabianInstrumentsPulseStreamerTasks::SetTriggerTask>(TriggerDesc, CallbackFunc);
+		MakeAndEnqueueTask<SwabianInstrumentsPulseStreamerTasks::SetTriggerTask>(TriggerDesc, std::move(CallbackFunc));
 	}
 }

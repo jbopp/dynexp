@@ -11,7 +11,11 @@
 #include "stdafx.h"
 
 #include <QWidget>
-#include "ui_TextEditor.h"
+
+namespace Ui
+{
+	class TextEditor;
+}
 
 class TextEditor : public QWidget
 {
@@ -36,7 +40,7 @@ private:
 	*/
 	bool DoSave();
 
-	Ui::TextEditor ui;
+	std::unique_ptr<Ui::TextEditor> ui;
 
 	const std::filesystem::path Filename;
 

@@ -2,16 +2,19 @@
 
 #include "stdafx.h"
 #include "moc_OutputPortWriter.cpp"
+#include "ui_OutputPortWriter.h"
 #include "OutputPortWriter.h"
 
 namespace DynExpModule
 {
-	OutputPortWriterWidget::OutputPortWriterWidget(OutputPortWriter& Owner, QModuleWidget* parent) : QModuleWidget(Owner, parent)
+	OutputPortWriterWidget::OutputPortWriterWidget(OutputPortWriter& Owner, QModuleWidget* parent)
+		: QModuleWidget(Owner, parent),
+		ui(std::make_unique<Ui::OutputPortWriter>())
 	{
-		ui.setupUi(this);
+		ui->setupUi(this);
 
-		ui.AnalogOutWidget->setVisible(false);
-		ui.DigitalOutWidget->setVisible(false);
+		ui->AnalogOutWidget->setVisible(false);
+		ui->DigitalOutWidget->setVisible(false);
 	}
 
 	void OutputPortWriterData::ResetImpl(dispatch_tag<QModuleDataBase>)
@@ -57,8 +60,8 @@ namespace DynExpModule
 	{
 		auto Widget = std::make_unique<OutputPortWriterWidget>(*this);
 
-		Connect(Widget->ui.ValueDial, &QAbstractSlider::valueChanged, this, &OutputPortWriter::OnValueChanged);
-		Connect(Widget->ui.StateButton, &QPushButton::clicked, this, &OutputPortWriter::OnStateButtonClicked);
+		Connect(Widget->ui->ValueDial, &QAbstractSlider::valueChanged, this, &OutputPortWriter::OnValueChanged);
+		Connect(Widget->ui->StateButton, &QPushButton::clicked, this, &OutputPortWriter::OnStateButtonClicked);
 
 		return Widget;
 	}
@@ -73,32 +76,32 @@ namespace DynExpModule
 
 		if (!ModuleData->UIInitialized)
 		{
-			Widget->ui.AnalogOutWidget->setVisible(!ModuleData->IsDigitalPort);
-			Widget->ui.DigitalOutWidget->setVisible(ModuleData->IsDigitalPort);
+			Widget->ui->AnalogOutWidget->setVisible(!ModuleData->IsDigitalPort);
+			Widget->ui->DigitalOutWidget->setVisible(ModuleData->IsDigitalPort);
 			Widget->adjustSize();
 
-			Widget->ui.ValueDial->setMinimum(ModuleData->MinAllowedValue * DialControlValueDivider);
-			Widget->ui.ValueDial->setMaximum(ModuleData->MaxAllowedValue * DialControlValueDivider);
-			Widget->ui.ValueDial->setSingleStep(ModuleData->MaxAllowedValue - ModuleData->MinAllowedValue);
-			Widget->ui.ValueDial->setPageStep((ModuleData->MaxAllowedValue - ModuleData->MinAllowedValue) * DialControlValueDivider / 10);
-			Widget->ui.MinValueLabel->setText(QString::number(ModuleData->MinAllowedValue) + ValueUnitStr);
-			Widget->ui.MaxValueLabel->setText(QString::number(ModuleData->MaxAllowedValue) + ValueUnitStr);
+			Widget->ui->ValueDial->setMinimum(ModuleData->MinAllowedValue * DialControlValueDivider);
+			Widget->ui->ValueDial->setMaximum(ModuleData->MaxAllowedValue * DialControlValueDivider);
+			Widget->ui->ValueDial->setSingleStep(ModuleData->MaxAllowedValue - ModuleData->MinAllowedValue);
+			Widget->ui->ValueDial->setPageStep((ModuleData->MaxAllowedValue - ModuleData->MinAllowedValue) * DialControlValueDivider / 10);
+			Widget->ui->MinValueLabel->setText(QString::number(ModuleData->MinAllowedValue) + ValueUnitStr);
+			Widget->ui->MaxValueLabel->setText(QString::number(ModuleData->MaxAllowedValue) + ValueUnitStr);
 
 			ModuleData->UIInitialized = true;
 		}
 
 		if (!ModuleData->IsDigitalPort)
 		{
-			if (!Widget->ui.ValueDial->hasFocus())
-				Widget->ui.ValueDial->setValue(ModuleData->Value * DialControlValueDivider);
+			if (!Widget->ui->ValueDial->hasFocus())
+				Widget->ui->ValueDial->setValue(ModuleData->Value * DialControlValueDivider);
 			
-			Widget->ui.ValueLabel->setText(QString::number(ModuleData->Value) + ValueUnitStr);
+			Widget->ui->ValueLabel->setText(QString::number(ModuleData->Value) + ValueUnitStr);
 			
 		}
 		else
 		{
-			Widget->ui.StateButton->setText(ModuleData->Value ? "High" : "Low");
-			Widget->ui.StateButton->setStyleSheet(ModuleData->Value ? "background-color: lime;" : "background-color: red;");
+			Widget->ui->StateButton->setText(ModuleData->Value ? "High" : "Low");
+			Widget->ui->StateButton->setStyleSheet(ModuleData->Value ? "background-color: lime;" : "background-color: red;");
 		}
 	}
 

@@ -1,4 +1,4 @@
-﻿# This file is part of DynExp.
+# This file is part of DynExp.
 
 cmake_minimum_required(VERSION 3.22)
 
@@ -11,70 +11,109 @@ endif()
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
+# Enable Qt tooling
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+
 # Project configuration
 project("DynExp")
-set(PROJECT_VERSION 1.0.0)
+set(PROJECT_VERSION 1.1.0)
 
+# Add DynExp's targets
+add_library(DynExpConfig INTERFACE)
+add_library(DynExpCore STATIC)
+add_library(DynExpHardware STATIC)
+add_library(DynExpInstruments STATIC)
+add_library(DynExpModules STATIC)
+add_executable(DynExp "${CMAKE_CURRENT_BINARY_DIR}/main.cpp")
+
+# Set deploy path
+set(DYNEXP_DEPLOY_DIR "${CMAKE_CURRENT_BINARY_DIR}/bin")
+set(CMAKE_INSTALL_PREFIX "")
+set_target_properties(DynExp PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${DYNEXP_DEPLOY_DIR}")
+
+# Set options and variable values in CMakeUserPresets.json.
 option(USE_NIDAQ "Compile with third-party NI-DAQmx support" OFF)
 option(USE_PVCAM "Compile with third-party PVCam support" OFF)
-option(USE_QUTOOLSQUTAG "Compile with third-party Qutools QuTAG support" OFF)
+option(USE_QUTOOLSQUTAG "Compile with third-party Qutools quTAG support" OFF)
 option(USE_SMARACT "Compile with third-party SmarAct support" OFF)
 option(USE_SWABIANPULSESTREAMER "Compile with third-party Swabian Instruments Pulse Streamer support" OFF)
 option(USE_ZIMFLI "Compile with third-party Zurich Instruments MFLI support" OFF)
+
+set(QUTOOLSQUTAG_VARIANT "MC" CACHE STRING "Qutools quTAG device variant (supports (MC) multi-channel [default], (S) standard")
+target_compile_definitions(DynExpConfig INTERFACE QUTOOLSQUTAG_VARIANT_${QUTOOLSQUTAG_VARIANT})
 
 # Apply parameters to template files
 configure_file(main.cpp.in main.cpp)
 configure_file(DynExpDefinitions.h.in DynExpDefinitions.h)
 
+# Read AUTHORS.txt and CONTRIBUTORS.txt and pass to macros
+include("include/read_person_list.cmake")
+
+read_person_list("../../AUTHORS.txt" PERSONS_LIST)
+target_compile_definitions(DynExpConfig INTERFACE DYNEXP_AUTHORS="${PERSONS_LIST}")
+read_person_list("../../CONTRIBUTORS.txt" PERSONS_LIST)
+target_compile_definitions(DynExpConfig INTERFACE DYNEXP_CONTRIBUTORS="${PERSONS_LIST}")
+
 # Additional include directories
-include_directories(${PROJECT_SOURCE_DIR})
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
+target_include_directories(DynExpConfig INTERFACE ${PROJECT_SOURCE_DIR} "${CMAKE_CURRENT_BINARY_DIR}")
 
 # Compiler and linker options
 if (MSVC)
 	# Warning level 3
-	add_compile_options(/W3)
+	target_compile_options(DynExpConfig INTERFACE /W3)
 
 	# Enable unwind semantics
-	add_compile_options(/EHsc)
+	target_compile_options(DynExpConfig INTERFACE /EHsc)
 
 	# Allow large .obj files (otherwise, compiler may complain).
-	add_compile_options(/bigobj)
+	target_compile_options(DynExpConfig INTERFACE /bigobj)
 else()
 	# lots of warnings
-	add_compile_options(-Wall -pedantic)
+	target_compile_options(DynExpConfig INTERFACE -Wall -pedantic)
 
 	# Turn off -Woverloaded-virtual since the warning is triggered heavily by the tag dispatch mechanism.
-	add_compile_options(-Wno-overloaded-virtual)
+	target_compile_options(DynExpConfig INTERFACE -Wno-overloaded-virtual)
 
 	# Colored error messages
-	add_compile_options(-fdiagnostics-color=always)
+	target_compile_options(DynExpConfig INTERFACE -fdiagnostics-color=always)
 endif()
 
 # Debug macro
 if (CMAKE_BUILD_TYPE MATCHES DEBUG|Debug)
 	set(DYNEXP_DEBUG TRUE)
-	add_compile_definitions(DYNEXP_DEBUG)
+	target_compile_definitions(DynExpConfig INTERFACE DYNEXP_DEBUG)
 endif()
 
 # OS macros
 if (MSVC)
-	add_compile_definitions(DYNEXP_MSVC)
+	target_compile_definitions(DynExpConfig INTERFACE DYNEXP_MSVC)
 elseif (UNIX)
-	add_compile_definitions(DYNEXP_UNIX)
+	target_compile_definitions(DynExpConfig INTERFACE DYNEXP_UNIX)
+endif()
+
+# Export less symbols in GCC and Clang
+set_target_properties(DynExpConfig PROPERTIES CXX_VISIBILITY_PRESET hidden)
+set_target_properties(DynExpConfig PROPERTIES VISIBILITY_INLINES_HIDDEN ON)
+
+# Build for edit and continue
+if (MSVC AND CMAKE_BUILD_TYPE MATCHES DEBUG|Debug AND NOT CMAKE_VERSION VERSION_LESS 3.25)
+	# Requires CMP0141 set to NEW.
+	set_property(TARGET DynExpCore PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
+	set_property(TARGET DynExpHardware PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
+	set_property(TARGET DynExpInstruments PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
+	set_property(TARGET DynExpModules PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
+	set_property(TARGET DynExp PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
 endif()
 
 # vcpkg
 include("../../vendor/vcpkg/scripts/buildsystems/vcpkg.cmake")
 
-# Qt
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
-
 # Disable use of API deprecated in Qt 5.15 and earlier
-add_compile_definitions(QT_DISABLE_DEPRECATED_BEFORE=0x050F00)
+target_compile_definitions(DynExpConfig INTERFACE QT_DISABLE_DEPRECATED_BEFORE=0x050F00)
 
+# Qt
 find_package(Qt6 COMPONENTS
 	Core
 	Gui
@@ -103,19 +142,6 @@ find_package(Python3 COMPONENTS Interpreter Development)
 set_target_properties(Python3::Module PROPERTIES MAP_IMPORTED_CONFIG_DEBUG ";RELEASE")
 find_package(pybind11 REQUIRED)
 
-# DynExp target definition
-add_executable(DynExp "${CMAKE_CURRENT_BINARY_DIR}/main.cpp")
-
-# Export less symbols in GCC and Clang
-set_target_properties(DynExp PROPERTIES CXX_VISIBILITY_PRESET hidden)
-set_target_properties(DynExp PROPERTIES VISIBILITY_INLINES_HIDDEN ON)
-
-# Build for edit and continue
-if (MSVC AND CMAKE_BUILD_TYPE MATCHES DEBUG|Debug AND NOT CMAKE_VERSION VERSION_LESS 3.25)
-	# Requires CMP0141 set to NEW.
-	set_property(TARGET DynExp PROPERTY MSVC_DEBUG_INFORMATION_FORMAT EditAndContinue)
-endif()
-
 # Application meta data for Windows
 if (MSVC)
 	# No console window
@@ -126,8 +152,8 @@ if (MSVC)
 endif()
 
 # DynExp's source files
-target_precompile_headers(DynExp PRIVATE "stdafx.h")
-target_sources(DynExp PRIVATE
+target_precompile_headers(DynExpConfig INTERFACE "stdafx.h")
+target_sources(DynExpCore PRIVATE
 	"BusyDialog.cpp"
 	"BusyDialog.h"
 	"BusyDialog.ui"
@@ -151,7 +177,6 @@ target_sources(DynExp PRIVATE
 	"DynExpManager.cpp"
 	"DynExpManager.h"
 	"DynExpManager.ui"
-	"DynExpManager.qrc"
 	"ErrorListDialog.cpp"
 	"ErrorListDialog.h"
 	"ErrorListDialog.ui"
@@ -178,7 +203,6 @@ target_sources(DynExp PRIVATE
 	"PythonSyntaxHighlighter.h"
 	"PyUtil.cpp"
 	"PyUtil.h"
-	"QModules.qrc"
 	"QtUtil.cpp"
 	"QtUtil.h"
 	"TextEditor.cpp"
@@ -194,18 +218,23 @@ add_subdirectory(MetaInstruments)
 add_subdirectory(Instruments)
 add_subdirectory(Modules)
 
+# Qt resources
+qt_add_resources(DYNEXP_MANAGER_RCC "DynExpManager.qrc")
+qt_add_resources(QMODULES_RCC "QModules.qrc")
+target_sources(DynExp PRIVATE ${DYNEXP_MANAGER_RCC} ${QMODULES_RCC})
+
 # Generate protobuf files for gRPC
 if (PROTO_FILES)
 	include("include/grpc_generate_cpp.cmake")
 	protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS ${PROTO_FILES})
 	grpc_generate_cpp(GRPC_SRCS GRPC_HDRS "." ${PROTO_FILES})
-	target_sources(DynExp PRIVATE ${PROTO_SRCS} ${PROTO_HDRS} ${GRPC_SRCS} ${GRPC_HDRS})
+	target_sources(DynExpCore PRIVATE ${PROTO_SRCS} ${PROTO_HDRS} ${GRPC_SRCS} ${GRPC_HDRS})
 endif()
 
-# Libs
+# Link DynExp's config interface library
 list(TRANSFORM EXTRA_LIBS PREPEND "../../../vendor/")
 list(TRANSFORM SHARED_LIBS PREPEND "../../../vendor/")
-target_link_libraries(DynExp PRIVATE
+target_link_libraries(DynExpConfig INTERFACE
 	Qt::Core
 	Qt::Gui
 	Qt::Widgets
@@ -223,47 +252,40 @@ target_link_libraries(DynExp PRIVATE
 
 if (UNIX)
 	# Without that, SVG icons are not displayed under Linux
-	target_link_libraries(DynExp PRIVATE Qt6::QSvgIconPlugin)
+	target_link_libraries(DynExpConfig INTERFACE Qt6::QSvgIconPlugin)
+endif()
+
+# Link DynExp's static libraries
+target_link_libraries(DynExpCore PRIVATE DynExpConfig)
+target_link_libraries(DynExpHardware PRIVATE DynExpConfig)
+target_link_libraries(DynExpInstruments PRIVATE DynExpConfig)
+target_link_libraries(DynExpModules PRIVATE DynExpConfig DynExpCore)
+
+# Link DynExp executable
+target_link_libraries(DynExp PRIVATE
+	DynExpConfig
+	DynExpCore
+	DynExpHardware
+	DynExpInstruments
+	DynExpModules
+)
+
+if (UNIX)
+	# Add symbols required by std::stacktrace
+	target_link_libraries(DynExp PRIVATE stdc++exp)
 
 	# Add symbols required by embedded Python
 	target_link_options(DynExp PRIVATE -rdynamic)
 endif()
 
-if (WIN32)
-	if (CMAKE_BUILD_TYPE MATCHES DEBUG|Debug)
-		# Copy Qt DLLs to build folder using debug libraries
-		string(REGEX REPLACE "\.exe$" "\.debug\.bat" WINDEPLOYQT_DEBUG_EXECUTABLE "${WINDEPLOYQT_EXECUTABLE}")
-		if (EXISTS "${WINDEPLOYQT_DEBUG_EXECUTABLE}")
-			add_custom_command(TARGET DynExp POST_BUILD COMMAND "${WINDEPLOYQT_DEBUG_EXECUTABLE}" ARGS --no-translations $<TARGET_FILE:DynExp>)
-		else()
-			add_custom_command(TARGET DynExp POST_BUILD COMMAND Qt::windeployqt ARGS --no-translations $<TARGET_FILE:DynExp>)
-		endif()
-
-		# Fix bug regarding zlib in debug mode (depending on configuration, zlib1.dll is also required in debug mode).
-		if (${ZLIB_FOUND})
-			if (NOT DEFINED ZLIB_RUNTIME_LIBRARY_RELEASE)
-				# Replace "lib" only if followed by "/zlib" (not in case of other "lib/" folders).
-				string(REGEX REPLACE "/lib/z" "/bin/z" ZLIB_RUNTIME_LIBRARY_RELEASE "${ZLIB_LIBRARY_RELEASE}")
-				string(REGEX REPLACE "\.lib$" "1.dll" ZLIB_RUNTIME_LIBRARY_RELEASE "${ZLIB_RUNTIME_LIBRARY_RELEASE}")
-			endif()
-			add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${ZLIB_RUNTIME_LIBRARY_RELEASE} "${CMAKE_CURRENT_BINARY_DIR}/")
-		endif()
-
-		# Fix bug regarding Python3 and pybind11 in debug mode: always use release version of Python.
-		add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${Python3_RUNTIME_LIBRARY_RELEASE} "${CMAKE_CURRENT_BINARY_DIR}/")
-	else()
-		# Copy Qt DLLs to build folder
-		add_custom_command(TARGET DynExp POST_BUILD COMMAND Qt::windeployqt ARGS --no-translations $<TARGET_FILE:DynExp>)
-	endif()
-endif()
-
-# Install pip for Python3 and required modules if missing
+# Install pip for Python3...
 execute_process(COMMAND ${Python3_EXECUTABLE} -c "import pip" RESULT_VARIABLE PYTHON_PIP_AVAILABLE OUTPUT_QUIET ERROR_QUIET)
 if (NOT ${PYTHON_PIP_AVAILABLE} EQUAL 0)
 	message("Installing Python3/pip. This may take some time.")
 	execute_process(COMMAND ${Python3_EXECUTABLE} -m ensurepip --upgrade)
 endif()
 
+# ...and required Python modules if missing
 set(Python_REQUIRED_MODULES numpy rpyc simple-pid)
 list(APPEND Python_REQUIRED_MODULES ${Python_USER_REQUIRED_MODULES})
 foreach (Python_MODULE IN LISTS Python_REQUIRED_MODULES)
@@ -278,8 +300,8 @@ endforeach()
 # Under Windows, copy Python3 packages to build folder
 get_filename_component(Python3_directory ${Python3_EXECUTABLE} DIRECTORY)
 if (MSVC)
-	add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "${Python3_directory}/Lib" "${CMAKE_CURRENT_BINARY_DIR}/Lib")
-	add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "${Python3_directory}/DLLs" "${CMAKE_CURRENT_BINARY_DIR}/DLLs")
+	add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different "${Python3_directory}/Lib" "${DYNEXP_DEPLOY_DIR}/Lib")
+	add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different "${Python3_directory}/DLLs" "${DYNEXP_DEPLOY_DIR}/DLLs")
 endif()
 
 # Copy dynamic-link libraries to binary folder
@@ -289,7 +311,7 @@ if (SHARED_LIBS)
 		list(TRANSFORM SHARED_LIBS APPEND ".dll")
 		foreach (SHARED_LIB IN LISTS SHARED_LIBS)
 			if (EXISTS ${SHARED_LIB})
-				add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${SHARED_LIB} "${CMAKE_CURRENT_BINARY_DIR}/")
+				add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${SHARED_LIB} "${DYNEXP_DEPLOY_DIR}")
 			else()
 				message(WARNING "Cannot copy ${SHARED_LIB}. File does not exist.")
 			endif()
@@ -298,4 +320,47 @@ if (SHARED_LIBS)
 		message("Copying shared third-party libraries automatically to the binary directory is not implemented for platforms other than Windows.")
 		message("Please copy the libraries manually if needed.")
 	endif()
+endif()
+
+# Deploy dependencies
+if (WIN32)
+	if (CMAKE_BUILD_TYPE MATCHES DEBUG|Debug)
+		# Copy Qt DLLs to build folder using debug libraries
+		string(REGEX REPLACE "\.exe$" "\.debug\.bat" WINDEPLOYQT_DEBUG_EXECUTABLE "${WINDEPLOYQT_EXECUTABLE}")
+		if (EXISTS "${WINDEPLOYQT_DEBUG_EXECUTABLE}")
+			add_custom_command(TARGET DynExp POST_BUILD WORKING_DIRECTORY "${DYNEXP_DEPLOY_DIR}" COMMAND "${WINDEPLOYQT_DEBUG_EXECUTABLE}" ARGS --no-translations $<TARGET_FILE_NAME:DynExp>)
+		else()
+			add_custom_command(TARGET DynExp POST_BUILD WORKING_DIRECTORY "${DYNEXP_DEPLOY_DIR}" COMMAND Qt::windeployqt ARGS --no-translations $<TARGET_FILE_NAME:DynExp>)
+		endif()
+
+		# Fix bug regarding zlib in debug mode (depending on configuration, zlib1.dll is also required in debug mode).
+		if (${ZLIB_FOUND})
+			if (NOT DEFINED ZLIB_RUNTIME_LIBRARY_RELEASE)
+				# Replace "lib" only if followed by "/zlib" (not in case of other "lib/" folders).
+				string(REGEX REPLACE "/lib/z" "/bin/z" ZLIB_RUNTIME_LIBRARY_RELEASE "${ZLIB_LIBRARY_RELEASE}")
+				string(REGEX REPLACE "\.lib$" "1.dll" ZLIB_RUNTIME_LIBRARY_RELEASE "${ZLIB_RUNTIME_LIBRARY_RELEASE}")
+			endif()
+			add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${ZLIB_RUNTIME_LIBRARY_RELEASE} "${DYNEXP_DEPLOY_DIR}")
+		endif()
+
+		# Fix bug regarding Python3 and pybind11 in debug mode: always use release version of Python.
+		add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${Python3_RUNTIME_LIBRARY_RELEASE} "${DYNEXP_DEPLOY_DIR}")
+	else()
+		# Copy Qt DLLs to build folder
+		add_custom_command(TARGET DynExp POST_BUILD WORKING_DIRECTORY "${DYNEXP_DEPLOY_DIR}" COMMAND Qt::windeployqt ARGS --no-translations $<TARGET_FILE_NAME:DynExp>)
+	endif()
+
+	# Install required DLLs. Must come last to avoid non-resolved runtime dependency errors.
+	if (CMAKE_BUILD_TYPE MATCHES DEBUG|Debug)
+		set(VCPKG_DLL_DIR "${VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/debug/bin")
+	else()
+		set(VCPKG_DLL_DIR "${VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/bin")
+	endif()
+	install(TARGETS DynExp EXCLUDE_FROM_ALL RUNTIME_DEPENDENCY_SET DYNEXP_DLL_DEPS)
+	install(RUNTIME_DEPENDENCY_SET DYNEXP_DLL_DEPS DESTINATION "${DYNEXP_DEPLOY_DIR}"
+		DIRECTORIES "${VCPKG_DLL_DIR}" 
+		PRE_EXCLUDE_REGEXES "api-ms-.*" "ext-ms-.*" "hvsifiletrust.*" "pdmutilities.*" "msvcp.*" "vcruntime.*" "concrt.*"
+		POST_EXCLUDE_REGEXES ".*system32.*"
+	)
+	add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} ARGS --install .)
 endif()

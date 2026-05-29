@@ -13,6 +13,9 @@ namespace DynExpInstr
 
 			InstrData->Channel = InstrParams->Channel;
 			Instance.LockObject(InstrParams->HardwareAdapter, InstrData->HardwareAdapter);
+
+			if (InstrParams->HoldTime > -2)
+				InstrData->HardwareAdapter->SetHoldTime(InstrData->GetChannel(), std::chrono::milliseconds(InstrParams->HoldTime));
 		} // InstrParams and InstrData unlocked here.
 
 		InitFuncImpl(dispatch_tag<InitTask>(), Instance);

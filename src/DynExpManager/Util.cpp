@@ -146,6 +146,14 @@ namespace Util
 		return DataPtr.release();
 	}
 
+	size_t UniqueID::Make() noexcept
+	{
+		// Start with 1 to allow special meaning for 0.
+		static size_t Counter = 1;
+
+		return Counter++;
+	}
+
 	std::strong_ordering operator<=>(const VersionType& lhs, const VersionType& rhs)
 	{
 		if (lhs.Major == rhs.Major && lhs.Minor == rhs.Minor && lhs.Patch == rhs.Patch)

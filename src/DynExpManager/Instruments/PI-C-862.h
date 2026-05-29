@@ -48,7 +48,7 @@ namespace DynExpInstr
 		{
 		public:
 			ReferenceTask(PositionerStage::DirectionType Direction, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), Direction(Direction) {}
+				: TaskBase(std::move(CallbackFunc)), Direction(Direction) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -70,7 +70,7 @@ namespace DynExpInstr
 		class MoveToHomeTask final : public DynExp::TaskBase
 		{
 		public:
-			MoveToHomeTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			MoveToHomeTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -80,7 +80,7 @@ namespace DynExpInstr
 		{
 		public:
 			MoveAbsoluteTask(PositionerStageData::PositionType Position, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), Position(Position) {}
+				: TaskBase(std::move(CallbackFunc)), Position(Position) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -92,7 +92,7 @@ namespace DynExpInstr
 		{
 		public:
 			MoveRelativeTask(PositionerStageData::PositionType Position, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), Position(Position) {}
+				: TaskBase(std::move(CallbackFunc)), Position(Position) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -216,12 +216,12 @@ namespace DynExpInstr
 		virtual PositionerStageData::PositionType GetDefaultVelocity() const noexcept override { return 200000; }
 
 		virtual void SetHome() const override { MakeAndEnqueueTask<PI_C_862_Tasks::SetHomeTask>(); }
-		virtual void Reference(DirectionType Direction = DirectionType::Forward, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<PI_C_862_Tasks::ReferenceTask>(Direction, CallbackFunc); }
+		virtual void Reference(DirectionType Direction = DirectionType::Forward, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<PI_C_862_Tasks::ReferenceTask>(Direction, std::move(CallbackFunc)); }
 		virtual void SetVelocity(PositionerStageData::PositionType Velocity) const override { MakeAndEnqueueTask<PI_C_862_Tasks::SetVelocityTask>(Velocity); }
 
-		virtual void MoveToHome(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<PI_C_862_Tasks::MoveToHomeTask>(CallbackFunc); }
-		virtual void MoveAbsolute(PositionerStageData::PositionType Position, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<PI_C_862_Tasks::MoveAbsoluteTask>(Position, CallbackFunc); }
-		virtual void MoveRelative(PositionerStageData::PositionType Position, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<PI_C_862_Tasks::MoveRelativeTask>(Position, CallbackFunc); }
+		virtual void MoveToHome(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<PI_C_862_Tasks::MoveToHomeTask>(std::move(CallbackFunc)); }
+		virtual void MoveAbsolute(PositionerStageData::PositionType Position, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<PI_C_862_Tasks::MoveAbsoluteTask>(Position, std::move(CallbackFunc)); }
+		virtual void MoveRelative(PositionerStageData::PositionType Position, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<PI_C_862_Tasks::MoveRelativeTask>(Position, std::move(CallbackFunc)); }
 		virtual void StopMotion() const override { MakeAndEnqueueTask<PI_C_862_Tasks::StopMotionTask>(); }
 
 	private:

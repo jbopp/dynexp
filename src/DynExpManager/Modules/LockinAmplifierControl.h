@@ -12,7 +12,11 @@
 #include "../MetaInstruments/LockinAmplifier.h"
 
 #include <QWidget>
-#include "ui_LockinAmplifierControl.h"
+
+namespace Ui
+{
+	class LockinAmplifierControl;
+}
 
 namespace DynExpModule
 {
@@ -29,13 +33,13 @@ namespace DynExpModule
 
 		bool AllowResize() const noexcept override final { return false; }
 
-		const auto& GetUI() const noexcept { return ui; }
+		const auto GetUI() const noexcept { return ui.get(); }
 		bool GetUIInitialized() const noexcept { return UIInitialized; }
 
 		void InitializeUI(Util::SynchronizedPointer<LockinAmplifierControlData>& ModuleData);
 
 	private:
-		Ui::LockinAmplifierControl ui;
+		std::unique_ptr<Ui::LockinAmplifierControl> ui;
 
 		bool UIInitialized = false;
 	};
@@ -144,7 +148,7 @@ namespace DynExpModule
 		void OnForceTriggerClicked(DynExp::ModuleInstance* Instance, bool) const;
 		void OnSignalTypeChanged(DynExp::ModuleInstance* Instance, int Index) const;
 		void OnSamplingRateChanged(DynExp::ModuleInstance* Instance, double Value) const;
-		void OnEnableClicked(DynExp::ModuleInstance* Instance, int Value) const;
+		void OnEnableClicked(DynExp::ModuleInstance* Instance, Qt::CheckState State) const;
 		void OnPersistParamsClicked(DynExp::ModuleInstance* Instance, bool) const;
 
 		static const char* ProgressBarRedStylesheet;

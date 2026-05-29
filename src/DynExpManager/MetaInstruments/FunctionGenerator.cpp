@@ -317,7 +317,7 @@ namespace DynExpInstr
 			InstrParams->Autostart = Autostart;
 		} // InstrParams unlocked here.
 
-		MakeAndEnqueueTask<FunctionGeneratorTasks::SetSineFunctionTask>(FunctionDesc, Autostart, CallbackFunc);
+		MakeAndEnqueueTask<FunctionGeneratorTasks::SetSineFunctionTask>(FunctionDesc, Autostart, std::move(CallbackFunc));
 		UpdateData();
 	}
 
@@ -340,7 +340,7 @@ namespace DynExpInstr
 			InstrParams->Autostart = Autostart;
 		} // InstrParams unlocked here.
 
-		MakeAndEnqueueTask<FunctionGeneratorTasks::SetRectFunctionTask>(FunctionDesc, Autostart, CallbackFunc);
+		MakeAndEnqueueTask<FunctionGeneratorTasks::SetRectFunctionTask>(FunctionDesc, Autostart, std::move(CallbackFunc));
 		UpdateData();
 	}
 
@@ -363,7 +363,7 @@ namespace DynExpInstr
 			InstrParams->Autostart = Autostart;
 		} // InstrParams unlocked here.
 
-		MakeAndEnqueueTask<FunctionGeneratorTasks::SetRampFunctionTask>(FunctionDesc, Autostart, CallbackFunc);
+		MakeAndEnqueueTask<FunctionGeneratorTasks::SetRampFunctionTask>(FunctionDesc, Autostart, std::move(CallbackFunc));
 		UpdateData();
 	}
 
@@ -392,7 +392,7 @@ namespace DynExpInstr
 			InstrParams->Autostart = Autostart;
 		} // InstrParams unlocked here.
 
-		MakeAndEnqueueTask<FunctionGeneratorTasks::SetPulseFunctionTask>(FunctionDesc, Autostart, CallbackFunc);
+		MakeAndEnqueueTask<FunctionGeneratorTasks::SetPulseFunctionTask>(FunctionDesc, Autostart, std::move(CallbackFunc));
 		UpdateData();
 	}
 
@@ -403,7 +403,7 @@ namespace DynExpInstr
 			throw Util::NotAvailableException(
 				"The function generator of type " + GetCategoryAndName() + " is not capable to generate a user-defined function.", Util::ErrorType::Error);
 
-		MakeAndEnqueueTask<FunctionGeneratorTasks::SetArbitraryFunctionTask>(std::move(Samples), Autostart, CallbackFunc);
+		MakeAndEnqueueTask<FunctionGeneratorTasks::SetArbitraryFunctionTask>(std::move(Samples), Autostart, std::move(CallbackFunc));
 		UpdateData();
 	}
 
@@ -432,7 +432,7 @@ namespace DynExpInstr
 		// CallbackFunc is to be called by task issued by overridden SetTriggerChild().
 		MakeAndEnqueueTask<FunctionGeneratorTasks::SetTriggerTask>(TriggerDesc);
 
-		SetTriggerChild(TriggerDesc, PersistParams, CallbackFunc);
+		SetTriggerChild(TriggerDesc, PersistParams, std::move(CallbackFunc));
 	}
 
 	void FunctionGenerator::ForceTrigger(DynExp::TaskBase::CallbackType CallbackFunc) const

@@ -64,7 +64,7 @@ namespace DynExpInstr
 		class SetTask : public DynExp::TaskBase
 		{
 		public:
-			SetTask(AnalogOutData::SampleStreamType::SampleType Sample, CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc), Sample(Sample) {}
+			SetTask(AnalogOutData::SampleStreamType::SampleType Sample, CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)), Sample(Sample) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -90,7 +90,7 @@ namespace DynExpInstr
 		class SetDefaultTask : public DynExp::TaskBase
 		{
 		public:
-			SetDefaultTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			SetDefaultTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -260,10 +260,10 @@ namespace DynExpInstr
 		}
 
 		// Override in order to disable reading from an output instrument.
-		virtual void ReadData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<DynExp::DefaultTask>(CallbackFunc); }
+		virtual void ReadData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<DynExp::DefaultTask>(std::move(CallbackFunc)); }
 
-		virtual void Set(AnalogOutData::SampleStreamType::SampleType Sample, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkAnalogOutTasks::SetTask<BaseInstr, 0, gRPCStubs...>>(Sample, CallbackFunc); }
-		virtual void SetDefault(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkAnalogOutTasks::SetDefaultTask<BaseInstr, 0, gRPCStubs...>>(CallbackFunc); }
+		virtual void Set(AnalogOutData::SampleStreamType::SampleType Sample, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkAnalogOutTasks::SetTask<BaseInstr, 0, gRPCStubs...>>(Sample, std::move(CallbackFunc)); }
+		virtual void SetDefault(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkAnalogOutTasks::SetDefaultTask<BaseInstr, 0, gRPCStubs...>>(std::move(CallbackFunc)); }
 
 		virtual void SetSync(AnalogOutData::SampleStreamType::SampleType Sample) const override
 		{

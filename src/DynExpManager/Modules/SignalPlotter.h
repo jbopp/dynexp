@@ -12,7 +12,11 @@
 #include "../MetaInstruments/DataStreamInstrument.h"
 
 #include <QWidget>
-#include "ui_SignalPlotter.h"
+
+namespace Ui
+{
+	class SignalPlotter;
+}
 
 namespace DynExpModule
 {
@@ -53,7 +57,7 @@ namespace DynExpModule
 		auto GetYAxis() noexcept { return YAxis; }
 		auto GetMultiplier() noexcept { return Multiplier; }
 
-		Ui::SignalPlotter ui;
+		std::unique_ptr<Ui::SignalPlotter> ui;
 
 	private:
 		void FinishedSavingData() noexcept { IsSavingData = false; }

@@ -105,6 +105,14 @@ namespace DynExpHardware
 		};
 
 	public:
+#ifdef QUTOOLSQUTAG_VARIANT_S
+		static constexpr auto NumChannels = 5;
+		static constexpr auto NumCoincidenceChannels = 31;
+#else
+		static constexpr auto NumChannels = 31;
+		static constexpr auto NumCoincidenceChannels = 59;
+#endif
+
 		struct CoincidenceDataType
 		{
 			using CountsType = std::vector<QutoolsTDCSyms::Int32>;

@@ -102,8 +102,6 @@ namespace DynExpInstr
 
 	DynExp::TaskResultType NetworkSpectrometerTasks::SetExposureTimeTask::RunChild(DynExp::InstrumentInstance& Instance)
 	{
-		auto InstrData = DynExp::dynamic_InstrumentData_cast<NetworkSpectrometer>(Instance.InstrumentDataGetter());
-
 		StubPtrType<DynExpProto::NetworkSpectrometer::NetworkSpectrometer> StubPtr;
 		{
 			auto InstrData = DynExp::dynamic_InstrumentData_cast<NetworkSpectrometer>(Instance.InstrumentDataGetter());

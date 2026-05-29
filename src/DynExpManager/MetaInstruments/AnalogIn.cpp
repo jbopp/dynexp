@@ -28,7 +28,7 @@ namespace DynExpInstr
 
 	AnalogInData::SampleStreamType::SampleType AnalogIn::Get(DynExp::TaskBase::CallbackType CallbackFunc) const
 	{
-		ReadData(CallbackFunc);
+		ReadData(std::move(CallbackFunc));
 
 		auto InstrData = dynamic_InstrumentData_cast<AnalogIn>(GetInstrumentData());
 		auto Sample = InstrData->GetSampleStream()->ReadBasicSample().Value;

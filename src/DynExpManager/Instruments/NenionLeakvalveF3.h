@@ -47,7 +47,7 @@ namespace DynExpInstr
 		class ReferenceTask final : public DynExp::TaskBase
 		{
 		public:
-			ReferenceTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			ReferenceTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -67,7 +67,7 @@ namespace DynExpInstr
 		class MoveToHomeTask final : public DynExp::TaskBase
 		{
 		public:
-			MoveToHomeTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			MoveToHomeTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -77,7 +77,7 @@ namespace DynExpInstr
 		{
 		public:
 			MoveAbsoluteTask(PositionerStageData::PositionType Position, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), Position(Position) {}
+				: TaskBase(std::move(CallbackFunc)), Position(Position) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -89,7 +89,7 @@ namespace DynExpInstr
 		{
 		public:
 			MoveRelativeTask(PositionerStageData::PositionType Position, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), Position(Position) {}
+				: TaskBase(std::move(CallbackFunc)), Position(Position) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -189,12 +189,12 @@ namespace DynExpInstr
 		PositionerStageData::PositionType EnforcePositionLimits(PositionerStageData::PositionType Position) const;
 
 		virtual void SetHome() const override { MakeAndEnqueueTask<NenionLeakvalveF3Tasks::SetHomeTask>(); }
-		virtual void Reference([[maybe_unused]] DirectionType Direction = DirectionType::Forward, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NenionLeakvalveF3Tasks::ReferenceTask>(CallbackFunc); }
+		virtual void Reference([[maybe_unused]] DirectionType Direction = DirectionType::Forward, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NenionLeakvalveF3Tasks::ReferenceTask>(std::move(CallbackFunc)); }
 		virtual void SetVelocity(PositionerStageData::PositionType Velocity) const override { MakeAndEnqueueTask<NenionLeakvalveF3Tasks::SetVelocityTask>(Velocity); }
 
-		virtual void MoveToHome(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NenionLeakvalveF3Tasks::MoveToHomeTask>(CallbackFunc); }
-		virtual void MoveAbsolute(PositionerStageData::PositionType Position, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NenionLeakvalveF3Tasks::MoveAbsoluteTask>(Position, CallbackFunc); }
-		virtual void MoveRelative(PositionerStageData::PositionType Position, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NenionLeakvalveF3Tasks::MoveRelativeTask>(Position, CallbackFunc); }
+		virtual void MoveToHome(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NenionLeakvalveF3Tasks::MoveToHomeTask>(std::move(CallbackFunc)); }
+		virtual void MoveAbsolute(PositionerStageData::PositionType Position, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NenionLeakvalveF3Tasks::MoveAbsoluteTask>(Position, std::move(CallbackFunc)); }
+		virtual void MoveRelative(PositionerStageData::PositionType Position, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NenionLeakvalveF3Tasks::MoveRelativeTask>(Position, std::move(CallbackFunc)); }
 		virtual void StopMotion() const override { MakeAndEnqueueTask<NenionLeakvalveF3Tasks::StopMotionTask>(); }
 
 	private:

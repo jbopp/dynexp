@@ -12,10 +12,15 @@
 #include "../../MetaInstruments/Spectrometer.h"
 #include "../../Instruments/InterModuleCommunicator.h"
 
+#include "CommonModuleEvents.h"
 #include "SpectrumViewerEvents.h"
 
 #include <QWidget>
-#include "ui_SpectrumViewer.h"
+
+namespace Ui
+{
+	class SpectrumViewer;
+}
 
 namespace DynExpModule::SpectrumViewer
 {
@@ -47,7 +52,7 @@ namespace DynExpModule::SpectrumViewer
 
 		bool AllowResize() const noexcept override final { return true; }
 
-		const auto& GetUI() const noexcept { return ui; }
+		const auto GetUI() const noexcept { return ui.get(); }
 
 		void InitializeUI(Util::SynchronizedPointer<SpectrumViewerData>& ModuleData);
 		void UpdateUI(Util::SynchronizedPointer<SpectrumViewerData>& ModuleData);
@@ -57,12 +62,12 @@ namespace DynExpModule::SpectrumViewer
 		void FinishedSavingData() noexcept { IsSavingData = false; }
 		using FinishedSavingDataGuardType = Util::OnDestruction<SpectrumViewerWidget, decltype(&SpectrumViewerWidget::FinishedSavingData)>;
 
+		std::unique_ptr<Ui::SpectrumViewer> ui;
+
 		QXYSeries* DataSeries;
 		QChart* DataChart;
 		QValueAxis* XAxis;
 		QValueAxis* YAxis;
-
-		Ui::SpectrumViewer ui;
 
 		SampleDataType CurrentSpectrum;
 		DynExpInstr::SpectrometerData::TimeType CurrentExposureTime{};
@@ -187,7 +192,9 @@ namespace DynExpModule::SpectrumViewer
 		void OnExposureTimeChanged(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnLowerLimitChanged(DynExp::ModuleInstance* Instance, double Value) const;
 		void OnUpperLimitChanged(DynExp::ModuleInstance* Instance, double Value) const;
-		void OnRecordAndSaveSpectrum(DynExp::ModuleInstance* Instance, std::string SaveDataFilename) const;
+		void OnSetFilename(DynExp::ModuleInstance* Instance, const std::string& SaveFilename) const;
+		void OnTrigger(DynExp::ModuleInstance* Instance) const;
+		void OnStop(DynExp::ModuleInstance* Instance) const;
 		void OnPauseSpectrumRecording(DynExp::ModuleInstance* Instance) const;
 		void OnResumeSpectrumRecording(DynExp::ModuleInstance* Instance) const;
 

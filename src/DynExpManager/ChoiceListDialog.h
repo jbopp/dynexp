@@ -12,7 +12,11 @@
 #include "stdafx.h"
 
 #include <QWidget>
-#include "ui_ChoiceListDialog.h"
+
+namespace Ui
+{
+	class ChoiceListDialog;
+}
 
 class ChoiceListDialog : public QDialog
 {
@@ -33,7 +37,7 @@ public:
 private:
 	virtual void showEvent(QShowEvent* event) override;
 
-	Ui::ChoiceListDialog ui;
+	std::unique_ptr<Ui::ChoiceListDialog> ui;
 
 	const Util::TextValueListType<IndexType> ItemIDsWithLabels;
 	const std::string ParamName;

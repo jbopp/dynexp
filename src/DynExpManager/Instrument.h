@@ -68,14 +68,14 @@ namespace DynExp
 	/**
 	 * @brief Instruments run in their own thread. This is the instrument thread's main
 	 * function.
-	 * @param Instance Handle to the instrument thread's data related to the instrument
-	 * running this thread. The instrument thread is expected to let the lifetime of
-	 * @p Instance expire upon termination.
-	 * @param Instrument Pointer to the instrument running this thread
+	 * @param InstancePtr Pointer to a handle to the instrument thread's data related to the
+	 * instrument running this thread. The instrument thread takes ownership of @p InstancePtr
+	 * and is expected to let the lifetime of @p InstancePtr expire upon termination.
+	 * @param BaseObject Pointer to the instrument running this thread.
 	 * @return Util::DynExpErrorCodes::NoError if the thread terminated without an error,
 	 * the respective error code otherwise.
 	*/
-	int InstrumentThreadMain(InstrumentInstance Instance, InstrumentBase* const Instrument);
+	int InstrumentThreadMain(std::unique_ptr<RunnableInstance>&& InstancePtr, RunnableObject* BaseObject);
 
 	/**
 	 * @brief Wrapper holding a pointer to an exception and providing functionality for
@@ -161,6 +161,8 @@ namespace DynExp
 			constexpr InstrumentBaseOnlyType(InstrumentDataBase& Parent) noexcept : Parent(Parent) {}
 
 			void Reset() { Parent.Reset(); }																																								//!< @copydoc InstrumentDataBase::Reset
+			void IndicateException() noexcept { Parent.IndicateException(); }																																//!< @copydoc InstrumentDataBase::IndicateException
+			void SetException(std::exception_ptr Exception) noexcept { Parent.SetException(Exception); }																									//!< @copydoc InstrumentDataBase::SetException(std::exception_ptr)
 			void EnqueueTask(std::unique_ptr<TaskBase>&& Task, bool CallFromInstrThread, bool NotifyReceiver) { Parent.EnqueueTask(std::move(Task), CallFromInstrThread, NotifyReceiver); }					//!< @copydoc InstrumentDataBase::EnqueueTask(std::unique_ptr<TaskBase>&&, bool, bool)
 			void EnqueuePriorityTask(std::unique_ptr<TaskBase>&& Task, bool CallFromInstrThread, bool NotifyReceiver) { Parent.EnqueuePriorityTask(std::move(Task), CallFromInstrThread, NotifyReceiver); }	//!< @copydoc InstrumentDataBase::EnqueuePriorityTask(std::unique_ptr<TaskBase>&&, bool, bool)
 			void RemoveTaskFromQueue(TaskQueueIteratorType& Task) { Parent.RemoveTaskFromQueue(Task); }																										//!< @copydoc InstrumentDataBase::RemoveTaskFromQueue
@@ -180,7 +182,7 @@ namespace DynExp
 		class InstrumenThreadOnlyType
 		{
 			friend class InstrumentDataBase;
-			friend int InstrumentThreadMain(InstrumentInstance, InstrumentBase* const);
+			friend int InstrumentThreadMain(std::unique_ptr<RunnableInstance>&&, RunnableObject*);
 
 			/**
 			 * @brief Construcs an instance - one for each @p InstrumentDataBase instance
@@ -190,7 +192,6 @@ namespace DynExp
 
 			auto& GetNewTaskNotifier() noexcept { return Parent.GetNewTaskNotifier(); }													//!< @copydoc InstrumentDataBase::GetNewTaskNotifier()
 			void SetLastUpdateTime(std::chrono::system_clock::time_point LastUpdate) { Parent.LastUpdate = LastUpdate; }				//!< Setter for InstrumentDataBase::LastUpdate
-			void SetException(std::exception_ptr InstrumentException) noexcept { Parent.InstrumentException = InstrumentException; }	//!< Setter for InstrumentDataBase::InstrumentException
 
 			InstrumentDataBase& Parent;		//!< Owning @p InstrumentDataBase instance
 		};
@@ -283,10 +284,18 @@ namespace DynExp
 		auto GetLastUpdateTime() const { return LastUpdate; }
 
 		/**
-		 * @brief Getter for InstrumentDataBase::InstrumentException
+		 * @brief Getter for #HasException. Only performs atomic operations. Hence, this instrument
+		 * data instance does not need to be locked for this function call.
+		*/
+		bool IsExceptionIndicated() const noexcept { return HasException; }
+
+		/**
+		 * @brief Getter for InstrumentDataBase::InstrumentException. If
+		 * InstrumentDataBase::InstrumentException is nullptr and InstrumentDataBase::HasException
+		 * is still true, returns a pointer to a Util::Exception instance.
 		 * @return Returns the exception being responsible for the instrument's current state.
 		*/
-		auto GetException() const noexcept { return InstrumentException; }
+		std::exception_ptr GetException() const noexcept;
 
 		InstrumentBaseOnlyType InstrumentBaseOnly;		//!< @copydoc InstrumentBaseOnlyType
 		InstrumenThreadOnlyType InstrumentThreadOnly;	//!< @copydoc InstrumenThreadOnlyType
@@ -360,6 +369,19 @@ namespace DynExp
 		///@}
 
 		/**
+		 * @brief Indicates to the main thread that an exception has happened in the instrument thread.
+		 * Only performs atomic operations. Hence, this instrument data instance does not need to be
+		 * locked for this function call.
+		*/
+		void IndicateException() noexcept { HasException = true; }
+
+		/**
+		 * @brief Setter for #InstrumentException
+		 * @param Exception Exception to store.
+		*/
+		void SetException(std::exception_ptr Exception) noexcept;
+
+		/**
 		 * @brief Throws #InstrumentException if it is not nullptr using Util::ForwardException().
 		*/
 		void CheckError() const;
@@ -385,6 +407,13 @@ namespace DynExp
 		Util::OneToOneNotifier NewTaskNotifier;
 
 		std::chrono::system_clock::time_point LastUpdate;	//!< Time point when the instrument thread called InstrumentBase::UpdateDataInternal() the last time.
+
+		/**
+		 * @brief If set to true, indicates to the main thread that an exception has happened
+		 * in the instrument thread. In that case, the exception is possibly stored in
+		 * #InstrumentException.
+		*/
+		std::atomic<bool> HasException;
 
 		/**
 		 * @brief Used to transfer exceptions from the instrument thread to the main thread.
@@ -456,7 +485,7 @@ namespace DynExp
 		class InstrumenThreadOnlyType
 		{
 			friend class InstrumentBase;
-			friend int InstrumentThreadMain(InstrumentInstance, InstrumentBase* const);
+			friend int InstrumentThreadMain(std::unique_ptr<RunnableInstance>&&, RunnableObject*);
 
 			/**
 			 * @brief Construcs an instance - one for each @p InstrumentBase instance
@@ -464,8 +493,9 @@ namespace DynExp
 			*/
 			constexpr InstrumenThreadOnlyType(InstrumentBase& Parent) noexcept : Parent(Parent) {}
 
-			bool HandleTask(InstrumentInstance& Instance) { return Parent.HandleTask(Instance); }			//!< @copydoc InstrumentBase::HandleTask
+			auto HandleTask(InstrumentInstance& Instance) { return Parent.HandleTask(Instance); }			//!< @copydoc InstrumentBase::HandleTask
 			void UpdateData() { Parent.UpdateDataInternal(); }												//!< @copydoc InstrumentBase::UpdateDataInternal
+			void SetException(std::exception_ptr Exception) noexcept { Parent.SetException(Exception); }	//!< @copydoc InstrumentBase::SetException
 			void OnError() { Parent.OnError(); }															//!< @copydoc InstrumentBase::OnError
 			void SetInitialized() { Parent.Initialized = true; }											//!< Sets InstrumentBase::Initialized to true.
 
@@ -473,6 +503,24 @@ namespace DynExp
 		};
 
 	public:
+		/**
+		 * @brief Indicates how an instrument should proceed after handling a task.
+		*/
+		enum class TaskHandlingContinuationType { Continue, Terminate, Defer };
+		/**
+		 * @var InstrumentBase::TaskHandlingContinuationType InstrumentBase::Continue
+		 * Task handling should continue, the instrument does not terminate.
+		*/
+		/**
+		 * @var InstrumentBase::TaskHandlingContinuationType InstrumentBase::Terminate
+		 * Task handling should not continue, the instrument should terminate.
+		*/
+		/**
+		 * @var InstrumentBase::TaskHandlingContinuationType InstrumentBase::Defer
+		 * Task handling should continue. However, a deferred task currently blocks the
+		 * instrument queue. Hence, do not enqueue update tasks.
+		*/
+
 		using ParamsType = InstrumentParamsBase;															//!< @copydoc Object::ParamsType
 		using ConfigType = InstrumentConfiguratorBase;														//!< @copydoc Object::ConfigType
 		
@@ -646,24 +694,7 @@ namespace DynExp
 		 * @return Return the exception possibly thrown by the task.
 		*/
 		template <typename DerivedInstrT, typename... TaskFuncArgTs, typename... ArgTs>
-		ExceptionContainer AsSyncTask(void (DerivedInstrT::* TaskFunc)(TaskFuncArgTs...) const, ArgTs&& ...Args) const
-		{
-			std::atomic<bool> FinishedFlag = false;
-			ExceptionContainer Exception;
-			auto CallbackFunc = [&FinishedFlag, &Exception](const TaskBase& Task, auto E) {
-				Exception = E;
-
-				// Must come last!
-				FinishedFlag = true;
-			};
-
-			(dynamic_cast<const DerivedInstrT&>(*this).*TaskFunc)(std::forward<ArgTs>(Args)..., CallbackFunc);
-
-			while (!FinishedFlag)
-				std::this_thread::yield();
-
-			return Exception;
-		}
+		ExceptionContainer AsSyncTask(void (DerivedInstrT::* TaskFunc)(TaskFuncArgTs...) const, ArgTs&& ...Args) const;
 
 	private:
 		/** @name Instrument thread only
@@ -673,15 +704,25 @@ namespace DynExp
 		/**
 		 * @brief Executes and removes the next pending task from the instrument's task queue.
 		 * @param Instance Handle to the instrument thread's data
-		 * @return Returns false if task handling (the instrument) should stop, true otherwise.
+		 * @return Returns how the instrument should proceed after handling a task at front of the
+		 * task queue. Always indicates @p InstrumentBase::TaskHandlingContinuationType::Continue if there
+		 * is no task to be handled.
 		*/
-		bool HandleTask(InstrumentInstance& Instance);
+		TaskHandlingContinuationType HandleTask(InstrumentInstance& Instance);
 
 		/**
 		 * @brief Inserts an update task (@p UpdateTaskBase) into the instrument's task queue.
 		 * Override @p UpdateAdditionalData() to adjust behavior.
 		*/
 		void UpdateDataInternal();
+
+		/**
+		 * @brief Sets this instrument instance to an error state and tries to store the exception responsible
+		 * for the error state in #InstrumentData. If #InstrumentData cannot be locked, still atomically sets
+		 * an error flag.
+		 * @param Exception Exception to store.
+		*/
+		void SetException(std::exception_ptr Exception) noexcept;
 
 		/**
 		 * @brief Derived classes can perform critical shutdown actions after an error has occurred.
@@ -824,63 +865,59 @@ namespace DynExp
 	{
 	public:
 		/**
-		 * @brief Determines whether an instrument should terminate after handling the task.
+		 * @brief Determines whether an instrument should terminate after handling a task.
 		*/
-		enum class ContinueTaskHandlingType : bool { Continue, Terminate };
-		/**
-		 * @var TaskResultType::ContinueTaskHandlingType TaskResultType::Continue
-		 * Task handling should continue, the instrument does not terminate.
-		*/
-		/**
-		 * @var TaskResultType::ContinueTaskHandlingType TaskResultType::Terminate
-		 * Task handling should not continue, the instrument should terminate.
-		*/
+		enum class ContinuationType : bool {
+			Continue,	//!< Task handling should continue, the instrument does not terminate.
+			Terminate	//!< Task handling should not continue, the instrument should terminate.
+		};
 
 		/**
 		 * @brief Determines whether a task has been aborted.
 		*/
-		enum class AbortedType : bool { NotAborted, Aborted };
-		/**
-		 * @var TaskResultType::AbortedType TaskResultType::NotAborted
-		 * The task has not been aborted.
-		*/
-		/**
-		 * @var TaskResultType::AbortedType TaskResultType::Aborted
-		 * The task has been aborted.
-		*/
+		enum class AbortedType : bool {
+			NotAborted,	//!< The task has not been aborted.
+			Aborted		//!< The task has been aborted.
+		};
 
 		/**
 		 * @brief Constructs a @p TaskResultType instance.
-		 * @param ContinueTaskHandling @copybrief ContinueTaskHandlingType
+		 * @param Continue @copybrief ContinuationType
 		 * @param Aborted @copybrief AbortedType
 		 * @param ErrorCode @copybrief #ErrorCode
 		*/
-		constexpr TaskResultType(const ContinueTaskHandlingType ContinueTaskHandling = ContinueTaskHandlingType::Continue,
-			const AbortedType Aborted = AbortedType::NotAborted, const int ErrorCode = 0) noexcept
-			: ContinueTaskHandling(ContinueTaskHandling), Aborted(Aborted), ErrorCode(ErrorCode) {}
+		constexpr TaskResultType(const ContinuationType Continue = ContinuationType::Continue, const AbortedType Aborted = AbortedType::NotAborted,
+			const int ErrorCode = 0) noexcept
+			: Continue(Continue), Aborted(Aborted), ErrorCode(ErrorCode) {}
 
 		/**
 		 * @brief Determines whether the instrument having handled this task should continue or terminate.
 		 * @return Returns true if the instrument should continue handling other tasks or false if the instrument should terminate.
-		 */
-		constexpr bool ShouldContinue() const noexcept { return ContinueTaskHandling == ContinueTaskHandlingType::Continue; }
+		*/
+		constexpr bool ShouldContinue() const noexcept { return Continue == ContinuationType::Continue; }
+
+		/**
+		 * @brief Converts #Continue to @p InstrumentBase::TaskHandlingContinuationType.
+		 * @return Returns an instance of @p InstrumentBase::TaskHandlingContinuationType.
+		*/
+		constexpr InstrumentBase::TaskHandlingContinuationType ToTaskHandlingContinuationType() const noexcept;
 
 		/**
 		 * @brief Determines whether this task has been aborted.
 		 * @return Returns true if the task has been aborted, false otherwise.
-		 */
+		*/
 		constexpr bool HasAborted() const noexcept { return Aborted == AbortedType::Aborted; }
 
 		/**
 		 * @brief Getter for the error code of an error which occurred during execution of the task function.
 		 * @return Returns #ErrorCode.
-		 */
+		*/
 		constexpr int GetErrorCode() const noexcept { return ErrorCode; }
 
 	private:
-		const ContinueTaskHandlingType ContinueTaskHandling;	//!< @copybrief ContinueTaskHandlingType
-		const AbortedType Aborted;								//!< @copybrief AbortedType
-		const int ErrorCode;									//!< %DynExp error code from DynExpErrorCodes::DynExpErrorCodes. Anything else than 0 indicates an error.
+		const ContinuationType Continue;	//!< @copybrief ContinuationType
+		const AbortedType Aborted;			//!< @copybrief AbortedType
+		const int ErrorCode;				//!< %DynExp error code from DynExpErrorCodes::DynExpErrorCodes. Anything else than 0 indicates an error.
 	};
 
 	/**
@@ -905,7 +942,8 @@ namespace DynExp
 			constexpr InstrumentBaseOnlyType(TaskBase& Parent) noexcept : Parent(Parent) {}
 
 			void Lock() { Parent.Lock(); }													//!< @copydoc TaskBase::Lock
-			bool Run(InstrumentInstance& Instance) { return Parent.Run(Instance); }			//!< @copydoc TaskBase::Run
+			auto Run(InstrumentInstance& Instance) { return Parent.Run(Instance); }			//!< @copydoc TaskBase::Run
+			void SetAborted() { Parent.State = TaskState::Aborted; }						//!< Sets @p TaskBase::State to @p TaskBase::TaskState::Aborted.
 
 			TaskBase& Parent;		//!< Owning @p TaskBase instance
 		};
@@ -931,12 +969,77 @@ namespace DynExp
 
 	public:
 		/**
-		 * @brief Type of a callback function which is invoked when a task has finished,
-		 * failed or has been aborted. The function receives a reference to the task it
-		 * originates from as well as a reference to a wrapper holding an exception
-		 * which might have occurred while executing the task.
+		 * @brief Type owning a callback function which is invoked when a task has finished,
+		 * failed, or has been aborted. It is ensured that the callback function is invoked
+		 * latest upon destruction of the respective @p CallbackType instance. A callback
+		 * function can only be invoked once through a @p CallbackType instance.
 		*/
-		using CallbackType = std::function<void(const TaskBase&, ExceptionContainer&)>;
+		class CallbackType
+		{
+		public:
+			/**
+			 * @brief Type of the owned callback function. The function receives a pointer to
+			 * the task the @p CallbackType instance is owned by. If it has no owner, @p nullptr
+			 * is passed. The second parameter is a reference to a wrapper holding an exception
+			 * which might have occurred while executing the owning task.
+			*/
+			using FuncType = std::function<void(const TaskBase*, ExceptionContainer&)>;
+
+			/**
+			 * @brief Constructs a @p CallbackType instance with an empty #CallbackFunc.
+			*/
+			CallbackType() : CallbackFunc() {}
+			
+			/**
+			 * @copydoc CallbackType()
+			*/
+			CallbackType(std::nullptr_t) : CallbackFunc() {}
+			
+			/**
+			 * @brief Constructs a @p CallbackType instance owning a callback function.
+			 * @param CallbackFunc Pointer to the callback function to take ownership of.
+			*/
+			CallbackType(FuncType&& CallbackFunc) : CallbackFunc(CallbackFunc) {}
+			
+			/**
+			 * @brief Copies #CallbackFunc and #HasBeenCalled from other and ensures that
+			 * @p Other will never be invoked.
+			 * @param Other @p CallbackType instance to move from.
+			*/
+			CallbackType(CallbackType&& Other);
+			
+			/**
+			 * @brief Calls @p operator()() passing @p nullptr to the first argument of @p FuncType.
+			 * Swallows all exceptions possibly occuring during the execution of #CallbackFunc.
+			*/
+			~CallbackType();
+
+			/**
+			 * @brief Invokes #CallbackFunc if it has not been invoked before.
+			 * @tparam ...ArgTs Types of arguments to pass to #CallbackFunc. Refer to @p FuncType.
+			 * @param ...Args Arguments to forward to #CallbackFunc.
+			*/
+			template <typename... ArgTs>
+			void operator()(ArgTs&& ...Args)
+			{
+				if (CallbackFunc && !HasBeenCalled)
+				{
+					HasBeenCalled = true;
+
+					CallbackFunc(std::forward<ArgTs>(Args)...);
+				}
+			}
+
+			/**
+			 * @brief Returns false if #CallbackFunc is empty, true otherwise.
+			*/
+			operator bool() const noexcept { return static_cast<bool>(CallbackFunc); }
+
+		private:
+			const FuncType CallbackFunc;	//!< Pointer to the owned callback function. 
+
+			bool HasBeenCalled = false;		//!< Indicates whether #CallbackFunc has been invoked already.
+		};
 
 		/**
 		 * @brief Defines states an instrument's task can undergo.
@@ -975,10 +1078,24 @@ namespace DynExp
 		/**
 		 * @brief Constructs an instrument task.
 		 * @param CallbackFunc @copybrief #CallbackFunc
+		 * @param DeferUntil @copybrief #DeferUntil
+		 * If the task does not support being deferred, the @p DeferUntil parameter is not available in the task's constructor.
 		*/
-		TaskBase(CallbackType CallbackFunc = nullptr) noexcept
+		TaskBase(CallbackType CallbackFunc = nullptr, std::chrono::system_clock::time_point DeferUntil = {}) noexcept
 			: InstrumentBaseOnly(*this), InstrumentDataBaseOnly(*this),
-			CallbackFunc(std::move(CallbackFunc)), State(TaskState::Waiting), ErrorCode(0), ShouldAbort(false) {}
+			CallbackFunc(std::move(CallbackFunc)), DeferUntil(DeferUntil),
+			State(TaskState::Waiting), ErrorCode(0), ShouldAbort(false) {}
+
+		/**
+		 * @brief Constructs an instrument task, moving #CallbackFunc from another task to this task. The other task
+		 * is left with a #CallbackFunc that will not be executed anymore after this operation. Using this constructor
+		 * is useful, if a running task enqueues (an)other task(s). In this case, the callback function should not be
+		 * called by the original task but by the last task in this chain of tasks.
+		 * @param Other Other task to steal #CallbackFunc from.
+		 * @param DeferUntil @copybrief #DeferUntil
+		*/
+		TaskBase(TaskBase& Other, std::chrono::system_clock::time_point DeferUntil = {}) noexcept
+			: TaskBase(std::move(Other.CallbackFunc), DeferUntil) {}
 
 		/**
 		 * @brief The destructor aborts a waiting task setting #State to TaskState::Aborted. Then, it
@@ -990,6 +1107,12 @@ namespace DynExp
 		 * Methods can be called from any thread. Only atomic operations are performed.
 		*/
 		///@{
+		/**
+		 * @brief Getter for the instrument task's earliest execution time point.
+		 * @return Returns #DeferUntil.
+		*/
+		auto GetDeferUntil() const noexcept { return DeferUntil; }
+
 		/**
 		 * @brief Getter for the instrument task's current state.
 		 * @return Returns #State.
@@ -1043,11 +1166,11 @@ namespace DynExp
 		 * @p KeepFinishedTask() returns false) and if no #CallbackFunc has been set.
 		 * @p RunChild() is supposed to check the return value of @p IsAborting().
 		 * @param Instance Handle to the instrument thread's data
-		 * @return Returns true if task handling should continue, false if the instrument thread should terminate.
+		 * @return Returns whether task handling should continue or whether the instrument thread should terminate.
 		 * @throws Util::InvalidStateException is thrown if the task is not in the TaskState::Waiting
 		 * or TaskState::Locked state.
 		*/
-		bool Run(InstrumentInstance& Instance);
+		InstrumentBase::TaskHandlingContinuationType Run(InstrumentInstance& Instance);
 
 		/** @name Override
 		 * Override by derived classes.
@@ -1066,10 +1189,18 @@ namespace DynExp
 
 		/**
 		 * @brief This callback function is called after the task has finished (either successfully or not)
-		 * with a reference to the current task and with a reference to the exception which occurred during
+		 * with a pointer to the current task and with a reference to the exception which occurred during
 		 * the task execution (if an exception has occurred).
 		*/
-		const CallbackType CallbackFunc;
+		CallbackType CallbackFunc;
+
+		/**
+		 * @brief The execution of this task is deferred until the specified point in time is reached if
+		 * @p time_since_epoch() of #DeferUntil is non-zero. Tasks being deferred block the task queue of the
+		 * instrument they are assigned to, i.e., other enqueued tasks do not run before this task to maintain
+		 * the task order.
+		*/
+		const std::chrono::system_clock::time_point DeferUntil;
 
 		/** @name Instrument-to-other communication
 		 * These variables are for communication from the instrument thread to other thread(s) only.
@@ -1087,16 +1218,41 @@ namespace DynExp
 		///@}
 	};
 
+	template <typename DerivedInstrT, typename... TaskFuncArgTs, typename... ArgTs>
+	ExceptionContainer InstrumentBase::AsSyncTask(void (DerivedInstrT::* TaskFunc)(TaskFuncArgTs...) const, ArgTs&& ...Args) const
+	{
+		std::atomic<bool> FinishedFlag = false;
+		ExceptionContainer Exception;
+		auto CallbackFunc = TaskBase::CallbackType::FuncType([&FinishedFlag, &Exception](const TaskBase*, auto E) {
+			Exception = E;
+
+			// Must come last!
+			FinishedFlag = true;
+		});
+
+		(dynamic_cast<const DerivedInstrT&>(*this).*TaskFunc)(std::forward<ArgTs>(Args)..., std::move(CallbackFunc));
+
+		while (!FinishedFlag)
+			std::this_thread::yield();
+
+		return Exception;
+	}
+
 	/**
 	 * @brief Default task which does not do anything. Though, calling it ensures that TaskBase::CallbackFunc
 	 * gets called. This is required to avoid InstrumentBase::AsSyncTask() getting stuck in an infinite loop.
 	 * All functions overridden from meta instruments, which are expected to enqueue a task, must at least
-	 * enqueue a @p DefaultTask (by calling @p MakeAndEnqueueTask< DynExp::DefaultTask >(CallbackFunc);)
+	 * enqueue a @p DefaultTask (by calling @p MakeAndEnqueueTask< DynExp::DefaultTask >(std::move(CallbackFunc));).
+	 * Moreover, this task can be used to defer the task queue execution by setting the #DeferUntil parameter.
 	*/
 	class DefaultTask final : public TaskBase
 	{
 	public:
-		DefaultTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}				//!< @copydoc TaskBase::TaskBase
+		/**
+		 * @copydoc TaskBase::TaskBase
+		*/
+		DefaultTask(CallbackType CallbackFunc, std::chrono::system_clock::time_point DeferUntil = {}) noexcept
+			: TaskBase(std::move(CallbackFunc), DeferUntil) {}
 
 	private:
 		virtual TaskResultType RunChild(InstrumentInstance& Instance) override { return {}; }
@@ -1209,7 +1365,7 @@ namespace DynExp
 		 * @param Latch @copybrief #Latch
 		*/
 		ArriveAtLatchTask(std::latch& Latch, CallbackType CallbackFunc = nullptr)
-			: TaskBase(CallbackFunc), Latch(Latch) {}
+			: TaskBase(std::move(CallbackFunc)), Latch(Latch) {}
 
 		/**
 		 * @brief If the task has been aborted or never executed, the destructor arrives

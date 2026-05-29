@@ -2,14 +2,19 @@
 
 #include "stdafx.h"
 #include "moc_$Name.cpp"
+$$if($HasUI)
+#include "ui_$Name.h"
+$$endif
 #include "$Name.h"
 
 namespace DynExpModule
 {
 $$if($HasUI)
-	$Name$Widget::$Name$Widget($Name& Owner, QModuleWidget* parent) : QModuleWidget(Owner, parent)
+	$Name$Widget::$Name$Widget($Name& Owner, QModuleWidget* parent)
+		: QModuleWidget(Owner, parent),
+		ui(std::make_unique<Ui::$Name>())
 	{
-		ui.setupUi(this);
+		ui->setupUi(this);
 		
 		// TODO: Initialize widget's UI.
 	}
@@ -73,8 +78,8 @@ $$if($HasUI)
 		auto Widget = std::make_unique<$Name$Widget>(*this);
 
 		// TODO: Connect Qt signals to module events
-		// e.g. Connect(Widget->ui.ButtonCalibrate, &QPushButton::clicked, this, &$Name::OnCalibrateClicked);
-		// e.g. Connect(Widget->ui.SpinBoxPosition, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &$Name::OnPositionValueChanged);
+		// e.g. Connect(Widget->ui->ButtonCalibrate, &QPushButton::clicked, this, &$Name::OnCalibrateClicked);
+		// e.g. Connect(Widget->ui->SpinBoxPosition, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &$Name::OnPositionValueChanged);
 
 		return Widget;
 	}

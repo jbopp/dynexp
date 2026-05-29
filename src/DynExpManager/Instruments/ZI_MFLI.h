@@ -71,7 +71,7 @@ namespace DynExpInstr
 		{
 		public:
 			ReadTask(DynExpHardware::ZILabOneHardwareAdapter::SignalInputType UsedSignalInput, uint8_t UsedDemodulator, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator) {}
+				: TaskBase(std::move(CallbackFunc)), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -81,7 +81,7 @@ namespace DynExpInstr
 		{
 		public:
 			ClearDataTask(DynExpHardware::ZILabOneHardwareAdapter::SignalInputType UsedSignalInput, uint8_t UsedDemodulator, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator) {}
+				: TaskBase(std::move(CallbackFunc)), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -91,7 +91,7 @@ namespace DynExpInstr
 		{
 		public:
 			StartTask(DynExpHardware::ZILabOneHardwareAdapter::SignalInputType UsedSignalInput, uint8_t UsedDemodulator, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator) {}
+				: TaskBase(std::move(CallbackFunc)), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -101,7 +101,7 @@ namespace DynExpInstr
 		{
 		public:
 			StopTask(DynExpHardware::ZILabOneHardwareAdapter::SignalInputType UsedSignalInput, uint8_t UsedDemodulator, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator) {}
+				: TaskBase(std::move(CallbackFunc)), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -112,7 +112,7 @@ namespace DynExpInstr
 		public:
 			SetSensitivityTask(double Sensitivity,
 				DynExpHardware::ZILabOneHardwareAdapter::SignalInputType UsedSignalInput, uint8_t UsedDemodulator, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator), Sensitivity(Sensitivity) {}
+				: TaskBase(std::move(CallbackFunc)), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator), Sensitivity(Sensitivity) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -124,7 +124,7 @@ namespace DynExpInstr
 		{
 		public:
 			AutoAdjustSensitivityTask(DynExpHardware::ZILabOneHardwareAdapter::SignalInputType UsedSignalInput, uint8_t UsedDemodulator, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator) {}
+				: TaskBase(std::move(CallbackFunc)), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -135,7 +135,7 @@ namespace DynExpInstr
 		public:
 			SetPhaseTask(double Phase,
 				DynExpHardware::ZILabOneHardwareAdapter::SignalInputType UsedSignalInput, uint8_t UsedDemodulator, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator), Phase(Phase) {}
+				: TaskBase(std::move(CallbackFunc)), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator), Phase(Phase) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -147,7 +147,7 @@ namespace DynExpInstr
 		{
 		public:
 			AutoAdjustPhaseTask(DynExpHardware::ZILabOneHardwareAdapter::SignalInputType UsedSignalInput, uint8_t UsedDemodulator, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator) {}
+				: TaskBase(std::move(CallbackFunc)), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -158,7 +158,7 @@ namespace DynExpInstr
 		public:
 			SetTimeConstantTask(double TimeConstant,
 				DynExpHardware::ZILabOneHardwareAdapter::SignalInputType UsedSignalInput, uint8_t UsedDemodulator, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator), TimeConstant(TimeConstant) {}
+				: TaskBase(std::move(CallbackFunc)), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator), TimeConstant(TimeConstant) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -171,7 +171,7 @@ namespace DynExpInstr
 		public:
 			SetFilterOrderTask(uint8_t FilterOrder,
 				DynExpHardware::ZILabOneHardwareAdapter::SignalInputType UsedSignalInput, uint8_t UsedDemodulator, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator), FilterOrder(FilterOrder) {}
+				: TaskBase(std::move(CallbackFunc)), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator), FilterOrder(FilterOrder) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -184,7 +184,7 @@ namespace DynExpInstr
 		public:
 			SetTriggerModeTask(LockinAmplifierDefs::TriggerModeType TriggerMode, uint8_t TriggerChannel,
 				DynExpHardware::ZILabOneHardwareAdapter::SignalInputType UsedSignalInput, uint8_t UsedDemodulator, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator), TriggerMode(TriggerMode), TriggerChannel(TriggerChannel) {}
+				: TaskBase(std::move(CallbackFunc)), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator), TriggerMode(TriggerMode), TriggerChannel(TriggerChannel) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -198,7 +198,7 @@ namespace DynExpInstr
 		public:
 			SetTriggerEdgeTask(LockinAmplifierDefs::TriggerEdgeType TriggerEdge,
 				DynExpHardware::ZILabOneHardwareAdapter::SignalInputType UsedSignalInput, uint8_t UsedDemodulator, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator), TriggerEdge(TriggerEdge) {}
+				: TaskBase(std::move(CallbackFunc)), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator), TriggerEdge(TriggerEdge) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -211,7 +211,7 @@ namespace DynExpInstr
 		public:
 			SetSignalTypeTask(LockinAmplifierDefs::SignalType SignalType,
 				DynExpHardware::ZILabOneHardwareAdapter::SignalInputType UsedSignalInput, uint8_t UsedDemodulator, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator), SignalType(SignalType) {}
+				: TaskBase(std::move(CallbackFunc)), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator), SignalType(SignalType) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -224,7 +224,7 @@ namespace DynExpInstr
 		public:
 			SetSamplingRateTask(double SamplingRate,
 				DynExpHardware::ZILabOneHardwareAdapter::SignalInputType UsedSignalInput, uint8_t UsedDemodulator, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator), SamplingRate(SamplingRate) {}
+				: TaskBase(std::move(CallbackFunc)), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator), SamplingRate(SamplingRate) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -237,7 +237,7 @@ namespace DynExpInstr
 		public:
 			SetEnableTask(bool Enable,
 				DynExpHardware::ZILabOneHardwareAdapter::SignalInputType UsedSignalInput, uint8_t UsedDemodulator, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator), Enable(Enable) {}
+				: TaskBase(std::move(CallbackFunc)), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator), Enable(Enable) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -249,7 +249,7 @@ namespace DynExpInstr
 		{
 		public:
 			ForceTriggerTask(DynExpHardware::ZILabOneHardwareAdapter::SignalInputType UsedSignalInput, uint8_t UsedDemodulator, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator) {}
+				: TaskBase(std::move(CallbackFunc)), ZI_MFLITaskBase(UsedSignalInput, UsedDemodulator) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -378,23 +378,23 @@ namespace DynExpInstr
 		virtual Util::OptionalBool IsRunning() const override;
 
 		// Tasks
-		virtual void ReadData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::ReadTask>(SignalInput, UsedDemodulator, CallbackFunc); }
-		virtual void ClearData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::ClearDataTask>(SignalInput, UsedDemodulator, CallbackFunc); }
-		virtual void Start(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::StartTask>(SignalInput, UsedDemodulator, CallbackFunc); }
-		virtual void Stop(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::StopTask>(SignalInput, UsedDemodulator, CallbackFunc); }
+		virtual void ReadData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::ReadTask>(SignalInput, UsedDemodulator, std::move(CallbackFunc)); }
+		virtual void ClearData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::ClearDataTask>(SignalInput, UsedDemodulator, std::move(CallbackFunc)); }
+		virtual void Start(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::StartTask>(SignalInput, UsedDemodulator, std::move(CallbackFunc)); }
+		virtual void Stop(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::StopTask>(SignalInput, UsedDemodulator, std::move(CallbackFunc)); }
 
-		virtual void SetSensitivity(double Sensitivity, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::SetSensitivityTask>(Sensitivity, SignalInput, UsedDemodulator, CallbackFunc); }
-		virtual void AutoAdjustSensitivity(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::AutoAdjustSensitivityTask>(SignalInput, UsedDemodulator, CallbackFunc); }
-		virtual void SetPhase(double Phase, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::SetPhaseTask>(Phase, SignalInput, UsedDemodulator, CallbackFunc); }
-		virtual void AutoAdjustPhase(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::AutoAdjustPhaseTask>(SignalInput, UsedDemodulator, CallbackFunc); }
-		virtual void SetTimeConstant(double TimeConstant, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::SetTimeConstantTask>(TimeConstant, SignalInput, UsedDemodulator, CallbackFunc); }
-		virtual void SetFilterOrder(uint8_t FilterOrder, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::SetFilterOrderTask>(FilterOrder, SignalInput, UsedDemodulator, CallbackFunc); }
-		virtual void SetTriggerMode(LockinAmplifierDefs::TriggerModeType TriggerMode, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::SetTriggerModeTask>(TriggerMode, TriggerChannel, SignalInput, UsedDemodulator, CallbackFunc); }
-		virtual void SetTriggerEdge(LockinAmplifierDefs::TriggerEdgeType TriggerEdge, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::SetTriggerEdgeTask>(TriggerEdge, SignalInput, UsedDemodulator, CallbackFunc); }
-		virtual void SetSignalType(LockinAmplifierDefs::SignalType SignalType, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::SetSignalTypeTask>(SignalType, SignalInput, UsedDemodulator, CallbackFunc); }
-		virtual void SetSamplingRate(double SamplingRate, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::SetSamplingRateTask>(SamplingRate, SignalInput, UsedDemodulator, CallbackFunc); }
-		virtual void SetEnable(bool Enable, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::SetEnableTask>(Enable, SignalInput, UsedDemodulator, CallbackFunc); }
-		virtual void ForceTrigger(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::ForceTriggerTask>(SignalInput, UsedDemodulator, CallbackFunc); }
+		virtual void SetSensitivity(double Sensitivity, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::SetSensitivityTask>(Sensitivity, SignalInput, UsedDemodulator, std::move(CallbackFunc)); }
+		virtual void AutoAdjustSensitivity(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::AutoAdjustSensitivityTask>(SignalInput, UsedDemodulator, std::move(CallbackFunc)); }
+		virtual void SetPhase(double Phase, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::SetPhaseTask>(Phase, SignalInput, UsedDemodulator, std::move(CallbackFunc)); }
+		virtual void AutoAdjustPhase(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::AutoAdjustPhaseTask>(SignalInput, UsedDemodulator, std::move(CallbackFunc)); }
+		virtual void SetTimeConstant(double TimeConstant, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::SetTimeConstantTask>(TimeConstant, SignalInput, UsedDemodulator, std::move(CallbackFunc)); }
+		virtual void SetFilterOrder(uint8_t FilterOrder, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::SetFilterOrderTask>(FilterOrder, SignalInput, UsedDemodulator, std::move(CallbackFunc)); }
+		virtual void SetTriggerMode(LockinAmplifierDefs::TriggerModeType TriggerMode, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::SetTriggerModeTask>(TriggerMode, TriggerChannel, SignalInput, UsedDemodulator, std::move(CallbackFunc)); }
+		virtual void SetTriggerEdge(LockinAmplifierDefs::TriggerEdgeType TriggerEdge, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::SetTriggerEdgeTask>(TriggerEdge, SignalInput, UsedDemodulator, std::move(CallbackFunc)); }
+		virtual void SetSignalType(LockinAmplifierDefs::SignalType SignalType, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::SetSignalTypeTask>(SignalType, SignalInput, UsedDemodulator, std::move(CallbackFunc)); }
+		virtual void SetSamplingRate(double SamplingRate, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::SetSamplingRateTask>(SamplingRate, SignalInput, UsedDemodulator, std::move(CallbackFunc)); }
+		virtual void SetEnable(bool Enable, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::SetEnableTask>(Enable, SignalInput, UsedDemodulator, std::move(CallbackFunc)); }
+		virtual void ForceTrigger(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<ZI_MFLITasks::ForceTriggerTask>(SignalInput, UsedDemodulator, std::move(CallbackFunc)); }
 
 	private:
 		void ResetImpl(dispatch_tag<LockinAmplifier>) override final;

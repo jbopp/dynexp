@@ -8,7 +8,11 @@
 #pragma once
 
 #include <QWidget>
-#include "ui_BusyDialog.h"
+
+namespace Ui
+{
+	class BusyDialog;
+}
 
 class BusyDialog : public QDialog
 {
@@ -18,7 +22,7 @@ public:
 	using CheckFinishedFunctionType = std::function<bool(void)>;
 
 	BusyDialog(QWidget* parent);
-	~BusyDialog() = default;
+	~BusyDialog();
 
 	auto GetException() const noexcept { return Exception; }
 
@@ -30,7 +34,7 @@ private:
 	virtual void closeEvent(QCloseEvent* event) override;
 	virtual void reject() override;
 
-	Ui::BusyDialog ui;
+	std::unique_ptr<Ui::BusyDialog> ui;
 	QTimer* CheckFinishedTimer;
 
 	CheckFinishedFunctionType CheckFinishedFunction;

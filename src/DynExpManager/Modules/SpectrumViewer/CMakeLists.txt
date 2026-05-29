@@ -1,4 +1,4 @@
-target_sources(DynExp PRIVATE
+target_sources(DynExpModules PRIVATE
 	"SpectrumViewer.cpp"
 	"SpectrumViewer.h"
 	"SpectrumViewer.ui"

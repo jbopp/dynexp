@@ -1,6 +1,7 @@
 // This file is part of DynExp.
 
 #include "stdafx.h"
+#include "ui_ODMR.h"
 #include "ODMR.h"
 
 namespace DynExpModule::ODMR
@@ -210,50 +211,50 @@ namespace DynExpModule::ODMR
 	{
 		auto Widget = std::make_unique<ODMRWidget>(*this);
 
-		Connect(Widget->GetUI().SBRFPower, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnRFPowerChanged);
-		Connect(Widget->GetUI().CBRFAutoEnable, &QCheckBox::stateChanged, this, &ODMR::OnRFAutoEnableClicked);
-		Connect(Widget->GetUI().SBRFCenter, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnRFCenterFreqChanged);
-		Connect(Widget->GetUI().SBRFSpan, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnRFFreqSpanChanged);
-		Connect(Widget->GetUI().SBRFFreqSpacing, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnRFFreqSpacingChanged);
-		Connect(Widget->GetUI().SBRFDwellTime, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnRFDwellTimeChanged);
+		Connect(Widget->GetUI()->SBRFPower, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnRFPowerChanged);
+		Connect(Widget->GetUI()->CBRFAutoEnable, &QCheckBox::checkStateChanged, this, &ODMR::OnRFAutoEnableClicked);
+		Connect(Widget->GetUI()->SBRFCenter, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnRFCenterFreqChanged);
+		Connect(Widget->GetUI()->SBRFSpan, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnRFFreqSpanChanged);
+		Connect(Widget->GetUI()->SBRFFreqSpacing, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnRFFreqSpacingChanged);
+		Connect(Widget->GetUI()->SBRFDwellTime, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnRFDwellTimeChanged);
 
-		Connect(Widget->GetUI().RBRFModulationTypeNone, &QRadioButton::clicked, this, &ODMR::OnRFModNoneClicked);
-		Connect(Widget->GetUI().RBRFModulationTypeSine, &QRadioButton::clicked, this, &ODMR::OnRFModSineClicked);
-		Connect(Widget->GetUI().RBRFModulationTypePulse, &QRadioButton::clicked, this, &ODMR::OnRFModPulseClicked);
-		Connect(Widget->GetUI().SBRFModulationFreq, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnRFModFreqChanged);
-		Connect(Widget->GetUI().SBRFModulationDepth, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnRFModDepthChanged);
+		Connect(Widget->GetUI()->RBRFModulationTypeNone, &QRadioButton::clicked, this, &ODMR::OnRFModNoneClicked);
+		Connect(Widget->GetUI()->RBRFModulationTypeSine, &QRadioButton::clicked, this, &ODMR::OnRFModSineClicked);
+		Connect(Widget->GetUI()->RBRFModulationTypePulse, &QRadioButton::clicked, this, &ODMR::OnRFModPulseClicked);
+		Connect(Widget->GetUI()->SBRFModulationFreq, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnRFModFreqChanged);
+		Connect(Widget->GetUI()->SBRFModulationDepth, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnRFModDepthChanged);
 
-		Connect(Widget->GetUI().SBDataAcquisitionODMRSamplingRate, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnODMRSamplingRateChanged);
+		Connect(Widget->GetUI()->SBDataAcquisitionODMRSamplingRate, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnODMRSamplingRateChanged);
 
-		Connect(Widget->GetUI().LESaveDataPath, &QLineEdit::textChanged, this, &ODMR::OnSavePathChanged);
-		Connect(Widget->GetUI().SBSaveDataCurrentIndex, QOverload<int>::of(&QSpinBox::valueChanged), this, &ODMR::OnSaveIndexChanged);
-		Connect(Widget->GetUI().CBSaveDataEnable, &QCheckBox::stateChanged, this, &ODMR::OnAutosaveClicked);
+		Connect(Widget->GetUI()->LESaveDataPath, &QLineEdit::textChanged, this, &ODMR::OnSavePathChanged);
+		Connect(Widget->GetUI()->SBSaveDataCurrentIndex, QOverload<int>::of(&QSpinBox::valueChanged), this, &ODMR::OnSaveIndexChanged);
+		Connect(Widget->GetUI()->CBSaveDataEnable, &QCheckBox::checkStateChanged, this, &ODMR::OnAutosaveClicked);
 
-		Connect(Widget->GetUI().CBSensitivityEnable, &QCheckBox::stateChanged, this, &ODMR::OnRecordSensitivityClicked);
-		Connect(Widget->GetUI().CBSensitivityOncePerSweep, &QCheckBox::stateChanged, this, &ODMR::OnRecordSensitivityOncePerSweepClicked);
-		Connect(Widget->GetUI().CBSensitivityOffResEnable, &QCheckBox::stateChanged, this, &ODMR::OnRecordSensitivityOffResonanceClicked);
-		Connect(Widget->GetUI().SBSensitivityFreq, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnSensitivityResonanceFreqChanged);
-		Connect(Widget->GetUI().SBSensitivityOffResFreq, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnSensitivityOffResonanceFreqChanged);
-		Connect(Widget->GetUI().SBSensitivitySpan, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnSensitivityResonanceSpanChanged);
-		Connect(Widget->GetUI().SBSensitivitySamplingRate, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnSensitivitySamplingRateChanged);
-		Connect(Widget->GetUI().SBSensitivityDuration, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnSensitivityDurationChanged);
+		Connect(Widget->GetUI()->CBSensitivityEnable, &QCheckBox::checkStateChanged, this, &ODMR::OnRecordSensitivityClicked);
+		Connect(Widget->GetUI()->CBSensitivityOncePerSweep, &QCheckBox::checkStateChanged, this, &ODMR::OnRecordSensitivityOncePerSweepClicked);
+		Connect(Widget->GetUI()->CBSensitivityOffResEnable, &QCheckBox::checkStateChanged, this, &ODMR::OnRecordSensitivityOffResonanceClicked);
+		Connect(Widget->GetUI()->SBSensitivityFreq, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnSensitivityResonanceFreqChanged);
+		Connect(Widget->GetUI()->SBSensitivityOffResFreq, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnSensitivityOffResonanceFreqChanged);
+		Connect(Widget->GetUI()->SBSensitivitySpan, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnSensitivityResonanceSpanChanged);
+		Connect(Widget->GetUI()->SBSensitivitySamplingRate, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnSensitivitySamplingRateChanged);
+		Connect(Widget->GetUI()->SBSensitivityDuration, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnSensitivityDurationChanged);
 
-		Connect(Widget->GetUI().GBSensitivityAnalysis, &QGroupBox::toggled, this, &ODMR::OnEnableSensitivityAnalysisClicked);
-		Connect(Widget->GetUI().SBGyromagneticRatio, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnGyromagneticRatioChanged);
+		Connect(Widget->GetUI()->GBSensitivityAnalysis, &QGroupBox::toggled, this, &ODMR::OnEnableSensitivityAnalysisClicked);
+		Connect(Widget->GetUI()->SBGyromagneticRatio, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnGyromagneticRatioChanged);
 
-		Connect(Widget->GetUI().CBParamSweepEnable, &QCheckBox::stateChanged, this, &ODMR::OnEnableSweepSeriesClicked);
-		Connect(Widget->GetUI().CBParamSweepType, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &ODMR::OnSweepSeriesParamChanged);
-		Connect(Widget->GetUI().SBParamSweepStart, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnSweepSeriesStartChanged);
-		Connect(Widget->GetUI().SBParamSweepStop, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnSweepSeriesStopChanged);
-		Connect(Widget->GetUI().SBParamSweepStep, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnSweepSeriesStepChanged);
-		Connect(Widget->GetUI().CBParamSweepRetrace, &QCheckBox::stateChanged, this, &ODMR::OnSweepSeriesRetraceClicked);
-		Connect(Widget->GetUI().CBParamSweepAdvanceLastValue, &QCheckBox::stateChanged, this, &ODMR::OnSweepSeriesAdvanceLastValueClicked);
+		Connect(Widget->GetUI()->CBParamSweepEnable, &QCheckBox::checkStateChanged, this, &ODMR::OnEnableSweepSeriesClicked);
+		Connect(Widget->GetUI()->CBParamSweepType, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &ODMR::OnSweepSeriesParamChanged);
+		Connect(Widget->GetUI()->SBParamSweepStart, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnSweepSeriesStartChanged);
+		Connect(Widget->GetUI()->SBParamSweepStop, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnSweepSeriesStopChanged);
+		Connect(Widget->GetUI()->SBParamSweepStep, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &ODMR::OnSweepSeriesStepChanged);
+		Connect(Widget->GetUI()->CBParamSweepRetrace, &QCheckBox::checkStateChanged, this, &ODMR::OnSweepSeriesRetraceClicked);
+		Connect(Widget->GetUI()->CBParamSweepAdvanceLastValue, &QCheckBox::checkStateChanged, this, &ODMR::OnSweepSeriesAdvanceLastValueClicked);
 
-		Connect(Widget->GetUI().BStart, &QPushButton::clicked, this, &ODMR::OnStartClicked);
-		Connect(Widget->GetUI().BStartSensitivity, &QPushButton::clicked, this, &ODMR::OnStartSensitivityClicked);
-		Connect(Widget->GetUI().BStop, &QPushButton::clicked, this, &ODMR::OnStopClicked);
-		Connect(Widget->GetUI().BRFOn, &QPushButton::clicked, this, &ODMR::OnRFOnClicked);
-		Connect(Widget->GetUI().BRFOff, &QPushButton::clicked, this, &ODMR::OnRFOffClicked);
+		Connect(Widget->GetUI()->BStart, &QPushButton::clicked, this, &ODMR::OnStartClicked);
+		Connect(Widget->GetUI()->BStartSensitivity, &QPushButton::clicked, this, &ODMR::OnStartSensitivityClicked);
+		Connect(Widget->GetUI()->BStop, &QPushButton::clicked, this, &ODMR::OnStopClicked);
+		Connect(Widget->GetUI()->BRFOn, &QPushButton::clicked, this, &ODMR::OnRFOnClicked);
+		Connect(Widget->GetUI()->BRFOff, &QPushButton::clicked, this, &ODMR::OnRFOffClicked);
 
 		return Widget;
 	}
@@ -420,10 +421,10 @@ namespace DynExpModule::ODMR
 		ModuleData->RFPower = Value;
 	}
 
-	void ODMR::OnRFAutoEnableClicked(DynExp::ModuleInstance* Instance, int Checked) const
+	void ODMR::OnRFAutoEnableClicked(DynExp::ModuleInstance* Instance, Qt::CheckState Checked) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<ODMR>(Instance->ModuleDataGetter());
-		ModuleData->RFAutoEnabled = Checked;
+		ModuleData->RFAutoEnabled = Checked == Qt::CheckState::Checked;
 	}
 
 	void ODMR::OnRFCenterFreqChanged(DynExp::ModuleInstance* Instance, double Value) const
@@ -504,28 +505,28 @@ namespace DynExpModule::ODMR
 		ModuleData->CurrentSaveIndex = Index;
 	}
 
-	void ODMR::OnAutosaveClicked(DynExp::ModuleInstance* Instance, int Checked) const
+	void ODMR::OnAutosaveClicked(DynExp::ModuleInstance* Instance, Qt::CheckState Checked) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<ODMR>(Instance->ModuleDataGetter());
-		ModuleData->AutosaveEnabled = Checked;
+		ModuleData->AutosaveEnabled = Checked == Qt::CheckState::Checked;
 	}
 
-	void ODMR::OnRecordSensitivityClicked(DynExp::ModuleInstance* Instance, int Checked) const
+	void ODMR::OnRecordSensitivityClicked(DynExp::ModuleInstance* Instance, Qt::CheckState Checked) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<ODMR>(Instance->ModuleDataGetter());
-		ModuleData->SensitivityEnabled = Checked;
+		ModuleData->SensitivityEnabled = Checked == Qt::CheckState::Checked;
 	}
 
-	void ODMR::OnRecordSensitivityOncePerSweepClicked(DynExp::ModuleInstance* Instance, int Checked) const
+	void ODMR::OnRecordSensitivityOncePerSweepClicked(DynExp::ModuleInstance* Instance, Qt::CheckState Checked) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<ODMR>(Instance->ModuleDataGetter());
-		ModuleData->SensitivityOncePerSweep = Checked;
+		ModuleData->SensitivityOncePerSweep = Checked == Qt::CheckState::Checked;
 	}
 
-	void ODMR::OnRecordSensitivityOffResonanceClicked(DynExp::ModuleInstance* Instance, int Checked) const
+	void ODMR::OnRecordSensitivityOffResonanceClicked(DynExp::ModuleInstance* Instance, Qt::CheckState Checked) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<ODMR>(Instance->ModuleDataGetter());
-		ModuleData->SensitivityOffResonanceEnabled = Checked;
+		ModuleData->SensitivityOffResonanceEnabled = Checked == Qt::CheckState::Checked;
 	}
 
 	void ODMR::OnSensitivityResonanceFreqChanged(DynExp::ModuleInstance* Instance, double Value) const
@@ -570,10 +571,10 @@ namespace DynExpModule::ODMR
 		ModuleData->GyromagneticRatio = Value * 1e6;
 	}
 
-	void ODMR::OnEnableSweepSeriesClicked(DynExp::ModuleInstance* Instance, int Checked) const
+	void ODMR::OnEnableSweepSeriesClicked(DynExp::ModuleInstance* Instance, Qt::CheckState Checked) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<ODMR>(Instance->ModuleDataGetter());
-		ModuleData->SweepSeriesEnabled = Checked;
+		ModuleData->SweepSeriesEnabled = Checked == Qt::CheckState::Checked;
 	}
 
 	void ODMR::OnSweepSeriesParamChanged(DynExp::ModuleInstance* Instance, int Index) const
@@ -609,16 +610,16 @@ namespace DynExpModule::ODMR
 		ModuleData->SweepSeriesStep = Value;
 	}
 
-	void ODMR::OnSweepSeriesRetraceClicked(DynExp::ModuleInstance* Instance, int Checked) const
+	void ODMR::OnSweepSeriesRetraceClicked(DynExp::ModuleInstance* Instance, Qt::CheckState Checked) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<ODMR>(Instance->ModuleDataGetter());
-		ModuleData->SweepSeriesRetrace = Checked;
+		ModuleData->SweepSeriesRetrace = Checked == Qt::CheckState::Checked;
 	}
 
-	void ODMR::OnSweepSeriesAdvanceLastValueClicked(DynExp::ModuleInstance* Instance, int Checked) const
+	void ODMR::OnSweepSeriesAdvanceLastValueClicked(DynExp::ModuleInstance* Instance, Qt::CheckState Checked) const
 	{
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<ODMR>(Instance->ModuleDataGetter());
-		ModuleData->SweepSeriesAdvanceLastValue = Checked;
+		ModuleData->SweepSeriesAdvanceLastValue = Checked == Qt::CheckState::Checked;
 	}
 
 	void ODMR::OnStartClicked(DynExp::ModuleInstance* Instance, bool) const

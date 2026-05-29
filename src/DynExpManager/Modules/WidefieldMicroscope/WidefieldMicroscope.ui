@@ -74,7 +74,7 @@
    <item>
     <widget class="Line" name="line">
      <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
     </widget>
    </item>
@@ -93,7 +93,7 @@
          </sizepolicy>
         </property>
         <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+         <enum>Qt::Orientation::Horizontal</enum>
         </property>
         <widget class="QTabWidget" name="TabWidget">
          <property name="sizePolicy">
@@ -251,7 +251,7 @@
            <item>
             <spacer name="verticalSpacer_2">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -516,10 +516,10 @@
            <item>
             <spacer name="verticalSpacer">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
+              <enum>QSizePolicy::Policy::Fixed</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -538,10 +538,10 @@
               </size>
              </property>
              <property name="contextMenuPolicy">
-              <enum>Qt::CustomContextMenu</enum>
+              <enum>Qt::ContextMenuPolicy::CustomContextMenu</enum>
              </property>
              <property name="editTriggers">
-              <set>QAbstractItemView::NoEditTriggers</set>
+              <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
              </property>
              <property name="tabKeyNavigation">
               <bool>false</bool>
@@ -550,10 +550,10 @@
               <bool>true</bool>
              </property>
              <property name="selectionBehavior">
-              <enum>QAbstractItemView::SelectRows</enum>
+              <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
              </property>
              <property name="horizontalScrollMode">
-              <enum>QAbstractItemView::ScrollPerPixel</enum>
+              <enum>QAbstractItemView::ScrollMode::ScrollPerPixel</enum>
              </property>
              <property name="showGrid">
               <bool>false</bool>
@@ -787,7 +787,7 @@
                  <double>1000.000000000000000</double>
                 </property>
                 <property name="stepType">
-                 <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                 <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
                 </property>
                 <property name="value">
                  <double>20.000000000000000</double>
@@ -806,7 +806,7 @@
                  <double>1000.000000000000000</double>
                 </property>
                 <property name="stepType">
-                 <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                 <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
                 </property>
                 <property name="value">
                  <double>10.000000000000000</double>
@@ -825,7 +825,7 @@
                  <double>1000.000000000000000</double>
                 </property>
                 <property name="stepType">
-                 <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                 <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
                 </property>
                 <property name="value">
                  <double>1.000000000000000</double>
@@ -843,7 +843,7 @@
              <item>
               <spacer name="horizontalSpacer">
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
@@ -1188,7 +1188,7 @@
                    <number>100000000</number>
                   </property>
                   <property name="stepType">
-                   <enum>QAbstractSpinBox::DefaultStepType</enum>
+                   <enum>QAbstractSpinBox::StepType::DefaultStepType</enum>
                   </property>
                  </widget>
                 </item>
@@ -1240,71 +1240,13 @@
                     </widget>
                    </item>
                    <item>
-                    <spacer name="horizontalSpacer_8">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item>
-                    <widget class="QCheckBox" name="CBAutoMeasureOptimize">
+                    <widget class="QPushButton" name="BAutoMeasureCharacterizationSteps">
                      <property name="text">
-                      <string>Optimize emitter position</string>
+                      <string>Characterization steps...</string>
                      </property>
-                     <property name="checked">
-                      <bool>true</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <spacer name="horizontalSpacer_3">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item>
-                    <widget class="QCheckBox" name="CBAutoMeasureEnableSpectrum">
-                     <property name="text">
-                      <string>Record spectrum</string>
-                     </property>
-                     <property name="checked">
-                      <bool>true</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <spacer name="horizontalSpacer_4">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item>
-                    <widget class="QCheckBox" name="CBAutoMeasureEnableHBT">
-                     <property name="text">
-                      <string>Enable HBT</string>
-                     </property>
-                     <property name="checked">
-                      <bool>true</bool>
+                     <property name="icon">
+                      <iconset resource="../../DynExpManager.qrc">
+                       <normaloff>:/DynExpManager/icons/Preferences-system.svg</normaloff>:/DynExpManager/icons/Preferences-system.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -1376,7 +1318,7 @@
                       <number>10000000</number>
                      </property>
                      <property name="stepType">
-                      <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                      <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
                      </property>
                      <property name="value">
                       <number>1000</number>
@@ -1407,7 +1349,7 @@
                      <number>1000000000</number>
                     </property>
                     <property name="stepType">
-                     <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                     <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
                     </property>
                     <property name="value">
                      <number>40000</number>
@@ -1425,6 +1367,32 @@
                 <string>Sample cell settings</string>
                </property>
                <layout class="QGridLayout" name="gridLayout">
+                <item row="1" column="1">
+                 <widget class="QLabel" name="LAutoMeasureCellSkipX">
+                  <property name="maximumSize">
+                   <size>
+                    <width>50</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>(x)</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QSpinBox" name="SBAutoMeasureCellRangeFromX">
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                  <property name="maximum">
+                   <number>10000</number>
+                  </property>
+                  <property name="value">
+                   <number>0</number>
+                  </property>
+                 </widget>
+                </item>
                 <item row="0" column="6">
                  <widget class="QLabel" name="LAutoMeasureCellRangeFromY">
                   <property name="maximumSize">
@@ -1453,25 +1421,41 @@
                    <number>100000000</number>
                   </property>
                   <property name="stepType">
-                   <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                   <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
                   </property>
                   <property name="value">
                    <number>100000</number>
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="9">
-                 <widget class="QSpinBox" name="SBAutoMeasureCellRangeToY">
-                  <property name="showGroupSeparator" stdset="0">
-                   <bool>true</bool>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="LAutoMeasureCellRange">
+                  <property name="minimumSize">
+                   <size>
+                    <width>190</width>
+                    <height>0</height>
+                   </size>
                   </property>
-                  <property name="maximum">
-                   <number>10000</number>
-                  </property>
-                  <property name="value">
-                   <number>10</number>
+                  <property name="text">
+                   <string>Cell range on sample</string>
                   </property>
                  </widget>
+                </item>
+                <item row="0" column="5">
+                 <spacer name="horizontalSpacer_5">
+                  <property name="orientation">
+                   <enum>Qt::Orientation::Horizontal</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Policy::Fixed</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>10</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                 <item row="0" column="1">
                  <widget class="QLabel" name="LAutoMeasureCellRangeFromX">
@@ -1483,19 +1467,6 @@
                   </property>
                   <property name="text">
                    <string>(x) from</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="6">
-                 <widget class="QLabel" name="LAutoMeasureCellSkipY">
-                  <property name="maximumSize">
-                   <size>
-                    <width>50</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string>(y)</string>
                   </property>
                  </widget>
                 </item>
@@ -1525,32 +1496,6 @@
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="2">
-                 <widget class="QSpinBox" name="SBAutoMeasureCellRangeFromX">
-                  <property name="showGroupSeparator" stdset="0">
-                   <bool>true</bool>
-                  </property>
-                  <property name="maximum">
-                   <number>10000</number>
-                  </property>
-                  <property name="value">
-                   <number>0</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="8">
-                 <widget class="QLabel" name="LAutoMeasureCellRangeToY">
-                  <property name="maximumSize">
-                   <size>
-                    <width>14</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string>to</string>
-                  </property>
-                 </widget>
-                </item>
                 <item row="0" column="7">
                  <widget class="QSpinBox" name="SBAutoMeasureCellRangeFromY">
                   <property name="showGroupSeparator" stdset="0">
@@ -1564,29 +1509,16 @@
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="LAutoMeasureCellRange">
-                  <property name="minimumSize">
-                   <size>
-                    <width>190</width>
-                    <height>0</height>
-                   </size>
+                <item row="0" column="9">
+                 <widget class="QSpinBox" name="SBAutoMeasureCellRangeToY">
+                  <property name="showGroupSeparator" stdset="0">
+                   <bool>true</bool>
                   </property>
-                  <property name="text">
-                   <string>Cell range on sample</string>
+                  <property name="maximum">
+                   <number>10000</number>
                   </property>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QLabel" name="LAutoMeasureCellSkipX">
-                  <property name="maximumSize">
-                   <size>
-                    <width>50</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string>(x)</string>
+                  <property name="value">
+                   <number>10</number>
                   </property>
                  </widget>
                 </item>
@@ -1603,7 +1535,33 @@
                   </property>
                  </widget>
                 </item>
-                <item row="1" column="7">
+                <item row="0" column="8">
+                 <widget class="QLabel" name="LAutoMeasureCellRangeToY">
+                  <property name="maximumSize">
+                   <size>
+                    <width>14</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>to</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="3">
+                 <widget class="QLabel" name="LAutoMeasureCellSkipY">
+                  <property name="maximumSize">
+                   <size>
+                    <width>50</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>(y)</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="4">
                  <widget class="QSpinBox" name="SBAutoMeasureCellSkipY">
                   <property name="showGroupSeparator" stdset="0">
                    <bool>true</bool>
@@ -1618,28 +1576,22 @@
                    <number>100000000</number>
                   </property>
                   <property name="stepType">
-                   <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                   <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
                   </property>
                   <property name="value">
                    <number>100000</number>
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="5">
-                 <spacer name="horizontalSpacer_5">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
+                <item row="1" column="7">
+                 <widget class="QCheckBox" name="CBAutoMeasureSampleRotated">
+                  <property name="toolTip">
+                   <string>Indicates that the sample is rotated, meaning that advancing from one cell to the next cell increments first y instead of x. After characterizing one row, x is incremented instead of y.</string>
                   </property>
-                  <property name="sizeType">
-                   <enum>QSizePolicy::Fixed</enum>
+                  <property name="text">
+                   <string>Sample rotated by 90°?</string>
                   </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>10</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -1690,10 +1642,10 @@
                    <item>
                     <spacer name="horizontalSpacer_2">
                      <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
+                      <enum>Qt::Orientation::Horizontal</enum>
                      </property>
                      <property name="sizeType">
-                      <enum>QSizePolicy::Fixed</enum>
+                      <enum>QSizePolicy::Policy::Fixed</enum>
                      </property>
                      <property name="sizeHint" stdset="0">
                       <size>
@@ -1716,10 +1668,10 @@
                 <item>
                  <spacer name="horizontalSpacer_6">
                   <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
+                   <enum>Qt::Orientation::Horizontal</enum>
                   </property>
                   <property name="sizeType">
-                   <enum>QSizePolicy::Fixed</enum>
+                   <enum>QSizePolicy::Policy::Fixed</enum>
                   </property>
                   <property name="sizeHint" stdset="0">
                    <size>
@@ -1766,10 +1718,10 @@
                    <item>
                     <spacer name="horizontalSpacer_7">
                      <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
+                      <enum>Qt::Orientation::Horizontal</enum>
                      </property>
                      <property name="sizeType">
-                      <enum>QSizePolicy::Fixed</enum>
+                      <enum>QSizePolicy::Policy::Fixed</enum>
                      </property>
                      <property name="sizeHint" stdset="0">
                       <size>
@@ -1795,7 +1747,7 @@
              <item>
               <spacer name="verticalSpacer_3">
                <property name="orientation">
-                <enum>Qt::Vertical</enum>
+                <enum>Qt::Orientation::Vertical</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
@@ -2156,6 +2108,76 @@
     <string>Run characterization from the emitter with this ID (including all emitters with higher IDs)</string>
    </property>
   </action>
+  <action name="action_CharacterizationSteps_Widefield_PLE">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Widefield PLE (per cell)</string>
+   </property>
+   <property name="toolTip">
+    <string>Widefield PLE (per cell)</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="action_CharacterizationSteps_Optimize">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Optimize emitter position</string>
+   </property>
+   <property name="toolTip">
+    <string>Optimize emitter position</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="action_CharacterizationSteps_Spectrum">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Spectrum acquisition</string>
+   </property>
+   <property name="toolTip">
+    <string>Spectrum acquisition</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="action_CharacterizationSteps_Confocal_PLE">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Confocal PLE (per emitter)</string>
+   </property>
+   <property name="toolTip">
+    <string>Confocal PLE (per emitter)</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="action_CharacterizationSteps_HBT">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;HBT acquisition</string>
+   </property>
+   <property name="toolTip">
+    <string>HBT acquisition</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::TextHeuristicRole</enum>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
@@ -2208,9 +2230,7 @@
   <tabstop>SBAutoMeasureInitialImageSetWaitTime</tabstop>
   <tabstop>SBAutoMeasureImagePositionScatterRadius</tabstop>
   <tabstop>CBAutoMeasureLocalize</tabstop>
-  <tabstop>CBAutoMeasureOptimize</tabstop>
-  <tabstop>CBAutoMeasureEnableSpectrum</tabstop>
-  <tabstop>CBAutoMeasureEnableHBT</tabstop>
+  <tabstop>BAutoMeasureCharacterizationSteps</tabstop>
   <tabstop>SBAutoMeasureOptimizationAttempts</tabstop>
   <tabstop>SBAutoMeasureOptimizationReruns</tabstop>
   <tabstop>SBAutoMeasureOptimizationMaxDistance</tabstop>
@@ -2221,6 +2241,7 @@
   <tabstop>SBAutoMeasureCellRangeToY</tabstop>
   <tabstop>SBAutoMeasureCellSkipX</tabstop>
   <tabstop>SBAutoMeasureCellSkipY</tabstop>
+  <tabstop>CBAutoMeasureSampleRotated</tabstop>
   <tabstop>BAutoMeasureRunLocalization</tabstop>
   <tabstop>BAutoMeasureRunCharacterization</tabstop>
   <tabstop>BAutoMeasureRunSampleCharacterization</tabstop>

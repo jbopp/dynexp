@@ -2,13 +2,15 @@
 
 #include "stdafx.h"
 #include "moc_BusyDialog.cpp"
+#include "ui_BusyDialog.h"
 #include "BusyDialog.h"
 
 BusyDialog::BusyDialog(QWidget* parent)
 	: QDialog(parent, Qt::Dialog | Qt::WindowTitleHint),
+	ui(std::make_unique<Ui::BusyDialog>()),
 	CheckFinishedTimer(new QTimer(this)), CheckFinishedFunction(nullptr)
 {
-	ui.setupUi(this);
+	ui->setupUi(this);
 
 	setWindowTitle(QString("Please wait for ") + DynExp::DynExpName + "...");
 	setFixedSize(size());
@@ -19,12 +21,16 @@ BusyDialog::BusyDialog(QWidget* parent)
 	CheckFinishedTimer->setInterval(std::chrono::milliseconds(1));
 }
 
+BusyDialog::~BusyDialog()
+{
+}
+
 void BusyDialog::SetDescriptionText(QString Text)
 {
 	if (Text.isEmpty())
-		ui.DescriptionLabel->setText("Please wait...");
+		ui->DescriptionLabel->setText("Please wait...");
 	else
-		ui.DescriptionLabel->setText(Text);
+		ui->DescriptionLabel->setText(Text);
 }
 
 void BusyDialog::SetCheckFinishedFunction(const CheckFinishedFunctionType CheckFinishedFunction)
@@ -39,7 +45,7 @@ void BusyDialog::showEvent(QShowEvent* event)
 	if (CheckFinishedFunction)
 		CheckFinishedTimer->start();
 
-	ui.cancelButton->setEnabled(CheckFinishedFunction != nullptr);
+	ui->cancelButton->setEnabled(CheckFinishedFunction != nullptr);
 
 	event->accept();
 }

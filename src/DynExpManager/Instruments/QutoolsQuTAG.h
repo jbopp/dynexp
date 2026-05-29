@@ -43,7 +43,7 @@ namespace DynExpInstr
 		class ReadDataTask final : public DynExp::TaskBase
 		{
 		public:
-			ReadDataTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			ReadDataTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -52,7 +52,7 @@ namespace DynExpInstr
 		class SetStreamSizeTask final : public DynExp::TaskBase
 		{
 		public:
-			SetStreamSizeTask(size_t BufferSizeInSamples, CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc), BufferSizeInSamples(BufferSizeInSamples) {}
+			SetStreamSizeTask(size_t BufferSizeInSamples, CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)), BufferSizeInSamples(BufferSizeInSamples) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -63,7 +63,7 @@ namespace DynExpInstr
 		class ClearTask final : public DynExp::TaskBase
 		{
 		public:
-			ClearTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			ClearTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -73,7 +73,7 @@ namespace DynExpInstr
 		{
 		public:
 			ConfigureInputTask(bool UseRisingEdge, double ThresholdInVolts, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), UseRisingEdge(UseRisingEdge), ThresholdInVolts(ThresholdInVolts) {}
+				: TaskBase(std::move(CallbackFunc)), UseRisingEdge(UseRisingEdge), ThresholdInVolts(ThresholdInVolts) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -85,7 +85,7 @@ namespace DynExpInstr
 		class SetExposureTimeTask final : public DynExp::TaskBase
 		{
 		public:
-			SetExposureTimeTask(Util::picoseconds ExposureTime, CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc), ExposureTime(ExposureTime) {}
+			SetExposureTimeTask(Util::picoseconds ExposureTime, CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)), ExposureTime(ExposureTime) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -96,7 +96,7 @@ namespace DynExpInstr
 		class SetCoincidenceWindowTask final : public DynExp::TaskBase
 		{
 		public:
-			SetCoincidenceWindowTask(Util::picoseconds CoincidenceWindow, CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc), CoincidenceWindow(CoincidenceWindow) {}
+			SetCoincidenceWindowTask(Util::picoseconds CoincidenceWindow, CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)), CoincidenceWindow(CoincidenceWindow) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -107,7 +107,7 @@ namespace DynExpInstr
 		class SetDelayTask final : public DynExp::TaskBase
 		{
 		public:
-			SetDelayTask(Util::picoseconds Delay, CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc), Delay(Delay) {}
+			SetDelayTask(Util::picoseconds Delay, CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)), Delay(Delay) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -118,7 +118,7 @@ namespace DynExpInstr
 		class SetHBTActiveTask final : public DynExp::TaskBase
 		{
 		public:
-			SetHBTActiveTask(bool Enable, CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc), Enable(Enable) {}
+			SetHBTActiveTask(bool Enable, CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)), Enable(Enable) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -130,7 +130,7 @@ namespace DynExpInstr
 		{
 		public:
 			ConfigureHBTTask(Util::picoseconds BinWidth, size_t BinCount, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), BinWidth(BinWidth), BinCount(BinCount) {}
+				: TaskBase(std::move(CallbackFunc)), BinWidth(BinWidth), BinCount(BinCount) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -142,7 +142,7 @@ namespace DynExpInstr
 		class ResetHBTTask final : public DynExp::TaskBase
 		{
 		public:
-			ResetHBTTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			ResetHBTTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -220,16 +220,16 @@ namespace DynExpInstr
 		virtual Util::picoseconds GetResolution() const override;
 		virtual size_t GetBufferSize() const override;
 
-		virtual void ReadData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<QutoolsQuTAGTasks::ReadDataTask>(CallbackFunc); }
-		virtual void SetStreamSize(size_t BufferSizeInSamples, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<QutoolsQuTAGTasks::SetStreamSizeTask>(BufferSizeInSamples, CallbackFunc); }
-		virtual void Clear(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<QutoolsQuTAGTasks::ClearTask>(CallbackFunc); }
-		virtual void ConfigureInput(bool UseRisingEdge, double ThresholdInVolts, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<QutoolsQuTAGTasks::ConfigureInputTask>(UseRisingEdge, ThresholdInVolts, CallbackFunc); }
-		virtual void SetExposureTime(Util::picoseconds ExposureTime, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<QutoolsQuTAGTasks::SetExposureTimeTask>(ExposureTime, CallbackFunc); }
-		virtual void SetCoincidenceWindow(Util::picoseconds CoincidenceWindow, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<QutoolsQuTAGTasks::SetCoincidenceWindowTask>(CoincidenceWindow, CallbackFunc); }
-		virtual void SetDelay(Util::picoseconds Delay, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<QutoolsQuTAGTasks::SetDelayTask>(Delay, CallbackFunc); }
-		virtual void SetHBTActive(bool Enable, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<QutoolsQuTAGTasks::SetHBTActiveTask>(Enable, CallbackFunc); }
-		virtual void ConfigureHBT(Util::picoseconds BinWidth, size_t BinCount, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<QutoolsQuTAGTasks::ConfigureHBTTask>(BinWidth, BinCount, CallbackFunc); }
-		virtual void ResetHBT(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<QutoolsQuTAGTasks::ResetHBTTask>(CallbackFunc); }
+		virtual void ReadData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<QutoolsQuTAGTasks::ReadDataTask>(std::move(CallbackFunc)); }
+		virtual void SetStreamSize(size_t BufferSizeInSamples, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<QutoolsQuTAGTasks::SetStreamSizeTask>(BufferSizeInSamples, std::move(CallbackFunc)); }
+		virtual void Clear(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<QutoolsQuTAGTasks::ClearTask>(std::move(CallbackFunc)); }
+		virtual void ConfigureInput(bool UseRisingEdge, double ThresholdInVolts, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<QutoolsQuTAGTasks::ConfigureInputTask>(UseRisingEdge, ThresholdInVolts, std::move(CallbackFunc)); }
+		virtual void SetExposureTime(Util::picoseconds ExposureTime, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<QutoolsQuTAGTasks::SetExposureTimeTask>(ExposureTime, std::move(CallbackFunc)); }
+		virtual void SetCoincidenceWindow(Util::picoseconds CoincidenceWindow, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<QutoolsQuTAGTasks::SetCoincidenceWindowTask>(CoincidenceWindow, std::move(CallbackFunc)); }
+		virtual void SetDelay(Util::picoseconds Delay, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<QutoolsQuTAGTasks::SetDelayTask>(Delay, std::move(CallbackFunc)); }
+		virtual void SetHBTActive(bool Enable, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<QutoolsQuTAGTasks::SetHBTActiveTask>(Enable, std::move(CallbackFunc)); }
+		virtual void ConfigureHBT(Util::picoseconds BinWidth, size_t BinCount, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<QutoolsQuTAGTasks::ConfigureHBTTask>(BinWidth, BinCount, std::move(CallbackFunc)); }
+		virtual void ResetHBT(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<QutoolsQuTAGTasks::ResetHBTTask>(std::move(CallbackFunc)); }
 
 	private:
 		void ResetImpl(dispatch_tag<TimeTagger>) override final;

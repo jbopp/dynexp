@@ -4,18 +4,7 @@ syntax = "proto3";
 
 package DynExpProto.Common;
 
-// See definition of DynExpInstr::DataStreamInstrumentData::UnitType in DataStreamInstrument.h
-enum UnitType
-{
-	Arbitrary = 0;
-	LogicLevel = 1;
-	Counts = 2;
-	Volt = 3;
-	Ampere = 4;
-	Power_W = 5;
-	Power_dBm = 6;
-}
-
+// See definition of DynExpInstr::LaserData::FrequencyUnitType in Laser.h
 // See definition of DynExpInstr::SpectrometerData::FrequencyUnitType in Spectrometer.h
 enum FrequencyUnitType
 {
@@ -24,10 +13,18 @@ enum FrequencyUnitType
 	Inv_cm = 2;
 }
 
+// See definition of DynExpInstr::DataStreamInstrumentData::UnitType in DataStreamInstrument.h
+// See definition of DynExpInstr::LaserData::IntensityUnitType in Laser.h
 // See definition of DynExpInstr::SpectrometerData::IntensityUnitType in Spectrometer.h
 enum IntensityUnitType
 {
-	IntensityCounts = 0;
+	Arbitrary = 0;
+	LogicLevel = 1;
+	Counts = 2;
+	Volt = 3;
+	Ampere = 4;
+	Power_W = 5;
+	Power_dBm = 6;
 }
 
 message VoidMessage {}

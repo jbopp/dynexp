@@ -9,9 +9,13 @@
 #pragma once
 
 #include <QWidget>
-#include "ui_CircuitDiagram.h"
 #include "DynExpDefinitions.h"
 #include "Object.h"
+
+namespace Ui
+{
+	class CircuitDiagram;
+}
 
 namespace DynExp
 {
@@ -201,14 +205,14 @@ private:
 	NodeMapType InstrumentNodes;
 	NodeMapType ModuleNodes;
 
+	// UI
+	std::unique_ptr<Ui::CircuitDiagram> ui;
+	std::unique_ptr<QGraphicsScene> Scene;
+	QMenu* ContextMenu;
+
 	// Item currently selected by a double-click
 	bool SelectionChanged;
 	QTreeWidgetItem* SelectedTreeWidgetItem;
-
-	// UI
-	Ui::CircuitDiagram ui;
-	std::unique_ptr<QGraphicsScene> Scene;
-	QMenu* ContextMenu;
 
 private slots:
 	void OnContextMenuRequested(QPoint Position);

@@ -18,6 +18,8 @@
 #include "../../MetaInstruments/TimeTagger.h"
 #include "../../Instruments/InterModuleCommunicator.h"
 #include "../../Instruments/WidefieldLocalization.h"
+
+#include "CommonModuleEvents.h"
 #include "../../Modules/ImageViewer/ImageViewerEvents.h"
 #include "../../Modules/SpectrumViewer/SpectrumViewerEvents.h"
 
@@ -33,7 +35,8 @@ namespace DynExpModule::Widefield
 			Confocal, ConfocalOptimization, HBT,
 			LEDLightToggle, PumpLightToggle, SetPumpPower, MeasurePumpPower,
 			WidefieldConfocalSwitch, WidefieldConfocalIndicator, HBTSwitch,
-			InterModuleCommunicator, NUM_ELEMENTS};
+			ImageInterModuleCommunicator, SpectrumInterModuleCommunicator, PLEInterModuleCommunicator,
+			NUM_ELEMENTS};
 		enum class SetupModeType { Unknown, Widefield, Confocal };
 		enum class LocalizedEmitterStateType { NotSet, Characterizing, Finished, Failed };
 
@@ -139,8 +142,12 @@ namespace DynExpModule::Widefield
 		auto& GetSPD1() const noexcept { return SPD1; }
 		auto& GetSPD2() noexcept { return SPD2; }
 		auto& GetSPD2() const noexcept { return SPD2; }
-		auto& GetAcqCommunicator() noexcept { return AcqCommunicator; }
-		auto& GetAcqCommunicator() const noexcept { return AcqCommunicator; }
+		auto& GetImageAcqCommunicator() noexcept { return ImageAcqCommunicator; }
+		auto& GetImageAcqCommunicator() const noexcept { return ImageAcqCommunicator; }
+		auto& GetSpectrumAcqCommunicator() noexcept { return SpectrumAcqCommunicator; }
+		auto& GetSpectrumAcqCommunicator() const noexcept { return SpectrumAcqCommunicator; }
+		auto& GetPLEAcqCommunicator() noexcept { return PLEAcqCommunicator; }
+		auto& GetPLEAcqCommunicator() const noexcept { return PLEAcqCommunicator; }
 
 		template <size_t N>
 		bool TestFeature(const std::array<FeatureType, N>& Flags) const { return Features.Test(Flags); }
@@ -301,10 +308,14 @@ namespace DynExpModule::Widefield
 		void SetAutoMeasureImagePositionScatterRadius(int ScatterRadius) noexcept { AutoMeasureImagePositionScatterRadius = ScatterRadius; }
 		auto GetAutoMeasureLocalizationType() const noexcept { return AutoMeasureLocalizationType; }
 		void SetAutoMeasureLocalizationType(WidefieldMicroscopeWidget::LocalizationType LocalizationType) noexcept { AutoMeasureLocalizationType = LocalizationType; }
+		auto GetAutoMeasureWidefieldPLEEnabled() const noexcept { return AutoMeasureWidefieldPLEEnabled; }
+		auto SetAutoMeasureWidefieldPLEEnabled(bool Enabled) noexcept { AutoMeasureWidefieldPLEEnabled = Enabled; }
 		auto GetAutoMeasureOptimizeEnabled() const noexcept { return AutoMeasureOptimizeEnabled; }
 		void SetAutoMeasureOptimizeEnabled(bool Enabled) noexcept { AutoMeasureOptimizeEnabled = Enabled; }
 		auto GetAutoMeasureSpectrumEnabled() const noexcept { return AutoMeasureSpectrumEnabled; }
 		void SetAutoMeasureSpectrumEnabled(bool Enabled) noexcept { AutoMeasureSpectrumEnabled = Enabled; }
+		auto GetAutoMeasureConfocalPLEEnabled() const noexcept { return AutoMeasureConfocalPLEEnabled; }
+		auto SetAutoMeasureConfocalPLEEnabled(bool Enabled) noexcept { AutoMeasureConfocalPLEEnabled = Enabled; }
 		auto GetAutoMeasureHBTEnabled() const noexcept { return AutoMeasureHBTEnabled; }
 		void SetAutoMeasureHBTEnabled(bool Enabled) noexcept { AutoMeasureHBTEnabled = Enabled; }
 		auto GetAutoMeasureNumOptimizationAttempts() const noexcept { return AutoMeasureNumOptimizationAttempts; }
@@ -332,6 +343,8 @@ namespace DynExpModule::Widefield
 		int GetAutoMeasureCurrentCellIndex() const;
 		auto& GetAutoMeasureCellSkip() const noexcept { return AutoMeasureCellSkip; }
 		auto& GetAutoMeasureCellSkip() noexcept { return AutoMeasureCellSkip; }
+		bool GetAutoMeasureSampleRotated() const noexcept { return AutoMeasureSampleRotated; }
+		void SetAutoMeasureSampleRotated(bool IsRotated) noexcept { AutoMeasureSampleRotated = IsRotated; }
 		auto GetAutoMeasureFirstEmitter() const noexcept { return AutoMeasureFirstEmitter; }
 		bool SetAutoMeasureFirstEmitter(Util::MarkerGraphicsView::MarkerType::IDType FirstEmitterID) noexcept;	//!< Returns true in case of success, false otherwise.
 		auto GetAutoMeasureCurrentEmitter() const noexcept { return AutoMeasureCurrentEmitter; }
@@ -352,14 +365,16 @@ namespace DynExpModule::Widefield
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::DigitalOut> PumpSwitch;
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::DigitalOut> WidefieldConfocalSwitch;
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::DigitalIn> WidefieldConfocalIndicator;
-		DynExp::LinkedObjectWrapperContainer<DynExpInstr::FunctionGenerator> WidefieldHBTSwitch;
+		DynExp::LinkedObjectWrapperContainer<DynExpInstr::DigitalOut> WidefieldHBTSwitch;
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::AnalogOut> PumpPower;
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::AnalogIn> PumpPowerIndicator;
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::Camera> WidefieldCamera;
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::WidefieldLocalization> WidefieldLocalizer;
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::TimeTagger> SPD1;
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::TimeTagger> SPD2;
-		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> AcqCommunicator;
+		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> ImageAcqCommunicator;
+		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> SpectrumAcqCommunicator;
+		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> PLEAcqCommunicator;
 
 		Util::FeatureTester<FeatureType> Features;
 		std::string UIMessage;
@@ -437,8 +452,10 @@ namespace DynExpModule::Widefield
 		std::chrono::seconds AutoMeasureInitialImageSetWaitTime;
 		int AutoMeasureImagePositionScatterRadius;
 		WidefieldMicroscopeWidget::LocalizationType AutoMeasureLocalizationType;
+		bool AutoMeasureWidefieldPLEEnabled;
 		bool AutoMeasureOptimizeEnabled;
 		bool AutoMeasureSpectrumEnabled;
+		bool AutoMeasureConfocalPLEEnabled;
 		bool AutoMeasureHBTEnabled;
 		int AutoMeasureNumOptimizationAttempts;
 		int AutoMeasureCurrentOptimizationAttempt;
@@ -449,6 +466,7 @@ namespace DynExpModule::Widefield
 		QPoint AutoMeasureCellRangeFrom;
 		QPoint AutoMeasureCellRangeTo;
 		QPoint AutoMeasureCellSkip;
+		bool AutoMeasureSampleRotated;
 		LocalizedPositionsMapType::iterator AutoMeasureFirstEmitter;	//!< Iterator to the first emitter to be characterized.
 		LocalizedPositionsMapType::iterator AutoMeasureCurrentEmitter;	//!< Iterator to the emitter being characterized.
 	};
@@ -484,21 +502,14 @@ namespace DynExpModule::Widefield
 			"Digital indicator which is LOW if in widefield mode and HIGH if in confocal mode", DynExpUI::Icons::Instrument, true };
 		Param<ParamsConfigDialog::NumberType> WidefieldConfocalTransitionTime = { *this, "WidefieldConfocalTransitionTime",
 			"Widefield/confocal transition time (ms)",
-			"Time it takes to transition from widefield into confocal mode or vice versa once the widefield/confocal mode switch has been triggered",
+			"Time it takes to transition from widefield to confocal mode or vice versa once the widefield/confocal mode switch has been triggered",
 			false, 500, 0, 10000, 10, 0 };
-		Param<DynExp::ObjectLink<DynExpInstr::FunctionGenerator>> WidefieldHBTSwitch = { *this, GetCore().GetInstrumentManager(),
-			"WidefieldHBTSwitch", "HBT flip mirror servo actuator (DO)", "Servo actuator to switch to HBT measurement mode", DynExpUI::Icons::Instrument, true };
-		Param<ParamsConfigDialog::NumberType> WidefieldHBTSwitchLowDutyCycle = { *this, "WidefieldHBTSwitchLowDutyCycle",
-			"HBT flip mirror low duty cycle",
-			"Duty cycle of rectangular pulses applied to the HBT flip mirror servo actuator in order to make it flip the mirror into the low position",
-			false, .2, 0, 1, .1, 2 };
-		Param<ParamsConfigDialog::NumberType> WidefieldHBTSwitchHighDutyCycle = { *this, "WidefieldHBTSwitchHighDutyCycle",
-			"HBT flip mirror high duty cycle",
-			"Duty cycle of rectangular pulses applied to the HBT flip mirror servo actuator in order to make it flip the mirror into the high position",
-			false, .8, 0, 1, .1, 2 };
+		Param<DynExp::ObjectLink<DynExpInstr::DigitalOut>> WidefieldHBTSwitch = { *this, GetCore().GetInstrumentManager(),
+			"WidefieldHBTSwitch", "Spectrometer/HBT mode switch (DO)",
+			"Digital switch to change from spectrometer mode (LOW) to HBT mode (HIGH)", DynExpUI::Icons::Instrument, true };
 		Param<ParamsConfigDialog::NumberType> WidefieldHBTTransitionTime = { *this, "WidefieldHBTTransitionTime",
-			"HBT flip mirror transition time (ms)",
-			"Time it takes to flip the HBT mirror once the duty cycle of the rectangular pulses applied to the flip mirror servo actuator has changed",
+			"Spectrometer/HBT transition time (ms)",
+			"Time it takes to transition from spectrometer to HBT mode or vice versa once the spectrometer/HBT mode switch has been triggered",
 			false, 500, 0, 10000, 10, 0 };
 		Param<DynExp::ObjectLink<DynExpInstr::AnalogOut>> PumpPower = { *this, GetCore().GetInstrumentManager(),
 			"PumpPower", "Pump power (AO)", "Analog output to adjust the power of the pump light source", DynExpUI::Icons::Instrument, true };
@@ -523,8 +534,12 @@ namespace DynExpModule::Widefield
 			"SPD1", "SPD 1", "First single photon detector for confocal light collection", DynExpUI::Icons::Instrument, true };
 		Param<DynExp::ObjectLink<DynExpInstr::TimeTagger>> SPD2 = { *this, GetCore().GetInstrumentManager(),
 			"SPD2", "SPD 2", "Second single photon detector for confocal light collection", DynExpUI::Icons::Instrument, true };
-		Param<DynExp::ObjectLink<DynExpInstr::InterModuleCommunicator>> AcqCommunicator = { *this, GetCore().GetInstrumentManager(),
-			"AcqInterModuleCommunicator", "Acq. inter-module communicator", "Inter-module communicator to control image and spectrum capturing modules with", DynExpUI::Icons::Instrument, true };
+		Param<DynExp::ObjectLink<DynExpInstr::InterModuleCommunicator>> ImageAcqCommunicator = { *this, GetCore().GetInstrumentManager(),
+			"ImageAcqInterModuleCommunicator", "Image acq. inter-module communicator", "Inter-module communicator to control image capturing modules", DynExpUI::Icons::Instrument, true };
+		Param<DynExp::ObjectLink<DynExpInstr::InterModuleCommunicator>> SpectrumAcqCommunicator = { *this, GetCore().GetInstrumentManager(),
+			"SpectrumAcqInterModuleCommunicator", "Spectrum acq. inter-module communicator", "Inter-module communicator to control spectrum acquisition modules", DynExpUI::Icons::Instrument, true };
+		Param<DynExp::ObjectLink<DynExpInstr::InterModuleCommunicator>> PLEAcqCommunicator = { *this, GetCore().GetInstrumentManager(),
+			"PLEAcqInterModuleCommunicator", "PLE acq. inter-module communicator", "Inter-module communicator to control PLE acquisition modules", DynExpUI::Icons::Instrument, true };
 
 	private:
 		void ConfigureParamsImpl(dispatch_tag<QModuleParamsBase>) override final {}
@@ -691,14 +706,17 @@ namespace DynExpModule::Widefield
 		void OnImageCapturingPaused(DynExp::ModuleInstance* Instance) const;
 		void OnFinishedAutofocus(DynExp::ModuleInstance* Instance, bool Success, double Voltage) const;
 		void OnSpectrumFinishedRecording(DynExp::ModuleInstance* Instance) const;
+		void OnPLEAcquisitionFinished(DynExp::ModuleInstance* Instance) const;
 		void OnAutoMeasureSavePathChanged(DynExp::ModuleInstance* Instance, QString Path) const;
 		void OnAutoMeasureNumberImageSetsChanged(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnAutoMeasureInitialImageSetWaitTimeChanged(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnAutoMeasureImagePositionScatterRadius(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnAutoMeasureLocalizationTypeChanged(DynExp::ModuleInstance* Instance, int Value) const;
-		void OnToggleAutoMeasureOptimizeEnabled(DynExp::ModuleInstance* Instance, int State) const;
-		void OnToggleAutoMeasureSpectrumEnabled(DynExp::ModuleInstance* Instance, int State) const;
-		void OnToggleAutoMeasureHBTEnabled(DynExp::ModuleInstance* Instance, int State) const;
+		void OnToggleAutoMeasureWidefieldPLEEnabled(DynExp::ModuleInstance* Instance, bool State) const;
+		void OnToggleAutoMeasureOptimizeEnabled(DynExp::ModuleInstance* Instance, bool State) const;
+		void OnToggleAutoMeasureSpectrumEnabled(DynExp::ModuleInstance* Instance, bool State) const;
+		void OnToggleAutoMeasureConfocalPLEEnabled(DynExp::ModuleInstance* Instance, bool State) const;
+		void OnToggleAutoMeasureHBTEnabled(DynExp::ModuleInstance* Instance, bool State) const;
 		void OnAutoMeasureNumOptimizationAttemptsChanged(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnAutoMeasureMaxOptimizationRerunsChanged(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnAutoMeasureOptimizationMaxDistanceChanged(DynExp::ModuleInstance* Instance, int Value) const;
@@ -709,6 +727,7 @@ namespace DynExpModule::Widefield
 		void OnAutoMeasureCellRangeToYChanged(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnAutoMeasureCellSkipXChanged(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnAutoMeasureCellSkipYChanged(DynExp::ModuleInstance* Instance, int Value) const;
+		void OnToggleAutoMeasureSampleRotated(DynExp::ModuleInstance* Instance, Qt::CheckState State) const;
 		void OnAutoMeasureRunLocalization(DynExp::ModuleInstance* Instance, bool) const;
 		void OnAutoMeasureRunCharacterization(DynExp::ModuleInstance* Instance, bool) const;
 		void OnAutoMeasureRunSampleCharacterization(DynExp::ModuleInstance* Instance, bool) const;
@@ -742,16 +761,21 @@ namespace DynExpModule::Widefield
 		StateType ConfocalOptimizationStepStateFunc(DynExp::ModuleInstance& Instance);
 		StateType HBTAcquiringStateFunc(DynExp::ModuleInstance& Instance);
 		StateType WaitingStateFunc(DynExp::ModuleInstance& Instance);
+		StateType PLEAcquisitionWaitingStateFunc(DynExp::ModuleInstance& Instance);
 		StateType SpectrumAcquisitionWaitingStateFunc(DynExp::ModuleInstance& Instance);
 		StateType AutoMeasureLocalizationStepStateFunc(DynExp::ModuleInstance& Instance);
 		StateType AutoMeasureLocalizationSaveLEDImageStateFunc(DynExp::ModuleInstance& Instance);
 		StateType AutoMeasureLocalizationSaveWidefieldImageStateFunc(DynExp::ModuleInstance& Instance);
 		StateType AutoMeasureLocalizationMovingStateFunc(DynExp::ModuleInstance& Instance);
+		StateType AutoMeasureLocalizationPLEBeginStateFunc(DynExp::ModuleInstance& Instance);
+		StateType AutoMeasureLocalizationPLEFinishedStateFunc(DynExp::ModuleInstance& Instance);
 		StateType AutoMeasureCharacterizationStepStateFunc(DynExp::ModuleInstance& Instance);
 		StateType AutoMeasureCharacterizationGotoEmitterStateFunc(DynExp::ModuleInstance& Instance);
 		StateType AutoMeasureCharacterizationOptimizationFinishedStateFunc(DynExp::ModuleInstance& Instance);
 		StateType AutoMeasureCharacterizationSpectrumBeginStateFunc(DynExp::ModuleInstance& Instance);
 		StateType AutoMeasureCharacterizationSpectrumFinishedStateFunc(DynExp::ModuleInstance& Instance);
+		StateType AutoMeasureCharacterizationPLEBeginStateFunc(DynExp::ModuleInstance& Instance);
+		StateType AutoMeasureCharacterizationPLEFinishedStateFunc(DynExp::ModuleInstance& Instance);
 		StateType AutoMeasureCharacterizationHBTBeginStateFunc(DynExp::ModuleInstance& Instance);
 		StateType AutoMeasureCharacterizationHBTWaitForInitStateFunc(DynExp::ModuleInstance& Instance);
 		StateType AutoMeasureCharacterizationHBTFinishedStateFunc(DynExp::ModuleInstance& Instance);
@@ -840,6 +864,10 @@ namespace DynExpModule::Widefield
 			&WidefieldMicroscope::WaitingStateFunc, "Waiting...");
 		static constexpr auto WaitingFinishedState = Util::StateMachineState(StateType::WaitingFinished,
 			&WidefieldMicroscope::ReturnToReadyStateFunc);
+		static constexpr auto PLEAcquisitionWaitingState = Util::StateMachineState(StateType::PLEAcquisitionWaiting,
+			&WidefieldMicroscope::PLEAcquisitionWaitingStateFunc, "Performing widefield PLE...");
+		static constexpr auto PLEAcquisitionFinishedState = Util::StateMachineState(StateType::PLEAcquisitionFinished,
+			&WidefieldMicroscope::ReturnToReadyStateFunc);
 		static constexpr auto SpectrumAcquisitionWaitingState = Util::StateMachineState(StateType::SpectrumAcquisitionWaiting,
 			&WidefieldMicroscope::SpectrumAcquisitionWaitingStateFunc, "Acquiring spectrum...");
 		static constexpr auto SpectrumAcquisitionFinishedState = Util::StateMachineState(StateType::SpectrumAcquisitionFinished,
@@ -852,6 +880,10 @@ namespace DynExpModule::Widefield
 			&WidefieldMicroscope::AutoMeasureLocalizationSaveWidefieldImageStateFunc, "Saving widefield image...");
 		static constexpr auto AutoMeasureLocalizationMovingState = Util::StateMachineState(StateType::AutoMeasureLocalizationMoving,
 			&WidefieldMicroscope::AutoMeasureLocalizationMovingStateFunc, "Moving to next image capturing position...");
+		static constexpr auto AutoMeasureLocalizationPLEBeginState = Util::StateMachineState(StateType::AutoMeasureLocalizationPLEBegin,
+			&WidefieldMicroscope::AutoMeasureLocalizationPLEBeginStateFunc);
+		static constexpr auto AutoMeasureLocalizationPLEFinishedState = Util::StateMachineState(StateType::AutoMeasureLocalizationPLEFinished,
+			&WidefieldMicroscope::AutoMeasureLocalizationPLEFinishedStateFunc);
 		static constexpr auto AutoMeasureLocalizationFinishedState = Util::StateMachineState(StateType::AutoMeasureLocalizationFinished,
 			&WidefieldMicroscope::ReturnToReadyStateFunc);
 		static constexpr auto AutoMeasureCharacterizationStepState = Util::StateMachineState(StateType::AutoMeasureCharacterizationStep,
@@ -860,10 +892,14 @@ namespace DynExpModule::Widefield
 			&WidefieldMicroscope::AutoMeasureCharacterizationGotoEmitterStateFunc);
 		static constexpr auto AutoMeasureCharacterizationOptimizationFinishedState = Util::StateMachineState(StateType::AutoMeasureCharacterizationOptimizationFinished,
 			&WidefieldMicroscope::AutoMeasureCharacterizationOptimizationFinishedStateFunc);
-		static constexpr auto AutoMeasureCharacterizationSpectrumFinishedState = Util::StateMachineState(StateType::AutoMeasureCharacterizationSpectrumFinished,
-			&WidefieldMicroscope::AutoMeasureCharacterizationSpectrumFinishedStateFunc);
 		static constexpr auto AutoMeasureCharacterizationSpectrumBeginState = Util::StateMachineState(StateType::AutoMeasureCharacterizationSpectrumBegin,
 			&WidefieldMicroscope::AutoMeasureCharacterizationSpectrumBeginStateFunc);
+		static constexpr auto AutoMeasureCharacterizationSpectrumFinishedState = Util::StateMachineState(StateType::AutoMeasureCharacterizationSpectrumFinished,
+			&WidefieldMicroscope::AutoMeasureCharacterizationSpectrumFinishedStateFunc);
+		static constexpr auto AutoMeasureCharacterizationPLEBeginState = Util::StateMachineState(StateType::AutoMeasureCharacterizationPLEBegin,
+			&WidefieldMicroscope::AutoMeasureCharacterizationPLEBeginStateFunc);
+		static constexpr auto AutoMeasureCharacterizationPLEFinishedState = Util::StateMachineState(StateType::AutoMeasureCharacterizationPLEFinished,
+			&WidefieldMicroscope::AutoMeasureCharacterizationPLEFinishedStateFunc);
 		static constexpr auto AutoMeasureCharacterizationHBTBeginState = Util::StateMachineState(StateType::AutoMeasureCharacterizationHBTBegin,
 			&WidefieldMicroscope::AutoMeasureCharacterizationHBTBeginStateFunc);
 		static constexpr auto AutoMeasureCharacterizationHBTWaitForInitState = Util::StateMachineState(StateType::AutoMeasureCharacterizationHBTWaitForInit,
@@ -913,12 +949,14 @@ namespace DynExpModule::Widefield
 			{ StateType::SetupTransitionFinished, StateType::Waiting },
 			{ StateType::WaitingFinished, StateType::AutoMeasureLocalizationStep },
 			{ StateType::WaitingForLEDImageFinished, StateType::AutoMeasureLocalizationSaveLEDImage },
-			{ StateType::WaitingForWidefieldImageFinished, StateType::AutoMeasureLocalizationSaveWidefieldImage }
+			{ StateType::WaitingForWidefieldImageFinished, StateType::AutoMeasureLocalizationSaveWidefieldImage },
+			{ StateType::PLEAcquisitionFinished, StateType::AutoMeasureLocalizationPLEFinished }
 		} };
 		const Util::StateMachineContext<StateMachineStateType> AutoMeasureCharacterizationContext = { {
 			{ StateType::SetupTransitionFinished, StateType::AutoMeasureCharacterizationStep },
 			{ StateType::ConfocalOptimizationFinished, StateType::AutoMeasureCharacterizationOptimizationFinished },
 			{ StateType::SpectrumAcquisitionFinished, StateType::AutoMeasureCharacterizationSpectrumFinished },
+			{ StateType::PLEAcquisitionFinished, StateType::AutoMeasureCharacterizationPLEFinished },
 			{ StateType::HBTFinished, StateType::AutoMeasureCharacterizationHBTFinished }
 		}, "Characterizing emitters...", { &ConfocalOptimizationContext } };
 		const Util::StateMachineContext<StateMachineStateType> AutoMeasureCharacterizationOptimizationContext = { {
@@ -927,6 +965,9 @@ namespace DynExpModule::Widefield
 		const Util::StateMachineContext<StateMachineStateType> AutoMeasureCharacterizationSpectrumContext = { {
 			{ StateType::WaitingFinished, StateType::AutoMeasureCharacterizationSpectrumBegin }
 		}, "Characterizing emitters (recording spectrum)...", { &AutoMeasureCharacterizationContext } };
+		const Util::StateMachineContext<StateMachineStateType> AutoMeasureCharacterizationPLEContext = { {
+			{ StateType::WaitingFinished, StateType::AutoMeasureCharacterizationPLEBegin }
+		}, "Characterizing emitters (performing confocal PLE)...", { &AutoMeasureCharacterizationContext } };
 		const Util::StateMachineContext<StateMachineStateType> AutoMeasureCharacterizationHBTContext = { {
 			{ StateType::WaitingFinished, StateType::AutoMeasureCharacterizationHBTBegin }
 		}, "Characterizing emitters (HBT acquiring)...", { &AutoMeasureCharacterizationContext } };
@@ -952,6 +993,8 @@ namespace DynExpModule::Widefield
 		}, "Characterizing sample (optimizing count rate)...", { &AutoMeasureSampleCharacterizationContext, &AutoMeasureCharacterizationOptimizationContext } };
 		const Util::StateMachineContext<StateMachineStateType> AutoMeasureSampleCharacterizationSpectrumContext = { {
 		}, "Characterizing sample (recording spectrum)...", { &AutoMeasureSampleCharacterizationContext, &AutoMeasureCharacterizationSpectrumContext } };
+		const Util::StateMachineContext<StateMachineStateType> AutoMeasureSampleCharacterizationPLEContext = { {
+		}, "Characterizing sample (performing confocal PLE)...", { &AutoMeasureSampleCharacterizationContext, &AutoMeasureCharacterizationPLEContext } };
 		const Util::StateMachineContext<StateMachineStateType> AutoMeasureSampleCharacterizationHBTContext = { {
 		}, "Characterizing sample (HBT acquiring)...", { &AutoMeasureSampleCharacterizationContext, &AutoMeasureCharacterizationHBTContext } };
 

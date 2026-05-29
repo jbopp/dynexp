@@ -26,15 +26,41 @@ namespace DynExpModule
 
 	void ArbitraryFunctionFromCSV::OnInit(DynExp::ModuleInstance* Instance) const
 	{
+		{
+			auto ModuleParams = DynExp::dynamic_Params_cast<ArbitraryFunctionFromCSV>(Instance->ParamsGetter());
+			auto ModuleData = DynExp::dynamic_ModuleData_cast<ArbitraryFunctionFromCSV>(Instance->ModuleDataGetter());
+
+			Instance->LockObject(ModuleParams->FunctionGenerator, ModuleData->FunctionGenerator);
+
+			if (ModuleParams->Communicator.ContainsID())
+			{
+				Instance->LockObject(ModuleParams->Communicator, ModuleData->Communicator);
+				TriggerEvent::Register(*this, &ArbitraryFunctionFromCSV::OnTrigger);
+			}	
+		} // ModuleParams and ModuleData unlocked here.
+
+		OnTrigger(Instance);
+	}
+
+	void ArbitraryFunctionFromCSV::OnExit(DynExp::ModuleInstance* Instance) const
+	{
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<ArbitraryFunctionFromCSV>(Instance->ModuleDataGetter());
+
+		ModuleData->FunctionGenerator->Stop();
+		Instance->UnlockObject(ModuleData->FunctionGenerator);
+		Instance->UnlockObject(ModuleData->Communicator);
+
+		TriggerEvent::Deregister(*this);
+	}
+
+	void ArbitraryFunctionFromCSV::OnTrigger(DynExp::ModuleInstance* Instance) const
+	{
 		std::string CSVDataPath;
 		size_t SkipLines{};
 		double TimeStretch{}, TimeOffset{}, ValueStretch{}, ValueOffset{};
 
 		{
 			auto ModuleParams = DynExp::dynamic_Params_cast<ArbitraryFunctionFromCSV>(Instance->ParamsGetter());
-			auto ModuleData = DynExp::dynamic_ModuleData_cast<ArbitraryFunctionFromCSV>(Instance->ModuleDataGetter());
-
-			Instance->LockObject(ModuleParams->FunctionGenerator, ModuleData->FunctionGenerator);
 
 			CSVDataPath = ModuleParams->CSVDataPath.GetPath().string();
 			SkipLines = ModuleParams->SkipLines;
@@ -42,7 +68,7 @@ namespace DynExpModule
 			TimeOffset = ModuleParams->TimeOffset;
 			ValueStretch = ModuleParams->ValueStretch;
 			ValueOffset = ModuleParams->ValueOffset;
-		} // ModuleParams and ModuleData unlocked here.
+		} // ModuleParams unlocked here.
 
 		// Reading and parsing potentially very heavy. So, unlock every mutex before.
 		auto CSVData = Util::ReadFromFile(CSVDataPath);
@@ -75,13 +101,5 @@ namespace DynExpModule
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<ArbitraryFunctionFromCSV>(Instance->ModuleDataGetter());
 		ModuleData->FunctionGenerator->Clear();
 		ModuleData->FunctionGenerator->SetArbitraryFunction(std::move(BasicSamples), true);
-	}
-
-	void ArbitraryFunctionFromCSV::OnExit(DynExp::ModuleInstance* Instance) const
-	{
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<ArbitraryFunctionFromCSV>(Instance->ModuleDataGetter());
-
-		ModuleData->FunctionGenerator->Stop();
-		Instance->UnlockObject(ModuleData->FunctionGenerator);
 	}
 }

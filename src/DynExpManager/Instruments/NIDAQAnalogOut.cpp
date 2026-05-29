@@ -127,11 +127,11 @@ namespace DynExpInstr
 		if (IsMultisample)
 		{
 			Stop();
-			AnalogOut::SetDefault(CallbackFunc);
+			AnalogOut::SetDefault(std::move(CallbackFunc));
 			Start();
 		}
 		else
-			AnalogOut::SetDefault(CallbackFunc);
+			AnalogOut::SetDefault(std::move(CallbackFunc));
 	}
 
 	void NIDAQAnalogOut::OnErrorChild() const

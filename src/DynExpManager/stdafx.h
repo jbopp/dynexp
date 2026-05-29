@@ -49,6 +49,7 @@
 #include <stdexcept>
 #include <thread>
 #include <tuple>
+#include <typeinfo>
 #include <type_traits>
 #include <unordered_map>
 #include <utility>
@@ -77,6 +78,7 @@
 #include <QXYSeries>
 
 // GNU Scientific Library (GSL)
+#include <gsl/gsl_const_mksa.h>
 #include <gsl/gsl_fft_complex.h>
 #include <gsl/gsl_fit.h>
 #include <gsl/gsl_multimin.h>

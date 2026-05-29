@@ -67,7 +67,7 @@ namespace DynExpInstr
 			InstrData->GetSampleStream()->WriteBasicSample({ static_cast<BasicSample::DataType>(Sample), 0 });
 		} // InstrData unlocked here.
 
-		WriteData(CallbackFunc);
+		WriteData(std::move(CallbackFunc));
 	}
 
 	void AnalogOut::SetSync(AnalogOutData::SampleStreamType::SampleType Sample) const

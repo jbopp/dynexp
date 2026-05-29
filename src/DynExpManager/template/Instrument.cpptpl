@@ -29,7 +29,7 @@ $$endif
 		InitFuncImpl(dispatch_tag<InitTask>(), Instance);
 	}
 
-	void $Name$Tasks::ExitTask::ExitFuncExitFuncImpl(dispatch_tag<$ParentName$Tasks::ExitTask>, DynExp::InstrumentInstance& Instance)
+	void $Name$Tasks::ExitTask::ExitFuncImpl(dispatch_tag<$ParentName$Tasks::ExitTask>, DynExp::InstrumentInstance& Instance)
 	{
 		// Shut down derived instrument first.
 		ExitFuncImpl(dispatch_tag<ExitTask>(), Instance);

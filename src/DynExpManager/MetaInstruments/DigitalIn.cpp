@@ -12,7 +12,7 @@ namespace DynExpInstr
 
 	DigitalInData::SampleStreamType::SampleType DigitalIn::Get(DynExp::TaskBase::CallbackType CallbackFunc) const
 	{
-		ReadData(CallbackFunc);
+		ReadData(std::move(CallbackFunc));
 
 		auto InstrData = dynamic_InstrumentData_cast<DigitalIn>(GetInstrumentData());
 		auto Sample = InstrData->GetSampleStream()->ReadBasicSample().Value;

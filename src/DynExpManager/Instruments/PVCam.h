@@ -45,7 +45,7 @@ namespace DynExpInstr
 		class SetCameraMode final : public DynExp::TaskBase
 		{
 		public:
-			SetCameraMode(const size_t ID, CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc), ID(ID) {}
+			SetCameraMode(const size_t ID, CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)), ID(ID) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -57,7 +57,7 @@ namespace DynExpInstr
 		{
 		public:
 			SetExposureTimeTask(const CameraData::TimeType ExposureTime, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), ExposureTime(ExposureTime) {}
+				: TaskBase(std::move(CallbackFunc)), ExposureTime(ExposureTime) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -68,7 +68,7 @@ namespace DynExpInstr
 		class CaptureSingleTask final : public DynExp::TaskBase
 		{
 		public:
-			CaptureSingleTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			CaptureSingleTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -77,7 +77,7 @@ namespace DynExpInstr
 		class StartCapturingTask final : public DynExp::TaskBase
 		{
 		public:
-			StartCapturingTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			StartCapturingTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -86,7 +86,7 @@ namespace DynExpInstr
 		class StopCapturingTask final : public DynExp::TaskBase
 		{
 		public:
-			StopCapturingTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			StopCapturingTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -162,11 +162,11 @@ namespace DynExpInstr
 		virtual bool CanSetExposureTime() const noexcept override { return true; }
 		virtual double GetPixelSizeInMicrons() const noexcept override { return 6.5; }
 
-		virtual void SetCameraMode(size_t ID, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<PVCamTasks::SetCameraMode>(ID, CallbackFunc); }
-		virtual void SetExposureTime(const CameraData::TimeType ExposureTime, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<PVCamTasks::SetExposureTimeTask>(ExposureTime, CallbackFunc); }
-		virtual void CaptureSingle(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<PVCamTasks::CaptureSingleTask>(CallbackFunc); }
-		virtual void StartCapturing(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<PVCamTasks::StartCapturingTask>(CallbackFunc); }
-		virtual void StopCapturing(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<PVCamTasks::StopCapturingTask>(CallbackFunc); }
+		virtual void SetCameraMode(size_t ID, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<PVCamTasks::SetCameraMode>(ID, std::move(CallbackFunc)); }
+		virtual void SetExposureTime(const CameraData::TimeType ExposureTime, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<PVCamTasks::SetExposureTimeTask>(ExposureTime, std::move(CallbackFunc)); }
+		virtual void CaptureSingle(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<PVCamTasks::CaptureSingleTask>(std::move(CallbackFunc)); }
+		virtual void StartCapturing(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<PVCamTasks::StartCapturingTask>(std::move(CallbackFunc)); }
+		virtual void StopCapturing(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<PVCamTasks::StopCapturingTask>(std::move(CallbackFunc)); }
 
 	private:
 		void ResetImpl(dispatch_tag<Camera>) override final;

@@ -8,7 +8,11 @@
 #pragma once
 
 #include <QWidget>
-#include "ui_ErrorListDialog.h"
+
+namespace Ui
+{
+	class ErrorListDialog;
+}
 
 class ErrorListDialog : public QDialog
 {
@@ -47,7 +51,7 @@ protected:
 	virtual void focusOutEvent(QFocusEvent* event) override;
 
 private:
-	Ui::ErrorListDialog ui;
+	std::unique_ptr<Ui::ErrorListDialog> ui;
 
 	QWidget* WidgetToOpenThisDialog;
 	bool ClosedByClickingOpenWidget;

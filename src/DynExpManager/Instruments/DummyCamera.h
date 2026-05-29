@@ -107,9 +107,9 @@ namespace DynExpInstr
 
 		virtual double GetPixelSizeInMicrons() const noexcept override { return 0; }
 
-		virtual void CaptureSingle(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const noexcept override { MakeAndEnqueueTask<DynExp::DefaultTask>(CallbackFunc); }
-		virtual void StartCapturing(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const noexcept override { MakeAndEnqueueTask<DynExp::DefaultTask>(CallbackFunc); }
-		virtual void StopCapturing(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const noexcept override { MakeAndEnqueueTask<DynExp::DefaultTask>(CallbackFunc); }
+		virtual void CaptureSingle(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const noexcept override { MakeAndEnqueueTask<DynExp::DefaultTask>(std::move(CallbackFunc)); }
+		virtual void StartCapturing(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const noexcept override { MakeAndEnqueueTask<DynExp::DefaultTask>(std::move(CallbackFunc)); }
+		virtual void StopCapturing(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const noexcept override { MakeAndEnqueueTask<DynExp::DefaultTask>(std::move(CallbackFunc)); }
 
 	private:
 		void ResetImpl(dispatch_tag<Camera>) override final;

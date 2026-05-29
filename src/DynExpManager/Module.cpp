@@ -7,8 +7,12 @@
 
 namespace DynExp
 {
-	int ModuleThreadMain(ModuleInstance Instance, ModuleBase* const Module)
+	int ModuleThreadMain(std::unique_ptr<RunnableInstance>&& InstancePtr, RunnableObject* BaseObject)
 	{
+		InstancePtr->BlockUntilReadyToStart();
+
+		auto const Module = static_cast<ModuleBase*>(BaseObject);
+		auto& Instance = static_cast<ModuleInstance&>(*InstancePtr);
 		bool IsExiting = false;
 		std::chrono::time_point<std::chrono::system_clock> LastMainLoopExecution;	// LastUpdate.time_since_epoch() == 0 now.
 		auto ReturnCode = Util::DynExpErrorCodes::NoError;
@@ -116,8 +120,7 @@ namespace DynExp
 			Util::EventLog().Log("A module has been terminated because of the error reported below.", Util::ErrorType::Error);
 			Util::EventLog().Log(e);
 
-			// std::abort() is called when (e.g. timeout) exception occurrs while setting the caught exception.
-			Module->GetModuleData()->ModuleThreadOnly.SetException(std::current_exception());
+			Module->ModuleThreadOnly.SetException(std::current_exception());
 			Module->ModuleThreadOnly.OnError(Instance);
 
 			return e.ErrorCode;
@@ -126,8 +129,7 @@ namespace DynExp
 		{
 			Util::EventLog().Log("A module has been terminated because of the following error: " + std::string(e.what()), Util::ErrorType::Error);
 
-			// std::abort() is called when (e.g. timeout) exception occurrs while setting the caught exception.
-			Module->GetModuleData()->ModuleThreadOnly.SetException(std::current_exception());
+			Module->ModuleThreadOnly.SetException(std::current_exception());
 			Module->ModuleThreadOnly.OnError(Instance);
 
 			return Util::DynExpErrorCodes::GeneralError;
@@ -136,8 +138,7 @@ namespace DynExp
 		{
 			Util::EventLog().Log("A module has been terminated because of an unknown error.", Util::ErrorType::Error);
 
-			// std::abort() is called when (e.g. timeout) exception occurrs while setting the caught exception.
-			Module->GetModuleData()->ModuleThreadOnly.SetException(std::current_exception());
+			Module->ModuleThreadOnly.SetException(std::current_exception());
 			Module->ModuleThreadOnly.OnError(Instance);
 
 			return Util::DynExpErrorCodes::GeneralError;
@@ -170,12 +171,28 @@ namespace DynExp
 		return Event;
 	}
 
+	std::exception_ptr ModuleDataBase::GetException() const noexcept
+	{
+		if (HasException && !ModuleException)
+			return std::make_exception_ptr(Util::Exception());
+
+		return ModuleException;
+	}
+
 	void ModuleDataBase::Reset()
 	{
+		HasException = false;
 		ModuleException = nullptr;
 		EventQueueType().swap(EventQueue);	// clear EventQueue
 
 		ResetImpl(dispatch_tag<ModuleDataBase>());
+	}
+
+	void ModuleDataBase::SetException(std::exception_ptr Exception) noexcept
+	{
+		IndicateException();
+
+		ModuleException = Exception;
 	}
 
 	ModuleParamsBase::~ModuleParamsBase()
@@ -243,10 +260,6 @@ namespace DynExp
 	{
 		EnsureCallFromRunnableThread();
 
-		auto RegisteredEvent = std::find(RegisteredEvents.cbegin(), RegisteredEvents.cend(), &EventListeners);
-		if (RegisteredEvent != RegisteredEvents.cend())
-			return;
-
 		RegisteredEvents.push_back(&EventListeners);
 	}
 
@@ -266,6 +279,20 @@ namespace DynExp
 		EnsureCallFromRunnableThread();
 
 		return ModuleMainLoop(Instance);
+	}
+
+	void ModuleBase::SetException(std::exception_ptr Exception) noexcept
+	{
+		try
+		{
+			// Locking ModuleData may throw.
+			GetModuleData()->ModuleBaseOnly.SetException(Exception);
+		}
+		catch (...)
+		{
+			// Atomic operation avoids locking ModuleData.
+			ModuleData->ModuleBaseOnly.IndicateException();
+		}
 	}
 
 	void ModuleBase::OnPause(ModuleInstance& Instance)
@@ -318,11 +345,11 @@ namespace DynExp
 	{
 		MakeAndEnqueueEvent(this, &ModuleBase::OnInit);
 
-		StoreThread(std::thread(ModuleThreadMain, ModuleInstance(
-			*this,
-			MakeThreadExitedPromise(),
-			{ *this, &ModuleBase::GetModuleData, { ModuleBase::GetModuleDataTimeoutDefault } }
-		), this));
+		auto InstancePtr = std::make_unique<ModuleInstance>(*this, MakeThreadExitedPromise(), ModuleBase::ModuleDataGetterType{
+			*this, &ModuleBase::GetModuleData, { ModuleBase::GetModuleDataTimeoutDefault }
+		});
+
+		MakeThread(ModuleThreadMain, std::move(InstancePtr));
 	}
 
 	void ModuleBase::NotifyChild()
@@ -402,6 +429,13 @@ namespace DynExp
 	{
 	}
 
+	InterModuleEventLibrary& InterModuleEventLibrary::Get()
+	{
+		static InterModuleEventLibrary Lib;
+
+		return Lib;
+	}
+
 	constexpr Qt::WindowFlags QModuleWidget::GetQtWindowFlagsResizable()
 	{
 		return Qt::CustomizeWindowHint | Qt::WindowTitleHint |
@@ -416,8 +450,8 @@ namespace DynExp
 
 	QModuleWidget::QModuleWidget(QModuleBase& Owner, QWidget* Parent)
 		: QWidget(Parent), Owner(Owner), DynExpMgr(nullptr),
-		DockWindowShortcut(new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_D), this)),
-		FocusMainWindowShortcut(new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_0), this))
+		DockWindowShortcut(new QShortcut(QKeySequence(Qt::CTRL | Qt::Key_D), this)),
+		FocusMainWindowShortcut(new QShortcut(QKeySequence(Qt::CTRL | Qt::Key_0), this))
 	{
 		connect(DockWindowShortcut, &QShortcut::activated, this, &QModuleWidget::OnDockWindow);
 		connect(FocusMainWindowShortcut, &QShortcut::activated, this, &QModuleWidget::OnFocusMainWindow);

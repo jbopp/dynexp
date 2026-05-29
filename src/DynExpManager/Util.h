@@ -572,6 +572,69 @@ namespace Util
 		Values Value;																									//!< Internal value
 	};
 
+	/**
+	 * @brief Collection of static functions to generate a unique ID for data types.
+	*/
+	class UniqueID
+	{
+	public:
+		/**
+		 * @brief Generates a unique ID for each template instantiation.
+		 * The first ID is 1 to allow assigning a special meaning to 0.
+		 * @tparam T Type to return an ID for.
+		 * @return Returns the ID related to @p T.
+		*/
+		template <typename T>
+		static size_t Get() noexcept
+		{
+			static const size_t ID = Make();
+
+			return ID;
+		}
+
+	private:
+		/**
+		 * @brief Creates a new ID for each call.
+		 * @return Returns the new unique ID.
+		*/
+		static size_t Make() noexcept;
+	};
+
+	/**
+	 * @brief Combines the std::hash @p seed with the hash of @p value.
+	 * Resembles hash_combine() from the Boost library published under the Boost Software License.
+	 * @tparam T Type of @p value.
+	 * @param seed std::hash to combine the hash of @p value with.
+	 * @param value Value to calculate the hash to be combined from with, using std::hash.
+	*/
+	template <typename T>
+	inline void HashCombine(std::size_t& seed, const T& value)
+	{
+		std::hash<T> hasher;
+		seed ^= hasher(value) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
+	}
+
+	/** @name Physical units and related functions
+	 * These definitions and functions provide access to physical quantities and convert in between them.
+	*/
+	///@{
+	using seconds = std::chrono::duration<double>;					//!< Extends std::chrono by a duration data type for seconds capable of storing fractions of seconds.
+	using picoseconds = std::chrono::duration<double, std::pico>;	//!< Extends std::chrono by a duration data type for picoseconds.
+
+	/**
+	 * @brief Speed of light in vacuum in m/s
+	*/
+	static constexpr double SpeedOfLight = (GSL_CONST_MKSA_SPEED_OF_LIGHT);
+
+	/**
+	 * @brief Converts the frequency value of an electromagnetic wave in Hz to the corresponding
+	 * wavelength in m and vice versa.
+	 * @param Value Frequency in Hz or wavelength in m
+	 * @return Corresponding wavelength in m or frequency in Hz
+	*/
+	constexpr auto ConvertFrequencyWavelength(double Value) noexcept { return SpeedOfLight / Value; }
+	///@}
+
 	/** @name Conversion functions
 	 * These functions can be used to convert between different number and string types.
 	*/
@@ -757,9 +820,6 @@ namespace Util
 
 		return static_cast<ToT>(RoundedValue);
 	}
-
-	using seconds = std::chrono::duration<double>;					//!< Extends std::chrono by a duration data type for seconds capable of storing fractions of seconds.
-	using picoseconds = std::chrono::duration<double, std::pico>;	//!< Extends std::chrono by a duration data type for picoseconds.
 
 	/**
 	 * @brief Returns a string describing the physical unit associated with type @p T.
@@ -1059,7 +1119,8 @@ namespace Util
 	*/
 	class EventLogger : public ILockable
 	{
-	public:
+		friend EventLogger& EventLog();
+
 		/**
 		 * @brief Constructs the event logger without opening a log file on disk. Events are only
 		 * stored in the internal log until OpenLogFile() is called to open a log file on disk.
@@ -1072,6 +1133,7 @@ namespace Util
 		*/
 		EventLogger(std::string Filename) : EventLogger() { OpenLogFile(Filename); }
 
+	public:
 		/**
 		 * @brief Destructor closes the log file on disk.
 		*/

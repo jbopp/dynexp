@@ -43,8 +43,12 @@
 #include "HardwareAdapters/HardwareAdapterEthernet.h"
 
 // Instruments
+#include "Instruments/DummyAnalogIn.h"
+#include "Instruments/DummyAnalogOut.h"
 #include "Instruments/DummyCamera.h"
 #include "Instruments/DummyDataStreamInstrument.h"
+#include "Instruments/DummyDigitalIn.h"
+#include "Instruments/DummyDigitalOut.h"
 #include "Instruments/InterModuleCommunicator.h"
 #include "Instruments/NenionLeakvalveF3.h"
 #include "Instruments/NetworkAnalogInInstr.h"
@@ -52,8 +56,10 @@
 #include "Instruments/NetworkDataStreamInstrument.h"
 #include "Instruments/NetworkDigitalInInstr.h"
 #include "Instruments/NetworkDigitalOutInstr.h"
+#include "Instruments/NetworkLaser.h"
 #include "Instruments/NetworkSpectrometer.h"
 #include "Instruments/NetworkTimeTagger.h"
+#include "Instruments/NP_Conex_CC.h"
 #include "Instruments/PI-C-862.h"
 #include "Instruments/RS_SMB100B.h"
 #include "Instruments/RS_SMC100A.h"
@@ -82,8 +88,11 @@
 
 // Modules
 #include "Modules/ArbitraryFunctionFromCSV.h"
+#include "Modules/EventSender.h"
 #include "Modules/ImageViewer/ImageViewer.h"
 #include "Modules/InputPortReader.h"
+#include "Modules/LaserControl.h"
+#include "Modules/LaserScanningSpectroscopy/LaserScanningSpectroscopy.h"
 #include "Modules/LockinAmplifierControl.h"
 #include "Modules/NetworkAnalogInModule.h"
 #include "Modules/NetworkAnalogOutModule.h"
@@ -137,8 +146,12 @@ int main(int argc, char *argv[])
 	> HardwareAdapterLib;
 
 	constexpr DynExp::InstrumentLibrary<
+		DynExpInstr::DummyAnalogIn,
+		DynExpInstr::DummyAnalogOut,
 		DynExpInstr::DummyCamera,
 		DynExpInstr::DummyDataStreamInstrument,
+		DynExpInstr::DummyDigitalIn,
+		DynExpInstr::DummyDigitalOut,
 		DynExpInstr::InterModuleCommunicator,
 		DynExpInstr::NenionLeakvalveF3,
 		DynExpInstr::NetworkAnalogIn,
@@ -146,8 +159,10 @@ int main(int argc, char *argv[])
 		DynExpInstr::NetworkDataStreamInstrument,
 		DynExpInstr::NetworkDigitalIn,
 		DynExpInstr::NetworkDigitalOut,
+		DynExpInstr::NetworkLaser,
 		DynExpInstr::NetworkSpectrometer,
 		DynExpInstr::NetworkTimeTagger,
+		DynExpInstr::NP_Conex_CC,
 		DynExpInstr::PI_C_862,
 		DynExpInstr::RS_SMB100B,
 		DynExpInstr::RS_SMC100A,
@@ -177,8 +192,11 @@ int main(int argc, char *argv[])
 
 	constexpr DynExp::ModuleLibrary<
 		DynExpModule::ArbitraryFunctionFromCSV,
+		DynExpModule::EventSender,
 		DynExpModule::ImageViewer::ImageViewer,
 		DynExpModule::InputPortReader,
+		DynExpModule::LaserControl,
+		DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy,
 		DynExpModule::LockinAmplifierControl,
 		DynExpModule::NetworkAnalogIn,
 		DynExpModule::NetworkAnalogOut,

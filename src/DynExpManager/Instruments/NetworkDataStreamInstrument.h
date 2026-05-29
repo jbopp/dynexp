@@ -21,33 +21,33 @@ namespace DynExpInstr
 
 	using NetworkDataStreamInstrumentDataSampleStreamType = BasicSampleStream;
 
-	constexpr DynExpProto::Common::UnitType ToPrototUnitType(DataStreamInstrumentData::UnitType Unit)
+	constexpr DynExpProto::Common::IntensityUnitType ToPrototUnitType(DataStreamInstrumentData::UnitType Unit)
 	{
 		switch (Unit)
 		{
-		case DataStreamInstrumentData::UnitType::Arbitrary: return DynExpProto::Common::UnitType::Arbitrary;
-		case DataStreamInstrumentData::UnitType::LogicLevel: return DynExpProto::Common::UnitType::LogicLevel;
-		case DataStreamInstrumentData::UnitType::Counts: return DynExpProto::Common::UnitType::Counts;
-		case DataStreamInstrumentData::UnitType::Volt: return DynExpProto::Common::UnitType::Volt;
-		case DataStreamInstrumentData::UnitType::Ampere: return DynExpProto::Common::UnitType::Ampere;
-		case DataStreamInstrumentData::UnitType::Power_W: return DynExpProto::Common::UnitType::Power_W;
-		case DataStreamInstrumentData::UnitType::Power_dBm: return DynExpProto::Common::UnitType::Power_dBm;
+		case DataStreamInstrumentData::UnitType::Arbitrary: return DynExpProto::Common::IntensityUnitType::Arbitrary;
+		case DataStreamInstrumentData::UnitType::LogicLevel: return DynExpProto::Common::IntensityUnitType::LogicLevel;
+		case DataStreamInstrumentData::UnitType::Counts: return DynExpProto::Common::IntensityUnitType::Counts;
+		case DataStreamInstrumentData::UnitType::Volt: return DynExpProto::Common::IntensityUnitType::Volt;
+		case DataStreamInstrumentData::UnitType::Ampere: return DynExpProto::Common::IntensityUnitType::Ampere;
+		case DataStreamInstrumentData::UnitType::Power_W: return DynExpProto::Common::IntensityUnitType::Power_W;
+		case DataStreamInstrumentData::UnitType::Power_dBm: return DynExpProto::Common::IntensityUnitType::Power_dBm;
 		default: throw Util::InvalidDataException("The given unit does not exist in the DataStreamInstrumentData::UnitType enumeration. Did you forget to adjust the UnitType enumeration in class \"DataStreamInstrumentData\"?");
 		}
 	}
 
-	constexpr DataStreamInstrumentData::UnitType ToDataStreamInstrumentUnitType(DynExpProto::Common::UnitType Unit)
+	constexpr DataStreamInstrumentData::UnitType ToDataStreamInstrumentUnitType(DynExpProto::Common::IntensityUnitType Unit)
 	{
 		switch (Unit)
 		{
-		case DynExpProto::Common::UnitType::Arbitrary: return DataStreamInstrumentData::UnitType::Arbitrary;
-		case DynExpProto::Common::UnitType::LogicLevel: return DataStreamInstrumentData::UnitType::LogicLevel;
-		case DynExpProto::Common::UnitType::Counts: return DataStreamInstrumentData::UnitType::Counts;
-		case DynExpProto::Common::UnitType::Volt: return DataStreamInstrumentData::UnitType::Volt;
-		case DynExpProto::Common::UnitType::Ampere: return DataStreamInstrumentData::UnitType::Ampere;
-		case DynExpProto::Common::UnitType::Power_W: return DataStreamInstrumentData::UnitType::Power_W;
-		case DynExpProto::Common::UnitType::Power_dBm: return DataStreamInstrumentData::UnitType::Power_dBm;
-		default: throw Util::InvalidDataException("The given unit does not exist in the DynExpProto::Common::UnitType enumeration. Did you forget to adjust the UnitType enumeration in file \"Common.proto\"?");
+		case DynExpProto::Common::IntensityUnitType::Arbitrary: return DataStreamInstrumentData::UnitType::Arbitrary;
+		case DynExpProto::Common::IntensityUnitType::LogicLevel: return DataStreamInstrumentData::UnitType::LogicLevel;
+		case DynExpProto::Common::IntensityUnitType::Counts: return DataStreamInstrumentData::UnitType::Counts;
+		case DynExpProto::Common::IntensityUnitType::Volt: return DataStreamInstrumentData::UnitType::Volt;
+		case DynExpProto::Common::IntensityUnitType::Ampere: return DataStreamInstrumentData::UnitType::Ampere;
+		case DynExpProto::Common::IntensityUnitType::Power_W: return DataStreamInstrumentData::UnitType::Power_W;
+		case DynExpProto::Common::IntensityUnitType::Power_dBm: return DataStreamInstrumentData::UnitType::Power_dBm;
+		default: throw Util::InvalidDataException("The given unit does not exist in the DynExpProto::Common::IntensityUnitType enumeration or is not supported by this instrument. Did you forget to adjust the IntensityUnitType enumeration in file \"Common.proto\"?");
 		}
 	}
 
@@ -137,7 +137,7 @@ namespace DynExpInstr
 		class ReadTask : public DynExp::TaskBase
 		{
 		public:
-			ReadTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			ReadTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -167,7 +167,7 @@ namespace DynExpInstr
 		class WriteTask : public DynExp::TaskBase
 		{
 		public:
-			WriteTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			WriteTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -207,7 +207,7 @@ namespace DynExpInstr
 		class ClearTask : public DynExp::TaskBase
 		{
 		public:
-			ClearTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			ClearTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -228,7 +228,7 @@ namespace DynExpInstr
 		class StartTask : public DynExp::TaskBase
 		{
 		public:
-			StartTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			StartTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -249,7 +249,7 @@ namespace DynExpInstr
 		class StopTask : public DynExp::TaskBase
 		{
 		public:
-			StopTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			StopTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -270,7 +270,7 @@ namespace DynExpInstr
 		class RestartTask : public DynExp::TaskBase
 		{
 		public:
-			RestartTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			RestartTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -292,7 +292,7 @@ namespace DynExpInstr
 		{
 		public:
 			SetStreamSizeTask(size_t StreamSizeInSamples, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), StreamSizeInSamples(StreamSizeInSamples) {}
+				: TaskBase(std::move(CallbackFunc)), StreamSizeInSamples(StreamSizeInSamples) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -327,7 +327,7 @@ namespace DynExpInstr
 		class ResetStreamSizeTask : public DynExp::TaskBase
 		{
 		public:
-			ResetStreamSizeTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			ResetStreamSizeTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override
@@ -481,14 +481,14 @@ namespace DynExpInstr
 		}
 
 		// Tasks
-		virtual void ReadData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::ReadTask<BaseInstr, 0, gRPCStubs...>>(CallbackFunc); }
-		virtual void WriteData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::WriteTask<BaseInstr, 0, gRPCStubs...>>(CallbackFunc); }
-		virtual void ClearData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::ClearTask<BaseInstr, 0, gRPCStubs...>>(CallbackFunc); }
-		virtual void Start(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::StartTask<BaseInstr, 0, gRPCStubs...>>(CallbackFunc); }
-		virtual void Stop(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::StopTask<BaseInstr, 0, gRPCStubs...>>(CallbackFunc); }
-		virtual void Restart(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::RestartTask<BaseInstr, 0, gRPCStubs...>>(CallbackFunc); }
-		virtual void SetStreamSize(size_t BufferSizeInSamples, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::SetStreamSizeTask<BaseInstr, 0, gRPCStubs...>>(BufferSizeInSamples, CallbackFunc); }
-		virtual void ResetStreamSize(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::ResetStreamSizeTask<BaseInstr, 0, gRPCStubs...>>(CallbackFunc); }
+		virtual void ReadData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::ReadTask<BaseInstr, 0, gRPCStubs...>>(std::move(CallbackFunc)); }
+		virtual void WriteData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::WriteTask<BaseInstr, 0, gRPCStubs...>>(std::move(CallbackFunc)); }
+		virtual void ClearData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::ClearTask<BaseInstr, 0, gRPCStubs...>>(std::move(CallbackFunc)); }
+		virtual void Start(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::StartTask<BaseInstr, 0, gRPCStubs...>>(std::move(CallbackFunc)); }
+		virtual void Stop(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::StopTask<BaseInstr, 0, gRPCStubs...>>(std::move(CallbackFunc)); }
+		virtual void Restart(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::RestartTask<BaseInstr, 0, gRPCStubs...>>(std::move(CallbackFunc)); }
+		virtual void SetStreamSize(size_t BufferSizeInSamples, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::SetStreamSizeTask<BaseInstr, 0, gRPCStubs...>>(BufferSizeInSamples, std::move(CallbackFunc)); }
+		virtual void ResetStreamSize(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { DynExp::InstrumentBase::MakeAndEnqueueTask<NetworkDataStreamInstrumentTasks::ResetStreamSizeTask<BaseInstr, 0, gRPCStubs...>>(std::move(CallbackFunc)); }
 
 	private:
 		void ResetImpl(DynExp::Object::dispatch_tag<gRPCInstrument<BaseInstr, 0, gRPCStubs...>>) override final

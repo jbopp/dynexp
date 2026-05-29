@@ -2,13 +2,16 @@
 
 #include "stdafx.h"
 #include "moc_Trajectory1D.cpp"
+#include "ui_Trajectory1D.h"
 #include "Trajectory1D.h"
 
 namespace DynExpModule
 {
-	Trajectory1DWidget::Trajectory1DWidget(Trajectory1D& Owner, QModuleWidget* parent) : QModuleWidget(Owner, parent)
+	Trajectory1DWidget::Trajectory1DWidget(Trajectory1D& Owner, QModuleWidget* parent)
+		: QModuleWidget(Owner, parent),
+		ui(std::make_unique<Ui::Trajectory1D>())
 	{
-		ui.setupUi(this);
+		ui->setupUi(this);
 	}
 
 	void Trajectory1DData::ResetImpl(dispatch_tag<QModuleDataBase>)
@@ -19,6 +22,8 @@ namespace DynExpModule
 	void Trajectory1DData::Init()
 	{
 		TriggerMode = TriggerModeType::Manual;
+		PositioningMode = PositioningModeType::Absolute;
+		PosMultiplier = 1.0;
 		RepeatCount = 1;
 		DwellTime = std::chrono::milliseconds(100);
 
@@ -38,6 +43,16 @@ namespace DynExpModule
 			{ "Trigger only manually and stop after playback", Trajectory1DData::TriggerModeType::ManualOnce },
 			{ "Trigger only manually each time a trigger event occurs", Trajectory1DData::TriggerModeType::Manual },
 			{ "Trigger when the trajectory data stream changes", Trajectory1DData::TriggerModeType::OnStreamChanged }
+		};
+
+		return List;
+	}
+
+	Util::TextValueListType<Trajectory1DData::PositioningModeType> Trajectory1DParams::PositioningModeTypeStrList()
+	{
+		Util::TextValueListType<Trajectory1DData::PositioningModeType> List = {
+			{ "Data stream samples are treated as absolute positions", Trajectory1DData::PositioningModeType::Absolute },
+			{ "Data stream samples are treated as positions relative to the current positioner position", Trajectory1DData::PositioningModeType::Relative }
 		};
 
 		return List;
@@ -72,9 +87,9 @@ namespace DynExpModule
 	{
 		auto Widget = std::make_unique<Trajectory1DWidget>(*this);
 
-		Connect(Widget->GetUI().BStart, &QPushButton::clicked, this, &Trajectory1D::OnStartClicked);
-		Connect(Widget->GetUI().BStop, &QPushButton::clicked, this, &Trajectory1D::OnStopClicked);
-		Connect(Widget->GetUI().BForce, &QPushButton::clicked, this, &Trajectory1D::OnTriggerClicked);
+		Connect(Widget->GetUI()->BStart, &QPushButton::clicked, this, &Trajectory1D::OnStartClicked);
+		Connect(Widget->GetUI()->BStop, &QPushButton::clicked, this, &Trajectory1D::OnStopClicked);
+		Connect(Widget->GetUI()->BForce, &QPushButton::clicked, this, &Trajectory1D::OnTriggerClicked);
 
 		return Widget;
 	}
@@ -84,21 +99,21 @@ namespace DynExpModule
 		auto Widget = GetWidget<Trajectory1DWidget>();
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<Trajectory1D>(ModuleDataGetter());
 
-		Widget->GetUI().LESampleCount->setText(QString::number(ModuleData->GetSamples().size()));
+		Widget->GetUI()->LESampleCount->setText(QString::number(ModuleData->GetSamples().size()));
 
-		Widget->GetUI().LProgress->setVisible(ModuleData->IsReady() && ModuleData->GetSamples().size());
-		Widget->GetUI().PBProgress->setVisible(ModuleData->IsReady() && ModuleData->GetSamples().size());
-		Widget->GetUI().LRepetition->setVisible(ModuleData->IsReady() && ModuleData->GetSamples().size());
+		Widget->GetUI()->LProgress->setVisible(ModuleData->IsReady() && ModuleData->GetSamples().size());
+		Widget->GetUI()->PBProgress->setVisible(ModuleData->IsReady() && ModuleData->GetSamples().size());
+		Widget->GetUI()->LRepetition->setVisible(ModuleData->IsReady() && ModuleData->GetSamples().size());
 		if (ModuleData->GetSamples().size())
-			Widget->GetUI().PBProgress->setValue(static_cast<int>((static_cast<double>(ModuleData->GetCurrentRepeatCount()) / ModuleData->GetRepeatCount() +
+			Widget->GetUI()->PBProgress->setValue(static_cast<int>((static_cast<double>(ModuleData->GetCurrentRepeatCount()) / ModuleData->GetRepeatCount() +
 				std::max(0.0, static_cast<double>(ModuleData->GetCurrentPlaybackPos()) - 1.0)
 				/ ModuleData->GetRepeatCount() / ModuleData->GetSamples().size()) * 100.0));
-		Widget->GetUI().LRepetition->setText(QString("Repetition ") + QString::number(ModuleData->GetCurrentRepeatCount() + 1)
+		Widget->GetUI()->LRepetition->setText(QString("Repetition ") + QString::number(ModuleData->GetCurrentRepeatCount() + 1)
 			+ " / " + QString::number(ModuleData->GetRepeatCount()));
 
-		Widget->GetUI().BStart->setEnabled(!ModuleData->IsReady());
-		Widget->GetUI().BStop->setEnabled(ModuleData->IsReady());
-		Widget->GetUI().BForce->setEnabled(ModuleData->IsReady());
+		Widget->GetUI()->BStart->setEnabled(!ModuleData->IsReady());
+		Widget->GetUI()->BStop->setEnabled(ModuleData->IsReady());
+		Widget->GetUI()->BForce->setEnabled(ModuleData->IsReady());
 	}
 
 	void Trajectory1D::UpdateStream(Util::SynchronizedPointer<ModuleDataType>& ModuleData)
@@ -164,7 +179,12 @@ namespace DynExpModule
 			if ((ThisSampleStart <= TimeEllapsed && NextSampleStart > TimeEllapsed) ||
 				(ThisSampleStart <= TimeEllapsed && i + 1 == Samples.size()))
 			{
-				ModuleData->GetPositionerStage()->MoveAbsolute(Samples[i].Value);
+				const auto Dest = Util::NumToT<DynExpInstr::PositionerStageData::PositionType>(Samples[i].Value * ModuleData->GetPosMultiplier());
+				if (ModuleData->GetPositioningMode() == Trajectory1DData::PositioningModeType::Absolute)
+					ModuleData->GetPositionerStage()->MoveAbsolute(Dest);
+				else
+					ModuleData->GetPositionerStage()->MoveRelative(Dest);
+
 				ModuleData->SetCurrentPlaybackPos(i + 2);
 
 				break;
@@ -241,6 +261,8 @@ namespace DynExpModule
 			Instance->LockObject(ModuleParams->Communicator, ModuleData->GetCommunicator());
 
 		ModuleData->SetTriggerMode(ModuleParams->TriggerMode);
+		ModuleData->SetPositioningMode(ModuleParams->PositioningMode);
+		ModuleData->SetPosMultiplier(ModuleParams->PosMultiplier);
 		ModuleData->SetRepeatCount(std::max(static_cast<size_t>(1), Util::NumToT<size_t>(ModuleParams->RepeatCount)));
 		ModuleData->SetDwellTime(std::chrono::milliseconds(Util::NumToT<std::chrono::milliseconds::rep>(std::max(1.0, ModuleParams->DwellTime.Get()))));
 

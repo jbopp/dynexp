@@ -70,7 +70,7 @@ namespace DynExpInstr
 			 * @param BufferSizeInSamples @copybrief #BufferSizeInSamples
 			 * @param CallbackFunc @copybrief DynExp::TaskBase::CallbackFunc
 			*/
-			SetStreamSizeTask(size_t BufferSizeInSamples, CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc), BufferSizeInSamples(BufferSizeInSamples) {}
+			SetStreamSizeTask(size_t BufferSizeInSamples, CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)), BufferSizeInSamples(BufferSizeInSamples) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -801,8 +801,9 @@ namespace DynExpInstr
 
 		/**
 		 * @brief Units which can be used for data stream instruments.
-		 * @warning If this is changed, also change @p ConvertUnitType() functions in
-		 * @p NetworkDataStreamInstrument.h and the @p UnitType enumeration in @p Common.proto.
+		 * @warning If this is changed, also change @p ToPrototUnitType(DataStreamInstrumentData::UnitType) and
+		 * @p ToDataStreamInstrumentUnitType(DynExpProto::Common::IntensityUnitType) functions in
+		 * @p NetworkDataStreamInstrument.h and @p IntensityUnitType enumeration in @p Common.proto.
 		*/
 		enum class UnitType {
 			Arbitrary,		//!< Arbitrary units (a.u.)

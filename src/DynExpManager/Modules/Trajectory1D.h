@@ -17,7 +17,11 @@
 #include "CommonModuleEvents.h"
 
 #include <QWidget>
-#include "ui_Trajectory1D.h"
+
+namespace Ui
+{
+	class Trajectory1D;
+}
 
 namespace DynExpModule
 {
@@ -33,16 +37,17 @@ namespace DynExpModule
 
 		bool AllowResize() const noexcept override final { return false; }
 
-		const auto& GetUI() const noexcept { return ui; }
+		const auto GetUI() const noexcept { return ui.get(); }
 
 	private:
-		Ui::Trajectory1D ui;
+		std::unique_ptr<Ui::Trajectory1D> ui;
 	};
 
 	class Trajectory1DData : public DynExp::QModuleDataBase
 	{
 	public:
 		enum TriggerModeType { Continuous, ManualOnce, Manual, OnStreamChanged };
+		enum PositioningModeType { Absolute, Relative };
 
 		Trajectory1DData() { Init(); }
 		virtual ~Trajectory1DData() = default;
@@ -53,6 +58,10 @@ namespace DynExpModule
 
 		auto GetTriggerMode() const noexcept { return TriggerMode; }
 		void SetTriggerMode(TriggerModeType TriggerMode) noexcept { this->TriggerMode = TriggerMode; }
+		auto GetPositioningMode() const noexcept { return PositioningMode; }
+		void SetPositioningMode(PositioningModeType PositioningMode) noexcept { this->PositioningMode = PositioningMode; }
+		auto GetPosMultiplier() const noexcept { return PosMultiplier; }
+		void SetPosMultiplier(double PosMultiplier) noexcept { this->PosMultiplier = PosMultiplier; }
 		auto GetRepeatCount() const noexcept { return RepeatCount; }
 		void SetRepeatCount(size_t RepeatCount) noexcept { this->RepeatCount = RepeatCount; }
 		auto GetDwellTime() const noexcept { return DwellTime; }
@@ -85,6 +94,8 @@ namespace DynExpModule
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> Communicator;
 
 		TriggerModeType TriggerMode = TriggerModeType::Manual;
+		PositioningModeType PositioningMode = PositioningModeType::Absolute;
+		double PosMultiplier = 1.0;
 		size_t RepeatCount = 1;
 		std::chrono::milliseconds DwellTime = std::chrono::milliseconds(100);
 
@@ -101,6 +112,7 @@ namespace DynExpModule
 	{
 	public:
 		static Util::TextValueListType<Trajectory1DData::TriggerModeType> TriggerModeTypeStrList();
+		static Util::TextValueListType<Trajectory1DData::PositioningModeType> PositioningModeTypeStrList();
 
 		Trajectory1DParams(DynExp::ItemIDType ID, const DynExp::DynExpCore& Core) : QModuleParamsBase(ID, Core) {}
 		virtual ~Trajectory1DParams() = default;
@@ -116,6 +128,10 @@ namespace DynExpModule
 
 		Param<Trajectory1DData::TriggerModeType> TriggerMode = { *this, TriggerModeTypeStrList(), "TriggerMode", "Trigger mode",
 			"Trigger action which starts streaming the position data", true, Trajectory1DData::TriggerModeType::Manual };
+		Param<Trajectory1DData::PositioningModeType> PositioningMode = { *this, PositioningModeTypeStrList(), "PositioningMode", "positioning mode",
+			"Indicates how position samples are treated", true, Trajectory1DData::PositioningModeType::Absolute };
+		Param<ParamsConfigDialog::NumberType> PosMultiplier = { *this, "PosMultiplier", "Position multiplier",
+			"Factor to multiply each position sample with before moving", true, 1, -1e9, 1e9, 1, 2 };
 		Param<ParamsConfigDialog::NumberType> RepeatCount = { *this, "RepeatCount", "Number of repetitions",
 			"Determines how many times the trajectory data stream should be played back after a trigger event has occurred", true, 1, 1 };
 		Param<ParamsConfigDialog::NumberType> DwellTime = { *this, "DwellTime", "Dwell time in ms",

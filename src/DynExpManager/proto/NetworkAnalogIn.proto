@@ -19,7 +19,7 @@ message ValueResolutionMessage
 
 message ValueUnitMessage
 {
-	DynExpProto.Common.UnitType Unit = 1;
+	DynExpProto.Common.IntensityUnitType Unit = 1;
 }
 
 message SampleMessage

@@ -37,7 +37,7 @@ namespace DynExpInstr
 		case DynExpProto::Common::FrequencyUnitType::Hz: return SpectrometerData::FrequencyUnitType::Hz;
 		case DynExpProto::Common::FrequencyUnitType::nm: return SpectrometerData::FrequencyUnitType::nm;
 		case DynExpProto::Common::FrequencyUnitType::Inv_cm: return SpectrometerData::FrequencyUnitType::Inv_cm;
-		default: throw Util::InvalidDataException("The given unit does not exist in the DynExpProto::Common::FrequencyUnitType enumeration. Did you forget to adjust the FrequencyUnitType enumeration in file \"Common.proto\"?");
+		default: throw Util::InvalidDataException("The given unit does not exist in the DynExpProto::Common::FrequencyUnitType enumeration or is not supported by this instrument. Did you forget to adjust the FrequencyUnitType enumeration in file \"Common.proto\"?");
 		}
 	}
 
@@ -45,7 +45,7 @@ namespace DynExpInstr
 	{
 		switch (Unit)
 		{
-		case SpectrometerData::IntensityUnitType::Counts: return DynExpProto::Common::IntensityUnitType::IntensityCounts;
+		case SpectrometerData::IntensityUnitType::Counts: return DynExpProto::Common::IntensityUnitType::Counts;
 		default: throw Util::InvalidDataException("The given unit does not exist in the SpectrometerData::IntensityUnitType enumeration. Did you forget to adjust the IntensityUnitType enumeration in class \"SpectrometerData\"?");
 		}
 	}
@@ -54,8 +54,8 @@ namespace DynExpInstr
 	{
 		switch (Unit)
 		{
-		case DynExpProto::Common::IntensityUnitType::IntensityCounts: return SpectrometerData::IntensityUnitType::Counts;
-		default: throw Util::InvalidDataException("The given unit does not exist in the DynExpProto::Common::IntensityUnitType enumeration. Did you forget to adjust the IntensityUnitType enumeration in file \"Common.proto\"?");
+		case DynExpProto::Common::IntensityUnitType::Counts: return SpectrometerData::IntensityUnitType::Counts;
+		default: throw Util::InvalidDataException("The given unit does not exist in the DynExpProto::Common::IntensityUnitType enumeration or is not supported by this instrument. Did you forget to adjust the IntensityUnitType enumeration in file \"Common.proto\"?");
 		}
 	}
 
@@ -97,7 +97,7 @@ namespace DynExpInstr
 		class SetExposureTimeTask final : public DynExp::TaskBase
 		{
 		public:
-			SetExposureTimeTask(SpectrometerData::TimeType ExposureTime, CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc), ExposureTime(ExposureTime) {}
+			SetExposureTimeTask(SpectrometerData::TimeType ExposureTime, CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)), ExposureTime(ExposureTime) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -108,7 +108,7 @@ namespace DynExpInstr
 		class SetFrequencyRangeTask final : public DynExp::TaskBase
 		{
 		public:
-			SetFrequencyRangeTask(double LowerFrequency, double UpperFrequency, CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc), LowerFrequency(LowerFrequency), UpperFrequency(UpperFrequency) {}
+			SetFrequencyRangeTask(double LowerFrequency, double UpperFrequency, CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)), LowerFrequency(LowerFrequency), UpperFrequency(UpperFrequency) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -120,7 +120,7 @@ namespace DynExpInstr
 		class SetSetSilentModeTask final : public DynExp::TaskBase
 		{
 		public:
-			SetSetSilentModeTask(bool Enable, CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc), Enable(Enable) {}
+			SetSetSilentModeTask(bool Enable, CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)), Enable(Enable) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -131,7 +131,7 @@ namespace DynExpInstr
 		class RecordTask final : public DynExp::TaskBase
 		{
 		public:
-			RecordTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			RecordTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -140,7 +140,7 @@ namespace DynExpInstr
 		class AbortTask final : public DynExp::TaskBase
 		{
 		public:
-			AbortTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			AbortTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -219,18 +219,18 @@ namespace DynExpInstr
 
 		virtual std::string GetName() const override { return Name(); }
 
-		virtual SpectrometerData::FrequencyUnitType GetFrequencyUnit() const;
-		virtual SpectrometerData::IntensityUnitType GetIntensityUnit() const;
-		virtual double GetMinFrequency() const;
-		virtual double GetMaxFrequency() const;
+		virtual SpectrometerData::FrequencyUnitType GetFrequencyUnit() const override;
+		virtual SpectrometerData::IntensityUnitType GetIntensityUnit() const override;
+		virtual double GetMinFrequency() const override;
+		virtual double GetMaxFrequency() const override;
 
 		// Logical const-ness: const member functions to allow inserting tasks into task queue.
-		virtual void SetExposureTime(SpectrometerData::TimeType ExposureTime, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NetworkSpectrometerTasks::SetExposureTimeTask>(ExposureTime, CallbackFunc); }
-		virtual void SetFrequencyRange(double LowerFrequency, double UpperFrequency, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NetworkSpectrometerTasks::SetFrequencyRangeTask>(LowerFrequency, UpperFrequency, CallbackFunc); }
-		virtual void SetSilentMode(bool Enable, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NetworkSpectrometerTasks::SetSetSilentModeTask>(Enable, CallbackFunc); }
+		virtual void SetExposureTime(SpectrometerData::TimeType ExposureTime, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NetworkSpectrometerTasks::SetExposureTimeTask>(ExposureTime, std::move(CallbackFunc)); }
+		virtual void SetFrequencyRange(double LowerFrequency, double UpperFrequency, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NetworkSpectrometerTasks::SetFrequencyRangeTask>(LowerFrequency, UpperFrequency, std::move(CallbackFunc)); }
+		virtual void SetSilentMode(bool Enable, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NetworkSpectrometerTasks::SetSetSilentModeTask>(Enable, std::move(CallbackFunc)); }
 
-		virtual void Record(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NetworkSpectrometerTasks::RecordTask>(CallbackFunc); }
-		virtual void Abort(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NetworkSpectrometerTasks::AbortTask>(CallbackFunc); }
+		virtual void Record(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NetworkSpectrometerTasks::RecordTask>(std::move(CallbackFunc)); }
+		virtual void Abort(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<NetworkSpectrometerTasks::AbortTask>(std::move(CallbackFunc)); }
 
 	private:
 		void ResetImpl(dispatch_tag<gRPCInstrument<Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer>>) override final;

@@ -2,16 +2,19 @@
 
 #include "stdafx.h"
 #include "moc_InputPortReader.cpp"
+#include "ui_InputPortReader.h"
 #include "InputPortReader.h"
 
 namespace DynExpModule
 {
-	InputPortReaderWidget::InputPortReaderWidget(InputPortReader& Owner, QModuleWidget* parent) : QModuleWidget(Owner, parent)
+	InputPortReaderWidget::InputPortReaderWidget(InputPortReader& Owner, QModuleWidget* parent)
+		: QModuleWidget(Owner, parent),
+		ui(std::make_unique<Ui::InputPortReader>())
 	{
-		ui.setupUi(this);
+		ui->setupUi(this);
 
-		ui.AnalogInWidget->setVisible(false);
-		ui.DigitalInWidget->setVisible(false);
+		ui->AnalogInWidget->setVisible(false);
+		ui->DigitalInWidget->setVisible(false);
 	}
 
 	void InputPortReaderData::ResetImpl(dispatch_tag<QModuleDataBase>)
@@ -70,8 +73,8 @@ namespace DynExpModule
 
 		if (!ModuleData->UIInitialized)
 		{
-			Widget->ui.AnalogInWidget->setVisible(!ModuleData->IsDigitalPort);
-			Widget->ui.DigitalInWidget->setVisible(ModuleData->IsDigitalPort);
+			Widget->ui->AnalogInWidget->setVisible(!ModuleData->IsDigitalPort);
+			Widget->ui->DigitalInWidget->setVisible(ModuleData->IsDigitalPort);
 			Widget->adjustSize();
 
 			ModuleData->UIInitialized = true;
@@ -79,15 +82,15 @@ namespace DynExpModule
 
 		if (!ModuleData->IsDigitalPort)
 		{
-			Widget->ui.ValueLabel->setText(QString::number(ModuleData->Value) + " " + DynExpInstr::DataStreamInstrumentData::UnitTypeToStr(ModuleData->InputPort->GetValueUnit()));
-			Widget->ui.ValueProgressBar->setMinimum(ModuleData->InputPort->GetHardwareMinValue());
-			Widget->ui.ValueProgressBar->setMaximum(ModuleData->InputPort->GetHardwareMaxValue());
-			Widget->ui.ValueProgressBar->setValue(ModuleData->Value);
+			Widget->ui->ValueLabel->setText(QString::number(ModuleData->Value) + " " + DynExpInstr::DataStreamInstrumentData::UnitTypeToStr(ModuleData->InputPort->GetValueUnit()));
+			Widget->ui->ValueProgressBar->setMinimum(ModuleData->InputPort->GetHardwareMinValue());
+			Widget->ui->ValueProgressBar->setMaximum(ModuleData->InputPort->GetHardwareMaxValue());
+			Widget->ui->ValueProgressBar->setValue(ModuleData->Value);
 		}
 		else
 		{
-			Widget->ui.StateLabel->setText(ModuleData->Value ? "High" : "Low");
-			Widget->ui.StateFrame->setStyleSheet(ModuleData->Value ? "background-color: lime;" : "background-color: red;");
+			Widget->ui->StateLabel->setText(ModuleData->Value ? "High" : "Low");
+			Widget->ui->StateFrame->setStyleSheet(ModuleData->Value ? "background-color: lime;" : "background-color: red;");
 		}
 	}
 

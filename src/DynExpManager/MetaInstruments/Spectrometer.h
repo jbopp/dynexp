@@ -72,8 +72,9 @@ namespace DynExpInstr
 
 		/**
 		 * @brief Supported spectrometer frequency units.
-		 * @warning If this is changed, also change @p ConvertFrequencyUnitType() functions in
-		 * @p NetworkSpectrometer.h and @p FrequencyUnitType enumeration in @p Common.proto.
+		 * @warning If this is changed, also change @p ToPrototUnitType(SpectrometerData::FrequencyUnitType) and
+		 * @p ToSpectrometerUnitType(DynExpProto::Common::FrequencyUnitType) functions in @p NetworkSpectrometer.h and
+		 * @p FrequencyUnitType enumeration in @p Common.proto.
 		*/
 		enum class FrequencyUnitType {
 			Hz,			//!< Frequency in Hz
@@ -83,8 +84,9 @@ namespace DynExpInstr
 
 		/**
 		 * @brief Supported spectrometer intensity units.
-		 * @warning If this is changed, also change @p ConvertIntensityUnitType() functions in
-		 * @p NetworkSpectrometer.h and @p IntensityUnitType enumeration in @p Common.proto.
+		 * @warning If this is changed, also change @p ToPrototUnitType(SpectrometerData::IntensityUnitType) and
+		 * @p ToSpectrometerUnitType(DynExpProto::Common::IntensityUnitType) functions in @p NetworkSpectrometer.h and
+		 * @p IntensityUnitType enumeration in @p Common.proto.
 		*/
 		enum class IntensityUnitType {
 			Counts		//!< Number of counts (arbitrary unit)

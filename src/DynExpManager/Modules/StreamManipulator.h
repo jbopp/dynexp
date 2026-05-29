@@ -11,6 +11,9 @@
 #include "stdafx.h"
 #include "DynExpCore.h"
 #include "PyModules.h"
+#include "../Instruments/InterModuleCommunicator.h"
+
+#include "CommonModuleEvents.h"
 
 namespace DynExpModule
 {
@@ -22,12 +25,13 @@ namespace DynExpModule
 	using PyStreamListType = std::vector<DynExpInstr::PyDataStreamInstrument>;
 
 	/**
-	 * @brief Input data type passed to on_step() Python function
+	 * @brief Input data type passed to on_step() and event handler Python functions
 	*/
 	struct PyStreamManipulatorInputData
 	{
 		/**
-		 * @brief ID of the module invoking the on_step() Python function for stream manipulation
+		 * @brief ID of the module invoking the on_step() or an event handler Python function
+		 * for stream manipulation
 		*/
 		DynExp::ItemIDType ModuleID{ DynExp::ItemIDNotSet };
 
@@ -47,6 +51,12 @@ namespace DynExpModule
 		PyStreamListType OutputStreams;
 
 		/**
+		 * @brief Filename and path where the Python functions invoked by the @p StreamManipulator
+		 * module can save data. The value is set by the the DynExpModule::SetFilenameEvent event.
+		*/
+		std::string SaveFilename;
+
+		/**
 		 * @brief Resets all member variables of this @p PyStreamManipulatorInputData instance
 		 * back to their default values.
 		*/
@@ -54,7 +64,7 @@ namespace DynExpModule
 	};
 
 	/**
-	 * @brief Output data type returned from on_step() Python function
+	 * @brief Output data type returned from on_step() or event handler Python functions
 	*/
 	struct PyStreamManipulatorOutputData
 	{
@@ -72,9 +82,10 @@ namespace DynExpModule
 
 		/**
 		 * @brief Maintaining the order of input data streams in
-		 * PyStreamManipulatorInputData::InputStreams as passed to the on_step() Python
-		 * function, this list contains for each input data stream the sample ID that has
-		 * been consumed. These samples won't be passed to on_step() in its next call.
+		 * PyStreamManipulatorInputData::InputStreams as passed to the on_step() or event
+		 * handler Python functions, this list contains the sample ID that has been consumed
+		 * for each input data stream. These samples won't be passed to on_step() or event
+		 * handler Python functions in its next call.
 		*/
 		std::vector<size_t> LastConsumedSampleIDsPerInputStream;
 
@@ -98,6 +109,7 @@ namespace DynExpModule
 		auto& GetInputDataStreams() noexcept { return InputDataStreams; }			//!< Getter for #InputDataStreams
 		auto& GetOutputDataStreams() const noexcept { return OutputDataStreams; }	//!< Getter for #OutputDataStreams
 		auto& GetOutputDataStreams() noexcept { return OutputDataStreams; }			//!< Getter for #OutputDataStreams
+		auto& GetCommunicator() noexcept { return Communicator; }					//!< Getter for #Communicator
 
 	private:
 		/**
@@ -125,6 +137,12 @@ namespace DynExpModule
 		 * @brief Linked output data stream instruments to write the computed new samples to
 		*/
 		DynExp::LinkedObjectWrapperContainerList<DynExpInstr::DataStreamInstrument> OutputDataStreams;
+
+		/**
+		 * @brief Inter-module communicator instrument to receive events from that are translated to calls
+		 * to respective Python function calls. Refer to StreamManipulatorParams::Communicator.
+		*/
+		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> Communicator;
 	};
 
 	/**
@@ -171,15 +189,27 @@ namespace DynExpModule
 		 * when it is terminated, and @p on_step() is called periodically and as soon as new
 		 * input samples are available according to PyStreamManipulatorOutputData::MinNextExecutionDelay
 		 * and PyStreamManipulatorOutputData::MaxNextExecutionDelay.
+		 * If event handler functions @p on_start(input), @p on_stop(input), and/or @p on_trigger(input)
+		 * are available, they are assigned to the respective events received from #Communicator.
+		 * Refer to #Communicator for details.
 		 * 
 		 * To store local variables, they can be assigned to @p on_init() as attributes.
-		 * Such attributes are accessible in @p on_step() and @p on_exit() as well.
+		 * Such attributes are accessible in @p on_step(), @p on_exit(), and event handler
+		 * functions as well.
 		 * 
 		 * Refer to the examples within this repository for different implementations
 		 * of the Python functions described here.
 		*/
 		Param<ParamsConfigDialog::TextType> PythonCodePath = { *this, "PythonCodePath", "Python code path",
 			"Path to a Python file containing the function which writes samples to the output streams based on the input streams' data", true, "", DynExp::TextUsageType::Code };
+
+		/**
+		 * @brief This module listens to the DynExpModule::StartEvent, DynExpModule::StopEvent, and
+		 * DynExpModule::TriggerEvent, which may be received via this DynExpInstr::InterModuleCommunicator
+		 * instrument. Refer to #PythonCodePath for details on the event function implementation.
+		*/
+		Param<DynExp::ObjectLink<DynExpInstr::InterModuleCommunicator>> Communicator = { *this, GetCore().GetInstrumentManager(),
+			"InterModuleCommunicator", "Inter-module communicator", "Inter-module communicator to control this module with", DynExpUI::Icons::Instrument, true };
 
 	private:
 		/**
@@ -258,10 +288,14 @@ namespace DynExpModule
 
 		/**
 		 * @brief Performs a single manipulation step by preparing input data for a call to the
-		 * Python function @p on_step(), by calling it, and by processing the data it returns.
-		 * @param ModuleData Locked module data instance
+		 * Python function @p on_step() or event handler functions. Next, the respective function
+		 * is called and the returned data is processed.
+		 * @param ModuleData Locked module data instance.
+		 * @param StepFunction Handle to the Python function to be called.
+		 * @param UpdateLastExecutionTime Indicates whether #LastManipulatorPyFuncExecution should
+		 * be updated by this function call.
 		*/
-		void Step(Util::SynchronizedPointer<ModuleDataType>& ModuleData);
+		void Step(Util::SynchronizedPointer<ModuleDataType>& ModuleData, const PyFuncType& StepFunction, bool UpdateLastExecutionTime = true) const;
 
 		/** @name Events
 		 * Event functions running in the module thread.
@@ -269,6 +303,38 @@ namespace DynExpModule
 		///@{
 		void OnInit(DynExp::ModuleInstance* Instance) const override final;
 		void OnExit(DynExp::ModuleInstance* Instance) const override final;
+
+		/**
+		 * @brief Called when receiving DynExpModule::SetFilenameEvent.
+		 * @param Instance Instance Handle to the module thread's data
+		 * @param Filename Filename where to save data. Refer to
+		 * PyStreamManipulatorInputData::SaveFilename.
+		*/
+		void OnSetFilename(DynExp::ModuleInstance* Instance, const std::string& Filename) const;
+
+		/**
+		 * @brief Called when receiving DynExpModule::FinishedEvent.
+		 * @param Instance Handle to the module thread's data
+		*/
+		void OnFinished(DynExp::ModuleInstance* Instance) const;
+
+		/**
+		 * @brief Called when receiving DynExpModule::StartEvent.
+		 * @param Instance Handle to the module thread's data
+		*/
+		void OnStart(DynExp::ModuleInstance* Instance) const;
+
+		/**
+		 * @brief Called when receiving DynExpModule::StopEvent.
+		 * @param Instance Handle to the module thread's data
+		*/
+		void OnStop(DynExp::ModuleInstance* Instance) const;
+
+		/**
+		 * @brief Called when receiving DynExpModule::TriggerEvent.
+		 * @param Instance Handle to the module thread's data
+		*/
+		void OnTrigger(DynExp::ModuleInstance* Instance) const;
 		///@}
 
 		/**
@@ -281,22 +347,26 @@ namespace DynExpModule
 		/**
 		 * @brief Unique name of the Python function all the code of this @p StreamManipulator
 		 * instance is declared in. The name contains the module's ID to ensure that multiple
-		 * @p StreamManipulator instances can declare their own @p on_init(), @p on_step(), and
-		 * @p on_exit() Python functions at the same time.
+		 * @p StreamManipulator instances can declare their own @p on_init(), @p on_step(),
+		 * @p on_exit(), and event handler Python functions at the same time.
 		*/
 		std::string ManipulatorPyFuncName;
 
-		mutable PyFuncType ManipulatorPyFuncInit;	//!< Handle to a Python function called on module initialization.
-		mutable PyFuncType ManipulatorPyFuncStep;	//!< Handle to a Python function called for each manipulation step.
-		mutable PyFuncType ManipulatorPyFuncExit;	//!< Handle to a Python function called on module termination.
+		mutable PyFuncType ManipulatorPyFuncInit;		//!< Handle to a Python function called on module initialization.
+		mutable PyFuncType ManipulatorPyFuncStep;		//!< Handle to a Python function called for each manipulation step.
+		mutable PyFuncType ManipulatorPyFuncExit;		//!< Handle to a Python function called on module termination.
+		mutable PyFuncType ManipulatorPyFuncFinished;	//!< Handle to a Python function called for DynExpModule::FinishedEvent.
+		mutable PyFuncType ManipulatorPyFuncStart;		//!< Handle to a Python function called for DynExpModule::StartEvent.
+		mutable PyFuncType ManipulatorPyFuncStop;		//!< Handle to a Python function called for DynExpModule::StopEvent.
+		mutable PyFuncType ManipulatorPyFuncTrigger;	//!< Handle to a Python function called for DynExpModule::TriggerEvent.
 
 		/**
-		 * @brief Input data passed to the on_step() Python function
+		 * @brief Input data passed to the on_step() and event handler Python functions
 		*/
 		mutable PyStreamManipulatorInputData ManipulatorPyFuncInput;
 
 		/**
-		 * @brief Output data returned from the on_step() Python function
+		 * @brief Output data returned from the on_step() and event handler Python functions
 		*/
 		mutable PyStreamManipulatorOutputData ManipulatorPyFuncOutput;
 
@@ -309,6 +379,6 @@ namespace DynExpModule
 		/**
 		 * @copydoc PyStreamManipulatorInputData::LastExecutionTime
 		*/
-		std::chrono::time_point<std::chrono::system_clock> LastManipulatorPyFuncExecution{};
+		mutable std::chrono::time_point<std::chrono::system_clock> LastManipulatorPyFuncExecution{};
 	};
 }

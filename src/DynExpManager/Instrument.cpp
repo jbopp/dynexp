@@ -5,10 +5,15 @@
 
 namespace DynExp
 {
-	int InstrumentThreadMain(InstrumentInstance Instance, InstrumentBase* const Instrument)
+	int InstrumentThreadMain(std::unique_ptr<RunnableInstance>&& InstancePtr, RunnableObject* BaseObject)
 	{
+		InstancePtr->BlockUntilReadyToStart();
+
+		auto const Instrument = static_cast<InstrumentBase*>(BaseObject);
+		auto& Instance = static_cast<InstrumentInstance&>(*InstancePtr);
 		bool IsExiting = false;
 		bool IsFirstRun = true;
+		InstrumentBase::TaskHandlingContinuationType DoContinue = InstrumentBase::TaskHandlingContinuationType::Continue;
 		std::chrono::time_point<std::chrono::system_clock> LastUpdate;	// LastUpdate.time_since_epoch() == 0 now.
 
 		try
@@ -22,18 +27,24 @@ namespace DynExp
 
 				// Loop through all pending tasks. Potential change in between loop condition and function call is taken care of by HandleTask()
 				while (Instrument->GetInstrumentData()->GetNumEnqueuedTasks())
-					if (!Instrument->InstrumentThreadOnly.HandleTask(Instance))
+				{
+					DoContinue = Instrument->InstrumentThreadOnly.HandleTask(Instance);
+					if (DoContinue != InstrumentBase::TaskHandlingContinuationType::Continue)
 					{
-						IsExiting = true;
+						if (DoContinue == InstrumentBase::TaskHandlingContinuationType::Terminate)
+							IsExiting = true;
+
 						break;
 					}
+				}
 
 				if (!IsExiting)
 				{
 					auto TaskQueueDelay = Instrument->GetTaskQueueDelay();
 					auto Now = std::chrono::system_clock::now();
 
-					if (Now - LastUpdate >= TaskQueueDelay || TaskQueueDelay == decltype(TaskQueueDelay)::max())
+					if (DoContinue != InstrumentBase::TaskHandlingContinuationType::Defer &&
+						(Now - LastUpdate >= TaskQueueDelay || TaskQueueDelay == decltype(TaskQueueDelay)::max()))
 					{
 						Instrument->InstrumentThreadOnly.UpdateData();
 
@@ -65,8 +76,7 @@ namespace DynExp
 			Util::EventLog().Log("An instrument has been terminated because of the error reported below.", Util::ErrorType::Error);
 			Util::EventLog().Log(e);
 
-			// std::abort() is called when (e.g. timeout) exception occurrs while setting the caught exception.
-			Instrument->GetInstrumentData()->InstrumentThreadOnly.SetException(std::current_exception());
+			Instrument->InstrumentThreadOnly.SetException(std::current_exception());
 			Instrument->InstrumentThreadOnly.OnError();
 
 			return e.ErrorCode;
@@ -75,8 +85,7 @@ namespace DynExp
 		{
 			Util::EventLog().Log("An instrument has been terminated because of the following error: " + std::string(e.what()), Util::ErrorType::Error);
 
-			// std::abort() is called when (e.g. timeout) exception occurrs while setting the caught exception.
-			Instrument->GetInstrumentData()->InstrumentThreadOnly.SetException(std::current_exception());
+			Instrument->InstrumentThreadOnly.SetException(std::current_exception());
 			Instrument->InstrumentThreadOnly.OnError();
 
 			return Util::DynExpErrorCodes::GeneralError;
@@ -85,8 +94,7 @@ namespace DynExp
 		{
 			Util::EventLog().Log("An instrument has been terminated because of an unknown error.", Util::ErrorType::Error);
 
-			// std::abort() is called when (e.g. timeout) exception occurrs while setting the caught exception.
-			Instrument->GetInstrumentData()->InstrumentThreadOnly.SetException(std::current_exception());
+			Instrument->InstrumentThreadOnly.SetException(std::current_exception());
 			Instrument->InstrumentThreadOnly.OnError();
 
 			return Util::DynExpErrorCodes::GeneralError;
@@ -134,6 +142,14 @@ namespace DynExp
 		return Task;
 	}
 
+	std::exception_ptr InstrumentDataBase::GetException() const noexcept
+	{
+		if (HasException && !InstrumentException)
+			return std::make_exception_ptr(Util::Exception());
+
+		return InstrumentException;
+	}
+
 	void InstrumentDataBase::EnqueueTask(std::unique_ptr<TaskBase>&& Task, bool CallFromInstrThread, bool NotifyReceiver)
 	{
 		CheckError();
@@ -178,6 +194,7 @@ namespace DynExp
 	void InstrumentDataBase::Reset()
 	{
 		QueueClosed = false;
+		HasException = false;
 		InstrumentException = nullptr;
 
 		TaskQueue.clear();
@@ -186,9 +203,16 @@ namespace DynExp
 		ResetImpl(dispatch_tag<InstrumentDataBase>());
 	}
 
+	void InstrumentDataBase::SetException(std::exception_ptr Exception) noexcept
+	{
+		IndicateException();
+
+		InstrumentException = Exception;
+	}
+
 	void InstrumentDataBase::CheckError() const
 	{
-		Util::ForwardException(InstrumentException);
+		Util::ForwardException(GetException());
 	}
 
 	void InstrumentDataBase::CheckQueueState(bool CallFromInstrThread) const
@@ -251,12 +275,12 @@ namespace DynExp
 		GetNonConstInstrumentData()->EnqueueTask(std::move(Task));
 	}
 
-	bool InstrumentBase::HandleTask(InstrumentInstance& Instance)
+	InstrumentBase::TaskHandlingContinuationType InstrumentBase::HandleTask(InstrumentInstance& Instance)
 	{
 		EnsureCallFromRunnableThread();
 
 		if (!HandleAdditionalTask())
-			return false;
+			return TaskHandlingContinuationType::Terminate;
 
 		InstrumentDataBase::TaskQueueIteratorType Task;
 
@@ -265,16 +289,26 @@ namespace DynExp
 			auto InstrumentDataPtr = GetInstrumentData();
 
 			if (!InstrumentDataPtr->GetNumEnqueuedTasks())
-				return true;
+				return TaskHandlingContinuationType::Continue;
 
 			Task = InstrumentDataPtr->GetTaskFront();
+			if (Task->get()->IsAborting())
+			{
+				Task->get()->InstrumentBaseOnly.SetAborted();
+				GetInstrumentData()->InstrumentBaseOnly.RemoveTaskFromQueue(Task);
+
+				return TaskHandlingContinuationType::Continue;
+			}
+			if (Task->get()->GetDeferUntil() > std::chrono::system_clock::now())
+				return TaskHandlingContinuationType::Defer;
+
 			Task->get()->InstrumentBaseOnly.Lock();
 		} // InstrumentData unlocked here
 
-		auto Result = Task->get()->InstrumentBaseOnly.Run(Instance);
+		auto DoContinue = Task->get()->InstrumentBaseOnly.Run(Instance);
 		GetInstrumentData()->InstrumentBaseOnly.RemoveTaskFromQueue(Task);
 
-		return Result;
+		return DoContinue;
 	}
 
 	void InstrumentBase::UpdateDataInternal()
@@ -285,6 +319,20 @@ namespace DynExp
 			return;
 
 		UpdateData();
+	}
+
+	void InstrumentBase::SetException(std::exception_ptr Exception) noexcept
+	{
+		try
+		{
+			// Locking InstrumentData may throw.
+			GetInstrumentData()->InstrumentBaseOnly.SetException(Exception);
+		}
+		catch (...)
+		{
+			// Atomic operation avoids locking InstrumentData.
+			InstrumentData->InstrumentBaseOnly.IndicateException();
+		}
 	}
 
 	void InstrumentBase::OnError()
@@ -330,11 +378,11 @@ namespace DynExp
 		if (Task)
 			InstrumentData->EnqueueTask(std::move(Task));
 
-		StoreThread(std::thread(InstrumentThreadMain, InstrumentInstance(
-			*this,
-			MakeThreadExitedPromise(),
-			{ *this, &InstrumentBase::GetInstrumentData, { InstrumentBase::GetInstrumentDataTimeoutDefault } }
-		), this));
+		auto InstancePtr = std::make_unique<InstrumentInstance>(*this, MakeThreadExitedPromise(), InstrumentBase::InstrumentDataGetterType{
+			*this, &InstrumentBase::GetInstrumentData, { InstrumentBase::GetInstrumentDataTimeoutDefault }
+		});
+
+		MakeThread(InstrumentThreadMain, std::move(InstancePtr));
 	}
 
 	void InstrumentBase::NotifyChild()
@@ -439,6 +487,32 @@ namespace DynExp
 	{
 	}
 
+	constexpr InstrumentBase::TaskHandlingContinuationType TaskResultType::ToTaskHandlingContinuationType() const noexcept
+	{
+		return Continue == ContinuationType::Continue ?
+			InstrumentBase::TaskHandlingContinuationType::Continue : InstrumentBase::TaskHandlingContinuationType::Terminate;
+	}
+
+	TaskBase::CallbackType::CallbackType(CallbackType&& Other)
+		: CallbackFunc(Other.CallbackFunc), HasBeenCalled(Other.HasBeenCalled)
+	{
+		Other.HasBeenCalled = true;
+	}
+
+	TaskBase::CallbackType::~CallbackType()
+	{
+		try
+		{
+			// Default-constructed ExceptionContainer does indicate a non-error state.
+			ExceptionContainer Exception;
+			this->operator()(nullptr, Exception);
+		}
+		catch (...)
+		{
+			// Swallow exceptions possibly thrown by callback execution to prevent them leaving the destructor.
+		}
+	}
+
 	TaskBase::~TaskBase()
 	{
 		// Ensure that CallbackFunc gets called in any case.
@@ -448,16 +522,13 @@ namespace DynExp
 
 			try
 			{
-				if (CallbackFunc)
-				{
-					// Default-constructed ExceptionContainer does indicate a non-error state.
-					ExceptionContainer Exception;
-					CallbackFunc(*this, Exception);
-				}
+				// Default-constructed ExceptionContainer does indicate a non-error state.
+				ExceptionContainer Exception;
+				CallbackFunc(this, Exception);
 			}
 			catch (...)
 			{
-				// Swallow exceptions possibly thrown by CallbackFunc to prevent them leave the destructor.
+				// Swallow exceptions possibly thrown by CallbackFunc to prevent them leaving the destructor.
 			}
 		}
 	}
@@ -478,7 +549,7 @@ namespace DynExp
 		State = TaskState::Locked;
 	}
 
-	bool TaskBase::Run(InstrumentInstance& Instance)
+	InstrumentBase::TaskHandlingContinuationType TaskBase::Run(InstrumentInstance& Instance)
 	{
 		if (State != TaskState::Waiting && State != TaskState::Locked)
 			throw Util::InvalidStateException("An instrument's task cannot be started since it is not in a pending or locked state.");
@@ -492,14 +563,11 @@ namespace DynExp
 			State = Result.GetErrorCode() ? TaskState::Failed : (Result.HasAborted() ? TaskState::Aborted : TaskState::Finished);
 			ErrorCode = Result.GetErrorCode();
 
-			if (CallbackFunc)
-			{
-				// Default-constructed ExceptionContainer does indicate a non-error state.
-				ExceptionContainer Exception;
-				CallbackFunc(*this, Exception);
-			}
+			// Default-constructed ExceptionContainer does indicate a non-error state.
+			ExceptionContainer Exception;
+			CallbackFunc(this, Exception);
 
-			return Result.ShouldContinue();
+			return Result.ToTaskHandlingContinuationType();
 		}
 		catch (...)
 		{
@@ -509,9 +577,9 @@ namespace DynExp
 			ExceptionContainer Exception(std::current_exception());
 			if (CallbackFunc)
 			{
-				CallbackFunc(*this, Exception);
+				CallbackFunc(this, Exception);
 				if (!Exception.IsError())
-					return true;
+					InstrumentBase::TaskHandlingContinuationType::Continue;
 			}
 
 			throw;
@@ -537,7 +605,7 @@ namespace DynExp
 		Util::EventLog().Log("Instrument \"" + Instance.ParamsGetter()->ObjectName.Get() + "\" has been shut down.");
 #endif // DYNEXP_DEBUG
 		
-		return { TaskResultType::ContinueTaskHandlingType::Terminate };
+		return { TaskResultType::ContinuationType::Terminate };
 	}
 
 	TaskResultType UpdateTaskBase::RunChild(InstrumentInstance& Instance)

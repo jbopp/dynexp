@@ -2,10 +2,12 @@
 
 #include "stdafx.h"
 #include "moc_DynExpManager.cpp"
+#include "ui_DynExpManager.h"
 #include "DynExpManager.h"
 
 DynExpManager::DynExpManager(DynExp::DynExpCore& DynExpCore, QWidget* parent)
 	: QMainWindow(parent), DynExpCore(DynExpCore),
+	ui(std::make_unique<Ui::DynExpManagerClass>()),
 	UpdateUITimer(new QTimer(this)),
 	AboutDialog(new DynExpAbout(this)), CircuitDiagramDlg(std::make_unique<CircuitDiagram>(nullptr)),
 	ModuleWindowsActionGroup(new QActionGroup(this)),
@@ -17,19 +19,19 @@ DynExpManager::DynExpManager(DynExp::DynExpCore& DynExpCore, QWidget* parent)
 {
 	qApp->setStyle(QStyleFactory::create("Fusion"));
 
-	ui.setupUi(this);
+	ui->setupUi(this);
 
 	// Item Libraries
-	RegisterItemsFromLibrary(DynExpCore.GetHardwareAdapterLib(), ui.menu_Add_Hardware_Adapter,
+	RegisterItemsFromLibrary(DynExpCore.GetHardwareAdapterLib(), ui->menu_Add_Hardware_Adapter,
 		DynExpUI::Icons::HardwareAdapter, &DynExpManager::OnAddHardwareAdapter);
-	RegisterItemsFromLibrary(DynExpCore.GetInstrumentLib(), ui.menu_Add_Instrument,
+	RegisterItemsFromLibrary(DynExpCore.GetInstrumentLib(), ui->menu_Add_Instrument,
 		DynExpUI::Icons::Instrument, &DynExpManager::OnAddInstrument);
-	RegisterItemsFromLibrary(DynExpCore.GetModuleLib(), ui.menu_Add_Module,
+	RegisterItemsFromLibrary(DynExpCore.GetModuleLib(), ui->menu_Add_Module,
 		DynExpUI::Icons::Module, &DynExpManager::OnAddModule);
 
 	// Window menu
-	connect(ui.menu_Window, &QMenu::aboutToShow, this, &DynExpManager::OnWindowMenuOpened);
-	connect(ui.menu_Window, &QMenu::aboutToHide, this, &DynExpManager::OnWindowMenuClosed);
+	connect(ui->menu_Window, &QMenu::aboutToShow, this, &DynExpManager::OnWindowMenuOpened);
+	connect(ui->menu_Window, &QMenu::aboutToHide, this, &DynExpManager::OnWindowMenuClosed);
 
 	// Theme menu
 	UIBrightThemeAction = UIThemeActionGroup->addAction("&Bright");
@@ -37,48 +39,48 @@ DynExpManager::DynExpManager(DynExp::DynExpCore& DynExpCore, QWidget* parent)
 	UIBrightThemeAction->setChecked(true);
 	UIDarkThemeAction = UIThemeActionGroup->addAction("&Dark");
 	UIDarkThemeAction->setCheckable(true);
-	ui.menu_UI_Theme->addActions(UIThemeActionGroup->actions());
+	ui->menu_UI_Theme->addActions(UIThemeActionGroup->actions());
 	connect(UIThemeActionGroup, &QActionGroup::triggered, this, &DynExpManager::OnUIThemeChanged);
 
 	// Log table
-	ui.tableLog->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft);
-	ui.tableLog->verticalHeader()->setMinimumSectionSize(18);
-	ui.tableLog->verticalHeader()->setDefaultSectionSize(ui.tableLog->verticalHeader()->minimumSectionSize());
-	ui.tableLog->setColumnWidth(0, 140);
+	ui->tableLog->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft);
+	ui->tableLog->verticalHeader()->setMinimumSectionSize(18);
+	ui->tableLog->verticalHeader()->setDefaultSectionSize(ui->tableLog->verticalHeader()->minimumSectionSize());
+	ui->tableLog->setColumnWidth(0, 140);
 
 	// Log table context menu
 	LogContextMenu->addAction("&Clear Log", this, &DynExpManager::OnClearLog);
 
 	// Status bar
-	ui.statusBarMain->addWidget(StatusBar.State, 8);
-	ui.statusBarMain->addPermanentWidget(StatusBar.NumRunningInstrGroup, 1);
-	ui.statusBarMain->addPermanentWidget(StatusBar.NumRunningModuleGroup, 1);
+	ui->statusBarMain->addWidget(StatusBar.State, 8);
+	ui->statusBarMain->addPermanentWidget(StatusBar.NumRunningInstrGroup, 1);
+	ui->statusBarMain->addPermanentWidget(StatusBar.NumRunningModuleGroup, 1);
 	connect(StatusBar.State, &QPushButton::clicked, this, &DynExpManager::OnStatusBarStateClicked);
 
 	// Error list dialog
 	ErrorListDlg = new ErrorListDialog(this, StatusBar.State);
 
 	// Item tree
-	ItemTreeHardwareAdapters = new QTreeWidgetItem(ui.treeItems, { "Hardware Adapters", "", "" });
+	ItemTreeHardwareAdapters = new QTreeWidgetItem(ui->treeItems, { "Hardware Adapters", "", "" });
 	ItemTreeHardwareAdapters->setIcon(0, QIcon(DynExpUI::Icons::HardwareAdapter));
 	ItemTreeHardwareAdapters->setFirstColumnSpanned(true);
-	ItemTreeInstruments = new QTreeWidgetItem(ui.treeItems, { "Instruments", "", "" });
+	ItemTreeInstruments = new QTreeWidgetItem(ui->treeItems, { "Instruments", "", "" });
 	ItemTreeInstruments->setIcon(0, QIcon(DynExpUI::Icons::Instrument));
 	ItemTreeInstruments->setFirstColumnSpanned(true);
-	ItemTreeModules = new QTreeWidgetItem(ui.treeItems, { "Modules", "", "" });
+	ItemTreeModules = new QTreeWidgetItem(ui->treeItems, { "Modules", "", "" });
 	ItemTreeModules->setIcon(0, QIcon(DynExpUI::Icons::Module));
 	ItemTreeModules->setFirstColumnSpanned(true);
-	ui.treeItems->header()->resizeSection(0, 120);
-	ui.treeItems->header()->resizeSection(1, 180);
-	ui.treeItems->header()->resizeSection(2, 100);
-	ui.splitterInstrListMain->setStretchFactor(0, 16);
-	ui.splitterInstrListMain->setStretchFactor(1, 5);
+	ui->treeItems->header()->resizeSection(0, 120);
+	ui->treeItems->header()->resizeSection(1, 180);
+	ui->treeItems->header()->resizeSection(2, 100);
+	ui->splitterInstrListMain->setStretchFactor(0, 16);
+	ui->splitterInstrListMain->setStretchFactor(1, 5);
 
 	// Item tree context menu
 	ClearWarningAction = ItemTreeContextMenu->addAction("Clear &Warning", this, &DynExpManager::OnClearWarning);
 
 	// MDI area
-	connect(ui.mdiMain, &QMdiArea::subWindowActivated, this, &DynExpManager::OnModuleWindowActivated);
+	connect(ui->mdiMain, &QMdiArea::subWindowActivated, this, &DynExpManager::OnModuleWindowActivated);
 
 	DisableAllActions();
 
@@ -90,6 +92,10 @@ DynExpManager::DynExpManager(DynExp::DynExpCore& DynExpCore, QWidget* parent)
 	connect(UpdateUITimer, &QTimer::timeout, this, &DynExpManager::OnUpdateUI);
 	UpdateUITimer->setInterval(std::chrono::milliseconds(16));
 	UpdateUITimer->start();
+}
+
+DynExpManager::~DynExpManager()
+{
 }
 
 DynExpManager::StatusBarType::StatusBarType(DynExpManager* Owner)
@@ -225,32 +231,32 @@ void DynExpManager::UpdateLog()
 	if (EventLogSize >= std::numeric_limits<int>::max())
 		return;
 	
-	if (ui.tableLog->rowCount() < static_cast<int>(EventLogSize))
+	if (ui->tableLog->rowCount() < static_cast<int>(EventLogSize))
 	{
-		auto Log = Util::EventLog().GetLog(ui.tableLog->rowCount());
+		auto Log = Util::EventLog().GetLog(ui->tableLog->rowCount());
 		for (const auto& LogEntry : Log)
 		{
-			const auto Row = ui.tableLog->rowCount();
+			const auto Row = ui->tableLog->rowCount();
 
-			ui.tableLog->setRowCount(Row + 1);
-			ui.tableLog->setItem(Row, 0, new QTableWidgetItem(QString::fromStdString(Util::ToStr(LogEntry.TimePoint))));
-			ui.tableLog->setItem(Row, 1, new QTableWidgetItem(Util::Exception::GetErrorLabel(LogEntry.Type)));
-			ui.tableLog->setItem(Row, 2, new QTableWidgetItem(QString::fromStdString(LogEntry.Message)));
+			ui->tableLog->setRowCount(Row + 1);
+			ui->tableLog->setItem(Row, 0, new QTableWidgetItem(QString::fromStdString(Util::ToStr(LogEntry.TimePoint))));
+			ui->tableLog->setItem(Row, 1, new QTableWidgetItem(Util::Exception::GetErrorLabel(LogEntry.Type)));
+			ui->tableLog->setItem(Row, 2, new QTableWidgetItem(QString::fromStdString(LogEntry.Message)));
 
 			for (int i = 0; i < 3; ++i)
-				ui.tableLog->item(Row, i)->setForeground(HTMLColorStringToThemeColor(Util::Exception::GetErrorLabelColor(LogEntry.Type)));
+				ui->tableLog->item(Row, i)->setForeground(HTMLColorStringToThemeColor(Util::Exception::GetErrorLabelColor(LogEntry.Type)));
 
-			ui.tableLog->resizeColumnToContents(2);
-			ui.tableLog->scrollToBottom();
+			ui->tableLog->resizeColumnToContents(2);
+			ui->tableLog->scrollToBottom();
 		}
 	}
 }
 
 void DynExpManager::ResetLogColors()
 {
-	for (auto i = ui.tableLog->rowCount() - 1; i >= 0; --i)
+	for (auto i = ui->tableLog->rowCount() - 1; i >= 0; --i)
 		for (int j = 0; j < 3; ++j)
-			ui.tableLog->item(i, j)->setForeground(AdjustColorToThemeColor(ui.tableLog->item(i, j)->foreground().color()));
+			ui->tableLog->item(i, j)->setForeground(AdjustColorToThemeColor(ui->tableLog->item(i, j)->foreground().color()));
 }
 
 void DynExpManager::UpdateModulesUI() noexcept
@@ -312,7 +318,7 @@ void DynExpManager::UpdateTitleBar()
 	else
 		setWindowTitle("DynExp Manager");
 
-	ui.action_Restore_Windows_from_Settings->setEnabled(static_cast<const DynExp::DynExpCore&>(DynExpCore).GetParams()->StoreWindowStates ==
+	ui->action_Restore_Windows_from_Settings->setEnabled(static_cast<const DynExp::DynExpCore&>(DynExpCore).GetParams()->StoreWindowStates ==
 		DynExp::ProjectParams::StoreWindowStatesType::ApplyStoredWindowStates);
 }
 
@@ -356,7 +362,7 @@ void DynExpManager::UpdateStatusBar()
 		}
 	}
 
-	// When item in ErrorListDlg has been double-clicked, select the respective entry in ui.treeItems.
+	// When item in ErrorListDlg has been double-clicked, select the respective entry in ui->treeItems.
 	ErrorListDlg->SetErrorEntries(ErrorEntries);
 	SelectItemTreeItem(ErrorListDlg->GetSelectedEntry());
 }
@@ -385,7 +391,7 @@ void DynExpManager::UpdateCircuitDiagram()
 			return;
 	}
 
-	// When item in CircuitDiagramDlg has been double-clicked, select the respective entry in ui.treeItems.
+	// When item in CircuitDiagramDlg has been double-clicked, select the respective entry in ui->treeItems.
 	SelectItemTreeItem(CircuitDiagramDlg->GetSelectedEntry());
 }
 
@@ -409,7 +415,7 @@ void DynExpManager::UpdateItemTree()
 
 	if (ItemToSelect)
 	{
-		ui.treeItems->clearSelection();
+		ui->treeItems->clearSelection();
 		ItemToSelect->setSelected(true);
 	}
 }
@@ -633,9 +639,9 @@ void DynExpManager::SelectItemTreeItem(QTreeWidgetItem* SelectedEntry)
 	if (!SelectedEntry)
 		return;
 
-	for (int i = 0; i < ui.treeItems->topLevelItemCount(); ++i)
+	for (int i = 0; i < ui->treeItems->topLevelItemCount(); ++i)
 	{
-		QTreeWidgetItem* ParentItem = ui.treeItems->topLevelItem(i);
+		QTreeWidgetItem* ParentItem = ui->treeItems->topLevelItem(i);
 		for (int j = 0; j < ParentItem->childCount(); ++j)
 		{
 			QTreeWidgetItem* ChildItem = ParentItem->child(j);
@@ -643,8 +649,8 @@ void DynExpManager::SelectItemTreeItem(QTreeWidgetItem* SelectedEntry)
 			{
 				Util::ActivateWindow(*this);
 
-				ui.treeItems->clearSelection();
-				ui.treeItems->setFocus();
+				ui->treeItems->clearSelection();
+				ui->treeItems->setFocus();
 				ChildItem->setSelected(true);
 
 				return;
@@ -912,7 +918,7 @@ void DynExpManager::SaveProject(std::string_view Filename) noexcept
 	std::string ErrorMessage = "";
 	try
 	{
-		DynExpCore.SaveProject(Filename, *this, *CircuitDiagramDlg, *ui.splitterInstrListMain, *ui.splitterMDILog);
+		DynExpCore.SaveProject(Filename, *this, *CircuitDiagramDlg, *ui->splitterInstrListMain, *ui->splitterMDILog);
 	}
 	catch (const Util::Exception& e)
 	{
@@ -940,12 +946,12 @@ void DynExpManager::SaveProject(std::string_view Filename) noexcept
 
 void DynExpManager::DisableAllActions() noexcept
 {
-	ui.action_Run_Item->setEnabled(false);
-	ui.action_Stop_Item->setEnabled(false);
-	ui.action_Force_Stop_Item->setEnabled(false);
-	ui.action_Reset_Item->setEnabled(false);
-	ui.action_Configure_Item->setEnabled(false);
-	ui.action_Delete_Item->setEnabled(false);
+	ui->action_Run_Item->setEnabled(false);
+	ui->action_Stop_Item->setEnabled(false);
+	ui->action_Force_Stop_Item->setEnabled(false);
+	ui->action_Reset_Item->setEnabled(false);
+	ui->action_Configure_Item->setEnabled(false);
+	ui->action_Delete_Item->setEnabled(false);
 
 	ClearWarningAction->setEnabled(false);
 }
@@ -958,7 +964,7 @@ void DynExpManager::UpdateModuleWindowsActionShortcuts() noexcept
 	for (std::remove_const_t<decltype(NumModules)> i = 0; i < NumModules; ++i)
 	{
 		if (i < 9)
-			ModuleWindowsActionGroup->actions()[i]->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_1 + i));
+			ModuleWindowsActionGroup->actions()[i]->setShortcut(QKeySequence(Qt::CTRL | static_cast<Qt::Key>(Qt::Key_1 + i)));
 		else
 			ModuleWindowsActionGroup->actions()[i]->setShortcut(QKeySequence());
 	}
@@ -1069,10 +1075,10 @@ void DynExpManager::RegisterModuleUI(DynExp::Object* const Object)
 
 	try
 	{
-		auto const Action = &Module->InitUI(*this, ui.mdiMain);
+		auto const Action = &Module->InitUI(*this, ui->mdiMain);
 		ModuleWindowsActionGroup->addAction(Action);
 		UpdateModuleWindowsActionShortcuts();
-		ui.menu_Window->addAction(Action);
+		ui->menu_Window->addAction(Action);
 	}
 	catch (...)
 	{
@@ -1278,7 +1284,7 @@ void DynExpManager::OnOpenProject()
 		// by windows moving away suddenly after some time of starting up the project...
 		try
 		{
-			DynExpCore.RestoreWindowStatesFromParams(*this, *CircuitDiagramDlg, *ui.splitterInstrListMain, *ui.splitterMDILog, true);
+			DynExpCore.RestoreWindowStatesFromParams(*this, *CircuitDiagramDlg, *ui->splitterInstrListMain, *ui->splitterMDILog, true);
 		}
 		catch (...)
 		{
@@ -1439,7 +1445,7 @@ void DynExpManager::OnRestoreWindowStatesFromParams()
 	std::string ErrorMessage = "";
 	try
 	{
-		DynExpCore.RestoreWindowStatesFromParams(*this, *CircuitDiagramDlg, *ui.splitterInstrListMain, *ui.splitterMDILog);
+		DynExpCore.RestoreWindowStatesFromParams(*this, *CircuitDiagramDlg, *ui->splitterInstrListMain, *ui->splitterMDILog);
 	}
 	catch (const Util::Exception& e)
 	{
@@ -1498,10 +1504,10 @@ void DynExpManager::OnProjectSettingsClicked()
 
 void DynExpManager::OnRunItem()
 {
-	if (ui.treeItems->selectedItems().length() != 1)
+	if (ui->treeItems->selectedItems().length() != 1)
 		return;
 
-	auto Item = ui.treeItems->selectedItems()[0];
+	auto Item = ui->treeItems->selectedItems()[0];
 	const auto ItemData = Item->data(2, Qt::ItemDataRole::UserRole).value<ItemTreeItemDataType>();
 
 	std::string ErrorMessage = "";
@@ -1551,10 +1557,10 @@ void DynExpManager::OnRunItem()
 
 void DynExpManager::OnStopItem(bool Force)
 {
-	if (ui.treeItems->selectedItems().length() != 1)
+	if (ui->treeItems->selectedItems().length() != 1)
 		return;
 
-	auto Item = ui.treeItems->selectedItems()[0];
+	auto Item = ui->treeItems->selectedItems()[0];
 	const auto ItemData = Item->data(2, Qt::ItemDataRole::UserRole).value<ItemTreeItemDataType>();
 
 	DynExp::RunnableObject* Object = nullptr;
@@ -1599,10 +1605,10 @@ void DynExpManager::OnForceStopItem()
 
 void DynExpManager::OnResetItem()
 {
-	if (ui.treeItems->selectedItems().length() != 1)
+	if (ui->treeItems->selectedItems().length() != 1)
 		return;
 
-	auto Item = ui.treeItems->selectedItems()[0];
+	auto Item = ui->treeItems->selectedItems()[0];
 	const auto ItemData = Item->data(2, Qt::ItemDataRole::UserRole).value<ItemTreeItemDataType>();
 	DynExp::Object* Object = nullptr;
 
@@ -1648,10 +1654,10 @@ void DynExpManager::OnResetItem()
 
 void DynExpManager::OnConfigureItem()
 {
-	if (ui.treeItems->selectedItems().length() != 1)
+	if (ui->treeItems->selectedItems().length() != 1)
 		return;
 
-	auto Item = ui.treeItems->selectedItems()[0];
+	auto Item = ui->treeItems->selectedItems()[0];
 	const auto ItemData = Item->data(2, Qt::ItemDataRole::UserRole).value<ItemTreeItemDataType>();
 	DynExp::Object* Object = nullptr;
 	DynExp::RunnableObject* RunnableObject = nullptr;
@@ -1728,10 +1734,10 @@ void DynExpManager::OnConfigureItem()
 
 void DynExpManager::OnDeleteItem()
 {
-	if (ui.treeItems->selectedItems().length() != 1)
+	if (ui->treeItems->selectedItems().length() != 1)
 		return;
 
-	auto Item = ui.treeItems->selectedItems()[0];
+	auto Item = ui->treeItems->selectedItems()[0];
 	const auto ItemData = Item->data(2, Qt::ItemDataRole::UserRole).value<ItemTreeItemDataType>();
 
 	std::string ErrorMessage = "";
@@ -1813,15 +1819,15 @@ void DynExpManager::OnDeleteItem()
 
 void DynExpManager::OnWindowMenuOpened()
 {
-	ui.action_Dock_Undock_Window->setEnabled(GetModuleByActiveUIWindow() != nullptr);
-	ui.action_Dummy_NoWindow->setVisible(ModuleWindowsActionGroup->actions().empty());
+	ui->action_Dock_Undock_Window->setEnabled(GetModuleByActiveUIWindow() != nullptr);
+	ui->action_Dummy_NoWindow->setVisible(ModuleWindowsActionGroup->actions().empty());
 	UpdateModuleWindowsActionIcons();
 }
 
 void DynExpManager::OnWindowMenuClosed()
 {
 	// To listen on shortcut.
-	ui.action_Dock_Undock_Window->setEnabled(true);
+	ui->action_Dock_Undock_Window->setEnabled(true);
 }
 
 void DynExpManager::OnDockUndockWindow()
@@ -1859,12 +1865,12 @@ void DynExpManager::OnStatusBarStateClicked()
 
 void DynExpManager::OnLogContextMenuRequested(const QPoint& Position)
 {
-	LogContextMenu->exec(ui.tableLog->mapToGlobal(Position));
+	LogContextMenu->exec(ui->tableLog->mapToGlobal(Position));
 }
 
 void DynExpManager::OnItemTreeContextMenuRequested(const QPoint& Position)
 {
-	ItemTreeContextMenu->exec(ui.treeItems->mapToGlobal(Position));
+	ItemTreeContextMenu->exec(ui->treeItems->mapToGlobal(Position));
 }
 
 void DynExpManager::OnClearLog()
@@ -1873,7 +1879,7 @@ void DynExpManager::OnClearLog()
 	try
 	{
 		Util::EventLog().ClearLog();
-		ui.tableLog->setRowCount(0);
+		ui->tableLog->setRowCount(0);
 	}
 	catch (const Util::Exception& e)
 	{
@@ -1901,10 +1907,10 @@ void DynExpManager::OnClearLog()
 
 void DynExpManager::OnClearWarning()
 {
-	if (ui.treeItems->selectedItems().length() != 1)
+	if (ui->treeItems->selectedItems().length() != 1)
 		return;
 
-	auto Item = ui.treeItems->selectedItems()[0];
+	auto Item = ui->treeItems->selectedItems()[0];
 	const auto ItemData = Item->data(2, Qt::ItemDataRole::UserRole).value<ItemTreeItemDataType>();
 	DynExp::Object* Object = nullptr;
 
@@ -1948,29 +1954,29 @@ void DynExpManager::OnItemSelectionChanged()
 	if (IsResetting)
 		return;
 
-	if (ui.treeItems->selectedItems().length() != 1)
+	if (ui->treeItems->selectedItems().length() != 1)
 	{
 		DisableAllActions();
 		return;
 	}
 
-	auto Item = ui.treeItems->selectedItems()[0];
+	auto Item = ui->treeItems->selectedItems()[0];
 
 	if (Item->parent() == ItemTreeHardwareAdapters || Item->parent() == ItemTreeInstruments ||
 		Item->parent() == ItemTreeModules)
 	{
-		ui.action_Reset_Item->setEnabled(true);
-		ui.action_Configure_Item->setEnabled(true);
-		ui.action_Delete_Item->setEnabled(true);
+		ui->action_Reset_Item->setEnabled(true);
+		ui->action_Configure_Item->setEnabled(true);
+		ui->action_Delete_Item->setEnabled(true);
 
 		ClearWarningAction->setEnabled(true);
 	}
 
 	if (Item->parent() == ItemTreeHardwareAdapters)
 	{
-		ui.action_Run_Item->setEnabled(false);
-		ui.action_Stop_Item->setEnabled(false);
-		ui.action_Force_Stop_Item->setEnabled(false);
+		ui->action_Run_Item->setEnabled(false);
+		ui->action_Stop_Item->setEnabled(false);
+		ui->action_Force_Stop_Item->setEnabled(false);
 
 		return;
 	}
@@ -1992,9 +1998,9 @@ void DynExpManager::OnItemSelectionChanged()
 			// Swallow especially Util::NotFoundException.
 		}
 
-		ui.action_Run_Item->setEnabled(!IsRunning);
-		ui.action_Stop_Item->setEnabled(IsRunning);
-		ui.action_Force_Stop_Item->setEnabled(IsRunning);
+		ui->action_Run_Item->setEnabled(!IsRunning);
+		ui->action_Stop_Item->setEnabled(IsRunning);
+		ui->action_Force_Stop_Item->setEnabled(IsRunning);
 
 		return;
 	}
@@ -2016,7 +2022,7 @@ void DynExpManager::OnModuleWindowActivated(QMdiSubWindow* Window)
 
 	if (ActiveQModule)
 	{
-		ui.treeItems->clearSelection();
+		ui->treeItems->clearSelection();
 		DynExpCore.GetModuleManager().FocusTreeWidgetItem(ActiveQModule->GetID());
 	}
 }

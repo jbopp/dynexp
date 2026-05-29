@@ -436,7 +436,7 @@ namespace DynExpInstr
 			 * @param CallbackFunc @copybrief DynExp::TaskBase::CallbackFunc
 			*/
 			SetSineFunctionTask(const FunctionGeneratorDefs::SineFunctionDescType& FunctionDesc, bool Autostart, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), FunctionDesc(FunctionDesc), Autostart(Autostart) {}
+				: TaskBase(std::move(CallbackFunc)), FunctionDesc(FunctionDesc), Autostart(Autostart) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -463,7 +463,7 @@ namespace DynExpInstr
 			 * @param CallbackFunc @copybrief DynExp::TaskBase::CallbackFunc
 			*/
 			SetRectFunctionTask(const FunctionGeneratorDefs::RectFunctionDescType& FunctionDesc, bool Autostart, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), FunctionDesc(FunctionDesc), Autostart(Autostart) {}
+				: TaskBase(std::move(CallbackFunc)), FunctionDesc(FunctionDesc), Autostart(Autostart) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -485,7 +485,7 @@ namespace DynExpInstr
 			 * @param CallbackFunc @copybrief DynExp::TaskBase::CallbackFunc
 			*/
 			SetRampFunctionTask(const FunctionGeneratorDefs::RampFunctionDescType& FunctionDesc, bool Autostart, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), FunctionDesc(FunctionDesc), Autostart(Autostart) {}
+				: TaskBase(std::move(CallbackFunc)), FunctionDesc(FunctionDesc), Autostart(Autostart) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -507,7 +507,7 @@ namespace DynExpInstr
 			 * @param CallbackFunc @copybrief DynExp::TaskBase::CallbackFunc
 			*/
 			SetPulseFunctionTask(const FunctionGeneratorDefs::PulsesDescType& FunctionDesc, bool Autostart, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), FunctionDesc(FunctionDesc), Autostart(Autostart) {}
+				: TaskBase(std::move(CallbackFunc)), FunctionDesc(FunctionDesc), Autostart(Autostart) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -529,7 +529,7 @@ namespace DynExpInstr
 			 * @param CallbackFunc @copybrief DynExp::TaskBase::CallbackFunc
 			*/
 			SetArbitraryFunctionTask(DataStreamBase::BasicSampleListType&& Samples, bool Autostart, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), Samples(std::move(Samples)), Autostart(Autostart) {}
+				: TaskBase(std::move(CallbackFunc)), Samples(std::move(Samples)), Autostart(Autostart) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;

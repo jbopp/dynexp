@@ -39,7 +39,7 @@ namespace DynExpInstr
 		class StartTask : public DynExp::TaskBase
 		{
 		public:
-			StartTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			StartTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -48,7 +48,7 @@ namespace DynExpInstr
 		class StopTask : public DynExp::TaskBase
 		{
 		public:
-			StopTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			StopTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -58,7 +58,7 @@ namespace DynExpInstr
 		{
 		public:
 			SetSineFunctionTask(const FunctionGeneratorDefs::SineFunctionDescType& FunctionDesc, bool Autostart, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), FunctionDesc(FunctionDesc), Autostart(Autostart) {}
+				: TaskBase(std::move(CallbackFunc)), FunctionDesc(FunctionDesc), Autostart(Autostart) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -71,7 +71,7 @@ namespace DynExpInstr
 		{
 		public:
 			SetModulationTask(const FunctionGeneratorDefs::ModulationDescType& ModulationDesc, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), ModulationDesc(ModulationDesc) {}
+				: TaskBase(std::move(CallbackFunc)), ModulationDesc(ModulationDesc) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -83,7 +83,7 @@ namespace DynExpInstr
 		{
 		public:
 			SetSweepTask(const FunctionGeneratorDefs::SweepDescType& SweepDesc, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), SweepDesc(SweepDesc) {}
+				: TaskBase(std::move(CallbackFunc)), SweepDesc(SweepDesc) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -94,7 +94,7 @@ namespace DynExpInstr
 		class ForceTriggerTask : public DynExp::TaskBase
 		{
 		public:
-			ForceTriggerTask(CallbackType CallbackFunc) noexcept : TaskBase(CallbackFunc) {}
+			ForceTriggerTask(CallbackType CallbackFunc) noexcept : TaskBase(std::move(CallbackFunc)) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -104,7 +104,7 @@ namespace DynExpInstr
 		{
 		public:
 			SetTriggerTask(const FunctionGeneratorDefs::TriggerDescType& TriggerDesc, CallbackType CallbackFunc) noexcept
-				: TaskBase(CallbackFunc), TriggerDesc(TriggerDesc) {}
+				: TaskBase(std::move(CallbackFunc)), TriggerDesc(TriggerDesc) {}
 
 		private:
 			virtual DynExp::TaskResultType RunChild(DynExp::InstrumentInstance& Instance) override;
@@ -186,8 +186,8 @@ namespace DynExpInstr
 		virtual bool IsPhaseAdjustable() const noexcept override { return false; }
 
 		// Tasks
-		virtual void Start(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<RS_SMC100ATasks::StartTask>(CallbackFunc); }
-		virtual void Stop(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<RS_SMC100ATasks::StopTask>(CallbackFunc); }
+		virtual void Start(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<RS_SMC100ATasks::StartTask>(std::move(CallbackFunc)); }
+		virtual void Stop(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<RS_SMC100ATasks::StopTask>(std::move(CallbackFunc)); }
 
 		virtual void SetSineFunction(const FunctionGeneratorDefs::SineFunctionDescType& FunctionDesc,
 			bool PersistParams = false, bool Autostart = false, DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override;
