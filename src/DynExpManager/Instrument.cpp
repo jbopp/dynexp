@@ -579,7 +579,7 @@ namespace DynExp
 			{
 				CallbackFunc(this, Exception);
 				if (!Exception.IsError())
-					InstrumentBase::TaskHandlingContinuationType::Continue;
+					return InstrumentBase::TaskHandlingContinuationType::Continue;
 			}
 
 			throw;

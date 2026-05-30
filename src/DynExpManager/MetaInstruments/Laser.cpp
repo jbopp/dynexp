@@ -26,10 +26,10 @@ namespace DynExpInstr
 
 	void LaserData::ResetImpl(dispatch_tag<InstrumentDataBase>)
 	{
-		double CurrentFrequency = 0.0;		
-		double CurrentIntensity = 0.0;		
-		double ScanRange = 0.0;				
-		double ScanRate = 0.0;				
+		Frequency = 0.0;		
+		Intensity = 0.0;		
+		ScanRange = 0.0;				
+		ScanRate = 0.0;				
 
 		ResetImpl(dispatch_tag<LaserData>());
 	}
