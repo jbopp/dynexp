@@ -103,6 +103,7 @@ $(document).ready(function(){initNavTree('classDynExpInstr_1_1PyDataStreamInstru
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classDynExpInstr_1_1PyDataStreamInstrument-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">DynExpInstr::PyDataStreamInstrument Class Reference</div></div>
 </div><!--header-->
@@ -115,9 +116,33 @@ $(document).ready(function(){initNavTree('classDynExpInstr_1_1PyDataStreamInstru
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad3a397bd2e8d8fb7c93d8c35fa67019c" id="r_ad3a397bd2e8d8fb7c93d8c35fa67019c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#ad3a397bd2e8d8fb7c93d8c35fa67019c">CalcLastConsumedSampleID</a> (size_t NumConsumedSamples)</td></tr>
-<tr class="memdesc:ad3a397bd2e8d8fb7c93d8c35fa67019c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows to calculate the ID of the last consumed sample based on the amount of samples consumed from the stream.  <br /></td></tr>
-<tr class="separator:ad3a397bd2e8d8fb7c93d8c35fa67019c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99026861901f7af557a71c021c4687a2" id="r_a99026861901f7af557a71c021c4687a2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#a99026861901f7af557a71c021c4687a2">PyDataStreamInstrument</a> () noexcept=default</td></tr>
+<tr class="memdesc:a99026861901f7af557a71c021c4687a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default-constructs a <a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html" title="Python mapping of a DynExpInstr::DataStreamInstrument&#39;s DynExpInstr::DataStreamBase instance.">PyDataStreamInstrument</a> object.  <br /></td></tr>
+<tr class="separator:a99026861901f7af557a71c021c4687a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa1cadf6fd970c292811c96613476fd6" id="r_afa1cadf6fd970c292811c96613476fd6"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#afa1cadf6fd970c292811c96613476fd6">CalcLastConsumedSampleID</a> (size_t NumConsumedSamples) const</td></tr>
+<tr class="memdesc:afa1cadf6fd970c292811c96613476fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows to calculate the ID of the last consumed sample based on the amount of samples consumed from the stream.  <br /></td></tr>
+<tr class="separator:afa1cadf6fd970c292811c96613476fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a119e913fb2419e856c7d2bc0cefa8b96" id="r_a119e913fb2419e856c7d2bc0cefa8b96"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#a119e913fb2419e856c7d2bc0cefa8b96">ConsumeNone</a> () const</td></tr>
+<tr class="memdesc:a119e913fb2419e856c7d2bc0cefa8b96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows to calculate the ID of the last consumed sample for the situation that no samples was consumed.  <br /></td></tr>
+<tr class="separator:a119e913fb2419e856c7d2bc0cefa8b96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab09749ca31bab466c39180094e0acb5f" id="r_ab09749ca31bab466c39180094e0acb5f"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#ab09749ca31bab466c39180094e0acb5f">ConsumeAll</a> () const</td></tr>
+<tr class="memdesc:ab09749ca31bab466c39180094e0acb5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows to calculate the ID of the last consumed sample for the situation that all samples were consumed.  <br /></td></tr>
+<tr class="separator:ab09749ca31bab466c39180094e0acb5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f7733dee5b3233b6fa942a6cc2b56a4" id="r_a5f7733dee5b3233b6fa942a6cc2b56a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#a5f7733dee5b3233b6fa942a6cc2b56a4">Clear</a> ()</td></tr>
+<tr class="memdesc:a5f7733dee5b3233b6fa942a6cc2b56a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests a call to <a class="el" href="classDynExpInstr_1_1DataStreamBase.html#a097c577962c67f99432d2dc86cf9839b" title="Removes all samples from the stream&#39;s buffer.">DataStreamBase::Clear()</a> on the related data stream instrument. Sets <a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#a5bdfc12e8604ef1c563962986732a356" title="Indicates whether DataStreamBase::Clear() should be called on the related data stream instrument.">ShouldClearFlag</a> to true.  <br /></td></tr>
+<tr class="separator:a5f7733dee5b3233b6fa942a6cc2b56a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Not mapped to Python</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>These functions cannot be accessed through the Python interface. </p>
+</div></td></tr>
+<tr class="memitem:a77d6f84c847ba5844044c19b1447c6c9" id="r_a77d6f84c847ba5844044c19b1447c6c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#a77d6f84c847ba5844044c19b1447c6c9">PyDataStreamInstrument</a> (bool <a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#a1c040310325876459795b69f22e7f130">IsTimeUsed</a>, <a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330">DataStreamInstrumentData::UnitType</a> <a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#ad9e87414cf2aff679d5c3b4613a94776">ValueUnit</a>) noexcept</td></tr>
+<tr class="memdesc:a77d6f84c847ba5844044c19b1447c6c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html" title="Python mapping of a DynExpInstr::DataStreamInstrument&#39;s DynExpInstr::DataStreamBase instance.">PyDataStreamInstrument</a> object.  <br /></td></tr>
+<tr class="separator:a77d6f84c847ba5844044c19b1447c6c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8bdd9f0db52cddd9d73d02ba819366a" id="r_aa8bdd9f0db52cddd9d73d02ba819366a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#aa8bdd9f0db52cddd9d73d02ba819366a">Cleared</a> ()</td></tr>
+<tr class="memdesc:aa8bdd9f0db52cddd9d73d02ba819366a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets <a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#a5bdfc12e8604ef1c563962986732a356" title="Indicates whether DataStreamBase::Clear() should be called on the related data stream instrument.">ShouldClearFlag</a> to false.  <br /></td></tr>
+<tr class="separator:aa8bdd9f0db52cddd9d73d02ba819366a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92e7cfc041bdaaa896c05d5c030be2f7" id="r_a92e7cfc041bdaaa896c05d5c030be2f7"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#a92e7cfc041bdaaa896c05d5c030be2f7">ShouldCLear</a> () const noexcept</td></tr>
+<tr class="memdesc:a92e7cfc041bdaaa896c05d5c030be2f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for <a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#a5bdfc12e8604ef1c563962986732a356" title="Indicates whether DataStreamBase::Clear() should be called on the related data stream instrument.">ShouldClearFlag</a>.  <br /></td></tr>
+<tr class="separator:a92e7cfc041bdaaa896c05d5c030be2f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -127,10 +152,10 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a1c040310325876459795b69f22e7f130" id="r_a1c040310325876459795b69f22e7f130"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#a1c040310325876459795b69f22e7f130">IsTimeUsed</a> {}</td></tr>
+<tr class="memitem:a1c040310325876459795b69f22e7f130" id="r_a1c040310325876459795b69f22e7f130"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#a1c040310325876459795b69f22e7f130">IsTimeUsed</a> { false }</td></tr>
 <tr class="memdesc:a1c040310325876459795b69f22e7f130"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the result of <a class="el" href="classDynExpInstr_1_1DataStreamBase.html#aa69386e68674bb267ba005e4f440aa87" title="Determines whether the data stream holds basic samples (IsBasicSampleConvertible() returns true) whic...">DynExpInstr::DataStreamBase::IsBasicSampleTimeUsed()</a>.  <br /></td></tr>
 <tr class="separator:a1c040310325876459795b69f22e7f130"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9e87414cf2aff679d5c3b4613a94776" id="r_ad9e87414cf2aff679d5c3b4613a94776"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330">DataStreamInstrumentData::UnitType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#ad9e87414cf2aff679d5c3b4613a94776">ValueUnit</a> {<a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330a3c1fc46575f79b15fc8990642387d07f">DataStreamInstrumentData::UnitType::Arbitrary</a>}</td></tr>
+<tr class="memitem:ad9e87414cf2aff679d5c3b4613a94776" id="r_ad9e87414cf2aff679d5c3b4613a94776"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330">DataStreamInstrumentData::UnitType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#ad9e87414cf2aff679d5c3b4613a94776">ValueUnit</a> { <a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330a3c1fc46575f79b15fc8990642387d07f">DataStreamInstrumentData::UnitType::Arbitrary</a> }</td></tr>
 <tr class="memdesc:ad9e87414cf2aff679d5c3b4613a94776"><td class="mdescLeft">&#160;</td><td class="mdescRight">Refer to <a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330" title="Units which can be used for data stream instruments.">DynExpInstr::DataStreamInstrumentData::UnitType</a>.  <br /></td></tr>
 <tr class="separator:ad9e87414cf2aff679d5c3b4613a94776"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba02926c89e48903391ea1c9a5377ff8" id="r_aba02926c89e48903391ea1c9a5377ff8"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#aba02926c89e48903391ea1c9a5377ff8">StreamSizeRead</a> {}</td></tr>
@@ -145,14 +170,95 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ac1b28399052eee87711df96a61efc037" id="r_ac1b28399052eee87711df96a61efc037"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExpInstr_1_1DataStreamBase.html#a4a4c56e212ef01aa21c6ebd4917dbdef">DataStreamBase::BasicSampleListType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#ac1b28399052eee87711df96a61efc037">Samples</a></td></tr>
 <tr class="memdesc:ac1b28399052eee87711df96a61efc037"><td class="mdescLeft">&#160;</td><td class="mdescRight">Samples of the data stream instrument.  <br /></td></tr>
 <tr class="separator:ac1b28399052eee87711df96a61efc037"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a5bdfc12e8604ef1c563962986732a356" id="r_a5bdfc12e8604ef1c563962986732a356"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#a5bdfc12e8604ef1c563962986732a356">ShouldClearFlag</a> { false }</td></tr>
+<tr class="memdesc:a5bdfc12e8604ef1c563962986732a356"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether <a class="el" href="classDynExpInstr_1_1DataStreamBase.html#a097c577962c67f99432d2dc86cf9839b" title="Removes all samples from the stream&#39;s buffer.">DataStreamBase::Clear()</a> should be called on the related data stream instrument.  <br /></td></tr>
+<tr class="separator:a5bdfc12e8604ef1c563962986732a356"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Python mapping of a <a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html" title="Implementation of the data stream meta instrument, which is a base class for all instruments reading/...">DynExpInstr::DataStreamInstrument</a>'s <a class="el" href="classDynExpInstr_1_1DataStreamBase.html" title="Base class for all data streams compatible with the data stream instrument&#39;s data class DataStreamIns...">DynExpInstr::DataStreamBase</a> instance. </p>
 
 <p class="definition">Definition at line <a class="el" href="PyModules_8h_source.html#l00019">19</a> of file <a class="el" href="PyModules_8h_source.html">PyModules.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad3a397bd2e8d8fb7c93d8c35fa67019c" name="ad3a397bd2e8d8fb7c93d8c35fa67019c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3a397bd2e8d8fb7c93d8c35fa67019c">&#9670;&#160;</a></span>CalcLastConsumedSampleID()</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a99026861901f7af557a71c021c4687a2" name="a99026861901f7af557a71c021c4687a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99026861901f7af557a71c021c4687a2">&#9670;&#160;</a></span>PyDataStreamInstrument() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DynExpInstr::PyDataStreamInstrument::PyDataStreamInstrument </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default-constructs a <a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html" title="Python mapping of a DynExpInstr::DataStreamInstrument&#39;s DynExpInstr::DataStreamBase instance.">PyDataStreamInstrument</a> object. </p>
+
+</div>
+</div>
+<a id="a77d6f84c847ba5844044c19b1447c6c9" name="a77d6f84c847ba5844044c19b1447c6c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77d6f84c847ba5844044c19b1447c6c9">&#9670;&#160;</a></span>PyDataStreamInstrument() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DynExpInstr::PyDataStreamInstrument::PyDataStreamInstrument </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>IsTimeUsed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330">DataStreamInstrumentData::UnitType</a>&#160;</td>
+          <td class="paramname"><em>ValueUnit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html" title="Python mapping of a DynExpInstr::DataStreamInstrument&#39;s DynExpInstr::DataStreamBase instance.">PyDataStreamInstrument</a> object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">IsTimeUsed</td><td>Contains the result of <a class="el" href="classDynExpInstr_1_1DataStreamBase.html#aa69386e68674bb267ba005e4f440aa87" title="Determines whether the data stream holds basic samples (IsBasicSampleConvertible() returns true) whic...">DynExpInstr::DataStreamBase::IsBasicSampleTimeUsed()</a>.  </td></tr>
+    <tr><td class="paramname">ValueUnit</td><td>Refer to <a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330" title="Units which can be used for data stream instruments.">DynExpInstr::DataStreamInstrumentData::UnitType</a>.  </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="PyModules_8h_source.html#l00042">42</a> of file <a class="el" href="PyModules_8h_source.html">PyModules.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="afa1cadf6fd970c292811c96613476fd6" name="afa1cadf6fd970c292811c96613476fd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa1cadf6fd970c292811c96613476fd6">&#9670;&#160;</a></span>CalcLastConsumedSampleID()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,7 +268,7 @@ Public Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
           <td class="paramname"><em>NumConsumedSamples</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -176,7 +282,117 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>ID of the last consumed sample </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="PyModules_8cpp_source.html#l00054">54</a> of file <a class="el" href="PyModules_8cpp_source.html">PyModules.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PyModules_8cpp_source.html#l00057">57</a> of file <a class="el" href="PyModules_8cpp_source.html">PyModules.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5f7733dee5b3233b6fa942a6cc2b56a4" name="a5f7733dee5b3233b6fa942a6cc2b56a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f7733dee5b3233b6fa942a6cc2b56a4">&#9670;&#160;</a></span>Clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DynExpInstr::PyDataStreamInstrument::Clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Requests a call to <a class="el" href="classDynExpInstr_1_1DataStreamBase.html#a097c577962c67f99432d2dc86cf9839b" title="Removes all samples from the stream&#39;s buffer.">DataStreamBase::Clear()</a> on the related data stream instrument. Sets <a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#a5bdfc12e8604ef1c563962986732a356" title="Indicates whether DataStreamBase::Clear() should be called on the related data stream instrument.">ShouldClearFlag</a> to true. </p>
+
+<p class="definition">Definition at line <a class="el" href="PyModules_8h_source.html#l00079">79</a> of file <a class="el" href="PyModules_8h_source.html">PyModules.h</a>.</p>
+
+</div>
+</div>
+<a id="aa8bdd9f0db52cddd9d73d02ba819366a" name="aa8bdd9f0db52cddd9d73d02ba819366a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8bdd9f0db52cddd9d73d02ba819366a">&#9670;&#160;</a></span>Cleared()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DynExpInstr::PyDataStreamInstrument::Cleared </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resets <a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#a5bdfc12e8604ef1c563962986732a356" title="Indicates whether DataStreamBase::Clear() should be called on the related data stream instrument.">ShouldClearFlag</a> to false. </p>
+
+<p class="definition">Definition at line <a class="el" href="PyModules_8h_source.html#l00048">48</a> of file <a class="el" href="PyModules_8h_source.html">PyModules.h</a>.</p>
+
+</div>
+</div>
+<a id="ab09749ca31bab466c39180094e0acb5f" name="ab09749ca31bab466c39180094e0acb5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab09749ca31bab466c39180094e0acb5f">&#9670;&#160;</a></span>ConsumeAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t DynExpInstr::PyDataStreamInstrument::ConsumeAll </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allows to calculate the ID of the last consumed sample for the situation that all samples were consumed. </p>
+<dl class="section return"><dt>Returns</dt><dd>ID of the last consumed sample </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="PyModules_8cpp_source.html#l00062">62</a> of file <a class="el" href="PyModules_8cpp_source.html">PyModules.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a119e913fb2419e856c7d2bc0cefa8b96" name="a119e913fb2419e856c7d2bc0cefa8b96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a119e913fb2419e856c7d2bc0cefa8b96">&#9670;&#160;</a></span>ConsumeNone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t DynExpInstr::PyDataStreamInstrument::ConsumeNone </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Allows to calculate the ID of the last consumed sample for the situation that no samples was consumed. </p>
+<dl class="section return"><dt>Returns</dt><dd>ID of the last consumed sample </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="PyModules_8h_source.html#l00067">67</a> of file <a class="el" href="PyModules_8h_source.html">PyModules.h</a>.</p>
 
 </div>
 </div>
@@ -205,7 +421,36 @@ Public Attributes</h2></td></tr>
 
 <p>Make the Python interpreter import this module as <code>PyModuleDataStreamInstrument</code>. GIL has to be acquired before. </p>
 
-<p class="definition">Definition at line <a class="el" href="PyModules_8cpp_source.html#l00049">49</a> of file <a class="el" href="PyModules_8cpp_source.html">PyModules.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PyModules_8cpp_source.html#l00052">52</a> of file <a class="el" href="PyModules_8cpp_source.html">PyModules.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a92e7cfc041bdaaa896c05d5c030be2f7" name="a92e7cfc041bdaaa896c05d5c030be2f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92e7cfc041bdaaa896c05d5c030be2f7">&#9670;&#160;</a></span>ShouldCLear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto DynExpInstr::PyDataStreamInstrument::ShouldCLear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter for <a class="el" href="classDynExpInstr_1_1PyDataStreamInstrument.html#a5bdfc12e8604ef1c563962986732a356" title="Indicates whether DataStreamBase::Clear() should be called on the related data stream instrument.">ShouldClearFlag</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="PyModules_8h_source.html#l00053">53</a> of file <a class="el" href="PyModules_8h_source.html">PyModules.h</a>.</p>
 
 </div>
 </div>
@@ -217,14 +462,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool DynExpInstr::PyDataStreamInstrument::IsTimeUsed {}</td>
+          <td class="memname">bool DynExpInstr::PyDataStreamInstrument::IsTimeUsed { false }</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Contains the result of <a class="el" href="classDynExpInstr_1_1DataStreamBase.html#aa69386e68674bb267ba005e4f440aa87" title="Determines whether the data stream holds basic samples (IsBasicSampleConvertible() returns true) whic...">DynExpInstr::DataStreamBase::IsBasicSampleTimeUsed()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="PyModules_8h_source.html#l00038">38</a> of file <a class="el" href="PyModules_8h_source.html">PyModules.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PyModules_8h_source.html#l00084">84</a> of file <a class="el" href="PyModules_8h_source.html">PyModules.h</a>.</p>
 
 </div>
 </div>
@@ -242,7 +487,7 @@ Public Attributes</h2></td></tr>
 
 <p>Contains the result of <a class="el" href="classDynExpInstr_1_1DataStreamBase.html#ae375e8bbaa17678795058085672eefbe" title="Determines the number of samples which have been written to the stream in total. Before overflowing,...">DynExpInstr::DataStreamBase::GetNumSamplesWritten()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="PyModules_8h_source.html#l00058">58</a> of file <a class="el" href="PyModules_8h_source.html">PyModules.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PyModules_8h_source.html#l00104">104</a> of file <a class="el" href="PyModules_8h_source.html">PyModules.h</a>.</p>
 
 </div>
 </div>
@@ -260,7 +505,33 @@ Public Attributes</h2></td></tr>
 
 <p>Samples of the data stream instrument. </p>
 
-<p class="definition">Definition at line <a class="el" href="PyModules_8h_source.html#l00063">63</a> of file <a class="el" href="PyModules_8h_source.html">PyModules.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PyModules_8h_source.html#l00109">109</a> of file <a class="el" href="PyModules_8h_source.html">PyModules.h</a>.</p>
+
+</div>
+</div>
+<a id="a5bdfc12e8604ef1c563962986732a356" name="a5bdfc12e8604ef1c563962986732a356"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bdfc12e8604ef1c563962986732a356">&#9670;&#160;</a></span>ShouldClearFlag</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DynExpInstr::PyDataStreamInstrument::ShouldClearFlag { false }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indicates whether <a class="el" href="classDynExpInstr_1_1DataStreamBase.html#a097c577962c67f99432d2dc86cf9839b" title="Removes all samples from the stream&#39;s buffer.">DataStreamBase::Clear()</a> should be called on the related data stream instrument. </p>
+
+<p class="definition">Definition at line <a class="el" href="PyModules_8h_source.html#l00115">115</a> of file <a class="el" href="PyModules_8h_source.html">PyModules.h</a>.</p>
 
 </div>
 </div>
@@ -278,7 +549,7 @@ Public Attributes</h2></td></tr>
 
 <p>Contains the result of <a class="el" href="classDynExpInstr_1_1DataStreamBase.html#adfe14405ff39ca76551dd887c73d8856" title="Determines the stream&#39;s read buffer size in samples.">DynExpInstr::DataStreamBase::GetStreamSizeRead()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="PyModules_8h_source.html#l00048">48</a> of file <a class="el" href="PyModules_8h_source.html">PyModules.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PyModules_8h_source.html#l00094">94</a> of file <a class="el" href="PyModules_8h_source.html">PyModules.h</a>.</p>
 
 </div>
 </div>
@@ -296,7 +567,7 @@ Public Attributes</h2></td></tr>
 
 <p>Contains the result of <a class="el" href="classDynExpInstr_1_1DataStreamBase.html#a264136a05a40f34d56c5abc7255ef55c" title="Determines the stream&#39;s write buffer size in samples.">DynExpInstr::DataStreamBase::GetStreamSizeWrite()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="PyModules_8h_source.html#l00053">53</a> of file <a class="el" href="PyModules_8h_source.html">PyModules.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PyModules_8h_source.html#l00099">99</a> of file <a class="el" href="PyModules_8h_source.html">PyModules.h</a>.</p>
 
 </div>
 </div>
@@ -307,14 +578,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330">DataStreamInstrumentData::UnitType</a> DynExpInstr::PyDataStreamInstrument::ValueUnit {<a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330a3c1fc46575f79b15fc8990642387d07f">DataStreamInstrumentData::UnitType::Arbitrary</a>}</td>
+          <td class="memname"><a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330">DataStreamInstrumentData::UnitType</a> DynExpInstr::PyDataStreamInstrument::ValueUnit { <a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330a3c1fc46575f79b15fc8990642387d07f">DataStreamInstrumentData::UnitType::Arbitrary</a> }</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Refer to <a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330" title="Units which can be used for data stream instruments.">DynExpInstr::DataStreamInstrumentData::UnitType</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="PyModules_8h_source.html#l00043">43</a> of file <a class="el" href="PyModules_8h_source.html">PyModules.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PyModules_8h_source.html#l00089">89</a> of file <a class="el" href="PyModules_8h_source.html">PyModules.h</a>.</p>
 
 </div>
 </div>

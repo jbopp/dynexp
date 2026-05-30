@@ -120,7 +120,7 @@ $(document).ready(function(){initNavTree('classDynExp_1_1InstrumentDataBase.html
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classDynExp_1_1InstrumentDataBase__inherit__graph.svg" width="2094" height="602"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classDynExp_1_1InstrumentDataBase__inherit__graph.svg" width="2103" height="704"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
@@ -132,7 +132,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">InstrumentDataBase</a>'s</code> private methods to <code><a class="el" href="classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic...">InstrumentBase</a></code>.  <a href="classDynExp_1_1InstrumentDataBase_1_1InstrumentBaseOnlyType.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentDataBase_1_1InstrumenThreadOnlyType.html">InstrumenThreadOnlyType</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">InstrumentDataBase</a>'s</code> private methods to the instrument thread <code><a class="el" href="classDynExp_1_1InstrumentDataBase_1_1InstrumenThreadOnlyType.html#acfae0e364389e4ec5258f2228c0dfa16" title="Instruments run in their own thread. This is the instrument thread&#39;s main function.">InstrumentThreadMain()</a></code>.  <a href="classDynExp_1_1InstrumentDataBase_1_1InstrumenThreadOnlyType.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">InstrumentDataBase</a>'s</code> private methods to the instrument thread <code><a class="el" href="classDynExp_1_1InstrumentDataBase_1_1InstrumenThreadOnlyType.html#a6bae1862fb5b8e9f56b284d916076eeb" title="Instruments run in their own thread. This is the instrument thread&#39;s main function.">InstrumentThreadMain()</a></code>.  <a href="classDynExp_1_1InstrumentDataBase_1_1InstrumenThreadOnlyType.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -153,9 +153,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a18239b855a8a0f734257f27ec8337354" id="r_a18239b855a8a0f734257f27ec8337354"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentDataBase.html#a18239b855a8a0f734257f27ec8337354">GetLastUpdateTime</a> () const</td></tr>
 <tr class="memdesc:a18239b855a8a0f734257f27ec8337354"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for <a class="el" href="classDynExp_1_1InstrumentDataBase.html#a1464cd861305dc3b06611601a2d392f2" title="Time point when the instrument thread called InstrumentBase::UpdateDataInternal() the last time.">LastUpdate</a>.  <br /></td></tr>
 <tr class="separator:a18239b855a8a0f734257f27ec8337354"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbbac61586c0bbb9060bb2c1e283c3bf" id="r_adbbac61586c0bbb9060bb2c1e283c3bf"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentDataBase.html#adbbac61586c0bbb9060bb2c1e283c3bf">GetException</a> () const noexcept</td></tr>
-<tr class="memdesc:adbbac61586c0bbb9060bb2c1e283c3bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for <a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e" title="Used to transfer exceptions from the instrument thread to the main thread. Stores the exception respo...">InstrumentDataBase::InstrumentException</a>.  <br /></td></tr>
-<tr class="separator:adbbac61586c0bbb9060bb2c1e283c3bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a011c308124d85c90fe00cfd10ae09e09" id="r_a011c308124d85c90fe00cfd10ae09e09"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentDataBase.html#a011c308124d85c90fe00cfd10ae09e09">IsExceptionIndicated</a> () const noexcept</td></tr>
+<tr class="memdesc:a011c308124d85c90fe00cfd10ae09e09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for <a class="el" href="classDynExp_1_1InstrumentDataBase.html#a59e93be727fb424647f3fcfd18a58d6a" title="If set to true, indicates to the main thread that an exception has happened in the instrument thread....">HasException</a>. Only performs atomic operations. Hence, this instrument data instance does not need to be locked for this function call.  <br /></td></tr>
+<tr class="separator:a011c308124d85c90fe00cfd10ae09e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fa3494c7dd155c8caae6275f31daf94" id="r_a9fa3494c7dd155c8caae6275f31daf94"><td class="memItemLeft" align="right" valign="top">std::exception_ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentDataBase.html#a9fa3494c7dd155c8caae6275f31daf94">GetException</a> () const noexcept</td></tr>
+<tr class="memdesc:a9fa3494c7dd155c8caae6275f31daf94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for <a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e" title="Used to transfer exceptions from the instrument thread to the main thread. Stores the exception respo...">InstrumentDataBase::InstrumentException</a>. If <a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e" title="Used to transfer exceptions from the instrument thread to the main thread. Stores the exception respo...">InstrumentDataBase::InstrumentException</a> is nullptr and <a class="el" href="classDynExp_1_1InstrumentDataBase.html#a59e93be727fb424647f3fcfd18a58d6a" title="If set to true, indicates to the main thread that an exception has happened in the instrument thread....">InstrumentDataBase::HasException</a> is still true, returns a pointer to a <a class="el" href="classUtil_1_1Exception.html" title="DynExp exceptions are derived from this class. It contains basic information about the cause of the e...">Util::Exception</a> instance.  <br /></td></tr>
+<tr class="separator:a9fa3494c7dd155c8caae6275f31daf94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Instrument task queue</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Methods to access and manipulate the task queue belonging to the instrument which owns the respective <code><a class="el" href="classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">InstrumentDataBase</a>'s</code> instance </p>
 </div></td></tr>
@@ -201,7 +204,7 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:a53b1cdfd2f4ff0248724d98cf4fd3b60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">InstrumentDataBase</a>'s</code> private methods to <code><a class="el" href="classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic...">InstrumentBase</a></code>.    <br /></td></tr>
 <tr class="separator:a53b1cdfd2f4ff0248724d98cf4fd3b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd059d86b9dfd24cf74a7118be6e1939" id="r_acd059d86b9dfd24cf74a7118be6e1939"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExp_1_1InstrumentDataBase_1_1InstrumenThreadOnlyType.html">InstrumenThreadOnlyType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentDataBase.html#acd059d86b9dfd24cf74a7118be6e1939">InstrumentThreadOnly</a></td></tr>
-<tr class="memdesc:acd059d86b9dfd24cf74a7118be6e1939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">InstrumentDataBase</a>'s</code> private methods to the instrument thread <code><a class="el" href="namespaceDynExp.html#a6985987f0ba5cd7ab42caef76ac995c9" title="Instruments run in their own thread. This is the instrument thread&#39;s main function.">InstrumentThreadMain()</a></code>.    <br /></td></tr>
+<tr class="memdesc:acd059d86b9dfd24cf74a7118be6e1939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">InstrumentDataBase</a>'s</code> private methods to the instrument thread <code><a class="el" href="namespaceDynExp.html#a1f37d51197dd225ac87ba8dad199dc29" title="Instruments run in their own thread. This is the instrument thread&#39;s main function.">InstrumentThreadMain()</a></code>.    <br /></td></tr>
 <tr class="separator:acd059d86b9dfd24cf74a7118be6e1939"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -227,6 +230,12 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a32ce5433e4655111eae679da4ae2f18d" id="r_a32ce5433e4655111eae679da4ae2f18d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUtil_1_1OneToOneNotifier.html">Util::OneToOneNotifier</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentDataBase.html#a32ce5433e4655111eae679da4ae2f18d">GetNewTaskNotifier</a> () noexcept</td></tr>
 <tr class="memdesc:a32ce5433e4655111eae679da4ae2f18d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for <a class="el" href="classDynExp_1_1InstrumentDataBase.html#ab01c9dc33697b1d9f7802920cdf45e2f" title="Used to notify the instrument thread about new tasks when enqueuing tasks into the task queue....">NewTaskNotifier</a>.  <br /></td></tr>
 <tr class="separator:a32ce5433e4655111eae679da4ae2f18d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f7e1e0b9a058a1b51550ae21c2e0558" id="r_a8f7e1e0b9a058a1b51550ae21c2e0558"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentDataBase.html#a8f7e1e0b9a058a1b51550ae21c2e0558">IndicateException</a> () noexcept</td></tr>
+<tr class="memdesc:a8f7e1e0b9a058a1b51550ae21c2e0558"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates to the main thread that an exception has happened in the instrument thread. Only performs atomic operations. Hence, this instrument data instance does not need to be locked for this function call.  <br /></td></tr>
+<tr class="separator:a8f7e1e0b9a058a1b51550ae21c2e0558"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8ccb4a96f599ff08619ce7e57b22a13" id="r_ab8ccb4a96f599ff08619ce7e57b22a13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentDataBase.html#ab8ccb4a96f599ff08619ce7e57b22a13">SetException</a> (std::exception_ptr Exception) noexcept</td></tr>
+<tr class="memdesc:ab8ccb4a96f599ff08619ce7e57b22a13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter for <a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e" title="Used to transfer exceptions from the instrument thread to the main thread. Stores the exception respo...">InstrumentException</a>.  <br /></td></tr>
+<tr class="separator:ab8ccb4a96f599ff08619ce7e57b22a13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bad0ffcd503c9100abd3ad09fd818f3" id="r_a1bad0ffcd503c9100abd3ad09fd818f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentDataBase.html#a1bad0ffcd503c9100abd3ad09fd818f3">CheckError</a> () const</td></tr>
 <tr class="memdesc:a1bad0ffcd503c9100abd3ad09fd818f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws <a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e" title="Used to transfer exceptions from the instrument thread to the main thread. Stores the exception respo...">InstrumentException</a> if it is not nullptr using <a class="el" href="namespaceUtil.html#a2a9f0d5782cf60eccacaa216ea9d1fa8" title="Wraps the exception passed to the function in a ForwardedException and throws the ForwardedException....">Util::ForwardException()</a>.  <br /></td></tr>
 <tr class="separator:a1bad0ffcd503c9100abd3ad09fd818f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -260,6 +269,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a1464cd861305dc3b06611601a2d392f2" id="r_a1464cd861305dc3b06611601a2d392f2"><td class="memItemLeft" align="right" valign="top">std::chrono::system_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentDataBase.html#a1464cd861305dc3b06611601a2d392f2">LastUpdate</a></td></tr>
 <tr class="memdesc:a1464cd861305dc3b06611601a2d392f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time point when the instrument thread called <a class="el" href="classDynExp_1_1InstrumentBase.html#a82f5e9ba9091d6b31b8f186844fb87fc" title="Inserts an update task (UpdateTaskBase) into the instrument&#39;s task queue. Override UpdateAdditionalDa...">InstrumentBase::UpdateDataInternal()</a> the last time.  <br /></td></tr>
 <tr class="separator:a1464cd861305dc3b06611601a2d392f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59e93be727fb424647f3fcfd18a58d6a" id="r_a59e93be727fb424647f3fcfd18a58d6a"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentDataBase.html#a59e93be727fb424647f3fcfd18a58d6a">HasException</a></td></tr>
+<tr class="memdesc:a59e93be727fb424647f3fcfd18a58d6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">If set to true, indicates to the main thread that an exception has happened in the instrument thread. In that case, the exception is possibly stored in <a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e" title="Used to transfer exceptions from the instrument thread to the main thread. Stores the exception respo...">InstrumentException</a>.  <br /></td></tr>
+<tr class="separator:a59e93be727fb424647f3fcfd18a58d6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addd7549bebc1fe974bf367cfdc01645e" id="r_addd7549bebc1fe974bf367cfdc01645e"><td class="memItemLeft" align="right" valign="top">std::exception_ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e">InstrumentException</a></td></tr>
 <tr class="memdesc:addd7549bebc1fe974bf367cfdc01645e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to transfer exceptions from the instrument thread to the main thread. Stores the exception responsible for the error state if the instrument which owns the respective <code><a class="el" href="classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">InstrumentDataBase</a>'s</code> instance is in such an error state.  <br /></td></tr>
 <tr class="separator:addd7549bebc1fe974bf367cfdc01645e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -369,7 +381,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00199">199</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00200">200</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -396,7 +408,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00200">200</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00201">201</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -426,7 +438,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 
 <p>Throws <a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e" title="Used to transfer exceptions from the instrument thread to the main thread. Stores the exception respo...">InstrumentException</a> if it is not nullptr using <a class="el" href="namespaceUtil.html#a2a9f0d5782cf60eccacaa216ea9d1fa8" title="Wraps the exception passed to the function in a ForwardedException and throws the ForwardedException....">Util::ForwardException()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00189">189</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00213">213</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -468,7 +480,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00194">194</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00218">218</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -497,7 +509,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 
 <p>Clsoes the instrument's task queue setting <a class="el" href="classDynExp_1_1InstrumentDataBase.html#af6ff7fe41b3747305249e94abb1e0cb4" title="If set to true, no new tasks can be enqueued (useful if an instrument is e.g. stopped).">QueueClosed</a> to true. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00336">336</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00345">345</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -533,7 +545,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00220">220</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00221">221</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -587,7 +599,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00147">147</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00163">163</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -623,7 +635,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00213">213</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00214">214</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -677,12 +689,12 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00137">137</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00153">153</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
-<a id="adbbac61586c0bbb9060bb2c1e283c3bf" name="adbbac61586c0bbb9060bb2c1e283c3bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbbac61586c0bbb9060bb2c1e283c3bf">&#9670;&#160;</a></span>GetException()</h2>
+<a id="a9fa3494c7dd155c8caae6275f31daf94" name="a9fa3494c7dd155c8caae6275f31daf94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fa3494c7dd155c8caae6275f31daf94">&#9670;&#160;</a></span>GetException()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -691,7 +703,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto DynExp::InstrumentDataBase::GetException </td>
+          <td class="memname">std::exception_ptr DynExp::InstrumentDataBase::GetException </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -699,15 +711,15 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Getter for <a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e" title="Used to transfer exceptions from the instrument thread to the main thread. Stores the exception respo...">InstrumentDataBase::InstrumentException</a>. </p>
+<p>Getter for <a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e" title="Used to transfer exceptions from the instrument thread to the main thread. Stores the exception respo...">InstrumentDataBase::InstrumentException</a>. If <a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e" title="Used to transfer exceptions from the instrument thread to the main thread. Stores the exception respo...">InstrumentDataBase::InstrumentException</a> is nullptr and <a class="el" href="classDynExp_1_1InstrumentDataBase.html#a59e93be727fb424647f3fcfd18a58d6a" title="If set to true, indicates to the main thread that an exception has happened in the instrument thread....">InstrumentDataBase::HasException</a> is still true, returns a pointer to a <a class="el" href="classUtil_1_1Exception.html" title="DynExp exceptions are derived from this class. It contains basic information about the cause of the e...">Util::Exception</a> instance. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the exception being responsible for the instrument's current state. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00289">289</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00145">145</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -737,7 +749,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 <p>Getter for <a class="el" href="classDynExp_1_1InstrumentDataBase.html#a1464cd861305dc3b06611601a2d392f2" title="Time point when the instrument thread called InstrumentBase::UpdateDataInternal() the last time.">LastUpdate</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the time point when the instrument issued a task to update its data last. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00283">283</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00284">284</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -767,7 +779,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 <p>Getter for <a class="el" href="classDynExp_1_1InstrumentDataBase.html#ab01c9dc33697b1d9f7802920cdf45e2f" title="Used to notify the instrument thread about new tasks when enqueuing tasks into the task queue....">NewTaskNotifier</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns <a class="el" href="classDynExp_1_1InstrumentDataBase.html#ab01c9dc33697b1d9f7802920cdf45e2f" title="Used to notify the instrument thread about new tasks when enqueuing tasks into the task queue....">NewTaskNotifier</a> to notify the instrument thread about new tasks. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00342">342</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00351">351</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -797,7 +809,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 <p>Getter for the instrument task queue's length. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the number of enqueued tasks. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00256">256</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00257">257</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -827,7 +839,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 <p>Getter for the length of the instrument's list of finished tasks. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the number of finished tasks. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00270">270</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00271">271</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -857,7 +869,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 <p>Getter for last enqueued task. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns an iterator to the instrument task queue's end. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00250">250</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00251">251</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -887,7 +899,65 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 <p>Getter for first enqueued task. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns an iterator to the instrument task queue's beginning. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00244">244</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00245">245</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+
+</div>
+</div>
+<a id="a8f7e1e0b9a058a1b51550ae21c2e0558" name="a8f7e1e0b9a058a1b51550ae21c2e0558"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f7e1e0b9a058a1b51550ae21c2e0558">&#9670;&#160;</a></span>IndicateException()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DynExp::InstrumentDataBase::IndicateException </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indicates to the main thread that an exception has happened in the instrument thread. Only performs atomic operations. Hence, this instrument data instance does not need to be locked for this function call. </p>
+
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00376">376</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+
+</div>
+</div>
+<a id="a011c308124d85c90fe00cfd10ae09e09" name="a011c308124d85c90fe00cfd10ae09e09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a011c308124d85c90fe00cfd10ae09e09">&#9670;&#160;</a></span>IsExceptionIndicated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DynExp::InstrumentDataBase::IsExceptionIndicated </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter for <a class="el" href="classDynExp_1_1InstrumentDataBase.html#a59e93be727fb424647f3fcfd18a58d6a" title="If set to true, indicates to the main thread that an exception has happened in the instrument thread....">HasException</a>. Only performs atomic operations. Hence, this instrument data instance does not need to be locked for this function call. </p>
+
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00290">290</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -917,7 +987,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 <p>Determines whether the instrument task queue is closed. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns <a class="el" href="classDynExp_1_1InstrumentDataBase.html#af6ff7fe41b3747305249e94abb1e0cb4" title="If set to true, no new tasks can be enqueued (useful if an instrument is e.g. stopped).">QueueClosed</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00276">276</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00277">277</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -939,7 +1009,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 <p>Removes a task from the front of an instrument's list of finished tasks. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the task releasing ownership of it. Returns nullptr if the list is empty. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00126">126</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00134">134</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -967,7 +1037,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00112">112</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00120">120</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -995,7 +1065,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00098">98</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00106">106</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1024,7 +1094,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 
 <p>Clears the instrument's task queue. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00165">165</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00181">181</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1053,7 +1123,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 
 <p>Clears the instrument's task queue but keeps the front task (the task with highest priority which is handled next). </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00170">170</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00186">186</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1089,7 +1159,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00157">157</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00173">173</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1118,7 +1188,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 
 <p>Resets the <code><a class="el" href="classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">InstrumentDataBase</a>'s</code> instance and calls <a class="el" href="classDynExp_1_1InstrumentDataBase.html#a05cf406659567d1983eb52f083caa69b" title="Refer to DynExp::InstrumentDataBase::Reset(). Using tag dispatch mechanism to ensure that ResetImpl()...">ResetImpl(dispatch_tag&lt;InstrumentDataBase&gt;)</a> subsequently. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00178">178</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00194">194</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1150,7 +1220,43 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1InterModuleCommunicatorData.html#aef2ff226395255d31c47e90127766f24">DynExpInstr::InterModuleCommunicatorData</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00359">359</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00368">368</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+
+</div>
+</div>
+<a id="ab8ccb4a96f599ff08619ce7e57b22a13" name="ab8ccb4a96f599ff08619ce7e57b22a13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8ccb4a96f599ff08619ce7e57b22a13">&#9670;&#160;</a></span>SetException()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DynExp::InstrumentDataBase::SetException </td>
+          <td>(</td>
+          <td class="paramtype">std::exception_ptr&#160;</td>
+          <td class="paramname"><em>Exception</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Setter for <a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e" title="Used to transfer exceptions from the instrument thread to the main thread. Stores the exception respo...">InstrumentException</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Exception</td><td>Exception to store. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00206">206</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1177,7 +1283,33 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 
 <p>List of the instrument's finished tasks. Tasks are moved here from <a class="el" href="classDynExp_1_1InstrumentDataBase.html#a130fe9cec65d77ef92446c7f5b128af8" title="FIFO task queue of the instrument owning this InstrumentDataBase instance.">TaskQueue</a> after completion. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00377">377</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00399">399</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+
+</div>
+</div>
+<a id="a59e93be727fb424647f3fcfd18a58d6a" name="a59e93be727fb424647f3fcfd18a58d6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59e93be727fb424647f3fcfd18a58d6a">&#9670;&#160;</a></span>HasException</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt;bool&gt; DynExp::InstrumentDataBase::HasException</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>If set to true, indicates to the main thread that an exception has happened in the instrument thread. In that case, the exception is possibly stored in <a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e" title="Used to transfer exceptions from the instrument thread to the main thread. Stores the exception respo...">InstrumentException</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00416">416</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -1195,7 +1327,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 
 <p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">InstrumentDataBase</a>'s</code> private methods to <code><a class="el" href="classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic...">InstrumentBase</a></code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00291">291</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00300">300</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -1221,7 +1353,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 
 <p>Used to transfer exceptions from the instrument thread to the main thread. Stores the exception responsible for the error state if the instrument which owns the respective <code><a class="el" href="classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">InstrumentDataBase</a>'s</code> instance is in such an error state. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00394">394</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00423">423</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -1237,9 +1369,9 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
       </table>
 </div><div class="memdoc">
 
-<p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">InstrumentDataBase</a>'s</code> private methods to the instrument thread <code><a class="el" href="namespaceDynExp.html#a6985987f0ba5cd7ab42caef76ac995c9" title="Instruments run in their own thread. This is the instrument thread&#39;s main function.">InstrumentThreadMain()</a></code>.   </p>
+<p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">InstrumentDataBase</a>'s</code> private methods to the instrument thread <code><a class="el" href="namespaceDynExp.html#a1f37d51197dd225ac87ba8dad199dc29" title="Instruments run in their own thread. This is the instrument thread&#39;s main function.">InstrumentThreadMain()</a></code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00292">292</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00301">301</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -1265,7 +1397,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 
 <p>Time point when the instrument thread called <a class="el" href="classDynExp_1_1InstrumentBase.html#a82f5e9ba9091d6b31b8f186844fb87fc" title="Inserts an update task (UpdateTaskBase) into the instrument&#39;s task queue. Override UpdateAdditionalDa...">InstrumentBase::UpdateDataInternal()</a> the last time. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00387">387</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00409">409</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -1291,7 +1423,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 
 <p>Used to notify the instrument thread about new tasks when enqueuing tasks into the task queue. This allows the instrument thread to sleep until new tasks have to be handled. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00385">385</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00407">407</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -1317,7 +1449,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 
 <p>If set to true, no new tasks can be enqueued (useful if an instrument is e.g. stopped). </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00378">378</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00400">400</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -1343,7 +1475,7 @@ struct DynExp::InstrumentDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer 
 
 <p>FIFO task queue of the instrument owning this <code><a class="el" href="classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">InstrumentDataBase</a></code> instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00376">376</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00398">398</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>

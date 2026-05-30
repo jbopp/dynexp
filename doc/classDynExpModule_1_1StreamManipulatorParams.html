@@ -195,6 +195,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a18f8aea56270cbbe32c7ed3ae8e13771" id="r_a18f8aea56270cbbe32c7ed3ae8e13771"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExp_1_1ParamsBase.html#classDynExp_1_1ParamsBase_1_1Param">Param</a>&lt; <a class="el" href="classParamsConfigDialog.html#ae776260b07bb69de296307a390ea6196">ParamsConfigDialog::TextType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1StreamManipulatorParams.html#a18f8aea56270cbbe32c7ed3ae8e13771">PythonCodePath</a></td></tr>
 <tr class="memdesc:a18f8aea56270cbbe32c7ed3ae8e13771"><td class="mdescLeft">&#160;</td><td class="mdescRight">Path to the Python file containing the code, which performs the stream manipulation.  <br /></td></tr>
 <tr class="separator:a18f8aea56270cbbe32c7ed3ae8e13771"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f3b4aed063f8756313cea1420197cea" id="r_a7f3b4aed063f8756313cea1420197cea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExp_1_1ParamsBase.html#classDynExp_1_1ParamsBase_1_1Param">Param</a>&lt; <a class="el" href="classDynExp_1_1ObjectLink.html">DynExp::ObjectLink</a>&lt; <a class="el" href="classDynExpInstr_1_1InterModuleCommunicator.html">DynExpInstr::InterModuleCommunicator</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1StreamManipulatorParams.html#a7f3b4aed063f8756313cea1420197cea">Communicator</a></td></tr>
+<tr class="memdesc:a7f3b4aed063f8756313cea1420197cea"><td class="mdescLeft">&#160;</td><td class="mdescRight">This module listens to the <a class="el" href="classDynExpModule_1_1StartEvent.html" title="This event is intended to make the receiver prepare an action (like a measurement) that is started wh...">DynExpModule::StartEvent</a>, <a class="el" href="classDynExpModule_1_1StopEvent.html" title="This event is intended to make the receiver stop an action (like a measurement).">DynExpModule::StopEvent</a>, and <a class="el" href="classDynExpModule_1_1TriggerEvent.html" title="This event is intended to make the receiver start an action (like a measurement) after it received a ...">DynExpModule::TriggerEvent</a>, which may be received via this <a class="el" href="classDynExpInstr_1_1InterModuleCommunicator.html" title="Defines an inter-module communicator instrument to exchange events in between DynExp modules....">DynExpInstr::InterModuleCommunicator</a> instrument. Refer to <a class="el" href="classDynExpModule_1_1StreamManipulatorParams.html#a18f8aea56270cbbe32c7ed3ae8e13771" title="Path to the Python file containing the code, which performs the stream manipulation.">PythonCodePath</a> for details on the event function implementation.  <br /></td></tr>
+<tr class="separator:a7f3b4aed063f8756313cea1420197cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classDynExp_1_1RunnableObjectParams"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classDynExp_1_1RunnableObjectParams')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classDynExp_1_1RunnableObjectParams.html">DynExp::RunnableObjectParams</a></td></tr>
 <tr class="memitem:a1ef775df6c01b554f3c102024646c0dd inherit pub_attribs_classDynExp_1_1RunnableObjectParams" id="r_a1ef775df6c01b554f3c102024646c0dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExp_1_1ParamsBase.html#classDynExp_1_1ParamsBase_1_1Param">Param</a>&lt; <a class="el" href="classDynExp_1_1RunnableObjectParams.html#a33b475bb5737bca9bf78ce6a6a7c41f4">StartupType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObjectParams.html#a1ef775df6c01b554f3c102024646c0dd">Startup</a></td></tr>
 <tr class="memdesc:a1ef775df6c01b554f3c102024646c0dd inherit pub_attribs_classDynExp_1_1RunnableObjectParams"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines when the runnable object is started. Refer to <a class="el" href="classDynExp_1_1RunnableObjectParams.html#a33b475bb5737bca9bf78ce6a6a7c41f4" title="Determines when a RunnableObject instance is started.">RunnableObjectParams::StartupType</a>.  <br /></td></tr>
@@ -290,7 +293,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Parameter class for <code><a class="el" href="classDynExpModule_1_1StreamManipulator.html" title="Module to process data stored in data stream instrument(s) with a Python script and to write the resu...">StreamManipulator</a></code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00133">133</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00151">151</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5c9b898979bf3bdb0d320f7f0c752d8c" name="a5c9b898979bf3bdb0d320f7f0c752d8c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5c9b898979bf3bdb0d320f7f0c752d8c">&#9670;&#160;</a></span>StreamManipulatorParams()</h2>
@@ -328,7 +331,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Constructs the parameters for a <code><a class="el" href="classDynExpModule_1_1StreamManipulator.html" title="Module to process data stored in data stream instrument(s) with a Python script and to write the resu...">StreamManipulator</a></code> instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00139">139</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00157">157</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -384,7 +387,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Called by <a class="el" href="classDynExp_1_1ParamsBase.html#a71d502028eb70be3ea316bb10fcd63ce" title="Called by ConfigFromDialog() to apply changes to parameters owned by this parameter class instance be...">DynExp::ParamsBase::ConfigureParams()</a> as a starting point for the tag dispatch mechanism to descend the inheritance hierarchy. Override to add functionality to <a class="el" href="classDynExp_1_1ParamsBase.html#a71d502028eb70be3ea316bb10fcd63ce" title="Called by ConfigFromDialog() to apply changes to parameters owned by this parameter class instance be...">ConfigureParams()</a>. Refer to <a class="el" href="classDynExp_1_1ParamsBase.html#structDynExp_1_1ParamsBase_1_1dispatch__tag" title="Tag for function dispatching mechanism within this class used when derived classes are not intended t...">DynExp::ParamsBase::dispatch_tag</a>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00188">188</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00218">218</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -416,11 +419,33 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleParamsBase.html#adcd7ba935830ce14bc07b999c124a9b1">DynExp::ModuleParamsBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00143">143</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00161">161</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a7f3b4aed063f8756313cea1420197cea" name="a7f3b4aed063f8756313cea1420197cea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f3b4aed063f8756313cea1420197cea">&#9670;&#160;</a></span>Communicator</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDynExp_1_1ParamsBase.html#classDynExp_1_1ParamsBase_1_1Param">Param</a>&lt;<a class="el" href="classDynExp_1_1ObjectLink.html">DynExp::ObjectLink</a>&lt;<a class="el" href="classDynExpInstr_1_1InterModuleCommunicator.html">DynExpInstr::InterModuleCommunicator</a>&gt; &gt; DynExpModule::StreamManipulatorParams::Communicator</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= { *<span class="keyword">this</span>, <a class="code hl_function" href="classDynExp_1_1ParamsBase.html#a58bef54c000bf3e747cf948f11116ba9">GetCore</a>().GetInstrumentManager(),</div>
+<div class="line">            <span class="stringliteral">&quot;InterModuleCommunicator&quot;</span>, <span class="stringliteral">&quot;Inter-module communicator&quot;</span>, <span class="stringliteral">&quot;Inter-module communicator to control this module with&quot;</span>, <a class="code hl_variable" href="namespaceDynExpUI_1_1Icons.html#a3f820a7ebe2671826704ba36d50ad0d5">DynExpUI::Icons::Instrument</a>, <span class="keyword">true</span> }</div>
+<div class="ttc" id="aclassDynExp_1_1ParamsBase_html_a58bef54c000bf3e747cf948f11116ba9"><div class="ttname"><a href="classDynExp_1_1ParamsBase.html#a58bef54c000bf3e747cf948f11116ba9">DynExp::ParamsBase::GetCore</a></div><div class="ttdeci">const auto &amp; GetCore() const noexcept</div><div class="ttdoc">Returns a reference to DynExp's core.</div><div class="ttdef"><b>Definition</b> <a href="Object_8h_source.html#l01677">Object.h:1677</a></div></div>
+<div class="ttc" id="anamespaceDynExpUI_1_1Icons_html_a3f820a7ebe2671826704ba36d50ad0d5"><div class="ttname"><a href="namespaceDynExpUI_1_1Icons.html#a3f820a7ebe2671826704ba36d50ad0d5">DynExpUI::Icons::Instrument</a></div><div class="ttdeci">constexpr auto Instrument</div><div class="ttdef"><b>Definition</b> <a href="DynExpDefinitions_8h_8in_source.html#l00075">DynExpDefinitions.h.in:75</a></div></div>
+</div><!-- fragment -->
+<p>This module listens to the <a class="el" href="classDynExpModule_1_1StartEvent.html" title="This event is intended to make the receiver prepare an action (like a measurement) that is started wh...">DynExpModule::StartEvent</a>, <a class="el" href="classDynExpModule_1_1StopEvent.html" title="This event is intended to make the receiver stop an action (like a measurement).">DynExpModule::StopEvent</a>, and <a class="el" href="classDynExpModule_1_1TriggerEvent.html" title="This event is intended to make the receiver start an action (like a measurement) after it received a ...">DynExpModule::TriggerEvent</a>, which may be received via this <a class="el" href="classDynExpInstr_1_1InterModuleCommunicator.html" title="Defines an inter-module communicator instrument to exchange events in between DynExp modules....">DynExpInstr::InterModuleCommunicator</a> instrument. Refer to <a class="el" href="classDynExpModule_1_1StreamManipulatorParams.html#a18f8aea56270cbbe32c7ed3ae8e13771" title="Path to the Python file containing the code, which performs the stream manipulation.">PythonCodePath</a> for details on the event function implementation. </p>
+
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00211">211</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+
+</div>
+</div>
 <a id="a01f05c4dcd32b9066f57b7cd937f33b6" name="a01f05c4dcd32b9066f57b7cd937f33b6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a01f05c4dcd32b9066f57b7cd937f33b6">&#9670;&#160;</a></span>InputDataStreams</h2>
 
@@ -434,12 +459,10 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= { *<span class="keyword">this</span>, <a class="code hl_function" href="classDynExp_1_1ParamsBase.html#a58bef54c000bf3e747cf948f11116ba9">GetCore</a>().GetInstrumentManager(),</div>
 <div class="line">            <span class="stringliteral">&quot;InputDataStreams&quot;</span>, <span class="stringliteral">&quot;Input data stream instrument(s)&quot;</span>, <span class="stringliteral">&quot;Data stream instruments to be used as data sources&quot;</span>, <a class="code hl_variable" href="namespaceDynExpUI_1_1Icons.html#a3f820a7ebe2671826704ba36d50ad0d5">DynExpUI::Icons::Instrument</a>, <span class="keyword">true</span> }</div>
-<div class="ttc" id="aclassDynExp_1_1ParamsBase_html_a58bef54c000bf3e747cf948f11116ba9"><div class="ttname"><a href="classDynExp_1_1ParamsBase.html#a58bef54c000bf3e747cf948f11116ba9">DynExp::ParamsBase::GetCore</a></div><div class="ttdeci">const auto &amp; GetCore() const noexcept</div><div class="ttdoc">Returns a reference to DynExp's core.</div><div class="ttdef"><b>Definition</b> <a href="Object_8h_source.html#l01677">Object.h:1677</a></div></div>
-<div class="ttc" id="anamespaceDynExpUI_1_1Icons_html_a3f820a7ebe2671826704ba36d50ad0d5"><div class="ttname"><a href="namespaceDynExpUI_1_1Icons.html#a3f820a7ebe2671826704ba36d50ad0d5">DynExpUI::Icons::Instrument</a></div><div class="ttdeci">constexpr auto Instrument</div><div class="ttdef"><b>Definition</b> <a href="DynExpDefinitions_8h_8in_source.html#l00075">DynExpDefinitions.h.in:75</a></div></div>
 </div><!-- fragment -->
 <p>Parameter for data stream instruments containing input samples. Refer to <a class="el" href="classDynExpModule_1_1StreamManipulatorData.html#a8a0302578d9537592c0685e85c493e5c" title="Linked input data stream instruments whose samples are going to be used for calculations.">StreamManipulatorData::InputDataStreams</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00149">149</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00167">167</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -459,7 +482,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- fragment -->
 <p>Parameter for data stream instruments containing output samples. Refer to <a class="el" href="classDynExpModule_1_1StreamManipulatorData.html#aa096638b3a904c17e141a5009b8141c2" title="Linked output data stream instruments to write the computed new samples to.">StreamManipulatorData::OutputDataStreams</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00156">156</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00174">174</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -480,11 +503,11 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- fragment -->
 <p>Path to the Python file containing the code, which performs the stream manipulation. </p>
 <p>The Python file can import Python modules at its beginning. Refer to the documentation main page for information on how to install Python modules.</p>
-<p>Furthermore, the file can contain the functions <code>on_init(input)</code>, <code>on_step(input)</code>, and <code>on_exit(input)</code>. <code>input</code> is the <a class="el" href="classDynExpModule_1_1StreamManipulator.html#ac465a0a8159172a7fdae9fa8934f1437" title="Input data passed to the on_step() Python function.">StreamManipulator::ManipulatorPyFuncInput</a> instance and <code>on_init()</code> is expected to return an object assignable to <a class="el" href="classDynExpModule_1_1StreamManipulator.html#a610d9f27609bf21968fc4fb3d26bb020" title="Output data returned from the on_step() Python function.">StreamManipulator::ManipulatorPyFuncOutput</a>. <code>on_init()</code> is called when the module is initialited, <code>on_exit()</code> is called when it is terminated, and <code>on_step()</code> is called periodically and as soon as new input samples are available according to <a class="el" href="structDynExpModule_1_1PyStreamManipulatorOutputData.html#a2cddf3cab66dbe2fcc50379717194099" title="Time wo wait minimally before the on_step() Python function is called again when each input data stre...">PyStreamManipulatorOutputData::MinNextExecutionDelay</a> and <a class="el" href="structDynExpModule_1_1PyStreamManipulatorOutputData.html#a31ff386c9b8a1e9059dd9229b0e2cbf2" title="Time to wait maximally before the on_step() Python function is called again when the input data strea...">PyStreamManipulatorOutputData::MaxNextExecutionDelay</a>.</p>
-<p>To store local variables, they can be assigned to <code>on_init()</code> as attributes. Such attributes are accessible in <code>on_step()</code> and <code>on_exit()</code> as well.</p>
+<p>Furthermore, the file can contain the functions <code>on_init(input)</code>, <code>on_step(input)</code>, and <code>on_exit(input)</code>. <code>input</code> is the <a class="el" href="classDynExpModule_1_1StreamManipulator.html#ac465a0a8159172a7fdae9fa8934f1437" title="Input data passed to the on_step() and event handler Python functions.">StreamManipulator::ManipulatorPyFuncInput</a> instance and <code>on_init()</code> is expected to return an object assignable to <a class="el" href="classDynExpModule_1_1StreamManipulator.html#a610d9f27609bf21968fc4fb3d26bb020" title="Output data returned from the on_step() and event handler Python functions.">StreamManipulator::ManipulatorPyFuncOutput</a>. <code>on_init()</code> is called when the module is initialited, <code>on_exit()</code> is called when it is terminated, and <code>on_step()</code> is called periodically and as soon as new input samples are available according to <a class="el" href="structDynExpModule_1_1PyStreamManipulatorOutputData.html#a2cddf3cab66dbe2fcc50379717194099" title="Time wo wait minimally before the on_step() Python function is called again when each input data stre...">PyStreamManipulatorOutputData::MinNextExecutionDelay</a> and <a class="el" href="structDynExpModule_1_1PyStreamManipulatorOutputData.html#a31ff386c9b8a1e9059dd9229b0e2cbf2" title="Time to wait maximally before the on_step() Python function is called again when the input data strea...">PyStreamManipulatorOutputData::MaxNextExecutionDelay</a>. If event handler functions <code>on_start(input)</code>, <code>on_stop(input)</code>, and/or <code>on_trigger(input)</code> are available, they are assigned to the respective events received from <a class="el" href="classDynExpModule_1_1StreamManipulatorParams.html#a7f3b4aed063f8756313cea1420197cea" title="This module listens to the DynExpModule::StartEvent, DynExpModule::StopEvent, and DynExpModule::Trigg...">Communicator</a>. Refer to <a class="el" href="classDynExpModule_1_1StreamManipulatorParams.html#a7f3b4aed063f8756313cea1420197cea" title="This module listens to the DynExpModule::StartEvent, DynExpModule::StopEvent, and DynExpModule::Trigg...">Communicator</a> for details.</p>
+<p>To store local variables, they can be assigned to <code>on_init()</code> as attributes. Such attributes are accessible in <code>on_step()</code>, <code>on_exit()</code>, and event handler functions as well.</p>
 <p>Refer to the examples within this repository for different implementations of the Python functions described here. </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00181">181</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00203">203</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>

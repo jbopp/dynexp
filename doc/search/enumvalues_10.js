@@ -1,7 +1,7 @@
 var searchData=
 [
   ['taskperchannel_0',['TaskPerChannel',['../classDynExpHardware_1_1NIDAQHardwareAdapterParams.html#aec0ab3f6918eaa578ad2ca041a463e12ac228cc73a1c1de19bfb6051476b413af',1,'DynExpHardware::NIDAQHardwareAdapterParams']]],
-  ['terminate_1',['Terminate',['../classDynExp_1_1TaskResultType.html#aec643117dfb35b42df5a4f535e0cb617a056fa3d840f48b7bfbbd68c19a4797b3',1,'DynExp::TaskResultType']]],
+  ['terminate_1',['terminate',['../classDynExp_1_1InstrumentBase.html#ae4c1df1468a66aed40479c5567b64322a056fa3d840f48b7bfbbd68c19a4797b3',1,'DynExp::InstrumentBase::Terminate'],['../classDynExp_1_1TaskResultType.html#a39cf631065819dd07f66e1eb5b149799a056fa3d840f48b7bfbbd68c19a4797b3',1,'DynExp::TaskResultType::Terminate']]],
   ['text_2',['Text',['../structParamsConfigDialog_1_1Param.html#a7df85a364a0689eafb34caf8c44ee794a9dffbf69ffba8bc38bc4e01abf4b1675',1,'ParamsConfigDialog::Param']]],
   ['textlist_3',['TextList',['../structParamsConfigDialog_1_1Param.html#a7df85a364a0689eafb34caf8c44ee794af3f284f33bc144b176eb0ec0fbf0506b',1,'ParamsConfigDialog::Param']]],
   ['theta_4',['Theta',['../namespaceDynExpInstr_1_1LockinAmplifierDefs.html#a2b2819a6979ffbaf68e32bd643f26155ae9b1510bc33f129af9cba9136435872d',1,'DynExpInstr::LockinAmplifierDefs']]],

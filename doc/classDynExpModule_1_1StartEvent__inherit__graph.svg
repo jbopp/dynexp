@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="This event is intended to make the receiver either directly start an action (like a measurement) or t...">
+<g id="a_Node000001"><a xlink:title="This event is intended to make the receiver prepare an action (like a measurement) that is started wh...">
 <polygon fill="#999999" stroke="#666666" points="158.5,-19 11.5,-19 11.5,0 158.5,0 158.5,-19"/>
 <text text-anchor="middle" x="85" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">DynExpModule::StartEvent</text>
 </a>

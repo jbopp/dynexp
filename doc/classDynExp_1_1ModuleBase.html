@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('classDynExp_1_1ModuleBase.html',''); i
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classDynExp_1_1ModuleBase__inherit__graph.svg" width="1498" height="878"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classDynExp_1_1ModuleBase__inherit__graph.svg" width="1516" height="1042"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
@@ -132,7 +132,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to any <code><a class="el" href="classDynExp_1_1TypedEventListeners.html" title="Typed managers of event listeners class whose instances are owned by classes derived from InterModule...">TypedEventListeners</a></code> class.  <a href="classDynExp_1_1ModuleBase_1_1EventListenersOnlyType.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html">ModuleThreadOnlyType</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to the module thread <code><a class="el" href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html#ac83bb615c44d3c2c4026bacb7dea2831" title="Modules run in their own thread. This is the module thread&#39;s main function.">ModuleThreadMain()</a></code>.  <a href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to the module thread <code><a class="el" href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html#adf92e478dae444efeba71953a2564a3d" title="Modules run in their own thread. This is the module thread&#39;s main function.">ModuleThreadMain()</a></code>.  <a href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -209,7 +209,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a784b327cbbba14124e1e303b289714c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6929f6ac89a2c9f9c4e686c59acd31ce" id="r_a6929f6ac89a2c9f9c4e686c59acd31ce"><td class="memTemplParams" colspan="2">template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; </td></tr>
 <tr class="memitem:a6929f6ac89a2c9f9c4e686c59acd31ce"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#a6929f6ac89a2c9f9c4e686c59acd31ce">MakeAndEnqueueEvent</a> (ReceiverType *Receiver, EventType EventFuncPtr, ArgsTs &amp;&amp;...Args) const</td></tr>
-<tr class="memdesc:a6929f6ac89a2c9f9c4e686c59acd31ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <code><a class="el" href="namespaceDynExp.html#a95f0f5b615c5d99ff4325ab785735a7a" title="Creates an event of type DefaultEvent.">MakeEvent()</a></code> to construct a new event and subsequently enqueues the event into the module's event queue. Logical const-ness: this is a const member function to allow pointers to <code>const</code> <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> inserting events into the module's event queue. These kind of pointers are e.g. returned by <a class="el" href="classDynExp_1_1RunnableInstance.html#afafb4793635ac8c1c34471ff255549f1" title="Returns Owner.">RunnableInstance::GetOwner()</a> which can be called by events' <a class="el" href="classDynExp_1_1EventBase.html#a77b9b29345abc36c7f798e1ae3822670" title="Invokes the event passing the receiving module&#39;s instance reference to it.">EventBase::InvokeChild()</a> functions. For <code>const</code> <code>ModuleBase*</code>, it is possible to insert events into the event queue, but not to change the <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> object itself (e.g. calling <a class="el" href="classDynExp_1_1Object.html#a837a8e8daa7853003474b458a3fe0a46" title="Resets this Object instance (including all its derived classes) by calling ResetImpl()....">Object::Reset()</a>).  <br /></td></tr>
+<tr class="memdesc:a6929f6ac89a2c9f9c4e686c59acd31ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <code><a class="el" href="namespaceDynExp.html#a95f0f5b615c5d99ff4325ab785735a7a" title="Creates an event of type DefaultEvent.">MakeEvent()</a></code> to construct a new event and subsequently enqueues the event into the module's event queue. Logical const-ness: this is a const member function to allow pointers to <code>const</code> <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> inserting events into the module's event queue. These kind of pointers are e.g. returned by <a class="el" href="classDynExp_1_1RunnableInstance.html#afafb4793635ac8c1c34471ff255549f1" title="Returns Owner.">RunnableInstance::GetOwner()</a> which can be called by events' <a class="el" href="classDynExp_1_1EventBase.html#a77b9b29345abc36c7f798e1ae3822670" title="Invokes the event passing the receiving module&#39;s instance reference to it. Only to be called from Mod...">EventBase::InvokeChild()</a> functions. For <code>const</code> <code>ModuleBase*</code>, it is possible to insert events into the event queue, but not to change the <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> object itself (e.g. calling <a class="el" href="classDynExp_1_1Object.html#a837a8e8daa7853003474b458a3fe0a46" title="Resets this Object instance (including all its derived classes) by calling ResetImpl()....">Object::Reset()</a>).  <br /></td></tr>
 <tr class="separator:a6929f6ac89a2c9f9c4e686c59acd31ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classDynExp_1_1RunnableObject"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classDynExp_1_1RunnableObject')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classDynExp_1_1RunnableObject.html">DynExp::RunnableObject</a></td></tr>
 <tr class="memitem:a5e3f33a83b1a9b1d2c8fea2ebe18d8f1 inherit pub_methods_classDynExp_1_1RunnableObject" id="r_a5e3f33a83b1a9b1d2c8fea2ebe18d8f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a5e3f33a83b1a9b1d2c8fea2ebe18d8f1">RunnableObject</a> (const std::thread::id <a class="el" href="classDynExp_1_1Object.html#a4dda5f98fa0fa73f4f247db90771befd">OwnerThreadID</a>, <a class="el" href="namespaceDynExp.html#a7330bf5931734173d955c5c2cca169d3">ParamsBasePtrType</a> &amp;&amp;<a class="el" href="classDynExp_1_1Object.html#a8a6b4b40c17413b386e01049fd7c40ea">Params</a>)</td></tr>
@@ -236,7 +236,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:adbb2e71639fdcab42c9c6c299e4cf2b8 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <a class="el" href="classDynExp_1_1RunnableObject.html#aacef09883d7d4462fc014330663d9f4f" title="Holds information about why the RunnableObject instance is paused.">ReasonWhyPaused</a>.  <br /></td></tr>
 <tr class="separator:adbb2e71639fdcab42c9c6c299e4cf2b8 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject" id="r_a416b8000830913b11eaf02d1f1af49d6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6">Run</a> (QWidget *ParentWidget=nullptr)</td></tr>
-<tr class="memdesc:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread and ensures that all <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instances linked to this instance via <code><a class="el" href="classDynExp_1_1ObjectLink.html" title="Type to define object link parameters as ParamsBase::Param&lt; ObjectLink&lt; ObjectT &gt; &gt; or to define obje...">ObjectLink</a></code> parameters are in a ready state. Calls <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> which is to be overridden by derived classes to start a thread and to pass this thread back by calling <code><a class="el" href="classDynExp_1_1RunnableObject.html#aac70e1485923ee8c78ed5732099b4c90" title="Stores a thread constructed by a derived class overriding RunChild() in Thread taking ownership of th...">StoreThread()</a></code>.  <br /></td></tr>
+<tr class="memdesc:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread and ensures that all <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instances linked to this instance via <code><a class="el" href="classDynExp_1_1ObjectLink.html" title="Type to define object link parameters as ParamsBase::Param&lt; ObjectLink&lt; ObjectT &gt; &gt; or to define obje...">ObjectLink</a></code> parameters are in a ready state. Calls <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> which is to be overridden by derived classes to start a thread and to pass this thread back by calling <code>StoreThread()</code>.  <br /></td></tr>
 <tr class="separator:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8275b7f99072059d5608a4201ed579af inherit pub_methods_classDynExp_1_1RunnableObject" id="r_a8275b7f99072059d5608a4201ed579af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a8275b7f99072059d5608a4201ed579af">RunIfRunAutomatic</a> ()</td></tr>
 <tr class="memdesc:a8275b7f99072059d5608a4201ed579af inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> if <a class="el" href="classDynExp_1_1RunnableObjectParams.html#a1ef775df6c01b554f3c102024646c0dd" title="Determines when the runnable object is started. Refer to RunnableObjectParams::StartupType.">RunnableObjectParams::Startup</a> is set to <a class="el" href="classDynExp_1_1RunnableObjectParams.html#a33b475bb5737bca9bf78ce6a6a7c41f4af69add31b7e16e98b1fa4642036b1bfc">RunnableObjectParams::Automatic</a>.  <br /></td></tr>
@@ -330,7 +330,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aa62c218c15d17c8beeaafbec0e9e2846" id="r_aa62c218c15d17c8beeaafbec0e9e2846"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html">ModuleThreadOnlyType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#aa62c218c15d17c8beeaafbec0e9e2846">ModuleThreadOnly</a></td></tr>
-<tr class="memdesc:aa62c218c15d17c8beeaafbec0e9e2846"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to the module thread <code><a class="el" href="namespaceDynExp.html#acd637f0e67b9a2815532b5a7e1754bd2" title="Modules run in their own thread. This is the module thread&#39;s main function.">ModuleThreadMain()</a></code>.    <br /></td></tr>
+<tr class="memdesc:aa62c218c15d17c8beeaafbec0e9e2846"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to the module thread <code><a class="el" href="namespaceDynExp.html#a1ef415c3706dc71e72f030c9d9444291" title="Modules run in their own thread. This is the module thread&#39;s main function.">ModuleThreadMain()</a></code>.    <br /></td></tr>
 <tr class="separator:aa62c218c15d17c8beeaafbec0e9e2846"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafb7bfaf4658e6b499912178450a5de0" id="r_aafb7bfaf4658e6b499912178450a5de0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExp_1_1ModuleBase_1_1EventListenersOnlyType.html">EventListenersOnlyType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#aafb7bfaf4658e6b499912178450a5de0">EventListenersOnly</a></td></tr>
 <tr class="memdesc:aafb7bfaf4658e6b499912178450a5de0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to any <code><a class="el" href="classDynExp_1_1TypedEventListeners.html" title="Typed managers of event listeners class whose instances are owned by classes derived from InterModule...">TypedEventListeners</a></code> class.    <br /></td></tr>
@@ -397,14 +397,17 @@ Private Member Functions</h2></td></tr>
 <tr class="memdesc:a832cb100caeb9bcba79c515efc5b5f71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes and removes the next pending event from the module's event queue.  <br /></td></tr>
 <tr class="separator:a832cb100caeb9bcba79c515efc5b5f71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2010071b9ef285d63381fb9e4d186b6" id="r_ac2010071b9ef285d63381fb9e4d186b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#ac2010071b9ef285d63381fb9e4d186b6">AddRegisteredEvent</a> (<a class="el" href="classDynExp_1_1EventListenersBase.html">EventListenersBase</a> &amp;EventListeners)</td></tr>
-<tr class="memdesc:ac2010071b9ef285d63381fb9e4d186b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a manager of event listeners to <a class="el" href="classDynExp_1_1ModuleBase.html#ab6848726c4ec4d5eaeb2b4e6d710f268" title="Holds a list of pointers to managers of event listeners of the events this module has registered/subs...">RegisteredEvents</a> if it was not already added before. Called indirectly by <a class="el" href="classDynExp_1_1TypedEventListeners.html#ad00404b8a0a59e5167586c02a83c1482" title="Registers/Subscribes module Listener to the event with the event function EventFunc....">TypedEventListeners::Register()</a>.  <br /></td></tr>
+<tr class="memdesc:ac2010071b9ef285d63381fb9e4d186b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a manager of event listeners to <a class="el" href="classDynExp_1_1ModuleBase.html#ab6848726c4ec4d5eaeb2b4e6d710f268" title="Holds a list of pointers to managers of event listeners of the events this module has registered/subs...">RegisteredEvents</a>. Called indirectly by <a class="el" href="classDynExp_1_1TypedEventListeners.html#ad125c5aa312d83b0a6f28dcd0bb804f3" title="Registers/Subscribes module Listener to the event with the event function EventFunc....">TypedEventListeners::Register()</a>.  <br /></td></tr>
 <tr class="separator:ac2010071b9ef285d63381fb9e4d186b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79e7cf897ebcdfea8c39f5954bcd3729" id="r_a79e7cf897ebcdfea8c39f5954bcd3729"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#a79e7cf897ebcdfea8c39f5954bcd3729">RemoveRegisteredEvent</a> (<a class="el" href="classDynExp_1_1EventListenersBase.html">EventListenersBase</a> &amp;EventListeners)</td></tr>
-<tr class="memdesc:a79e7cf897ebcdfea8c39f5954bcd3729"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a manager of event listeners from <a class="el" href="classDynExp_1_1ModuleBase.html#ab6848726c4ec4d5eaeb2b4e6d710f268" title="Holds a list of pointers to managers of event listeners of the events this module has registered/subs...">RegisteredEvents</a> if it was added before. Called indirectly by <a class="el" href="classDynExp_1_1TypedEventListeners.html#a9d21b5765fb573f9cdb3302b9c30cf07" title="Deregisters/unsubscribes module Listener from the event. Indirectly calls ModuleBase::RemoveRegistere...">TypedEventListeners::Deregister()</a>.  <br /></td></tr>
+<tr class="memdesc:a79e7cf897ebcdfea8c39f5954bcd3729"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a manager of event listeners from <a class="el" href="classDynExp_1_1ModuleBase.html#ab6848726c4ec4d5eaeb2b4e6d710f268" title="Holds a list of pointers to managers of event listeners of the events this module has registered/subs...">RegisteredEvents</a> if it was added before. Called indirectly by <a class="el" href="classDynExp_1_1TypedEventListeners.html#ab4f92e4c040a9d077207860196f88345" title="Deregisters/unsubscribes module Listener from the event, removing a single registration for a particu...">TypedEventListeners::Deregister()</a>.  <br /></td></tr>
 <tr class="separator:a79e7cf897ebcdfea8c39f5954bcd3729"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdb9fa22465fe0fc2ca36ba510a37f45" id="r_afdb9fa22465fe0fc2ca36ba510a37f45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceUtil_1_1DynExpErrorCodes.html#a49da632c21753f06d241c7269a24ae57">Util::DynExpErrorCodes::DynExpErrorCodes</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#afdb9fa22465fe0fc2ca36ba510a37f45">ExecModuleMainLoop</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">ModuleInstance</a> &amp;Instance)</td></tr>
 <tr class="memdesc:afdb9fa22465fe0fc2ca36ba510a37f45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs <code><a class="el" href="classDynExp_1_1ModuleBase.html#abe86b2a8c7a6e60a2937be8b2a0e6b00" title="Module main loop. The function is executed periodically by the module thread. Also refer to GetMainLo...">ModuleMainLoop()</a></code>.  <br /></td></tr>
 <tr class="separator:afdb9fa22465fe0fc2ca36ba510a37f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6341b4a240cb54c000e7aff7594cdbb9" id="r_a6341b4a240cb54c000e7aff7594cdbb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#a6341b4a240cb54c000e7aff7594cdbb9">SetException</a> (std::exception_ptr Exception) noexcept</td></tr>
+<tr class="memdesc:a6341b4a240cb54c000e7aff7594cdbb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets this module instance to an error state and tries to store the exception responsible for the error state in <a class="el" href="classDynExp_1_1ModuleBase.html#a56ccafca54cfc4f7f6231b198b1e2d86" title="Module data belonging to this ModuleBase instance.">ModuleData</a>. If <a class="el" href="classDynExp_1_1ModuleBase.html#a56ccafca54cfc4f7f6231b198b1e2d86" title="Module data belonging to this ModuleBase instance.">ModuleData</a> cannot be locked, still atomically sets an error flag.  <br /></td></tr>
+<tr class="separator:a6341b4a240cb54c000e7aff7594cdbb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2428398352d29da29dab0b0c48dbd37b" id="r_a2428398352d29da29dab0b0c48dbd37b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#a2428398352d29da29dab0b0c48dbd37b">OnPause</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">ModuleInstance</a> &amp;Instance)</td></tr>
 <tr class="memdesc:a2428398352d29da29dab0b0c48dbd37b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This handler gets called just after the module pauses due to e.g. an error in an instrument the module depends on. Override <code><a class="el" href="classDynExp_1_1ModuleBase.html#ae1814f6d7cb0b105f4e534c83360405c" title="This handler gets called just after the module pauses due to e.g. an error in an instrument the modul...">OnPauseChild()</a></code> to e.g. abort a measurement or to store internal states for resuming later.  <br /></td></tr>
 <tr class="separator:a2428398352d29da29dab0b0c48dbd37b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -433,13 +436,13 @@ Private Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Event functions running in the module thread. </p>
 </div></td></tr>
 <tr class="memitem:a51b4635720cb3b96033970dba4a95500" id="r_a51b4635720cb3b96033970dba4a95500"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#a51b4635720cb3b96033970dba4a95500">OnInit</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">ModuleInstance</a> *Instance) const</td></tr>
-<tr class="memdesc:a51b4635720cb3b96033970dba4a95500"><td class="mdescLeft">&#160;</td><td class="mdescRight">This event is triggered right before the module thread starts. Override it to lock instruments this module depends on (via <a class="el" href="classDynExp_1_1RunnableInstance.html#af6ef3d35fc9c15da5f1794a3c8706ebf" title="Locks an Object instance referenced by a parameter LinkParam of type ParamsBase::Param&lt; ObjectLink&lt; O...">RunnableInstance::LockObject()</a>) and to register/subscribe for events (via <a class="el" href="classDynExp_1_1InterModuleEvent.html#a9cef4596c1e4dfbc7c6bdb2b067208da" title="Registers/Subscribes module Listener to the event with the event function EventFunc....">InterModuleEvent::Register()</a>).  <br /></td></tr>
+<tr class="memdesc:a51b4635720cb3b96033970dba4a95500"><td class="mdescLeft">&#160;</td><td class="mdescRight">This event is triggered right before the module thread starts. Override it to lock instruments this module depends on (via <a class="el" href="classDynExp_1_1RunnableInstance.html#af6ef3d35fc9c15da5f1794a3c8706ebf" title="Locks an Object instance referenced by a parameter LinkParam of type ParamsBase::Param&lt; ObjectLink&lt; O...">RunnableInstance::LockObject()</a>) and to register/subscribe for events (via <a class="el" href="classDynExp_1_1InterModuleEvent.html#a0e1ff5d9a5e12f30e6c388c2097ccc8e" title="Registers/Subscribes module Listener to the event with the event function EventFunc....">InterModuleEvent::Register()</a>).  <br /></td></tr>
 <tr class="separator:a51b4635720cb3b96033970dba4a95500"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77fb87b30e26eea73d6d53d2d871160a" id="r_a77fb87b30e26eea73d6d53d2d871160a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#a77fb87b30e26eea73d6d53d2d871160a">OnExit</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">ModuleInstance</a> *Instance) const</td></tr>
-<tr class="memdesc:a77fb87b30e26eea73d6d53d2d871160a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This event is triggered right before the module thread terminates (not due to an exception, in this case refer to <a class="el" href="classDynExp_1_1ModuleBase.html#ab86fe18fa3d55d64993569e6d6061889" title="This handler gets called just before the module thread terminates due to an exception....">ModuleBase::OnError</a>). Override it to unlock instruments this module depends on (via <a class="el" href="classDynExp_1_1RunnableInstance.html#a2a35438cccb579c51e217d0e50e53797" title="Unlocks an Object instance stored in the LinkedObjectWrapperContainer ObjectWrapperContainer....">RunnableInstance::UnlockObject()</a>) and to deregister/unsubscribe from events (via <a class="el" href="classDynExp_1_1InterModuleEvent.html#ad1c539c32b97bfcfb7262cc69465be2d" title="Deregisters/unsubscribes module Listener from the event. Indirectly calls ModuleBase::RemoveRegistere...">InterModuleEvent::Deregister()</a>).  <br /></td></tr>
+<tr class="memdesc:a77fb87b30e26eea73d6d53d2d871160a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This event is triggered right before the module thread terminates (not due to an exception, in this case refer to <a class="el" href="classDynExp_1_1ModuleBase.html#ab86fe18fa3d55d64993569e6d6061889" title="This handler gets called just before the module thread terminates due to an exception....">ModuleBase::OnError</a>). Override it to unlock instruments this module depends on (via <a class="el" href="classDynExp_1_1RunnableInstance.html#a2a35438cccb579c51e217d0e50e53797" title="Unlocks an Object instance stored in the LinkedObjectWrapperContainer ObjectWrapperContainer....">RunnableInstance::UnlockObject()</a>) and to deregister/unsubscribe from events (via <a class="el" href="classDynExp_1_1InterModuleEvent.html#ad1c539c32b97bfcfb7262cc69465be2d" title="Deregisters/unsubscribes module Listener from the event, regardless of the inter-module communicator ...">InterModuleEvent::Deregister()</a>).  <br /></td></tr>
 <tr class="separator:a77fb87b30e26eea73d6d53d2d871160a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36edced314272a5b31cea3649f6a7ca8" id="r_a36edced314272a5b31cea3649f6a7ca8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#a36edced314272a5b31cea3649f6a7ca8">OnDeregisterEvents</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">ModuleInstance</a> *Instance) const</td></tr>
-<tr class="memdesc:a36edced314272a5b31cea3649f6a7ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">This event is triggered after the <code>OnExit</code> event. It calls <a class="el" href="classDynExp_1_1EventListenersBase.html#af1124e3f51d17121973a296b395ae4b7" title="Deregisters/unsubscribes module Listener from the event. Indirectly calls ModuleBase::RemoveRegistere...">EventListenersBase::Deregister()</a> for all managers of event listeners stored in <a class="el" href="classDynExp_1_1ModuleBase.html#ab6848726c4ec4d5eaeb2b4e6d710f268" title="Holds a list of pointers to managers of event listeners of the events this module has registered/subs...">RegisteredEvents</a> since we do not trust in derived modules deregistering/unsubscribing from all registered events via <a class="el" href="classDynExp_1_1InterModuleEvent.html#ad1c539c32b97bfcfb7262cc69465be2d" title="Deregisters/unsubscribes module Listener from the event. Indirectly calls ModuleBase::RemoveRegistere...">InterModuleEvent::Deregister()</a>.  <br /></td></tr>
+<tr class="memdesc:a36edced314272a5b31cea3649f6a7ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">This event is triggered after the <code>OnExit</code> event. It calls <a class="el" href="classDynExp_1_1EventListenersBase.html#af1124e3f51d17121973a296b395ae4b7" title="Deregisters/unsubscribes module Listener from the event, regardless of the inter-module communicator ...">EventListenersBase::Deregister()</a> for all managers of event listeners stored in <a class="el" href="classDynExp_1_1ModuleBase.html#ab6848726c4ec4d5eaeb2b4e6d710f268" title="Holds a list of pointers to managers of event listeners of the events this module has registered/subs...">RegisteredEvents</a> since we do not trust in derived modules deregistering/unsubscribing from all registered events via <a class="el" href="classDynExp_1_1InterModuleEvent.html#ad1c539c32b97bfcfb7262cc69465be2d" title="Deregisters/unsubscribes module Listener from the event, regardless of the inter-module communicator ...">InterModuleEvent::Deregister()</a>.  <br /></td></tr>
 <tr class="separator:a36edced314272a5b31cea3649f6a7ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -448,7 +451,7 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a56ccafca54cfc4f7f6231b198b1e2d86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module data belonging to this <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> instance.  <br /></td></tr>
 <tr class="separator:a56ccafca54cfc4f7f6231b198b1e2d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6848726c4ec4d5eaeb2b4e6d710f268" id="r_ab6848726c4ec4d5eaeb2b4e6d710f268"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classDynExp_1_1EventListenersBase.html">EventListenersBase</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#ab6848726c4ec4d5eaeb2b4e6d710f268">RegisteredEvents</a></td></tr>
-<tr class="memdesc:ab6848726c4ec4d5eaeb2b4e6d710f268"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds a list of pointers to managers of event listeners of the events this module has registered/subscribed to. The stored pointers always outlive all module instances since they are static members of types derived from <code><a class="el" href="classDynExp_1_1InterModuleEvent.html" title="Typed base class for inter-module events to realize CRTP.">InterModuleEvent</a></code>.  <br /></td></tr>
+<tr class="memdesc:ab6848726c4ec4d5eaeb2b4e6d710f268"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds a list of pointers to managers of event listeners of the events this module has registered/subscribed to. The stored pointers always outlive all module instances since they are static members of types derived from <code><a class="el" href="classDynExp_1_1InterModuleEvent.html" title="Typed base class for inter-module events to realize CRTP.">InterModuleEvent</a></code>. The same event listener may occur multiple times in this list if this module registered to the same event multiple times for different inter-module communicators.  <br /></td></tr>
 <tr class="separator:ab6848726c4ec4d5eaeb2b4e6d710f268"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader">Override</h2></td></tr>
@@ -484,6 +487,10 @@ Private Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_types_classDynExp_1_1RunnableObject"><td colspan="2" onclick="javascript:toggleInherit('pro_types_classDynExp_1_1RunnableObject')"><img src="closed.png" alt="-"/>&#160;Protected Types inherited from <a class="el" href="classDynExp_1_1RunnableObject.html">DynExp::RunnableObject</a></td></tr>
+<tr class="memitem:addd2ceca45b37cf3780015a8892b5da6 inherit pro_types_classDynExp_1_1RunnableObject" id="r_addd2ceca45b37cf3780015a8892b5da6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#addd2ceca45b37cf3780015a8892b5da6">ThreadFuncType</a> = std::function&lt; int(std::unique_ptr&lt; <a class="el" href="classDynExp_1_1RunnableInstance.html">RunnableInstance</a> &gt; &amp;&amp;, <a class="el" href="classDynExp_1_1RunnableObject.html">RunnableObject</a> *)&gt;</td></tr>
+<tr class="memdesc:addd2ceca45b37cf3780015a8892b5da6 inherit pro_types_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the thread function executed by <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instances.  <br /></td></tr>
+<tr class="separator:addd2ceca45b37cf3780015a8892b5da6 inherit pro_types_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classDynExp_1_1RunnableObject"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classDynExp_1_1RunnableObject')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classDynExp_1_1RunnableObject.html">DynExp::RunnableObject</a></td></tr>
 <tr class="memitem:a39ef8e00794211e897f2d50905639772 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_a39ef8e00794211e897f2d50905639772"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a39ef8e00794211e897f2d50905639772">Init</a> ()</td></tr>
 <tr class="memdesc:a39ef8e00794211e897f2d50905639772 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes member variables in case of a reset.  <br /></td></tr>
@@ -491,9 +498,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a28a89773cf56f3c229dd9c141de12ab3 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_a28a89773cf56f3c229dd9c141de12ab3"><td class="memItemLeft" align="right" valign="top">std::promise&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a28a89773cf56f3c229dd9c141de12ab3">MakeThreadExitedPromise</a> ()</td></tr>
 <tr class="memdesc:a28a89773cf56f3c229dd9c141de12ab3 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to be used by overridden <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> functions in derived classes to (re)initialize the <a class="el" href="classDynExp_1_1RunnableObject.html#a45a818a181d16129dfb43080152527c4" title="Future which signals that Thread has terminated. Refer to OnThreadHasExited().">ThreadExitedSignal</a> future and to provide the derived class a promise to signal the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance that its thread has terminated.  <br /></td></tr>
 <tr class="separator:a28a89773cf56f3c229dd9c141de12ab3 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac70e1485923ee8c78ed5732099b4c90 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_aac70e1485923ee8c78ed5732099b4c90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#aac70e1485923ee8c78ed5732099b4c90">StoreThread</a> (std::thread &amp;&amp;<a class="el" href="classDynExp_1_1RunnableObject.html#a7f653f6a7407d6a69dd9d75858d6b363">Thread</a>) noexcept</td></tr>
-<tr class="memdesc:aac70e1485923ee8c78ed5732099b4c90 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores a thread constructed by a derived class overriding <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> in <code>Thread</code> taking ownership of the thread. Only call this function within <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a>!</code>  <br /></td></tr>
-<tr class="separator:aac70e1485923ee8c78ed5732099b4c90 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a343b47df52dc884564b9e0c60a1647e7 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_a343b47df52dc884564b9e0c60a1647e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a343b47df52dc884564b9e0c60a1647e7">MakeThread</a> (<a class="el" href="classDynExp_1_1RunnableObject.html#addd2ceca45b37cf3780015a8892b5da6">ThreadFuncType</a> ThreadFunc, std::unique_ptr&lt; <a class="el" href="classDynExp_1_1RunnableInstance.html">RunnableInstance</a> &gt; &amp;&amp;InstancePtr)</td></tr>
+<tr class="memdesc:a343b47df52dc884564b9e0c60a1647e7 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and runs the thread of the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance. Call this function in the derived class overriding <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> and nowhere else!  <br /></td></tr>
+<tr class="separator:a343b47df52dc884564b9e0c60a1647e7 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21fc682e09f7e23e2a65fc8b8eef7106 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_a21fc682e09f7e23e2a65fc8b8eef7106"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a21fc682e09f7e23e2a65fc8b8eef7106">IsCallFromRunnableThread</a> () const</td></tr>
 <tr class="memdesc:a21fc682e09f7e23e2a65fc8b8eef7106 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether <code>Thread's</code> id matches the id of the calling thread. This is thread-safe if the function is called by the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread since <code><a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">Terminate()</a></code> joins the threads before changing the <code>Thread</code> member. It is also thread-safe if the function is called by the thread owning the the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance since <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> and <code><a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">Terminate()</a></code> can only be called by this thread. Only <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> and <code><a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">Terminate()</a></code> (indirectly) modify <code>Thread</code>.  <br /></td></tr>
 <tr class="separator:a21fc682e09f7e23e2a65fc8b8eef7106 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -543,7 +550,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for modules. Modules implement programs on their own (e.g. measurement protocols or servers for ethernet communication). They might have a user interface. Modules make use of meta instruments (<code><a class="el" href="classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic...">InstrumentBase</a></code>) to implement e.g. measurement routines on a higher level, which renders the modules independent from physical devices from specific manufacturers. Derive from this class to implement modules without a user interface. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00391">391</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00427">427</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ad5aeb623c59ea374c078c24bb85d9d1a" name="ad5aeb623c59ea374c078c24bb85d9d1a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad5aeb623c59ea374c078c24bb85d9d1a">&#9670;&#160;</a></span>ConfigType</h2>
@@ -559,7 +566,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Type of the configurator class belonging to this <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> type. Declare this alias in every derived class with the respective configurator class accompanying the derived <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00444">444</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00481">481</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -577,7 +584,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Invoking an instance of this alias is supposed to call <a class="el" href="classDynExp_1_1ModuleBase.html#a09d6b4890c72c88ac9b9407fc51f0436" title="Locks the mutex of the module data class instance ModuleData assigned to this ModuleBase instance and...">ModuleBase::GetModuleData()</a> of the instance the <a class="el" href="classUtil_1_1CallableMemberWrapper.html" title="Wraps a member function of some object and stores its default arguments. Moving from CallableMemberWr...">Util::CallableMemberWrapper</a> has been constructed with. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00586">586</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00623">623</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -595,7 +602,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Type of the data class belonging to this <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> type. Declare this alias in every derived class with the respective data class accompanying the derived <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00450">450</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00487">487</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -613,7 +620,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Alias for the return type of ModuleBase::GetModuleData() const. Data class instances wrapped into <a class="el" href="classUtil_1_1SynchronizedPointer.html" title="Pointer to lock a class derived from ISynchronizedPointerLockable for synchronizing between threads....">Util::SynchronizedPointer</a> can be accessed in a thread-safe way. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00462">462</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00499">499</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -631,7 +638,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Alias for the return type of <a class="el" href="classDynExp_1_1ModuleBase.html#a09d6b4890c72c88ac9b9407fc51f0436" title="Locks the mutex of the module data class instance ModuleData assigned to this ModuleBase instance and...">ModuleBase::GetModuleData()</a>. Data class instances wrapped into <a class="el" href="classUtil_1_1SynchronizedPointer.html" title="Pointer to lock a class derived from ISynchronizedPointerLockable for synchronizing between threads....">Util::SynchronizedPointer</a> can be accessed in a thread-safe way. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00456">456</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00493">493</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -650,7 +657,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Type of the parameter class belonging to this <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> type. Declare this alias in every derived class with the respective parameter class accompanying the derived <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code>. "  </p>
 <p>"  </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00443">443</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00480">480</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -697,7 +704,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00189">189</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00206">206</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -724,7 +731,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00198">198</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00215">215</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -753,7 +760,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Adds a manager of event listeners to <a class="el" href="classDynExp_1_1ModuleBase.html#ab6848726c4ec4d5eaeb2b4e6d710f268" title="Holds a list of pointers to managers of event listeners of the events this module has registered/subs...">RegisteredEvents</a> if it was not already added before. Called indirectly by <a class="el" href="classDynExp_1_1TypedEventListeners.html#ad00404b8a0a59e5167586c02a83c1482" title="Registers/Subscribes module Listener to the event with the event function EventFunc....">TypedEventListeners::Register()</a>. </p>
+<p>Adds a manager of event listeners to <a class="el" href="classDynExp_1_1ModuleBase.html#ab6848726c4ec4d5eaeb2b4e6d710f268" title="Holds a list of pointers to managers of event listeners of the events this module has registered/subs...">RegisteredEvents</a>. Called indirectly by <a class="el" href="classDynExp_1_1TypedEventListeners.html#ad125c5aa312d83b0a6f28dcd0bb804f3" title="Registers/Subscribes module Listener to the event with the event function EventFunc....">TypedEventListeners::Register()</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">EventListeners</td><td>Manager of event listeners to add </td></tr>
@@ -761,7 +768,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00242">242</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00259">259</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -791,7 +798,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Every derived class has to redefine this function. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the category of this module type. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00468">468</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00505">505</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -825,7 +832,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00212">212</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00229">229</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -862,7 +869,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Return <a class="el" href="namespaceUtil_1_1DynExpErrorCodes.html#a49da632c21753f06d241c7269a24ae57a0902dabc399ef983a70150b54f735e24">Util::DynExpErrorCodes::NoError</a> if module loop should continue, annother error code otherwise.   </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00264">264</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00277">277</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -893,9 +900,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classDynExp_1_1Object.html#a378599da58153d446bd382e89be2203c">DynExp::Object</a>.</p>
 
-<p>Reimplemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a967269a12f232208345f7e36266f46ed">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#ae6f5109578a311f8eeb43c0c31831afc">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#ae6f5109578a311f8eeb43c0c31831afc">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a599238c3fd92fed1fd040f7b920d03a8">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#a2dd0a060b41a04d092e35c76f0883815">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#ac7f4d7237150121f8739d74bee455214">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a1a4649a045214c704de902d9268f4ac4">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#a1fe975acc1a070922751bf259ba98fb2">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalDesigner.html#ae80b4812600437d628c787f9511bcd02">DynExpModule::SignalDesigner</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter.html#a0de2444508ea5e84a3ea85eec2ba0869">DynExpModule::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#ad7ff633fc9d84f47fb4bbf0836630da7">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#ae6b0e4030dd0e346cd54bfa16277355d">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#a5bb8b3b859e73d5a69d86f2e43f58bc2">DynExpModule::StreamManipulator</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#af1d38843f5d4d428a7b9e8489685beb6">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#a80a37a0ee7b5f8625b79ebf4c3102805">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
+<p>Reimplemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a967269a12f232208345f7e36266f46ed">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1EventSender.html#aa3a1c6d157c971dfb6e79310b7e6185c">DynExpModule::EventSender</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#ae6f5109578a311f8eeb43c0c31831afc">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#ae6f5109578a311f8eeb43c0c31831afc">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a599238c3fd92fed1fd040f7b920d03a8">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#a2dd0a060b41a04d092e35c76f0883815">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LaserControl.html#a4f994ac2a2e0671e73a616bc46fdd31c">DynExpModule::LaserControl</a>, <a class="el" href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a6476dcc9a5faf855e6d1d433bfa2d473">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#ac7f4d7237150121f8739d74bee455214">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a1a4649a045214c704de902d9268f4ac4">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#a1fe975acc1a070922751bf259ba98fb2">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalDesigner.html#ae80b4812600437d628c787f9511bcd02">DynExpModule::SignalDesigner</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter.html#a0de2444508ea5e84a3ea85eec2ba0869">DynExpModule::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#ad7ff633fc9d84f47fb4bbf0836630da7">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#ae6b0e4030dd0e346cd54bfa16277355d">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#a5bb8b3b859e73d5a69d86f2e43f58bc2">DynExpModule::StreamManipulator</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#af1d38843f5d4d428a7b9e8489685beb6">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#a80a37a0ee7b5f8625b79ebf4c3102805">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00479">479</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00516">516</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -934,7 +941,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classDynExp_1_1Object.html#aa0830952501b4064ed831602c3b655b8">DynExp::Object</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00358">358</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00385">385</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -971,7 +978,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the exception being responsible for the module's current state.   </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00610">610</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00647">647</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1001,9 +1008,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Specifies in which time intervals the module's event queue runs to handle pending events. </p>
 <dl class="section return"><dt>Returns</dt><dd>Delay time in between event queue executions. Return <code>std::chrono::milliseconds::max()</code> to make the module thread only wake up to execute the module main loop (after handling enqueued events) when an event is enqueued. Return 0 to make the module main loop execute as fast as possible. </dd></dl>
 
-<p>Reimplemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a80ffa0ba1c89af283830c7132743b28f">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a28acf451c41f47435e58b12319ea06bf">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a28acf451c41f47435e58b12319ea06bf">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a8981571eb09187a6125e450fa5d11ea3">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#a364a982e4c9a5bc8c75f5df8282f1859">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#a21d4f950e245f675267ecea4c132e4e6">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a471fc95eaad1138349a2682bf967019c">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#affa7ae0dbd2c181dea1dfece434d5ebe">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter.html#a096da5998caa8c9e35b2006a42de4c43">DynExpModule::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#af03d022bdb99273d2bb88fc2b2162ba1">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#aaada5b9359b0c0e58cda837482b79ff9">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#adef61dee90809b4af30e263ba7dc3e86">DynExpModule::StreamManipulator</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#a39c436c9e3e1f422e050eb762bc11d53">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#ae59e24b742dc548d4fd8fbf2db376172">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
+<p>Reimplemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a80ffa0ba1c89af283830c7132743b28f">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1EventSender.html#ae2dcca2d7b2024409c44a6e26c3e9817">DynExpModule::EventSender</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a28acf451c41f47435e58b12319ea06bf">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a28acf451c41f47435e58b12319ea06bf">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a8981571eb09187a6125e450fa5d11ea3">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#a364a982e4c9a5bc8c75f5df8282f1859">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LaserControl.html#a045ab4607323e22626d9393241610759">DynExpModule::LaserControl</a>, <a class="el" href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a2e06ae7130f31bc1a882b43d689404cf">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#a21d4f950e245f675267ecea4c132e4e6">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a471fc95eaad1138349a2682bf967019c">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#affa7ae0dbd2c181dea1dfece434d5ebe">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter.html#a096da5998caa8c9e35b2006a42de4c43">DynExpModule::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#af03d022bdb99273d2bb88fc2b2162ba1">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#aaada5b9359b0c0e58cda837482b79ff9">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#adef61dee90809b4af30e263ba7dc3e86">DynExpModule::StreamManipulator</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#a39c436c9e3e1f422e050eb762bc11d53">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#ae59e24b742dc548d4fd8fbf2db376172">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00506">506</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00543">543</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1032,7 +1039,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a pointer to <code>ModuleDataType</code> (non-const) to allow access all of its members. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00202">202</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00219">219</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1061,7 +1068,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a pointer to const <code>ModuleDataType</code>, since access to non-const members of <code>ModuleDataType</code> is only allowed to the main thread! </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00207">207</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00224">224</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1098,7 +1105,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a pointer to <code>ModuleDataType</code> (non-const) to allow access all of its members. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00217">217</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00234">234</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1134,7 +1141,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00222">222</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00239">239</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1166,7 +1173,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExp_1_1QModuleBase.html#a506328ffa55d9148d61ed062528c380b">DynExp::QModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00490">490</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00527">527</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1198,7 +1205,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classDynExp_1_1Object.html#a4dc92bcd4b24ce2242b323f6ebac070a">DynExp::Object</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00368">368</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00395">395</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1236,7 +1243,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
       </table>
 </div><div class="memdoc">
 
-<p>Calls <code><a class="el" href="namespaceDynExp.html#a95f0f5b615c5d99ff4325ab785735a7a" title="Creates an event of type DefaultEvent.">MakeEvent()</a></code> to construct a new event and subsequently enqueues the event into the module's event queue. Logical const-ness: this is a const member function to allow pointers to <code>const</code> <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> inserting events into the module's event queue. These kind of pointers are e.g. returned by <a class="el" href="classDynExp_1_1RunnableInstance.html#afafb4793635ac8c1c34471ff255549f1" title="Returns Owner.">RunnableInstance::GetOwner()</a> which can be called by events' <a class="el" href="classDynExp_1_1EventBase.html#a77b9b29345abc36c7f798e1ae3822670" title="Invokes the event passing the receiving module&#39;s instance reference to it.">EventBase::InvokeChild()</a> functions. For <code>const</code> <code>ModuleBase*</code>, it is possible to insert events into the event queue, but not to change the <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> object itself (e.g. calling <a class="el" href="classDynExp_1_1Object.html#a837a8e8daa7853003474b458a3fe0a46" title="Resets this Object instance (including all its derived classes) by calling ResetImpl()....">Object::Reset()</a>). </p>
+<p>Calls <code><a class="el" href="namespaceDynExp.html#a95f0f5b615c5d99ff4325ab785735a7a" title="Creates an event of type DefaultEvent.">MakeEvent()</a></code> to construct a new event and subsequently enqueues the event into the module's event queue. Logical const-ness: this is a const member function to allow pointers to <code>const</code> <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> inserting events into the module's event queue. These kind of pointers are e.g. returned by <a class="el" href="classDynExp_1_1RunnableInstance.html#afafb4793635ac8c1c34471ff255549f1" title="Returns Owner.">RunnableInstance::GetOwner()</a> which can be called by events' <a class="el" href="classDynExp_1_1EventBase.html#a77b9b29345abc36c7f798e1ae3822670" title="Invokes the event passing the receiving module&#39;s instance reference to it. Only to be called from Mod...">EventBase::InvokeChild()</a> functions. For <code>const</code> <code>ModuleBase*</code>, it is possible to insert events into the event queue, but not to change the <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> object itself (e.g. calling <a class="el" href="classDynExp_1_1Object.html#a837a8e8daa7853003474b458a3fe0a46" title="Resets this Object instance (including all its derived classes) by calling ResetImpl()....">Object::Reset()</a>). </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">ReceiverType</td><td>Module type to receive this event. </td></tr>
@@ -1260,7 +1267,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00780">780</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00827">827</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1299,7 +1306,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1RunnableObject.html#a2bc9ec7245838288ec22b6c27a3b4b6e">DynExp::RunnableObject</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00350">350</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00377">377</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1336,7 +1343,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Return <a class="el" href="namespaceUtil_1_1DynExpErrorCodes.html#a49da632c21753f06d241c7269a24ae57a0902dabc399ef983a70150b54f735e24">Util::DynExpErrorCodes::NoError</a> if module loop should continue, annother error code otherwise. </dd></dl>
 
-<p>Implemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a73a99804febe1a03631ef6f66edb7042">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a813ccd4f60b51e1ac0b9351ac688c527">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a813ccd4f60b51e1ac0b9351ac688c527">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a4ca1e44d6defd64b5b926faf1117e2ea">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#a956ee0c17ec437665f001fe8af01b890">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#a5f8b06da646c5bfbecd26c5cc842501f">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a311914bb55e4a4048226554d6c527010">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#a0e48421f79c08c418a4333d453fe6efa">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalDesigner.html#a5a26348ab17d2ed9d16a165ddc87e877">DynExpModule::SignalDesigner</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter.html#a223c63a821966293de301c558d86ffd6">DynExpModule::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#a3fdd44280aa4bc9dc4274dc0b9462f73">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#addaaf771d71b2d63d512b2bd9a45c8ee">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#a64ab53f56daba425cd2c10f88e7bd28d">DynExpModule::StreamManipulator</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#acb86499d11bb4fa93fdb0f9290acdfb5">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#a67b144ddccd2ae5bf086e70937a36aa4">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
+<p>Implemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a73a99804febe1a03631ef6f66edb7042">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1EventSender.html#a44d0f81688c31432a4c69c6f6ca7e229">DynExpModule::EventSender</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a813ccd4f60b51e1ac0b9351ac688c527">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a813ccd4f60b51e1ac0b9351ac688c527">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a4ca1e44d6defd64b5b926faf1117e2ea">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#a956ee0c17ec437665f001fe8af01b890">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LaserControl.html#add6d51ef732184be2888c1aa2da32e5d">DynExpModule::LaserControl</a>, <a class="el" href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a62f06db210bd4a8701aacdd139bc4bcb">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#a5f8b06da646c5bfbecd26c5cc842501f">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a311914bb55e4a4048226554d6c527010">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#a0e48421f79c08c418a4333d453fe6efa">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalDesigner.html#a5a26348ab17d2ed9d16a165ddc87e877">DynExpModule::SignalDesigner</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter.html#a223c63a821966293de301c558d86ffd6">DynExpModule::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#a3fdd44280aa4bc9dc4274dc0b9462f73">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#addaaf771d71b2d63d512b2bd9a45c8ee">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#a64ab53f56daba425cd2c10f88e7bd28d">DynExpModule::StreamManipulator</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#acb86499d11bb4fa93fdb0f9290acdfb5">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#a67b144ddccd2ae5bf086e70937a36aa4">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
 
 </div>
 </div>
@@ -1372,7 +1379,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00694">694</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00739">739</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1403,7 +1410,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1RunnableObject.html#a4af7d2755ba134d284e9cfc6ab99b509">DynExp::RunnableObject</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00328">328</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00355">355</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1431,7 +1438,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 </table>
 </div><div class="memdoc">
 
-<p>This event is triggered after the <code>OnExit</code> event. It calls <a class="el" href="classDynExp_1_1EventListenersBase.html#af1124e3f51d17121973a296b395ae4b7" title="Deregisters/unsubscribes module Listener from the event. Indirectly calls ModuleBase::RemoveRegistere...">EventListenersBase::Deregister()</a> for all managers of event listeners stored in <a class="el" href="classDynExp_1_1ModuleBase.html#ab6848726c4ec4d5eaeb2b4e6d710f268" title="Holds a list of pointers to managers of event listeners of the events this module has registered/subs...">RegisteredEvents</a> since we do not trust in derived modules deregistering/unsubscribing from all registered events via <a class="el" href="classDynExp_1_1InterModuleEvent.html#ad1c539c32b97bfcfb7262cc69465be2d" title="Deregisters/unsubscribes module Listener from the event. Indirectly calls ModuleBase::RemoveRegistere...">InterModuleEvent::Deregister()</a>. </p>
+<p>This event is triggered after the <code>OnExit</code> event. It calls <a class="el" href="classDynExp_1_1EventListenersBase.html#af1124e3f51d17121973a296b395ae4b7" title="Deregisters/unsubscribes module Listener from the event, regardless of the inter-module communicator ...">EventListenersBase::Deregister()</a> for all managers of event listeners stored in <a class="el" href="classDynExp_1_1ModuleBase.html#ab6848726c4ec4d5eaeb2b4e6d710f268" title="Holds a list of pointers to managers of event listeners of the events this module has registered/subs...">RegisteredEvents</a> since we do not trust in derived modules deregistering/unsubscribing from all registered events via <a class="el" href="classDynExp_1_1InterModuleEvent.html#ad1c539c32b97bfcfb7262cc69465be2d" title="Deregisters/unsubscribes module Listener from the event, regardless of the inter-module communicator ...">InterModuleEvent::Deregister()</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Instance</td><td>Handle to the module thread's data </td></tr>
@@ -1439,7 +1446,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00379">379</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00406">406</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1475,7 +1482,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00285">285</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00312">312</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1513,7 +1520,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p>Reimplemented in <a class="el" href="classDynExpModule_1_1gRPCModule.html#a2d00dda2dcdacdc79f553476c2554ce0">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, and <a class="el" href="classDynExpModule_1_1gRPCModule.html#a2d00dda2dcdacdc79f553476c2554ce0">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00673">673</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00718">718</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1541,7 +1548,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 </table>
 </div><div class="memdoc">
 
-<p>This event is triggered right before the module thread terminates (not due to an exception, in this case refer to <a class="el" href="classDynExp_1_1ModuleBase.html#ab86fe18fa3d55d64993569e6d6061889" title="This handler gets called just before the module thread terminates due to an exception....">ModuleBase::OnError</a>). Override it to unlock instruments this module depends on (via <a class="el" href="classDynExp_1_1RunnableInstance.html#a2a35438cccb579c51e217d0e50e53797" title="Unlocks an Object instance stored in the LinkedObjectWrapperContainer ObjectWrapperContainer....">RunnableInstance::UnlockObject()</a>) and to deregister/unsubscribe from events (via <a class="el" href="classDynExp_1_1InterModuleEvent.html#ad1c539c32b97bfcfb7262cc69465be2d" title="Deregisters/unsubscribes module Listener from the event. Indirectly calls ModuleBase::RemoveRegistere...">InterModuleEvent::Deregister()</a>). </p>
+<p>This event is triggered right before the module thread terminates (not due to an exception, in this case refer to <a class="el" href="classDynExp_1_1ModuleBase.html#ab86fe18fa3d55d64993569e6d6061889" title="This handler gets called just before the module thread terminates due to an exception....">ModuleBase::OnError</a>). Override it to unlock instruments this module depends on (via <a class="el" href="classDynExp_1_1RunnableInstance.html#a2a35438cccb579c51e217d0e50e53797" title="Unlocks an Object instance stored in the LinkedObjectWrapperContainer ObjectWrapperContainer....">RunnableInstance::UnlockObject()</a>) and to deregister/unsubscribe from events (via <a class="el" href="classDynExp_1_1InterModuleEvent.html#ad1c539c32b97bfcfb7262cc69465be2d" title="Deregisters/unsubscribes module Listener from the event, regardless of the inter-module communicator ...">InterModuleEvent::Deregister()</a>). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Instance</td><td>Handle to the module thread's data </td></tr>
@@ -1549,9 +1556,9 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a6d484cf3852d5089d1259a1aa8729a87">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#af3e72dc07a1d478f089039f247eec7e5">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#af3e72dc07a1d478f089039f247eec7e5">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a75b40e2ca3e4317e08c1511f2042da0f">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#aa76edd858c11f57c8a5df8b99d11a6f1">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#aaa232157a63de196e7c791381ce98746">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a3089cd398d623afb7269f4f415ea6151">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#a37ae6c00575b0d633a3c558887c3b6d7">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalDesigner.html#a62c41daeaf8077b4f3b040abd42d5f90">DynExpModule::SignalDesigner</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter.html#a3adc0f5e1bba080fd16ba07a817062c3">DynExpModule::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#a06da27806f46240c106991753cb72c94">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#ad5f545c1109c4fec2e236d4e01e72ff1">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#ab924fa1db8a207f4d5cb2d059984910f">DynExpModule::StreamManipulator</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#a9f80fc455b81ffb43fe634e8e4441ebf">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#ab5c8afd987c57e557e4c7e1e386f58e6">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
+<p>Reimplemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a6d484cf3852d5089d1259a1aa8729a87">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1EventSender.html#abecd9e71b3d61ee0f9b3aa0463104524">DynExpModule::EventSender</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#af3e72dc07a1d478f089039f247eec7e5">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#af3e72dc07a1d478f089039f247eec7e5">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a75b40e2ca3e4317e08c1511f2042da0f">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#aa76edd858c11f57c8a5df8b99d11a6f1">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LaserControl.html#a8ce36d5e7f63792d19dc93926e06d8ac">DynExpModule::LaserControl</a>, <a class="el" href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a8d0b6b7e9e833b934be665c835278083">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#aaa232157a63de196e7c791381ce98746">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a3089cd398d623afb7269f4f415ea6151">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#a37ae6c00575b0d633a3c558887c3b6d7">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalDesigner.html#a62c41daeaf8077b4f3b040abd42d5f90">DynExpModule::SignalDesigner</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter.html#a3adc0f5e1bba080fd16ba07a817062c3">DynExpModule::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#a06da27806f46240c106991753cb72c94">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#ad5f545c1109c4fec2e236d4e01e72ff1">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#ab924fa1db8a207f4d5cb2d059984910f">DynExpModule::StreamManipulator</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#a9f80fc455b81ffb43fe634e8e4441ebf">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#ab5c8afd987c57e557e4c7e1e386f58e6">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00728">728</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00773">773</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1579,7 +1586,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 </table>
 </div><div class="memdoc">
 
-<p>This event is triggered right before the module thread starts. Override it to lock instruments this module depends on (via <a class="el" href="classDynExp_1_1RunnableInstance.html#af6ef3d35fc9c15da5f1794a3c8706ebf" title="Locks an Object instance referenced by a parameter LinkParam of type ParamsBase::Param&lt; ObjectLink&lt; O...">RunnableInstance::LockObject()</a>) and to register/subscribe for events (via <a class="el" href="classDynExp_1_1InterModuleEvent.html#a9cef4596c1e4dfbc7c6bdb2b067208da" title="Registers/Subscribes module Listener to the event with the event function EventFunc....">InterModuleEvent::Register()</a>). </p>
+<p>This event is triggered right before the module thread starts. Override it to lock instruments this module depends on (via <a class="el" href="classDynExp_1_1RunnableInstance.html#af6ef3d35fc9c15da5f1794a3c8706ebf" title="Locks an Object instance referenced by a parameter LinkParam of type ParamsBase::Param&lt; ObjectLink&lt; O...">RunnableInstance::LockObject()</a>) and to register/subscribe for events (via <a class="el" href="classDynExp_1_1InterModuleEvent.html#a0e1ff5d9a5e12f30e6c388c2097ccc8e" title="Registers/Subscribes module Listener to the event with the event function EventFunc....">InterModuleEvent::Register()</a>). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Instance</td><td>Handle to the module thread's data </td></tr>
@@ -1587,9 +1594,9 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a7181f10f1d8889eca671cd55814bf7c8">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a0457346a17af6b957c0a3b0927f35a15">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a0457346a17af6b957c0a3b0927f35a15">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a320b12959831ffbef29d9ace81d331e0">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#a643b636412d65077fd675b2e31e24d26">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#a54c003cfc15acfa19c5a5c59f4887fc8">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#ae50cb435ff957b0192734801279f25b5">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#ac70194c783f83d9a88a03f2c242aa715">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalDesigner.html#a89f37e2a8055e29ec69651b08cb369fa">DynExpModule::SignalDesigner</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter.html#ad533808c7519d41277c180a1a6f77aa8">DynExpModule::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#a4eb78a050431d412662dbe667981d74f">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#acc011c965289d1575c9a1e593985106a">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#a0b25947611ac176e213863ef4c3e11a9">DynExpModule::StreamManipulator</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#a53da5848d24caf10b4b868f4bb6baffe">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#a304ddda54875a234944cae501fa8c10a">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
+<p>Reimplemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a7181f10f1d8889eca671cd55814bf7c8">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1EventSender.html#ac019da2ae37210b05c19b5e4bdac94be">DynExpModule::EventSender</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a0457346a17af6b957c0a3b0927f35a15">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a0457346a17af6b957c0a3b0927f35a15">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a320b12959831ffbef29d9ace81d331e0">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#a643b636412d65077fd675b2e31e24d26">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LaserControl.html#a5bde92e1157aef5f85c60d36db6daa26">DynExpModule::LaserControl</a>, <a class="el" href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a56dbb3f2c7fcacdc84bc49f5243dd116">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#a54c003cfc15acfa19c5a5c59f4887fc8">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#ae50cb435ff957b0192734801279f25b5">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#ac70194c783f83d9a88a03f2c242aa715">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalDesigner.html#a89f37e2a8055e29ec69651b08cb369fa">DynExpModule::SignalDesigner</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter.html#ad533808c7519d41277c180a1a6f77aa8">DynExpModule::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#a4eb78a050431d412662dbe667981d74f">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#acc011c965289d1575c9a1e593985106a">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#a0b25947611ac176e213863ef4c3e11a9">DynExpModule::StreamManipulator</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#a53da5848d24caf10b4b868f4bb6baffe">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#a304ddda54875a234944cae501fa8c10a">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00719">719</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00764">764</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1625,7 +1632,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00271">271</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00298">298</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1661,7 +1668,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00671">671</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00716">716</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1697,7 +1704,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00278">278</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00305">305</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1733,7 +1740,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00672">672</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00717">717</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1761,7 +1768,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 </table>
 </div><div class="memdoc">
 
-<p>Removes a manager of event listeners from <a class="el" href="classDynExp_1_1ModuleBase.html#ab6848726c4ec4d5eaeb2b4e6d710f268" title="Holds a list of pointers to managers of event listeners of the events this module has registered/subs...">RegisteredEvents</a> if it was added before. Called indirectly by <a class="el" href="classDynExp_1_1TypedEventListeners.html#a9d21b5765fb573f9cdb3302b9c30cf07" title="Deregisters/unsubscribes module Listener from the event. Indirectly calls ModuleBase::RemoveRegistere...">TypedEventListeners::Deregister()</a>. </p>
+<p>Removes a manager of event listeners from <a class="el" href="classDynExp_1_1ModuleBase.html#ab6848726c4ec4d5eaeb2b4e6d710f268" title="Holds a list of pointers to managers of event listeners of the events this module has registered/subs...">RegisteredEvents</a> if it was added before. Called indirectly by <a class="el" href="classDynExp_1_1TypedEventListeners.html#ab4f92e4c040a9d077207860196f88345" title="Deregisters/unsubscribes module Listener from the event, removing a single registration for a particu...">TypedEventListeners::Deregister()</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">EventListeners</td><td>Manager of event listeners to remove </td></tr>
@@ -1769,7 +1776,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00253">253</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00266">266</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1831,7 +1838,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p>Implements <a class="el" href="classDynExp_1_1RunnableObject.html#ac90bb7c8a28c813a7f4fd79c081a7aa1">DynExp::RunnableObject</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00309">309</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00336">336</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1860,7 +1867,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p><code><a class="el" href="classDynExp_1_1ModuleBase.html#af397d2e01e526d907480e0b757f58f0d" title="RestoreWindowStatesFromParams() only calls RestoreWindowStatesFromParamsChild(). Override RestoreWind...">RestoreWindowStatesFromParams()</a></code> only calls <code><a class="el" href="classDynExp_1_1ModuleBase.html#a8f5d5962e1961e61f8d6e261a13576dd" title="RestoreWindowStatesFromParams() only calls RestoreWindowStatesFromParamsChild(). Override RestoreWind...">RestoreWindowStatesFromParamsChild()</a></code>. Override <code><a class="el" href="classDynExp_1_1ModuleBase.html#a8f5d5962e1961e61f8d6e261a13576dd" title="RestoreWindowStatesFromParams() only calls RestoreWindowStatesFromParamsChild(). Override RestoreWind...">RestoreWindowStatesFromParamsChild()</a></code> to restore the styles of possibly owned windows according to the style saved in the module's parameters. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00527">527</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00564">564</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1891,7 +1898,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p>Reimplemented in <a class="el" href="classDynExp_1_1QModuleBase.html#a2ed40d999b1f90b10ba27c21743041a7">DynExp::QModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00675">675</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00720">720</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1922,7 +1929,43 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p>Implements <a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63">DynExp::RunnableObject</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00317">317</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00344">344</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6341b4a240cb54c000e7aff7594cdbb9" name="a6341b4a240cb54c000e7aff7594cdbb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6341b4a240cb54c000e7aff7594cdbb9">&#9670;&#160;</a></span>SetException()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DynExp::ModuleBase::SetException </td>
+          <td>(</td>
+          <td class="paramtype">std::exception_ptr&#160;</td>
+          <td class="paramname"><em>Exception</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets this module instance to an error state and tries to store the exception responsible for the error state in <a class="el" href="classDynExp_1_1ModuleBase.html#a56ccafca54cfc4f7f6231b198b1e2d86" title="Module data belonging to this ModuleBase instance.">ModuleData</a>. If <a class="el" href="classDynExp_1_1ModuleBase.html#a56ccafca54cfc4f7f6231b198b1e2d86" title="Module data belonging to this ModuleBase instance.">ModuleData</a> cannot be locked, still atomically sets an error flag. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Exception</td><td>Exception to store. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00284">284</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1960,7 +2003,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1RunnableObject.html#afcbabd17804369f574cd8433b36d4339">DynExp::RunnableObject</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00333">333</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00360">360</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1990,9 +2033,9 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 <p>Determines whether this module should be terminated if an exception leaves the module's main loop or respective event handlers. </p>
 <dl class="section return"><dt>Returns</dt><dd>Return false if the module should be terminated in case of an uncaught exception, true to only record the exception as the module's warning. </dd></dl>
 
-<p>Reimplemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a3b1a4a9eebf82ff46d1e6d9a3c4f2c27">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a7ee2b9470535eebcec71f8c00085c8b4">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a7ee2b9470535eebcec71f8c00085c8b4">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#aea29b764e6a3f348f1fed99ea3a18418">DynExpModule::StreamManipulator</a>, and <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#af696df25279114dd84237335196ed27c">DynExpModule::ODMR::ODMR</a>.</p>
+<p>Reimplemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a3b1a4a9eebf82ff46d1e6d9a3c4f2c27">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1EventSender.html#af5b1bfcf779574e253c833fdc0b8cde9">DynExpModule::EventSender</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a7ee2b9470535eebcec71f8c00085c8b4">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a7ee2b9470535eebcec71f8c00085c8b4">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#aea29b764e6a3f348f1fed99ea3a18418">DynExpModule::StreamManipulator</a>, and <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#af696df25279114dd84237335196ed27c">DynExpModule::ODMR::ODMR</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00498">498</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00535">535</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -2021,7 +2064,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p><code><a class="el" href="classDynExp_1_1ModuleBase.html#a6919d21e63bd4f1329275f7e941b0142" title="UpdateParamsFromWindowStates() only calls UpdateParamsFromWindowStatesChild(). Override UpdateParamsF...">UpdateParamsFromWindowStates()</a></code> only calls <code><a class="el" href="classDynExp_1_1ModuleBase.html#acdd5df7dceed175019e087a8694ed8fc" title="UpdateParamsFromWindowStates() only calls UpdateParamsFromWindowStatesChild(). Override UpdateParamsF...">UpdateParamsFromWindowStatesChild()</a></code>. Override <code><a class="el" href="classDynExp_1_1ModuleBase.html#acdd5df7dceed175019e087a8694ed8fc" title="UpdateParamsFromWindowStates() only calls UpdateParamsFromWindowStatesChild(). Override UpdateParamsF...">UpdateParamsFromWindowStatesChild()</a></code> to store the styles of possibly owned windows in the module's parameters. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00534">534</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00571">571</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -2052,7 +2095,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p>Reimplemented in <a class="el" href="classDynExp_1_1QModuleBase.html#a15c2ad1e72a7749344585dbb32305bb1">DynExp::QModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00676">676</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00721">721</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -2071,7 +2114,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to any <code><a class="el" href="classDynExp_1_1TypedEventListeners.html" title="Typed managers of event listeners class whose instances are owned by classes derived from InterModule...">TypedEventListeners</a></code> class.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00516">516</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00553">553</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -2097,7 +2140,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p>Determines the default timeout for <code><a class="el" href="classDynExp_1_1ModuleBase.html#a09d6b4890c72c88ac9b9407fc51f0436" title="Locks the mutex of the module data class instance ModuleData assigned to this ModuleBase instance and...">GetModuleData()</a></code> to lock the mutex synchronizing the module's data <a class="el" href="classDynExp_1_1ModuleBase.html#a56ccafca54cfc4f7f6231b198b1e2d86" title="Module data belonging to this ModuleBase instance.">ModuleData</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00513">513</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00550">550</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -2123,7 +2166,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p>Module data belonging to this <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00743">743</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00788">788</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -2139,9 +2182,9 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
       </table>
 </div><div class="memdoc">
 
-<p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to the module thread <code><a class="el" href="namespaceDynExp.html#acd637f0e67b9a2815532b5a7e1754bd2" title="Modules run in their own thread. This is the module thread&#39;s main function.">ModuleThreadMain()</a></code>.   </p>
+<p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to the module thread <code><a class="el" href="namespaceDynExp.html#a1ef415c3706dc71e72f030c9d9444291" title="Modules run in their own thread. This is the module thread&#39;s main function.">ModuleThreadMain()</a></code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00515">515</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00552">552</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -2165,9 +2208,9 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 </table>
 </div><div class="memdoc">
 
-<p>Holds a list of pointers to managers of event listeners of the events this module has registered/subscribed to. The stored pointers always outlive all module instances since they are static members of types derived from <code><a class="el" href="classDynExp_1_1InterModuleEvent.html" title="Typed base class for inter-module events to realize CRTP.">InterModuleEvent</a></code>. </p>
+<p>Holds a list of pointers to managers of event listeners of the events this module has registered/subscribed to. The stored pointers always outlive all module instances since they are static members of types derived from <code><a class="el" href="classDynExp_1_1InterModuleEvent.html" title="Typed base class for inter-module events to realize CRTP.">InterModuleEvent</a></code>. The same event listener may occur multiple times in this list if this module registered to the same event multiple times for different inter-module communicators. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00750">750</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00797">797</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>

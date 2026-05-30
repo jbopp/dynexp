@@ -7,7 +7,7 @@ var classDynExp_1_1HardwareAdapterSerialPort =
     [ "Enumerate", "classDynExp_1_1HardwareAdapterSerialPort.html#a5157b7a389a0b48e35e2117005b8651b", null ],
     [ "GetName", "classDynExp_1_1HardwareAdapterSerialPort.html#ad8c13c751a80f1f885648b3356494fcc", null ],
     [ "Init", "classDynExp_1_1HardwareAdapterSerialPort.html#a329721b3628d7e3e3c68ad02b2cb8d37", null ],
-    [ "InitSig", "classDynExp_1_1HardwareAdapterSerialPort.html#a84a8e115be623e0e491c51dbc4a39277", null ],
+    [ "InitSig", "classDynExp_1_1HardwareAdapterSerialPort.html#a8c5936d9b199729659d7e35ba092e291", null ],
     [ "InitWorker", "classDynExp_1_1HardwareAdapterSerialPort.html#ac5a7f442589e1a3f6482276842b8579f", null ],
     [ "MakeWorker", "classDynExp_1_1HardwareAdapterSerialPort.html#a33e15cff939b6a2a32aa5e71a0b8fb7d", null ],
     [ "Name", "classDynExp_1_1HardwareAdapterSerialPort.html#a91e3fc28cfcd024d8512ce30df36ec06", null ],

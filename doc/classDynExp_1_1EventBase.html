@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('classDynExp_1_1EventBase.html',''); in
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classDynExp_1_1EventBase__inherit__graph.svg" width="1056" height="995"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classDynExp_1_1EventBase__inherit__graph.svg" width="1054" height="995"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -125,7 +125,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2bf49d9b8cfebcc00c36bb2869a6d06c" id="r_a2bf49d9b8cfebcc00c36bb2869a6d06c"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1EventBase.html#a2bf49d9b8cfebcc00c36bb2869a6d06c">~EventBase</a> ()=0</td></tr>
 <tr class="separator:a2bf49d9b8cfebcc00c36bb2869a6d06c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7251e2e8e9066bd265e18e7b197d7731" id="r_a7251e2e8e9066bd265e18e7b197d7731"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1EventBase.html#a7251e2e8e9066bd265e18e7b197d7731">Invoke</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">ModuleInstance</a> &amp;Instance) const</td></tr>
-<tr class="memdesc:a7251e2e8e9066bd265e18e7b197d7731"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invokes the event passing the receiving module's instance reference to it.  <br /></td></tr>
+<tr class="memdesc:a7251e2e8e9066bd265e18e7b197d7731"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invokes the event passing the receiving module's instance reference to it. Only to be called from <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code>.  <br /></td></tr>
 <tr class="separator:a7251e2e8e9066bd265e18e7b197d7731"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -134,13 +134,13 @@ Private Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Override by derived class to make public versions of these functions behave as described above. </p>
 </div></td></tr>
 <tr class="memitem:a77b9b29345abc36c7f798e1ae3822670" id="r_a77b9b29345abc36c7f798e1ae3822670"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1EventBase.html#a77b9b29345abc36c7f798e1ae3822670">InvokeChild</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">ModuleInstance</a> &amp;Instance) const =0</td></tr>
-<tr class="memdesc:a77b9b29345abc36c7f798e1ae3822670"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invokes the event passing the receiving module's instance reference to it.    <br /></td></tr>
+<tr class="memdesc:a77b9b29345abc36c7f798e1ae3822670"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invokes the event passing the receiving module's instance reference to it. Only to be called from <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code>.    <br /></td></tr>
 <tr class="separator:a77b9b29345abc36c7f798e1ae3822670"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Common base class for all events to store them in a FIFO queue to be invoked later. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00066">66</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00067">67</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a19fc4d8f18b7580014ba21c884d347bc" name="a19fc4d8f18b7580014ba21c884d347bc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a19fc4d8f18b7580014ba21c884d347bc">&#9670;&#160;</a></span>EventBase()</h2>
@@ -190,7 +190,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00149">149</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00150">150</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -219,7 +219,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Invokes the event passing the receiving module's instance reference to it. </p>
+<p>Invokes the event passing the receiving module's instance reference to it. Only to be called from <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Instance</td><td>Module instance handle. </td></tr>
@@ -227,7 +227,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00076">76</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00078">78</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -255,7 +255,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Invokes the event passing the receiving module's instance reference to it.   </p>
+<p>Invokes the event passing the receiving module's instance reference to it. Only to be called from <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code>.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Instance</td><td>Module instance handle.   </td></tr>
@@ -263,7 +263,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classDynExp_1_1DefaultEvent.html#a8cc22f7e8c33658b592cb6da8dfc3e4b">DynExp::DefaultEvent&lt; ReceiverType, ArgTupleType &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; DerivedEvent, EventFuncArgs &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; AutofocusEvent, bool &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; FinishedAutofocusEvent, bool, double &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; ImageCapturingPausedEvent &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; ImageCapturingResumedEvent &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; PauseImageCapturingEvent, bool &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; PauseSpectrumRecordingEvent &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; RecordSpectrumEvent, bool &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; RecordSpectrumEvent, std::string &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; ResumeImageCapturingEvent &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; ResumeSpectrumRecordingEvent &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; SpectrumFinishedRecordingEvent &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; StartEvent &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; StopEvent &gt;</a>, and <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; TriggerEvent &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classDynExp_1_1DefaultEvent.html#a8cc22f7e8c33658b592cb6da8dfc3e4b">DynExp::DefaultEvent&lt; ReceiverType, ArgTupleType &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; DerivedEvent, EventFuncArgs &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; AutofocusEvent, bool &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; FinishedAutofocusEvent, bool, double &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; FinishedEvent &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; ImageCapturingPausedEvent &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; ImageCapturingResumedEvent &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; PauseImageCapturingEvent, bool &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; PauseSpectrumRecordingEvent &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; ResumeImageCapturingEvent &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; ResumeSpectrumRecordingEvent &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; SetFilenameEvent, std::string &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; SetSilentModeEvent, bool &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; StartEvent &gt;</a>, <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; StopEvent &gt;</a>, and <a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">DynExp::InterModuleEvent&lt; TriggerEvent &gt;</a>.</p>
 
 </div>
 </div>

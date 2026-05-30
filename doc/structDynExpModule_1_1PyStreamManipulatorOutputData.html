@@ -107,7 +107,7 @@ $(document).ready(function(){initNavTree('structDynExpModule_1_1PyStreamManipula
 </div><!--header-->
 <div class="contents">
 
-<p>Output data type returned from on_step() Python function.  
+<p>Output data type returned from on_step() or event handler Python functions.  
  <a href="structDynExpModule_1_1PyStreamManipulatorOutputData.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>&gt;</code></p>
@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('structDynExpModule_1_1PyStreamManipula
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a21a7f95c493e7213adf8e29f129c0a4d" id="r_a21a7f95c493e7213adf8e29f129c0a4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDynExpModule_1_1PyStreamManipulatorOutputData.html#a21a7f95c493e7213adf8e29f129c0a4d">Reset</a> ()</td></tr>
-<tr class="memdesc:a21a7f95c493e7213adf8e29f129c0a4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets all member variables of this <code><a class="el" href="structDynExpModule_1_1PyStreamManipulatorOutputData.html" title="Output data type returned from on_step() Python function.">PyStreamManipulatorOutputData</a></code> instance back to their default values.  <br /></td></tr>
+<tr class="memdesc:a21a7f95c493e7213adf8e29f129c0a4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets all member variables of this <code><a class="el" href="structDynExpModule_1_1PyStreamManipulatorOutputData.html" title="Output data type returned from on_step() or event handler Python functions.">PyStreamManipulatorOutputData</a></code> instance back to their default values.  <br /></td></tr>
 <tr class="separator:a21a7f95c493e7213adf8e29f129c0a4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -127,13 +127,13 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:a31ff386c9b8a1e9059dd9229b0e2cbf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time to wait maximally before the on_step() Python function is called again when the input data streams have not received new samples each.  <br /></td></tr>
 <tr class="separator:a31ff386c9b8a1e9059dd9229b0e2cbf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3437f320d5a6575e8ed700e6bf828015" id="r_a3437f320d5a6575e8ed700e6bf828015"><td class="memItemLeft" align="right" valign="top">std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDynExpModule_1_1PyStreamManipulatorOutputData.html#a3437f320d5a6575e8ed700e6bf828015">LastConsumedSampleIDsPerInputStream</a></td></tr>
-<tr class="memdesc:a3437f320d5a6575e8ed700e6bf828015"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maintaining the order of input data streams in <a class="el" href="structDynExpModule_1_1PyStreamManipulatorInputData.html#a8dfb1a9b84a8dd23ffb04e01df396ed3" title="Vector of data stream instruments with input samples to be manipulated.">PyStreamManipulatorInputData::InputStreams</a> as passed to the on_step() Python function, this list contains for each input data stream the sample ID that has been consumed. These samples won't be passed to on_step() in its next call.  <br /></td></tr>
+<tr class="memdesc:a3437f320d5a6575e8ed700e6bf828015"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maintaining the order of input data streams in <a class="el" href="structDynExpModule_1_1PyStreamManipulatorInputData.html#a8dfb1a9b84a8dd23ffb04e01df396ed3" title="Vector of data stream instruments with input samples to be manipulated.">PyStreamManipulatorInputData::InputStreams</a> as passed to the on_step() or event handler Python functions, this list contains the sample ID that has been consumed for each input data stream. These samples won't be passed to on_step() or event handler Python functions in its next call.  <br /></td></tr>
 <tr class="separator:a3437f320d5a6575e8ed700e6bf828015"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Output data type returned from on_step() Python function. </p>
+<div class="textblock"><p>Output data type returned from on_step() or event handler Python functions. </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00059">59</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00069">69</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a21a7f95c493e7213adf8e29f129c0a4d" name="a21a7f95c493e7213adf8e29f129c0a4d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a21a7f95c493e7213adf8e29f129c0a4d">&#9670;&#160;</a></span>Reset()</h2>
@@ -150,9 +150,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Resets all member variables of this <code><a class="el" href="structDynExpModule_1_1PyStreamManipulatorOutputData.html" title="Output data type returned from on_step() Python function.">PyStreamManipulatorOutputData</a></code> instance back to their default values. </p>
+<p>Resets all member variables of this <code><a class="el" href="structDynExpModule_1_1PyStreamManipulatorOutputData.html" title="Output data type returned from on_step() or event handler Python functions.">PyStreamManipulatorOutputData</a></code> instance back to their default values. </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8cpp_source.html#l00041">41</a> of file <a class="el" href="StreamManipulator_8cpp_source.html">StreamManipulator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8cpp_source.html#l00044">44</a> of file <a class="el" href="StreamManipulator_8cpp_source.html">StreamManipulator.cpp</a>.</p>
 
 </div>
 </div>
@@ -169,9 +169,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Maintaining the order of input data streams in <a class="el" href="structDynExpModule_1_1PyStreamManipulatorInputData.html#a8dfb1a9b84a8dd23ffb04e01df396ed3" title="Vector of data stream instruments with input samples to be manipulated.">PyStreamManipulatorInputData::InputStreams</a> as passed to the on_step() Python function, this list contains for each input data stream the sample ID that has been consumed. These samples won't be passed to on_step() in its next call. </p>
+<p>Maintaining the order of input data streams in <a class="el" href="structDynExpModule_1_1PyStreamManipulatorInputData.html#a8dfb1a9b84a8dd23ffb04e01df396ed3" title="Vector of data stream instruments with input samples to be manipulated.">PyStreamManipulatorInputData::InputStreams</a> as passed to the on_step() or event handler Python functions, this list contains the sample ID that has been consumed for each input data stream. These samples won't be passed to on_step() or event handler Python functions in its next call. </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00079">79</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00090">90</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -189,7 +189,7 @@ Public Attributes</h2></td></tr>
 
 <p>Time to wait maximally before the on_step() Python function is called again when the input data streams have not received new samples each. </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00071">71</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00081">81</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -207,7 +207,7 @@ Public Attributes</h2></td></tr>
 
 <p>Time wo wait minimally before the on_step() Python function is called again when each input data stream has received new samples. </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00065">65</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00075">75</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>

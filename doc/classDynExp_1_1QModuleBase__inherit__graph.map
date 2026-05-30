@@ -1,33 +1,39 @@
 <map id="DynExp::QModuleBase" name="DynExp::QModuleBase">
-<area shape="rect" id="Node000001" title="Base class for modules with a Qt&#45;based user interface. Derive from this class to implement modules wi..." alt="" coords="636,313,807,338"/>
-<area shape="rect" id="Node000006" href="$classDynExpModule_1_1ImageViewer_1_1ImageViewer.html" title=" " alt="" coords="865,5,1079,45"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="725,298,739,247,764,181,801,114,825,82,853,55,871,43,874,48,856,59,829,86,806,116,769,184,745,249,731,300"/>
-<area shape="rect" id="Node000007" href="$classDynExpModule_1_1InputPortReader.html" title=" " alt="" coords="855,70,1089,95"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="728,298,745,256,771,203,807,150,829,126,853,106,877,93,880,98,856,110,832,130,811,154,775,206,750,258,733,300"/>
-<area shape="rect" id="Node000008" href="$classDynExpModule_1_1LockinAmplifierControl.html" title=" " alt="" coords="857,120,1087,160"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="735,299,782,234,815,199,853,170,877,158,879,162,856,174,819,203,786,238,739,302"/>
-<area shape="rect" id="Node000009" href="$classDynExpModule_1_1ODMR_1_1ODMR.html" title=" " alt="" coords="887,184,1057,224"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="747,302,795,267,854,234,886,221,888,226,856,238,798,272,750,306"/>
-<area shape="rect" id="Node000010" href="$classDynExpModule_1_1OutputPortWriter.html" title=" " alt="" coords="873,248,1071,288"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="790,307,884,285,885,291,792,312"/>
-<area shape="rect" id="Node000011" href="$classDynExpModule_1_1SignalDesigner.html" title=" " alt="" coords="859,313,1085,338"/>
-<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="820,323,858,323,858,328,820,328"/>
-<area shape="rect" id="Node000012" href="$classDynExpModule_1_1SignalPlotter.html" title=" " alt="" coords="867,362,1077,387"/>
-<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="800,338,907,359,906,365,799,343"/>
-<area shape="rect" id="Node000013" href="$classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html" title=" " alt="" coords="855,412,1089,452"/>
-<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="754,343,801,371,856,398,889,409,887,414,854,402,799,376,752,348"/>
-<area shape="rect" id="Node000014" href="$classDynExpModule_1_1Stage1D.html" title=" " alt="" coords="881,477,1063,502"/>
-<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="741,348,788,406,820,436,856,462,885,474,883,479,853,466,816,440,784,410,736,351"/>
-<area shape="rect" id="Node000015" href="$classDynExpModule_1_1Trajectory1D.html" title=" " alt="" coords="867,526,1077,551"/>
-<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="735,350,753,387,779,431,814,476,856,512,878,524,876,528,853,517,810,479,775,434,748,389,731,352"/>
-<area shape="rect" id="Node000016" href="$classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html" title=" " alt="" coords="877,576,1067,616"/>
-<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="732,351,748,397,773,454,809,513,831,539,856,562,878,575,875,580,853,566,827,543,805,516,769,457,743,399,727,353"/>
-<area shape="rect" id="Node000002" href="$classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server..." alt="" coords="428,313,588,338"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="602,323,636,323,636,328,602,328"/>
-<area shape="rect" id="Node000003" href="$classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ..." alt="" coords="197,313,380,338"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="394,323,428,323,428,328,394,328"/>
-<area shape="rect" id="Node000004" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="5,287,149,313"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="164,308,198,312,197,317,163,313"/>
-<area shape="rect" id="Node000005" href="$classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),..." alt="" coords="16,337,139,362"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="152,338,197,333,198,338,153,343"/>
+<area shape="rect" id="Node000001" title="Base class for modules with a Qt&#45;based user interface. Derive from this class to implement modules wi..." alt="" coords="636,387,807,412"/>
+<area shape="rect" id="Node000006" href="$classDynExpModule_1_1EventSender.html" title=" " alt="" coords="898,5,1109,31"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="721,373,729,305,749,215,766,167,789,121,817,78,853,41,874,28,897,19,899,24,876,33,856,45,821,81,793,123,771,169,755,216,734,306,727,373"/>
+<area shape="rect" id="Node000007" href="$classDynExpModule_1_1ImageViewer_1_1ImageViewer.html" title=" " alt="" coords="896,55,1111,95"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="724,372,736,316,760,244,777,206,797,169,823,135,853,105,873,92,895,83,897,88,875,97,856,109,827,138,802,172,781,208,765,246,741,317,729,373"/>
+<area shape="rect" id="Node000008" href="$classDynExpModule_1_1InputPortReader.html" title=" " alt="" coords="887,120,1120,145"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="726,372,741,324,766,265,803,204,826,177,853,154,885,138,888,143,856,159,830,181,807,208,771,267,746,326,731,374"/>
+<area shape="rect" id="Node000009" href="$classDynExpModule_1_1LaserControl.html" title=" " alt="" coords="898,169,1109,195"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="730,373,748,335,774,289,809,243,853,205,897,187,899,192,856,210,813,246,778,292,752,337,735,375"/>
+<area shape="rect" id="Node000010" href="$classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html" title=" " alt="" coords="855,219,1152,259"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="738,374,786,320,818,292,853,269,881,257,883,262,856,274,821,297,790,324,742,377"/>
+<area shape="rect" id="Node000011" href="$classDynExpModule_1_1LockinAmplifierControl.html" title=" " alt="" coords="889,283,1118,323"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="756,378,801,354,854,333,895,321,896,326,856,338,804,359,758,382"/>
+<area shape="rect" id="Node000012" href="$classDynExpModule_1_1ODMR_1_1ODMR.html" title=" " alt="" coords="919,347,1088,387"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="820,385,918,374,919,380,821,391"/>
+<area shape="rect" id="Node000013" href="$classDynExpModule_1_1OutputPortWriter.html" title=" " alt="" coords="904,411,1103,451"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="821,408,904,417,903,423,820,413"/>
+<area shape="rect" id="Node000014" href="$classDynExpModule_1_1SignalDesigner.html" title=" " alt="" coords="890,476,1117,501"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="757,416,803,440,855,461,905,473,904,479,854,466,801,445,755,421"/>
+<area shape="rect" id="Node000015" href="$classDynExpModule_1_1SignalPlotter.html" title=" " alt="" coords="898,525,1109,551"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="744,421,792,468,822,492,856,512,899,526,897,531,854,516,819,497,788,472,740,424"/>
+<area shape="rect" id="Node000016" href="$classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html" title=" " alt="" coords="886,575,1121,615"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="738,423,757,455,783,493,817,530,856,561,887,576,884,580,853,566,813,534,779,496,752,458,733,425"/>
+<area shape="rect" id="Node000017" href="$classDynExpModule_1_1Stage1D.html" title=" " alt="" coords="912,640,1095,665"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="732,425,748,469,773,524,809,580,831,604,856,625,883,639,913,647,911,652,881,644,853,630,827,608,805,583,768,527,743,471,727,426"/>
+<area shape="rect" id="Node000018" href="$classDynExpModule_1_1Trajectory1D.html" title=" " alt="" coords="898,689,1109,715"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="729,425,742,479,765,548,782,584,803,618,827,649,856,676,876,688,899,695,897,700,874,692,853,680,823,653,798,621,777,586,760,550,737,481,724,426"/>
+<area shape="rect" id="Node000019" href="$classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html" title=" " alt="" coords="909,739,1098,779"/>
+<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="728,425,738,487,759,569,776,612,798,654,824,692,856,725,881,741,909,751,908,756,879,746,853,729,820,696,793,656,771,614,754,571,732,488,722,426"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server..." alt="" coords="428,387,588,412"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="602,397,636,397,636,402,602,402"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ..." alt="" coords="197,387,380,412"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="394,397,428,397,428,402,394,402"/>
+<area shape="rect" id="Node000004" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="5,361,149,387"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="164,382,198,386,197,391,163,387"/>
+<area shape="rect" id="Node000005" href="$classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),..." alt="" coords="16,411,139,436"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="152,412,197,407,198,412,153,417"/>
 </map>

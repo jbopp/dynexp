@@ -104,6 +104,7 @@ $(document).ready(function(){initNavTree('classDynExpHardware_1_1QutoolsTDCHardw
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classDynExpHardware_1_1QutoolsTDCHardwareAdapter-members.html">List of all members</a>  </div>
@@ -320,6 +321,28 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string from an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> category and name to allow the user to identify an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> type.  <br /></td></tr>
 <tr class="separator:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ad978f9bcd9ba3b923dab40bde90da91e" id="r_ad978f9bcd9ba3b923dab40bde90da91e"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpHardware_1_1QutoolsTDCHardwareAdapter.html#ad978f9bcd9ba3b923dab40bde90da91e">NumChannels</a> = 31</td></tr>
+<tr class="separator:ad978f9bcd9ba3b923dab40bde90da91e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab144bc18e1e742c7fb5f2bef49df9cf7" id="r_ab144bc18e1e742c7fb5f2bef49df9cf7"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpHardware_1_1QutoolsTDCHardwareAdapter.html#ab144bc18e1e742c7fb5f2bef49df9cf7">NumCoincidenceChannels</a> = 59</td></tr>
+<tr class="separator:ab144bc18e1e742c7fb5f2bef49df9cf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_static_attribs_classDynExp_1_1HardwareAdapterBase"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classDynExp_1_1HardwareAdapterBase')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classDynExp_1_1HardwareAdapterBase.html">DynExp::HardwareAdapterBase</a></td></tr>
+<tr class="memitem:a693ab75499954efe9e468505fb214c6a inherit pub_static_attribs_classDynExp_1_1HardwareAdapterBase" id="r_a693ab75499954efe9e468505fb214c6a"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1HardwareAdapterBase.html#a693ab75499954efe9e468505fb214c6a">ShortTimeoutDefault</a> = std::chrono::milliseconds(10)</td></tr>
+<tr class="memdesc:a693ab75499954efe9e468505fb214c6a inherit pub_static_attribs_classDynExp_1_1HardwareAdapterBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default timeout e.g. used as a default for calls to <a class="el" href="classDynExp_1_1Object.html#ac5f18675231275acf933b5989b8811cc" title="Returns a pointer to the exception which has caused this Object instance to fail.">Object::GetException()</a>.  <br /></td></tr>
+<tr class="separator:a693ab75499954efe9e468505fb214c6a inherit pub_static_attribs_classDynExp_1_1HardwareAdapterBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa320f60248bb34134be381035b1de033 inherit pub_static_attribs_classDynExp_1_1HardwareAdapterBase" id="r_aa320f60248bb34134be381035b1de033"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1HardwareAdapterBase.html#aa320f60248bb34134be381035b1de033">HardwareOperationTimeout</a> = std::chrono::milliseconds(100)</td></tr>
+<tr class="memdesc:aa320f60248bb34134be381035b1de033 inherit pub_static_attribs_classDynExp_1_1HardwareAdapterBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default timeout used to lock the mutex provided by the base class <a class="el" href="classUtil_1_1ILockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by providing...">Util::ILockable</a> to synchronize access to the hardware interface in between multiple instrument threads.  <br /></td></tr>
+<tr class="separator:aa320f60248bb34134be381035b1de033 inherit pub_static_attribs_classDynExp_1_1HardwareAdapterBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_static_attribs_classUtil_1_1ILockable"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classUtil_1_1ILockable')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classUtil_1_1ILockable.html">Util::ILockable</a></td></tr>
+<tr class="memitem:ad11852fe3b22d9e1227c79f210f93980 inherit pub_static_attribs_classUtil_1_1ILockable" id="r_ad11852fe3b22d9e1227c79f210f93980"><td class="memItemLeft" align="right" valign="top">static constexpr std::chrono::milliseconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUtil_1_1ILockable.html#ad11852fe3b22d9e1227c79f210f93980">DefaultTimeout</a> = std::chrono::milliseconds(10)</td></tr>
+<tr class="memdesc:ad11852fe3b22d9e1227c79f210f93980 inherit pub_static_attribs_classUtil_1_1ILockable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duration which is used as a default timeout within all methods of this class if no different duration is passed to them.  <br /></td></tr>
+<tr class="separator:ad11852fe3b22d9e1227c79f210f93980 inherit pub_static_attribs_classUtil_1_1ILockable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_static_attribs_classDynExp_1_1Object"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classDynExp_1_1Object')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classDynExp_1_1Object.html">DynExp::Object</a></td></tr>
+<tr class="memitem:a8e6abc80a7c35d4fca2ebfa1b1f141f0 inherit pub_static_attribs_classDynExp_1_1Object" id="r_a8e6abc80a7c35d4fca2ebfa1b1f141f0"><td class="memItemLeft" align="right" valign="top">static constexpr std::chrono::milliseconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#a8e6abc80a7c35d4fca2ebfa1b1f141f0">GetParamsTimeoutDefault</a> = std::chrono::milliseconds(100)</td></tr>
+<tr class="memdesc:a8e6abc80a7c35d4fca2ebfa1b1f141f0 inherit pub_static_attribs_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default timeout used by <a class="el" href="classDynExp_1_1Object.html#a13f5742205cff37ac598ab2ccb39ca18" title="Locks the mutex of the parameter class instance Params assigned to this Object instance and returns a...">Object::GetParams()</a> to lock the mutex of the parameter instance assigned to this <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instance.  <br /></td></tr>
+<tr class="separator:a8e6abc80a7c35d4fca2ebfa1b1f141f0 inherit pub_static_attribs_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a4465eef3bd11014de5bb76bb9e1afc25" id="r_a4465eef3bd11014de5bb76bb9e1afc25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpHardware_1_1QutoolsTDCHardwareAdapter.html#a4465eef3bd11014de5bb76bb9e1afc25">Init</a> ()</td></tr>
@@ -401,21 +424,6 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a4428d406d0477fc605a2d27dc4ac409c inherit pub_attribs_classDynExp_1_1Object" id="r_a4428d406d0477fc605a2d27dc4ac409c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExp_1_1Object_1_1LinkedObjectWrapperOnlyType.html">LinkedObjectWrapperOnlyType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#a4428d406d0477fc605a2d27dc4ac409c">LinkedObjectWrapperOnly</a></td></tr>
 <tr class="memdesc:a4428d406d0477fc605a2d27dc4ac409c inherit pub_attribs_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> private methods to any LinkedObjectWrapper&lt;T&gt;.    <br /></td></tr>
 <tr class="separator:a4428d406d0477fc605a2d27dc4ac409c inherit pub_attribs_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_static_attribs_classDynExp_1_1HardwareAdapterBase"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classDynExp_1_1HardwareAdapterBase')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classDynExp_1_1HardwareAdapterBase.html">DynExp::HardwareAdapterBase</a></td></tr>
-<tr class="memitem:a693ab75499954efe9e468505fb214c6a inherit pub_static_attribs_classDynExp_1_1HardwareAdapterBase" id="r_a693ab75499954efe9e468505fb214c6a"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1HardwareAdapterBase.html#a693ab75499954efe9e468505fb214c6a">ShortTimeoutDefault</a> = std::chrono::milliseconds(10)</td></tr>
-<tr class="memdesc:a693ab75499954efe9e468505fb214c6a inherit pub_static_attribs_classDynExp_1_1HardwareAdapterBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default timeout e.g. used as a default for calls to <a class="el" href="classDynExp_1_1Object.html#ac5f18675231275acf933b5989b8811cc" title="Returns a pointer to the exception which has caused this Object instance to fail.">Object::GetException()</a>.  <br /></td></tr>
-<tr class="separator:a693ab75499954efe9e468505fb214c6a inherit pub_static_attribs_classDynExp_1_1HardwareAdapterBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa320f60248bb34134be381035b1de033 inherit pub_static_attribs_classDynExp_1_1HardwareAdapterBase" id="r_aa320f60248bb34134be381035b1de033"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1HardwareAdapterBase.html#aa320f60248bb34134be381035b1de033">HardwareOperationTimeout</a> = std::chrono::milliseconds(100)</td></tr>
-<tr class="memdesc:aa320f60248bb34134be381035b1de033 inherit pub_static_attribs_classDynExp_1_1HardwareAdapterBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default timeout used to lock the mutex provided by the base class <a class="el" href="classUtil_1_1ILockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by providing...">Util::ILockable</a> to synchronize access to the hardware interface in between multiple instrument threads.  <br /></td></tr>
-<tr class="separator:aa320f60248bb34134be381035b1de033 inherit pub_static_attribs_classDynExp_1_1HardwareAdapterBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_static_attribs_classUtil_1_1ILockable"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classUtil_1_1ILockable')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classUtil_1_1ILockable.html">Util::ILockable</a></td></tr>
-<tr class="memitem:ad11852fe3b22d9e1227c79f210f93980 inherit pub_static_attribs_classUtil_1_1ILockable" id="r_ad11852fe3b22d9e1227c79f210f93980"><td class="memItemLeft" align="right" valign="top">static constexpr std::chrono::milliseconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUtil_1_1ILockable.html#ad11852fe3b22d9e1227c79f210f93980">DefaultTimeout</a> = std::chrono::milliseconds(10)</td></tr>
-<tr class="memdesc:ad11852fe3b22d9e1227c79f210f93980 inherit pub_static_attribs_classUtil_1_1ILockable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duration which is used as a default timeout within all methods of this class if no different duration is passed to them.  <br /></td></tr>
-<tr class="separator:ad11852fe3b22d9e1227c79f210f93980 inherit pub_static_attribs_classUtil_1_1ILockable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_static_attribs_classDynExp_1_1Object"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classDynExp_1_1Object')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classDynExp_1_1Object.html">DynExp::Object</a></td></tr>
-<tr class="memitem:a8e6abc80a7c35d4fca2ebfa1b1f141f0 inherit pub_static_attribs_classDynExp_1_1Object" id="r_a8e6abc80a7c35d4fca2ebfa1b1f141f0"><td class="memItemLeft" align="right" valign="top">static constexpr std::chrono::milliseconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#a8e6abc80a7c35d4fca2ebfa1b1f141f0">GetParamsTimeoutDefault</a> = std::chrono::milliseconds(100)</td></tr>
-<tr class="memdesc:a8e6abc80a7c35d4fca2ebfa1b1f141f0 inherit pub_static_attribs_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default timeout used by <a class="el" href="classDynExp_1_1Object.html#a13f5742205cff37ac598ab2ccb39ca18" title="Locks the mutex of the parameter class instance Params assigned to this Object instance and returns a...">Object::GetParams()</a> to lock the mutex of the parameter instance assigned to this <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instance.  <br /></td></tr>
-<tr class="separator:a8e6abc80a7c35d4fca2ebfa1b1f141f0 inherit pub_static_attribs_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_types_classUtil_1_1ILockable"><td colspan="2" onclick="javascript:toggleInherit('pro_types_classUtil_1_1ILockable')"><img src="closed.png" alt="-"/>&#160;Protected Types inherited from <a class="el" href="classUtil_1_1ILockable.html">Util::ILockable</a></td></tr>
 <tr class="memitem:a57f74e4420176822ccd4ffe1d26d20a7 inherit pro_types_classUtil_1_1ILockable" id="r_a57f74e4420176822ccd4ffe1d26d20a7"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUtil_1_1ILockable.html#a57f74e4420176822ccd4ffe1d26d20a7">MutexType</a> = std::timed_mutex</td></tr>
 <tr class="separator:a57f74e4420176822ccd4ffe1d26d20a7 inherit pro_types_classUtil_1_1ILockable"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -489,7 +497,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00124">124</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00132">132</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
 
 </div>
 </div>
@@ -505,7 +513,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00123">123</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00131">131</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
 
 </div>
 </div>
@@ -521,7 +529,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00126">126</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00134">134</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
 
 </div>
 </div>
@@ -537,7 +545,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00122">122</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00130">130</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
 
 </div>
 </div>
@@ -553,7 +561,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00125">125</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00133">133</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
 
 </div>
 </div>
@@ -639,7 +647,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00441">441</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00445">445</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
 
 </div>
 </div>
@@ -666,7 +674,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00129">129</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00137">137</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
 
 </div>
 </div>
@@ -751,7 +759,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00429">429</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00433">433</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
 
 </div>
 </div>
@@ -831,7 +839,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00522">522</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00541">541</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
 
 </div>
 </div>
@@ -899,7 +907,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00535">535</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00558">558</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
 
 </div>
 </div>
@@ -967,7 +975,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00541">541</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00564">564</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
 
 </div>
 </div>
@@ -1059,7 +1067,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00515">515</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00534">534</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
 
 </div>
 </div>
@@ -1167,7 +1175,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00470">470</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00474">474</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
 
 </div>
 </div>
@@ -1215,7 +1223,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00529">529</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00552">552</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
 
 </div>
 </div>
@@ -1323,7 +1331,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1HardwareAdapterBase.html#a758a1a13e984dbfac143159756420ab8">DynExp::HardwareAdapterBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00136">136</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00144">144</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
 
 </div>
 </div>
@@ -1409,7 +1417,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00478">478</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00487">487</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
 
 </div>
 </div>
@@ -1455,7 +1463,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00553">553</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00576">576</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
 
 </div>
 </div>
@@ -1501,7 +1509,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00564">564</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00587">587</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
 
 </div>
 </div>
@@ -1547,7 +1555,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00574">574</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00597">597</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
 
 </div>
 </div>
@@ -1578,7 +1586,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classDynExp_1_1Object.html#a057f86e9ceec0f7e709e720f66cbb7fb">DynExp::Object</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00135">135</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00143">143</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
 
 </div>
 </div>
@@ -1703,7 +1711,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00138">138</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00146">146</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
 
 </div>
 </div>
@@ -1762,7 +1770,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00128">128</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00136">136</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
 
 </div>
 </div>
@@ -1816,7 +1824,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00447">447</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00451">451</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
 
 </div>
 </div>
@@ -1862,7 +1870,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00547">547</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00570">570</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
 
 </div>
 </div>
@@ -1918,7 +1926,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00172">172</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00180">180</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
 
 </div>
 </div>
@@ -1986,7 +1994,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00501">501</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00515">515</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
 
 </div>
 </div>
@@ -2034,7 +2042,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00495">495</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00509">509</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
 
 </div>
 </div>
@@ -2082,7 +2090,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00489">489</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00503">503</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
 
 </div>
 </div>
@@ -2130,7 +2138,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00507">507</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html#l00526">526</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8cpp_source.html">HardwareAdapterQutoolsTDC.cpp</a>.</p>
 
 </div>
 </div>
@@ -2155,7 +2163,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00207">207</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00215">215</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
 
 </div>
 </div>
@@ -2179,7 +2187,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00208">208</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00216">216</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
 
 </div>
 </div>
@@ -2203,7 +2211,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00210">210</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00218">218</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
 
 </div>
 </div>
@@ -2227,7 +2235,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00204">204</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00212">212</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
 
 </div>
 </div>
@@ -2251,7 +2259,55 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00205">205</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00213">213</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
+
+</div>
+</div>
+<a id="ad978f9bcd9ba3b923dab40bde90da91e" name="ad978f9bcd9ba3b923dab40bde90da91e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad978f9bcd9ba3b923dab40bde90da91e">&#9670;&#160;</a></span>NumChannels</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto DynExpHardware::QutoolsTDCHardwareAdapter::NumChannels = 31</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00112">112</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
+
+</div>
+</div>
+<a id="ab144bc18e1e742c7fb5f2bef49df9cf7" name="ab144bc18e1e742c7fb5f2bef49df9cf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab144bc18e1e742c7fb5f2bef49df9cf7">&#9670;&#160;</a></span>NumCoincidenceChannels</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto DynExpHardware::QutoolsTDCHardwareAdapter::NumCoincidenceChannels = 59</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00113">113</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
 
 </div>
 </div>
@@ -2275,7 +2331,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00206">206</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00214">214</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
 
 </div>
 </div>
@@ -2299,7 +2355,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00211">211</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html#l00219">219</a> of file <a class="el" href="HardwareAdapterQutoolsTDC_8h_source.html">HardwareAdapterQutoolsTDC.h</a>.</p>
 
 </div>
 </div>

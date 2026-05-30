@@ -108,7 +108,7 @@ $(document).ready(function(){initNavTree('classDynExp_1_1ModuleBase_1_1ModuleThr
 </div><!--header-->
 <div class="contents">
 
-<p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to the module thread <code><a class="el" href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html#ac83bb615c44d3c2c4026bacb7dea2831" title="Modules run in their own thread. This is the module thread&#39;s main function.">ModuleThreadMain()</a></code>.  
+<p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to the module thread <code><a class="el" href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html#adf92e478dae444efeba71953a2564a3d" title="Modules run in their own thread. This is the module thread&#39;s main function.">ModuleThreadMain()</a></code>.  
  <a href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -120,6 +120,9 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:aeb368d3508e39e4d8809aa5c21486bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66461edfe55437252ffff2a6c6bd4bbe" id="r_a66461edfe55437252ffff2a6c6bd4bbe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceUtil_1_1DynExpErrorCodes.html#a49da632c21753f06d241c7269a24ae57">Util::DynExpErrorCodes::DynExpErrorCodes</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html#a66461edfe55437252ffff2a6c6bd4bbe">ModuleMainLoop</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">ModuleInstance</a> &amp;Instance)</td></tr>
 <tr class="separator:a66461edfe55437252ffff2a6c6bd4bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50c1bdde41c968feeb6b384ccc82bdbe" id="r_a50c1bdde41c968feeb6b384ccc82bdbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html#a50c1bdde41c968feeb6b384ccc82bdbe">SetException</a> (std::exception_ptr Exception) noexcept</td></tr>
+<tr class="memdesc:a50c1bdde41c968feeb6b384ccc82bdbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets this module instance to an error state and tries to store the exception responsible for the error state in <a class="el" href="classDynExp_1_1ModuleBase.html#a56ccafca54cfc4f7f6231b198b1e2d86" title="Module data belonging to this ModuleBase instance.">ModuleData</a>. If <a class="el" href="classDynExp_1_1ModuleBase.html#a56ccafca54cfc4f7f6231b198b1e2d86" title="Module data belonging to this ModuleBase instance.">ModuleData</a> cannot be locked, still atomically sets an error flag.    <br /></td></tr>
+<tr class="separator:a50c1bdde41c968feeb6b384ccc82bdbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a099a50f62fa9f9a784d224cfc433aa6a" id="r_a099a50f62fa9f9a784d224cfc433aa6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html#a099a50f62fa9f9a784d224cfc433aa6a">OnPause</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">ModuleInstance</a> &amp;Instance)</td></tr>
 <tr class="separator:a099a50f62fa9f9a784d224cfc433aa6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afae4646c0f08757fcdf38d1735be68e0" id="r_afae4646c0f08757fcdf38d1735be68e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html#afae4646c0f08757fcdf38d1735be68e0">OnResume</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">ModuleInstance</a> &amp;Instance)</td></tr>
@@ -139,14 +142,14 @@ Private Attributes</h2></td></tr>
 Friends</h2></td></tr>
 <tr class="memitem:ad347664b40adb2e18db97a5c0198628b" id="r_ad347664b40adb2e18db97a5c0198628b"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html#ad347664b40adb2e18db97a5c0198628b">ModuleBase</a></td></tr>
 <tr class="separator:ad347664b40adb2e18db97a5c0198628b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac83bb615c44d3c2c4026bacb7dea2831" id="r_ac83bb615c44d3c2c4026bacb7dea2831"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html#ac83bb615c44d3c2c4026bacb7dea2831">ModuleThreadMain</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">ModuleInstance</a>, <a class="el" href="classDynExp_1_1ModuleBase.html">ModuleBase</a> *const)</td></tr>
-<tr class="memdesc:ac83bb615c44d3c2c4026bacb7dea2831"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modules run in their own thread. This is the module thread's main function.  <br /></td></tr>
-<tr class="separator:ac83bb615c44d3c2c4026bacb7dea2831"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf92e478dae444efeba71953a2564a3d" id="r_adf92e478dae444efeba71953a2564a3d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html#adf92e478dae444efeba71953a2564a3d">ModuleThreadMain</a> (std::unique_ptr&lt; <a class="el" href="classDynExp_1_1RunnableInstance.html">RunnableInstance</a> &gt; &amp;&amp;, <a class="el" href="classDynExp_1_1RunnableObject.html">RunnableObject</a> *)</td></tr>
+<tr class="memdesc:adf92e478dae444efeba71953a2564a3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modules run in their own thread. This is the module thread's main function.  <br /></td></tr>
+<tr class="separator:adf92e478dae444efeba71953a2564a3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to the module thread <code><a class="el" href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html#ac83bb615c44d3c2c4026bacb7dea2831" title="Modules run in their own thread. This is the module thread&#39;s main function.">ModuleThreadMain()</a></code>. </p>
+<div class="textblock"><p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to the module thread <code><a class="el" href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html#adf92e478dae444efeba71953a2564a3d" title="Modules run in their own thread. This is the module thread&#39;s main function.">ModuleThreadMain()</a></code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00397">397</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00433">433</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab3f2dd0ff47a4a81e2c8544d42403ba1" name="ab3f2dd0ff47a4a81e2c8544d42403ba1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab3f2dd0ff47a4a81e2c8544d42403ba1">&#9670;&#160;</a></span>ModuleThreadOnlyType()</h2>
@@ -180,7 +183,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00406">406</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00442">442</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -209,7 +212,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00408">408</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00444">444</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -237,7 +240,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00409">409</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00445">445</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -265,7 +268,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00412">412</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00449">449</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -293,7 +296,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00410">410</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00447">447</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -321,7 +324,43 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00411">411</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00448">448</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+
+</div>
+</div>
+<a id="a50c1bdde41c968feeb6b384ccc82bdbe" name="a50c1bdde41c968feeb6b384ccc82bdbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50c1bdde41c968feeb6b384ccc82bdbe">&#9670;&#160;</a></span>SetException()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DynExp::ModuleBase::ModuleThreadOnlyType::SetException </td>
+          <td>(</td>
+          <td class="paramtype">std::exception_ptr&#160;</td>
+          <td class="paramname"><em>Exception</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets this module instance to an error state and tries to store the exception responsible for the error state in <a class="el" href="classDynExp_1_1ModuleBase.html#a56ccafca54cfc4f7f6231b198b1e2d86" title="Module data belonging to this ModuleBase instance.">ModuleData</a>. If <a class="el" href="classDynExp_1_1ModuleBase.html#a56ccafca54cfc4f7f6231b198b1e2d86" title="Module data belonging to this ModuleBase instance.">ModuleData</a> cannot be locked, still atomically sets an error flag.   </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Exception</td><td>Exception to store.   </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00446">446</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -349,7 +388,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00414">414</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00451">451</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -374,12 +413,12 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00399">399</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00435">435</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
-<a id="ac83bb615c44d3c2c4026bacb7dea2831" name="ac83bb615c44d3c2c4026bacb7dea2831"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac83bb615c44d3c2c4026bacb7dea2831">&#9670;&#160;</a></span>ModuleThreadMain</h2>
+<a id="adf92e478dae444efeba71953a2564a3d" name="adf92e478dae444efeba71953a2564a3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf92e478dae444efeba71953a2564a3d">&#9670;&#160;</a></span>ModuleThreadMain</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -390,13 +429,13 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">int ModuleThreadMain </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classDynExp_1_1ModuleInstance.html">ModuleInstance</a>&#160;</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classDynExp_1_1RunnableInstance.html">RunnableInstance</a> &gt; &amp;&amp;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classDynExp_1_1ModuleBase.html">ModuleBase</a> * const&#160;</td>
+          <td class="paramtype"><a class="el" href="classDynExp_1_1RunnableObject.html">RunnableObject</a> *&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -415,8 +454,8 @@ Friends</h2></td></tr>
 <p>Modules run in their own thread. This is the module thread's main function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Instance</td><td>Handle to the module thread's data related to the module running this thread. The module thread is expected to let the lifetime of <code>Instance</code> expire upon termination. </td></tr>
-    <tr><td class="paramname">Module</td><td>Pointer to the module running this thread </td></tr>
+    <tr><td class="paramname">InstancePtr</td><td>Pointer to a handle to the module thread's data related to the module running this thread. The module thread takes ownership of <code>InstancePtr</code> and is expected to let the lifetime of <code>InstancePtr</code> expire upon termination. </td></tr>
+    <tr><td class="paramname">BaseObject</td><td>Pointer to the module running this thread. </td></tr>
   </table>
   </dd>
 </dl>
@@ -449,7 +488,7 @@ Friends</h2></td></tr>
 
 <p>Owning <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00416">416</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00453">453</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>

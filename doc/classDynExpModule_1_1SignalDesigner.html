@@ -262,7 +262,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a784b327cbbba14124e1e303b289714c4 inherit pub_methods_classDynExp_1_1ModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6929f6ac89a2c9f9c4e686c59acd31ce inherit pub_methods_classDynExp_1_1ModuleBase" id="r_a6929f6ac89a2c9f9c4e686c59acd31ce"><td class="memTemplParams" colspan="2">template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; </td></tr>
 <tr class="memitem:a6929f6ac89a2c9f9c4e686c59acd31ce inherit pub_methods_classDynExp_1_1ModuleBase"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#a6929f6ac89a2c9f9c4e686c59acd31ce">MakeAndEnqueueEvent</a> (ReceiverType *Receiver, EventType EventFuncPtr, ArgsTs &amp;&amp;...Args) const</td></tr>
-<tr class="memdesc:a6929f6ac89a2c9f9c4e686c59acd31ce inherit pub_methods_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <code><a class="el" href="namespaceDynExp.html#a95f0f5b615c5d99ff4325ab785735a7a" title="Creates an event of type DefaultEvent.">MakeEvent()</a></code> to construct a new event and subsequently enqueues the event into the module's event queue. Logical const-ness: this is a const member function to allow pointers to <code>const</code> <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> inserting events into the module's event queue. These kind of pointers are e.g. returned by <a class="el" href="classDynExp_1_1RunnableInstance.html#afafb4793635ac8c1c34471ff255549f1" title="Returns Owner.">RunnableInstance::GetOwner()</a> which can be called by events' <a class="el" href="classDynExp_1_1EventBase.html#a77b9b29345abc36c7f798e1ae3822670" title="Invokes the event passing the receiving module&#39;s instance reference to it.">EventBase::InvokeChild()</a> functions. For <code>const</code> <code>ModuleBase*</code>, it is possible to insert events into the event queue, but not to change the <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> object itself (e.g. calling <a class="el" href="classDynExp_1_1Object.html#a837a8e8daa7853003474b458a3fe0a46" title="Resets this Object instance (including all its derived classes) by calling ResetImpl()....">Object::Reset()</a>).  <br /></td></tr>
+<tr class="memdesc:a6929f6ac89a2c9f9c4e686c59acd31ce inherit pub_methods_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <code><a class="el" href="namespaceDynExp.html#a95f0f5b615c5d99ff4325ab785735a7a" title="Creates an event of type DefaultEvent.">MakeEvent()</a></code> to construct a new event and subsequently enqueues the event into the module's event queue. Logical const-ness: this is a const member function to allow pointers to <code>const</code> <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> inserting events into the module's event queue. These kind of pointers are e.g. returned by <a class="el" href="classDynExp_1_1RunnableInstance.html#afafb4793635ac8c1c34471ff255549f1" title="Returns Owner.">RunnableInstance::GetOwner()</a> which can be called by events' <a class="el" href="classDynExp_1_1EventBase.html#a77b9b29345abc36c7f798e1ae3822670" title="Invokes the event passing the receiving module&#39;s instance reference to it. Only to be called from Mod...">EventBase::InvokeChild()</a> functions. For <code>const</code> <code>ModuleBase*</code>, it is possible to insert events into the event queue, but not to change the <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> object itself (e.g. calling <a class="el" href="classDynExp_1_1Object.html#a837a8e8daa7853003474b458a3fe0a46" title="Resets this Object instance (including all its derived classes) by calling ResetImpl()....">Object::Reset()</a>).  <br /></td></tr>
 <tr class="separator:a6929f6ac89a2c9f9c4e686c59acd31ce inherit pub_methods_classDynExp_1_1ModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8c362a3e086828a2ccbde05fb5d4795 inherit pub_methods_classDynExp_1_1ModuleBase" id="r_ae8c362a3e086828a2ccbde05fb5d4795"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#ae8c362a3e086828a2ccbde05fb5d4795">TreatModuleExceptionsAsWarnings</a> () const</td></tr>
 <tr class="memdesc:ae8c362a3e086828a2ccbde05fb5d4795 inherit pub_methods_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether this module should be terminated if an exception leaves the module's main loop or respective event handlers.  <br /></td></tr>
@@ -295,7 +295,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:adbb2e71639fdcab42c9c6c299e4cf2b8 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <a class="el" href="classDynExp_1_1RunnableObject.html#aacef09883d7d4462fc014330663d9f4f" title="Holds information about why the RunnableObject instance is paused.">ReasonWhyPaused</a>.  <br /></td></tr>
 <tr class="separator:adbb2e71639fdcab42c9c6c299e4cf2b8 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject" id="r_a416b8000830913b11eaf02d1f1af49d6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6">Run</a> (QWidget *ParentWidget=nullptr)</td></tr>
-<tr class="memdesc:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread and ensures that all <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instances linked to this instance via <code><a class="el" href="classDynExp_1_1ObjectLink.html" title="Type to define object link parameters as ParamsBase::Param&lt; ObjectLink&lt; ObjectT &gt; &gt; or to define obje...">ObjectLink</a></code> parameters are in a ready state. Calls <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> which is to be overridden by derived classes to start a thread and to pass this thread back by calling <code><a class="el" href="classDynExp_1_1RunnableObject.html#aac70e1485923ee8c78ed5732099b4c90" title="Stores a thread constructed by a derived class overriding RunChild() in Thread taking ownership of th...">StoreThread()</a></code>.  <br /></td></tr>
+<tr class="memdesc:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread and ensures that all <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instances linked to this instance via <code><a class="el" href="classDynExp_1_1ObjectLink.html" title="Type to define object link parameters as ParamsBase::Param&lt; ObjectLink&lt; ObjectT &gt; &gt; or to define obje...">ObjectLink</a></code> parameters are in a ready state. Calls <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> which is to be overridden by derived classes to start a thread and to pass this thread back by calling <code>StoreThread()</code>.  <br /></td></tr>
 <tr class="separator:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8275b7f99072059d5608a4201ed579af inherit pub_methods_classDynExp_1_1RunnableObject" id="r_a8275b7f99072059d5608a4201ed579af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a8275b7f99072059d5608a4201ed579af">RunIfRunAutomatic</a> ()</td></tr>
 <tr class="memdesc:a8275b7f99072059d5608a4201ed579af inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> if <a class="el" href="classDynExp_1_1RunnableObjectParams.html#a1ef775df6c01b554f3c102024646c0dd" title="Determines when the runnable object is started. Refer to RunnableObjectParams::StartupType.">RunnableObjectParams::Startup</a> is set to <a class="el" href="classDynExp_1_1RunnableObjectParams.html#a33b475bb5737bca9bf78ce6a6a7c41f4af69add31b7e16e98b1fa4642036b1bfc">RunnableObjectParams::Automatic</a>.  <br /></td></tr>
@@ -432,8 +432,8 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a2c937ec56513ba0f5f12743fbd4f9eed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e1ba0d9c7ad0bded63d26103a91d4b5" id="r_a5e1ba0d9c7ad0bded63d26103a91d4b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1SignalDesigner.html#a5e1ba0d9c7ad0bded63d26103a91d4b5">OnTriggerEdgeChanged</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance, QString Text) const</td></tr>
 <tr class="separator:a5e1ba0d9c7ad0bded63d26103a91d4b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa1d25dda7183b6ec0acb1c542d0f996" id="r_aaa1d25dda7183b6ec0acb1c542d0f996"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1SignalDesigner.html#aaa1d25dda7183b6ec0acb1c542d0f996">OnAutostartChanged</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance, int Value) const</td></tr>
-<tr class="separator:aaa1d25dda7183b6ec0acb1c542d0f996"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42702a797cd36736cd72e5f5d0b999cd" id="r_a42702a797cd36736cd72e5f5d0b999cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1SignalDesigner.html#a42702a797cd36736cd72e5f5d0b999cd">OnAutostartChanged</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance, Qt::CheckState State) const</td></tr>
+<tr class="separator:a42702a797cd36736cd72e5f5d0b999cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9fb346a91b89221a62060b403a16ad59" id="r_a9fb346a91b89221a62060b403a16ad59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1SignalDesigner.html#a9fb346a91b89221a62060b403a16ad59">OnPersistParametersClicked</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance, bool Value) const</td></tr>
 <tr class="separator:a9fb346a91b89221a62060b403a16ad59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf5a73742b9e1681a2487c7b9744d9b5" id="r_acf5a73742b9e1681a2487c7b9744d9b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1SignalDesigner.html#acf5a73742b9e1681a2487c7b9744d9b5">OnStart</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance, bool) const</td></tr>
@@ -447,7 +447,7 @@ Private Member Functions</h2></td></tr>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_attribs_classDynExp_1_1ModuleBase"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classDynExp_1_1ModuleBase')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classDynExp_1_1ModuleBase.html">DynExp::ModuleBase</a></td></tr>
 <tr class="memitem:aa62c218c15d17c8beeaafbec0e9e2846 inherit pub_attribs_classDynExp_1_1ModuleBase" id="r_aa62c218c15d17c8beeaafbec0e9e2846"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html">ModuleThreadOnlyType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#aa62c218c15d17c8beeaafbec0e9e2846">ModuleThreadOnly</a></td></tr>
-<tr class="memdesc:aa62c218c15d17c8beeaafbec0e9e2846 inherit pub_attribs_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to the module thread <code><a class="el" href="namespaceDynExp.html#acd637f0e67b9a2815532b5a7e1754bd2" title="Modules run in their own thread. This is the module thread&#39;s main function.">ModuleThreadMain()</a></code>.    <br /></td></tr>
+<tr class="memdesc:aa62c218c15d17c8beeaafbec0e9e2846 inherit pub_attribs_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to the module thread <code><a class="el" href="namespaceDynExp.html#a1ef415c3706dc71e72f030c9d9444291" title="Modules run in their own thread. This is the module thread&#39;s main function.">ModuleThreadMain()</a></code>.    <br /></td></tr>
 <tr class="separator:aa62c218c15d17c8beeaafbec0e9e2846 inherit pub_attribs_classDynExp_1_1ModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafb7bfaf4658e6b499912178450a5de0 inherit pub_attribs_classDynExp_1_1ModuleBase" id="r_aafb7bfaf4658e6b499912178450a5de0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExp_1_1ModuleBase_1_1EventListenersOnlyType.html">EventListenersOnlyType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#aafb7bfaf4658e6b499912178450a5de0">EventListenersOnly</a></td></tr>
 <tr class="memdesc:aafb7bfaf4658e6b499912178450a5de0 inherit pub_attribs_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to any <code><a class="el" href="classDynExp_1_1TypedEventListeners.html" title="Typed managers of event listeners class whose instances are owned by classes derived from InterModule...">TypedEventListeners</a></code> class.    <br /></td></tr>
@@ -475,6 +475,10 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a8e6abc80a7c35d4fca2ebfa1b1f141f0 inherit pub_static_attribs_classDynExp_1_1Object" id="r_a8e6abc80a7c35d4fca2ebfa1b1f141f0"><td class="memItemLeft" align="right" valign="top">static constexpr std::chrono::milliseconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#a8e6abc80a7c35d4fca2ebfa1b1f141f0">GetParamsTimeoutDefault</a> = std::chrono::milliseconds(100)</td></tr>
 <tr class="memdesc:a8e6abc80a7c35d4fca2ebfa1b1f141f0 inherit pub_static_attribs_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default timeout used by <a class="el" href="classDynExp_1_1Object.html#a13f5742205cff37ac598ab2ccb39ca18" title="Locks the mutex of the parameter class instance Params assigned to this Object instance and returns a...">Object::GetParams()</a> to lock the mutex of the parameter instance assigned to this <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instance.  <br /></td></tr>
 <tr class="separator:a8e6abc80a7c35d4fca2ebfa1b1f141f0 inherit pub_static_attribs_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_types_classDynExp_1_1RunnableObject"><td colspan="2" onclick="javascript:toggleInherit('pro_types_classDynExp_1_1RunnableObject')"><img src="closed.png" alt="-"/>&#160;Protected Types inherited from <a class="el" href="classDynExp_1_1RunnableObject.html">DynExp::RunnableObject</a></td></tr>
+<tr class="memitem:addd2ceca45b37cf3780015a8892b5da6 inherit pro_types_classDynExp_1_1RunnableObject" id="r_addd2ceca45b37cf3780015a8892b5da6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#addd2ceca45b37cf3780015a8892b5da6">ThreadFuncType</a> = std::function&lt; int(std::unique_ptr&lt; <a class="el" href="classDynExp_1_1RunnableInstance.html">RunnableInstance</a> &gt; &amp;&amp;, <a class="el" href="classDynExp_1_1RunnableObject.html">RunnableObject</a> *)&gt;</td></tr>
+<tr class="memdesc:addd2ceca45b37cf3780015a8892b5da6 inherit pro_types_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the thread function executed by <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instances.  <br /></td></tr>
+<tr class="separator:addd2ceca45b37cf3780015a8892b5da6 inherit pro_types_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classDynExp_1_1QModuleBase"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classDynExp_1_1QModuleBase')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classDynExp_1_1QModuleBase.html">DynExp::QModuleBase</a></td></tr>
 <tr class="memitem:a46aa91ec36056a128e2876092c288edf inherit pro_methods_classDynExp_1_1QModuleBase" id="r_a46aa91ec36056a128e2876092c288edf"><td class="memTemplParams" colspan="2">template&lt;typename SenderType , typename SignalType , typename ReceiverType , typename EventType &gt; </td></tr>
 <tr class="memitem:a46aa91ec36056a128e2876092c288edf inherit pro_methods_classDynExp_1_1QModuleBase"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QModuleBase.html#a46aa91ec36056a128e2876092c288edf">Connect</a> (SenderType *Sender, SignalType Signal, ReceiverType *Receiver, EventType Event)</td></tr>
@@ -491,9 +495,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a28a89773cf56f3c229dd9c141de12ab3 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_a28a89773cf56f3c229dd9c141de12ab3"><td class="memItemLeft" align="right" valign="top">std::promise&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a28a89773cf56f3c229dd9c141de12ab3">MakeThreadExitedPromise</a> ()</td></tr>
 <tr class="memdesc:a28a89773cf56f3c229dd9c141de12ab3 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to be used by overridden <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> functions in derived classes to (re)initialize the <a class="el" href="classDynExp_1_1RunnableObject.html#a45a818a181d16129dfb43080152527c4" title="Future which signals that Thread has terminated. Refer to OnThreadHasExited().">ThreadExitedSignal</a> future and to provide the derived class a promise to signal the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance that its thread has terminated.  <br /></td></tr>
 <tr class="separator:a28a89773cf56f3c229dd9c141de12ab3 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac70e1485923ee8c78ed5732099b4c90 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_aac70e1485923ee8c78ed5732099b4c90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#aac70e1485923ee8c78ed5732099b4c90">StoreThread</a> (std::thread &amp;&amp;<a class="el" href="classDynExp_1_1RunnableObject.html#a7f653f6a7407d6a69dd9d75858d6b363">Thread</a>) noexcept</td></tr>
-<tr class="memdesc:aac70e1485923ee8c78ed5732099b4c90 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores a thread constructed by a derived class overriding <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> in <code>Thread</code> taking ownership of the thread. Only call this function within <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a>!</code>  <br /></td></tr>
-<tr class="separator:aac70e1485923ee8c78ed5732099b4c90 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a343b47df52dc884564b9e0c60a1647e7 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_a343b47df52dc884564b9e0c60a1647e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a343b47df52dc884564b9e0c60a1647e7">MakeThread</a> (<a class="el" href="classDynExp_1_1RunnableObject.html#addd2ceca45b37cf3780015a8892b5da6">ThreadFuncType</a> ThreadFunc, std::unique_ptr&lt; <a class="el" href="classDynExp_1_1RunnableInstance.html">RunnableInstance</a> &gt; &amp;&amp;InstancePtr)</td></tr>
+<tr class="memdesc:a343b47df52dc884564b9e0c60a1647e7 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and runs the thread of the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance. Call this function in the derived class overriding <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> and nowhere else!  <br /></td></tr>
+<tr class="separator:a343b47df52dc884564b9e0c60a1647e7 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21fc682e09f7e23e2a65fc8b8eef7106 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_a21fc682e09f7e23e2a65fc8b8eef7106"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a21fc682e09f7e23e2a65fc8b8eef7106">IsCallFromRunnableThread</a> () const</td></tr>
 <tr class="memdesc:a21fc682e09f7e23e2a65fc8b8eef7106 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether <code>Thread's</code> id matches the id of the calling thread. This is thread-safe if the function is called by the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread since <code><a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">Terminate()</a></code> joins the threads before changing the <code>Thread</code> member. It is also thread-safe if the function is called by the thread owning the the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance since <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> and <code><a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">Terminate()</a></code> can only be called by this thread. Only <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> and <code><a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">Terminate()</a></code> (indirectly) modify <code>Thread</code>.  <br /></td></tr>
 <tr class="separator:a21fc682e09f7e23e2a65fc8b8eef7106 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -546,7 +550,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8h_source.html#l00135">135</a> of file <a class="el" href="SignalDesigner_8h_source.html">SignalDesigner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8h_source.html#l00139">139</a> of file <a class="el" href="SignalDesigner_8h_source.html">SignalDesigner.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a143ff67c1686b2d63b9c005f38b51b43" name="a143ff67c1686b2d63b9c005f38b51b43"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a143ff67c1686b2d63b9c005f38b51b43">&#9670;&#160;</a></span>ConfigType</h2>
@@ -560,7 +564,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8h_source.html#l00139">139</a> of file <a class="el" href="SignalDesigner_8h_source.html">SignalDesigner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8h_source.html#l00143">143</a> of file <a class="el" href="SignalDesigner_8h_source.html">SignalDesigner.h</a>.</p>
 
 </div>
 </div>
@@ -576,7 +580,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8h_source.html#l00140">140</a> of file <a class="el" href="SignalDesigner_8h_source.html">SignalDesigner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8h_source.html#l00144">144</a> of file <a class="el" href="SignalDesigner_8h_source.html">SignalDesigner.h</a>.</p>
 
 </div>
 </div>
@@ -592,7 +596,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8h_source.html#l00138">138</a> of file <a class="el" href="SignalDesigner_8h_source.html">SignalDesigner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8h_source.html#l00142">142</a> of file <a class="el" href="SignalDesigner_8h_source.html">SignalDesigner.h</a>.</p>
 
 </div>
 </div>
@@ -631,7 +635,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8h_source.html#l00145">145</a> of file <a class="el" href="SignalDesigner_8h_source.html">SignalDesigner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8h_source.html#l00149">149</a> of file <a class="el" href="SignalDesigner_8h_source.html">SignalDesigner.h</a>.</p>
 
 </div>
 </div>
@@ -684,7 +688,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8h_source.html#l00143">143</a> of file <a class="el" href="SignalDesigner_8h_source.html">SignalDesigner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8h_source.html#l00147">147</a> of file <a class="el" href="SignalDesigner_8h_source.html">SignalDesigner.h</a>.</p>
 
 </div>
 </div>
@@ -715,7 +719,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#a6d50167b798951b1a347739976a007d1">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8h_source.html#l00150">150</a> of file <a class="el" href="SignalDesigner_8h_source.html">SignalDesigner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8h_source.html#l00154">154</a> of file <a class="el" href="SignalDesigner_8h_source.html">SignalDesigner.h</a>.</p>
 
 </div>
 </div>
@@ -746,7 +750,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classDynExp_1_1Object.html#a057f86e9ceec0f7e709e720f66cbb7fb">DynExp::Object</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8h_source.html#l00149">149</a> of file <a class="el" href="SignalDesigner_8h_source.html">SignalDesigner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8h_source.html#l00153">153</a> of file <a class="el" href="SignalDesigner_8h_source.html">SignalDesigner.h</a>.</p>
 
 </div>
 </div>
@@ -778,7 +782,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classDynExp_1_1QModuleBase.html#a93c2c74f5b7059834ff6422e54a8ec40">DynExp::QModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00356">356</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00359">359</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -817,7 +821,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classDynExp_1_1ModuleBase.html#abe86b2a8c7a6e60a2937be8b2a0e6b00">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00343">343</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00346">346</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -844,7 +848,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8h_source.html#l00142">142</a> of file <a class="el" href="SignalDesigner_8h_source.html">SignalDesigner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8h_source.html#l00146">146</a> of file <a class="el" href="SignalDesigner_8h_source.html">SignalDesigner.h</a>.</p>
 
 </div>
 </div>
@@ -882,12 +886,12 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00529">529</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00532">532</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
-<a id="aaa1d25dda7183b6ec0acb1c542d0f996" name="aaa1d25dda7183b6ec0acb1c542d0f996"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa1d25dda7183b6ec0acb1c542d0f996">&#9670;&#160;</a></span>OnAutostartChanged()</h2>
+<a id="a42702a797cd36736cd72e5f5d0b999cd" name="a42702a797cd36736cd72e5f5d0b999cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42702a797cd36736cd72e5f5d0b999cd">&#9670;&#160;</a></span>OnAutostartChanged()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -904,8 +908,8 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>Value</em>&#160;</td>
+          <td class="paramtype">Qt::CheckState&#160;</td>
+          <td class="paramname"><em>State</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -920,7 +924,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00588">588</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00591">591</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -958,7 +962,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00545">545</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00548">548</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -996,7 +1000,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#a77fb87b30e26eea73d6d53d2d871160a">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00462">462</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00465">465</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -1034,7 +1038,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00618">618</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00621">621</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -1072,7 +1076,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00513">513</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00516">516</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -1110,7 +1114,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#a51b4635720cb3b96033970dba4a95500">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00454">454</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00457">457</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -1148,7 +1152,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00537">537</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00540">540</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -1186,7 +1190,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00596">596</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00599">599</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -1224,7 +1228,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00521">521</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00524">524</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -1252,7 +1256,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00553">553</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00556">556</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -1290,7 +1294,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00505">505</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00508">508</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -1328,7 +1332,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00476">476</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00479">479</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -1366,7 +1370,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00469">469</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00472">472</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -1404,7 +1408,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00604">604</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00607">607</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -1442,7 +1446,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00611">611</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00614">614</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -1480,7 +1484,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00494">494</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00497">497</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -1518,7 +1522,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00576">576</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00579">579</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -1556,7 +1560,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00560">560</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00563">563</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -1584,7 +1588,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00352">352</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00355">355</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -1612,7 +1616,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00380">380</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00383">383</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>
@@ -1650,7 +1654,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00430">430</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalDesigner_8cpp_source.html#l00433">433</a> of file <a class="el" href="SignalDesigner_8cpp_source.html">SignalDesigner.cpp</a>.</p>
 
 </div>
 </div>

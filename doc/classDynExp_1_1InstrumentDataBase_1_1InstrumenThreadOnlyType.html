@@ -108,7 +108,7 @@ $(document).ready(function(){initNavTree('classDynExp_1_1InstrumentDataBase_1_1I
 </div><!--header-->
 <div class="contents">
 
-<p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">InstrumentDataBase</a>'s</code> private methods to the instrument thread <code><a class="el" href="classDynExp_1_1InstrumentDataBase_1_1InstrumenThreadOnlyType.html#acfae0e364389e4ec5258f2228c0dfa16" title="Instruments run in their own thread. This is the instrument thread&#39;s main function.">InstrumentThreadMain()</a></code>.  
+<p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">InstrumentDataBase</a>'s</code> private methods to the instrument thread <code><a class="el" href="classDynExp_1_1InstrumentDataBase_1_1InstrumenThreadOnlyType.html#a6bae1862fb5b8e9f56b284d916076eeb" title="Instruments run in their own thread. This is the instrument thread&#39;s main function.">InstrumentThreadMain()</a></code>.  
  <a href="classDynExp_1_1InstrumentDataBase_1_1InstrumenThreadOnlyType.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -122,9 +122,6 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a96af63769eaa39dded5b1950d49a784e" id="r_a96af63769eaa39dded5b1950d49a784e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentDataBase_1_1InstrumenThreadOnlyType.html#a96af63769eaa39dded5b1950d49a784e">SetLastUpdateTime</a> (std::chrono::system_clock::time_point <a class="el" href="classDynExp_1_1InstrumentDataBase.html#a1464cd861305dc3b06611601a2d392f2">LastUpdate</a>)</td></tr>
 <tr class="memdesc:a96af63769eaa39dded5b1950d49a784e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter for <a class="el" href="classDynExp_1_1InstrumentDataBase.html#a1464cd861305dc3b06611601a2d392f2" title="Time point when the instrument thread called InstrumentBase::UpdateDataInternal() the last time.">InstrumentDataBase::LastUpdate</a>.  <br /></td></tr>
 <tr class="separator:a96af63769eaa39dded5b1950d49a784e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39c226c0bd061fcd590ca6afab13f5e7" id="r_a39c226c0bd061fcd590ca6afab13f5e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentDataBase_1_1InstrumenThreadOnlyType.html#a39c226c0bd061fcd590ca6afab13f5e7">SetException</a> (std::exception_ptr <a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e">InstrumentException</a>) noexcept</td></tr>
-<tr class="memdesc:a39c226c0bd061fcd590ca6afab13f5e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter for <a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e" title="Used to transfer exceptions from the instrument thread to the main thread. Stores the exception respo...">InstrumentDataBase::InstrumentException</a>.  <br /></td></tr>
-<tr class="separator:a39c226c0bd061fcd590ca6afab13f5e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -136,14 +133,14 @@ Private Attributes</h2></td></tr>
 Friends</h2></td></tr>
 <tr class="memitem:af9c40a1813c24229564eaaeae4b8aac5" id="r_af9c40a1813c24229564eaaeae4b8aac5"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentDataBase_1_1InstrumenThreadOnlyType.html#af9c40a1813c24229564eaaeae4b8aac5">InstrumentDataBase</a></td></tr>
 <tr class="separator:af9c40a1813c24229564eaaeae4b8aac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfae0e364389e4ec5258f2228c0dfa16" id="r_acfae0e364389e4ec5258f2228c0dfa16"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentDataBase_1_1InstrumenThreadOnlyType.html#acfae0e364389e4ec5258f2228c0dfa16">InstrumentThreadMain</a> (<a class="el" href="classDynExp_1_1InstrumentInstance.html">InstrumentInstance</a>, <a class="el" href="classDynExp_1_1InstrumentBase.html">InstrumentBase</a> *const)</td></tr>
-<tr class="memdesc:acfae0e364389e4ec5258f2228c0dfa16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instruments run in their own thread. This is the instrument thread's main function.  <br /></td></tr>
-<tr class="separator:acfae0e364389e4ec5258f2228c0dfa16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bae1862fb5b8e9f56b284d916076eeb" id="r_a6bae1862fb5b8e9f56b284d916076eeb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentDataBase_1_1InstrumenThreadOnlyType.html#a6bae1862fb5b8e9f56b284d916076eeb">InstrumentThreadMain</a> (std::unique_ptr&lt; <a class="el" href="classDynExp_1_1RunnableInstance.html">RunnableInstance</a> &gt; &amp;&amp;, <a class="el" href="classDynExp_1_1RunnableObject.html">RunnableObject</a> *)</td></tr>
+<tr class="memdesc:a6bae1862fb5b8e9f56b284d916076eeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instruments run in their own thread. This is the instrument thread's main function.  <br /></td></tr>
+<tr class="separator:a6bae1862fb5b8e9f56b284d916076eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">InstrumentDataBase</a>'s</code> private methods to the instrument thread <code><a class="el" href="classDynExp_1_1InstrumentDataBase_1_1InstrumenThreadOnlyType.html#acfae0e364389e4ec5258f2228c0dfa16" title="Instruments run in their own thread. This is the instrument thread&#39;s main function.">InstrumentThreadMain()</a></code>. </p>
+<div class="textblock"><p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">InstrumentDataBase</a>'s</code> private methods to the instrument thread <code><a class="el" href="classDynExp_1_1InstrumentDataBase_1_1InstrumenThreadOnlyType.html#a6bae1862fb5b8e9f56b284d916076eeb" title="Instruments run in their own thread. This is the instrument thread&#39;s main function.">InstrumentThreadMain()</a></code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00180">180</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00182">182</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0bbed3f7824815383f3c9b1693dd9891" name="a0bbed3f7824815383f3c9b1693dd9891"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0bbed3f7824815383f3c9b1693dd9891">&#9670;&#160;</a></span>InstrumenThreadOnlyType()</h2>
@@ -177,7 +174,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00189">189</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00191">191</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -207,36 +204,6 @@ Friends</h2></td></tr>
 
 <p>Getter for <a class="el" href="classDynExp_1_1InstrumentDataBase.html#ab01c9dc33697b1d9f7802920cdf45e2f" title="Used to notify the instrument thread about new tasks when enqueuing tasks into the task queue....">NewTaskNotifier</a>.   </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns <a class="el" href="classDynExp_1_1InstrumentDataBase.html#ab01c9dc33697b1d9f7802920cdf45e2f" title="Used to notify the instrument thread about new tasks when enqueuing tasks into the task queue....">NewTaskNotifier</a> to notify the instrument thread about new tasks.   </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00191">191</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
-
-</div>
-</div>
-<a id="a39c226c0bd061fcd590ca6afab13f5e7" name="a39c226c0bd061fcd590ca6afab13f5e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39c226c0bd061fcd590ca6afab13f5e7">&#9670;&#160;</a></span>SetException()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DynExp::InstrumentDataBase::InstrumenThreadOnlyType::SetException </td>
-          <td>(</td>
-          <td class="paramtype">std::exception_ptr&#160;</td>
-          <td class="paramname"><em>InstrumentException</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Setter for <a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e" title="Used to transfer exceptions from the instrument thread to the main thread. Stores the exception respo...">InstrumentDataBase::InstrumentException</a>. </p>
 
 <p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00193">193</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
@@ -268,7 +235,7 @@ Friends</h2></td></tr>
 
 <p>Setter for <a class="el" href="classDynExp_1_1InstrumentDataBase.html#a1464cd861305dc3b06611601a2d392f2" title="Time point when the instrument thread called InstrumentBase::UpdateDataInternal() the last time.">InstrumentDataBase::LastUpdate</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00192">192</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00194">194</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -293,12 +260,12 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00182">182</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00184">184</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
-<a id="acfae0e364389e4ec5258f2228c0dfa16" name="acfae0e364389e4ec5258f2228c0dfa16"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfae0e364389e4ec5258f2228c0dfa16">&#9670;&#160;</a></span>InstrumentThreadMain</h2>
+<a id="a6bae1862fb5b8e9f56b284d916076eeb" name="a6bae1862fb5b8e9f56b284d916076eeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bae1862fb5b8e9f56b284d916076eeb">&#9670;&#160;</a></span>InstrumentThreadMain</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -309,13 +276,13 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">int InstrumentThreadMain </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classDynExp_1_1InstrumentInstance.html">InstrumentInstance</a>&#160;</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classDynExp_1_1RunnableInstance.html">RunnableInstance</a> &gt; &amp;&amp;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classDynExp_1_1InstrumentBase.html">InstrumentBase</a> * const&#160;</td>
+          <td class="paramtype"><a class="el" href="classDynExp_1_1RunnableObject.html">RunnableObject</a> *&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -334,8 +301,8 @@ Friends</h2></td></tr>
 <p>Instruments run in their own thread. This is the instrument thread's main function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Instance</td><td>Handle to the instrument thread's data related to the instrument running this thread. The instrument thread is expected to let the lifetime of <code>Instance</code> expire upon termination. </td></tr>
-    <tr><td class="paramname">Instrument</td><td>Pointer to the instrument running this thread </td></tr>
+    <tr><td class="paramname">InstancePtr</td><td>Pointer to a handle to the instrument thread's data related to the instrument running this thread. The instrument thread takes ownership of <code>InstancePtr</code> and is expected to let the lifetime of <code>InstancePtr</code> expire upon termination. </td></tr>
+    <tr><td class="paramname">BaseObject</td><td>Pointer to the instrument running this thread. </td></tr>
   </table>
   </dd>
 </dl>
@@ -368,7 +335,7 @@ Friends</h2></td></tr>
 
 <p>Owning <code><a class="el" href="classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">InstrumentDataBase</a></code> instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00195">195</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00196">196</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>

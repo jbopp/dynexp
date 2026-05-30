@@ -133,6 +133,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8f881e7a5300904008d0b1e97b98194e" id="r_a8f881e7a5300904008d0b1e97b98194e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUtil_1_1PyObject.html">PyObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUtil_1_1PyObject.html#a8f881e7a5300904008d0b1e97b98194e">operator=</a> (const T &amp;<a class="el" href="classUtil_1_1PyObject.html#a1fa0eb4100e149302882062e7daf1ef8">Object</a>)</td></tr>
 <tr class="memdesc:a8f881e7a5300904008d0b1e97b98194e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locks the GIL, removes the owned object and copy-assigns from <code>Object</code>.  <br /></td></tr>
 <tr class="separator:a8f881e7a5300904008d0b1e97b98194e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca8ed36bce2c2f0ba8e73e85c3d6721b" id="r_aca8ed36bce2c2f0ba8e73e85c3d6721b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUtil_1_1PyObject.html#aca8ed36bce2c2f0ba8e73e85c3d6721b">operator bool</a> () const noexcept</td></tr>
+<tr class="memdesc:aca8ed36bce2c2f0ba8e73e85c3d6721b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates this <code><a class="el" href="classUtil_1_1PyObject.html" title="Wraps a class derived from pybind11::object and ensures that the GIL is acquired when the PyObject is...">PyObject</a></code> instance to true if <a class="el" href="classUtil_1_1PyObject.html#a1fa0eb4100e149302882062e7daf1ef8" title="Object derived from pybind11::object owned by this PyObject instance.">Object</a> is not nullptr and if the wrapped object is not pybind11::none.  <br /></td></tr>
+<tr class="separator:aca8ed36bce2c2f0ba8e73e85c3d6721b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae63e64a8dfd9aa3557eb9de9bf78762d" id="r_ae63e64a8dfd9aa3557eb9de9bf78762d"><td class="memItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUtil_1_1PyObject.html#ae63e64a8dfd9aa3557eb9de9bf78762d">Get</a> () const noexcept</td></tr>
 <tr class="memdesc:ae63e64a8dfd9aa3557eb9de9bf78762d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the wrapped <code>pybind11::object</code>.  <br /></td></tr>
 <tr class="separator:ae63e64a8dfd9aa3557eb9de9bf78762d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -319,7 +322,7 @@ template&lt;typename T , std::enable_if_t&lt; std::is_base_of_v&lt; py::object, 
 <p>Returns the wrapped <code>pybind11::object</code>. </p>
 <dl class="section return"><dt>Returns</dt><dd>Owned object or nullptr if no object is owned </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="PyUtil_8h_source.html#l00102">102</a> of file <a class="el" href="PyUtil_8h_source.html">PyUtil.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PyUtil_8h_source.html#l00108">108</a> of file <a class="el" href="PyUtil_8h_source.html">PyUtil.h</a>.</p>
 
 </div>
 </div>
@@ -351,7 +354,38 @@ template&lt;typename T , std::enable_if_t&lt; std::is_base_of_v&lt; py::object, 
 <p>Returns the wrapped <code>pybind11::object</code>.   noexcept </p>
 <dl class="section return"><dt>Returns</dt><dd>Owned object or nullptr if no object is owned   noexcept </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="PyUtil_8h_source.html#l00107">107</a> of file <a class="el" href="PyUtil_8h_source.html">PyUtil.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PyUtil_8h_source.html#l00113">113</a> of file <a class="el" href="PyUtil_8h_source.html">PyUtil.h</a>.</p>
+
+</div>
+</div>
+<a id="aca8ed36bce2c2f0ba8e73e85c3d6721b" name="aca8ed36bce2c2f0ba8e73e85c3d6721b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca8ed36bce2c2f0ba8e73e85c3d6721b">&#9670;&#160;</a></span>operator bool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::enable_if_t&lt; std::is_base_of_v&lt; py::object, T &gt;, int &gt;  = 0&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classUtil_1_1PyObject.html">Util::PyObject</a>&lt; T, &gt;::operator bool </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Evaluates this <code><a class="el" href="classUtil_1_1PyObject.html" title="Wraps a class derived from pybind11::object and ensures that the GIL is acquired when the PyObject is...">PyObject</a></code> instance to true if <a class="el" href="classUtil_1_1PyObject.html#a1fa0eb4100e149302882062e7daf1ef8" title="Object derived from pybind11::object owned by this PyObject instance.">Object</a> is not nullptr and if the wrapped object is not pybind11::none. </p>
+
+<p class="definition">Definition at line <a class="el" href="PyUtil_8h_source.html#l00102">102</a> of file <a class="el" href="PyUtil_8h_source.html">PyUtil.h</a>.</p>
 
 </div>
 </div>
@@ -398,7 +432,7 @@ template&lt;typename... ArgTs&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Return value of the call of type derived from pybind11::object or pybind11::none if the call did not happen. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="PyUtil_8h_source.html#l00128">128</a> of file <a class="el" href="PyUtil_8h_source.html">PyUtil.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PyUtil_8h_source.html#l00134">134</a> of file <a class="el" href="PyUtil_8h_source.html">PyUtil.h</a>.</p>
 
 </div>
 </div>
@@ -468,7 +502,7 @@ template&lt;typename T , std::enable_if_t&lt; std::is_base_of_v&lt; py::object, 
 
 <p>Removes the owned <code>pybind11::object</code> after locking the GIL.   </p>
 
-<p class="definition">Definition at line <a class="el" href="PyUtil_8h_source.html#l00140">140</a> of file <a class="el" href="PyUtil_8h_source.html">PyUtil.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PyUtil_8h_source.html#l00146">146</a> of file <a class="el" href="PyUtil_8h_source.html">PyUtil.h</a>.</p>
 
 </div>
 </div>
@@ -500,7 +534,7 @@ template&lt;typename T , std::enable_if_t&lt; std::is_base_of_v&lt; py::object, 
 <p>Removes the owned <code>pybind11::object</code> after locking the GIL.   </p>
 <p>This <a class="el" href="classUtil_1_1PyObject.html" title="Wraps a class derived from pybind11::object and ensures that the GIL is acquired when the PyObject is...">PyObject</a> instance does not own an object after this operation. </p>
 
-<p class="definition">Definition at line <a class="el" href="PyUtil_8h_source.html#l00113">113</a> of file <a class="el" href="PyUtil_8h_source.html">PyUtil.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PyUtil_8h_source.html#l00119">119</a> of file <a class="el" href="PyUtil_8h_source.html">PyUtil.h</a>.</p>
 
 </div>
 </div>
@@ -529,7 +563,7 @@ template&lt;typename T , std::enable_if_t&lt; std::is_base_of_v&lt; py::object, 
 
 <p>Object derived from <code>pybind11::object</code> owned by this <a class="el" href="classUtil_1_1PyObject.html" title="Wraps a class derived from pybind11::object and ensures that the GIL is acquired when the PyObject is...">PyObject</a> instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="PyUtil_8h_source.html#l00149">149</a> of file <a class="el" href="PyUtil_8h_source.html">PyUtil.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PyUtil_8h_source.html#l00155">155</a> of file <a class="el" href="PyUtil_8h_source.html">PyUtil.h</a>.</p>
 
 </div>
 </div>

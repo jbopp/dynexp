@@ -69,6 +69,8 @@ var classDynExpHardware_1_1QutoolsTDCHardwareAdapter =
     [ "CoincidenceData", "classDynExpHardware_1_1QutoolsTDCHardwareAdapter.html#a4d5fb490fb7b809c891ea9a180f086ee", null ],
     [ "DeviceConnected", "classDynExpHardware_1_1QutoolsTDCHardwareAdapter.html#a42c2d5e8cc4352018ff6432a2268c9b2", null ],
     [ "DeviceNumber", "classDynExpHardware_1_1QutoolsTDCHardwareAdapter.html#abb2793a4b9b9ad4c8bbe944a6c2ea61c", null ],
+    [ "NumChannels", "classDynExpHardware_1_1QutoolsTDCHardwareAdapter.html#ad978f9bcd9ba3b923dab40bde90da91e", null ],
+    [ "NumCoincidenceChannels", "classDynExpHardware_1_1QutoolsTDCHardwareAdapter.html#ab144bc18e1e742c7fb5f2bef49df9cf7", null ],
     [ "Timebase", "classDynExpHardware_1_1QutoolsTDCHardwareAdapter.html#afb8759b95c3fc68e9872171225934c8e", null ],
     [ "TimestampsPerChannel", "classDynExpHardware_1_1QutoolsTDCHardwareAdapter.html#af0894b8296b1023bc55f99bee89e170e", null ]
 ];

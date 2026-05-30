@@ -1,0 +1,7 @@
+<map id="DynExpInstr::NetworkLaserConfigurator" name="DynExpInstr::NetworkLaserConfigurator">
+<area shape="rect" id="Node000001" title=" " alt="" coords="479,20,677,60"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1gRPCInstrumentConfigurator.html" title=" " alt="" coords="216,5,431,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="444,37,478,37,478,43,444,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,27,168,53"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="182,37,216,37,216,43,182,43"/>
+</map>

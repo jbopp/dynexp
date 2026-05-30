@@ -40,6 +40,7 @@ var Util_8h =
     [ "Util::OnDestruction< ObjectT, CallableT >", "classUtil_1_1OnDestruction.html", "classUtil_1_1OnDestruction" ],
     [ "Util::BlobDataType", "classUtil_1_1BlobDataType.html", "classUtil_1_1BlobDataType" ],
     [ "Util::OptionalBool", "classUtil_1_1OptionalBool.html", "classUtil_1_1OptionalBool" ],
+    [ "Util::UniqueID", "classUtil_1_1UniqueID.html", "classUtil_1_1UniqueID" ],
     [ "Util::VersionType", "namespaceUtil.html#structUtil_1_1VersionType", [
       [ "Major", "namespaceUtil.html#a6ad097a2ead91db7a7321452d34b703d", null ],
       [ "Minor", "namespaceUtil.html#a84f1462fdbcf415382d3d3fc36fee5ca", null ],
@@ -61,11 +62,13 @@ var Util_8h =
     [ "remove_first_from_tuple_t", "Util_8h.html#a6567c7f10bb5d827f0df893e13698aee", null ],
     [ "return_of_t", "Util_8h.html#a81f4ac72ff1d4ad593754196eead2565", null ],
     [ "seconds", "Util_8h.html#aac7f18dbdcac4a7036045cc4f93a283c", null ],
+    [ "ConvertFrequencyWavelength", "Util_8h.html#a1635b6f9dbe82ada0c07c66f4a687124", null ],
     [ "CurrentTimeAndDateString", "Util_8h.html#a595e45049086b60cd1cc7ce79fff369b", null ],
     [ "EventLog", "Util_8h.html#a702d46b185233ad1fa56ee7033eabd41", null ],
     [ "ExceptionToStr", "Util_8h.html#a3214377992588c6e7eabe298496544af", null ],
     [ "FFT", "Util_8h.html#ae8bbe85073186161abeffadaa847827a", null ],
     [ "FilenameFromPath", "Util_8h.html#a25dd61e68ce03cc8686779f38d354d40", null ],
+    [ "HashCombine", "Util_8h.html#ad74811f5aeb7c303a3dd97a3b0cf138e", null ],
     [ "NumToT", "Util_8h.html#ad22b7f50701b786e792e23fe19776dce", null ],
     [ "NumToT", "Util_8h.html#ac2ced77b741ebc83b2a34a3d6950da5f", null ],
     [ "operator<<", "Util_8h.html#adebbec01449b4b833a5c01b9e96b6ba8", null ],
@@ -89,5 +92,6 @@ var Util_8h =
     [ "ToUnitStr< std::chrono::seconds >", "Util_8h.html#a1291cad87815f03694922382ba402222", null ],
     [ "TrimTrailingZeros", "Util_8h.html#ab963e59ba11ee8e43e8e1fe3482fa377", null ],
     [ "VersionFromString", "Util_8h.html#a68b9b93456301284ca7d695c51a4001a", null ],
-    [ "is_contained_in_v", "Util_8h.html#a132b3de3103b01ab172ee946b4ad0c96", null ]
+    [ "is_contained_in_v", "Util_8h.html#a132b3de3103b01ab172ee946b4ad0c96", null ],
+    [ "SpeedOfLight", "Util_8h.html#a9d2af7b8b0545b3670b402f217dba6bf", null ]
 ];

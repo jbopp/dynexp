@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('classDynExp_1_1QModuleBase.html',''); 
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classDynExp_1_1QModuleBase__inherit__graph.svg" width="1095" height="622"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classDynExp_1_1QModuleBase__inherit__graph.svg" width="1158" height="786"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -254,7 +254,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a784b327cbbba14124e1e303b289714c4 inherit pub_methods_classDynExp_1_1ModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6929f6ac89a2c9f9c4e686c59acd31ce inherit pub_methods_classDynExp_1_1ModuleBase" id="r_a6929f6ac89a2c9f9c4e686c59acd31ce"><td class="memTemplParams" colspan="2">template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; </td></tr>
 <tr class="memitem:a6929f6ac89a2c9f9c4e686c59acd31ce inherit pub_methods_classDynExp_1_1ModuleBase"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#a6929f6ac89a2c9f9c4e686c59acd31ce">MakeAndEnqueueEvent</a> (ReceiverType *Receiver, EventType EventFuncPtr, ArgsTs &amp;&amp;...Args) const</td></tr>
-<tr class="memdesc:a6929f6ac89a2c9f9c4e686c59acd31ce inherit pub_methods_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <code><a class="el" href="namespaceDynExp.html#a95f0f5b615c5d99ff4325ab785735a7a" title="Creates an event of type DefaultEvent.">MakeEvent()</a></code> to construct a new event and subsequently enqueues the event into the module's event queue. Logical const-ness: this is a const member function to allow pointers to <code>const</code> <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> inserting events into the module's event queue. These kind of pointers are e.g. returned by <a class="el" href="classDynExp_1_1RunnableInstance.html#afafb4793635ac8c1c34471ff255549f1" title="Returns Owner.">RunnableInstance::GetOwner()</a> which can be called by events' <a class="el" href="classDynExp_1_1EventBase.html#a77b9b29345abc36c7f798e1ae3822670" title="Invokes the event passing the receiving module&#39;s instance reference to it.">EventBase::InvokeChild()</a> functions. For <code>const</code> <code>ModuleBase*</code>, it is possible to insert events into the event queue, but not to change the <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> object itself (e.g. calling <a class="el" href="classDynExp_1_1Object.html#a837a8e8daa7853003474b458a3fe0a46" title="Resets this Object instance (including all its derived classes) by calling ResetImpl()....">Object::Reset()</a>).  <br /></td></tr>
+<tr class="memdesc:a6929f6ac89a2c9f9c4e686c59acd31ce inherit pub_methods_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <code><a class="el" href="namespaceDynExp.html#a95f0f5b615c5d99ff4325ab785735a7a" title="Creates an event of type DefaultEvent.">MakeEvent()</a></code> to construct a new event and subsequently enqueues the event into the module's event queue. Logical const-ness: this is a const member function to allow pointers to <code>const</code> <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> inserting events into the module's event queue. These kind of pointers are e.g. returned by <a class="el" href="classDynExp_1_1RunnableInstance.html#afafb4793635ac8c1c34471ff255549f1" title="Returns Owner.">RunnableInstance::GetOwner()</a> which can be called by events' <a class="el" href="classDynExp_1_1EventBase.html#a77b9b29345abc36c7f798e1ae3822670" title="Invokes the event passing the receiving module&#39;s instance reference to it. Only to be called from Mod...">EventBase::InvokeChild()</a> functions. For <code>const</code> <code>ModuleBase*</code>, it is possible to insert events into the event queue, but not to change the <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> object itself (e.g. calling <a class="el" href="classDynExp_1_1Object.html#a837a8e8daa7853003474b458a3fe0a46" title="Resets this Object instance (including all its derived classes) by calling ResetImpl()....">Object::Reset()</a>).  <br /></td></tr>
 <tr class="separator:a6929f6ac89a2c9f9c4e686c59acd31ce inherit pub_methods_classDynExp_1_1ModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8c362a3e086828a2ccbde05fb5d4795 inherit pub_methods_classDynExp_1_1ModuleBase" id="r_ae8c362a3e086828a2ccbde05fb5d4795"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#ae8c362a3e086828a2ccbde05fb5d4795">TreatModuleExceptionsAsWarnings</a> () const</td></tr>
 <tr class="memdesc:ae8c362a3e086828a2ccbde05fb5d4795 inherit pub_methods_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether this module should be terminated if an exception leaves the module's main loop or respective event handlers.  <br /></td></tr>
@@ -287,7 +287,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:adbb2e71639fdcab42c9c6c299e4cf2b8 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <a class="el" href="classDynExp_1_1RunnableObject.html#aacef09883d7d4462fc014330663d9f4f" title="Holds information about why the RunnableObject instance is paused.">ReasonWhyPaused</a>.  <br /></td></tr>
 <tr class="separator:adbb2e71639fdcab42c9c6c299e4cf2b8 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject" id="r_a416b8000830913b11eaf02d1f1af49d6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6">Run</a> (QWidget *ParentWidget=nullptr)</td></tr>
-<tr class="memdesc:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread and ensures that all <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instances linked to this instance via <code><a class="el" href="classDynExp_1_1ObjectLink.html" title="Type to define object link parameters as ParamsBase::Param&lt; ObjectLink&lt; ObjectT &gt; &gt; or to define obje...">ObjectLink</a></code> parameters are in a ready state. Calls <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> which is to be overridden by derived classes to start a thread and to pass this thread back by calling <code><a class="el" href="classDynExp_1_1RunnableObject.html#aac70e1485923ee8c78ed5732099b4c90" title="Stores a thread constructed by a derived class overriding RunChild() in Thread taking ownership of th...">StoreThread()</a></code>.  <br /></td></tr>
+<tr class="memdesc:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread and ensures that all <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instances linked to this instance via <code><a class="el" href="classDynExp_1_1ObjectLink.html" title="Type to define object link parameters as ParamsBase::Param&lt; ObjectLink&lt; ObjectT &gt; &gt; or to define obje...">ObjectLink</a></code> parameters are in a ready state. Calls <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> which is to be overridden by derived classes to start a thread and to pass this thread back by calling <code>StoreThread()</code>.  <br /></td></tr>
 <tr class="separator:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8275b7f99072059d5608a4201ed579af inherit pub_methods_classDynExp_1_1RunnableObject" id="r_a8275b7f99072059d5608a4201ed579af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a8275b7f99072059d5608a4201ed579af">RunIfRunAutomatic</a> ()</td></tr>
 <tr class="memdesc:a8275b7f99072059d5608a4201ed579af inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> if <a class="el" href="classDynExp_1_1RunnableObjectParams.html#a1ef775df6c01b554f3c102024646c0dd" title="Determines when the runnable object is started. Refer to RunnableObjectParams::StartupType.">RunnableObjectParams::Startup</a> is set to <a class="el" href="classDynExp_1_1RunnableObjectParams.html#a33b475bb5737bca9bf78ce6a6a7c41f4af69add31b7e16e98b1fa4642036b1bfc">RunnableObjectParams::Automatic</a>.  <br /></td></tr>
@@ -385,9 +385,9 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a28a89773cf56f3c229dd9c141de12ab3 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_a28a89773cf56f3c229dd9c141de12ab3"><td class="memItemLeft" align="right" valign="top">std::promise&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a28a89773cf56f3c229dd9c141de12ab3">MakeThreadExitedPromise</a> ()</td></tr>
 <tr class="memdesc:a28a89773cf56f3c229dd9c141de12ab3 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to be used by overridden <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> functions in derived classes to (re)initialize the <a class="el" href="classDynExp_1_1RunnableObject.html#a45a818a181d16129dfb43080152527c4" title="Future which signals that Thread has terminated. Refer to OnThreadHasExited().">ThreadExitedSignal</a> future and to provide the derived class a promise to signal the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance that its thread has terminated.  <br /></td></tr>
 <tr class="separator:a28a89773cf56f3c229dd9c141de12ab3 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac70e1485923ee8c78ed5732099b4c90 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_aac70e1485923ee8c78ed5732099b4c90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#aac70e1485923ee8c78ed5732099b4c90">StoreThread</a> (std::thread &amp;&amp;<a class="el" href="classDynExp_1_1RunnableObject.html#a7f653f6a7407d6a69dd9d75858d6b363">Thread</a>) noexcept</td></tr>
-<tr class="memdesc:aac70e1485923ee8c78ed5732099b4c90 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores a thread constructed by a derived class overriding <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> in <code>Thread</code> taking ownership of the thread. Only call this function within <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a>!</code>  <br /></td></tr>
-<tr class="separator:aac70e1485923ee8c78ed5732099b4c90 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a343b47df52dc884564b9e0c60a1647e7 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_a343b47df52dc884564b9e0c60a1647e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a343b47df52dc884564b9e0c60a1647e7">MakeThread</a> (<a class="el" href="classDynExp_1_1RunnableObject.html#addd2ceca45b37cf3780015a8892b5da6">ThreadFuncType</a> ThreadFunc, std::unique_ptr&lt; <a class="el" href="classDynExp_1_1RunnableInstance.html">RunnableInstance</a> &gt; &amp;&amp;InstancePtr)</td></tr>
+<tr class="memdesc:a343b47df52dc884564b9e0c60a1647e7 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and runs the thread of the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance. Call this function in the derived class overriding <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> and nowhere else!  <br /></td></tr>
+<tr class="separator:a343b47df52dc884564b9e0c60a1647e7 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21fc682e09f7e23e2a65fc8b8eef7106 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_a21fc682e09f7e23e2a65fc8b8eef7106"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a21fc682e09f7e23e2a65fc8b8eef7106">IsCallFromRunnableThread</a> () const</td></tr>
 <tr class="memdesc:a21fc682e09f7e23e2a65fc8b8eef7106 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether <code>Thread's</code> id matches the id of the calling thread. This is thread-safe if the function is called by the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread since <code><a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">Terminate()</a></code> joins the threads before changing the <code>Thread</code> member. It is also thread-safe if the function is called by the thread owning the the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance since <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> and <code><a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">Terminate()</a></code> can only be called by this thread. Only <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> and <code><a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">Terminate()</a></code> (indirectly) modify <code>Thread</code>.  <br /></td></tr>
 <tr class="separator:a21fc682e09f7e23e2a65fc8b8eef7106 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -491,7 +491,7 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classDynExp_1_1ModuleBase"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classDynExp_1_1ModuleBase')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classDynExp_1_1ModuleBase.html">DynExp::ModuleBase</a></td></tr>
 <tr class="memitem:aa62c218c15d17c8beeaafbec0e9e2846 inherit pub_attribs_classDynExp_1_1ModuleBase" id="r_aa62c218c15d17c8beeaafbec0e9e2846"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html">ModuleThreadOnlyType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#aa62c218c15d17c8beeaafbec0e9e2846">ModuleThreadOnly</a></td></tr>
-<tr class="memdesc:aa62c218c15d17c8beeaafbec0e9e2846 inherit pub_attribs_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to the module thread <code><a class="el" href="namespaceDynExp.html#acd637f0e67b9a2815532b5a7e1754bd2" title="Modules run in their own thread. This is the module thread&#39;s main function.">ModuleThreadMain()</a></code>.    <br /></td></tr>
+<tr class="memdesc:aa62c218c15d17c8beeaafbec0e9e2846 inherit pub_attribs_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to the module thread <code><a class="el" href="namespaceDynExp.html#a1ef415c3706dc71e72f030c9d9444291" title="Modules run in their own thread. This is the module thread&#39;s main function.">ModuleThreadMain()</a></code>.    <br /></td></tr>
 <tr class="separator:aa62c218c15d17c8beeaafbec0e9e2846 inherit pub_attribs_classDynExp_1_1ModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafb7bfaf4658e6b499912178450a5de0 inherit pub_attribs_classDynExp_1_1ModuleBase" id="r_aafb7bfaf4658e6b499912178450a5de0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExp_1_1ModuleBase_1_1EventListenersOnlyType.html">EventListenersOnlyType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#aafb7bfaf4658e6b499912178450a5de0">EventListenersOnly</a></td></tr>
 <tr class="memdesc:aafb7bfaf4658e6b499912178450a5de0 inherit pub_attribs_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to any <code><a class="el" href="classDynExp_1_1TypedEventListeners.html" title="Typed managers of event listeners class whose instances are owned by classes derived from InterModule...">TypedEventListeners</a></code> class.    <br /></td></tr>
@@ -519,6 +519,10 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a8e6abc80a7c35d4fca2ebfa1b1f141f0 inherit pub_static_attribs_classDynExp_1_1Object" id="r_a8e6abc80a7c35d4fca2ebfa1b1f141f0"><td class="memItemLeft" align="right" valign="top">static constexpr std::chrono::milliseconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#a8e6abc80a7c35d4fca2ebfa1b1f141f0">GetParamsTimeoutDefault</a> = std::chrono::milliseconds(100)</td></tr>
 <tr class="memdesc:a8e6abc80a7c35d4fca2ebfa1b1f141f0 inherit pub_static_attribs_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default timeout used by <a class="el" href="classDynExp_1_1Object.html#a13f5742205cff37ac598ab2ccb39ca18" title="Locks the mutex of the parameter class instance Params assigned to this Object instance and returns a...">Object::GetParams()</a> to lock the mutex of the parameter instance assigned to this <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instance.  <br /></td></tr>
 <tr class="separator:a8e6abc80a7c35d4fca2ebfa1b1f141f0 inherit pub_static_attribs_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_types_classDynExp_1_1RunnableObject"><td colspan="2" onclick="javascript:toggleInherit('pro_types_classDynExp_1_1RunnableObject')"><img src="closed.png" alt="-"/>&#160;Protected Types inherited from <a class="el" href="classDynExp_1_1RunnableObject.html">DynExp::RunnableObject</a></td></tr>
+<tr class="memitem:addd2ceca45b37cf3780015a8892b5da6 inherit pro_types_classDynExp_1_1RunnableObject" id="r_addd2ceca45b37cf3780015a8892b5da6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#addd2ceca45b37cf3780015a8892b5da6">ThreadFuncType</a> = std::function&lt; int(std::unique_ptr&lt; <a class="el" href="classDynExp_1_1RunnableInstance.html">RunnableInstance</a> &gt; &amp;&amp;, <a class="el" href="classDynExp_1_1RunnableObject.html">RunnableObject</a> *)&gt;</td></tr>
+<tr class="memdesc:addd2ceca45b37cf3780015a8892b5da6 inherit pro_types_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the thread function executed by <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instances.  <br /></td></tr>
+<tr class="separator:addd2ceca45b37cf3780015a8892b5da6 inherit pro_types_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_static_methods_classDynExp_1_1ModuleBase"><td colspan="2" onclick="javascript:toggleInherit('pro_static_methods_classDynExp_1_1ModuleBase')"><img src="closed.png" alt="-"/>&#160;Static Protected Member Functions inherited from <a class="el" href="classDynExp_1_1ModuleBase.html">DynExp::ModuleBase</a></td></tr>
 <tr class="memitem:a3b5f0043da6a34555b28ba05fd070e65 inherit pro_static_methods_classDynExp_1_1ModuleBase" id="r_a3b5f0043da6a34555b28ba05fd070e65"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#a3b5f0043da6a34555b28ba05fd070e65">GetExceptionUnsafe</a> (const <a class="el" href="classDynExp_1_1ModuleBase.html#a9080ee1a99b5e77959e571be22dce1a5">ModuleDataTypeSyncPtrConstType</a> &amp;ModuleDataPtr)</td></tr>
 <tr class="memdesc:a3b5f0043da6a34555b28ba05fd070e65 inherit pro_static_methods_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for <a class="el" href="classDynExp_1_1ModuleDataBase.html#a17e379588d31f7daf6a5e1a855bbb6b9" title="Used to transfer exceptions from the module thread to the main (user interface) thread....">ModuleDataBase::ModuleException</a> assuming that the module data has already been locked.  <br /></td></tr>
@@ -527,7 +531,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for modules with a Qt-based user interface. Derive from this class to implement modules with a user interface. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01343">1343</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01659">1659</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a79b2dd9f55d0859278d7b68ee61d0c02" name="a79b2dd9f55d0859278d7b68ee61d0c02"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a79b2dd9f55d0859278d7b68ee61d0c02">&#9670;&#160;</a></span>ConfigType</h2>
@@ -543,7 +547,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Type of the configurator class belonging to this <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> type. Declare this alias in every derived class with the respective configurator class accompanying the derived <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01347">1347</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01663">1663</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -561,7 +565,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Type of the data class belonging to this <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> type. Declare this alias in every derived class with the respective data class accompanying the derived <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01348">1348</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01664">1664</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -580,7 +584,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Type of the parameter class belonging to this <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> type. Declare this alias in every derived class with the respective parameter class accompanying the derived <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code>. "  </p>
 <p>"  </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01346">1346</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01662">1662</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -627,7 +631,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00557">557</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00591">591</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -654,7 +658,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00562">562</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00596">596</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -733,7 +737,7 @@ template&lt;typename SenderType , typename SignalType , typename ReceiverType , 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01500">1500</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01816">1816</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -754,7 +758,7 @@ template&lt;typename SenderType , typename SignalType , typename ReceiverType , 
 
 <p>Disables all user interface controls in <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a>. Does nothing if <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a> is <code>nullptr</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00612">612</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00646">646</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -783,7 +787,7 @@ template&lt;typename SenderType , typename SignalType , typename ReceiverType , 
 
 <p>Toggles the docking state of <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a>. Does nothing if any of <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a>, <a class="el" href="classDynExp_1_1QModuleBase.html#a68d1ec1cf4ea0c0801c4a1442a6dc6a1" title="Pointer to DynExpManager&#39;s QMdiArea.">MdiArea</a>, <a class="el" href="classDynExp_1_1QModuleBase.html#acee88586880f821eb21a9a7b2de95ac6" title="Frame for Widget when the module window is docked to MdiArea.">MdiSubWindow</a>, or <a class="el" href="classDynExp_1_1QModuleBase.html#a9c5628e95032026082f66a76efd9be7a" title="Frame for Widget when the module window is undocked from MdiArea.">DockWidget</a> are <code>nullptr</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00665">665</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00699">699</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -812,7 +816,7 @@ template&lt;typename SenderType , typename SignalType , typename ReceiverType , 
 
 <p>Docks <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a> to <a class="el" href="classDynExp_1_1QModuleBase.html#a68d1ec1cf4ea0c0801c4a1442a6dc6a1" title="Pointer to DynExpManager&#39;s QMdiArea.">MdiArea</a>. Does nothing if any of <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a>, <a class="el" href="classDynExp_1_1QModuleBase.html#a68d1ec1cf4ea0c0801c4a1442a6dc6a1" title="Pointer to DynExpManager&#39;s QMdiArea.">MdiArea</a>, <a class="el" href="classDynExp_1_1QModuleBase.html#acee88586880f821eb21a9a7b2de95ac6" title="Frame for Widget when the module window is docked to MdiArea.">MdiSubWindow</a>, or <a class="el" href="classDynExp_1_1QModuleBase.html#a9c5628e95032026082f66a76efd9be7a" title="Frame for Widget when the module window is undocked from MdiArea.">DockWidget</a> are <code>nullptr</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00640">640</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00674">674</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -841,7 +845,7 @@ template&lt;typename SenderType , typename SignalType , typename ReceiverType , 
 
 <p>Focuses/activates DynExp's main window calling <a class="el" href="classDynExpManager.html#a87da901ba32fdf12d8bf3ed59ede39ae" title="Focuses/activates DynExp&#39;s main window and moves it on top of other windows if possible.">DynExpManager::FocusMainWindow()</a>. Does nothing if <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a> is <code>nullptr</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00695">695</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00729">729</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -885,7 +889,7 @@ template&lt;typename WidgetType &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01535">1535</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01851">1851</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -917,7 +921,7 @@ template&lt;typename WidgetType &gt; </div>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#aff620d0db4b7bc90490e2c6f93db224f">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01358">1358</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01674">1674</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -938,7 +942,7 @@ template&lt;typename WidgetType &gt; </div>
 
 <p>Removes <a class="el" href="classDynExp_1_1QModuleBase.html#acee88586880f821eb21a9a7b2de95ac6" title="Frame for Widget when the module window is docked to MdiArea.">MdiSubWindow</a>, <a class="el" href="classDynExp_1_1QModuleBase.html#a9c5628e95032026082f66a76efd9be7a" title="Frame for Widget when the module window is undocked from MdiArea.">DockWidget</a>, and <a class="el" href="classDynExp_1_1QModuleBase.html#af2e9fca9f7746dbd87ee89aee5d74d43" title="Qt action to push module window into focus. When triggered, QModuleWidget::OnFocusWindow() in invoked...">ModuleWindowFocusAction</a> setting them to <code>nullptr</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00604">604</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00638">638</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -985,7 +989,7 @@ template&lt;typename WidgetType &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00566">566</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00600">600</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1013,7 +1017,7 @@ template&lt;typename WidgetType &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00720">720</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00754">754</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1043,7 +1047,7 @@ template&lt;typename WidgetType &gt; </div>
 <p>Checks whether <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a> is docked. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a> is docked to <a class="el" href="classDynExp_1_1QModuleBase.html#a68d1ec1cf4ea0c0801c4a1442a6dc6a1" title="Pointer to DynExpManager&#39;s QMdiArea.">MdiArea</a>, false otherwise. Also returns true if either <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a> or <a class="el" href="classDynExp_1_1QModuleBase.html#acee88586880f821eb21a9a7b2de95ac6" title="Frame for Widget when the module window is docked to MdiArea.">MdiSubWindow</a> are <code>nullptr</code> since being docked is the default for a module's user interface window. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00711">711</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00745">745</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1073,7 +1077,7 @@ template&lt;typename WidgetType &gt; </div>
 <p>Used by <code><a class="el" href="classDynExp_1_1QModuleBase.html#aca3d25f5a76521fb896a83043254904e" title="Sets up the module&#39;s user interface widgets and window frames. Called by the main user interface thre...">InitUI()</a></code> as a factory function for the module's user interface widget. Create the widget here using <code>std::make_unique</code> and then use <code><a class="el" href="classDynExp_1_1QModuleBase.html#a46aa91ec36056a128e2876092c288edf" title="Uses Qt&#39;s connect mechanism to connect a QObject&#39;s signal to a DynExp module&#39;s event....">Connect()</a></code> to connect Qt signals to the module's event functions. </p>
 <dl class="section return"><dt>Returns</dt><dd>Return the created user interface widget. </dd></dl>
 
-<p>Implemented in <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a28b6e97de050140ba2b5d6644a8add8a">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#a5afe01b58ef4d7aa0c0992b3d1fc7a42">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#a88def73658c059a53f1e54c62e8db7ea">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a0412448081b44ea3195a72394e6fdb32">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#a7ebddcee8e2e72408af877d968bb2adf">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalDesigner.html#a7a29fb9054ba5274e20d9b44be826b8c">DynExpModule::SignalDesigner</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter.html#ab17a517e83e1b7440cdeba52d1fd4a5c">DynExpModule::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#a7db5e6b65f05f308bc8ff32ac61eae1b">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#a7da6c3bcfcc42c58424a713fca41d582">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#a06aae28548ca8a56bf365a0cf867c699">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#a191c90b05ab5abc8799e2977552b1ade">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
+<p>Implemented in <a class="el" href="classDynExpModule_1_1EventSender.html#ac002d6c178a02ca8d2f113d8253b01d5">DynExpModule::EventSender</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a28b6e97de050140ba2b5d6644a8add8a">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#a5afe01b58ef4d7aa0c0992b3d1fc7a42">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LaserControl.html#a435e3d71da8a9c337fbb4c14db37d647">DynExpModule::LaserControl</a>, <a class="el" href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a2928e5c141ebbcdd183268505a6a5fd0">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#a88def73658c059a53f1e54c62e8db7ea">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a0412448081b44ea3195a72394e6fdb32">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#a7ebddcee8e2e72408af877d968bb2adf">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalDesigner.html#a7a29fb9054ba5274e20d9b44be826b8c">DynExpModule::SignalDesigner</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter.html#ab17a517e83e1b7440cdeba52d1fd4a5c">DynExpModule::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#a7db5e6b65f05f308bc8ff32ac61eae1b">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#a7da6c3bcfcc42c58424a713fca41d582">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#a06aae28548ca8a56bf365a0cf867c699">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#a191c90b05ab5abc8799e2977552b1ade">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
 
 </div>
 </div>
@@ -1105,7 +1109,7 @@ template&lt;typename WidgetType &gt; </div>
 
 <p>Implements <a class="el" href="classDynExp_1_1ModuleBase.html#a50a25fbb93523e77f80b3f39296da63d">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00768">768</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00802">802</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1164,7 +1168,7 @@ template&lt;typename WidgetType &gt; </div>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#a8f5d5962e1961e61f8d6e261a13576dd">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00731">731</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00765">765</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1200,7 +1204,7 @@ template&lt;typename WidgetType &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00703">703</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00737">737</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1229,7 +1233,7 @@ template&lt;typename WidgetType &gt; </div>
 
 <p>Focuses/activates <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a> and moves it on top of other windows if possible. Does nothing if any of <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a>, <a class="el" href="classDynExp_1_1QModuleBase.html#a68d1ec1cf4ea0c0801c4a1442a6dc6a1" title="Pointer to DynExpManager&#39;s QMdiArea.">MdiArea</a>, <a class="el" href="classDynExp_1_1QModuleBase.html#acee88586880f821eb21a9a7b2de95ac6" title="Frame for Widget when the module window is docked to MdiArea.">MdiSubWindow</a>, or <a class="el" href="classDynExp_1_1QModuleBase.html#a9c5628e95032026082f66a76efd9be7a" title="Frame for Widget when the module window is undocked from MdiArea.">DockWidget</a> are <code>nullptr</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00678">678</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00712">712</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1271,7 +1275,7 @@ template&lt;typename WidgetType &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00755">755</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00789">789</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1300,7 +1304,7 @@ template&lt;typename WidgetType &gt; </div>
 
 <p>Undocks <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a> from <a class="el" href="classDynExp_1_1QModuleBase.html#a68d1ec1cf4ea0c0801c4a1442a6dc6a1" title="Pointer to DynExpManager&#39;s QMdiArea.">MdiArea</a>. Does nothing if any of <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a>, <a class="el" href="classDynExp_1_1QModuleBase.html#a68d1ec1cf4ea0c0801c4a1442a6dc6a1" title="Pointer to DynExpManager&#39;s QMdiArea.">MdiArea</a>, <a class="el" href="classDynExp_1_1QModuleBase.html#acee88586880f821eb21a9a7b2de95ac6" title="Frame for Widget when the module window is docked to MdiArea.">MdiSubWindow</a>, or <a class="el" href="classDynExp_1_1QModuleBase.html#a9c5628e95032026082f66a76efd9be7a" title="Frame for Widget when the module window is undocked from MdiArea.">DockWidget</a> are <code>nullptr</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00652">652</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00686">686</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1327,7 +1331,7 @@ template&lt;typename WidgetType &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00629">629</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00663">663</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1358,7 +1362,7 @@ template&lt;typename WidgetType &gt; </div>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#acdd5df7dceed175019e087a8694ed8fc">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00744">744</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00778">778</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1379,7 +1383,7 @@ template&lt;typename WidgetType &gt; </div>
 
 <p>Enables the user interface controls in <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a>. Does nothing if <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a> is <code>nullptr</code>. Calls <code><a class="el" href="classDynExp_1_1QModuleBase.html#a462f6a8f4201dc8750a2ffdb3c8617f4" title="Use this function to update the module&#39;s user interface widget according to the module data obtained ...">UpdateUIChild()</a></code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00620">620</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00654">654</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -1415,7 +1419,7 @@ template&lt;typename WidgetType &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01488">1488</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01804">1804</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1442,7 +1446,7 @@ template&lt;typename WidgetType &gt; </div>
 
 <p>Frame for <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a> when the module window is undocked from <a class="el" href="classDynExp_1_1QModuleBase.html#a68d1ec1cf4ea0c0801c4a1442a6dc6a1" title="Pointer to DynExpManager&#39;s QMdiArea.">MdiArea</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01493">1493</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01809">1809</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1468,7 +1472,7 @@ template&lt;typename WidgetType &gt; </div>
 
 <p>Pointer to <code><a class="el" href="classDynExpManager.html" title="Implements DynExp&#39;s main window as a Qt-based user interface (UI).">DynExpManager</a>'s</code> QMdiArea. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01496">1496</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01812">1812</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1494,7 +1498,7 @@ template&lt;typename WidgetType &gt; </div>
 
 <p>Frame for <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a> when the module window is docked to <a class="el" href="classDynExp_1_1QModuleBase.html#a68d1ec1cf4ea0c0801c4a1442a6dc6a1" title="Pointer to DynExpManager&#39;s QMdiArea.">MdiArea</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01492">1492</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01808">1808</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1520,7 +1524,7 @@ template&lt;typename WidgetType &gt; </div>
 
 <p>Qt action to push module window into focus. When triggered, <a class="el" href="classDynExp_1_1QModuleWidget.html#a43fd30d6bef638d785d723bf0685663a" title="Qt slot called when QModuleBase::ModuleWindowFocusAction is triggered, calls QModuleBase::SetFocus().">QModuleWidget::OnFocusWindow()</a> in invoked. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01494">1494</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01810">1810</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1546,7 +1550,7 @@ template&lt;typename WidgetType &gt; </div>
 
 <p>User interface widget belonging to the module. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01491">1491</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01807">1807</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>

@@ -18,6 +18,7 @@ var classUtil_1_1EventLogger =
     [ "Log", "classUtil_1_1EventLogger.html#a397641d55732ca782c3d2a112163e997", null ],
     [ "Log", "classUtil_1_1EventLogger.html#ad70b514ff44c1a752e1e8a8710440410", null ],
     [ "OpenLogFile", "classUtil_1_1EventLogger.html#af9033564f6acd804d40a2582480258a5", null ],
+    [ "EventLog", "classUtil_1_1EventLogger.html#a56b218d36c9b982d86b9a288ff000e66", null ],
     [ "Filename", "classUtil_1_1EventLogger.html#a93144d0be1566a712418db1911a4db31", null ],
     [ "LogEntries", "classUtil_1_1EventLogger.html#ab96e491458d3df83ad423af67bc81761", null ],
     [ "LogFile", "classUtil_1_1EventLogger.html#a6c813489ba176974f895a56d00214715", null ],

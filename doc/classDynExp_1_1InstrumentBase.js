@@ -10,6 +10,11 @@ var classDynExp_1_1InstrumentBase =
     [ "InstrumentDataTypeSyncPtrType", "classDynExp_1_1InstrumentBase.html#ab1cfe7c8a66f8184e7063977a8e4a836", null ],
     [ "ParamsType", "classDynExp_1_1InstrumentBase.html#a3c274377b625b68ffbe58afcb11267b2", null ],
     [ "UpdateTaskType", "classDynExp_1_1InstrumentBase.html#aba18030aa4a0fcd0eeafadbef629d34c", null ],
+    [ "TaskHandlingContinuationType", "classDynExp_1_1InstrumentBase.html#ae4c1df1468a66aed40479c5567b64322", [
+      [ "Continue", "classDynExp_1_1InstrumentBase.html#ae4c1df1468a66aed40479c5567b64322aa0bfb8e59e6c13fc8d990781f77694fe", null ],
+      [ "Terminate", "classDynExp_1_1InstrumentBase.html#ae4c1df1468a66aed40479c5567b64322a056fa3d840f48b7bfbbd68c19a4797b3", null ],
+      [ "Defer", "classDynExp_1_1InstrumentBase.html#ae4c1df1468a66aed40479c5567b64322aa6c82656255dd03988eee0df651c1405", null ]
+    ] ],
     [ "InstrumentBase", "classDynExp_1_1InstrumentBase.html#a426093fafaf12e96a612dc9afc7b5b9a", null ],
     [ "~InstrumentBase", "classDynExp_1_1InstrumentBase.html#ad0b31ed302dc6e962d85d7a5bcbc8b7d", null ],
     [ "AsSyncTask", "classDynExp_1_1InstrumentBase.html#ab98e876c26afcccb0d8f3555f7b7b9b5", null ],
@@ -23,7 +28,7 @@ var classDynExp_1_1InstrumentBase =
     [ "GetNonConstInstrumentData", "classDynExp_1_1InstrumentBase.html#acbe43c9b044e7a5161260701b2863a61", null ],
     [ "GetTaskQueueDelay", "classDynExp_1_1InstrumentBase.html#a7a6bf7866631c2f3879efaced4c7e21b", null ],
     [ "HandleAdditionalTask", "classDynExp_1_1InstrumentBase.html#ab67c66aae74febbb0ce7cbbf464f71ec", null ],
-    [ "HandleTask", "classDynExp_1_1InstrumentBase.html#a4ad80da03411380354706d04e3777419", null ],
+    [ "HandleTask", "classDynExp_1_1InstrumentBase.html#a3ee74825f4dab8d5217630ae3a81f688", null ],
     [ "IsInitialized", "classDynExp_1_1InstrumentBase.html#af0ae596e932c3c205823df5436b13393", null ],
     [ "IsReadyChild", "classDynExp_1_1InstrumentBase.html#a17f46e3837646e83f55b5254793166f6", null ],
     [ "MakeAndEnqueueTask", "classDynExp_1_1InstrumentBase.html#a79720764a29399e353ab328ea3586bd6", null ],
@@ -38,6 +43,7 @@ var classDynExp_1_1InstrumentBase =
     [ "ResetImpl", "classDynExp_1_1InstrumentBase.html#a551688a0c7b3dea13a2509f397a1ae78", null ],
     [ "ResetImpl", "classDynExp_1_1InstrumentBase.html#a202de6f18f2336f9c45d69773e059d2c", null ],
     [ "RunChild", "classDynExp_1_1InstrumentBase.html#a9213b6b08ae5dcba30c4bc660f2ce930", null ],
+    [ "SetException", "classDynExp_1_1InstrumentBase.html#a6e4a2662cbbcb38a510873ca7656aa06", null ],
     [ "TerminateChild", "classDynExp_1_1InstrumentBase.html#a8f0f729f7385a04160c0911c8d31b507", null ],
     [ "UpdateAdditionalData", "classDynExp_1_1InstrumentBase.html#a3a5b07e95873c660065bc75f07f51aed", null ],
     [ "UpdateData", "classDynExp_1_1InstrumentBase.html#a5fe93763f0cd7d258554bf6e1f0065b8", null ],

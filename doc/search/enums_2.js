@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['directiontype_0',['DirectionType',['../classDynExpInstr_1_1PositionerStage.html#af43aa82445a85377ba3164cfc043c538',1,'DynExpInstr::PositionerStage']]],
-  ['dynexperrorcodes_1',['DynExpErrorCodes',['../namespaceUtil_1_1DynExpErrorCodes.html#a49da632c21753f06d241c7269a24ae57',1,'Util::DynExpErrorCodes']]]
+  ['capturingstatetype_0',['capturingstatetype',['../classDynExpInstr_1_1CameraData.html#a0edfe2ade0ae4e03cafaa81b349ce8cc',1,'DynExpInstr::CameraData::CapturingStateType'],['../classDynExpInstr_1_1SpectrometerData.html#a77750835de7f969234feb8b43d3f7b73',1,'DynExpInstr::SpectrometerData::CapturingStateType']]],
+  ['channelmodetype_1',['ChannelModeType',['../classDynExpHardware_1_1NIDAQHardwareAdapterParams.html#aec0ab3f6918eaa578ad2ca041a463e12',1,'DynExpHardware::NIDAQHardwareAdapterParams']]],
+  ['channeltype_2',['ChannelType',['../classDynExpHardware_1_1NIDAQTask.html#a0b148f8201938a8ea1241656632f0e03',1,'DynExpHardware::NIDAQTask']]],
+  ['computehistogramtype_3',['ComputeHistogramType',['../classDynExpInstr_1_1CameraData.html#a907e40aa041f41b9eeff11a76e9c373c',1,'DynExpInstr::CameraData']]],
+  ['confocaloptimizationthreadreturntype_4',['ConfocalOptimizationThreadReturnType',['../classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#af8a86ac2f2c7e4d82436d3e3c50c2c1f',1,'DynExpModule::Widefield::WidefieldMicroscope']]],
+  ['continuationtype_5',['ContinuationType',['../classDynExp_1_1TaskResultType.html#a39cf631065819dd07f66e1eb5b149799',1,'DynExp::TaskResultType']]]
 ];

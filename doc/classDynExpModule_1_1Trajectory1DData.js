@@ -1,5 +1,9 @@
 var classDynExpModule_1_1Trajectory1DData =
 [
+    [ "PositioningModeType", "classDynExpModule_1_1Trajectory1DData.html#a7182347ac8d026e45f06e8a6474d8cd8", [
+      [ "Absolute", "classDynExpModule_1_1Trajectory1DData.html#a7182347ac8d026e45f06e8a6474d8cd8af8f5f335ce29edbd98951f8421c26012", null ],
+      [ "Relative", "classDynExpModule_1_1Trajectory1DData.html#a7182347ac8d026e45f06e8a6474d8cd8aceeeec45b66f3d2f192b4688ae8914ad", null ]
+    ] ],
     [ "TriggerModeType", "classDynExpModule_1_1Trajectory1DData.html#aca444537ab348d1d98e96e1b49ee2a68", [
       [ "Continuous", "classDynExpModule_1_1Trajectory1DData.html#aca444537ab348d1d98e96e1b49ee2a68a5d45d3ecd20aba1c6a1b80c098472c42", null ],
       [ "ManualOnce", "classDynExpModule_1_1Trajectory1DData.html#aca444537ab348d1d98e96e1b49ee2a68ac77b5dabb288b318b02f479f3d504bf4", null ],
@@ -14,6 +18,8 @@ var classDynExpModule_1_1Trajectory1DData =
     [ "GetDwellTime", "classDynExpModule_1_1Trajectory1DData.html#a7a3a1549e921996a95f37e510ab8d673", null ],
     [ "GetLastWrittenSampleID", "classDynExpModule_1_1Trajectory1DData.html#a6ac214874f808b4b52bffa9abb6c0688", null ],
     [ "GetPositionerStage", "classDynExpModule_1_1Trajectory1DData.html#a2d998e029a6bb002e5559ed83beb9696", null ],
+    [ "GetPositioningMode", "classDynExpModule_1_1Trajectory1DData.html#a0e38989e4898b4a4cf85b9d820501df5", null ],
+    [ "GetPosMultiplier", "classDynExpModule_1_1Trajectory1DData.html#a40b8f1daad39e160e25454d82187afc6", null ],
     [ "GetRepeatCount", "classDynExpModule_1_1Trajectory1DData.html#af51fb051e57ab373b69fcda6bc393bdb", null ],
     [ "GetSamples", "classDynExpModule_1_1Trajectory1DData.html#a444218a79ce44aa7c251d3b3ac43cbd2", null ],
     [ "GetSamples", "classDynExpModule_1_1Trajectory1DData.html#a1250723ce31c4bd2d770e120547363c1", null ],
@@ -29,6 +35,8 @@ var classDynExpModule_1_1Trajectory1DData =
     [ "SetCurrentRepeatCount", "classDynExpModule_1_1Trajectory1DData.html#a7fc2b73548bff1ca912ac097feeb2707", null ],
     [ "SetDwellTime", "classDynExpModule_1_1Trajectory1DData.html#a60afc400e9e86c0bd5a31a265e492574", null ],
     [ "SetLastWrittenSampleID", "classDynExpModule_1_1Trajectory1DData.html#ae67f82c1d4f09ead6d78af640e043840", null ],
+    [ "SetPositioningMode", "classDynExpModule_1_1Trajectory1DData.html#a50ef731ff9496825b993dbc762d94dd0", null ],
+    [ "SetPosMultiplier", "classDynExpModule_1_1Trajectory1DData.html#ab189ca37df1d54ec7c099b1aa8ed1851", null ],
     [ "SetReady", "classDynExpModule_1_1Trajectory1DData.html#a68827f2d91be1462a6c782cb82928f1e", null ],
     [ "SetRepeatCount", "classDynExpModule_1_1Trajectory1DData.html#abe23946c1bc2fcc5fa1b80940da647bc", null ],
     [ "SetSamples", "classDynExpModule_1_1Trajectory1DData.html#a13d85cea1d59ff842f51e3dfa1b9d65f", null ],
@@ -40,6 +48,8 @@ var classDynExpModule_1_1Trajectory1DData =
     [ "DwellTime", "classDynExpModule_1_1Trajectory1DData.html#ae892ded4d52c6e724282761de323ddb3", null ],
     [ "LastWrittenSampleID", "classDynExpModule_1_1Trajectory1DData.html#a3c8808fa006c14dc462c7d1b4c85d435", null ],
     [ "PositionerStage", "classDynExpModule_1_1Trajectory1DData.html#a52b83d79809a78429ee0c4b558e3c0c9", null ],
+    [ "PositioningMode", "classDynExpModule_1_1Trajectory1DData.html#a9bb20a9702034c1bad19c5e495af2bc4", null ],
+    [ "PosMultiplier", "classDynExpModule_1_1Trajectory1DData.html#a9437728f2a66e4d2026807b2f8d5eebf", null ],
     [ "Ready", "classDynExpModule_1_1Trajectory1DData.html#ae57382c9751107d79be9390f7a6c51c0", null ],
     [ "RepeatCount", "classDynExpModule_1_1Trajectory1DData.html#ab6f6587c7d39c5ff808296ce72d85489", null ],
     [ "Samples", "classDynExpModule_1_1Trajectory1DData.html#a87b9537ee45ad7ad5657b3a26314afbc", null ],

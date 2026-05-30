@@ -18,6 +18,8 @@ var dir_4e013caeeea61262a6dac45a7a8bba06 =
     [ "gRPCInstrument.h", "gRPCInstrument_8h.html", "gRPCInstrument_8h" ],
     [ "InputPort.cpp", "InputPort_8cpp.html", null ],
     [ "InputPort.h", "InputPort_8h.html", "InputPort_8h" ],
+    [ "Laser.cpp", "Laser_8cpp.html", null ],
+    [ "Laser.h", "Laser_8h.html", "Laser_8h" ],
     [ "LockinAmplifier.cpp", "LockinAmplifier_8cpp.html", null ],
     [ "LockinAmplifier.h", "LockinAmplifier_8h.html", "LockinAmplifier_8h" ],
     [ "OutputPort.cpp", "OutputPort_8cpp.html", null ],

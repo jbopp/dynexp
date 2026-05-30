@@ -25,7 +25,7 @@ var classDynExpModule_1_1SignalPlotterWidget =
     [ "PlotClearAction", "classDynExpModule_1_1SignalPlotterWidget.html#a7c1442365bbf1d020d57058e698ccecc", null ],
     [ "PlotContextMenu", "classDynExpModule_1_1SignalPlotterWidget.html#aca3bd4ede6bf7ed1b30e0fc35b8019af", null ],
     [ "PlotRollingViewAction", "classDynExpModule_1_1SignalPlotterWidget.html#a782250a754a40e50767b4f4a36c1838d", null ],
-    [ "ui", "classDynExpModule_1_1SignalPlotterWidget.html#ae035c733f9c838cf096aabbf5313210c", null ],
+    [ "ui", "classDynExpModule_1_1SignalPlotterWidget.html#ab3f9f29e729eeb5eb2d04fee4e83aad2", null ],
     [ "XAxis", "classDynExpModule_1_1SignalPlotterWidget.html#ac77fce17f5d9a8fcb44c3d559b2ce9f1", null ],
     [ "YAxis", "classDynExpModule_1_1SignalPlotterWidget.html#ad3577c7f9106bcd963d1264a6c269564", null ]
 ];

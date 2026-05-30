@@ -107,7 +107,7 @@ $(document).ready(function(){initNavTree('classDynExp_1_1ExceptionContainer.html
 </div><!--header-->
 <div class="contents">
 
-<p>Wrapper holding a pointer to an exception and providing functionality for accessing it. Used to transfer exceptions between an instrument's task and the <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> module enqueuing the task. Refer to <a class="el" href="classDynExp_1_1TaskBase.html#a198aea8bb3935b1ac6556b23cc17d147" title="Type of a callback function which is invoked when a task has finished, failed or has been aborted....">TaskBase::CallbackType</a>.  
+<p>Wrapper holding a pointer to an exception and providing functionality for accessing it. Used to transfer exceptions between an instrument's task and the <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> module enqueuing the task. Refer to <a class="el" href="classDynExp_1_1TaskBase_1_1CallbackType.html" title="Type owning a callback function which is invoked when a task has finished, failed,...">TaskBase::CallbackType</a>.  
  <a href="classDynExp_1_1ExceptionContainer.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Instrument_8h_source.html">Instrument.h</a>&gt;</code></p>
@@ -127,7 +127,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0d41c62901f1d1e2b40763edfb1cb231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for <a class="el" href="classDynExp_1_1ExceptionContainer.html#a77872beec43b98c54d81d59e81d1cd89" title="Exception stored in the wrapper.">Exception</a>.  <br /></td></tr>
 <tr class="separator:a0d41c62901f1d1e2b40763edfb1cb231"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83da2713b86f6ce59deb9cadd2212b03" id="r_a83da2713b86f6ce59deb9cadd2212b03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ExceptionContainer.html#a83da2713b86f6ce59deb9cadd2212b03">ClearError</a> ()</td></tr>
-<tr class="memdesc:a83da2713b86f6ce59deb9cadd2212b03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the stored exception. If this method is called by a task's CallbackFunc in case of an exception having ocurred while running the task, the exception is considered handled. In this case, no exception leaves <a class="el" href="classDynExp_1_1TaskBase.html#a9d779ecc7fe415924f851f6760c4fc2b" title="Runs the task. Override RunChild() to define a derived task&#39;s action(s). Any exception leaving RunChi...">TaskBase::Run()</a>.  <br /></td></tr>
+<tr class="memdesc:a83da2713b86f6ce59deb9cadd2212b03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the stored exception. If this method is called by a task's CallbackFunc in case of an exception having ocurred while running the task, the exception is considered handled. In this case, no exception leaves <a class="el" href="classDynExp_1_1TaskBase.html#af9fb928afa6b941a01862bed2227e6d8" title="Runs the task. Override RunChild() to define a derived task&#39;s action(s). Any exception leaving RunChi...">TaskBase::Run()</a>.  <br /></td></tr>
 <tr class="separator:a83da2713b86f6ce59deb9cadd2212b03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -137,7 +137,7 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a77872beec43b98c54d81d59e81d1cd89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Wrapper holding a pointer to an exception and providing functionality for accessing it. Used to transfer exceptions between an instrument's task and the <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> module enqueuing the task. Refer to <a class="el" href="classDynExp_1_1TaskBase.html#a198aea8bb3935b1ac6556b23cc17d147" title="Type of a callback function which is invoked when a task has finished, failed or has been aborted....">TaskBase::CallbackType</a>. </p>
+<div class="textblock"><p>Wrapper holding a pointer to an exception and providing functionality for accessing it. Used to transfer exceptions between an instrument's task and the <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> module enqueuing the task. Refer to <a class="el" href="classDynExp_1_1TaskBase_1_1CallbackType.html" title="Type owning a callback function which is invoked when a task has finished, failed,...">TaskBase::CallbackType</a>. </p>
 
 <p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00085">85</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -201,7 +201,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Removes the stored exception. If this method is called by a task's CallbackFunc in case of an exception having ocurred while running the task, the exception is considered handled. In this case, no exception leaves <a class="el" href="classDynExp_1_1TaskBase.html#a9d779ecc7fe415924f851f6760c4fc2b" title="Runs the task. Override RunChild() to define a derived task&#39;s action(s). Any exception leaving RunChi...">TaskBase::Run()</a>. </p>
+<p>Removes the stored exception. If this method is called by a task's CallbackFunc in case of an exception having ocurred while running the task, the exception is considered handled. In this case, no exception leaves <a class="el" href="classDynExp_1_1TaskBase.html#af9fb928afa6b941a01862bed2227e6d8" title="Runs the task. Override RunChild() to define a derived task&#39;s action(s). Any exception leaving RunChi...">TaskBase::Run()</a>. </p>
 
 <p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00117">117</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 

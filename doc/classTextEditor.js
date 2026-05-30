@@ -11,5 +11,5 @@ var classTextEditor =
     [ "showEvent", "classTextEditor.html#a5f8a24594709ceb4f0acc5ca628b4c3b", null ],
     [ "Filename", "classTextEditor.html#a90c413ed8cf82ccf445ed441351e0c3d", null ],
     [ "SyntaxHighlighter", "classTextEditor.html#a3eb514d6126810ac1cfc87504df86eff", null ],
-    [ "ui", "classTextEditor.html#a7b47d9cadda5f3831b3f6362054f56af", null ]
+    [ "ui", "classTextEditor.html#a75350a807f6cb3f03d596dd6172c7bf2", null ]
 ];

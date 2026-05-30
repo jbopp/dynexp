@@ -9,7 +9,7 @@ var classParamsConfigDialog =
     [ "TextRefType", "classParamsConfigDialog.html#a8f6d4b5230c722432d5e6ae47d2e83b5", null ],
     [ "TextType", "classParamsConfigDialog.html#ae776260b07bb69de296307a390ea6196", null ],
     [ "ParamsConfigDialog", "classParamsConfigDialog.html#ac9a616bddea0de4bef53ef9bf10921fb", null ],
-    [ "~ParamsConfigDialog", "classParamsConfigDialog.html#abaecd42b37ddfae99283d7f9bbc7a79f", null ],
+    [ "~ParamsConfigDialog", "classParamsConfigDialog.html#abf7a9bee83a38dd9a37da50cf5fc70e0", null ],
     [ "accept", "classParamsConfigDialog.html#ac82e534dbd8806271836118b7f3507b9", null ],
     [ "AddParam", "classParamsConfigDialog.html#a16cf36c5d9bdd2e0a4fab3e8ec40ae95", null ],
     [ "AddParam", "classParamsConfigDialog.html#a2e99d277320e300d76473ef53ecb07a8", null ],
@@ -35,5 +35,5 @@ var classParamsConfigDialog =
     [ "ParamList", "classParamsConfigDialog.html#acab5104ddc8f441b697bc4e6eb6fdc18", null ],
     [ "ResetRequired", "classParamsConfigDialog.html#a1741014122bd2a32d423aadf3df9ccd3", null ],
     [ "TextEditorDialogs", "classParamsConfigDialog.html#a0e819261e8351586d878e217499eee43", null ],
-    [ "ui", "classParamsConfigDialog.html#a28bb63e0eded59ab7c00b306f8a89cd3", null ]
+    [ "ui", "classParamsConfigDialog.html#a5db32fa24595b1b31c346fe010384dc3", null ]
 ];

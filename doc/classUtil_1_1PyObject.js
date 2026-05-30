@@ -6,6 +6,7 @@ var classUtil_1_1PyObject =
     [ "~PyObject", "classUtil_1_1PyObject.html#a478df485644313d7033f89d937478be7", null ],
     [ "Get", "classUtil_1_1PyObject.html#ae63e64a8dfd9aa3557eb9de9bf78762d", null ],
     [ "Get", "classUtil_1_1PyObject.html#af3bb7ed0fd3e76e0c24cb2abf8942bd0", null ],
+    [ "operator bool", "classUtil_1_1PyObject.html#aca8ed36bce2c2f0ba8e73e85c3d6721b", null ],
     [ "operator()", "classUtil_1_1PyObject.html#aeb497c16f3232f79743a0be8d9b37229", null ],
     [ "operator=", "classUtil_1_1PyObject.html#a8f881e7a5300904008d0b1e97b98194e", null ],
     [ "Remove", "classUtil_1_1PyObject.html#a9aaf39296cdafcffc137244d45a7dcee", null ],

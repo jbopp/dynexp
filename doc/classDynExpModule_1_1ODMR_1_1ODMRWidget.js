@@ -5,7 +5,7 @@ var classDynExpModule_1_1ODMR_1_1ODMRWidget =
     [ "~ODMRWidget", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#a0d3557eafa5c07f80bc69ae8dfd11ea1", null ],
     [ "AllowResize", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#aa1a1f6c9e127c9d6df806bc473f37b2e", null ],
     [ "GetODMRDataSeries", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#a0879a7f899e2a7d6d1c53f6c6ebb2b85", null ],
-    [ "GetUI", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#afdb96bbc26ce272fb5ee538aa4ece101", null ],
+    [ "GetUI", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#a6f94d02fc28d4002bc7507a5e3d3854e", null ],
     [ "GetUIInitialized", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#af7cbc430294e9ff316a61c52eceb9881", null ],
     [ "InitializeUI", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#a5f1e2ec8fedbdf566cb22c56b69f79a0", null ],
     [ "OnBrowseSavePathClicked", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#aa047e33369a29ca36268fa54db13f538", null ],
@@ -27,6 +27,6 @@ var classDynExpModule_1_1ODMR_1_1ODMRWidget =
     [ "SensitivityXAxis", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#a1f64202289d0445673ef0c40f4a8d75a", null ],
     [ "SensitivityYAxis", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#a7c3bf27b90dbe487d88d9d3c80eb5c86", null ],
     [ "StatusBar", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#a3de3cac7ee7489fabec34a1dfaf4a57b", null ],
-    [ "ui", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#a8bab847423056f39ca0fd64fa104ff74", null ],
+    [ "ui", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#a923d3cf7f2a650ab7e1c1406a04976a5", null ],
     [ "UIInitialized", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html#afd0f231e7cca2f25895b9252d1c7aee9", null ]
 ];

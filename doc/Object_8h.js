@@ -51,6 +51,7 @@ var Object_8h =
     [ "DynExp::ObjectLinkBase", "classDynExp_1_1ObjectLinkBase.html", "classDynExp_1_1ObjectLinkBase" ],
     [ "DynExp::ObjectLink< ObjectT >", "classDynExp_1_1ObjectLink.html", "classDynExp_1_1ObjectLink" ],
     [ "DynExp::RunnableInstance", "classDynExp_1_1RunnableInstance.html", "classDynExp_1_1RunnableInstance" ],
+    [ "DynExp::RunnableInstance::RunnableObjectOnlyType", "classDynExp_1_1RunnableInstance_1_1RunnableObjectOnlyType.html", "classDynExp_1_1RunnableInstance_1_1RunnableObjectOnlyType" ],
     [ "ConfiguratorBasePtrType", "Object_8h.html#ae21e8eb7d596ba9acd056adac00cf799", null ],
     [ "ItemIDListType", "Object_8h.html#a37893554d836c991669b035a366e132f", null ],
     [ "ManagerTypeOfObjectType_t", "Object_8h.html#ab34083b4ae1bb40c60d166a6ba170137", null ],

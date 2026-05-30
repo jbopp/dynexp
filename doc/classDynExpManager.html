@@ -136,8 +136,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af24b04ea717d847c6cffc9663f7f31b8" id="r_af24b04ea717d847c6cffc9663f7f31b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpManager.html#af24b04ea717d847c6cffc9663f7f31b8">DynExpManager</a> (<a class="el" href="classDynExp_1_1DynExpCore.html">DynExp::DynExpCore</a> &amp;<a class="el" href="classDynExpManager.html#a22b2e27f8519e71903502a51105cef07">DynExpCore</a>, QWidget *parent=Q_NULLPTR)</td></tr>
 <tr class="memdesc:af24b04ea717d847c6cffc9663f7f31b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code><a class="el" href="classDynExpManager.html" title="Implements DynExp&#39;s main window as a Qt-based user interface (UI).">DynExpManager</a></code> instance.  <br /></td></tr>
 <tr class="separator:af24b04ea717d847c6cffc9663f7f31b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ce04db9da1e7f65b2f404029ea668df" id="r_a7ce04db9da1e7f65b2f404029ea668df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpManager.html#a7ce04db9da1e7f65b2f404029ea668df">~DynExpManager</a> ()=default</td></tr>
-<tr class="separator:a7ce04db9da1e7f65b2f404029ea668df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe5404baf90c5aac7ebb27e00d8ee420" id="r_abe5404baf90c5aac7ebb27e00d8ee420"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpManager.html#abe5404baf90c5aac7ebb27e00d8ee420">~DynExpManager</a> ()</td></tr>
+<tr class="separator:abe5404baf90c5aac7ebb27e00d8ee420"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0a42e43416a17dcdaec4d3e64cf6e18" id="r_ac0a42e43416a17dcdaec4d3e64cf6e18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpManager.html#ac0a42e43416a17dcdaec4d3e64cf6e18">RegisterModuleUI</a> (<a class="el" href="classDynExp_1_1Object.html">DynExp::Object</a> *const Object)</td></tr>
 <tr class="memdesc:ac0a42e43416a17dcdaec4d3e64cf6e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the UI of the module <code>Object</code> (expecting that <code>Object</code> is a <a class="el" href="classDynExp_1_1QModuleBase.html" title="Base class for modules with a Qt-based user interface. Derive from this class to implement modules wi...">DynExp::QModuleBase</a> instance. Does nothing if this is not the case or if the module is not running. Resets the module in case the initialization of its UI fails.  <br /></td></tr>
 <tr class="separator:ac0a42e43416a17dcdaec4d3e64cf6e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -346,9 +346,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a22b2e27f8519e71903502a51105cef07" id="r_a22b2e27f8519e71903502a51105cef07"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExp_1_1DynExpCore.html">DynExp::DynExpCore</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpManager.html#a22b2e27f8519e71903502a51105cef07">DynExpCore</a></td></tr>
 <tr class="memdesc:a22b2e27f8519e71903502a51105cef07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle to DynExp's internal data.  <br /></td></tr>
 <tr class="separator:a22b2e27f8519e71903502a51105cef07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa46a4560fb6f1fb4c5f421dd6876219a" id="r_aa46a4560fb6f1fb4c5f421dd6876219a"><td class="memItemLeft" align="right" valign="top">Ui::DynExpManagerClass&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpManager.html#aa46a4560fb6f1fb4c5f421dd6876219a">ui</a></td></tr>
-<tr class="memdesc:aa46a4560fb6f1fb4c5f421dd6876219a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Qt widgets belonging to the main window's user interface.  <br /></td></tr>
-<tr class="separator:aa46a4560fb6f1fb4c5f421dd6876219a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5c6fb33fcca676fed7101b7fd6ed1f6" id="r_aa5c6fb33fcca676fed7101b7fd6ed1f6"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; Ui::DynExpManagerClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpManager.html#aa5c6fb33fcca676fed7101b7fd6ed1f6">ui</a></td></tr>
+<tr class="memdesc:aa5c6fb33fcca676fed7101b7fd6ed1f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Qt widgets belonging to the main window's user interface.  <br /></td></tr>
+<tr class="separator:aa5c6fb33fcca676fed7101b7fd6ed1f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7aab54dae06cbc47093f77204afe5a4" id="r_af7aab54dae06cbc47093f77204afe5a4"><td class="memItemLeft" align="right" valign="top">QTimer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpManager.html#af7aab54dae06cbc47093f77204afe5a4">UpdateUITimer</a></td></tr>
 <tr class="memdesc:af7aab54dae06cbc47093f77204afe5a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer for periodically updating the user interface.  <br /></td></tr>
 <tr class="separator:af7aab54dae06cbc47093f77204afe5a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -409,7 +409,7 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements DynExp's main window as a Qt-based user interface (UI). </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00020">20</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00024">24</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af24b04ea717d847c6cffc9663f7f31b8" name="af24b04ea717d847c6cffc9663f7f31b8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af24b04ea717d847c6cffc9663f7f31b8">&#9670;&#160;</a></span>DynExpManager()</h2>
@@ -446,18 +446,15 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00007">7</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00008">8</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a7ce04db9da1e7f65b2f404029ea668df" name="a7ce04db9da1e7f65b2f404029ea668df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ce04db9da1e7f65b2f404029ea668df">&#9670;&#160;</a></span>~DynExpManager()</h2>
+<a id="abe5404baf90c5aac7ebb27e00d8ee420" name="abe5404baf90c5aac7ebb27e00d8ee420"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe5404baf90c5aac7ebb27e00d8ee420">&#9670;&#160;</a></span>~DynExpManager()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">DynExpManager::~DynExpManager </td>
@@ -466,12 +463,9 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00097">97</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -509,7 +503,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the adjusted new <code>QColor</code> instance. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00780">780</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00786">786</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -553,7 +547,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00720">720</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00726">726</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -609,7 +603,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00656">656</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00662">662</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -653,7 +647,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00736">736</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00742">742</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -697,7 +691,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00749">749</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00755">755</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -741,7 +735,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00688">688</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00694">694</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -785,7 +779,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00672">672</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00678">678</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -829,7 +823,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00704">704</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00710">710</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -857,7 +851,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01040">1040</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01046">1046</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -887,7 +881,7 @@ Private Attributes</h2></td></tr>
 <p>Closes the current project and opens a new, empty one. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if closing was successful or if it should be forced by e.g. terminating the application in case of an error. Returns false when closing should be aborted in case of an error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00815">815</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00821">821</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -916,7 +910,7 @@ Private Attributes</h2></td></tr>
 
 <p>Disables all user interface actions such that item-specific ones can be reenabled upon a selection change in the main tree widget showing <a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">DynExp::Object</a> instances. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00941">941</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00947">947</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -952,7 +946,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00152">152</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00158">158</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -981,7 +975,7 @@ Private Attributes</h2></td></tr>
 
 <p>Focuses/activates DynExp's main window and moves it on top of other windows if possible. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01141">1141</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01147">1147</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1011,7 +1005,7 @@ Private Attributes</h2></td></tr>
 <p>Recalls a path where modules might save recorded data to. Used by <a class="el" href="namespaceUtil.html#afbe245d507bf5b88d763f42878c8ec73" title="Works as PromptOpenFilePath() but asks the user to select a single file which does not need to exist....">Util::PromptSaveFilePathModule()</a> to recall the directory the user has chosen last for saving a file. This directory is the same across all modules.   </p>
 <dl class="section return"><dt>Returns</dt><dd>Path to show by default in the modules' file open/save dialogs.   </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00362">362</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00366">366</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -1041,7 +1035,7 @@ Private Attributes</h2></td></tr>
 <p>Determines the <a class="el" href="classDynExp_1_1QModuleBase.html" title="Base class for modules with a Qt-based user interface. Derive from this class to implement modules wi...">DynExp::QModuleBase</a> instance of the current project whose UI window is active (has the focus). </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classDynExp_1_1QModuleBase.html" title="Base class for modules with a Qt-based user interface. Derive from this class to implement modules wi...">DynExp::QModuleBase</a> instance with the active UI window </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01002">1002</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01008">1008</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1078,7 +1072,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the name of <code>Object</code> or a string indicating an error if retrieving the name failed. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00133">133</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00139">139</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1115,7 +1109,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the constructed <code>QColor</code> instance. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00765">765</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00771">771</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1178,7 +1172,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00441">441</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00445">445</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -1205,7 +1199,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01841">1841</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01847">1847</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1232,7 +1226,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01931">1931</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01937">1937</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1259,7 +1253,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01936">1936</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01942">1942</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1286,7 +1280,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01941">1941</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01947">1947</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1313,7 +1307,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01870">1870</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01876">1876</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1340,7 +1334,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01902">1902</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01908">1908</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1367,7 +1361,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01649">1649</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01655">1655</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1394,7 +1388,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01729">1729</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01735">1735</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1421,7 +1415,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01827">1827</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01833">1833</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1448,7 +1442,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01595">1595</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01601">1601</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1486,7 +1480,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l02005">2005</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l02011">2011</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1513,7 +1507,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01946">1946</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01952">1952</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1541,7 +1535,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01865">1865</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01871">1871</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1569,7 +1563,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01860">1860</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01866">1866</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1597,7 +1591,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l02010">2010</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l02016">2016</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1624,7 +1618,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01220">1220</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01226">1226</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1651,7 +1645,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01226">1226</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01232">1232</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1678,7 +1672,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01468">1468</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01474">1474</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1705,7 +1699,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01404">1404</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01410">1410</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1732,7 +1726,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01600">1600</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01606">1606</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1759,7 +1753,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01437">1437</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01443">1443</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1786,7 +1780,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01499">1499</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01505">1505</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1813,7 +1807,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01313">1313</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01319">1319</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1840,7 +1834,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01294">1294</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01300">1300</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1867,7 +1861,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01302">1302</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01308">1308</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1894,7 +1888,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01835">1835</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01841">1841</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1921,7 +1915,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01846">1846</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01852">1852</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1949,7 +1943,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01552">1552</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01558">1558</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1976,7 +1970,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01371">1371</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01377">1377</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2004,7 +1998,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01199">1199</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01205">1205</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2031,7 +2025,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01153">1153</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01159">1159</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2058,7 +2052,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01821">1821</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01827">1827</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2085,7 +2079,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01814">1814</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01820">1820</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2121,7 +2115,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01147">1147</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01153">1153</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2190,7 +2184,7 @@ template&lt;typename LibraryVectorT &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00413">413</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00417">417</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -2224,7 +2218,7 @@ template&lt;typename LibraryVectorT &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01057">1057</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01063">1063</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2260,7 +2254,7 @@ template&lt;typename LibraryVectorT &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00796">796</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00802">802</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2296,7 +2290,7 @@ template&lt;typename LibraryVectorT &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00186">186</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00192">192</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2323,7 +2317,7 @@ template&lt;typename LibraryVectorT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00249">249</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00255">255</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2359,7 +2353,7 @@ template&lt;typename LibraryVectorT &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00910">910</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00916">916</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2395,7 +2389,7 @@ template&lt;typename LibraryVectorT &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00631">631</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00637">637</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2431,7 +2425,7 @@ template&lt;typename LibraryVectorT &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00367">367</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00371">371</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -2461,7 +2455,7 @@ template&lt;typename LibraryVectorT &gt; </div>
 <p>Terminates DynExpCore::WorkerThread and waits until the thread has ended.   </p>
 <p>If the worker thread cannot be stopped, offers to terminate the application. </p><dl class="section return"><dt>Returns</dt><dd>Returns true if shutdown was successful, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00867">867</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00873">873</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2509,7 +2503,7 @@ template&lt;typename LibraryVectorT &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns true in case of success, otherwise false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01086">1086</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l01092">1092</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2536,7 +2530,7 @@ template&lt;typename LibraryVectorT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00364">364</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00370">370</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2606,7 +2600,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00513">513</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00517">517</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -2633,7 +2627,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00392">392</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00398">398</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2661,7 +2655,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00417">417</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00423">423</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2689,7 +2683,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00473">473</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00479">479</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2717,7 +2711,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00529">529</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00535">535</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2764,7 +2758,7 @@ template&lt;typename LibraryVectorT , typename ManagerT &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00611">611</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00617">617</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2820,7 +2814,7 @@ template&lt;typename ManagerT &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a pointer to the item added most recently by this function or nullptr if no item has been added to <code>Section</code>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00528">528</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00532">532</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -2847,7 +2841,7 @@ template&lt;typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00222">222</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00228">228</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2874,7 +2868,7 @@ template&lt;typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00256">256</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00262">262</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2903,7 +2897,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>Invokes <a class="el" href="classDynExp_1_1QModuleBase.html#ada6e3c4f5ac2213c65a53a15875951b6" title="Updates the icon assigned to ModuleWindowFocusAction depending on whether Widget is docked to or undo...">DynExp::QModuleBase::UpdateModuleWindowFocusAction()</a> on each module. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00967">967</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00973">973</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2932,7 +2926,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>Establishes shortcuts to switch between module windows. Refer to <a class="el" href="classDynExpManager.html#ab30bc9ae468b5b5c599890e27949da3a" title="Actions to switch between module windows with CTRL + &lt; number key &gt; shortcuts.">ModuleWindowsActionGroup</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00953">953</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00959">959</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2959,7 +2953,7 @@ template&lt;typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00319">319</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00325">325</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -2986,7 +2980,7 @@ template&lt;typename ManagerT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00305">305</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8cpp_source.html#l00311">311</a> of file <a class="el" href="DynExpManager_8cpp_source.html">DynExpManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -3013,7 +3007,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>Dialog showing license and copyright information. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00260">260</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00264">264</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -3039,7 +3033,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>Dialog showing the circuit diagram of the current project. It has no parent to not stay on top of the main window, so delete it manually. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00266">266</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00270">270</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -3065,7 +3059,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>Action to clear the warning of an item within the main tree widget showing <a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">DynExp::Object</a> instances. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00275">275</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00279">279</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -3091,7 +3085,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>Handle to DynExp's internal data. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00255">255</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00259">259</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -3117,7 +3111,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>List of all currently active warnings and errors. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00308">308</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00312">312</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -3143,7 +3137,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>Dialog showing the list of currently active warnings and errors (<a class="el" href="classDynExpManager.html#aec8e643010d2aeb1975349a0d7521957" title="List of all currently active warnings and errors.">ErrorEntries</a>) </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00268">268</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00272">272</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -3169,7 +3163,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>Indicates whether <a class="el" href="classDynExpManager.html" title="Implements DynExp&#39;s main window as a Qt-based user interface (UI).">DynExpManager</a> is currently deleting all resources to empty the project. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00313">313</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00317">317</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -3195,7 +3189,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>Context menu appearing when right-clicking on the main tree widget showing <a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">DynExp::Object</a> instances. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00274">274</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00278">278</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -3221,7 +3215,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>Item for the hardware adapters section within the main tree widget showing <a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">DynExp::Object</a> instances. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00276">276</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00280">280</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -3247,7 +3241,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>Item for the instruments section within the main tree widget showing <a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">DynExp::Object</a> instances. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00277">277</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00281">281</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -3273,7 +3267,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>Item for the modules section within the main tree widget showing <a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">DynExp::Object</a> instances. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00278">278</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00282">282</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -3299,7 +3293,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>Context menu appearing when right-clicking on the message log widget. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00273">273</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00277">277</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -3325,7 +3319,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>Actions to switch between module windows with CTRL + &lt; number key &gt; shortcuts. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00269">269</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00273">273</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -3351,7 +3345,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>Indicates whether the circuit diagram has to be rebuilt. Particularly, this must be set to true directly after invalidating any pointers to QTreeWidgetItem instances of the main window's item tree. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00319">319</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00323">323</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -3377,7 +3371,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>Indicates whether any item state has changed. Set to true to update the circuit diagram. The circuit diagram saves pointers to QTreeWidgetItem instances of the main window's item tree. Make sure that these pointers are still valid. If they have been invalidated, rebuild the circuit diagram first! </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00327">327</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00331">331</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -3403,8 +3397,8 @@ template&lt;typename ManagerT &gt; </div>
 
 </div>
 </div>
-<a id="aa46a4560fb6f1fb4c5f421dd6876219a" name="aa46a4560fb6f1fb4c5f421dd6876219a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa46a4560fb6f1fb4c5f421dd6876219a">&#9670;&#160;</a></span>ui</h2>
+<a id="aa5c6fb33fcca676fed7101b7fd6ed1f6" name="aa5c6fb33fcca676fed7101b7fd6ed1f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5c6fb33fcca676fed7101b7fd6ed1f6">&#9670;&#160;</a></span>ui</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3413,7 +3407,7 @@ template&lt;typename ManagerT &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Ui::DynExpManagerClass DynExpManager::ui</td>
+          <td class="memname">std::unique_ptr&lt;Ui::DynExpManagerClass&gt; DynExpManager::ui</td>
         </tr>
       </table>
   </td>
@@ -3425,7 +3419,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>Qt widgets belonging to the main window's user interface. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00257">257</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00261">261</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -3451,7 +3445,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>Action for a bright UI theme. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00271">271</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00275">275</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -3477,7 +3471,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>Action for a dark UI theme. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00272">272</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00276">276</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -3503,7 +3497,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>Actions to switch in between different UI themes. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00270">270</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00274">274</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>
@@ -3529,7 +3523,7 @@ template&lt;typename ManagerT &gt; </div>
 
 <p>Timer for periodically updating the user interface. </p>
 
-<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00259">259</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DynExpManager_8h_source.html#l00263">263</a> of file <a class="el" href="DynExpManager_8h_source.html">DynExpManager.h</a>.</p>
 
 </div>
 </div>

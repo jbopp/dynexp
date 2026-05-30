@@ -117,10 +117,10 @@ Private Member Functions</h2></td></tr>
 <tr class="memdesc:a3d27f921981524e1e292b6c686448203"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construcs an instance - one for each <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> instance.  <br /></td></tr>
 <tr class="separator:a3d27f921981524e1e292b6c686448203"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a536c27c93065b63f0853821cd0710097" id="r_a536c27c93065b63f0853821cd0710097"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase_1_1EventListenersOnlyType.html#a536c27c93065b63f0853821cd0710097">AddRegisteredEvent</a> (<a class="el" href="classDynExp_1_1EventListenersBase.html">EventListenersBase</a> &amp;EventListeners) const</td></tr>
-<tr class="memdesc:a536c27c93065b63f0853821cd0710097"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a manager of event listeners to <a class="el" href="classDynExp_1_1ModuleBase.html#ab6848726c4ec4d5eaeb2b4e6d710f268" title="Holds a list of pointers to managers of event listeners of the events this module has registered/subs...">RegisteredEvents</a> if it was not already added before. Called indirectly by <a class="el" href="classDynExp_1_1TypedEventListeners.html#ad00404b8a0a59e5167586c02a83c1482" title="Registers/Subscribes module Listener to the event with the event function EventFunc....">TypedEventListeners::Register()</a>.    <br /></td></tr>
+<tr class="memdesc:a536c27c93065b63f0853821cd0710097"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a manager of event listeners to <a class="el" href="classDynExp_1_1ModuleBase.html#ab6848726c4ec4d5eaeb2b4e6d710f268" title="Holds a list of pointers to managers of event listeners of the events this module has registered/subs...">RegisteredEvents</a>. Called indirectly by <a class="el" href="classDynExp_1_1TypedEventListeners.html#ad125c5aa312d83b0a6f28dcd0bb804f3" title="Registers/Subscribes module Listener to the event with the event function EventFunc....">TypedEventListeners::Register()</a>.    <br /></td></tr>
 <tr class="separator:a536c27c93065b63f0853821cd0710097"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77262b343b202d8589d7959852116ed0" id="r_a77262b343b202d8589d7959852116ed0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase_1_1EventListenersOnlyType.html#a77262b343b202d8589d7959852116ed0">RemoveRegisteredEvent</a> (<a class="el" href="classDynExp_1_1EventListenersBase.html">EventListenersBase</a> &amp;EventListeners) const</td></tr>
-<tr class="memdesc:a77262b343b202d8589d7959852116ed0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a manager of event listeners from <a class="el" href="classDynExp_1_1ModuleBase.html#ab6848726c4ec4d5eaeb2b4e6d710f268" title="Holds a list of pointers to managers of event listeners of the events this module has registered/subs...">RegisteredEvents</a> if it was added before. Called indirectly by <a class="el" href="classDynExp_1_1TypedEventListeners.html#a9d21b5765fb573f9cdb3302b9c30cf07" title="Deregisters/unsubscribes module Listener from the event. Indirectly calls ModuleBase::RemoveRegistere...">TypedEventListeners::Deregister()</a>.    <br /></td></tr>
+<tr class="memdesc:a77262b343b202d8589d7959852116ed0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a manager of event listeners from <a class="el" href="classDynExp_1_1ModuleBase.html#ab6848726c4ec4d5eaeb2b4e6d710f268" title="Holds a list of pointers to managers of event listeners of the events this module has registered/subs...">RegisteredEvents</a> if it was added before. Called indirectly by <a class="el" href="classDynExp_1_1TypedEventListeners.html#ab4f92e4c040a9d077207860196f88345" title="Deregisters/unsubscribes module Listener from the event, removing a single registration for a particu...">TypedEventListeners::Deregister()</a>.    <br /></td></tr>
 <tr class="separator:a77262b343b202d8589d7959852116ed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -140,7 +140,7 @@ Friends</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to any <code><a class="el" href="classDynExp_1_1TypedEventListeners.html" title="Typed managers of event listeners class whose instances are owned by classes derived from InterModule...">TypedEventListeners</a></code> class. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00423">423</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00460">460</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3d27f921981524e1e292b6c686448203" name="a3d27f921981524e1e292b6c686448203"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3d27f921981524e1e292b6c686448203">&#9670;&#160;</a></span>EventListenersOnlyType()</h2>
@@ -174,7 +174,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00434">434</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00471">471</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -203,7 +203,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Adds a manager of event listeners to <a class="el" href="classDynExp_1_1ModuleBase.html#ab6848726c4ec4d5eaeb2b4e6d710f268" title="Holds a list of pointers to managers of event listeners of the events this module has registered/subs...">RegisteredEvents</a> if it was not already added before. Called indirectly by <a class="el" href="classDynExp_1_1TypedEventListeners.html#ad00404b8a0a59e5167586c02a83c1482" title="Registers/Subscribes module Listener to the event with the event function EventFunc....">TypedEventListeners::Register()</a>.   </p>
+<p>Adds a manager of event listeners to <a class="el" href="classDynExp_1_1ModuleBase.html#ab6848726c4ec4d5eaeb2b4e6d710f268" title="Holds a list of pointers to managers of event listeners of the events this module has registered/subs...">RegisteredEvents</a>. Called indirectly by <a class="el" href="classDynExp_1_1TypedEventListeners.html#ad125c5aa312d83b0a6f28dcd0bb804f3" title="Registers/Subscribes module Listener to the event with the event function EventFunc....">TypedEventListeners::Register()</a>.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">EventListeners</td><td>Manager of event listeners to add   </td></tr>
@@ -211,7 +211,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00436">436</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00473">473</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -239,7 +239,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Removes a manager of event listeners from <a class="el" href="classDynExp_1_1ModuleBase.html#ab6848726c4ec4d5eaeb2b4e6d710f268" title="Holds a list of pointers to managers of event listeners of the events this module has registered/subs...">RegisteredEvents</a> if it was added before. Called indirectly by <a class="el" href="classDynExp_1_1TypedEventListeners.html#a9d21b5765fb573f9cdb3302b9c30cf07" title="Deregisters/unsubscribes module Listener from the event. Indirectly calls ModuleBase::RemoveRegistere...">TypedEventListeners::Deregister()</a>.   </p>
+<p>Removes a manager of event listeners from <a class="el" href="classDynExp_1_1ModuleBase.html#ab6848726c4ec4d5eaeb2b4e6d710f268" title="Holds a list of pointers to managers of event listeners of the events this module has registered/subs...">RegisteredEvents</a> if it was added before. Called indirectly by <a class="el" href="classDynExp_1_1TypedEventListeners.html#ab4f92e4c040a9d077207860196f88345" title="Deregisters/unsubscribes module Listener from the event, removing a single registration for a particu...">TypedEventListeners::Deregister()</a>.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">EventListeners</td><td>Manager of event listeners to remove   </td></tr>
@@ -247,7 +247,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00437">437</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00474">474</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -272,7 +272,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00425">425</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00462">462</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -298,7 +298,7 @@ template&lt;typename... &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00428">428</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00465">465</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -325,7 +325,7 @@ template&lt;typename... &gt; </div>
 
 <p>Owning <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00439">439</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00476">476</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>

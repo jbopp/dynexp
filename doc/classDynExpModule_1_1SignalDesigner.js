@@ -12,7 +12,7 @@ var classDynExpModule_1_1SignalDesigner =
     [ "ModuleMainLoop", "classDynExpModule_1_1SignalDesigner.html#a5a26348ab17d2ed9d16a165ddc87e877", null ],
     [ "Name", "classDynExpModule_1_1SignalDesigner.html#af74fdee6e9db19542e62f58cb71e88f7", null ],
     [ "OnAmplitudeChanged", "classDynExpModule_1_1SignalDesigner.html#a96e186f8b6f531f5a13e7b576fdbf71b", null ],
-    [ "OnAutostartChanged", "classDynExpModule_1_1SignalDesigner.html#aaa1d25dda7183b6ec0acb1c542d0f996", null ],
+    [ "OnAutostartChanged", "classDynExpModule_1_1SignalDesigner.html#a42702a797cd36736cd72e5f5d0b999cd", null ],
     [ "OnDutyCycleChanged", "classDynExpModule_1_1SignalDesigner.html#ab8ebcb1da02c20396ac27d97e1a83169", null ],
     [ "OnExit", "classDynExpModule_1_1SignalDesigner.html#a62c41daeaf8077b4f3b040abd42d5f90", null ],
     [ "OnForceTrigger", "classDynExpModule_1_1SignalDesigner.html#a161a85d3c718d02848d56f1595fa2420", null ],

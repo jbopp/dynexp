@@ -13,6 +13,7 @@ var classDynExpModule_1_1ArbitraryFunctionFromCSV =
     [ "Name", "classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a87e3b7707b1c7015e510432ac1ab0a8b", null ],
     [ "OnExit", "classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a6d484cf3852d5089d1259a1aa8729a87", null ],
     [ "OnInit", "classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a7181f10f1d8889eca671cd55814bf7c8", null ],
+    [ "OnTrigger", "classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a9278ce8e27933a523aa3fe7b52b3b959", null ],
     [ "ResetImpl", "classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a5f37baee1a95c4dc9c6e54bb5eb1c579", null ],
     [ "TreatModuleExceptionsAsWarnings", "classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a3b1a4a9eebf82ff46d1e6d9a3c4f2c27", null ]
 ];

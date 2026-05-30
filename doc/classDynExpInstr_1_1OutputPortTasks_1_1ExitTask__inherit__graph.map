@@ -1,19 +1,23 @@
 <map id="DynExpInstr::OutputPortTasks::ExitTask" name="DynExpInstr::OutputPortTasks::ExitTask">
-<area shape="rect" id="Node000001" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="993,37,1208,77"/>
-<area shape="rect" id="Node000006" href="$classDynExpInstr_1_1AnalogOutTasks_1_1ExitTask.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="1256,5,1469,45"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1221,40,1255,36,1256,41,1222,45"/>
-<area shape="rect" id="Node000008" href="$classDynExpInstr_1_1DigitalOutTasks_1_1ExitTask.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="1257,69,1468,109"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1222,69,1257,74,1257,79,1221,75"/>
-<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1FunctionGeneratorTasks_1_1ExitTask.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="716,37,945,77"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="959,55,993,55,993,60,959,60"/>
-<area shape="rect" id="Node000003" href="$classDynExpInstr_1_1DataStreamInstrumentTasks_1_1ExitTask.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="409,37,668,77"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="682,55,716,55,716,60,682,60"/>
-<area shape="rect" id="Node000004" href="$classDynExp_1_1ExitTaskBase.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="195,45,361,70"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="375,55,409,55,409,60,375,60"/>
-<area shape="rect" id="Node000005" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="5,45,147,70"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="161,55,194,55,194,60,161,60"/>
-<area shape="rect" id="Node000007" href="$classDynExpInstr_1_1NIDAQAnalogOutTasks_1_1ExitTask.html" title=" " alt="" coords="1517,5,1715,45"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1483,23,1517,23,1517,28,1483,28"/>
-<area shape="rect" id="Node000009" href="$classDynExpInstr_1_1NIDAQDigitalOutTasks_1_1ExitTask.html" title=" " alt="" coords="1519,69,1713,109"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="1482,87,1518,87,1518,92,1482,92"/>
+<area shape="rect" id="Node000001" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="993,101,1208,141"/>
+<area shape="rect" id="Node000006" href="$classDynExpInstr_1_1AnalogOutTasks_1_1ExitTask.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="1256,69,1469,109"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1221,104,1255,100,1256,105,1222,109"/>
+<area shape="rect" id="Node000009" href="$classDynExpInstr_1_1DigitalOutTasks_1_1ExitTask.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="1257,133,1468,173"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1222,133,1257,138,1257,143,1221,139"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1FunctionGeneratorTasks_1_1ExitTask.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="716,101,945,141"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="959,119,993,119,993,124,959,124"/>
+<area shape="rect" id="Node000003" href="$classDynExpInstr_1_1DataStreamInstrumentTasks_1_1ExitTask.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="409,101,668,141"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="682,119,716,119,716,124,682,124"/>
+<area shape="rect" id="Node000004" href="$classDynExp_1_1ExitTaskBase.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy...." alt="" coords="195,109,361,134"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="375,119,409,119,409,124,375,124"/>
+<area shape="rect" id="Node000005" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="5,109,147,134"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="161,119,194,119,194,124,161,124"/>
+<area shape="rect" id="Node000007" href="$classDynExpInstr_1_1DummyAnalogOutTasks_1_1ExitTask.html" title=" " alt="" coords="1517,5,1724,45"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1456,63,1539,43,1540,48,1458,69"/>
+<area shape="rect" id="Node000008" href="$classDynExpInstr_1_1NIDAQAnalogOutTasks_1_1ExitTask.html" title=" " alt="" coords="1522,69,1719,109"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="1483,87,1522,87,1522,92,1483,92"/>
+<area shape="rect" id="Node000010" href="$classDynExpInstr_1_1DummyDigitalOutTasks_1_1ExitTask.html" title=" " alt="" coords="1519,133,1723,173"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="1482,151,1518,151,1518,156,1482,156"/>
+<area shape="rect" id="Node000011" href="$classDynExpInstr_1_1NIDAQDigitalOutTasks_1_1ExitTask.html" title=" " alt="" coords="1523,197,1718,237"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="1458,174,1540,195,1539,200,1456,179"/>
 </map>

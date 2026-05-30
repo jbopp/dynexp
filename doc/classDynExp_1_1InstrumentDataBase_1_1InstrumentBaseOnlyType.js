@@ -5,10 +5,12 @@ var classDynExp_1_1InstrumentDataBase_1_1InstrumentBaseOnlyType =
     [ "EnqueuePriorityTask", "classDynExp_1_1InstrumentDataBase_1_1InstrumentBaseOnlyType.html#a6c5afbb9861095ad03e6dede81a1c968", null ],
     [ "EnqueueTask", "classDynExp_1_1InstrumentDataBase_1_1InstrumentBaseOnlyType.html#ac7912405b9340ad65e0af896a9262624", null ],
     [ "GetNewTaskNotifier", "classDynExp_1_1InstrumentDataBase_1_1InstrumentBaseOnlyType.html#a12eb70ee0c61d6ef7fea281878f0d70b", null ],
+    [ "IndicateException", "classDynExp_1_1InstrumentDataBase_1_1InstrumentBaseOnlyType.html#a2d4af0185b9ba2187eafae629d03a6d8", null ],
     [ "RemoveAllTasks", "classDynExp_1_1InstrumentDataBase_1_1InstrumentBaseOnlyType.html#a5564d5808f2065c4d8ec32f5641fafba", null ],
     [ "RemoveAllTasksExceptFront", "classDynExp_1_1InstrumentDataBase_1_1InstrumentBaseOnlyType.html#ae5e9062723aa696bfad349cd2944a7d1", null ],
     [ "RemoveTaskFromQueue", "classDynExp_1_1InstrumentDataBase_1_1InstrumentBaseOnlyType.html#a50d89057807246999b6f214f940ad87e", null ],
     [ "Reset", "classDynExp_1_1InstrumentDataBase_1_1InstrumentBaseOnlyType.html#a1e8ade0e6710d0a34a7b156164c586fc", null ],
+    [ "SetException", "classDynExp_1_1InstrumentDataBase_1_1InstrumentBaseOnlyType.html#a4a5a946de8c72d89ed55bcf9e14d176a", null ],
     [ "InstrumentBase", "classDynExp_1_1InstrumentDataBase_1_1InstrumentBaseOnlyType.html#a0cb055b7d7bb75f5b771fb7b02fde5fd", null ],
     [ "InstrumentDataBase", "classDynExp_1_1InstrumentDataBase_1_1InstrumentBaseOnlyType.html#af9c40a1813c24229564eaaeae4b8aac5", null ],
     [ "Parent", "classDynExp_1_1InstrumentDataBase_1_1InstrumentBaseOnlyType.html#a2537cc0ece530e9cf251d72d334c0108", null ]

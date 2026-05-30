@@ -175,9 +175,9 @@ Signals</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Qt signals</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Signals emitted by this hardware adapter. The worker instance's slots are connected to them to handles the signals. </p>
 </div></td></tr>
-<tr class="memitem:a84a8e115be623e0e491c51dbc4a39277" id="r_a84a8e115be623e0e491c51dbc4a39277"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1HardwareAdapterSerialPort.html#a84a8e115be623e0e491c51dbc4a39277">InitSig</a> (QString PortName, QSerialPort::BaudRate BaudRate, QSerialPort::DataBits DataBits, QSerialPort::StopBits StopBits, QSerialPort::Parity Parity)</td></tr>
-<tr class="memdesc:a84a8e115be623e0e491c51dbc4a39277"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes <a class="el" href="classDynExp_1_1HardwareAdapterSerialPortWorker.html#a789a0b7119132fc8a6f332a5768cd945" title="COM port for serial communication.">HardwareAdapterSerialPortWorker::Port</a> for serial communication with the given settings.    <br /></td></tr>
-<tr class="separator:a84a8e115be623e0e491c51dbc4a39277"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c5936d9b199729659d7e35ba092e291" id="r_a8c5936d9b199729659d7e35ba092e291"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1HardwareAdapterSerialPort.html#a8c5936d9b199729659d7e35ba092e291">InitSig</a> (QString PortName, <a class="el" href="classDynExp_1_1HardwareAdapterSerialPortParams.html#a469160fb731a31a311741b83bc8a7792">HardwareAdapterSerialPortParams::BaudRateType</a> BaudRate, QSerialPort::DataBits DataBits, QSerialPort::StopBits StopBits, QSerialPort::Parity Parity)</td></tr>
+<tr class="memdesc:a8c5936d9b199729659d7e35ba092e291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes <a class="el" href="classDynExp_1_1HardwareAdapterSerialPortWorker.html#a789a0b7119132fc8a6f332a5768cd945" title="COM port for serial communication.">HardwareAdapterSerialPortWorker::Port</a> for serial communication with the given settings.    <br /></td></tr>
+<tr class="separator:a8c5936d9b199729659d7e35ba092e291"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header signals_classDynExp_1_1QSerialCommunicationHardwareAdapter"><td colspan="2" onclick="javascript:toggleInherit('signals_classDynExp_1_1QSerialCommunicationHardwareAdapter')"><img src="closed.png" alt="-"/>&#160;Signals inherited from <a class="el" href="classDynExp_1_1QSerialCommunicationHardwareAdapter.html">DynExp::QSerialCommunicationHardwareAdapter</a></td></tr>
 <tr class="memitem:a381ae43a78c38ad36a3be141976c8e6f inherit signals_classDynExp_1_1QSerialCommunicationHardwareAdapter" id="r_a381ae43a78c38ad36a3be141976c8e6f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QSerialCommunicationHardwareAdapter.html#a381ae43a78c38ad36a3be141976c8e6f">OpenSig</a> ()</td></tr>
 <tr class="memdesc:a381ae43a78c38ad36a3be141976c8e6f inherit signals_classDynExp_1_1QSerialCommunicationHardwareAdapter"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the communication connection.    <br /></td></tr>
@@ -494,7 +494,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements a hardware adapter to communicate with text-based commands over COM ports. </p>
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8h_source.html#l00145">145</a> of file <a class="el" href="HardwareAdapterSerialPort_8h_source.html">HardwareAdapterSerialPort.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8h_source.html#l00168">168</a> of file <a class="el" href="HardwareAdapterSerialPort_8h_source.html">HardwareAdapterSerialPort.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a5a571f54e97eac4f3a8c4dd20d304b2b" name="a5a571f54e97eac4f3a8c4dd20d304b2b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5a571f54e97eac4f3a8c4dd20d304b2b">&#9670;&#160;</a></span>ConfigType</h2>
@@ -510,7 +510,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Type of the configurator class belonging to this <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> type. Declare this alias in every derived class with the respective configurator class accompanying the derived <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8h_source.html#l00151">151</a> of file <a class="el" href="HardwareAdapterSerialPort_8h_source.html">HardwareAdapterSerialPort.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8h_source.html#l00174">174</a> of file <a class="el" href="HardwareAdapterSerialPort_8h_source.html">HardwareAdapterSerialPort.h</a>.</p>
 
 </div>
 </div>
@@ -529,7 +529,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Type of the parameter class belonging to this <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> type. Declare this alias in every derived class with the respective parameter class accompanying the derived <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code>. "  </p>
 <p>"  </p>
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8h_source.html#l00150">150</a> of file <a class="el" href="HardwareAdapterSerialPort_8h_source.html">HardwareAdapterSerialPort.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8h_source.html#l00173">173</a> of file <a class="el" href="HardwareAdapterSerialPort_8h_source.html">HardwareAdapterSerialPort.h</a>.</p>
 
 </div>
 </div>
@@ -575,7 +575,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8cpp_source.html#l00139">139</a> of file <a class="el" href="HardwareAdapterSerialPort_8cpp_source.html">HardwareAdapterSerialPort.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8cpp_source.html#l00158">158</a> of file <a class="el" href="HardwareAdapterSerialPort_8cpp_source.html">HardwareAdapterSerialPort.cpp</a>.</p>
 
 </div>
 </div>
@@ -662,7 +662,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1SerialCommunicationHardwareAdapter.html#acc083ed9de08fdd5d285405c168189c9">DynExp::SerialCommunicationHardwareAdapter</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8h_source.html#l00164">164</a> of file <a class="el" href="HardwareAdapterSerialPort_8h_source.html">HardwareAdapterSerialPort.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8h_source.html#l00187">187</a> of file <a class="el" href="HardwareAdapterSerialPort_8h_source.html">HardwareAdapterSerialPort.h</a>.</p>
 
 </div>
 </div>
@@ -691,12 +691,12 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Initializes the instance at construction or in case <a class="el" href="classDynExp_1_1Object.html#a837a8e8daa7853003474b458a3fe0a46" title="Resets this Object instance (including all its derived classes) by calling ResetImpl()....">Object::Reset()</a> is called.   </p>
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8cpp_source.html#l00169">169</a> of file <a class="el" href="HardwareAdapterSerialPort_8cpp_source.html">HardwareAdapterSerialPort.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8cpp_source.html#l00188">188</a> of file <a class="el" href="HardwareAdapterSerialPort_8cpp_source.html">HardwareAdapterSerialPort.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a84a8e115be623e0e491c51dbc4a39277" name="a84a8e115be623e0e491c51dbc4a39277"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84a8e115be623e0e491c51dbc4a39277">&#9670;&#160;</a></span>InitSig</h2>
+<a id="a8c5936d9b199729659d7e35ba092e291" name="a8c5936d9b199729659d7e35ba092e291"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c5936d9b199729659d7e35ba092e291">&#9670;&#160;</a></span>InitSig</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -713,7 +713,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">QSerialPort::BaudRate&#160;</td>
+          <td class="paramtype"><a class="el" href="classDynExp_1_1HardwareAdapterSerialPortParams.html#a469160fb731a31a311741b83bc8a7792">HardwareAdapterSerialPortParams::BaudRateType</a>&#160;</td>
           <td class="paramname"><em>BaudRate</em>, </td>
         </tr>
         <tr>
@@ -788,7 +788,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1QSerialCommunicationHardwareAdapter.html#a0afeb947443be1b6394924652897678b">DynExp::QSerialCommunicationHardwareAdapter</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8h_source.html#l00168">168</a> of file <a class="el" href="HardwareAdapterSerialPort_8h_source.html">HardwareAdapterSerialPort.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8h_source.html#l00191">191</a> of file <a class="el" href="HardwareAdapterSerialPort_8h_source.html">HardwareAdapterSerialPort.h</a>.</p>
 
 </div>
 </div>
@@ -820,7 +820,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classDynExp_1_1QSerialCommunicationHardwareAdapter.html#aeaefde77e2527c4be9250cfc77d5aac6">DynExp::QSerialCommunicationHardwareAdapter</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8cpp_source.html#l00145">145</a> of file <a class="el" href="HardwareAdapterSerialPort_8cpp_source.html">HardwareAdapterSerialPort.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8cpp_source.html#l00164">164</a> of file <a class="el" href="HardwareAdapterSerialPort_8cpp_source.html">HardwareAdapterSerialPort.cpp</a>.</p>
 
 </div>
 </div>
@@ -850,7 +850,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Every derived class has to redefine this function.   </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the name of this DynExp object type.   </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8h_source.html#l00153">153</a> of file <a class="el" href="HardwareAdapterSerialPort_8h_source.html">HardwareAdapterSerialPort.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8h_source.html#l00176">176</a> of file <a class="el" href="HardwareAdapterSerialPort_8h_source.html">HardwareAdapterSerialPort.h</a>.</p>
 
 </div>
 </div>
@@ -879,7 +879,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Registers QSerialPort enumerations as Qt meta types using qRegisterMetaType() (refer to Qt documentation). Necessary to use the enumerations in Qt's signal/slot mechanism. </p>
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8cpp_source.html#l00154">154</a> of file <a class="el" href="HardwareAdapterSerialPort_8cpp_source.html">HardwareAdapterSerialPort.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8cpp_source.html#l00173">173</a> of file <a class="el" href="HardwareAdapterSerialPort_8cpp_source.html">HardwareAdapterSerialPort.cpp</a>.</p>
 
 </div>
 </div>
@@ -909,7 +909,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Refer to <a class="el" href="classDynExp_1_1Object.html#a837a8e8daa7853003474b458a3fe0a46" title="Resets this Object instance (including all its derived classes) by calling ResetImpl()....">DynExp::Object::Reset()</a>. Using tag dispatch mechanism to ensure that <code><a class="el" href="classDynExp_1_1HardwareAdapterSerialPort.html#aeb9ef459090f0f419e28fdc649f7b3f0" title="Refer to DynExp::Object::Reset(). Using tag dispatch mechanism to ensure that ResetImpl() of every de...">ResetImpl()</a></code> of every derived class gets called - starting from <a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">DynExp::Object</a>, descending the inheritance hierarchy.         </p>
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8h_source.html#l00179">179</a> of file <a class="el" href="HardwareAdapterSerialPort_8h_source.html">HardwareAdapterSerialPort.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8h_source.html#l00202">202</a> of file <a class="el" href="HardwareAdapterSerialPort_8h_source.html">HardwareAdapterSerialPort.h</a>.</p>
 
 </div>
 </div>
@@ -941,7 +941,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1QSerialCommunicationHardwareAdapter.html#a60d67772bb929e273cad3c8b6dfc99b0">DynExp::QSerialCommunicationHardwareAdapter</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8cpp_source.html#l00177">177</a> of file <a class="el" href="HardwareAdapterSerialPort_8cpp_source.html">HardwareAdapterSerialPort.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HardwareAdapterSerialPort_8cpp_source.html#l00196">196</a> of file <a class="el" href="HardwareAdapterSerialPort_8cpp_source.html">HardwareAdapterSerialPort.cpp</a>.</p>
 
 </div>
 </div>

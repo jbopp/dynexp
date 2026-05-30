@@ -61,6 +61,6 @@ var classCircuitDiagram =
     [ "TreeWidgetItemTypeColumn", "classCircuitDiagram.html#a92daf5e0b890de647f652f561bf92bac", null ],
     [ "TreeWidgetParentTypeColumn", "classCircuitDiagram.html#a68e8e6beb398ccc94648d3cd3f1206fb", null ],
     [ "TypeIconSize", "classCircuitDiagram.html#ab468ee5ca75192adc86fa180dfd5ad71", null ],
-    [ "ui", "classCircuitDiagram.html#ac400c0851c92232116e15cceeed583e5", null ],
+    [ "ui", "classCircuitDiagram.html#a71b80331f3bc325e08575eaaf900498e", null ],
     [ "ZoomFactor", "classCircuitDiagram.html#a5e41482859b20113a25a53f091447dcd", null ]
 ];

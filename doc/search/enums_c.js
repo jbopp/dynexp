@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rfmodulationtype_0',['RFModulationType',['../classDynExpModule_1_1ODMR_1_1ODMRData.html#a0015e978deee009d5c617376c836de0b',1,'DynExpModule::ODMR::ODMRData']]]
+  ['quantitycapstype_0',['QuantityCapsType',['../classDynExpInstr_1_1FunctionGenerator.html#a139b0773ac8ede2d987d64a5bab0cb9c',1,'DynExpInstr::FunctionGenerator']]]
 ];

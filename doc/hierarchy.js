@@ -22,6 +22,7 @@ var hierarchy =
     ] ],
     [ "DynExpInstr::BasicSample", "structDynExpInstr_1_1BasicSample.html", null ],
     [ "Util::BlobDataType", "classUtil_1_1BlobDataType.html", null ],
+    [ "DynExp::TaskBase::CallbackType", "classDynExp_1_1TaskBase_1_1CallbackType.html", null ],
     [ "DynExpModule::gRPCModule< gRPCServices >::CallDataBase", "classDynExpModule_1_1gRPCModule_1_1CallDataBase.html", [
       [ "DynExpModule::gRPCModule< gRPCServices >::TypedCallDataBase< DerivedType, gRPCService, RequestMessageType, ResponseMessageType,... >", "classDynExpModule_1_1gRPCModule_1_1TypedCallDataBase.html", null ]
     ] ],
@@ -40,6 +41,7 @@ var hierarchy =
       ] ],
       [ "DynExp::ResourceManagerBase< PointerType >", "classDynExp_1_1ResourceManagerBase.html", null ]
     ] ],
+    [ "DynExpInstr::NP_Conex_CC_StageData::Conex_CCStatusType", "structDynExpInstr_1_1NP__Conex__CC__StageData_1_1Conex__CCStatusType.html", null ],
     [ "BaseInstr::ConfigType", null, [
       [ "DynExpInstr::gRPCInstrumentConfigurator< BaseInstr, 0, gRPCStubs... >", "classDynExpInstr_1_1gRPCInstrumentConfigurator.html", [
         [ "DynExpInstr::NetworkDataStreamInstrumentConfigurator< BaseInstr, 0, gRPCStubs... >", "classDynExpInstr_1_1NetworkDataStreamInstrumentConfigurator.html", [
@@ -50,6 +52,9 @@ var hierarchy =
           [ "DynExpInstr::NetworkTimeTaggerConfigurator< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1NetworkTimeTaggerConfigurator.html", null ]
         ] ],
         [ "DynExpInstr::NetworkDataStreamInstrumentConfigurator< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1NetworkDataStreamInstrumentConfigurator.html", null ]
+      ] ],
+      [ "DynExpInstr::gRPCInstrumentConfigurator< Laser, 0, DynExpProto::NetworkLaser::NetworkLaser >", "classDynExpInstr_1_1gRPCInstrumentConfigurator.html", [
+        [ "DynExpInstr::NetworkLaserConfigurator", "classDynExpInstr_1_1NetworkLaserConfigurator.html", null ]
       ] ],
       [ "DynExpInstr::gRPCInstrumentConfigurator< Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer >", "classDynExpInstr_1_1gRPCInstrumentConfigurator.html", [
         [ "DynExpInstr::NetworkSpectrometerConfigurator", "classDynExpInstr_1_1NetworkSpectrometerConfigurator.html", null ]
@@ -88,9 +93,11 @@ var hierarchy =
               [ "DynExpInstr::DummyDataStreamInstrumentConfigurator", "classDynExpInstr_1_1DummyDataStreamInstrumentConfigurator.html", null ],
               [ "DynExpInstr::OutputPortConfigurator", "classDynExpInstr_1_1OutputPortConfigurator.html", [
                 [ "DynExpInstr::AnalogOutConfigurator", "classDynExpInstr_1_1AnalogOutConfigurator.html", [
+                  [ "DynExpInstr::DummyAnalogOutConfigurator", "classDynExpInstr_1_1DummyAnalogOutConfigurator.html", null ],
                   [ "DynExpInstr::NIDAQAnalogOutConfigurator", "classDynExpInstr_1_1NIDAQAnalogOutConfigurator.html", null ]
                 ] ],
                 [ "DynExpInstr::DigitalOutConfigurator", "classDynExpInstr_1_1DigitalOutConfigurator.html", [
+                  [ "DynExpInstr::DummyDigitalOutConfigurator", "classDynExpInstr_1_1DummyDigitalOutConfigurator.html", null ],
                   [ "DynExpInstr::NIDAQDigitalOutConfigurator", "classDynExpInstr_1_1NIDAQDigitalOutConfigurator.html", null ]
                 ] ]
               ] ],
@@ -100,9 +107,11 @@ var hierarchy =
             ] ],
             [ "DynExpInstr::InputPortConfigurator", "classDynExpInstr_1_1InputPortConfigurator.html", [
               [ "DynExpInstr::AnalogInConfigurator", "classDynExpInstr_1_1AnalogInConfigurator.html", [
+                [ "DynExpInstr::DummyAnalogInConfigurator", "classDynExpInstr_1_1DummyAnalogInConfigurator.html", null ],
                 [ "DynExpInstr::NIDAQAnalogInConfigurator", "classDynExpInstr_1_1NIDAQAnalogInConfigurator.html", null ]
               ] ],
               [ "DynExpInstr::DigitalInConfigurator", "classDynExpInstr_1_1DigitalInConfigurator.html", [
+                [ "DynExpInstr::DummyDigitalInConfigurator", "classDynExpInstr_1_1DummyDigitalInConfigurator.html", null ],
                 [ "DynExpInstr::NIDAQDigitalInConfigurator", "classDynExpInstr_1_1NIDAQDigitalInConfigurator.html", null ]
               ] ]
             ] ],
@@ -114,7 +123,9 @@ var hierarchy =
             ] ]
           ] ],
           [ "DynExpInstr::InterModuleCommunicatorConfigurator", "classDynExpInstr_1_1InterModuleCommunicatorConfigurator.html", null ],
+          [ "DynExpInstr::LaserConfigurator", "classDynExpInstr_1_1LaserConfigurator.html", null ],
           [ "DynExpInstr::PositionerStageConfigurator", "classDynExpInstr_1_1PositionerStageConfigurator.html", [
+            [ "DynExpInstr::NP_Conex_CC_Configurator", "classDynExpInstr_1_1NP__Conex__CC__Configurator.html", null ],
             [ "DynExpInstr::NenionLeakvalveF3Configurator", "classDynExpInstr_1_1NenionLeakvalveF3Configurator.html", null ],
             [ "DynExpInstr::PI_C_862_Configurator", "classDynExpInstr_1_1PI__C__862__Configurator.html", null ],
             [ "DynExpInstr::SmarActConfigurator", "classDynExpInstr_1_1SmarActConfigurator.html", null ]
@@ -133,8 +144,11 @@ var hierarchy =
             [ "DynExpModule::NetworkDataStreamInstrumentConfigurator< gRPCServices >", "classDynExpModule_1_1NetworkDataStreamInstrumentConfigurator.html", null ]
           ] ],
           [ "DynExp::QModuleConfiguratorBase", "classDynExp_1_1QModuleConfiguratorBase.html", [
+            [ "DynExpModule::EventSenderConfigurator", "classDynExpModule_1_1EventSenderConfigurator.html", null ],
             [ "DynExpModule::ImageViewer::ImageViewerConfigurator", "classDynExpModule_1_1ImageViewer_1_1ImageViewerConfigurator.html", null ],
             [ "DynExpModule::InputPortReaderConfigurator", "classDynExpModule_1_1InputPortReaderConfigurator.html", null ],
+            [ "DynExpModule::LaserControlConfigurator", "classDynExpModule_1_1LaserControlConfigurator.html", null ],
+            [ "DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopyConfigurator", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyConfigurator.html", null ],
             [ "DynExpModule::LockinAmplifierControlConfigurator", "classDynExpModule_1_1LockinAmplifierControlConfigurator.html", null ],
             [ "DynExpModule::ODMR::ODMRConfigurator", "classDynExpModule_1_1ODMR_1_1ODMRConfigurator.html", null ],
             [ "DynExpModule::OutputPortWriterConfigurator", "classDynExpModule_1_1OutputPortWriterConfigurator.html", null ],
@@ -177,6 +191,9 @@ var hierarchy =
     [ "DynExp::EventBase", "classDynExp_1_1EventBase.html", [
       [ "DynExp::DefaultEvent< ReceiverType, ArgTupleType >", "classDynExp_1_1DefaultEvent.html", null ],
       [ "DynExp::InterModuleEventBase", "classDynExp_1_1InterModuleEventBase.html", [
+        [ "DynExp::InterModuleEvent< FinishedEvent >", "classDynExp_1_1InterModuleEvent.html", [
+          [ "DynExpModule::FinishedEvent", "classDynExpModule_1_1FinishedEvent.html", null ]
+        ] ],
         [ "DynExp::InterModuleEvent< AutofocusEvent, bool >", "classDynExp_1_1InterModuleEvent.html", [
           [ "DynExpModule::ImageViewer::AutofocusEvent", "classDynExpModule_1_1ImageViewer_1_1AutofocusEvent.html", null ]
         ] ],
@@ -195,20 +212,17 @@ var hierarchy =
         [ "DynExp::InterModuleEvent< ResumeImageCapturingEvent >", "classDynExp_1_1InterModuleEvent.html", [
           [ "DynExpModule::ImageViewer::ResumeImageCapturingEvent", "classDynExpModule_1_1ImageViewer_1_1ResumeImageCapturingEvent.html", null ]
         ] ],
+        [ "DynExp::InterModuleEvent< SetFilenameEvent, std::string >", "classDynExp_1_1InterModuleEvent.html", [
+          [ "DynExpModule::SetFilenameEvent", "classDynExpModule_1_1SetFilenameEvent.html", null ]
+        ] ],
         [ "DynExp::InterModuleEvent< PauseSpectrumRecordingEvent >", "classDynExp_1_1InterModuleEvent.html", [
           [ "DynExpModule::SpectrumViewer::PauseSpectrumRecordingEvent", "classDynExpModule_1_1SpectrumViewer_1_1PauseSpectrumRecordingEvent.html", null ]
-        ] ],
-        [ "DynExp::InterModuleEvent< RecordSpectrumEvent, std::string >", "classDynExp_1_1InterModuleEvent.html", [
-          [ "DynExpModule::SpectrumViewer::RecordSpectrumEvent", "classDynExpModule_1_1SpectrumViewer_1_1RecordSpectrumEvent.html", null ]
         ] ],
         [ "DynExp::InterModuleEvent< ResumeSpectrumRecordingEvent >", "classDynExp_1_1InterModuleEvent.html", [
           [ "DynExpModule::SpectrumViewer::ResumeSpectrumRecordingEvent", "classDynExpModule_1_1SpectrumViewer_1_1ResumeSpectrumRecordingEvent.html", null ]
         ] ],
-        [ "DynExp::InterModuleEvent< RecordSpectrumEvent, bool >", "classDynExp_1_1InterModuleEvent.html", [
+        [ "DynExp::InterModuleEvent< SetSilentModeEvent, bool >", "classDynExp_1_1InterModuleEvent.html", [
           [ "DynExpModule::SpectrumViewer::SetSilentModeEvent", "classDynExpModule_1_1SpectrumViewer_1_1SetSilentModeEvent.html", null ]
-        ] ],
-        [ "DynExp::InterModuleEvent< SpectrumFinishedRecordingEvent >", "classDynExp_1_1InterModuleEvent.html", [
-          [ "DynExpModule::SpectrumViewer::SpectrumFinishedRecordingEvent", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumFinishedRecordingEvent.html", null ]
         ] ],
         [ "DynExp::InterModuleEvent< StartEvent >", "classDynExp_1_1InterModuleEvent.html", [
           [ "DynExpModule::StartEvent", "classDynExpModule_1_1StartEvent.html", null ]
@@ -263,6 +277,9 @@ var hierarchy =
     ] ],
     [ "DynExp::ExceptionContainer", "classDynExp_1_1ExceptionContainer.html", null ],
     [ "BaseInstr::ExitTaskType", null, [
+      [ "DynExpInstr::gRPCInstrumentTasks::ExitTask< Laser, 0, DynExpProto::NetworkLaser::NetworkLaser >", "classDynExpInstr_1_1gRPCInstrumentTasks_1_1ExitTask.html", [
+        [ "DynExpInstr::NetworkLaserTasks::ExitTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1ExitTask.html", null ]
+      ] ],
       [ "DynExpInstr::gRPCInstrumentTasks::ExitTask< Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer >", "classDynExpInstr_1_1gRPCInstrumentTasks_1_1ExitTask.html", [
         [ "DynExpInstr::NetworkSpectrometerTasks::ExitTask", "classDynExpInstr_1_1NetworkSpectrometerTasks_1_1ExitTask.html", null ]
       ] ],
@@ -302,6 +319,9 @@ var hierarchy =
     [ "DynExpInstr::CameraData::ImageTransformationType", "classDynExpInstr_1_1CameraData.html#structDynExpInstr_1_1CameraData_1_1ImageTransformationType", null ],
     [ "DynExp::ParamsBase::IndexedTextList", "classDynExp_1_1ParamsBase.html#classDynExp_1_1ParamsBase_1_1IndexedTextList", null ],
     [ "BaseInstr::InitTaskType", null, [
+      [ "DynExpInstr::gRPCInstrumentTasks::InitTask< Laser, 0, DynExpProto::NetworkLaser::NetworkLaser >", "classDynExpInstr_1_1gRPCInstrumentTasks_1_1InitTask.html", [
+        [ "DynExpInstr::NetworkLaserTasks::InitTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1InitTask.html", null ]
+      ] ],
       [ "DynExpInstr::gRPCInstrumentTasks::InitTask< Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer >", "classDynExpInstr_1_1gRPCInstrumentTasks_1_1InitTask.html", [
         [ "DynExpInstr::NetworkSpectrometerTasks::InitTask", "classDynExpInstr_1_1NetworkSpectrometerTasks_1_1InitTask.html", null ]
       ] ],
@@ -334,10 +354,11 @@ var hierarchy =
         [ "DynExp::LinkedObjectWrapperContainer< DynExpHardware::SIPulseStreamerHardwareAdapter >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
         [ "DynExp::LinkedObjectWrapperContainer< DynExpHardware::ZILabOneHardwareAdapter >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
         [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::FunctionGenerator >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
+        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::InterModuleCommunicator >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
         [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::Camera >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
         [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::AnalogOut >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
-        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::InterModuleCommunicator >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
         [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::InputPort >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
+        [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::Laser >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
         [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::LockinAmplifier >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
         [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::DigitalOut >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
         [ "DynExp::LinkedObjectWrapperContainer< DynExpInstr::OutputPort >", "classDynExp_1_1LinkedObjectWrapperContainer.html", null ],
@@ -368,9 +389,11 @@ var hierarchy =
               [ "DynExpInstr::DummyDataStreamInstrument", "classDynExpInstr_1_1DummyDataStreamInstrument.html", null ],
               [ "DynExpInstr::OutputPort", "classDynExpInstr_1_1OutputPort.html", [
                 [ "DynExpInstr::AnalogOut", "classDynExpInstr_1_1AnalogOut.html", [
+                  [ "DynExpInstr::DummyAnalogOut", "classDynExpInstr_1_1DummyAnalogOut.html", null ],
                   [ "DynExpInstr::NIDAQAnalogOut", "classDynExpInstr_1_1NIDAQAnalogOut.html", null ]
                 ] ],
                 [ "DynExpInstr::DigitalOut", "classDynExpInstr_1_1DigitalOut.html", [
+                  [ "DynExpInstr::DummyDigitalOut", "classDynExpInstr_1_1DummyDigitalOut.html", null ],
                   [ "DynExpInstr::NIDAQDigitalOut", "classDynExpInstr_1_1NIDAQDigitalOut.html", null ]
                 ] ]
               ] ],
@@ -380,9 +403,11 @@ var hierarchy =
             ] ],
             [ "DynExpInstr::InputPort", "classDynExpInstr_1_1InputPort.html", [
               [ "DynExpInstr::AnalogIn", "classDynExpInstr_1_1AnalogIn.html", [
+                [ "DynExpInstr::DummyAnalogIn", "classDynExpInstr_1_1DummyAnalogIn.html", null ],
                 [ "DynExpInstr::NIDAQAnalogIn", "classDynExpInstr_1_1NIDAQAnalogIn.html", null ]
               ] ],
               [ "DynExpInstr::DigitalIn", "classDynExpInstr_1_1DigitalIn.html", [
+                [ "DynExpInstr::DummyDigitalIn", "classDynExpInstr_1_1DummyDigitalIn.html", null ],
                 [ "DynExpInstr::NIDAQDigitalIn", "classDynExpInstr_1_1NIDAQDigitalIn.html", null ]
               ] ]
             ] ],
@@ -394,7 +419,13 @@ var hierarchy =
             ] ]
           ] ],
           [ "DynExpInstr::InterModuleCommunicator", "classDynExpInstr_1_1InterModuleCommunicator.html", null ],
+          [ "DynExpInstr::Laser", "classDynExpInstr_1_1Laser.html", [
+            [ "DynExpInstr::gRPCInstrument< Laser, 0, DynExpProto::NetworkLaser::NetworkLaser >", "classDynExpInstr_1_1gRPCInstrument.html", [
+              [ "DynExpInstr::NetworkLaser", "classDynExpInstr_1_1NetworkLaser.html", null ]
+            ] ]
+          ] ],
           [ "DynExpInstr::PositionerStage", "classDynExpInstr_1_1PositionerStage.html", [
+            [ "DynExpInstr::NP_Conex_CC", "classDynExpInstr_1_1NP__Conex__CC.html", null ],
             [ "DynExpInstr::NenionLeakvalveF3", "classDynExpInstr_1_1NenionLeakvalveF3.html", null ],
             [ "DynExpInstr::PI_C_862", "classDynExpInstr_1_1PI__C__862.html", null ],
             [ "DynExpInstr::SmarAct", "classDynExpInstr_1_1SmarAct.html", null ]
@@ -417,8 +448,11 @@ var hierarchy =
             [ "DynExpModule::NetworkDataStreamInstrumentT< gRPCServices >", "classDynExpModule_1_1NetworkDataStreamInstrumentT.html", null ]
           ] ],
           [ "DynExp::QModuleBase", "classDynExp_1_1QModuleBase.html", [
+            [ "DynExpModule::EventSender", "classDynExpModule_1_1EventSender.html", null ],
             [ "DynExpModule::ImageViewer::ImageViewer", "classDynExpModule_1_1ImageViewer_1_1ImageViewer.html", null ],
             [ "DynExpModule::InputPortReader", "classDynExpModule_1_1InputPortReader.html", null ],
+            [ "DynExpModule::LaserControl", "classDynExpModule_1_1LaserControl.html", null ],
+            [ "DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html", null ],
             [ "DynExpModule::LockinAmplifierControl", "classDynExpModule_1_1LockinAmplifierControl.html", null ],
             [ "DynExpModule::ODMR::ODMR", "classDynExpModule_1_1ODMR_1_1ODMR.html", null ],
             [ "DynExpModule::OutputPortWriter", "classDynExpModule_1_1OutputPortWriter.html", null ],
@@ -472,9 +506,11 @@ var hierarchy =
               [ "DynExpInstr::DummyDataStreamInstrumentData", "classDynExpInstr_1_1DummyDataStreamInstrumentData.html", null ],
               [ "DynExpInstr::OutputPortData", "classDynExpInstr_1_1OutputPortData.html", [
                 [ "DynExpInstr::AnalogOutData", "classDynExpInstr_1_1AnalogOutData.html", [
+                  [ "DynExpInstr::DummyAnalogOutData", "classDynExpInstr_1_1DummyAnalogOutData.html", null ],
                   [ "DynExpInstr::NIDAQAnalogOutData", "classDynExpInstr_1_1NIDAQAnalogOutData.html", null ]
                 ] ],
                 [ "DynExpInstr::DigitalOutData", "classDynExpInstr_1_1DigitalOutData.html", [
+                  [ "DynExpInstr::DummyDigitalOutData", "classDynExpInstr_1_1DummyDigitalOutData.html", null ],
                   [ "DynExpInstr::NIDAQDigitalOutData", "classDynExpInstr_1_1NIDAQDigitalOutData.html", null ]
                 ] ]
               ] ],
@@ -484,9 +520,11 @@ var hierarchy =
             ] ],
             [ "DynExpInstr::InputPortData", "classDynExpInstr_1_1InputPortData.html", [
               [ "DynExpInstr::AnalogInData", "classDynExpInstr_1_1AnalogInData.html", [
+                [ "DynExpInstr::DummyAnalogInData", "classDynExpInstr_1_1DummyAnalogInData.html", null ],
                 [ "DynExpInstr::NIDAQAnalogInData", "classDynExpInstr_1_1NIDAQAnalogInData.html", null ]
               ] ],
               [ "DynExpInstr::DigitalInData", "classDynExpInstr_1_1DigitalInData.html", [
+                [ "DynExpInstr::DummyDigitalInData", "classDynExpInstr_1_1DummyDigitalInData.html", null ],
                 [ "DynExpInstr::NIDAQDigitalInData", "classDynExpInstr_1_1NIDAQDigitalInData.html", null ]
               ] ]
             ] ],
@@ -498,7 +536,9 @@ var hierarchy =
             ] ]
           ] ],
           [ "DynExpInstr::InterModuleCommunicatorData", "classDynExpInstr_1_1InterModuleCommunicatorData.html", null ],
+          [ "DynExpInstr::LaserData", "classDynExpInstr_1_1LaserData.html", null ],
           [ "DynExpInstr::PositionerStageData", "classDynExpInstr_1_1PositionerStageData.html", [
+            [ "DynExpInstr::NP_Conex_CC_StageData", "classDynExpInstr_1_1NP__Conex__CC__StageData.html", null ],
             [ "DynExpInstr::NenionLeakvalveF3Data", "classDynExpInstr_1_1NenionLeakvalveF3Data.html", null ],
             [ "DynExpInstr::PI_C_862StageData", "classDynExpInstr_1_1PI__C__862StageData.html", null ],
             [ "DynExpInstr::SmarActData", "classDynExpInstr_1_1SmarActData.html", null ]
@@ -517,8 +557,11 @@ var hierarchy =
             [ "DynExpModule::NetworkDataStreamInstrumentData< gRPCServices >", "classDynExpModule_1_1NetworkDataStreamInstrumentData.html", null ]
           ] ],
           [ "DynExp::QModuleDataBase", "classDynExp_1_1QModuleDataBase.html", [
+            [ "DynExpModule::EventSenderData", "classDynExpModule_1_1EventSenderData.html", null ],
             [ "DynExpModule::ImageViewer::ImageViewerData", "classDynExpModule_1_1ImageViewer_1_1ImageViewerData.html", null ],
             [ "DynExpModule::InputPortReaderData", "classDynExpModule_1_1InputPortReaderData.html", null ],
+            [ "DynExpModule::LaserControlData", "classDynExpModule_1_1LaserControlData.html", null ],
+            [ "DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopyData", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html", null ],
             [ "DynExpModule::LockinAmplifierControlData", "classDynExpModule_1_1LockinAmplifierControlData.html", null ],
             [ "DynExpModule::ODMR::ODMRData", "classDynExpModule_1_1ODMR_1_1ODMRData.html", null ],
             [ "DynExpModule::OutputPortWriterData", "classDynExpModule_1_1OutputPortWriterData.html", null ],
@@ -563,9 +606,11 @@ var hierarchy =
                   [ "DynExpInstr::DummyDataStreamInstrumentParams", "classDynExpInstr_1_1DummyDataStreamInstrumentParams.html", null ],
                   [ "DynExpInstr::OutputPortParams", "classDynExpInstr_1_1OutputPortParams.html", [
                     [ "DynExpInstr::AnalogOutParams", "classDynExpInstr_1_1AnalogOutParams.html", [
+                      [ "DynExpInstr::DummyAnalogOutParams", "classDynExpInstr_1_1DummyAnalogOutParams.html", null ],
                       [ "DynExpInstr::NIDAQAnalogOutParams", "classDynExpInstr_1_1NIDAQAnalogOutParams.html", null ]
                     ] ],
                     [ "DynExpInstr::DigitalOutParams", "classDynExpInstr_1_1DigitalOutParams.html", [
+                      [ "DynExpInstr::DummyDigitalOutParams", "classDynExpInstr_1_1DummyDigitalOutParams.html", null ],
                       [ "DynExpInstr::NIDAQDigitalOutParams", "classDynExpInstr_1_1NIDAQDigitalOutParams.html", null ]
                     ] ]
                   ] ],
@@ -575,9 +620,11 @@ var hierarchy =
                 ] ],
                 [ "DynExpInstr::InputPortParams", "classDynExpInstr_1_1InputPortParams.html", [
                   [ "DynExpInstr::AnalogInParams", "classDynExpInstr_1_1AnalogInParams.html", [
+                    [ "DynExpInstr::DummyAnalogInParams", "classDynExpInstr_1_1DummyAnalogInParams.html", null ],
                     [ "DynExpInstr::NIDAQAnalogInParams", "classDynExpInstr_1_1NIDAQAnalogInParams.html", null ]
                   ] ],
                   [ "DynExpInstr::DigitalInParams", "classDynExpInstr_1_1DigitalInParams.html", [
+                    [ "DynExpInstr::DummyDigitalInParams", "classDynExpInstr_1_1DummyDigitalInParams.html", null ],
                     [ "DynExpInstr::NIDAQDigitalInParams", "classDynExpInstr_1_1NIDAQDigitalInParams.html", null ]
                   ] ]
                 ] ],
@@ -589,7 +636,9 @@ var hierarchy =
                 ] ]
               ] ],
               [ "DynExpInstr::InterModuleCommunicatorParams", "classDynExpInstr_1_1InterModuleCommunicatorParams.html", null ],
+              [ "DynExpInstr::LaserParams", "classDynExpInstr_1_1LaserParams.html", null ],
               [ "DynExpInstr::PositionerStageParams", "classDynExpInstr_1_1PositionerStageParams.html", [
+                [ "DynExpInstr::NP_Conex_CC_Params", "classDynExpInstr_1_1NP__Conex__CC__Params.html", null ],
                 [ "DynExpInstr::NenionLeakvalveF3Params", "classDynExpInstr_1_1NenionLeakvalveF3Params.html", null ],
                 [ "DynExpInstr::PI_C_862_Params", "classDynExpInstr_1_1PI__C__862__Params.html", null ],
                 [ "DynExpInstr::SmarActParams", "classDynExpInstr_1_1SmarActParams.html", null ]
@@ -608,8 +657,11 @@ var hierarchy =
                 [ "DynExpModule::NetworkDataStreamInstrumentParams< gRPCServices >", "classDynExpModule_1_1NetworkDataStreamInstrumentParams.html", null ]
               ] ],
               [ "DynExp::QModuleParamsBase", "classDynExp_1_1QModuleParamsBase.html", [
+                [ "DynExpModule::EventSenderParams", "classDynExpModule_1_1EventSenderParams.html", null ],
                 [ "DynExpModule::ImageViewer::ImageViewerParams", "classDynExpModule_1_1ImageViewer_1_1ImageViewerParams.html", null ],
                 [ "DynExpModule::InputPortReaderParams", "classDynExpModule_1_1InputPortReaderParams.html", null ],
+                [ "DynExpModule::LaserControlParams", "classDynExpModule_1_1LaserControlParams.html", null ],
+                [ "DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopyParams", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyParams.html", null ],
                 [ "DynExpModule::LockinAmplifierControlParams", "classDynExpModule_1_1LockinAmplifierControlParams.html", null ],
                 [ "DynExpModule::ODMR::ODMRParams", "classDynExpModule_1_1ODMR_1_1ODMRParams.html", null ],
                 [ "DynExpModule::OutputPortWriterParams", "classDynExpModule_1_1OutputPortWriterParams.html", null ],
@@ -647,6 +699,9 @@ var hierarchy =
         ] ],
         [ "DynExpInstr::NetworkDataStreamInstrumentData< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1NetworkDataStreamInstrumentData.html", null ]
       ] ],
+      [ "DynExpInstr::gRPCInstrumentData< Laser, 0, DynExpProto::NetworkLaser::NetworkLaser >", "classDynExpInstr_1_1gRPCInstrumentData.html", [
+        [ "DynExpInstr::NetworkLaserData", "classDynExpInstr_1_1NetworkLaserData.html", null ]
+      ] ],
       [ "DynExpInstr::gRPCInstrumentData< Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer >", "classDynExpInstr_1_1gRPCInstrumentData.html", [
         [ "DynExpInstr::NetworkSpectrometerData", "classDynExpInstr_1_1NetworkSpectrometerData.html", null ]
       ] ],
@@ -657,6 +712,7 @@ var hierarchy =
     ] ],
     [ "DynExp::InstrumentBase::InstrumenThreadOnlyType", "classDynExp_1_1InstrumentBase_1_1InstrumenThreadOnlyType.html", null ],
     [ "DynExp::InstrumentDataBase::InstrumenThreadOnlyType", "classDynExp_1_1InstrumentDataBase_1_1InstrumenThreadOnlyType.html", null ],
+    [ "DynExp::InterModuleEventLibrary", "classDynExp_1_1InterModuleEventLibrary.html", null ],
     [ "DynExpManager::ItemTreeItemDataType", "structDynExpManager_1_1ItemTreeItemDataType.html", null ],
     [ "DynExp::LibraryBase< ObjectTypeBasePtr, ObjFactories, ConfFactories, ObjNames, ObjCategories >", "namespaceDynExp.html#classDynExp_1_1LibraryBase", null ],
     [ "DynExp::LibraryBase< HardwareAdapterPtrType, LibraryObjectFactoryParamList< HardwareAdapterPtrType, &MakeHardwareAdapter< HardwareAdapterTypes >... >, LibraryConfigFactoryParamList<&MakeHardwareAdapterConfig< HardwareAdapterTypes >... >, LibraryStringParamList<&HardwareAdapterTypes::Name... >, LibraryStringParamList<&HardwareAdapterTypes::Category... > >", "namespaceDynExp.html", [
@@ -704,6 +760,7 @@ var hierarchy =
     [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::FunctionGenerator >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
     [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::InputPort >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
     [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::InterModuleCommunicator >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
+    [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::Laser >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
     [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::LockinAmplifier >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
     [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::OutputPort >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
     [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::PositionerStage >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
@@ -712,6 +769,8 @@ var hierarchy =
     [ "DynExp::LinkedObjectWrapperPointer< DynExpInstr::WidefieldLocalization >", "classDynExp_1_1LinkedObjectWrapperPointer.html", null ],
     [ "CircuitDiagram::CircuitDiagramItem::LinkedParamType", "classCircuitDiagram_1_1CircuitDiagramItem.html#structCircuitDiagram_1_1CircuitDiagramItem_1_1LinkedParamType", null ],
     [ "DynExp::ParamsBase::LinkParamStarter", "classDynExp_1_1ParamsBase_1_1LinkParamStarter.html", null ],
+    [ "DynExp::TypedEventListeners< EventFuncArgs >::ListenersTypeKey", "structDynExp_1_1TypedEventListeners_1_1ListenersTypeKey.html", null ],
+    [ "DynExp::TypedEventListeners< EventFuncArgs >::ListenersTypeKeyHasher", "structDynExp_1_1TypedEventListeners_1_1ListenersTypeKeyHasher.html", null ],
     [ "DynExp::ParamsBase::ListParam< ParamType, typename >", "classDynExp_1_1ParamsBase.html#classDynExp_1_1ParamsBase_1_1ListParam", null ],
     [ "DynExpInstr::PI_C_862StageData::LM629StatusType", "structDynExpInstr_1_1PI__C__862StageData_1_1LM629StatusType.html", null ],
     [ "DynExpModule::Widefield::WidefieldMicroscopeData::LocalizedEmitterType", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeData.html#structDynExpModule_1_1Widefield_1_1WidefieldMicroscopeData_1_1LocalizedEmitterType", null ],
@@ -797,6 +856,9 @@ var hierarchy =
         ] ],
         [ "DynExpInstr::NetworkDataStreamInstrumentParams< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1NetworkDataStreamInstrumentParams.html", null ]
       ] ],
+      [ "DynExpInstr::gRPCInstrumentParams< Laser, 0, DynExpProto::NetworkLaser::NetworkLaser >", "classDynExpInstr_1_1gRPCInstrumentParams.html", [
+        [ "DynExpInstr::NetworkLaserParams", "classDynExpInstr_1_1NetworkLaserParams.html", null ]
+      ] ],
       [ "DynExpInstr::gRPCInstrumentParams< Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer >", "classDynExpInstr_1_1gRPCInstrumentParams.html", [
         [ "DynExpInstr::NetworkSpectrometerParams", "classDynExpInstr_1_1NetworkSpectrometerParams.html", null ]
       ] ],
@@ -859,8 +921,11 @@ var hierarchy =
     ] ],
     [ "QWidget", null, [
       [ "DynExp::QModuleWidget", "classDynExp_1_1QModuleWidget.html", [
+        [ "DynExpModule::EventSenderWidget", "classDynExpModule_1_1EventSenderWidget.html", null ],
         [ "DynExpModule::ImageViewer::ImageViewerWidget", "classDynExpModule_1_1ImageViewer_1_1ImageViewerWidget.html", null ],
         [ "DynExpModule::InputPortReaderWidget", "classDynExpModule_1_1InputPortReaderWidget.html", null ],
+        [ "DynExpModule::LaserControlWidget", "classDynExpModule_1_1LaserControlWidget.html", null ],
+        [ "DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopyWidget", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyWidget.html", null ],
         [ "DynExpModule::LockinAmplifierControlWidget", "classDynExpModule_1_1LockinAmplifierControlWidget.html", null ],
         [ "DynExpModule::ODMR::ODMRWidget", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html", null ],
         [ "DynExpModule::OutputPortWriterWidget", "classDynExpModule_1_1OutputPortWriterWidget.html", null ],
@@ -879,6 +944,7 @@ var hierarchy =
     [ "Util::remove_first_from_tuple< std::tuple< FirstElementT, ElementTs... > >", "namespaceUtil.html#structUtil_1_1remove__first__from__tuple_3_01std_1_1tuple_3_01FirstElementT_00_01ElementTs_8_8_8_01_4_01_4", null ],
     [ "DynExp::Resource< PointerType >", "structDynExp_1_1Resource.html", null ],
     [ "DynExp::RunnableObject::RunnableInstanceOnlyType", "classDynExp_1_1RunnableObject_1_1RunnableInstanceOnlyType.html", null ],
+    [ "DynExp::RunnableInstance::RunnableObjectOnlyType", "classDynExp_1_1RunnableInstance_1_1RunnableObjectOnlyType.html", null ],
     [ "DynExpModule::SignalPlotterWidget::SampleDataType", "structDynExpModule_1_1SignalPlotterWidget_1_1SampleDataType.html", null ],
     [ "DynExpModule::SpectrumViewer::SpectrumViewerWidget::SampleDataType", "structDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerWidget_1_1SampleDataType.html", null ],
     [ "DynExpHardware::SIPulseStreamerHardwareAdapter::SampleType", "structDynExpHardware_1_1SIPulseStreamerHardwareAdapter_1_1SampleType.html", null ],
@@ -912,9 +978,11 @@ var hierarchy =
             [ "DynExpInstr::DummyDataStreamInstrumentTasks::ExitTask", "classDynExpInstr_1_1DummyDataStreamInstrumentTasks_1_1ExitTask.html", null ],
             [ "DynExpInstr::OutputPortTasks::ExitTask", "classDynExpInstr_1_1OutputPortTasks_1_1ExitTask.html", [
               [ "DynExpInstr::AnalogOutTasks::ExitTask", "classDynExpInstr_1_1AnalogOutTasks_1_1ExitTask.html", [
+                [ "DynExpInstr::DummyAnalogOutTasks::ExitTask", "classDynExpInstr_1_1DummyAnalogOutTasks_1_1ExitTask.html", null ],
                 [ "DynExpInstr::NIDAQAnalogOutTasks::ExitTask", "classDynExpInstr_1_1NIDAQAnalogOutTasks_1_1ExitTask.html", null ]
               ] ],
               [ "DynExpInstr::DigitalOutTasks::ExitTask", "classDynExpInstr_1_1DigitalOutTasks_1_1ExitTask.html", [
+                [ "DynExpInstr::DummyDigitalOutTasks::ExitTask", "classDynExpInstr_1_1DummyDigitalOutTasks_1_1ExitTask.html", null ],
                 [ "DynExpInstr::NIDAQDigitalOutTasks::ExitTask", "classDynExpInstr_1_1NIDAQDigitalOutTasks_1_1ExitTask.html", null ]
               ] ]
             ] ],
@@ -924,9 +992,11 @@ var hierarchy =
           ] ],
           [ "DynExpInstr::InputPortTasks::ExitTask", "classDynExpInstr_1_1InputPortTasks_1_1ExitTask.html", [
             [ "DynExpInstr::AnalogInTasks::ExitTask", "classDynExpInstr_1_1AnalogInTasks_1_1ExitTask.html", [
+              [ "DynExpInstr::DummyAnalogInTasks::ExitTask", "classDynExpInstr_1_1DummyAnalogInTasks_1_1ExitTask.html", null ],
               [ "DynExpInstr::NIDAQAnalogInTasks::ExitTask", "classDynExpInstr_1_1NIDAQAnalogInTasks_1_1ExitTask.html", null ]
             ] ],
             [ "DynExpInstr::DigitalInTasks::ExitTask", "classDynExpInstr_1_1DigitalInTasks_1_1ExitTask.html", [
+              [ "DynExpInstr::DummyDigitalInTasks::ExitTask", "classDynExpInstr_1_1DummyDigitalInTasks_1_1ExitTask.html", null ],
               [ "DynExpInstr::NIDAQDigitalInTasks::ExitTask", "classDynExpInstr_1_1NIDAQDigitalInTasks_1_1ExitTask.html", null ]
             ] ]
           ] ],
@@ -938,7 +1008,9 @@ var hierarchy =
           ] ]
         ] ],
         [ "DynExpInstr::InterModuleCommunicatorTasks::ExitTask", "classDynExpInstr_1_1InterModuleCommunicatorTasks_1_1ExitTask.html", null ],
+        [ "DynExpInstr::LaserTasks::ExitTask", "classDynExpInstr_1_1LaserTasks_1_1ExitTask.html", null ],
         [ "DynExpInstr::PositionerStageTasks::ExitTask", "classDynExpInstr_1_1PositionerStageTasks_1_1ExitTask.html", [
+          [ "DynExpInstr::NP_Conex_CC_Tasks::ExitTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1ExitTask.html", null ],
           [ "DynExpInstr::NenionLeakvalveF3Tasks::ExitTask", "classDynExpInstr_1_1NenionLeakvalveF3Tasks_1_1ExitTask.html", null ],
           [ "DynExpInstr::PI_C_862_Tasks::ExitTask", "classDynExpInstr_1_1PI__C__862__Tasks_1_1ExitTask.html", null ],
           [ "DynExpInstr::SmarActTasks::ExitTask", "classDynExpInstr_1_1SmarActTasks_1_1ExitTask.html", null ]
@@ -955,9 +1027,11 @@ var hierarchy =
             [ "DynExpInstr::DummyDataStreamInstrumentTasks::InitTask", "classDynExpInstr_1_1DummyDataStreamInstrumentTasks_1_1InitTask.html", null ],
             [ "DynExpInstr::OutputPortTasks::InitTask", "classDynExpInstr_1_1OutputPortTasks_1_1InitTask.html", [
               [ "DynExpInstr::AnalogOutTasks::InitTask", "classDynExpInstr_1_1AnalogOutTasks_1_1InitTask.html", [
+                [ "DynExpInstr::DummyAnalogOutTasks::InitTask", "classDynExpInstr_1_1DummyAnalogOutTasks_1_1InitTask.html", null ],
                 [ "DynExpInstr::NIDAQAnalogOutTasks::InitTask", "classDynExpInstr_1_1NIDAQAnalogOutTasks_1_1InitTask.html", null ]
               ] ],
               [ "DynExpInstr::DigitalOutTasks::InitTask", "classDynExpInstr_1_1DigitalOutTasks_1_1InitTask.html", [
+                [ "DynExpInstr::DummyDigitalOutTasks::InitTask", "classDynExpInstr_1_1DummyDigitalOutTasks_1_1InitTask.html", null ],
                 [ "DynExpInstr::NIDAQDigitalOutTasks::InitTask", "classDynExpInstr_1_1NIDAQDigitalOutTasks_1_1InitTask.html", null ]
               ] ]
             ] ],
@@ -967,9 +1041,11 @@ var hierarchy =
           ] ],
           [ "DynExpInstr::InputPortTasks::InitTask", "classDynExpInstr_1_1InputPortTasks_1_1InitTask.html", [
             [ "DynExpInstr::AnalogInTasks::InitTask", "classDynExpInstr_1_1AnalogInTasks_1_1InitTask.html", [
+              [ "DynExpInstr::DummyAnalogInTasks::InitTask", "classDynExpInstr_1_1DummyAnalogInTasks_1_1InitTask.html", null ],
               [ "DynExpInstr::NIDAQAnalogInTasks::InitTask", "classDynExpInstr_1_1NIDAQAnalogInTasks_1_1InitTask.html", null ]
             ] ],
             [ "DynExpInstr::DigitalInTasks::InitTask", "classDynExpInstr_1_1DigitalInTasks_1_1InitTask.html", [
+              [ "DynExpInstr::DummyDigitalInTasks::InitTask", "classDynExpInstr_1_1DummyDigitalInTasks_1_1InitTask.html", null ],
               [ "DynExpInstr::NIDAQDigitalInTasks::InitTask", "classDynExpInstr_1_1NIDAQDigitalInTasks_1_1InitTask.html", null ]
             ] ]
           ] ],
@@ -981,7 +1057,9 @@ var hierarchy =
           ] ]
         ] ],
         [ "DynExpInstr::InterModuleCommunicatorTasks::InitTask", "classDynExpInstr_1_1InterModuleCommunicatorTasks_1_1InitTask.html", null ],
+        [ "DynExpInstr::LaserTasks::InitTask", "classDynExpInstr_1_1LaserTasks_1_1InitTask.html", null ],
         [ "DynExpInstr::PositionerStageTasks::InitTask", "classDynExpInstr_1_1PositionerStageTasks_1_1InitTask.html", [
+          [ "DynExpInstr::NP_Conex_CC_Tasks::InitTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1InitTask.html", null ],
           [ "DynExpInstr::NenionLeakvalveF3Tasks::InitTask", "classDynExpInstr_1_1NenionLeakvalveF3Tasks_1_1InitTask.html", null ],
           [ "DynExpInstr::PI_C_862_Tasks::InitTask", "classDynExpInstr_1_1PI__C__862__Tasks_1_1InitTask.html", null ],
           [ "DynExpInstr::SmarActTasks::InitTask", "classDynExpInstr_1_1SmarActTasks_1_1InitTask.html", null ]
@@ -998,9 +1076,11 @@ var hierarchy =
             [ "DynExpInstr::DummyDataStreamInstrumentTasks::UpdateTask", "classDynExpInstr_1_1DummyDataStreamInstrumentTasks_1_1UpdateTask.html", null ],
             [ "DynExpInstr::OutputPortTasks::UpdateTask", "classDynExpInstr_1_1OutputPortTasks_1_1UpdateTask.html", [
               [ "DynExpInstr::AnalogOutTasks::UpdateTask", "classDynExpInstr_1_1AnalogOutTasks_1_1UpdateTask.html", [
+                [ "DynExpInstr::DummyAnalogOutTasks::UpdateTask", "classDynExpInstr_1_1DummyAnalogOutTasks_1_1UpdateTask.html", null ],
                 [ "DynExpInstr::NIDAQAnalogOutTasks::UpdateTask", "classDynExpInstr_1_1NIDAQAnalogOutTasks_1_1UpdateTask.html", null ]
               ] ],
               [ "DynExpInstr::DigitalOutTasks::UpdateTask", "classDynExpInstr_1_1DigitalOutTasks_1_1UpdateTask.html", [
+                [ "DynExpInstr::DummyDigitalOutTasks::UpdateTask", "classDynExpInstr_1_1DummyDigitalOutTasks_1_1UpdateTask.html", null ],
                 [ "DynExpInstr::NIDAQDigitalOutTasks::UpdateTask", "classDynExpInstr_1_1NIDAQDigitalOutTasks_1_1UpdateTask.html", null ]
               ] ]
             ] ],
@@ -1010,9 +1090,11 @@ var hierarchy =
           ] ],
           [ "DynExpInstr::InputPortTasks::UpdateTask", "classDynExpInstr_1_1InputPortTasks_1_1UpdateTask.html", [
             [ "DynExpInstr::AnalogInTasks::UpdateTask", "classDynExpInstr_1_1AnalogInTasks_1_1UpdateTask.html", [
+              [ "DynExpInstr::DummyAnalogInTasks::UpdateTask", "classDynExpInstr_1_1DummyAnalogInTasks_1_1UpdateTask.html", null ],
               [ "DynExpInstr::NIDAQAnalogInTasks::UpdateTask", "classDynExpInstr_1_1NIDAQAnalogInTasks_1_1UpdateTask.html", null ]
             ] ],
             [ "DynExpInstr::DigitalInTasks::UpdateTask", "classDynExpInstr_1_1DigitalInTasks_1_1UpdateTask.html", [
+              [ "DynExpInstr::DummyDigitalInTasks::UpdateTask", "classDynExpInstr_1_1DummyDigitalInTasks_1_1UpdateTask.html", null ],
               [ "DynExpInstr::NIDAQDigitalInTasks::UpdateTask", "classDynExpInstr_1_1NIDAQDigitalInTasks_1_1UpdateTask.html", null ]
             ] ]
           ] ],
@@ -1024,7 +1106,9 @@ var hierarchy =
           ] ]
         ] ],
         [ "DynExpInstr::InterModuleCommunicatorTasks::UpdateTask", "classDynExpInstr_1_1InterModuleCommunicatorTasks_1_1UpdateTask.html", null ],
+        [ "DynExpInstr::LaserTasks::UpdateTask", "classDynExpInstr_1_1LaserTasks_1_1UpdateTask.html", null ],
         [ "DynExpInstr::PositionerStageTasks::UpdateTask", "classDynExpInstr_1_1PositionerStageTasks_1_1UpdateTask.html", [
+          [ "DynExpInstr::NP_Conex_CC_Tasks::UpdateTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1UpdateTask.html", null ],
           [ "DynExpInstr::NenionLeakvalveF3Tasks::UpdateTask", "classDynExpInstr_1_1NenionLeakvalveF3Tasks_1_1UpdateTask.html", null ],
           [ "DynExpInstr::PI_C_862_Tasks::UpdateTask", "classDynExpInstr_1_1PI__C__862__Tasks_1_1UpdateTask.html", null ],
           [ "DynExpInstr::SmarActTasks::UpdateTask", "classDynExpInstr_1_1SmarActTasks_1_1UpdateTask.html", null ]
@@ -1058,6 +1142,20 @@ var hierarchy =
       [ "DynExpInstr::NIDAQDigitalOutTasks::StartTask", "classDynExpInstr_1_1NIDAQDigitalOutTasks_1_1StartTask.html", null ],
       [ "DynExpInstr::NIDAQDigitalOutTasks::StopTask", "classDynExpInstr_1_1NIDAQDigitalOutTasks_1_1StopTask.html", null ],
       [ "DynExpInstr::NIDAQDigitalOutTasks::WriteTask", "classDynExpInstr_1_1NIDAQDigitalOutTasks_1_1WriteTask.html", null ],
+      [ "DynExpInstr::NP_Conex_CC_Tasks::MoveAbsoluteExecutionTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1MoveAbsoluteExecutionTask.html", null ],
+      [ "DynExpInstr::NP_Conex_CC_Tasks::MoveAbsoluteTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1MoveAbsoluteTask.html", null ],
+      [ "DynExpInstr::NP_Conex_CC_Tasks::MoveRelativeExecutionTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1MoveRelativeExecutionTask.html", null ],
+      [ "DynExpInstr::NP_Conex_CC_Tasks::MoveRelativeTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1MoveRelativeTask.html", null ],
+      [ "DynExpInstr::NP_Conex_CC_Tasks::MoveToHomeExecutionTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1MoveToHomeExecutionTask.html", null ],
+      [ "DynExpInstr::NP_Conex_CC_Tasks::MoveToHomeTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1MoveToHomeTask.html", null ],
+      [ "DynExpInstr::NP_Conex_CC_Tasks::ReferenceExecutionTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1ReferenceExecutionTask.html", null ],
+      [ "DynExpInstr::NP_Conex_CC_Tasks::ReferenceTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1ReferenceTask.html", null ],
+      [ "DynExpInstr::NP_Conex_CC_Tasks::ResetTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1ResetTask.html", null ],
+      [ "DynExpInstr::NP_Conex_CC_Tasks::SetHomeExecutionTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1SetHomeExecutionTask.html", null ],
+      [ "DynExpInstr::NP_Conex_CC_Tasks::SetHomeTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1SetHomeTask.html", null ],
+      [ "DynExpInstr::NP_Conex_CC_Tasks::SetReadyTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1SetReadyTask.html", null ],
+      [ "DynExpInstr::NP_Conex_CC_Tasks::SetVelocityTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1SetVelocityTask.html", null ],
+      [ "DynExpInstr::NP_Conex_CC_Tasks::StopMotionTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1StopMotionTask.html", null ],
       [ "DynExpInstr::NenionLeakvalveF3Tasks::MoveAbsoluteTask", "classDynExpInstr_1_1NenionLeakvalveF3Tasks_1_1MoveAbsoluteTask.html", null ],
       [ "DynExpInstr::NenionLeakvalveF3Tasks::MoveRelativeTask", "classDynExpInstr_1_1NenionLeakvalveF3Tasks_1_1MoveRelativeTask.html", null ],
       [ "DynExpInstr::NenionLeakvalveF3Tasks::MoveToHomeTask", "classDynExpInstr_1_1NenionLeakvalveF3Tasks_1_1MoveToHomeTask.html", null ],
@@ -1077,6 +1175,14 @@ var hierarchy =
       [ "DynExpInstr::NetworkDataStreamInstrumentTasks::WriteTask< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1NetworkDataStreamInstrumentTasks_1_1WriteTask.html", null ],
       [ "DynExpInstr::NetworkDigitalOutTasks::SetDefaultTask< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1NetworkDigitalOutTasks_1_1SetDefaultTask.html", null ],
       [ "DynExpInstr::NetworkDigitalOutTasks::SetTask< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1NetworkDigitalOutTasks_1_1SetTask.html", null ],
+      [ "DynExpInstr::NetworkLaserTasks::DisableScanTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1DisableScanTask.html", null ],
+      [ "DynExpInstr::NetworkLaserTasks::DisableTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1DisableTask.html", null ],
+      [ "DynExpInstr::NetworkLaserTasks::EnableTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1EnableTask.html", null ],
+      [ "DynExpInstr::NetworkLaserTasks::ScanContinuouslyTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1ScanContinuouslyTask.html", null ],
+      [ "DynExpInstr::NetworkLaserTasks::SetFrequencyTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1SetFrequencyTask.html", null ],
+      [ "DynExpInstr::NetworkLaserTasks::SetIntensityTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1SetIntensityTask.html", null ],
+      [ "DynExpInstr::NetworkLaserTasks::SetScanRangeTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1SetScanRangeTask.html", null ],
+      [ "DynExpInstr::NetworkLaserTasks::SetScanRateTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1SetScanRateTask.html", null ],
       [ "DynExpInstr::NetworkSpectrometerTasks::AbortTask", "classDynExpInstr_1_1NetworkSpectrometerTasks_1_1AbortTask.html", null ],
       [ "DynExpInstr::NetworkSpectrometerTasks::RecordTask", "classDynExpInstr_1_1NetworkSpectrometerTasks_1_1RecordTask.html", null ],
       [ "DynExpInstr::NetworkSpectrometerTasks::SetExposureTimeTask", "classDynExpInstr_1_1NetworkSpectrometerTasks_1_1SetExposureTimeTask.html", null ],
@@ -1216,8 +1322,12 @@ var hierarchy =
     ] ],
     [ "DynExp::ParamsBase::TextList", "classDynExp_1_1ParamsBase.html#classDynExp_1_1ParamsBase_1_1TextList", null ],
     [ "DynExpInstr::FunctionGeneratorDefs::TriggerDescType", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1TriggerDescType.html", null ],
+    [ "Util::UniqueID", "classUtil_1_1UniqueID.html", null ],
     [ "DynExp::ConfiguratorBase::UpdateConfigFromDialogResult", "structDynExp_1_1ConfiguratorBase_1_1UpdateConfigFromDialogResult.html", null ],
     [ "BaseInstr::UpdateTaskType", null, [
+      [ "DynExpInstr::gRPCInstrumentTasks::UpdateTask< Laser, 0, DynExpProto::NetworkLaser::NetworkLaser >", "classDynExpInstr_1_1gRPCInstrumentTasks_1_1UpdateTask.html", [
+        [ "DynExpInstr::NetworkLaserTasks::UpdateTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1UpdateTask.html", null ]
+      ] ],
       [ "DynExpInstr::gRPCInstrumentTasks::UpdateTask< Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer >", "classDynExpInstr_1_1gRPCInstrumentTasks_1_1UpdateTask.html", [
         [ "DynExpInstr::NetworkSpectrometerTasks::UpdateTask", "classDynExpInstr_1_1NetworkSpectrometerTasks_1_1UpdateTask.html", null ]
       ] ],

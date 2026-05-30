@@ -219,7 +219,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a784b327cbbba14124e1e303b289714c4 inherit pub_methods_classDynExp_1_1ModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6929f6ac89a2c9f9c4e686c59acd31ce inherit pub_methods_classDynExp_1_1ModuleBase" id="r_a6929f6ac89a2c9f9c4e686c59acd31ce"><td class="memTemplParams" colspan="2">template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; </td></tr>
 <tr class="memitem:a6929f6ac89a2c9f9c4e686c59acd31ce inherit pub_methods_classDynExp_1_1ModuleBase"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#a6929f6ac89a2c9f9c4e686c59acd31ce">MakeAndEnqueueEvent</a> (ReceiverType *Receiver, EventType EventFuncPtr, ArgsTs &amp;&amp;...Args) const</td></tr>
-<tr class="memdesc:a6929f6ac89a2c9f9c4e686c59acd31ce inherit pub_methods_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <code><a class="el" href="namespaceDynExp.html#a95f0f5b615c5d99ff4325ab785735a7a" title="Creates an event of type DefaultEvent.">MakeEvent()</a></code> to construct a new event and subsequently enqueues the event into the module's event queue. Logical const-ness: this is a const member function to allow pointers to <code>const</code> <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> inserting events into the module's event queue. These kind of pointers are e.g. returned by <a class="el" href="classDynExp_1_1RunnableInstance.html#afafb4793635ac8c1c34471ff255549f1" title="Returns Owner.">RunnableInstance::GetOwner()</a> which can be called by events' <a class="el" href="classDynExp_1_1EventBase.html#a77b9b29345abc36c7f798e1ae3822670" title="Invokes the event passing the receiving module&#39;s instance reference to it.">EventBase::InvokeChild()</a> functions. For <code>const</code> <code>ModuleBase*</code>, it is possible to insert events into the event queue, but not to change the <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> object itself (e.g. calling <a class="el" href="classDynExp_1_1Object.html#a837a8e8daa7853003474b458a3fe0a46" title="Resets this Object instance (including all its derived classes) by calling ResetImpl()....">Object::Reset()</a>).  <br /></td></tr>
+<tr class="memdesc:a6929f6ac89a2c9f9c4e686c59acd31ce inherit pub_methods_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <code><a class="el" href="namespaceDynExp.html#a95f0f5b615c5d99ff4325ab785735a7a" title="Creates an event of type DefaultEvent.">MakeEvent()</a></code> to construct a new event and subsequently enqueues the event into the module's event queue. Logical const-ness: this is a const member function to allow pointers to <code>const</code> <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> inserting events into the module's event queue. These kind of pointers are e.g. returned by <a class="el" href="classDynExp_1_1RunnableInstance.html#afafb4793635ac8c1c34471ff255549f1" title="Returns Owner.">RunnableInstance::GetOwner()</a> which can be called by events' <a class="el" href="classDynExp_1_1EventBase.html#a77b9b29345abc36c7f798e1ae3822670" title="Invokes the event passing the receiving module&#39;s instance reference to it. Only to be called from Mod...">EventBase::InvokeChild()</a> functions. For <code>const</code> <code>ModuleBase*</code>, it is possible to insert events into the event queue, but not to change the <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> object itself (e.g. calling <a class="el" href="classDynExp_1_1Object.html#a837a8e8daa7853003474b458a3fe0a46" title="Resets this Object instance (including all its derived classes) by calling ResetImpl()....">Object::Reset()</a>).  <br /></td></tr>
 <tr class="separator:a6929f6ac89a2c9f9c4e686c59acd31ce inherit pub_methods_classDynExp_1_1ModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff620d0db4b7bc90490e2c6f93db224f inherit pub_methods_classDynExp_1_1ModuleBase" id="r_aff620d0db4b7bc90490e2c6f93db224f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#aff620d0db4b7bc90490e2c6f93db224f">HasUI</a> () const noexcept</td></tr>
 <tr class="memdesc:aff620d0db4b7bc90490e2c6f93db224f inherit pub_methods_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether this module possesses a user interface (UI) which is shown in a window dedicated to the module.  <br /></td></tr>
@@ -249,7 +249,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:adbb2e71639fdcab42c9c6c299e4cf2b8 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <a class="el" href="classDynExp_1_1RunnableObject.html#aacef09883d7d4462fc014330663d9f4f" title="Holds information about why the RunnableObject instance is paused.">ReasonWhyPaused</a>.  <br /></td></tr>
 <tr class="separator:adbb2e71639fdcab42c9c6c299e4cf2b8 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject" id="r_a416b8000830913b11eaf02d1f1af49d6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6">Run</a> (QWidget *ParentWidget=nullptr)</td></tr>
-<tr class="memdesc:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread and ensures that all <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instances linked to this instance via <code><a class="el" href="classDynExp_1_1ObjectLink.html" title="Type to define object link parameters as ParamsBase::Param&lt; ObjectLink&lt; ObjectT &gt; &gt; or to define obje...">ObjectLink</a></code> parameters are in a ready state. Calls <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> which is to be overridden by derived classes to start a thread and to pass this thread back by calling <code><a class="el" href="classDynExp_1_1RunnableObject.html#aac70e1485923ee8c78ed5732099b4c90" title="Stores a thread constructed by a derived class overriding RunChild() in Thread taking ownership of th...">StoreThread()</a></code>.  <br /></td></tr>
+<tr class="memdesc:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread and ensures that all <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instances linked to this instance via <code><a class="el" href="classDynExp_1_1ObjectLink.html" title="Type to define object link parameters as ParamsBase::Param&lt; ObjectLink&lt; ObjectT &gt; &gt; or to define obje...">ObjectLink</a></code> parameters are in a ready state. Calls <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> which is to be overridden by derived classes to start a thread and to pass this thread back by calling <code>StoreThread()</code>.  <br /></td></tr>
 <tr class="separator:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8275b7f99072059d5608a4201ed579af inherit pub_methods_classDynExp_1_1RunnableObject" id="r_a8275b7f99072059d5608a4201ed579af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a8275b7f99072059d5608a4201ed579af">RunIfRunAutomatic</a> ()</td></tr>
 <tr class="memdesc:a8275b7f99072059d5608a4201ed579af inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> if <a class="el" href="classDynExp_1_1RunnableObjectParams.html#a1ef775df6c01b554f3c102024646c0dd" title="Determines when the runnable object is started. Refer to RunnableObjectParams::StartupType.">RunnableObjectParams::Startup</a> is set to <a class="el" href="classDynExp_1_1RunnableObjectParams.html#a33b475bb5737bca9bf78ce6a6a7c41f4af69add31b7e16e98b1fa4642036b1bfc">RunnableObjectParams::Automatic</a>.  <br /></td></tr>
@@ -361,9 +361,9 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a81325157253f75f35faaa134a7b228d6" id="r_a81325157253f75f35faaa134a7b228d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#a81325157253f75f35faaa134a7b228d6">ResetImpl</a> (<a class="el" href="classDynExp_1_1Object.html#structDynExp_1_1Object_1_1dispatch__tag">dispatch_tag</a>&lt; <a class="el" href="classDynExp_1_1ModuleBase.html#a8630ea32b290077f187c42480b00d290">ModuleBase</a> &gt;) override final</td></tr>
 <tr class="memdesc:a81325157253f75f35faaa134a7b228d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Refer to <a class="el" href="classDynExp_1_1Object.html#a837a8e8daa7853003474b458a3fe0a46" title="Resets this Object instance (including all its derived classes) by calling ResetImpl()....">DynExp::Object::Reset()</a>. Using tag dispatch mechanism to ensure that <code><a class="el" href="classDynExpModule_1_1StreamManipulator.html#a81325157253f75f35faaa134a7b228d6" title="Refer to DynExp::Object::Reset(). Using tag dispatch mechanism to ensure that ResetImpl() of every de...">ResetImpl()</a></code> of every derived class gets called - starting from <a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">DynExp::Object</a>, descending the inheritance hierarchy.    <br /></td></tr>
 <tr class="separator:a81325157253f75f35faaa134a7b228d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae76c7bf04e0053cd7204c000bb566a4f" id="r_ae76c7bf04e0053cd7204c000bb566a4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#ae76c7bf04e0053cd7204c000bb566a4f">Step</a> (<a class="el" href="classUtil_1_1SynchronizedPointer.html">Util::SynchronizedPointer</a>&lt; <a class="el" href="classDynExpModule_1_1StreamManipulator.html#afbf2c87322bbef2c6ff2c94ec524716f">ModuleDataType</a> &gt; &amp;<a class="el" href="classDynExp_1_1ModuleBase.html#a56ccafca54cfc4f7f6231b198b1e2d86">ModuleData</a>)</td></tr>
-<tr class="memdesc:ae76c7bf04e0053cd7204c000bb566a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a single manipulation step by preparing input data for a call to the Python function <code>on_step()</code>, by calling it, and by processing the data it returns.  <br /></td></tr>
-<tr class="separator:ae76c7bf04e0053cd7204c000bb566a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05f77c373dcf3917d99fe455c57b29c9" id="r_a05f77c373dcf3917d99fe455c57b29c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#a05f77c373dcf3917d99fe455c57b29c9">Step</a> (<a class="el" href="classUtil_1_1SynchronizedPointer.html">Util::SynchronizedPointer</a>&lt; <a class="el" href="classDynExpModule_1_1StreamManipulator.html#afbf2c87322bbef2c6ff2c94ec524716f">ModuleDataType</a> &gt; &amp;<a class="el" href="classDynExp_1_1ModuleBase.html#a56ccafca54cfc4f7f6231b198b1e2d86">ModuleData</a>, const <a class="el" href="classDynExpModule_1_1StreamManipulator.html#af895ec84da304979e1ac50258647f0ec">PyFuncType</a> &amp;StepFunction, bool UpdateLastExecutionTime=true) const</td></tr>
+<tr class="memdesc:a05f77c373dcf3917d99fe455c57b29c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a single manipulation step by preparing input data for a call to the Python function <code>on_step()</code> or event handler functions. Next, the respective function is called and the returned data is processed.  <br /></td></tr>
+<tr class="separator:a05f77c373dcf3917d99fe455c57b29c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Events</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Event functions running in the module thread. </p>
 </div></td></tr>
@@ -373,6 +373,21 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:ab924fa1db8a207f4d5cb2d059984910f" id="r_ab924fa1db8a207f4d5cb2d059984910f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#ab924fa1db8a207f4d5cb2d059984910f">OnExit</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance) const override final</td></tr>
 <tr class="memdesc:ab924fa1db8a207f4d5cb2d059984910f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This event is triggered right before the module thread terminates (not due to an exception, in this case refer to ModuleBase::OnError). Override it to unlock instruments this module depends on (via RunnableInstance::UnlockObject()) and to deregister/unsubscribe from events (via InterModuleEvent::Deregister()).  <br /></td></tr>
 <tr class="separator:ab924fa1db8a207f4d5cb2d059984910f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae590f89b0e4a482f82b7329c4ca1b75c" id="r_ae590f89b0e4a482f82b7329c4ca1b75c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#ae590f89b0e4a482f82b7329c4ca1b75c">OnSetFilename</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance, const std::string &amp;Filename) const</td></tr>
+<tr class="memdesc:ae590f89b0e4a482f82b7329c4ca1b75c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when receiving <a class="el" href="classDynExpModule_1_1SetFilenameEvent.html" title="This event tells the receiver where to store e.g. acquired data.">DynExpModule::SetFilenameEvent</a>.  <br /></td></tr>
+<tr class="separator:ae590f89b0e4a482f82b7329c4ca1b75c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a809aa011cb8d3f84647a08a9ec35a093" id="r_a809aa011cb8d3f84647a08a9ec35a093"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#a809aa011cb8d3f84647a08a9ec35a093">OnFinished</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance) const</td></tr>
+<tr class="memdesc:a809aa011cb8d3f84647a08a9ec35a093"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when receiving <a class="el" href="classDynExpModule_1_1FinishedEvent.html" title="This event signals that an action (like a measurement) started by a TriggerEvent has been completed.">DynExpModule::FinishedEvent</a>.  <br /></td></tr>
+<tr class="separator:a809aa011cb8d3f84647a08a9ec35a093"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05aa0a3e1245bf140171cf2402c30f95" id="r_a05aa0a3e1245bf140171cf2402c30f95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#a05aa0a3e1245bf140171cf2402c30f95">OnStart</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance) const</td></tr>
+<tr class="memdesc:a05aa0a3e1245bf140171cf2402c30f95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when receiving <a class="el" href="classDynExpModule_1_1StartEvent.html" title="This event is intended to make the receiver prepare an action (like a measurement) that is started wh...">DynExpModule::StartEvent</a>.  <br /></td></tr>
+<tr class="separator:a05aa0a3e1245bf140171cf2402c30f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c77183856acb6267b5604582f5d02ca" id="r_a9c77183856acb6267b5604582f5d02ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#a9c77183856acb6267b5604582f5d02ca">OnStop</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance) const</td></tr>
+<tr class="memdesc:a9c77183856acb6267b5604582f5d02ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when receiving <a class="el" href="classDynExpModule_1_1StopEvent.html" title="This event is intended to make the receiver stop an action (like a measurement).">DynExpModule::StopEvent</a>.  <br /></td></tr>
+<tr class="separator:a9c77183856acb6267b5604582f5d02ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49421ce06cced5be268422de49a544cd" id="r_a49421ce06cced5be268422de49a544cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#a49421ce06cced5be268422de49a544cd">OnTrigger</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance) const</td></tr>
+<tr class="memdesc:a49421ce06cced5be268422de49a544cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when receiving <a class="el" href="classDynExpModule_1_1TriggerEvent.html" title="This event is intended to make the receiver start an action (like a measurement) after it received a ...">DynExpModule::TriggerEvent</a>.  <br /></td></tr>
+<tr class="separator:a49421ce06cced5be268422de49a544cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -380,7 +395,7 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a403ff0726b206c2e077cb04304a78abd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the module has been fully initialized by finishing <code><a class="el" href="classDynExpModule_1_1StreamManipulator.html#a0b25947611ac176e213863ef4c3e11a9" title="This event is triggered right before the module thread starts. Override it to lock instruments this m...">OnInit()</a></code>. The variable is atomic since it is revealed to other threads through <code><a class="el" href="classDynExpModule_1_1StreamManipulator.html#aea29b764e6a3f348f1fed99ea3a18418" title="Determines whether this module should be terminated if an exception leaves the module&#39;s main loop or ...">TreatModuleExceptionsAsWarnings()</a></code>.  <br /></td></tr>
 <tr class="separator:a403ff0726b206c2e077cb04304a78abd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc4ee5a33d1ddf00acb7debeced70742" id="r_abc4ee5a33d1ddf00acb7debeced70742"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#abc4ee5a33d1ddf00acb7debeced70742">ManipulatorPyFuncName</a></td></tr>
-<tr class="memdesc:abc4ee5a33d1ddf00acb7debeced70742"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique name of the Python function all the code of this <code><a class="el" href="classDynExpModule_1_1StreamManipulator.html" title="Module to process data stored in data stream instrument(s) with a Python script and to write the resu...">StreamManipulator</a></code> instance is declared in. The name contains the module's ID to ensure that multiple <code><a class="el" href="classDynExpModule_1_1StreamManipulator.html" title="Module to process data stored in data stream instrument(s) with a Python script and to write the resu...">StreamManipulator</a></code> instances can declare their own <code>on_init()</code>, <code>on_step()</code>, and <code>on_exit()</code> Python functions at the same time.  <br /></td></tr>
+<tr class="memdesc:abc4ee5a33d1ddf00acb7debeced70742"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique name of the Python function all the code of this <code><a class="el" href="classDynExpModule_1_1StreamManipulator.html" title="Module to process data stored in data stream instrument(s) with a Python script and to write the resu...">StreamManipulator</a></code> instance is declared in. The name contains the module's ID to ensure that multiple <code><a class="el" href="classDynExpModule_1_1StreamManipulator.html" title="Module to process data stored in data stream instrument(s) with a Python script and to write the resu...">StreamManipulator</a></code> instances can declare their own <code>on_init()</code>, <code>on_step()</code>, <code>on_exit()</code>, and event handler Python functions at the same time.  <br /></td></tr>
 <tr class="separator:abc4ee5a33d1ddf00acb7debeced70742"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa38a0680de1c973c77d5a8a8ca7c3af9" id="r_aa38a0680de1c973c77d5a8a8ca7c3af9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#af895ec84da304979e1ac50258647f0ec">PyFuncType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#aa38a0680de1c973c77d5a8a8ca7c3af9">ManipulatorPyFuncInit</a></td></tr>
 <tr class="memdesc:aa38a0680de1c973c77d5a8a8ca7c3af9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle to a Python function called on module initialization.  <br /></td></tr>
@@ -391,11 +406,23 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a6fb1afb1287b3f57146954e119805e24" id="r_a6fb1afb1287b3f57146954e119805e24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#af895ec84da304979e1ac50258647f0ec">PyFuncType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#a6fb1afb1287b3f57146954e119805e24">ManipulatorPyFuncExit</a></td></tr>
 <tr class="memdesc:a6fb1afb1287b3f57146954e119805e24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle to a Python function called on module termination.  <br /></td></tr>
 <tr class="separator:a6fb1afb1287b3f57146954e119805e24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a535c49e8435df5f7e1c4513dcef1cfc7" id="r_a535c49e8435df5f7e1c4513dcef1cfc7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#af895ec84da304979e1ac50258647f0ec">PyFuncType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#a535c49e8435df5f7e1c4513dcef1cfc7">ManipulatorPyFuncFinished</a></td></tr>
+<tr class="memdesc:a535c49e8435df5f7e1c4513dcef1cfc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle to a Python function called for <a class="el" href="classDynExpModule_1_1FinishedEvent.html" title="This event signals that an action (like a measurement) started by a TriggerEvent has been completed.">DynExpModule::FinishedEvent</a>.  <br /></td></tr>
+<tr class="separator:a535c49e8435df5f7e1c4513dcef1cfc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8727d6b1654ce6e9c0892ae85efcec7f" id="r_a8727d6b1654ce6e9c0892ae85efcec7f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#af895ec84da304979e1ac50258647f0ec">PyFuncType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#a8727d6b1654ce6e9c0892ae85efcec7f">ManipulatorPyFuncStart</a></td></tr>
+<tr class="memdesc:a8727d6b1654ce6e9c0892ae85efcec7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle to a Python function called for <a class="el" href="classDynExpModule_1_1StartEvent.html" title="This event is intended to make the receiver prepare an action (like a measurement) that is started wh...">DynExpModule::StartEvent</a>.  <br /></td></tr>
+<tr class="separator:a8727d6b1654ce6e9c0892ae85efcec7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba550f9a89b42b189b13baf3e0ff74c8" id="r_aba550f9a89b42b189b13baf3e0ff74c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#af895ec84da304979e1ac50258647f0ec">PyFuncType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#aba550f9a89b42b189b13baf3e0ff74c8">ManipulatorPyFuncStop</a></td></tr>
+<tr class="memdesc:aba550f9a89b42b189b13baf3e0ff74c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle to a Python function called for <a class="el" href="classDynExpModule_1_1StopEvent.html" title="This event is intended to make the receiver stop an action (like a measurement).">DynExpModule::StopEvent</a>.  <br /></td></tr>
+<tr class="separator:aba550f9a89b42b189b13baf3e0ff74c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1def7246b453ae3ae0c548f2f96fb97" id="r_af1def7246b453ae3ae0c548f2f96fb97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#af895ec84da304979e1ac50258647f0ec">PyFuncType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#af1def7246b453ae3ae0c548f2f96fb97">ManipulatorPyFuncTrigger</a></td></tr>
+<tr class="memdesc:af1def7246b453ae3ae0c548f2f96fb97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle to a Python function called for <a class="el" href="classDynExpModule_1_1TriggerEvent.html" title="This event is intended to make the receiver start an action (like a measurement) after it received a ...">DynExpModule::TriggerEvent</a>.  <br /></td></tr>
+<tr class="separator:af1def7246b453ae3ae0c548f2f96fb97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac465a0a8159172a7fdae9fa8934f1437" id="r_ac465a0a8159172a7fdae9fa8934f1437"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structDynExpModule_1_1PyStreamManipulatorInputData.html">PyStreamManipulatorInputData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#ac465a0a8159172a7fdae9fa8934f1437">ManipulatorPyFuncInput</a></td></tr>
-<tr class="memdesc:ac465a0a8159172a7fdae9fa8934f1437"><td class="mdescLeft">&#160;</td><td class="mdescRight">Input data passed to the on_step() Python function.  <br /></td></tr>
+<tr class="memdesc:ac465a0a8159172a7fdae9fa8934f1437"><td class="mdescLeft">&#160;</td><td class="mdescRight">Input data passed to the on_step() and event handler Python functions.  <br /></td></tr>
 <tr class="separator:ac465a0a8159172a7fdae9fa8934f1437"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a610d9f27609bf21968fc4fb3d26bb020" id="r_a610d9f27609bf21968fc4fb3d26bb020"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structDynExpModule_1_1PyStreamManipulatorOutputData.html">PyStreamManipulatorOutputData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#a610d9f27609bf21968fc4fb3d26bb020">ManipulatorPyFuncOutput</a></td></tr>
-<tr class="memdesc:a610d9f27609bf21968fc4fb3d26bb020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output data returned from the on_step() Python function.  <br /></td></tr>
+<tr class="memdesc:a610d9f27609bf21968fc4fb3d26bb020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output data returned from the on_step() and event handler Python functions.  <br /></td></tr>
 <tr class="separator:a610d9f27609bf21968fc4fb3d26bb020"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31e1b5d2b234b39be90bdf996d15ce46" id="r_a31e1b5d2b234b39be90bdf996d15ce46"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#a31e1b5d2b234b39be90bdf996d15ce46">NumFailedUpdateAttempts</a> = 0</td></tr>
 <tr class="memdesc:a31e1b5d2b234b39be90bdf996d15ce46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts how often <a class="el" href="classDynExpModule_1_1StreamManipulator.html#a64ab53f56daba425cd2c10f88e7bd28d" title="Module main loop. The function is executed periodically by the module thread. Also refer to GetMainLo...">StreamManipulator::ModuleMainLoop()</a> contiguously failed due to an exception of type <a class="el" href="classUtil_1_1TimeoutException.html" title="Thrown when an operation timed out before it could be completed, especially used for locking shared d...">Util::TimeoutException</a>.  <br /></td></tr>
@@ -408,7 +435,7 @@ Private Attributes</h2></td></tr>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_attribs_classDynExp_1_1ModuleBase"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classDynExp_1_1ModuleBase')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classDynExp_1_1ModuleBase.html">DynExp::ModuleBase</a></td></tr>
 <tr class="memitem:aa62c218c15d17c8beeaafbec0e9e2846 inherit pub_attribs_classDynExp_1_1ModuleBase" id="r_aa62c218c15d17c8beeaafbec0e9e2846"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html">ModuleThreadOnlyType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#aa62c218c15d17c8beeaafbec0e9e2846">ModuleThreadOnly</a></td></tr>
-<tr class="memdesc:aa62c218c15d17c8beeaafbec0e9e2846 inherit pub_attribs_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to the module thread <code><a class="el" href="namespaceDynExp.html#acd637f0e67b9a2815532b5a7e1754bd2" title="Modules run in their own thread. This is the module thread&#39;s main function.">ModuleThreadMain()</a></code>.    <br /></td></tr>
+<tr class="memdesc:aa62c218c15d17c8beeaafbec0e9e2846 inherit pub_attribs_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to the module thread <code><a class="el" href="namespaceDynExp.html#a1ef415c3706dc71e72f030c9d9444291" title="Modules run in their own thread. This is the module thread&#39;s main function.">ModuleThreadMain()</a></code>.    <br /></td></tr>
 <tr class="separator:aa62c218c15d17c8beeaafbec0e9e2846 inherit pub_attribs_classDynExp_1_1ModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafb7bfaf4658e6b499912178450a5de0 inherit pub_attribs_classDynExp_1_1ModuleBase" id="r_aafb7bfaf4658e6b499912178450a5de0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExp_1_1ModuleBase_1_1EventListenersOnlyType.html">EventListenersOnlyType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#aafb7bfaf4658e6b499912178450a5de0">EventListenersOnly</a></td></tr>
 <tr class="memdesc:aafb7bfaf4658e6b499912178450a5de0 inherit pub_attribs_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to any <code><a class="el" href="classDynExp_1_1TypedEventListeners.html" title="Typed managers of event listeners class whose instances are owned by classes derived from InterModule...">TypedEventListeners</a></code> class.    <br /></td></tr>
@@ -436,6 +463,10 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a8e6abc80a7c35d4fca2ebfa1b1f141f0 inherit pub_static_attribs_classDynExp_1_1Object" id="r_a8e6abc80a7c35d4fca2ebfa1b1f141f0"><td class="memItemLeft" align="right" valign="top">static constexpr std::chrono::milliseconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#a8e6abc80a7c35d4fca2ebfa1b1f141f0">GetParamsTimeoutDefault</a> = std::chrono::milliseconds(100)</td></tr>
 <tr class="memdesc:a8e6abc80a7c35d4fca2ebfa1b1f141f0 inherit pub_static_attribs_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default timeout used by <a class="el" href="classDynExp_1_1Object.html#a13f5742205cff37ac598ab2ccb39ca18" title="Locks the mutex of the parameter class instance Params assigned to this Object instance and returns a...">Object::GetParams()</a> to lock the mutex of the parameter instance assigned to this <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instance.  <br /></td></tr>
 <tr class="separator:a8e6abc80a7c35d4fca2ebfa1b1f141f0 inherit pub_static_attribs_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_types_classDynExp_1_1RunnableObject"><td colspan="2" onclick="javascript:toggleInherit('pro_types_classDynExp_1_1RunnableObject')"><img src="closed.png" alt="-"/>&#160;Protected Types inherited from <a class="el" href="classDynExp_1_1RunnableObject.html">DynExp::RunnableObject</a></td></tr>
+<tr class="memitem:addd2ceca45b37cf3780015a8892b5da6 inherit pro_types_classDynExp_1_1RunnableObject" id="r_addd2ceca45b37cf3780015a8892b5da6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#addd2ceca45b37cf3780015a8892b5da6">ThreadFuncType</a> = std::function&lt; int(std::unique_ptr&lt; <a class="el" href="classDynExp_1_1RunnableInstance.html">RunnableInstance</a> &gt; &amp;&amp;, <a class="el" href="classDynExp_1_1RunnableObject.html">RunnableObject</a> *)&gt;</td></tr>
+<tr class="memdesc:addd2ceca45b37cf3780015a8892b5da6 inherit pro_types_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the thread function executed by <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instances.  <br /></td></tr>
+<tr class="separator:addd2ceca45b37cf3780015a8892b5da6 inherit pro_types_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classDynExp_1_1RunnableObject"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classDynExp_1_1RunnableObject')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classDynExp_1_1RunnableObject.html">DynExp::RunnableObject</a></td></tr>
 <tr class="memitem:a39ef8e00794211e897f2d50905639772 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_a39ef8e00794211e897f2d50905639772"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a39ef8e00794211e897f2d50905639772">Init</a> ()</td></tr>
 <tr class="memdesc:a39ef8e00794211e897f2d50905639772 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes member variables in case of a reset.  <br /></td></tr>
@@ -443,9 +474,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a28a89773cf56f3c229dd9c141de12ab3 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_a28a89773cf56f3c229dd9c141de12ab3"><td class="memItemLeft" align="right" valign="top">std::promise&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a28a89773cf56f3c229dd9c141de12ab3">MakeThreadExitedPromise</a> ()</td></tr>
 <tr class="memdesc:a28a89773cf56f3c229dd9c141de12ab3 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to be used by overridden <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> functions in derived classes to (re)initialize the <a class="el" href="classDynExp_1_1RunnableObject.html#a45a818a181d16129dfb43080152527c4" title="Future which signals that Thread has terminated. Refer to OnThreadHasExited().">ThreadExitedSignal</a> future and to provide the derived class a promise to signal the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance that its thread has terminated.  <br /></td></tr>
 <tr class="separator:a28a89773cf56f3c229dd9c141de12ab3 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac70e1485923ee8c78ed5732099b4c90 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_aac70e1485923ee8c78ed5732099b4c90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#aac70e1485923ee8c78ed5732099b4c90">StoreThread</a> (std::thread &amp;&amp;<a class="el" href="classDynExp_1_1RunnableObject.html#a7f653f6a7407d6a69dd9d75858d6b363">Thread</a>) noexcept</td></tr>
-<tr class="memdesc:aac70e1485923ee8c78ed5732099b4c90 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores a thread constructed by a derived class overriding <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> in <code>Thread</code> taking ownership of the thread. Only call this function within <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a>!</code>  <br /></td></tr>
-<tr class="separator:aac70e1485923ee8c78ed5732099b4c90 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a343b47df52dc884564b9e0c60a1647e7 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_a343b47df52dc884564b9e0c60a1647e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a343b47df52dc884564b9e0c60a1647e7">MakeThread</a> (<a class="el" href="classDynExp_1_1RunnableObject.html#addd2ceca45b37cf3780015a8892b5da6">ThreadFuncType</a> ThreadFunc, std::unique_ptr&lt; <a class="el" href="classDynExp_1_1RunnableInstance.html">RunnableInstance</a> &gt; &amp;&amp;InstancePtr)</td></tr>
+<tr class="memdesc:a343b47df52dc884564b9e0c60a1647e7 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and runs the thread of the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance. Call this function in the derived class overriding <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> and nowhere else!  <br /></td></tr>
+<tr class="separator:a343b47df52dc884564b9e0c60a1647e7 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21fc682e09f7e23e2a65fc8b8eef7106 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_a21fc682e09f7e23e2a65fc8b8eef7106"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a21fc682e09f7e23e2a65fc8b8eef7106">IsCallFromRunnableThread</a> () const</td></tr>
 <tr class="memdesc:a21fc682e09f7e23e2a65fc8b8eef7106 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether <code>Thread's</code> id matches the id of the calling thread. This is thread-safe if the function is called by the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread since <code><a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">Terminate()</a></code> joins the threads before changing the <code>Thread</code> member. It is also thread-safe if the function is called by the thread owning the the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance since <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> and <code><a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">Terminate()</a></code> can only be called by this thread. Only <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> and <code><a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">Terminate()</a></code> (indirectly) modify <code>Thread</code>.  <br /></td></tr>
 <tr class="separator:a21fc682e09f7e23e2a65fc8b8eef7106 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -499,7 +530,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Module to process data stored in data stream instrument(s) with a Python script and to write the resulting data back other data stream instrument(s). </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00211">211</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00241">241</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ae7f308b9028d07ee7bc79beefc4c597d" name="ae7f308b9028d07ee7bc79beefc4c597d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae7f308b9028d07ee7bc79beefc4c597d">&#9670;&#160;</a></span>ConfigType</h2>
@@ -515,7 +546,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Type of the configurator class belonging to this <code>Object</code> type. Declare this alias in every derived class with the respective configurator class accompanying the derived <code>Object</code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00226">226</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00256">256</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -533,7 +564,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Type of the data class belonging to this <code>ModuleBase</code> type. Declare this alias in every derived class with the respective data class accompanying the derived <code>ModuleBase</code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00227">227</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00257">257</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -552,7 +583,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Type of the parameter class belonging to this <code>Object</code> type. Declare this alias in every derived class with the respective parameter class accompanying the derived <code>Object</code>. "  </p>
 <p>"  </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00225">225</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00255">255</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -578,7 +609,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Type of a pointer to a Python function bound by pybind11. </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00222">222</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00252">252</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -604,7 +635,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Sample stream type expected for input (<a class="el" href="classDynExpModule_1_1StreamManipulatorData.html#a8a0302578d9537592c0685e85c493e5c" title="Linked input data stream instruments whose samples are going to be used for calculations.">StreamManipulatorData::InputDataStreams</a>) and output (<a class="el" href="classDynExpModule_1_1StreamManipulatorData.html#aa096638b3a904c17e141a5009b8141c2" title="Linked output data stream instruments to write the computed new samples to.">StreamManipulatorData::OutputDataStreams</a>) data stream instruments. </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00217">217</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00247">247</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -659,7 +690,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00235">235</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00265">265</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -715,7 +746,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Every derived class has to redefine this function.   </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the category of this module type.   </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00230">230</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00260">260</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -746,7 +777,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#a6d50167b798951b1a347739976a007d1">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00241">241</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00271">271</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -778,7 +809,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#af7baae8cb81ade4cc48898d72eff8693">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00249">249</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00279">279</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -809,7 +840,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classDynExp_1_1Object.html#a057f86e9ceec0f7e709e720f66cbb7fb">DynExp::Object</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00240">240</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00270">270</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -848,7 +879,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classDynExp_1_1ModuleBase.html#abe86b2a8c7a6e60a2937be8b2a0e6b00">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8cpp_source.html#l00058">58</a> of file <a class="el" href="StreamManipulator_8cpp_source.html">StreamManipulator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8cpp_source.html#l00061">61</a> of file <a class="el" href="StreamManipulator_8cpp_source.html">StreamManipulator.cpp</a>.</p>
 
 </div>
 </div>
@@ -878,7 +909,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Every derived class has to redefine this function.   </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the name of this DynExp object type.   </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00229">229</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00259">259</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -916,7 +947,43 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#a77fb87b30e26eea73d6d53d2d871160a">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8cpp_source.html#l00230">230</a> of file <a class="el" href="StreamManipulator_8cpp_source.html">StreamManipulator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8cpp_source.html#l00277">277</a> of file <a class="el" href="StreamManipulator_8cpp_source.html">StreamManipulator.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a809aa011cb8d3f84647a08a9ec35a093" name="a809aa011cb8d3f84647a08a9ec35a093"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a809aa011cb8d3f84647a08a9ec35a093">&#9670;&#160;</a></span>OnFinished()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DynExpModule::StreamManipulator::OnFinished </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *&#160;</td>
+          <td class="paramname"><em>Instance</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when receiving <a class="el" href="classDynExpModule_1_1FinishedEvent.html" title="This event signals that an action (like a measurement) started by a TriggerEvent has been completed.">DynExpModule::FinishedEvent</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Instance</td><td>Handle to the module thread's data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8cpp_source.html#l00311">311</a> of file <a class="el" href="StreamManipulator_8cpp_source.html">StreamManipulator.cpp</a>.</p>
 
 </div>
 </div>
@@ -954,7 +1021,162 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#a51b4635720cb3b96033970dba4a95500">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8cpp_source.html#l00177">177</a> of file <a class="el" href="StreamManipulator_8cpp_source.html">StreamManipulator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8cpp_source.html#l00198">198</a> of file <a class="el" href="StreamManipulator_8cpp_source.html">StreamManipulator.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae590f89b0e4a482f82b7329c4ca1b75c" name="ae590f89b0e4a482f82b7329c4ca1b75c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae590f89b0e4a482f82b7329c4ca1b75c">&#9670;&#160;</a></span>OnSetFilename()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DynExpModule::StreamManipulator::OnSetFilename </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *&#160;</td>
+          <td class="paramname"><em>Instance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>Filename</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when receiving <a class="el" href="classDynExpModule_1_1SetFilenameEvent.html" title="This event tells the receiver where to store e.g. acquired data.">DynExpModule::SetFilenameEvent</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Instance</td><td>Instance Handle to the module thread's data </td></tr>
+    <tr><td class="paramname">Filename</td><td>Filename where to save data. Refer to <a class="el" href="structDynExpModule_1_1PyStreamManipulatorInputData.html#ad54d8a5b7e9e5242743c7b7ceb52b1ad" title="Filename and path where the Python functions invoked by the StreamManipulator module can save data....">PyStreamManipulatorInputData::SaveFilename</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8cpp_source.html#l00305">305</a> of file <a class="el" href="StreamManipulator_8cpp_source.html">StreamManipulator.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a05aa0a3e1245bf140171cf2402c30f95" name="a05aa0a3e1245bf140171cf2402c30f95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05aa0a3e1245bf140171cf2402c30f95">&#9670;&#160;</a></span>OnStart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DynExpModule::StreamManipulator::OnStart </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *&#160;</td>
+          <td class="paramname"><em>Instance</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when receiving <a class="el" href="classDynExpModule_1_1StartEvent.html" title="This event is intended to make the receiver prepare an action (like a measurement) that is started wh...">DynExpModule::StartEvent</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Instance</td><td>Handle to the module thread's data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8cpp_source.html#l00318">318</a> of file <a class="el" href="StreamManipulator_8cpp_source.html">StreamManipulator.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9c77183856acb6267b5604582f5d02ca" name="a9c77183856acb6267b5604582f5d02ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c77183856acb6267b5604582f5d02ca">&#9670;&#160;</a></span>OnStop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DynExpModule::StreamManipulator::OnStop </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *&#160;</td>
+          <td class="paramname"><em>Instance</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when receiving <a class="el" href="classDynExpModule_1_1StopEvent.html" title="This event is intended to make the receiver stop an action (like a measurement).">DynExpModule::StopEvent</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Instance</td><td>Handle to the module thread's data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8cpp_source.html#l00325">325</a> of file <a class="el" href="StreamManipulator_8cpp_source.html">StreamManipulator.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a49421ce06cced5be268422de49a544cd" name="a49421ce06cced5be268422de49a544cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49421ce06cced5be268422de49a544cd">&#9670;&#160;</a></span>OnTrigger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DynExpModule::StreamManipulator::OnTrigger </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *&#160;</td>
+          <td class="paramname"><em>Instance</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when receiving <a class="el" href="classDynExpModule_1_1TriggerEvent.html" title="This event is intended to make the receiver start an action (like a measurement) after it received a ...">DynExpModule::TriggerEvent</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Instance</td><td>Handle to the module thread's data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8cpp_source.html#l00332">332</a> of file <a class="el" href="StreamManipulator_8cpp_source.html">StreamManipulator.cpp</a>.</p>
 
 </div>
 </div>
@@ -984,12 +1206,12 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Refer to <a class="el" href="classDynExp_1_1Object.html#a837a8e8daa7853003474b458a3fe0a46" title="Resets this Object instance (including all its derived classes) by calling ResetImpl()....">DynExp::Object::Reset()</a>. Using tag dispatch mechanism to ensure that <code><a class="el" href="classDynExpModule_1_1StreamManipulator.html#a81325157253f75f35faaa134a7b228d6" title="Refer to DynExp::Object::Reset(). Using tag dispatch mechanism to ensure that ResetImpl() of every de...">ResetImpl()</a></code> of every derived class gets called - starting from <a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">DynExp::Object</a>, descending the inheritance hierarchy.   </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8cpp_source.html#l00095">95</a> of file <a class="el" href="StreamManipulator_8cpp_source.html">StreamManipulator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8cpp_source.html#l00099">99</a> of file <a class="el" href="StreamManipulator_8cpp_source.html">StreamManipulator.cpp</a>.</p>
 
 </div>
 </div>
-<a id="ae76c7bf04e0053cd7204c000bb566a4f" name="ae76c7bf04e0053cd7204c000bb566a4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae76c7bf04e0053cd7204c000bb566a4f">&#9670;&#160;</a></span>Step()</h2>
+<a id="a05f77c373dcf3917d99fe455c57b29c9" name="a05f77c373dcf3917d99fe455c57b29c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05f77c373dcf3917d99fe455c57b29c9">&#9670;&#160;</a></span>Step()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1001,8 +1223,24 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">void DynExpModule::StreamManipulator::Step </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classUtil_1_1SynchronizedPointer.html">Util::SynchronizedPointer</a>&lt; <a class="el" href="classDynExpModule_1_1StreamManipulator.html#afbf2c87322bbef2c6ff2c94ec524716f">ModuleDataType</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>ModuleData</em></td><td>)</td>
+          <td class="paramname"><em>ModuleData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="classDynExpModule_1_1StreamManipulator.html#af895ec84da304979e1ac50258647f0ec">PyFuncType</a> &amp;&#160;</td>
+          <td class="paramname"><em>StepFunction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>UpdateLastExecutionTime</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
@@ -1012,15 +1250,17 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Performs a single manipulation step by preparing input data for a call to the Python function <code>on_step()</code>, by calling it, and by processing the data it returns. </p>
+<p>Performs a single manipulation step by preparing input data for a call to the Python function <code>on_step()</code> or event handler functions. Next, the respective function is called and the returned data is processed. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ModuleData</td><td>Locked module data instance </td></tr>
+    <tr><td class="paramname">ModuleData</td><td>Locked module data instance. </td></tr>
+    <tr><td class="paramname">StepFunction</td><td>Handle to the Python function to be called. </td></tr>
+    <tr><td class="paramname">UpdateLastExecutionTime</td><td>Indicates whether <a class="el" href="classDynExpModule_1_1StreamManipulator.html#a3b6aee96811b7108b06805c2664f0645" title="Time point when the on_step() Python function was invoked last.">LastManipulatorPyFuncExecution</a> should be updated by this function call. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8cpp_source.html#l00110">110</a> of file <a class="el" href="StreamManipulator_8cpp_source.html">StreamManipulator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8cpp_source.html#l00118">118</a> of file <a class="el" href="StreamManipulator_8cpp_source.html">StreamManipulator.cpp</a>.</p>
 
 </div>
 </div>
@@ -1053,7 +1293,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#ae8c362a3e086828a2ccbde05fb5d4795">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00247">247</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00277">277</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -1080,7 +1320,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Indicates whether the module has been fully initialized by finishing <code><a class="el" href="classDynExpModule_1_1StreamManipulator.html#a0b25947611ac176e213863ef4c3e11a9" title="This event is triggered right before the module thread starts. Override it to lock instruments this m...">OnInit()</a></code>. The variable is atomic since it is revealed to other threads through <code><a class="el" href="classDynExpModule_1_1StreamManipulator.html#aea29b764e6a3f348f1fed99ea3a18418" title="Determines whether this module should be terminated if an exception leaves the module&#39;s main loop or ...">TreatModuleExceptionsAsWarnings()</a></code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00279">279</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00345">345</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -1099,14 +1339,14 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Time point when the on_step() Python function was invoked last.   </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00312">312</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00382">382</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -1132,7 +1372,33 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Handle to a Python function called on module termination. </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00291">291</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00357">357</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+
+</div>
+</div>
+<a id="a535c49e8435df5f7e1c4513dcef1cfc7" name="a535c49e8435df5f7e1c4513dcef1cfc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a535c49e8435df5f7e1c4513dcef1cfc7">&#9670;&#160;</a></span>ManipulatorPyFuncFinished</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#af895ec84da304979e1ac50258647f0ec">PyFuncType</a> DynExpModule::StreamManipulator::ManipulatorPyFuncFinished</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handle to a Python function called for <a class="el" href="classDynExpModule_1_1FinishedEvent.html" title="This event signals that an action (like a measurement) started by a TriggerEvent has been completed.">DynExpModule::FinishedEvent</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00358">358</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -1158,7 +1424,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Handle to a Python function called on module initialization. </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00289">289</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00355">355</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -1182,9 +1448,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Input data passed to the on_step() Python function. </p>
+<p>Input data passed to the on_step() and event handler Python functions. </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00296">296</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00366">366</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -1208,9 +1474,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Unique name of the Python function all the code of this <code><a class="el" href="classDynExpModule_1_1StreamManipulator.html" title="Module to process data stored in data stream instrument(s) with a Python script and to write the resu...">StreamManipulator</a></code> instance is declared in. The name contains the module's ID to ensure that multiple <code><a class="el" href="classDynExpModule_1_1StreamManipulator.html" title="Module to process data stored in data stream instrument(s) with a Python script and to write the resu...">StreamManipulator</a></code> instances can declare their own <code>on_init()</code>, <code>on_step()</code>, and <code>on_exit()</code> Python functions at the same time. </p>
+<p>Unique name of the Python function all the code of this <code><a class="el" href="classDynExpModule_1_1StreamManipulator.html" title="Module to process data stored in data stream instrument(s) with a Python script and to write the resu...">StreamManipulator</a></code> instance is declared in. The name contains the module's ID to ensure that multiple <code><a class="el" href="classDynExpModule_1_1StreamManipulator.html" title="Module to process data stored in data stream instrument(s) with a Python script and to write the resu...">StreamManipulator</a></code> instances can declare their own <code>on_init()</code>, <code>on_step()</code>, <code>on_exit()</code>, and event handler Python functions at the same time. </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00287">287</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00353">353</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -1234,9 +1500,35 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Output data returned from the on_step() Python function. </p>
+<p>Output data returned from the on_step() and event handler Python functions. </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00301">301</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00371">371</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+
+</div>
+</div>
+<a id="a8727d6b1654ce6e9c0892ae85efcec7f" name="a8727d6b1654ce6e9c0892ae85efcec7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8727d6b1654ce6e9c0892ae85efcec7f">&#9670;&#160;</a></span>ManipulatorPyFuncStart</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#af895ec84da304979e1ac50258647f0ec">PyFuncType</a> DynExpModule::StreamManipulator::ManipulatorPyFuncStart</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handle to a Python function called for <a class="el" href="classDynExpModule_1_1StartEvent.html" title="This event is intended to make the receiver prepare an action (like a measurement) that is started wh...">DynExpModule::StartEvent</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00359">359</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -1262,7 +1554,59 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Handle to a Python function called for each manipulation step. </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00290">290</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00356">356</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+
+</div>
+</div>
+<a id="aba550f9a89b42b189b13baf3e0ff74c8" name="aba550f9a89b42b189b13baf3e0ff74c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba550f9a89b42b189b13baf3e0ff74c8">&#9670;&#160;</a></span>ManipulatorPyFuncStop</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#af895ec84da304979e1ac50258647f0ec">PyFuncType</a> DynExpModule::StreamManipulator::ManipulatorPyFuncStop</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handle to a Python function called for <a class="el" href="classDynExpModule_1_1StopEvent.html" title="This event is intended to make the receiver stop an action (like a measurement).">DynExpModule::StopEvent</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00360">360</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+
+</div>
+</div>
+<a id="af1def7246b453ae3ae0c548f2f96fb97" name="af1def7246b453ae3ae0c548f2f96fb97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1def7246b453ae3ae0c548f2f96fb97">&#9670;&#160;</a></span>ManipulatorPyFuncTrigger</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDynExpModule_1_1StreamManipulator.html#af895ec84da304979e1ac50258647f0ec">PyFuncType</a> DynExpModule::StreamManipulator::ManipulatorPyFuncTrigger</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handle to a Python function called for <a class="el" href="classDynExpModule_1_1TriggerEvent.html" title="This event is intended to make the receiver start an action (like a measurement) after it received a ...">DynExpModule::TriggerEvent</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00361">361</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>
@@ -1288,7 +1632,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Counts how often <a class="el" href="classDynExpModule_1_1StreamManipulator.html#a64ab53f56daba425cd2c10f88e7bd28d" title="Module main loop. The function is executed periodically by the module thread. Also refer to GetMainLo...">StreamManipulator::ModuleMainLoop()</a> contiguously failed due to an exception of type <a class="el" href="classUtil_1_1TimeoutException.html" title="Thrown when an operation timed out before it could be completed, especially used for locking shared d...">Util::TimeoutException</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00307">307</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StreamManipulator_8h_source.html#l00377">377</a> of file <a class="el" href="StreamManipulator_8h_source.html">StreamManipulator.h</a>.</p>
 
 </div>
 </div>

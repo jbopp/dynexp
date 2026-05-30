@@ -1,25 +1,29 @@
 <map id="DynExpInstr::OutputPortParams" name="DynExpInstr::OutputPortParams">
-<area shape="rect" id="Node000001" title="Parameter class for OutputPort." alt="" coords="129,563,355,588"/>
-<area shape="rect" id="Node000009" href="$classDynExpInstr_1_1AnalogOutParams.html" title="Parameter class for AnalogOut." alt="" coords="5,636,231,661"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="212,597,140,638,137,633,209,592"/>
-<area shape="rect" id="Node000011" href="$classDynExpInstr_1_1DigitalOutParams.html" title="Parameter class for DigitalOut." alt="" coords="255,636,477,661"/>
-<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="275,592,347,633,344,638,272,597"/>
-<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1FunctionGeneratorParams.html" title="Parameter class for FunctionGenerator." alt="" coords="127,475,357,515"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,528,245,562,239,562,239,528"/>
-<area shape="rect" id="Node000003" href="$classDynExpInstr_1_1DataStreamInstrumentParams.html" title="Parameter class for DataStreamInstrument." alt="" coords="113,387,371,427"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="245,441,245,474,239,474,239,441"/>
-<area shape="rect" id="Node000004" href="$classDynExp_1_1InstrumentParamsBase.html" title="Parameter class for InstrumentBase." alt="" coords="127,313,357,339"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="245,352,245,387,239,387,239,352"/>
-<area shape="rect" id="Node000005" href="$classDynExp_1_1RunnableObjectParams.html" title="Parameter class for RunnableObject." alt="" coords="127,240,357,265"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="245,279,245,313,239,313,239,279"/>
-<area shape="rect" id="Node000006" href="$classDynExp_1_1ParamsBase.html" title="Abstract base class for object parameter classes. Each class derived from class Object must be accomp..." alt="" coords="162,167,322,192"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="245,206,245,240,239,240,239,206"/>
-<area shape="rect" id="Node000007" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="147,79,337,119"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="245,132,245,166,239,166,239,132"/>
-<area shape="rect" id="Node000008" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="170,5,314,31"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="245,44,245,79,239,79,239,44"/>
-<area shape="rect" id="Node000010" href="$classDynExpInstr_1_1NIDAQAnalogOutParams.html" title=" " alt="" coords="19,709,217,749"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="121,675,121,709,115,709,115,675"/>
-<area shape="rect" id="Node000012" href="$classDynExpInstr_1_1NIDAQDigitalOutParams.html" title=" " alt="" coords="269,709,463,749"/>
-<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="369,675,369,709,363,709,363,675"/>
+<area shape="rect" id="Node000001" title="Parameter class for OutputPort." alt="" coords="1785,109,2012,134"/>
+<area shape="rect" id="Node000009" href="$classDynExpInstr_1_1AnalogOutParams.html" title="Parameter class for AnalogOut." alt="" coords="2060,77,2285,102"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="2021,104,2064,99,2064,105,2021,110"/>
+<area shape="rect" id="Node000012" href="$classDynExpInstr_1_1DigitalOutParams.html" title="Parameter class for DigitalOut." alt="" coords="2061,141,2284,166"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="2021,133,2064,138,2064,143,2021,138"/>
+<area shape="rect" id="Node000002" href="$classDynExpInstr_1_1FunctionGeneratorParams.html" title="Parameter class for FunctionGenerator." alt="" coords="1508,101,1737,141"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1751,119,1785,119,1785,124,1751,124"/>
+<area shape="rect" id="Node000003" href="$classDynExpInstr_1_1DataStreamInstrumentParams.html" title="Parameter class for DataStreamInstrument." alt="" coords="1201,101,1460,141"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1474,119,1508,119,1508,124,1474,124"/>
+<area shape="rect" id="Node000004" href="$classDynExp_1_1InstrumentParamsBase.html" title="Parameter class for InstrumentBase." alt="" coords="923,109,1153,134"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="1167,119,1201,119,1201,124,1167,124"/>
+<area shape="rect" id="Node000005" href="$classDynExp_1_1RunnableObjectParams.html" title="Parameter class for RunnableObject." alt="" coords="644,109,875,134"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="888,119,923,119,923,124,888,124"/>
+<area shape="rect" id="Node000006" href="$classDynExp_1_1ParamsBase.html" title="Abstract base class for object parameter classes. Each class derived from class Object must be accomp..." alt="" coords="436,109,596,134"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="610,119,644,119,644,124,610,124"/>
+<area shape="rect" id="Node000007" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="197,101,388,141"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="402,119,436,119,436,124,402,124"/>
+<area shape="rect" id="Node000008" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="5,109,149,134"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="163,119,197,119,197,124,163,124"/>
+<area shape="rect" id="Node000010" href="$classDynExpInstr_1_1DummyAnalogOutParams.html" title=" " alt="" coords="2333,5,2540,45"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="2239,71,2353,43,2354,48,2240,76"/>
+<area shape="rect" id="Node000011" href="$classDynExpInstr_1_1NIDAQAnalogOutParams.html" title=" " alt="" coords="2338,69,2535,109"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="2299,87,2338,87,2338,92,2299,92"/>
+<area shape="rect" id="Node000013" href="$classDynExpInstr_1_1DummyDigitalOutParams.html" title=" " alt="" coords="2335,133,2539,173"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="2297,151,2335,151,2335,156,2297,156"/>
+<area shape="rect" id="Node000014" href="$classDynExpInstr_1_1NIDAQDigitalOutParams.html" title=" " alt="" coords="2339,197,2534,237"/>
+<area shape="poly" id="edge13_Node000012_Node000014" title=" " alt="" coords="2240,167,2354,195,2353,200,2239,172"/>
 </map>

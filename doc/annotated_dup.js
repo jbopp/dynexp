@@ -35,6 +35,7 @@ var annotated_dup =
       [ "InstrumentParamsBase", "classDynExp_1_1InstrumentParamsBase.html", "classDynExp_1_1InstrumentParamsBase" ],
       [ "InterModuleEvent", "classDynExp_1_1InterModuleEvent.html", "classDynExp_1_1InterModuleEvent" ],
       [ "InterModuleEventBase", "classDynExp_1_1InterModuleEventBase.html", "classDynExp_1_1InterModuleEventBase" ],
+      [ "InterModuleEventLibrary", "classDynExp_1_1InterModuleEventLibrary.html", "classDynExp_1_1InterModuleEventLibrary" ],
       [ "LibraryBase", "namespaceDynExp.html#classDynExp_1_1LibraryBase", null ],
       [ "LibraryBase< ObjectTypeBasePtr, LibraryObjectFactoryParamList< ObjectTypeBasePtr, ObjFactories... >, LibraryConfigFactoryParamList< ConfFactories... >, LibraryStringParamList< NameFuncs... >, LibraryStringParamList< CategoryFuncs... > >", "classDynExp_1_1LibraryBase_3_01ObjectTypeBasePtr_00_01LibraryObjectFactoryParamList_3_01ObjectTy36191797b46eff398a084c538e51bccd.html", "classDynExp_1_1LibraryBase_3_01ObjectTypeBasePtr_00_01LibraryObjectFactoryParamList_3_01ObjectTy36191797b46eff398a084c538e51bccd" ],
       [ "LibraryConfigFactoryParamList", "namespaceDynExp.html#classDynExp_1_1LibraryConfigFactoryParamList", null ],
@@ -154,6 +155,16 @@ var annotated_dup =
         [ "InitTask", "classDynExpInstr_1_1DigitalOutTasks_1_1InitTask.html", "classDynExpInstr_1_1DigitalOutTasks_1_1InitTask" ],
         [ "UpdateTask", "classDynExpInstr_1_1DigitalOutTasks_1_1UpdateTask.html", "classDynExpInstr_1_1DigitalOutTasks_1_1UpdateTask" ]
       ] ],
+      [ "DummyAnalogInTasks", "namespaceDynExpInstr_1_1DummyAnalogInTasks.html", [
+        [ "ExitTask", "classDynExpInstr_1_1DummyAnalogInTasks_1_1ExitTask.html", "classDynExpInstr_1_1DummyAnalogInTasks_1_1ExitTask" ],
+        [ "InitTask", "classDynExpInstr_1_1DummyAnalogInTasks_1_1InitTask.html", "classDynExpInstr_1_1DummyAnalogInTasks_1_1InitTask" ],
+        [ "UpdateTask", "classDynExpInstr_1_1DummyAnalogInTasks_1_1UpdateTask.html", "classDynExpInstr_1_1DummyAnalogInTasks_1_1UpdateTask" ]
+      ] ],
+      [ "DummyAnalogOutTasks", "namespaceDynExpInstr_1_1DummyAnalogOutTasks.html", [
+        [ "ExitTask", "classDynExpInstr_1_1DummyAnalogOutTasks_1_1ExitTask.html", "classDynExpInstr_1_1DummyAnalogOutTasks_1_1ExitTask" ],
+        [ "InitTask", "classDynExpInstr_1_1DummyAnalogOutTasks_1_1InitTask.html", "classDynExpInstr_1_1DummyAnalogOutTasks_1_1InitTask" ],
+        [ "UpdateTask", "classDynExpInstr_1_1DummyAnalogOutTasks_1_1UpdateTask.html", "classDynExpInstr_1_1DummyAnalogOutTasks_1_1UpdateTask" ]
+      ] ],
       [ "DummyCameraTasks", "namespaceDynExpInstr_1_1DummyCameraTasks.html", [
         [ "ExitTask", "classDynExpInstr_1_1DummyCameraTasks_1_1ExitTask.html", "classDynExpInstr_1_1DummyCameraTasks_1_1ExitTask" ],
         [ "InitTask", "classDynExpInstr_1_1DummyCameraTasks_1_1InitTask.html", "classDynExpInstr_1_1DummyCameraTasks_1_1InitTask" ],
@@ -164,6 +175,16 @@ var annotated_dup =
         [ "InitTask", "classDynExpInstr_1_1DummyDataStreamInstrumentTasks_1_1InitTask.html", "classDynExpInstr_1_1DummyDataStreamInstrumentTasks_1_1InitTask" ],
         [ "ResetStreamSizeTask", "classDynExpInstr_1_1DummyDataStreamInstrumentTasks_1_1ResetStreamSizeTask.html", "classDynExpInstr_1_1DummyDataStreamInstrumentTasks_1_1ResetStreamSizeTask" ],
         [ "UpdateTask", "classDynExpInstr_1_1DummyDataStreamInstrumentTasks_1_1UpdateTask.html", "classDynExpInstr_1_1DummyDataStreamInstrumentTasks_1_1UpdateTask" ]
+      ] ],
+      [ "DummyDigitalInTasks", "namespaceDynExpInstr_1_1DummyDigitalInTasks.html", [
+        [ "ExitTask", "classDynExpInstr_1_1DummyDigitalInTasks_1_1ExitTask.html", "classDynExpInstr_1_1DummyDigitalInTasks_1_1ExitTask" ],
+        [ "InitTask", "classDynExpInstr_1_1DummyDigitalInTasks_1_1InitTask.html", "classDynExpInstr_1_1DummyDigitalInTasks_1_1InitTask" ],
+        [ "UpdateTask", "classDynExpInstr_1_1DummyDigitalInTasks_1_1UpdateTask.html", "classDynExpInstr_1_1DummyDigitalInTasks_1_1UpdateTask" ]
+      ] ],
+      [ "DummyDigitalOutTasks", "namespaceDynExpInstr_1_1DummyDigitalOutTasks.html", [
+        [ "ExitTask", "classDynExpInstr_1_1DummyDigitalOutTasks_1_1ExitTask.html", "classDynExpInstr_1_1DummyDigitalOutTasks_1_1ExitTask" ],
+        [ "InitTask", "classDynExpInstr_1_1DummyDigitalOutTasks_1_1InitTask.html", "classDynExpInstr_1_1DummyDigitalOutTasks_1_1InitTask" ],
+        [ "UpdateTask", "classDynExpInstr_1_1DummyDigitalOutTasks_1_1UpdateTask.html", "classDynExpInstr_1_1DummyDigitalOutTasks_1_1UpdateTask" ]
       ] ],
       [ "FunctionGeneratorDefs", "namespaceDynExpInstr_1_1FunctionGeneratorDefs.html", [
         [ "FunctionDescType", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1FunctionDescType.html", "structDynExpInstr_1_1FunctionGeneratorDefs_1_1FunctionDescType" ],
@@ -201,6 +222,11 @@ var annotated_dup =
         [ "ExitTask", "classDynExpInstr_1_1InterModuleCommunicatorTasks_1_1ExitTask.html", "classDynExpInstr_1_1InterModuleCommunicatorTasks_1_1ExitTask" ],
         [ "InitTask", "classDynExpInstr_1_1InterModuleCommunicatorTasks_1_1InitTask.html", "classDynExpInstr_1_1InterModuleCommunicatorTasks_1_1InitTask" ],
         [ "UpdateTask", "classDynExpInstr_1_1InterModuleCommunicatorTasks_1_1UpdateTask.html", "classDynExpInstr_1_1InterModuleCommunicatorTasks_1_1UpdateTask" ]
+      ] ],
+      [ "LaserTasks", "namespaceDynExpInstr_1_1LaserTasks.html", [
+        [ "ExitTask", "classDynExpInstr_1_1LaserTasks_1_1ExitTask.html", "classDynExpInstr_1_1LaserTasks_1_1ExitTask" ],
+        [ "InitTask", "classDynExpInstr_1_1LaserTasks_1_1InitTask.html", "classDynExpInstr_1_1LaserTasks_1_1InitTask" ],
+        [ "UpdateTask", "classDynExpInstr_1_1LaserTasks_1_1UpdateTask.html", "classDynExpInstr_1_1LaserTasks_1_1UpdateTask" ]
       ] ],
       [ "LockinAmplifierDefs", "namespaceDynExpInstr_1_1LockinAmplifierDefs.html", [
         [ "LockinResultCartesian", "structDynExpInstr_1_1LockinAmplifierDefs_1_1LockinResultCartesian.html", "structDynExpInstr_1_1LockinAmplifierDefs_1_1LockinResultCartesian" ],
@@ -260,6 +286,19 @@ var annotated_dup =
         [ "SetDefaultTask", "classDynExpInstr_1_1NetworkDigitalOutTasks_1_1SetDefaultTask.html", "classDynExpInstr_1_1NetworkDigitalOutTasks_1_1SetDefaultTask" ],
         [ "SetTask", "classDynExpInstr_1_1NetworkDigitalOutTasks_1_1SetTask.html", "classDynExpInstr_1_1NetworkDigitalOutTasks_1_1SetTask" ],
         [ "UpdateTask", "classDynExpInstr_1_1NetworkDigitalOutTasks_1_1UpdateTask.html", "classDynExpInstr_1_1NetworkDigitalOutTasks_1_1UpdateTask" ]
+      ] ],
+      [ "NetworkLaserTasks", "namespaceDynExpInstr_1_1NetworkLaserTasks.html", [
+        [ "DisableScanTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1DisableScanTask.html", "classDynExpInstr_1_1NetworkLaserTasks_1_1DisableScanTask" ],
+        [ "DisableTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1DisableTask.html", "classDynExpInstr_1_1NetworkLaserTasks_1_1DisableTask" ],
+        [ "EnableTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1EnableTask.html", "classDynExpInstr_1_1NetworkLaserTasks_1_1EnableTask" ],
+        [ "ExitTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1ExitTask.html", "classDynExpInstr_1_1NetworkLaserTasks_1_1ExitTask" ],
+        [ "InitTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1InitTask.html", "classDynExpInstr_1_1NetworkLaserTasks_1_1InitTask" ],
+        [ "ScanContinuouslyTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1ScanContinuouslyTask.html", "classDynExpInstr_1_1NetworkLaserTasks_1_1ScanContinuouslyTask" ],
+        [ "SetFrequencyTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1SetFrequencyTask.html", "classDynExpInstr_1_1NetworkLaserTasks_1_1SetFrequencyTask" ],
+        [ "SetIntensityTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1SetIntensityTask.html", "classDynExpInstr_1_1NetworkLaserTasks_1_1SetIntensityTask" ],
+        [ "SetScanRangeTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1SetScanRangeTask.html", "classDynExpInstr_1_1NetworkLaserTasks_1_1SetScanRangeTask" ],
+        [ "SetScanRateTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1SetScanRateTask.html", "classDynExpInstr_1_1NetworkLaserTasks_1_1SetScanRateTask" ],
+        [ "UpdateTask", "classDynExpInstr_1_1NetworkLaserTasks_1_1UpdateTask.html", "classDynExpInstr_1_1NetworkLaserTasks_1_1UpdateTask" ]
       ] ],
       [ "NetworkSpectrometerTasks", "namespaceDynExpInstr_1_1NetworkSpectrometerTasks.html", [
         [ "AbortTask", "classDynExpInstr_1_1NetworkSpectrometerTasks_1_1AbortTask.html", "classDynExpInstr_1_1NetworkSpectrometerTasks_1_1AbortTask" ],
@@ -322,6 +361,25 @@ var annotated_dup =
         [ "StopTask", "classDynExpInstr_1_1NIDAQDigitalOutTasks_1_1StopTask.html", "classDynExpInstr_1_1NIDAQDigitalOutTasks_1_1StopTask" ],
         [ "UpdateTask", "classDynExpInstr_1_1NIDAQDigitalOutTasks_1_1UpdateTask.html", "classDynExpInstr_1_1NIDAQDigitalOutTasks_1_1UpdateTask" ],
         [ "WriteTask", "classDynExpInstr_1_1NIDAQDigitalOutTasks_1_1WriteTask.html", "classDynExpInstr_1_1NIDAQDigitalOutTasks_1_1WriteTask" ]
+      ] ],
+      [ "NP_Conex_CC_Tasks", "namespaceDynExpInstr_1_1NP__Conex__CC__Tasks.html", [
+        [ "ExitTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1ExitTask.html", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1ExitTask" ],
+        [ "InitTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1InitTask.html", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1InitTask" ],
+        [ "MoveAbsoluteExecutionTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1MoveAbsoluteExecutionTask.html", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1MoveAbsoluteExecutionTask" ],
+        [ "MoveAbsoluteTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1MoveAbsoluteTask.html", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1MoveAbsoluteTask" ],
+        [ "MoveRelativeExecutionTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1MoveRelativeExecutionTask.html", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1MoveRelativeExecutionTask" ],
+        [ "MoveRelativeTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1MoveRelativeTask.html", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1MoveRelativeTask" ],
+        [ "MoveToHomeExecutionTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1MoveToHomeExecutionTask.html", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1MoveToHomeExecutionTask" ],
+        [ "MoveToHomeTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1MoveToHomeTask.html", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1MoveToHomeTask" ],
+        [ "ReferenceExecutionTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1ReferenceExecutionTask.html", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1ReferenceExecutionTask" ],
+        [ "ReferenceTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1ReferenceTask.html", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1ReferenceTask" ],
+        [ "ResetTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1ResetTask.html", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1ResetTask" ],
+        [ "SetHomeExecutionTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1SetHomeExecutionTask.html", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1SetHomeExecutionTask" ],
+        [ "SetHomeTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1SetHomeTask.html", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1SetHomeTask" ],
+        [ "SetReadyTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1SetReadyTask.html", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1SetReadyTask" ],
+        [ "SetVelocityTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1SetVelocityTask.html", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1SetVelocityTask" ],
+        [ "StopMotionTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1StopMotionTask.html", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1StopMotionTask" ],
+        [ "UpdateTask", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1UpdateTask.html", "classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1UpdateTask" ]
       ] ],
       [ "OutputPortTasks", "namespaceDynExpInstr_1_1OutputPortTasks.html", [
         [ "ExitTask", "classDynExpInstr_1_1OutputPortTasks_1_1ExitTask.html", "classDynExpInstr_1_1OutputPortTasks_1_1ExitTask" ],
@@ -496,6 +554,14 @@ var annotated_dup =
       [ "DigitalOutConfigurator", "classDynExpInstr_1_1DigitalOutConfigurator.html", "classDynExpInstr_1_1DigitalOutConfigurator" ],
       [ "DigitalOutData", "classDynExpInstr_1_1DigitalOutData.html", "classDynExpInstr_1_1DigitalOutData" ],
       [ "DigitalOutParams", "classDynExpInstr_1_1DigitalOutParams.html", "classDynExpInstr_1_1DigitalOutParams" ],
+      [ "DummyAnalogIn", "classDynExpInstr_1_1DummyAnalogIn.html", "classDynExpInstr_1_1DummyAnalogIn" ],
+      [ "DummyAnalogInConfigurator", "classDynExpInstr_1_1DummyAnalogInConfigurator.html", "classDynExpInstr_1_1DummyAnalogInConfigurator" ],
+      [ "DummyAnalogInData", "classDynExpInstr_1_1DummyAnalogInData.html", "classDynExpInstr_1_1DummyAnalogInData" ],
+      [ "DummyAnalogInParams", "classDynExpInstr_1_1DummyAnalogInParams.html", "classDynExpInstr_1_1DummyAnalogInParams" ],
+      [ "DummyAnalogOut", "classDynExpInstr_1_1DummyAnalogOut.html", "classDynExpInstr_1_1DummyAnalogOut" ],
+      [ "DummyAnalogOutConfigurator", "classDynExpInstr_1_1DummyAnalogOutConfigurator.html", "classDynExpInstr_1_1DummyAnalogOutConfigurator" ],
+      [ "DummyAnalogOutData", "classDynExpInstr_1_1DummyAnalogOutData.html", "classDynExpInstr_1_1DummyAnalogOutData" ],
+      [ "DummyAnalogOutParams", "classDynExpInstr_1_1DummyAnalogOutParams.html", "classDynExpInstr_1_1DummyAnalogOutParams" ],
       [ "DummyCamera", "classDynExpInstr_1_1DummyCamera.html", "classDynExpInstr_1_1DummyCamera" ],
       [ "DummyCameraConfigurator", "classDynExpInstr_1_1DummyCameraConfigurator.html", "classDynExpInstr_1_1DummyCameraConfigurator" ],
       [ "DummyCameraData", "classDynExpInstr_1_1DummyCameraData.html", "classDynExpInstr_1_1DummyCameraData" ],
@@ -504,6 +570,14 @@ var annotated_dup =
       [ "DummyDataStreamInstrumentConfigurator", "classDynExpInstr_1_1DummyDataStreamInstrumentConfigurator.html", "classDynExpInstr_1_1DummyDataStreamInstrumentConfigurator" ],
       [ "DummyDataStreamInstrumentData", "classDynExpInstr_1_1DummyDataStreamInstrumentData.html", "classDynExpInstr_1_1DummyDataStreamInstrumentData" ],
       [ "DummyDataStreamInstrumentParams", "classDynExpInstr_1_1DummyDataStreamInstrumentParams.html", "classDynExpInstr_1_1DummyDataStreamInstrumentParams" ],
+      [ "DummyDigitalIn", "classDynExpInstr_1_1DummyDigitalIn.html", "classDynExpInstr_1_1DummyDigitalIn" ],
+      [ "DummyDigitalInConfigurator", "classDynExpInstr_1_1DummyDigitalInConfigurator.html", "classDynExpInstr_1_1DummyDigitalInConfigurator" ],
+      [ "DummyDigitalInData", "classDynExpInstr_1_1DummyDigitalInData.html", "classDynExpInstr_1_1DummyDigitalInData" ],
+      [ "DummyDigitalInParams", "classDynExpInstr_1_1DummyDigitalInParams.html", "classDynExpInstr_1_1DummyDigitalInParams" ],
+      [ "DummyDigitalOut", "classDynExpInstr_1_1DummyDigitalOut.html", "classDynExpInstr_1_1DummyDigitalOut" ],
+      [ "DummyDigitalOutConfigurator", "classDynExpInstr_1_1DummyDigitalOutConfigurator.html", "classDynExpInstr_1_1DummyDigitalOutConfigurator" ],
+      [ "DummyDigitalOutData", "classDynExpInstr_1_1DummyDigitalOutData.html", "classDynExpInstr_1_1DummyDigitalOutData" ],
+      [ "DummyDigitalOutParams", "classDynExpInstr_1_1DummyDigitalOutParams.html", "classDynExpInstr_1_1DummyDigitalOutParams" ],
       [ "FunctionGenerator", "classDynExpInstr_1_1FunctionGenerator.html", "classDynExpInstr_1_1FunctionGenerator" ],
       [ "FunctionGeneratorConfigurator", "classDynExpInstr_1_1FunctionGeneratorConfigurator.html", "classDynExpInstr_1_1FunctionGeneratorConfigurator" ],
       [ "FunctionGeneratorData", "classDynExpInstr_1_1FunctionGeneratorData.html", "classDynExpInstr_1_1FunctionGeneratorData" ],
@@ -520,6 +594,10 @@ var annotated_dup =
       [ "InterModuleCommunicatorConfigurator", "classDynExpInstr_1_1InterModuleCommunicatorConfigurator.html", "classDynExpInstr_1_1InterModuleCommunicatorConfigurator" ],
       [ "InterModuleCommunicatorData", "classDynExpInstr_1_1InterModuleCommunicatorData.html", "classDynExpInstr_1_1InterModuleCommunicatorData" ],
       [ "InterModuleCommunicatorParams", "classDynExpInstr_1_1InterModuleCommunicatorParams.html", "classDynExpInstr_1_1InterModuleCommunicatorParams" ],
+      [ "Laser", "classDynExpInstr_1_1Laser.html", "classDynExpInstr_1_1Laser" ],
+      [ "LaserConfigurator", "classDynExpInstr_1_1LaserConfigurator.html", "classDynExpInstr_1_1LaserConfigurator" ],
+      [ "LaserData", "classDynExpInstr_1_1LaserData.html", "classDynExpInstr_1_1LaserData" ],
+      [ "LaserParams", "classDynExpInstr_1_1LaserParams.html", "classDynExpInstr_1_1LaserParams" ],
       [ "LockinAmplifier", "classDynExpInstr_1_1LockinAmplifier.html", "classDynExpInstr_1_1LockinAmplifier" ],
       [ "LockinAmplifierConfigurator", "classDynExpInstr_1_1LockinAmplifierConfigurator.html", "classDynExpInstr_1_1LockinAmplifierConfigurator" ],
       [ "LockinAmplifierData", "classDynExpInstr_1_1LockinAmplifierData.html", "classDynExpInstr_1_1LockinAmplifierData" ],
@@ -549,6 +627,10 @@ var annotated_dup =
       [ "NetworkDigitalOutData", "classDynExpInstr_1_1NetworkDigitalOutData.html", "classDynExpInstr_1_1NetworkDigitalOutData" ],
       [ "NetworkDigitalOutParams", "classDynExpInstr_1_1NetworkDigitalOutParams.html", "classDynExpInstr_1_1NetworkDigitalOutParams" ],
       [ "NetworkDigitalOutT", "classDynExpInstr_1_1NetworkDigitalOutT.html", "classDynExpInstr_1_1NetworkDigitalOutT" ],
+      [ "NetworkLaser", "classDynExpInstr_1_1NetworkLaser.html", "classDynExpInstr_1_1NetworkLaser" ],
+      [ "NetworkLaserConfigurator", "classDynExpInstr_1_1NetworkLaserConfigurator.html", "classDynExpInstr_1_1NetworkLaserConfigurator" ],
+      [ "NetworkLaserData", "classDynExpInstr_1_1NetworkLaserData.html", "classDynExpInstr_1_1NetworkLaserData" ],
+      [ "NetworkLaserParams", "classDynExpInstr_1_1NetworkLaserParams.html", "classDynExpInstr_1_1NetworkLaserParams" ],
       [ "NetworkSpectrometer", "classDynExpInstr_1_1NetworkSpectrometer.html", "classDynExpInstr_1_1NetworkSpectrometer" ],
       [ "NetworkSpectrometerConfigurator", "classDynExpInstr_1_1NetworkSpectrometerConfigurator.html", "classDynExpInstr_1_1NetworkSpectrometerConfigurator" ],
       [ "NetworkSpectrometerData", "classDynExpInstr_1_1NetworkSpectrometerData.html", "classDynExpInstr_1_1NetworkSpectrometerData" ],
@@ -573,6 +655,10 @@ var annotated_dup =
       [ "NIDAQDigitalOutConfigurator", "classDynExpInstr_1_1NIDAQDigitalOutConfigurator.html", "classDynExpInstr_1_1NIDAQDigitalOutConfigurator" ],
       [ "NIDAQDigitalOutData", "classDynExpInstr_1_1NIDAQDigitalOutData.html", "classDynExpInstr_1_1NIDAQDigitalOutData" ],
       [ "NIDAQDigitalOutParams", "classDynExpInstr_1_1NIDAQDigitalOutParams.html", "classDynExpInstr_1_1NIDAQDigitalOutParams" ],
+      [ "NP_Conex_CC", "classDynExpInstr_1_1NP__Conex__CC.html", "classDynExpInstr_1_1NP__Conex__CC" ],
+      [ "NP_Conex_CC_Configurator", "classDynExpInstr_1_1NP__Conex__CC__Configurator.html", "classDynExpInstr_1_1NP__Conex__CC__Configurator" ],
+      [ "NP_Conex_CC_Params", "classDynExpInstr_1_1NP__Conex__CC__Params.html", "classDynExpInstr_1_1NP__Conex__CC__Params" ],
+      [ "NP_Conex_CC_StageData", "classDynExpInstr_1_1NP__Conex__CC__StageData.html", "classDynExpInstr_1_1NP__Conex__CC__StageData" ],
       [ "NumericSampleStream", "classDynExpInstr_1_1NumericSampleStream.html", "classDynExpInstr_1_1NumericSampleStream" ],
       [ "NumericSampleStreamParamsExtension", "classDynExpInstr_1_1NumericSampleStreamParamsExtension.html", "classDynExpInstr_1_1NumericSampleStreamParamsExtension" ],
       [ "OutputPort", "classDynExpInstr_1_1OutputPort.html", "classDynExpInstr_1_1OutputPort" ],
@@ -645,6 +731,13 @@ var annotated_dup =
         [ "PauseImageCapturingEvent", "classDynExpModule_1_1ImageViewer_1_1PauseImageCapturingEvent.html", "classDynExpModule_1_1ImageViewer_1_1PauseImageCapturingEvent" ],
         [ "ResumeImageCapturingEvent", "classDynExpModule_1_1ImageViewer_1_1ResumeImageCapturingEvent.html", "classDynExpModule_1_1ImageViewer_1_1ResumeImageCapturingEvent" ]
       ] ],
+      [ "LaserScanningSpectroscopy", "namespaceDynExpModule_1_1LaserScanningSpectroscopy.html", [
+        [ "LaserScanningSpectroscopy", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy" ],
+        [ "LaserScanningSpectroscopyConfigurator", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyConfigurator.html", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyConfigurator" ],
+        [ "LaserScanningSpectroscopyData", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData" ],
+        [ "LaserScanningSpectroscopyParams", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyParams.html", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyParams" ],
+        [ "LaserScanningSpectroscopyWidget", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyWidget.html", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyWidget" ]
+      ] ],
       [ "ODMR", "namespaceDynExpModule_1_1ODMR.html", [
         [ "ODMR", "classDynExpModule_1_1ODMR_1_1ODMR.html", "classDynExpModule_1_1ODMR_1_1ODMR" ],
         [ "ODMRConfigurator", "classDynExpModule_1_1ODMR_1_1ODMRConfigurator.html", "classDynExpModule_1_1ODMR_1_1ODMRConfigurator" ],
@@ -656,10 +749,8 @@ var annotated_dup =
       ] ],
       [ "SpectrumViewer", "namespaceDynExpModule_1_1SpectrumViewer.html", [
         [ "PauseSpectrumRecordingEvent", "classDynExpModule_1_1SpectrumViewer_1_1PauseSpectrumRecordingEvent.html", "classDynExpModule_1_1SpectrumViewer_1_1PauseSpectrumRecordingEvent" ],
-        [ "RecordSpectrumEvent", "classDynExpModule_1_1SpectrumViewer_1_1RecordSpectrumEvent.html", "classDynExpModule_1_1SpectrumViewer_1_1RecordSpectrumEvent" ],
         [ "ResumeSpectrumRecordingEvent", "classDynExpModule_1_1SpectrumViewer_1_1ResumeSpectrumRecordingEvent.html", "classDynExpModule_1_1SpectrumViewer_1_1ResumeSpectrumRecordingEvent" ],
         [ "SetSilentModeEvent", "classDynExpModule_1_1SpectrumViewer_1_1SetSilentModeEvent.html", "classDynExpModule_1_1SpectrumViewer_1_1SetSilentModeEvent" ],
-        [ "SpectrumFinishedRecordingEvent", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumFinishedRecordingEvent.html", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumFinishedRecordingEvent" ],
         [ "SpectrumViewer", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer" ],
         [ "SpectrumViewerConfigurator", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerConfigurator.html", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerConfigurator" ],
         [ "SpectrumViewerData", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerData.html", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerData" ],
@@ -677,6 +768,12 @@ var annotated_dup =
       [ "ArbitraryFunctionFromCSVConfigurator", "classDynExpModule_1_1ArbitraryFunctionFromCSVConfigurator.html", "classDynExpModule_1_1ArbitraryFunctionFromCSVConfigurator" ],
       [ "ArbitraryFunctionFromCSVData", "classDynExpModule_1_1ArbitraryFunctionFromCSVData.html", "classDynExpModule_1_1ArbitraryFunctionFromCSVData" ],
       [ "ArbitraryFunctionFromCSVParams", "classDynExpModule_1_1ArbitraryFunctionFromCSVParams.html", "classDynExpModule_1_1ArbitraryFunctionFromCSVParams" ],
+      [ "EventSender", "classDynExpModule_1_1EventSender.html", "classDynExpModule_1_1EventSender" ],
+      [ "EventSenderConfigurator", "classDynExpModule_1_1EventSenderConfigurator.html", "classDynExpModule_1_1EventSenderConfigurator" ],
+      [ "EventSenderData", "classDynExpModule_1_1EventSenderData.html", "classDynExpModule_1_1EventSenderData" ],
+      [ "EventSenderParams", "classDynExpModule_1_1EventSenderParams.html", "classDynExpModule_1_1EventSenderParams" ],
+      [ "EventSenderWidget", "classDynExpModule_1_1EventSenderWidget.html", "classDynExpModule_1_1EventSenderWidget" ],
+      [ "FinishedEvent", "classDynExpModule_1_1FinishedEvent.html", "classDynExpModule_1_1FinishedEvent" ],
       [ "gRPCModule", "classDynExpModule_1_1gRPCModule.html", "classDynExpModule_1_1gRPCModule" ],
       [ "gRPCModuleConfigurator", "classDynExpModule_1_1gRPCModuleConfigurator.html", "classDynExpModule_1_1gRPCModuleConfigurator" ],
       [ "gRPCModuleData", "classDynExpModule_1_1gRPCModuleData.html", "classDynExpModule_1_1gRPCModuleData" ],
@@ -686,6 +783,11 @@ var annotated_dup =
       [ "InputPortReaderData", "classDynExpModule_1_1InputPortReaderData.html", "classDynExpModule_1_1InputPortReaderData" ],
       [ "InputPortReaderParams", "classDynExpModule_1_1InputPortReaderParams.html", "classDynExpModule_1_1InputPortReaderParams" ],
       [ "InputPortReaderWidget", "classDynExpModule_1_1InputPortReaderWidget.html", "classDynExpModule_1_1InputPortReaderWidget" ],
+      [ "LaserControl", "classDynExpModule_1_1LaserControl.html", "classDynExpModule_1_1LaserControl" ],
+      [ "LaserControlConfigurator", "classDynExpModule_1_1LaserControlConfigurator.html", "classDynExpModule_1_1LaserControlConfigurator" ],
+      [ "LaserControlData", "classDynExpModule_1_1LaserControlData.html", "classDynExpModule_1_1LaserControlData" ],
+      [ "LaserControlParams", "classDynExpModule_1_1LaserControlParams.html", "classDynExpModule_1_1LaserControlParams" ],
+      [ "LaserControlWidget", "classDynExpModule_1_1LaserControlWidget.html", "classDynExpModule_1_1LaserControlWidget" ],
       [ "LockinAmplifierControl", "classDynExpModule_1_1LockinAmplifierControl.html", "classDynExpModule_1_1LockinAmplifierControl" ],
       [ "LockinAmplifierControlConfigurator", "classDynExpModule_1_1LockinAmplifierControlConfigurator.html", "classDynExpModule_1_1LockinAmplifierControlConfigurator" ],
       [ "LockinAmplifierControlData", "classDynExpModule_1_1LockinAmplifierControlData.html", "classDynExpModule_1_1LockinAmplifierControlData" ],
@@ -722,6 +824,7 @@ var annotated_dup =
       [ "OutputPortWriterWidget", "classDynExpModule_1_1OutputPortWriterWidget.html", "classDynExpModule_1_1OutputPortWriterWidget" ],
       [ "PyStreamManipulatorInputData", "structDynExpModule_1_1PyStreamManipulatorInputData.html", "structDynExpModule_1_1PyStreamManipulatorInputData" ],
       [ "PyStreamManipulatorOutputData", "structDynExpModule_1_1PyStreamManipulatorOutputData.html", "structDynExpModule_1_1PyStreamManipulatorOutputData" ],
+      [ "SetFilenameEvent", "classDynExpModule_1_1SetFilenameEvent.html", "classDynExpModule_1_1SetFilenameEvent" ],
       [ "SignalDesigner", "classDynExpModule_1_1SignalDesigner.html", "classDynExpModule_1_1SignalDesigner" ],
       [ "SignalDesignerConfigurator", "classDynExpModule_1_1SignalDesignerConfigurator.html", "classDynExpModule_1_1SignalDesignerConfigurator" ],
       [ "SignalDesignerData", "classDynExpModule_1_1SignalDesignerData.html", "classDynExpModule_1_1SignalDesignerData" ],
@@ -808,6 +911,7 @@ var annotated_dup =
       [ "TimeoutException", "classUtil_1_1TimeoutException.html", "classUtil_1_1TimeoutException" ],
       [ "TypeErrorException", "classUtil_1_1TypeErrorException.html", "classUtil_1_1TypeErrorException" ],
       [ "UnderflowException", "classUtil_1_1UnderflowException.html", "classUtil_1_1UnderflowException" ],
+      [ "UniqueID", "classUtil_1_1UniqueID.html", "classUtil_1_1UniqueID" ],
       [ "VersionType", "namespaceUtil.html#structUtil_1_1VersionType", "namespaceUtil_structUtil_1_1VersionType_dup" ],
       [ "Warning", "classUtil_1_1Warning.html", "classUtil_1_1Warning" ]
     ] ],

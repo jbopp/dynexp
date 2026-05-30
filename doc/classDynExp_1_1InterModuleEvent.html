@@ -127,51 +127,90 @@ Public Types</h2></td></tr>
 <tr class="memitem:a94e2d31b66e8cdf484bee4c9add5e329" id="r_a94e2d31b66e8cdf484bee4c9add5e329"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEvent.html#a94e2d31b66e8cdf484bee4c9add5e329">EventListenersType</a> = <a class="el" href="classDynExp_1_1TypedEventListeners.html">TypedEventListeners</a>&lt; EventFuncArgs... &gt;</td></tr>
 <tr class="memdesc:a94e2d31b66e8cdf484bee4c9add5e329"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the manager of event listeners, which relates event listeners (instances of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code>) to their event functions. The event functions expect <code>EventFuncArgs</code> as further arguments.  <br /></td></tr>
 <tr class="separator:a94e2d31b66e8cdf484bee4c9add5e329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_types_classDynExp_1_1InterModuleEventBase"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classDynExp_1_1InterModuleEventBase')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classDynExp_1_1InterModuleEventBase.html">DynExp::InterModuleEventBase</a></td></tr>
+<tr class="memitem:a7ad15da2f7d6ca9060c86bbafd03b64d inherit pub_types_classDynExp_1_1InterModuleEventBase" id="r_a7ad15da2f7d6ca9060c86bbafd03b64d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEventBase.html#a7ad15da2f7d6ca9060c86bbafd03b64d">InterModuleEventPtrType</a> = std::unique_ptr&lt; <a class="el" href="classDynExp_1_1InterModuleEventBase.html">InterModuleEventBase</a> &gt;</td></tr>
+<tr class="memdesc:a7ad15da2f7d6ca9060c86bbafd03b64d inherit pub_types_classDynExp_1_1InterModuleEventBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer type to store an inter-module event (<code><a class="el" href="classDynExp_1_1InterModuleEventBase.html" title="Common base class for all inter-module events.">InterModuleEventBase</a></code>).  <br /></td></tr>
+<tr class="separator:a7ad15da2f7d6ca9060c86bbafd03b64d inherit pub_types_classDynExp_1_1InterModuleEventBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3f3fc65c66130344e7bea389590b2d93" id="r_a3f3fc65c66130344e7bea389590b2d93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEvent.html#a3f3fc65c66130344e7bea389590b2d93">InterModuleEvent</a> ()=default</td></tr>
+<tr class="memdesc:a3f3fc65c66130344e7bea389590b2d93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an inter-module event.    <br /></td></tr>
 <tr class="separator:a3f3fc65c66130344e7bea389590b2d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7f272178672494b6b20390e98ec6fb0" id="r_aa7f272178672494b6b20390e98ec6fb0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEvent.html#aa7f272178672494b6b20390e98ec6fb0">InterModuleEvent</a> (const <a class="el" href="classDynExp_1_1InterModuleEventBase.html">InterModuleEventBase</a> &amp;Other, <a class="el" href="namespaceDynExp.html#a8b4c34da3bf02951070e7011bc438e38">ItemIDType</a> <a class="el" href="classDynExp_1_1InterModuleEventBase.html#a43c203c865bb349a98ac76aa35d72b71">CommunicatorID</a>)</td></tr>
+<tr class="memdesc:aa7f272178672494b6b20390e98ec6fb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy-constrcuts an inter-module event setting the <a class="el" href="classDynExp_1_1InterModuleEventBase.html#a43c203c865bb349a98ac76aa35d72b71" title="ID of the DynExpInstr::InterModuleCommunicator instance that sends the event.">CommunicatorID</a>.    <br /></td></tr>
+<tr class="separator:aa7f272178672494b6b20390e98ec6fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59ba6814cd77164b60ee0ee48bd30246" id="r_a59ba6814cd77164b60ee0ee48bd30246"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEvent.html#a59ba6814cd77164b60ee0ee48bd30246">~InterModuleEvent</a> ()</td></tr>
 <tr class="separator:a59ba6814cd77164b60ee0ee48bd30246"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bfc138428f70de50f5a65aa7e3ae75c" id="r_a8bfc138428f70de50f5a65aa7e3ae75c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classDynExp_1_1InterModuleEventBase.html#a7ad15da2f7d6ca9060c86bbafd03b64d">InterModuleEventPtrType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEvent.html#a8bfc138428f70de50f5a65aa7e3ae75c">Clone</a> (<a class="el" href="namespaceDynExp.html#a8b4c34da3bf02951070e7011bc438e38">ItemIDType</a> <a class="el" href="classDynExp_1_1InterModuleEventBase.html#a43c203c865bb349a98ac76aa35d72b71">CommunicatorID</a>) const override final</td></tr>
+<tr class="memdesc:a8bfc138428f70de50f5a65aa7e3ae75c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a deep copy of this inter-module instance.  <br /></td></tr>
+<tr class="separator:a8bfc138428f70de50f5a65aa7e3ae75c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53a0b756cb58910f5ed0857ab6890e45" id="r_a53a0b756cb58910f5ed0857ab6890e45"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEvent.html#a53a0b756cb58910f5ed0857ab6890e45">GetID</a> () const noexcept override final</td></tr>
+<tr class="memdesc:a53a0b756cb58910f5ed0857ab6890e45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the unique ID of this event type.  <br /></td></tr>
+<tr class="separator:a53a0b756cb58910f5ed0857ab6890e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeccf0debb568a0c4ee5ec97397d637df" id="r_aeccf0debb568a0c4ee5ec97397d637df"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEvent.html#aeccf0debb568a0c4ee5ec97397d637df">GetName</a> () const override</td></tr>
+<tr class="memdesc:aeccf0debb568a0c4ee5ec97397d637df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of this event type.  <br /></td></tr>
+<tr class="separator:aeccf0debb568a0c4ee5ec97397d637df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classDynExp_1_1InterModuleEventBase"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classDynExp_1_1InterModuleEventBase')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classDynExp_1_1InterModuleEventBase.html">DynExp::InterModuleEventBase</a></td></tr>
-<tr class="memitem:a371e234245ebe656d47844c50031f9a9 inherit pub_methods_classDynExp_1_1InterModuleEventBase" id="r_a371e234245ebe656d47844c50031f9a9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEventBase.html#a371e234245ebe656d47844c50031f9a9">InterModuleEventBase</a> ()=default</td></tr>
-<tr class="separator:a371e234245ebe656d47844c50031f9a9 inherit pub_methods_classDynExp_1_1InterModuleEventBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a880959a3936d56d95d6e85fb5f35ac6f inherit pub_methods_classDynExp_1_1InterModuleEventBase" id="r_a880959a3936d56d95d6e85fb5f35ac6f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEventBase.html#a880959a3936d56d95d6e85fb5f35ac6f">InterModuleEventBase</a> ()</td></tr>
+<tr class="memdesc:a880959a3936d56d95d6e85fb5f35ac6f inherit pub_methods_classDynExp_1_1InterModuleEventBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an inter-module event.  <br /></td></tr>
+<tr class="separator:a880959a3936d56d95d6e85fb5f35ac6f inherit pub_methods_classDynExp_1_1InterModuleEventBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a450a531c86d001616c37bd90d98937fe inherit pub_methods_classDynExp_1_1InterModuleEventBase" id="r_a450a531c86d001616c37bd90d98937fe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEventBase.html#a450a531c86d001616c37bd90d98937fe">InterModuleEventBase</a> (const <a class="el" href="classDynExp_1_1InterModuleEventBase.html">InterModuleEventBase</a> &amp;Other, <a class="el" href="namespaceDynExp.html#a8b4c34da3bf02951070e7011bc438e38">ItemIDType</a> <a class="el" href="classDynExp_1_1InterModuleEventBase.html#a43c203c865bb349a98ac76aa35d72b71">CommunicatorID</a>)</td></tr>
+<tr class="memdesc:a450a531c86d001616c37bd90d98937fe inherit pub_methods_classDynExp_1_1InterModuleEventBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy-constrcuts an inter-module event setting the <a class="el" href="classDynExp_1_1InterModuleEventBase.html#a43c203c865bb349a98ac76aa35d72b71" title="ID of the DynExpInstr::InterModuleCommunicator instance that sends the event.">CommunicatorID</a>.  <br /></td></tr>
+<tr class="separator:a450a531c86d001616c37bd90d98937fe inherit pub_methods_classDynExp_1_1InterModuleEventBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bfaeba52ecbd0f626c78123a6320c08 inherit pub_methods_classDynExp_1_1InterModuleEventBase" id="r_a8bfaeba52ecbd0f626c78123a6320c08"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEventBase.html#a8bfaeba52ecbd0f626c78123a6320c08">~InterModuleEventBase</a> ()=0</td></tr>
 <tr class="separator:a8bfaeba52ecbd0f626c78123a6320c08 inherit pub_methods_classDynExp_1_1InterModuleEventBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85f4149ea6a62579e4ecefcb42c588ba inherit pub_methods_classDynExp_1_1InterModuleEventBase" id="r_a85f4149ea6a62579e4ecefcb42c588ba"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEventBase.html#a85f4149ea6a62579e4ecefcb42c588ba">GetCommunicatorID</a> () const noexcept</td></tr>
+<tr class="memdesc:a85f4149ea6a62579e4ecefcb42c588ba inherit pub_methods_classDynExp_1_1InterModuleEventBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for <a class="el" href="classDynExp_1_1InterModuleEventBase.html#a43c203c865bb349a98ac76aa35d72b71" title="ID of the DynExpInstr::InterModuleCommunicator instance that sends the event.">CommunicatorID</a>.  <br /></td></tr>
+<tr class="separator:a85f4149ea6a62579e4ecefcb42c588ba inherit pub_methods_classDynExp_1_1InterModuleEventBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classDynExp_1_1EventBase"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classDynExp_1_1EventBase')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classDynExp_1_1EventBase.html">DynExp::EventBase</a></td></tr>
 <tr class="memitem:a19fc4d8f18b7580014ba21c884d347bc inherit pub_methods_classDynExp_1_1EventBase" id="r_a19fc4d8f18b7580014ba21c884d347bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1EventBase.html#a19fc4d8f18b7580014ba21c884d347bc">EventBase</a> ()=default</td></tr>
 <tr class="separator:a19fc4d8f18b7580014ba21c884d347bc inherit pub_methods_classDynExp_1_1EventBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bf49d9b8cfebcc00c36bb2869a6d06c inherit pub_methods_classDynExp_1_1EventBase" id="r_a2bf49d9b8cfebcc00c36bb2869a6d06c"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1EventBase.html#a2bf49d9b8cfebcc00c36bb2869a6d06c">~EventBase</a> ()=0</td></tr>
 <tr class="separator:a2bf49d9b8cfebcc00c36bb2869a6d06c inherit pub_methods_classDynExp_1_1EventBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7251e2e8e9066bd265e18e7b197d7731 inherit pub_methods_classDynExp_1_1EventBase" id="r_a7251e2e8e9066bd265e18e7b197d7731"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1EventBase.html#a7251e2e8e9066bd265e18e7b197d7731">Invoke</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">ModuleInstance</a> &amp;Instance) const</td></tr>
-<tr class="memdesc:a7251e2e8e9066bd265e18e7b197d7731 inherit pub_methods_classDynExp_1_1EventBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invokes the event passing the receiving module's instance reference to it.  <br /></td></tr>
+<tr class="memdesc:a7251e2e8e9066bd265e18e7b197d7731 inherit pub_methods_classDynExp_1_1EventBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invokes the event passing the receiving module's instance reference to it. Only to be called from <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code>.  <br /></td></tr>
 <tr class="separator:a7251e2e8e9066bd265e18e7b197d7731 inherit pub_methods_classDynExp_1_1EventBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a9cef4596c1e4dfbc7c6bdb2b067208da" id="r_a9cef4596c1e4dfbc7c6bdb2b067208da"><td class="memTemplParams" colspan="2">template&lt;typename CallableT &gt; </td></tr>
-<tr class="memitem:a9cef4596c1e4dfbc7c6bdb2b067208da"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEvent.html#a9cef4596c1e4dfbc7c6bdb2b067208da">Register</a> (const <a class="el" href="classDynExp_1_1ModuleBase.html">ModuleBase</a> &amp;Listener, CallableT EventFunc)</td></tr>
-<tr class="memdesc:a9cef4596c1e4dfbc7c6bdb2b067208da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers/Subscribes module <code>Listener</code> to the event with the event function <code>EventFunc</code>. Indirectly calls <a class="el" href="classDynExp_1_1ModuleBase.html#ac2010071b9ef285d63381fb9e4d186b6" title="Adds a manager of event listeners to RegisteredEvents if it was not already added before....">ModuleBase::AddRegisteredEvent()</a>.    <br /></td></tr>
-<tr class="separator:a9cef4596c1e4dfbc7c6bdb2b067208da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7caeff9917df3484b06cd38fc672422" id="r_ab7caeff9917df3484b06cd38fc672422"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEvent.html#ab7caeff9917df3484b06cd38fc672422">ID</a> ()</td></tr>
+<tr class="memdesc:ab7caeff9917df3484b06cd38fc672422"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for <a class="el" href="classDynExp_1_1InterModuleEvent.html#a309f3820b7310b41a492f09113c5730a" title="Unique ID assigned to this inter-module event.">EventID</a>.  <br /></td></tr>
+<tr class="separator:ab7caeff9917df3484b06cd38fc672422"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ecfad53992d5879f765e7e1de70111c" id="r_a3ecfad53992d5879f765e7e1de70111c"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEvent.html#a3ecfad53992d5879f765e7e1de70111c">Publish</a> (<a class="el" href="classDynExp_1_1InterModuleEventLibrary.html">InterModuleEventLibrary</a> &amp;Library)</td></tr>
+<tr class="memdesc:a3ecfad53992d5879f765e7e1de70111c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publishes this event type to the <code><a class="el" href="classDynExp_1_1InterModuleEventLibrary.html" title="Library type that holds factory functions to all available inter-module events.">InterModuleEventLibrary</a></code>. This function should not be called manually.  <br /></td></tr>
+<tr class="separator:a3ecfad53992d5879f765e7e1de70111c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a740a7fb7024f9e8f11f5c03e17655eae" id="r_a740a7fb7024f9e8f11f5c03e17655eae"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classDynExp_1_1InterModuleEventBase.html#a7ad15da2f7d6ca9060c86bbafd03b64d">InterModuleEventPtrType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEvent.html#a740a7fb7024f9e8f11f5c03e17655eae">Make</a> ()</td></tr>
+<tr class="memdesc:a740a7fb7024f9e8f11f5c03e17655eae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for events of type <code>DerivedEvent</code>.  <br /></td></tr>
+<tr class="separator:a740a7fb7024f9e8f11f5c03e17655eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e1ff5d9a5e12f30e6c388c2097ccc8e" id="r_a0e1ff5d9a5e12f30e6c388c2097ccc8e"><td class="memTemplParams" colspan="2">template&lt;typename CallableT &gt; </td></tr>
+<tr class="memitem:a0e1ff5d9a5e12f30e6c388c2097ccc8e"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEvent.html#a0e1ff5d9a5e12f30e6c388c2097ccc8e">Register</a> (const <a class="el" href="classDynExp_1_1ModuleBase.html">ModuleBase</a> &amp;Listener, CallableT EventFunc, <a class="el" href="namespaceDynExp.html#a8b4c34da3bf02951070e7011bc438e38">ItemIDType</a> <a class="el" href="classDynExp_1_1InterModuleEventBase.html#a43c203c865bb349a98ac76aa35d72b71">CommunicatorID</a>=<a class="el" href="namespaceDynExp.html#aeeaa5a8928ddbba6c58c54eac7ef6394abaa1ecd403ec41d0670bc3cb185f5daf">ItemIDNotSet</a>)</td></tr>
+<tr class="memdesc:a0e1ff5d9a5e12f30e6c388c2097ccc8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers/Subscribes module <code>Listener</code> to the event with the event function <code>EventFunc</code>. Indirectly calls <a class="el" href="classDynExp_1_1ModuleBase.html#ac2010071b9ef285d63381fb9e4d186b6" title="Adds a manager of event listeners to RegisteredEvents. Called indirectly by TypedEventListeners::Regi...">ModuleBase::AddRegisteredEvent()</a>. If a module-communicator combination has already been registered, this registration is updated.    <br /></td></tr>
+<tr class="separator:a0e1ff5d9a5e12f30e6c388c2097ccc8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1c539c32b97bfcfb7262cc69465be2d" id="r_ad1c539c32b97bfcfb7262cc69465be2d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEvent.html#ad1c539c32b97bfcfb7262cc69465be2d">Deregister</a> (const <a class="el" href="classDynExp_1_1ModuleBase.html">ModuleBase</a> &amp;Listener)</td></tr>
-<tr class="memdesc:ad1c539c32b97bfcfb7262cc69465be2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deregisters/unsubscribes module <code>Listener</code> from the event. Indirectly calls <a class="el" href="classDynExp_1_1ModuleBase.html#a79e7cf897ebcdfea8c39f5954bcd3729" title="Removes a manager of event listeners from RegisteredEvents if it was added before....">ModuleBase::RemoveRegisteredEvent()</a>.    <br /></td></tr>
+<tr class="memdesc:ad1c539c32b97bfcfb7262cc69465be2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deregisters/unsubscribes module <code>Listener</code> from the event, regardless of the inter-module communicator instance used to register <code>Listener</code> to the event. Indirectly calls <a class="el" href="classDynExp_1_1ModuleBase.html#a79e7cf897ebcdfea8c39f5954bcd3729" title="Removes a manager of event listeners from RegisteredEvents if it was added before....">ModuleBase::RemoveRegisteredEvent()</a>.    <br /></td></tr>
 <tr class="separator:ad1c539c32b97bfcfb7262cc69465be2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99415fbabc600027dd2d5c05e8b09a10" id="r_a99415fbabc600027dd2d5c05e8b09a10"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEvent.html#a99415fbabc600027dd2d5c05e8b09a10">Deregister</a> (const <a class="el" href="classDynExp_1_1ModuleBase.html">ModuleBase</a> &amp;Listener, <a class="el" href="namespaceDynExp.html#a8b4c34da3bf02951070e7011bc438e38">ItemIDType</a> <a class="el" href="classDynExp_1_1InterModuleEventBase.html#a43c203c865bb349a98ac76aa35d72b71">CommunicatorID</a>)</td></tr>
+<tr class="memdesc:a99415fbabc600027dd2d5c05e8b09a10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deregisters/unsubscribes module <code>Listener</code> from the event, removing a single registration for a particular module/inter-module communicator combination. Indirectly calls <a class="el" href="classDynExp_1_1ModuleBase.html#a79e7cf897ebcdfea8c39f5954bcd3729" title="Removes a manager of event listeners from RegisteredEvents if it was added before....">ModuleBase::RemoveRegisteredEvent()</a>.    <br /></td></tr>
+<tr class="separator:a99415fbabc600027dd2d5c05e8b09a10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a5b07d5c79f8ac8f6ab6c1187b2ced35d" id="r_a5b07d5c79f8ac8f6ab6c1187b2ced35d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d">InvokeChild</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">ModuleInstance</a> &amp;Instance) const override final</td></tr>
-<tr class="memdesc:a5b07d5c79f8ac8f6ab6c1187b2ced35d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invokes the event passing the receiving module's instance reference to it.    <br /></td></tr>
+<tr class="memdesc:a5b07d5c79f8ac8f6ab6c1187b2ced35d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invokes the event passing the receiving module's instance reference to it. Only to be called from <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code>.    <br /></td></tr>
 <tr class="separator:a5b07d5c79f8ac8f6ab6c1187b2ced35d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Override</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Override by derived classes. </p>
 </div></td></tr>
 <tr class="memitem:a53275c673762fe0548f7b379f8d1e666" id="r_a53275c673762fe0548f7b379f8d1e666"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEvent.html#a53275c673762fe0548f7b379f8d1e666">InvokeWithParamsChild</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">ModuleInstance</a> &amp;Instance, <a class="el" href="classDynExp_1_1TypedEventListeners.html#ad9265a694f5450e2efbe3000b4d64c3d">EventListenersType::EventFunctionType</a> EventFunc) const =0</td></tr>
-<tr class="memdesc:a53275c673762fe0548f7b379f8d1e666"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by <code><a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d" title="Invokes the event passing the receiving module&#39;s instance reference to it.">InvokeChild()</a></code>. Override to call <code>EventFunc</code> with <code>Instance</code> as the first argument and with further arguments of type <code>EventFuncArgs</code>.  <br /></td></tr>
+<tr class="memdesc:a53275c673762fe0548f7b379f8d1e666"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by <code><a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d" title="Invokes the event passing the receiving module&#39;s instance reference to it. Only to be called from Mod...">InvokeChild()</a></code>. Override to call <code>EventFunc</code> with <code>Instance</code> as the first argument and with further arguments of type <code>EventFuncArgs</code>.  <br /></td></tr>
 <tr class="separator:a53275c673762fe0548f7b379f8d1e666"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
+<tr class="memitem:a309f3820b7310b41a492f09113c5730a" id="r_a309f3820b7310b41a492f09113c5730a"><td class="memItemLeft" align="right" valign="top">static const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEvent.html#a309f3820b7310b41a492f09113c5730a">EventID</a> = <a class="el" href="classDynExp_1_1InterModuleEvent.html">InterModuleEvent</a>&lt;DerivedEvent, EventFuncArgs...&gt;<a class="el" href="classDynExp_1_1InterModuleEvent.html#a3ecfad53992d5879f765e7e1de70111c">::Publish</a>(<a class="el" href="classDynExp_1_1InterModuleEventLibrary.html#a6d01f3783014a6aded4c2de0935b628a">InterModuleEventLibrary::Get</a>())</td></tr>
+<tr class="memdesc:a309f3820b7310b41a492f09113c5730a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique ID assigned to this inter-module event.  <br /></td></tr>
+<tr class="separator:a309f3820b7310b41a492f09113c5730a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9c2d9cdbe8837bab0d4f7b0e2ad1a9d" id="r_ae9c2d9cdbe8837bab0d4f7b0e2ad1a9d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classDynExp_1_1InterModuleEvent.html#a94e2d31b66e8cdf484bee4c9add5e329">EventListenersType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEvent.html#ae9c2d9cdbe8837bab0d4f7b0e2ad1a9d">Listeners</a></td></tr>
 <tr class="memdesc:ae9c2d9cdbe8837bab0d4f7b0e2ad1a9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds one <code>EventListenersType</code> instance per derived event, which manages all the subscribers of <code>DerivedEvent</code>.  <br /></td></tr>
 <tr class="separator:ae9c2d9cdbe8837bab0d4f7b0e2ad1a9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -187,7 +226,7 @@ class DynExp::InterModuleEvent&lt; DerivedEvent, EventFuncArgs &gt;</div><p>Type
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01010">1010</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01210">1210</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a94e2d31b66e8cdf484bee4c9add5e329" name="a94e2d31b66e8cdf484bee4c9add5e329"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a94e2d31b66e8cdf484bee4c9add5e329">&#9670;&#160;</a></span>EventListenersType</h2>
@@ -205,13 +244,13 @@ template&lt;typename DerivedEvent , typename... EventFuncArgs&gt; </div>
 
 <p>Type of the manager of event listeners, which relates event listeners (instances of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code>) to their event functions. The event functions expect <code>EventFuncArgs</code> as further arguments. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01018">1018</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01218">1218</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3f3fc65c66130344e7bea389590b2d93" name="a3f3fc65c66130344e7bea389590b2d93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f3fc65c66130344e7bea389590b2d93">&#9670;&#160;</a></span>InterModuleEvent()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f3fc65c66130344e7bea389590b2d93">&#9670;&#160;</a></span>InterModuleEvent() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -234,6 +273,57 @@ template&lt;typename DerivedEvent , typename... EventFuncArgs&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs an inter-module event.   </p>
+
+</div>
+</div>
+<a id="aa7f272178672494b6b20390e98ec6fb0" name="aa7f272178672494b6b20390e98ec6fb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7f272178672494b6b20390e98ec6fb0">&#9670;&#160;</a></span>InterModuleEvent() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename DerivedEvent , typename... EventFuncArgs&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDynExp_1_1InterModuleEvent.html">DynExp::InterModuleEvent</a>&lt; DerivedEvent, EventFuncArgs &gt;::InterModuleEvent </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classDynExp_1_1InterModuleEventBase.html">InterModuleEventBase</a> &amp;&#160;</td>
+          <td class="paramname"><em>Other</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceDynExp.html#a8b4c34da3bf02951070e7011bc438e38">ItemIDType</a>&#160;</td>
+          <td class="paramname"><em>CommunicatorID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy-constrcuts an inter-module event setting the <a class="el" href="classDynExp_1_1InterModuleEventBase.html#a43c203c865bb349a98ac76aa35d72b71" title="ID of the DynExpInstr::InterModuleCommunicator instance that sends the event.">CommunicatorID</a>.   </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Other</td><td>Inter-module event to copy. </td></tr>
+    <tr><td class="paramname">CommunicatorID</td><td>ID of the <a class="el" href="classDynExpInstr_1_1InterModuleCommunicator.html" title="Defines an inter-module communicator instrument to exchange events in between DynExp modules....">DynExpInstr::InterModuleCommunicator</a> instance that sends the event.     </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01228">1228</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -262,13 +352,54 @@ template&lt;typename DerivedEvent , typename... EventFuncArgs&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01021">1021</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01231">1231</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8bfc138428f70de50f5a65aa7e3ae75c" name="a8bfc138428f70de50f5a65aa7e3ae75c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bfc138428f70de50f5a65aa7e3ae75c">&#9670;&#160;</a></span>Clone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename DerivedEvent , typename... EventFuncArgs&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classDynExp_1_1InterModuleEventBase.html#a7ad15da2f7d6ca9060c86bbafd03b64d">InterModuleEventPtrType</a> <a class="el" href="classDynExp_1_1InterModuleEvent.html">DynExp::InterModuleEvent</a>&lt; DerivedEvent, EventFuncArgs &gt;::Clone </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceDynExp.html#a8b4c34da3bf02951070e7011bc438e38">ItemIDType</a>&#160;</td>
+          <td class="paramname"><em>CommunicatorID</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a deep copy of this inter-module instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">CommunicatorID</td><td>ID of the <a class="el" href="classDynExpInstr_1_1InterModuleCommunicator.html" title="Defines an inter-module communicator instrument to exchange events in between DynExp modules....">DynExpInstr::InterModuleCommunicator</a> instance that sends the event.   </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the copy. </dd></dl>
+
+<p>Implements <a class="el" href="classDynExp_1_1InterModuleEventBase.html#a26c040330d06bd10f8dba59e4fb2dc9b">DynExp::InterModuleEventBase</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01253">1253</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+
+</div>
+</div>
 <a id="ad1c539c32b97bfcfb7262cc69465be2d" name="ad1c539c32b97bfcfb7262cc69465be2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1c539c32b97bfcfb7262cc69465be2d">&#9670;&#160;</a></span>Deregister()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1c539c32b97bfcfb7262cc69465be2d">&#9670;&#160;</a></span>Deregister() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -293,7 +424,7 @@ template&lt;typename DerivedEvent , typename... EventFuncArgs&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Deregisters/unsubscribes module <code>Listener</code> from the event. Indirectly calls <a class="el" href="classDynExp_1_1ModuleBase.html#a79e7cf897ebcdfea8c39f5954bcd3729" title="Removes a manager of event listeners from RegisteredEvents if it was added before....">ModuleBase::RemoveRegisteredEvent()</a>.   </p>
+<p>Deregisters/unsubscribes module <code>Listener</code> from the event, regardless of the inter-module communicator instance used to register <code>Listener</code> to the event. Indirectly calls <a class="el" href="classDynExp_1_1ModuleBase.html#a79e7cf897ebcdfea8c39f5954bcd3729" title="Removes a manager of event listeners from RegisteredEvents if it was added before....">ModuleBase::RemoveRegisteredEvent()</a>.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Listener</td><td>Module to deregister/unsubscribe.   </td></tr>
@@ -301,7 +432,156 @@ template&lt;typename DerivedEvent , typename... EventFuncArgs&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01034">1034</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01271">1271</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+
+</div>
+</div>
+<a id="a99415fbabc600027dd2d5c05e8b09a10" name="a99415fbabc600027dd2d5c05e8b09a10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99415fbabc600027dd2d5c05e8b09a10">&#9670;&#160;</a></span>Deregister() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename DerivedEvent , typename... EventFuncArgs&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="classDynExp_1_1InterModuleEvent.html">DynExp::InterModuleEvent</a>&lt; DerivedEvent, EventFuncArgs &gt;::Deregister </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classDynExp_1_1ModuleBase.html">ModuleBase</a> &amp;&#160;</td>
+          <td class="paramname"><em>Listener</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceDynExp.html#a8b4c34da3bf02951070e7011bc438e38">ItemIDType</a>&#160;</td>
+          <td class="paramname"><em>CommunicatorID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deregisters/unsubscribes module <code>Listener</code> from the event, removing a single registration for a particular module/inter-module communicator combination. Indirectly calls <a class="el" href="classDynExp_1_1ModuleBase.html#a79e7cf897ebcdfea8c39f5954bcd3729" title="Removes a manager of event listeners from RegisteredEvents if it was added before....">ModuleBase::RemoveRegisteredEvent()</a>.   </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Listener</td><td>Module to deregister/unsubscribe. </td></tr>
+    <tr><td class="paramname">CommunicatorID</td><td>Refer to <a class="el" href="classDynExp_1_1TypedEventListeners.html#ab4f92e4c040a9d077207860196f88345" title="Deregisters/unsubscribes module Listener from the event, removing a single registration for a particu...">TypedEventListeners::Deregister()</a>.   </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01280">1280</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+
+</div>
+</div>
+<a id="a53a0b756cb58910f5ed0857ab6890e45" name="a53a0b756cb58910f5ed0857ab6890e45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53a0b756cb58910f5ed0857ab6890e45">&#9670;&#160;</a></span>GetID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename DerivedEvent , typename... EventFuncArgs&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual size_t <a class="el" href="classDynExp_1_1InterModuleEvent.html">DynExp::InterModuleEvent</a>&lt; DerivedEvent, EventFuncArgs &gt;::GetID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">override</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the unique ID of this event type. </p>
+
+<p>Implements <a class="el" href="classDynExp_1_1InterModuleEventBase.html#a66184b7bec867f6d4b5992820ad31c2b">DynExp::InterModuleEventBase</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01254">1254</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+
+</div>
+</div>
+<a id="aeccf0debb568a0c4ee5ec97397d637df" name="aeccf0debb568a0c4ee5ec97397d637df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeccf0debb568a0c4ee5ec97397d637df">&#9670;&#160;</a></span>GetName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename DerivedEvent , typename... EventFuncArgs&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string <a class="el" href="classDynExp_1_1InterModuleEvent.html">DynExp::InterModuleEvent</a>&lt; DerivedEvent, EventFuncArgs &gt;::GetName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the name of this event type. </p>
+
+<p>Implements <a class="el" href="classDynExp_1_1InterModuleEventBase.html#a128e4ded2cc51318ff056aff2db9d52f">DynExp::InterModuleEventBase</a>.</p>
+
+<p>Reimplemented in <a class="el" href="classDynExpModule_1_1FinishedEvent.html#af975beba6f5d66886a962203d109362c">DynExpModule::FinishedEvent</a>, <a class="el" href="classDynExpModule_1_1SetFilenameEvent.html#aa15a2a774dfecac36ccec6f09e6305aa">DynExpModule::SetFilenameEvent</a>, <a class="el" href="classDynExpModule_1_1StartEvent.html#ad3abb89ed570fa60d75c8233641c83bf">DynExpModule::StartEvent</a>, <a class="el" href="classDynExpModule_1_1StopEvent.html#a55ec653fec4aa7e07eb9115fc536ebd1">DynExpModule::StopEvent</a>, and <a class="el" href="classDynExpModule_1_1TriggerEvent.html#a1a7bfdfda472fa585b2782afb4dd9514">DynExpModule::TriggerEvent</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01255">1255</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+
+</div>
+</div>
+<a id="ab7caeff9917df3484b06cd38fc672422" name="ab7caeff9917df3484b06cd38fc672422"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7caeff9917df3484b06cd38fc672422">&#9670;&#160;</a></span>ID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename DerivedEvent , typename... EventFuncArgs&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="classDynExp_1_1InterModuleEvent.html">DynExp::InterModuleEvent</a>&lt; DerivedEvent, EventFuncArgs &gt;::ID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter for <a class="el" href="classDynExp_1_1InterModuleEvent.html#a309f3820b7310b41a492f09113c5730a" title="Unique ID assigned to this inter-module event.">EventID</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns <a class="el" href="classDynExp_1_1InterModuleEvent.html#a309f3820b7310b41a492f09113c5730a" title="Unique ID assigned to this inter-module event.">EventID</a>. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01237">1237</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -331,7 +611,7 @@ template&lt;typename DerivedEvent , typename... EventFuncArgs&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Invokes the event passing the receiving module's instance reference to it.   </p>
+<p>Invokes the event passing the receiving module's instance reference to it. Only to be called from <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code>.   </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Instance</td><td>Module instance handle.   </td></tr>
@@ -341,7 +621,7 @@ template&lt;typename DerivedEvent , typename... EventFuncArgs&gt; </div>
 
 <p>Implements <a class="el" href="classDynExp_1_1EventBase.html#a77b9b29345abc36c7f798e1ae3822670">DynExp::EventBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01037">1037</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01286">1286</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -381,7 +661,7 @@ template&lt;typename DerivedEvent , typename... EventFuncArgs&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Called by <code><a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d" title="Invokes the event passing the receiving module&#39;s instance reference to it.">InvokeChild()</a></code>. Override to call <code>EventFunc</code> with <code>Instance</code> as the first argument and with further arguments of type <code>EventFuncArgs</code>. </p>
+<p>Called by <code><a class="el" href="classDynExp_1_1InterModuleEvent.html#a5b07d5c79f8ac8f6ab6c1187b2ced35d" title="Invokes the event passing the receiving module&#39;s instance reference to it. Only to be called from Mod...">InvokeChild()</a></code>. Override to call <code>EventFunc</code> with <code>Instance</code> as the first argument and with further arguments of type <code>EventFuncArgs</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Instance</td><td>Handle to the module thread's data of the module <code>EventFunc</code> is invoked on. </td></tr>
@@ -392,8 +672,79 @@ template&lt;typename DerivedEvent , typename... EventFuncArgs&gt; </div>
 
 </div>
 </div>
-<a id="a9cef4596c1e4dfbc7c6bdb2b067208da" name="a9cef4596c1e4dfbc7c6bdb2b067208da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cef4596c1e4dfbc7c6bdb2b067208da">&#9670;&#160;</a></span>Register()</h2>
+<a id="a740a7fb7024f9e8f11f5c03e17655eae" name="a740a7fb7024f9e8f11f5c03e17655eae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a740a7fb7024f9e8f11f5c03e17655eae">&#9670;&#160;</a></span>Make()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename DerivedEvent , typename... EventFuncArgs&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classDynExp_1_1InterModuleEventBase.html#a7ad15da2f7d6ca9060c86bbafd03b64d">InterModuleEventPtrType</a> <a class="el" href="classDynExp_1_1InterModuleEvent.html">DynExp::InterModuleEvent</a>&lt; DerivedEvent, EventFuncArgs &gt;::Make </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Factory function for events of type <code>DerivedEvent</code>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns a pointer to a new, default-constructed inter-module event. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01251">1251</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+
+</div>
+</div>
+<a id="a3ecfad53992d5879f765e7e1de70111c" name="a3ecfad53992d5879f765e7e1de70111c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ecfad53992d5879f765e7e1de70111c">&#9670;&#160;</a></span>Publish()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename DerivedEvent , typename ... EventFuncArgs&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="classDynExp_1_1InterModuleEvent.html">DynExp::InterModuleEvent</a>&lt; DerivedEvent, EventFuncArgs &gt;::Publish </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classDynExp_1_1InterModuleEventLibrary.html">InterModuleEventLibrary</a> &amp;&#160;</td>
+          <td class="paramname"><em>Library</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Publishes this event type to the <code><a class="el" href="classDynExp_1_1InterModuleEventLibrary.html" title="Library type that holds factory functions to all available inter-module events.">InterModuleEventLibrary</a></code>. This function should not be called manually. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Library</td><td><code><a class="el" href="classDynExp_1_1InterModuleEventLibrary.html" title="Library type that holds factory functions to all available inter-module events.">InterModuleEventLibrary</a></code> instance to publish this event type to. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the unique ID of this event type. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01365">1365</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+
+</div>
+</div>
+<a id="a0e1ff5d9a5e12f30e6c388c2097ccc8e" name="a0e1ff5d9a5e12f30e6c388c2097ccc8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e1ff5d9a5e12f30e6c388c2097ccc8e">&#9670;&#160;</a></span>Register()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -415,7 +766,13 @@ template&lt;typename CallableT &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">CallableT&#160;</td>
-          <td class="paramname"><em>EventFunc</em>&#160;</td>
+          <td class="paramname"><em>EventFunc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceDynExp.html#a8b4c34da3bf02951070e7011bc438e38">ItemIDType</a>&#160;</td>
+          <td class="paramname"><em>CommunicatorID</em> = <code><a class="el" href="namespaceDynExp.html#aeeaa5a8928ddbba6c58c54eac7ef6394abaa1ecd403ec41d0670bc3cb185f5daf">ItemIDNotSet</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -430,7 +787,7 @@ template&lt;typename CallableT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Registers/Subscribes module <code>Listener</code> to the event with the event function <code>EventFunc</code>. Indirectly calls <a class="el" href="classDynExp_1_1ModuleBase.html#ac2010071b9ef285d63381fb9e4d186b6" title="Adds a manager of event listeners to RegisteredEvents if it was not already added before....">ModuleBase::AddRegisteredEvent()</a>.   </p>
+<p>Registers/Subscribes module <code>Listener</code> to the event with the event function <code>EventFunc</code>. Indirectly calls <a class="el" href="classDynExp_1_1ModuleBase.html#ac2010071b9ef285d63381fb9e4d186b6" title="Adds a manager of event listeners to RegisteredEvents. Called indirectly by TypedEventListeners::Regi...">ModuleBase::AddRegisteredEvent()</a>. If a module-communicator combination has already been registered, this registration is updated.   </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">CallableT</td><td>Type of the event function (member function of <code>Listener's</code> derived type) to invoke for <code>Listener</code> when the event is triggered. </td></tr>
@@ -440,16 +797,46 @@ template&lt;typename CallableT &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Listener</td><td>Module to register/subscribe. </td></tr>
-    <tr><td class="paramname">EventFunc</td><td>Event function to invoke on module <code>Listener</code> when the event is triggered.   </td></tr>
+    <tr><td class="paramname">EventFunc</td><td>Event function to invoke on module <code>Listener</code> when the event is triggered. </td></tr>
+    <tr><td class="paramname">CommunicatorID</td><td>Refer to <a class="el" href="classDynExp_1_1TypedEventListeners.html#ad125c5aa312d83b0a6f28dcd0bb804f3" title="Registers/Subscribes module Listener to the event with the event function EventFunc....">TypedEventListeners::Register()</a>.   </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01028">1028</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01262">1262</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a309f3820b7310b41a492f09113c5730a" name="a309f3820b7310b41a492f09113c5730a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a309f3820b7310b41a492f09113c5730a">&#9670;&#160;</a></span>EventID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename DerivedEvent , typename... EventFuncArgs&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const size_t <a class="el" href="classDynExp_1_1InterModuleEvent.html">DynExp::InterModuleEvent</a>&lt; DerivedEvent, EventFuncArgs &gt;::EventID = <a class="el" href="classDynExp_1_1InterModuleEvent.html">InterModuleEvent</a>&lt;DerivedEvent, EventFuncArgs...&gt;<a class="el" href="classDynExp_1_1InterModuleEvent.html#a3ecfad53992d5879f765e7e1de70111c">::Publish</a>(<a class="el" href="classDynExp_1_1InterModuleEventLibrary.html#a6d01f3783014a6aded4c2de0935b628a">InterModuleEventLibrary::Get</a>())</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Unique ID assigned to this inter-module event. </p>
+<p>Initializes the static <a class="el" href="classDynExp_1_1InterModuleEvent.html#a309f3820b7310b41a492f09113c5730a" title="Unique ID assigned to this inter-module event.">InterModuleEvent::EventID</a> variable to the unique type ID of <code>DerivedEvent</code>. Also ensures that <a class="el" href="classDynExp_1_1InterModuleEvent.html#a3ecfad53992d5879f765e7e1de70111c" title="Publishes this event type to the InterModuleEventLibrary. This function should not be called manually...">InterModuleEvent::Publish()</a> is called for each inter-module event type.</p>
+
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01311">1311</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+
+</div>
+</div>
 <a id="ae9c2d9cdbe8837bab0d4f7b0e2ad1a9d" name="ae9c2d9cdbe8837bab0d4f7b0e2ad1a9d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae9c2d9cdbe8837bab0d4f7b0e2ad1a9d">&#9670;&#160;</a></span>Listeners</h2>
 
@@ -475,7 +862,7 @@ template&lt;typename DerivedEvent , typename... EventFuncArgs&gt; </div>
 <p>Holds one <code>EventListenersType</code> instance per derived event, which manages all the subscribers of <code>DerivedEvent</code>. </p>
 <p>Instantiate the respective static <a class="el" href="classDynExp_1_1InterModuleEvent.html#ae9c2d9cdbe8837bab0d4f7b0e2ad1a9d" title="Holds one EventListenersType instance per derived event, which manages all the subscribers of Derived...">InterModuleEvent::Listeners</a> variable to avoid linker errors.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01063">1063</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01317">1317</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>

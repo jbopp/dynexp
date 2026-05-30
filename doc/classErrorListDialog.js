@@ -16,6 +16,6 @@ var classErrorListDialog =
     [ "LastCloseTime", "classErrorListDialog.html#ad7e6880228fc6acdd8c56ffc9ae2bcca", null ],
     [ "SelectedTreeWidgetItem", "classErrorListDialog.html#a47909e0f8a1562c6c0c6a0543aa5c70d", null ],
     [ "SelectionChanged", "classErrorListDialog.html#addd803266fa4190da80298444a19e210", null ],
-    [ "ui", "classErrorListDialog.html#a3d35f827f2579738d8a78ae1d6a9249b", null ],
+    [ "ui", "classErrorListDialog.html#a527e536fb766836c4591637dbf6efaf9", null ],
     [ "WidgetToOpenThisDialog", "classErrorListDialog.html#a070128e82ddf988455b7db5dbc7fbae2", null ]
 ];

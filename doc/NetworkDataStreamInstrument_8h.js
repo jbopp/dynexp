@@ -25,6 +25,6 @@ var NetworkDataStreamInstrument_8h =
     [ "DynExpInstr::NetworkDataStreamInstrumentT< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1NetworkDataStreamInstrumentT.html", "classDynExpInstr_1_1NetworkDataStreamInstrumentT" ],
     [ "DynExpInstr::NetworkDataStreamInstrument", "classDynExpInstr_1_1NetworkDataStreamInstrument.html", "classDynExpInstr_1_1NetworkDataStreamInstrument" ],
     [ "NetworkDataStreamInstrumentDataSampleStreamType", "NetworkDataStreamInstrument_8h.html#a5fe335abc8737f23252b8e67b2cba2bb", null ],
-    [ "ToDataStreamInstrumentUnitType", "NetworkDataStreamInstrument_8h.html#abbaaf779afcfde4e2c1e472c1daa2d6c", null ],
-    [ "ToPrototUnitType", "NetworkDataStreamInstrument_8h.html#a13804dc59abee9882b76d94fc3b157d7", null ]
+    [ "ToDataStreamInstrumentUnitType", "NetworkDataStreamInstrument_8h.html#a6983f96cadf60694e934998eabc87826", null ],
+    [ "ToPrototUnitType", "NetworkDataStreamInstrument_8h.html#a0dcad92ec920170353a178ad21aec57f", null ]
 ];

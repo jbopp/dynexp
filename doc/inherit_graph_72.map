@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$classDynExp_1_1ParamsBase.html#classDynExp_1_1ParamsBase_1_1IndexedTextList" title="Type to identify an indexed text list parameter (one number selected from a list of numbers associate..." alt="" coords="5,5,165,45"/>
+<area shape="rect" id="Node000000" href="$classDynExp_1_1ObjectLinkBase.html" title="Base class for object link parameter types to allow SFINAE in ParamsBase::Param for ObjectLink of any..." alt="" coords="5,13,187,38"/>
+<area shape="rect" id="Node000001" href="$classDynExp_1_1ObjectLink.html" title="Type to define object link parameters as ParamsBase::Param&lt; ObjectLink&lt; ObjectT &gt; &gt; or to define obje..." alt="" coords="235,5,384,45"/>
+<area shape="poly" id="edge234_Node000000_Node000001" title=" " alt="" coords="200,23,234,23,234,28,200,28"/>
 </map>

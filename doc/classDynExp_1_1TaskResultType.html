@@ -115,11 +115,11 @@ $(document).ready(function(){initNavTree('classDynExp_1_1TaskResultType.html',''
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aec643117dfb35b42df5a4f535e0cb617" id="r_aec643117dfb35b42df5a4f535e0cb617"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1TaskResultType.html#aec643117dfb35b42df5a4f535e0cb617">ContinueTaskHandlingType</a> : bool { <a class="el" href="classDynExp_1_1TaskResultType.html#aec643117dfb35b42df5a4f535e0cb617aa0bfb8e59e6c13fc8d990781f77694fe">Continue</a>
-, <a class="el" href="classDynExp_1_1TaskResultType.html#aec643117dfb35b42df5a4f535e0cb617a056fa3d840f48b7bfbbd68c19a4797b3">Terminate</a>
+<tr class="memitem:a39cf631065819dd07f66e1eb5b149799" id="r_a39cf631065819dd07f66e1eb5b149799"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1TaskResultType.html#a39cf631065819dd07f66e1eb5b149799">ContinuationType</a> : bool { <a class="el" href="classDynExp_1_1TaskResultType.html#a39cf631065819dd07f66e1eb5b149799aa0bfb8e59e6c13fc8d990781f77694fe">Continue</a>
+, <a class="el" href="classDynExp_1_1TaskResultType.html#a39cf631065819dd07f66e1eb5b149799a056fa3d840f48b7bfbbd68c19a4797b3">Terminate</a>
  }</td></tr>
-<tr class="memdesc:aec643117dfb35b42df5a4f535e0cb617"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether an instrument should terminate after handling the task.  <a href="classDynExp_1_1TaskResultType.html#aec643117dfb35b42df5a4f535e0cb617">More...</a><br /></td></tr>
-<tr class="separator:aec643117dfb35b42df5a4f535e0cb617"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a39cf631065819dd07f66e1eb5b149799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether an instrument should terminate after handling a task.  <a href="classDynExp_1_1TaskResultType.html#a39cf631065819dd07f66e1eb5b149799">More...</a><br /></td></tr>
+<tr class="separator:a39cf631065819dd07f66e1eb5b149799"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad82c9660a2a5cf02a708ee04ef02ec00" id="r_ad82c9660a2a5cf02a708ee04ef02ec00"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1TaskResultType.html#ad82c9660a2a5cf02a708ee04ef02ec00">AbortedType</a> : bool { <a class="el" href="classDynExp_1_1TaskResultType.html#ad82c9660a2a5cf02a708ee04ef02ec00a6ae502147285e16254813db5d5ae5f4f">NotAborted</a>
 , <a class="el" href="classDynExp_1_1TaskResultType.html#ad82c9660a2a5cf02a708ee04ef02ec00a721c28f4c74928cc9e0bb3fef345e408">Aborted</a>
  }</td></tr>
@@ -128,12 +128,15 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a82cf8a8a0627f14a76ca4d5d5e0e8100" id="r_a82cf8a8a0627f14a76ca4d5d5e0e8100"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1TaskResultType.html#a82cf8a8a0627f14a76ca4d5d5e0e8100">TaskResultType</a> (const <a class="el" href="classDynExp_1_1TaskResultType.html#aec643117dfb35b42df5a4f535e0cb617">ContinueTaskHandlingType</a> <a class="el" href="classDynExp_1_1TaskResultType.html#acda7f4fdc28d04351694fb0eded8f5e5">ContinueTaskHandling</a>=<a class="el" href="classDynExp_1_1TaskResultType.html#aec643117dfb35b42df5a4f535e0cb617aa0bfb8e59e6c13fc8d990781f77694fe">ContinueTaskHandlingType::Continue</a>, const <a class="el" href="classDynExp_1_1TaskResultType.html#ad82c9660a2a5cf02a708ee04ef02ec00">AbortedType</a> <a class="el" href="classDynExp_1_1TaskResultType.html#aa5ca90ffbacd251a92a3a8904bbec1b7">Aborted</a>=<a class="el" href="classDynExp_1_1TaskResultType.html#ad82c9660a2a5cf02a708ee04ef02ec00a6ae502147285e16254813db5d5ae5f4f">AbortedType::NotAborted</a>, const int <a class="el" href="classDynExp_1_1TaskResultType.html#a806fa43c9ceb14229f81866f33fae64c">ErrorCode</a>=0) noexcept</td></tr>
-<tr class="memdesc:a82cf8a8a0627f14a76ca4d5d5e0e8100"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code><a class="el" href="classDynExp_1_1TaskResultType.html" title="Defines the return type of task functions.">TaskResultType</a></code> instance.  <br /></td></tr>
-<tr class="separator:a82cf8a8a0627f14a76ca4d5d5e0e8100"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a548e3db8d0a2568915c5b981560b71" id="r_a2a548e3db8d0a2568915c5b981560b71"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1TaskResultType.html#a2a548e3db8d0a2568915c5b981560b71">TaskResultType</a> (const <a class="el" href="classDynExp_1_1TaskResultType.html#a39cf631065819dd07f66e1eb5b149799">ContinuationType</a> <a class="el" href="classDynExp_1_1TaskResultType.html#ae32439864e12810b7adf5493839b8878">Continue</a>=<a class="el" href="classDynExp_1_1TaskResultType.html#a39cf631065819dd07f66e1eb5b149799aa0bfb8e59e6c13fc8d990781f77694fe">ContinuationType::Continue</a>, const <a class="el" href="classDynExp_1_1TaskResultType.html#ad82c9660a2a5cf02a708ee04ef02ec00">AbortedType</a> <a class="el" href="classDynExp_1_1TaskResultType.html#ab164bd1fee5054fad66428ea572a77f9">Aborted</a>=<a class="el" href="classDynExp_1_1TaskResultType.html#ad82c9660a2a5cf02a708ee04ef02ec00a6ae502147285e16254813db5d5ae5f4f">AbortedType::NotAborted</a>, const int <a class="el" href="classDynExp_1_1TaskResultType.html#a806fa43c9ceb14229f81866f33fae64c">ErrorCode</a>=0) noexcept</td></tr>
+<tr class="memdesc:a2a548e3db8d0a2568915c5b981560b71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code><a class="el" href="classDynExp_1_1TaskResultType.html" title="Defines the return type of task functions.">TaskResultType</a></code> instance.  <br /></td></tr>
+<tr class="separator:a2a548e3db8d0a2568915c5b981560b71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadb1ae231c8aafc67e8cd71a19a772a4" id="r_aadb1ae231c8aafc67e8cd71a19a772a4"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1TaskResultType.html#aadb1ae231c8aafc67e8cd71a19a772a4">ShouldContinue</a> () const noexcept</td></tr>
 <tr class="memdesc:aadb1ae231c8aafc67e8cd71a19a772a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether the instrument having handled this task should continue or terminate.  <br /></td></tr>
 <tr class="separator:aadb1ae231c8aafc67e8cd71a19a772a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9871f8f18186dce670f67509dce43939" id="r_a9871f8f18186dce670f67509dce43939"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classDynExp_1_1InstrumentBase.html#ae4c1df1468a66aed40479c5567b64322">InstrumentBase::TaskHandlingContinuationType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1TaskResultType.html#a9871f8f18186dce670f67509dce43939">ToTaskHandlingContinuationType</a> () const noexcept</td></tr>
+<tr class="memdesc:a9871f8f18186dce670f67509dce43939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts <a class="el" href="classDynExp_1_1TaskResultType.html#ae32439864e12810b7adf5493839b8878" title="Determines whether an instrument should terminate after handling a task.">Continue</a> to <code><a class="el" href="classDynExp_1_1InstrumentBase.html#ae4c1df1468a66aed40479c5567b64322" title="Indicates how an instrument should proceed after handling a task.">InstrumentBase::TaskHandlingContinuationType</a></code>.  <br /></td></tr>
+<tr class="separator:a9871f8f18186dce670f67509dce43939"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5d7e31c3c39cfec0561096d4534b14a" id="r_ad5d7e31c3c39cfec0561096d4534b14a"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1TaskResultType.html#ad5d7e31c3c39cfec0561096d4534b14a">HasAborted</a> () const noexcept</td></tr>
 <tr class="memdesc:ad5d7e31c3c39cfec0561096d4534b14a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether this task has been aborted.  <br /></td></tr>
 <tr class="separator:ad5d7e31c3c39cfec0561096d4534b14a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,12 +146,12 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:acda7f4fdc28d04351694fb0eded8f5e5" id="r_acda7f4fdc28d04351694fb0eded8f5e5"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classDynExp_1_1TaskResultType.html#aec643117dfb35b42df5a4f535e0cb617">ContinueTaskHandlingType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1TaskResultType.html#acda7f4fdc28d04351694fb0eded8f5e5">ContinueTaskHandling</a></td></tr>
-<tr class="memdesc:acda7f4fdc28d04351694fb0eded8f5e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether an instrument should terminate after handling the task.    <br /></td></tr>
-<tr class="separator:acda7f4fdc28d04351694fb0eded8f5e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5ca90ffbacd251a92a3a8904bbec1b7" id="r_aa5ca90ffbacd251a92a3a8904bbec1b7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classDynExp_1_1TaskResultType.html#ad82c9660a2a5cf02a708ee04ef02ec00">AbortedType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1TaskResultType.html#aa5ca90ffbacd251a92a3a8904bbec1b7">Aborted</a></td></tr>
-<tr class="memdesc:aa5ca90ffbacd251a92a3a8904bbec1b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether a task has been aborted.    <br /></td></tr>
-<tr class="separator:aa5ca90ffbacd251a92a3a8904bbec1b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae32439864e12810b7adf5493839b8878" id="r_ae32439864e12810b7adf5493839b8878"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classDynExp_1_1TaskResultType.html#a39cf631065819dd07f66e1eb5b149799">ContinuationType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1TaskResultType.html#ae32439864e12810b7adf5493839b8878">Continue</a></td></tr>
+<tr class="memdesc:ae32439864e12810b7adf5493839b8878"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether an instrument should terminate after handling a task.    <br /></td></tr>
+<tr class="separator:ae32439864e12810b7adf5493839b8878"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab164bd1fee5054fad66428ea572a77f9" id="r_ab164bd1fee5054fad66428ea572a77f9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classDynExp_1_1TaskResultType.html#ad82c9660a2a5cf02a708ee04ef02ec00">AbortedType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1TaskResultType.html#ab164bd1fee5054fad66428ea572a77f9">Aborted</a></td></tr>
+<tr class="memdesc:ab164bd1fee5054fad66428ea572a77f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether a task has been aborted.    <br /></td></tr>
+<tr class="separator:ab164bd1fee5054fad66428ea572a77f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a806fa43c9ceb14229f81866f33fae64c" id="r_a806fa43c9ceb14229f81866f33fae64c"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1TaskResultType.html#a806fa43c9ceb14229f81866f33fae64c">ErrorCode</a></td></tr>
 <tr class="memdesc:a806fa43c9ceb14229f81866f33fae64c"><td class="mdescLeft">&#160;</td><td class="mdescRight">DynExp error code from DynExpErrorCodes::DynExpErrorCodes. Anything else than 0 indicates an error.  <br /></td></tr>
 <tr class="separator:a806fa43c9ceb14229f81866f33fae64c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,7 +159,7 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Defines the return type of task functions. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00823">823</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00864">864</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="ad82c9660a2a5cf02a708ee04ef02ec00" name="ad82c9660a2a5cf02a708ee04ef02ec00"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad82c9660a2a5cf02a708ee04ef02ec00">&#9670;&#160;</a></span>AbortedType</h2>
@@ -182,15 +185,16 @@ Private Attributes</h2></td></tr>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad82c9660a2a5cf02a708ee04ef02ec00a6ae502147285e16254813db5d5ae5f4f" name="ad82c9660a2a5cf02a708ee04ef02ec00a6ae502147285e16254813db5d5ae5f4f"></a>NotAborted&#160;</td><td class="fielddoc"><p>The task has not been aborted. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ad82c9660a2a5cf02a708ee04ef02ec00a721c28f4c74928cc9e0bb3fef345e408" name="ad82c9660a2a5cf02a708ee04ef02ec00a721c28f4c74928cc9e0bb3fef345e408"></a>Aborted&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad82c9660a2a5cf02a708ee04ef02ec00a721c28f4c74928cc9e0bb3fef345e408" name="ad82c9660a2a5cf02a708ee04ef02ec00a721c28f4c74928cc9e0bb3fef345e408"></a>Aborted&#160;</td><td class="fielddoc"><p>The task has been aborted. </p>
+</td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00842">842</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00878">878</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
-<a id="aec643117dfb35b42df5a4f535e0cb617" name="aec643117dfb35b42df5a4f535e0cb617"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec643117dfb35b42df5a4f535e0cb617">&#9670;&#160;</a></span>ContinueTaskHandlingType</h2>
+<a id="a39cf631065819dd07f66e1eb5b149799" name="a39cf631065819dd07f66e1eb5b149799"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39cf631065819dd07f66e1eb5b149799">&#9670;&#160;</a></span>ContinuationType</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -199,7 +203,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class <a class="el" href="classDynExp_1_1TaskResultType.html#aec643117dfb35b42df5a4f535e0cb617">DynExp::TaskResultType::ContinueTaskHandlingType</a> : bool</td>
+          <td class="memname">enum class <a class="el" href="classDynExp_1_1TaskResultType.html#a39cf631065819dd07f66e1eb5b149799">DynExp::TaskResultType::ContinuationType</a> : bool</td>
         </tr>
       </table>
   </td>
@@ -209,21 +213,21 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Determines whether an instrument should terminate after handling the task. </p>
+<p>Determines whether an instrument should terminate after handling a task. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aec643117dfb35b42df5a4f535e0cb617aa0bfb8e59e6c13fc8d990781f77694fe" name="aec643117dfb35b42df5a4f535e0cb617aa0bfb8e59e6c13fc8d990781f77694fe"></a>Continue&#160;</td><td class="fielddoc"><p>Task handling should continue, the instrument does not terminate. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a39cf631065819dd07f66e1eb5b149799aa0bfb8e59e6c13fc8d990781f77694fe" name="a39cf631065819dd07f66e1eb5b149799aa0bfb8e59e6c13fc8d990781f77694fe"></a>Continue&#160;</td><td class="fielddoc"><p>Task handling should continue, the instrument does not terminate. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aec643117dfb35b42df5a4f535e0cb617a056fa3d840f48b7bfbbd68c19a4797b3" name="aec643117dfb35b42df5a4f535e0cb617a056fa3d840f48b7bfbbd68c19a4797b3"></a>Terminate&#160;</td><td class="fielddoc"><p>Task handling should not continue, the instrument should terminate. </p>
+<tr><td class="fieldname"><a id="a39cf631065819dd07f66e1eb5b149799a056fa3d840f48b7bfbbd68c19a4797b3" name="a39cf631065819dd07f66e1eb5b149799a056fa3d840f48b7bfbbd68c19a4797b3"></a>Terminate&#160;</td><td class="fielddoc"><p>Task handling should not continue, the instrument should terminate. </p>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00829">829</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00870">870</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a82cf8a8a0627f14a76ca4d5d5e0e8100" name="a82cf8a8a0627f14a76ca4d5d5e0e8100"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82cf8a8a0627f14a76ca4d5d5e0e8100">&#9670;&#160;</a></span>TaskResultType()</h2>
+<a id="a2a548e3db8d0a2568915c5b981560b71" name="a2a548e3db8d0a2568915c5b981560b71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a548e3db8d0a2568915c5b981560b71">&#9670;&#160;</a></span>TaskResultType()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -234,8 +238,8 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">constexpr DynExp::TaskResultType::TaskResultType </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classDynExp_1_1TaskResultType.html#aec643117dfb35b42df5a4f535e0cb617">ContinueTaskHandlingType</a>&#160;</td>
-          <td class="paramname"><em>ContinueTaskHandling</em> = <code><a class="el" href="classDynExp_1_1TaskResultType.html#aec643117dfb35b42df5a4f535e0cb617aa0bfb8e59e6c13fc8d990781f77694fe">ContinueTaskHandlingType::Continue</a></code>, </td>
+          <td class="paramtype">const <a class="el" href="classDynExp_1_1TaskResultType.html#a39cf631065819dd07f66e1eb5b149799">ContinuationType</a>&#160;</td>
+          <td class="paramname"><em>Continue</em> = <code><a class="el" href="classDynExp_1_1TaskResultType.html#a39cf631065819dd07f66e1eb5b149799aa0bfb8e59e6c13fc8d990781f77694fe">ContinuationType::Continue</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -265,14 +269,14 @@ Private Attributes</h2></td></tr>
 <p>Constructs a <code><a class="el" href="classDynExp_1_1TaskResultType.html" title="Defines the return type of task functions.">TaskResultType</a></code> instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ContinueTaskHandling</td><td>Determines whether an instrument should terminate after handling the task.   </td></tr>
+    <tr><td class="paramname">Continue</td><td>Determines whether an instrument should terminate after handling a task.   </td></tr>
     <tr><td class="paramname">Aborted</td><td>Determines whether a task has been aborted.   </td></tr>
     <tr><td class="paramname">ErrorCode</td><td>DynExp error code from DynExpErrorCodes::DynExpErrorCodes. Anything else than 0 indicates an error.   </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00858">858</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00889">889</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -303,7 +307,7 @@ Private Attributes</h2></td></tr>
 <p>Getter for the error code of an error which occurred during execution of the task function. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns <a class="el" href="classDynExp_1_1TaskResultType.html#a806fa43c9ceb14229f81866f33fae64c" title="DynExp error code from DynExpErrorCodes::DynExpErrorCodes. Anything else than 0 indicates an error.">ErrorCode</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00878">878</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00915">915</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -333,7 +337,7 @@ Private Attributes</h2></td></tr>
 <p>Determines whether this task has been aborted. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if the task has been aborted, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00872">872</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00909">909</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -363,13 +367,12 @@ Private Attributes</h2></td></tr>
 <p>Determines whether the instrument having handled this task should continue or terminate. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if the instrument should continue handling other tasks or false if the instrument should terminate. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00866">866</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00897">897</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="aa5ca90ffbacd251a92a3a8904bbec1b7" name="aa5ca90ffbacd251a92a3a8904bbec1b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5ca90ffbacd251a92a3a8904bbec1b7">&#9670;&#160;</a></span>Aborted</h2>
+<a id="a9871f8f18186dce670f67509dce43939" name="a9871f8f18186dce670f67509dce43939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9871f8f18186dce670f67509dce43939">&#9670;&#160;</a></span>ToTaskHandlingContinuationType()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -378,7 +381,38 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classDynExp_1_1TaskResultType.html#ad82c9660a2a5cf02a708ee04ef02ec00">TaskResultType::AbortedType</a> DynExp::TaskResultType::Aborted</td>
+          <td class="memname">constexpr <a class="el" href="classDynExp_1_1InstrumentBase.html#ae4c1df1468a66aed40479c5567b64322">InstrumentBase::TaskHandlingContinuationType</a> DynExp::TaskResultType::ToTaskHandlingContinuationType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts <a class="el" href="classDynExp_1_1TaskResultType.html#ae32439864e12810b7adf5493839b8878" title="Determines whether an instrument should terminate after handling a task.">Continue</a> to <code><a class="el" href="classDynExp_1_1InstrumentBase.html#ae4c1df1468a66aed40479c5567b64322" title="Indicates how an instrument should proceed after handling a task.">InstrumentBase::TaskHandlingContinuationType</a></code>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns an instance of <code><a class="el" href="classDynExp_1_1InstrumentBase.html#ae4c1df1468a66aed40479c5567b64322" title="Indicates how an instrument should proceed after handling a task.">InstrumentBase::TaskHandlingContinuationType</a></code>. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00490">490</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ab164bd1fee5054fad66428ea572a77f9" name="ab164bd1fee5054fad66428ea572a77f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab164bd1fee5054fad66428ea572a77f9">&#9670;&#160;</a></span>Aborted</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classDynExp_1_1TaskResultType.html#ad82c9660a2a5cf02a708ee04ef02ec00">AbortedType</a> DynExp::TaskResultType::Aborted</td>
         </tr>
       </table>
   </td>
@@ -389,14 +423,13 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Determines whether a task has been aborted.   </p>
-<p>The task has been aborted. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00882">882</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00919">919</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
-<a id="acda7f4fdc28d04351694fb0eded8f5e5" name="acda7f4fdc28d04351694fb0eded8f5e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acda7f4fdc28d04351694fb0eded8f5e5">&#9670;&#160;</a></span>ContinueTaskHandling</h2>
+<a id="ae32439864e12810b7adf5493839b8878" name="ae32439864e12810b7adf5493839b8878"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae32439864e12810b7adf5493839b8878">&#9670;&#160;</a></span>Continue</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -405,7 +438,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classDynExp_1_1TaskResultType.html#aec643117dfb35b42df5a4f535e0cb617">ContinueTaskHandlingType</a> DynExp::TaskResultType::ContinueTaskHandling</td>
+          <td class="memname">const <a class="el" href="classDynExp_1_1TaskResultType.html#a39cf631065819dd07f66e1eb5b149799">ContinuationType</a> DynExp::TaskResultType::Continue</td>
         </tr>
       </table>
   </td>
@@ -415,9 +448,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Determines whether an instrument should terminate after handling the task.   </p>
+<p>Determines whether an instrument should terminate after handling a task.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00881">881</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00918">918</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -443,12 +476,13 @@ Private Attributes</h2></td></tr>
 
 <p>DynExp error code from DynExpErrorCodes::DynExpErrorCodes. Anything else than 0 indicates an error. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00883">883</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00920">920</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="Instrument_8h_source.html">Instrument.h</a></li>
+<li><a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

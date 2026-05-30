@@ -15,7 +15,7 @@
 <polygon fill="white" stroke="#666666" points="164,-41 0,-41 0,0 164,0 164,-41"/>
 <text text-anchor="start" x="8" y="-29" font-family="Helvetica,sans-Serif" font-size="10.00">DynExp::LinkedObjectWrapper</text>
 <text text-anchor="start" x="8" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">Pointer&lt; DynExpHardware</text>
-<text text-anchor="middle" x="82" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::PVCamHardwareAdapter &gt;</text>
+<text text-anchor="middle" x="82" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::NIDAQHardwareAdapter &gt;</text>
 </a>
 </g>
 </g>

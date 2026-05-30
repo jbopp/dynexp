@@ -42,5 +42,5 @@ var classDynExpModule_1_1ImageViewer_1_1ImageViewerWidget =
     [ "Pixmap", "classDynExpModule_1_1ImageViewer_1_1ImageViewerWidget.html#a915c124ff6dd41b26bd4b6bd98f99b42", null ],
     [ "RGBHistogram", "classDynExpModule_1_1ImageViewer_1_1ImageViewerWidget.html#a16430a525d90526da7d2c54f269a3686", null ],
     [ "SaveImageFilename", "classDynExpModule_1_1ImageViewer_1_1ImageViewerWidget.html#af1baf0d2640e9451654912dd22c37b75", null ],
-    [ "ui", "classDynExpModule_1_1ImageViewer_1_1ImageViewerWidget.html#ad15563328db2a4efb87346ba57a158b3", null ]
+    [ "ui", "classDynExpModule_1_1ImageViewer_1_1ImageViewerWidget.html#ac26653fb78f6866ac0b015f7b9bd8d8a", null ]
 ];

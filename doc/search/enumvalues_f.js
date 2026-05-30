@@ -21,6 +21,8 @@ var searchData=
   ['software_18',['Software',['../classDynExpHardware_1_1SIPulseStreamerHardwareAdapterParams.html#aa6e22cb72fb59882d78d6ddb253371a3a468c0a35d4631da366950086b8bb0b81',1,'DynExpHardware::SIPulseStreamerHardwareAdapterParams']]],
   ['spectrumacquisitionfinished_19',['SpectrumAcquisitionFinished',['../namespaceDynExpModule_1_1Widefield.html#a45816f345a7c92c2dfb5e23d4640826dafe5e249028aad4e4539d892a8f64c1f4',1,'DynExpModule::Widefield']]],
   ['spectrumacquisitionwaiting_20',['SpectrumAcquisitionWaiting',['../namespaceDynExpModule_1_1Widefield.html#a45816f345a7c92c2dfb5e23d4640826dadb60b9ea92376e11297d566cef301ec7',1,'DynExpModule::Widefield']]],
-  ['standard_21',['Standard',['../namespaceDynExp.html#a03d4939794961e9a821f6c7baf263e5eaeb6d8ae6f20283755b339c0dc273988b',1,'DynExp']]],
-  ['stopped_22',['Stopped',['../classDynExpInstr_1_1CameraData.html#a0edfe2ade0ae4e03cafaa81b349ce8ccac23e2b09ebe6bf4cb5e2a9abe85c0be2',1,'DynExpInstr::CameraData']]]
+  ['spectrumintermodulecommunicator_21',['SpectrumInterModuleCommunicator',['../classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeData.html#a6b36d55cc21e7c32ad3b8645caec769ea063c1b75393b604876dcb9942f42a49f',1,'DynExpModule::Widefield::WidefieldMicroscopeData']]],
+  ['standard_22',['Standard',['../namespaceDynExp.html#a03d4939794961e9a821f6c7baf263e5eaeb6d8ae6f20283755b339c0dc273988b',1,'DynExp']]],
+  ['startup_23',['Startup',['../classDynExpInstr_1_1LaserData.html#a58ce76464c4f17cd119f77a36e201db7a13e685964c2548aa748f7ea263bad4e5',1,'DynExpInstr::LaserData']]],
+  ['stopped_24',['Stopped',['../classDynExpInstr_1_1CameraData.html#a0edfe2ade0ae4e03cafaa81b349ce8ccac23e2b09ebe6bf4cb5e2a9abe85c0be2',1,'DynExpInstr::CameraData']]]
 ];

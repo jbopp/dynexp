@@ -30,6 +30,7 @@ var classDynExpHardware_1_1SmarActHardwareAdapter =
     [ "Reference", "classDynExpHardware_1_1SmarActHardwareAdapter.html#ab9435679cdc3cce459453671c283802b", null ],
     [ "ResetImpl", "classDynExpHardware_1_1SmarActHardwareAdapter.html#a35d31e57824783d15a63528f2e0f924d", null ],
     [ "ResetImpl", "classDynExpHardware_1_1SmarActHardwareAdapter.html#a6d3af22377d994e63c777780895bc0f5", null ],
+    [ "SetHoldTime", "classDynExpHardware_1_1SmarActHardwareAdapter.html#ad45c13956c6063f566da1c65673db7b4", null ],
     [ "SetVelocity", "classDynExpHardware_1_1SmarActHardwareAdapter.html#aaa4ede613044b3e5788eadaa2fe2e937", null ],
     [ "StopMotion", "classDynExpHardware_1_1SmarActHardwareAdapter.html#aee0bec2ffd524619f0203e32ed983576", null ],
     [ "DeviceDescriptor", "classDynExpHardware_1_1SmarActHardwareAdapter.html#ad15644a942edc92a823573f11b64f9ac", null ],

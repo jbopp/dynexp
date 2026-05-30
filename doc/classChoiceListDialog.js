@@ -17,6 +17,6 @@ var classChoiceListDialog =
     [ "ItemIDsWithLabels", "classChoiceListDialog.html#a8379c3f22589fa0afd4aea953097e0bc", null ],
     [ "Optional", "classChoiceListDialog.html#aecbf125fb926d0a46f8625da23464977", null ],
     [ "ParamName", "classChoiceListDialog.html#a7de4b7abe5bbc00410e619eec07d4348", null ],
-    [ "ui", "classChoiceListDialog.html#a9050934afcc0972df9e08aae827ec27a", null ],
+    [ "ui", "classChoiceListDialog.html#a83d18fc41fbf3afc70c5f5c7608bb355", null ],
     [ "Values", "classChoiceListDialog.html#a1145c79c783d712260dee877bfcfef29", null ]
 ];

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['widefieldlocalizationtasks_3a_3aanalyzewidefieldtask_0',['AnalyzeWidefieldTask',['../classDynExpInstr_1_1WidefieldLocalizationData.html#aec5e28663f29ee3663d359ae239ff934',1,'DynExpInstr::WidefieldLocalizationData']]],
-  ['widefieldlocalizationtasks_3a_3areadcellidtask_1',['ReadCellIDTask',['../classDynExpInstr_1_1WidefieldLocalizationData.html#a8de25e54495e98958e900d4f4dca2707',1,'DynExpInstr::WidefieldLocalizationData']]],
-  ['widefieldlocalizationtasks_3a_3arecallpositionstask_2',['RecallPositionsTask',['../classDynExpInstr_1_1WidefieldLocalizationData.html#ab70a680569e55656b4111a489f4cce52',1,'DynExpInstr::WidefieldLocalizationData']]]
+  ['taskbase_0',['taskbase',['../classDynExp_1_1TaskBase_1_1InstrumentBaseOnlyType.html#ae566addf8936c093348705eb230e55f0',1,'DynExp::TaskBase::InstrumentBaseOnlyType::TaskBase'],['../classDynExp_1_1TaskBase_1_1InstrumentDataBaseOnlyType.html#ae566addf8936c093348705eb230e55f0',1,'DynExp::TaskBase::InstrumentDataBaseOnlyType::TaskBase']]],
+  ['typedeventlisteners_1',['TypedEventListeners',['../classDynExp_1_1ModuleBase_1_1EventListenersOnlyType.html#a89dbcd7518b1b401d81a7b4c4b178d18',1,'DynExp::ModuleBase::EventListenersOnlyType']]]
 ];

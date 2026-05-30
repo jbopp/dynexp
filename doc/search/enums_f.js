@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['unittype_0',['UnitType',['../classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330',1,'DynExpInstr::DataStreamInstrumentData']]],
-  ['usagetype_1',['UsageType',['../classDynExp_1_1ParamsBase.html#abad5385ae3558b535ee831ca37e16616',1,'DynExp::ParamsBase']]],
-  ['useonlyonbrdmemtype_2',['UseOnlyOnBrdMemType',['../classDynExpHardware_1_1NIDAQOutputPortParamsExtension.html#a17ef4b5e5960792841387542a1e6978a',1,'DynExpHardware::NIDAQOutputPortParamsExtension']]]
+  ['taskhandlingcontinuationtype_0',['TaskHandlingContinuationType',['../classDynExp_1_1InstrumentBase.html#ae4c1df1468a66aed40479c5567b64322',1,'DynExp::InstrumentBase']]],
+  ['taskstate_1',['TaskState',['../classDynExp_1_1TaskBase.html#af488adc63e3806691efea75e6f2d8ead',1,'DynExp::TaskBase']]],
+  ['terminalconfigtype_2',['TerminalConfigType',['../classDynExpInstr_1_1NIDAQAnalogInParams.html#aefc2ee29c22320ccb10e1938078d35db',1,'DynExpInstr::NIDAQAnalogInParams']]],
+  ['textusagetype_3',['TextUsageType',['../namespaceDynExp.html#a03d4939794961e9a821f6c7baf263e5e',1,'DynExp']]],
+  ['triggercapstype_4',['TriggerCapsType',['../classDynExpInstr_1_1FunctionGenerator.html#a89bcddfa7c2c23e9ba649cf27d7cd7bb',1,'DynExpInstr::FunctionGenerator']]],
+  ['triggeredgetype_5',['triggeredgetype',['../classDynExpHardware_1_1SIPulseStreamerHardwareAdapterParams.html#aa6e22cb72fb59882d78d6ddb253371a3',1,'DynExpHardware::SIPulseStreamerHardwareAdapterParams::TriggerEdgeType'],['../structDynExpInstr_1_1FunctionGeneratorDefs_1_1TriggerDescType.html#a4ec3afe14c7924e39431cb264a989036',1,'DynExpInstr::FunctionGeneratorDefs::TriggerDescType::TriggerEdgeType'],['../namespaceDynExpInstr_1_1LockinAmplifierDefs.html#a07911bcf08584d14dc8065639cf0ee58',1,'DynExpInstr::LockinAmplifierDefs::TriggerEdgeType']]],
+  ['triggermodetype_6',['triggermodetype',['../classDynExpHardware_1_1NIDAQHardwareAdapterParams.html#ab58b707dac9b360568b169782a0fe728',1,'DynExpHardware::NIDAQHardwareAdapterParams::TriggerModeType'],['../classDynExpHardware_1_1SIPulseStreamerHardwareAdapterParams.html#adad3adf978966910a37593b5ae0aa599',1,'DynExpHardware::SIPulseStreamerHardwareAdapterParams::TriggerModeType'],['../structDynExpInstr_1_1FunctionGeneratorDefs_1_1TriggerDescType.html#ab952a189f45836d4c1ca28897ca5002e',1,'DynExpInstr::FunctionGeneratorDefs::TriggerDescType::TriggerModeType'],['../classDynExpModule_1_1Trajectory1DData.html#aca444537ab348d1d98e96e1b49ee2a68',1,'DynExpModule::Trajectory1DData::TriggerModeType'],['../namespaceDynExpInstr_1_1LockinAmplifierDefs.html#ab31228bb15725d58364230da4a214e0c',1,'DynExpInstr::LockinAmplifierDefs::TriggerModeType']]]
 ];

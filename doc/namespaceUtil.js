@@ -81,6 +81,7 @@ var namespaceUtil =
     [ "TimeoutException", "classUtil_1_1TimeoutException.html", "classUtil_1_1TimeoutException" ],
     [ "TypeErrorException", "classUtil_1_1TypeErrorException.html", "classUtil_1_1TypeErrorException" ],
     [ "UnderflowException", "classUtil_1_1UnderflowException.html", "classUtil_1_1UnderflowException" ],
+    [ "UniqueID", "classUtil_1_1UniqueID.html", "classUtil_1_1UniqueID" ],
     [ "VersionType", "namespaceUtil.html#structUtil_1_1VersionType", "namespaceUtil_structUtil_1_1VersionType_dup" ],
     [ "Warning", "classUtil_1_1Warning.html", "classUtil_1_1Warning" ],
     [ "argument_of_t", "namespaceUtil.html#aee9535f26f425537e00abc71ed6a3b7a", null ],
@@ -107,6 +108,7 @@ var namespaceUtil =
     [ "ActivateWindow", "namespaceUtil.html#aa20a78ec763492c5acf6c685782fbfd2", null ],
     [ "ComputeIntensityHistogram", "namespaceUtil.html#aa153bddf1ff14531ebb96f59caf76295", null ],
     [ "ComputeRGBHistogram", "namespaceUtil.html#af9831d489b2dfe15f00b9bffaace1432", null ],
+    [ "ConvertFrequencyWavelength", "namespaceUtil.html#a1635b6f9dbe82ada0c07c66f4a687124", null ],
     [ "ConvertRGBToIntensityHistogram", "namespaceUtil.html#a2fd9276ae216d126f7a47ed94affbef3", null ],
     [ "CurrentTimeAndDateString", "namespaceUtil.html#a595e45049086b60cd1cc7ce79fff369b", null ],
     [ "EventLog", "namespaceUtil.html#a702d46b185233ad1fa56ee7033eabd41", null ],
@@ -127,6 +129,7 @@ var namespaceUtil =
     [ "GetTFromDOMElement", "namespaceUtil.html#a41076795aaafcffc06df4a8b3807f1e1", null ],
     [ "GetTFromDOMElement", "namespaceUtil.html#a1835e5a3c54b84b6be7bd08dc1486b1d", null ],
     [ "GetTFromDOMElement", "namespaceUtil.html#a41076795aaafcffc06df4a8b3807f1e1", null ],
+    [ "HashCombine", "namespaceUtil.html#ad74811f5aeb7c303a3dd97a3b0cf138e", null ],
     [ "MakeCrossPolygon", "namespaceUtil.html#a85ce0fdf9a70d472a2bce6e342652f77", null ],
     [ "NumToT", "namespaceUtil.html#ad22b7f50701b786e792e23fe19776dce", null ],
     [ "NumToT", "namespaceUtil.html#ac2ced77b741ebc83b2a34a3d6950da5f", null ],
@@ -162,5 +165,6 @@ var namespaceUtil =
     [ "TrimTrailingZeros", "namespaceUtil.html#ab963e59ba11ee8e43e8e1fe3482fa377", null ],
     [ "VersionFromString", "namespaceUtil.html#a68b9b93456301284ca7d695c51a4001a", null ],
     [ "is_contained_in_v", "namespaceUtil.html#a132b3de3103b01ab172ee946b4ad0c96", null ],
-    [ "PyTab", "namespaceUtil.html#aaa3490cda96786eb40f5fd6a386b6042", null ]
+    [ "PyTab", "namespaceUtil.html#aaa3490cda96786eb40f5fd6a386b6042", null ],
+    [ "SpeedOfLight", "namespaceUtil.html#a9d2af7b8b0545b3670b402f217dba6bf", null ]
 ];

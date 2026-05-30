@@ -279,7 +279,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a784b327cbbba14124e1e303b289714c4 inherit pub_methods_classDynExp_1_1ModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6929f6ac89a2c9f9c4e686c59acd31ce inherit pub_methods_classDynExp_1_1ModuleBase" id="r_a6929f6ac89a2c9f9c4e686c59acd31ce"><td class="memTemplParams" colspan="2">template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; </td></tr>
 <tr class="memitem:a6929f6ac89a2c9f9c4e686c59acd31ce inherit pub_methods_classDynExp_1_1ModuleBase"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#a6929f6ac89a2c9f9c4e686c59acd31ce">MakeAndEnqueueEvent</a> (ReceiverType *Receiver, EventType EventFuncPtr, ArgsTs &amp;&amp;...Args) const</td></tr>
-<tr class="memdesc:a6929f6ac89a2c9f9c4e686c59acd31ce inherit pub_methods_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <code><a class="el" href="namespaceDynExp.html#a95f0f5b615c5d99ff4325ab785735a7a" title="Creates an event of type DefaultEvent.">MakeEvent()</a></code> to construct a new event and subsequently enqueues the event into the module's event queue. Logical const-ness: this is a const member function to allow pointers to <code>const</code> <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> inserting events into the module's event queue. These kind of pointers are e.g. returned by <a class="el" href="classDynExp_1_1RunnableInstance.html#afafb4793635ac8c1c34471ff255549f1" title="Returns Owner.">RunnableInstance::GetOwner()</a> which can be called by events' <a class="el" href="classDynExp_1_1EventBase.html#a77b9b29345abc36c7f798e1ae3822670" title="Invokes the event passing the receiving module&#39;s instance reference to it.">EventBase::InvokeChild()</a> functions. For <code>const</code> <code>ModuleBase*</code>, it is possible to insert events into the event queue, but not to change the <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> object itself (e.g. calling <a class="el" href="classDynExp_1_1Object.html#a837a8e8daa7853003474b458a3fe0a46" title="Resets this Object instance (including all its derived classes) by calling ResetImpl()....">Object::Reset()</a>).  <br /></td></tr>
+<tr class="memdesc:a6929f6ac89a2c9f9c4e686c59acd31ce inherit pub_methods_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <code><a class="el" href="namespaceDynExp.html#a95f0f5b615c5d99ff4325ab785735a7a" title="Creates an event of type DefaultEvent.">MakeEvent()</a></code> to construct a new event and subsequently enqueues the event into the module's event queue. Logical const-ness: this is a const member function to allow pointers to <code>const</code> <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> inserting events into the module's event queue. These kind of pointers are e.g. returned by <a class="el" href="classDynExp_1_1RunnableInstance.html#afafb4793635ac8c1c34471ff255549f1" title="Returns Owner.">RunnableInstance::GetOwner()</a> which can be called by events' <a class="el" href="classDynExp_1_1EventBase.html#a77b9b29345abc36c7f798e1ae3822670" title="Invokes the event passing the receiving module&#39;s instance reference to it. Only to be called from Mod...">EventBase::InvokeChild()</a> functions. For <code>const</code> <code>ModuleBase*</code>, it is possible to insert events into the event queue, but not to change the <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> object itself (e.g. calling <a class="el" href="classDynExp_1_1Object.html#a837a8e8daa7853003474b458a3fe0a46" title="Resets this Object instance (including all its derived classes) by calling ResetImpl()....">Object::Reset()</a>).  <br /></td></tr>
 <tr class="separator:a6929f6ac89a2c9f9c4e686c59acd31ce inherit pub_methods_classDynExp_1_1ModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8c362a3e086828a2ccbde05fb5d4795 inherit pub_methods_classDynExp_1_1ModuleBase" id="r_ae8c362a3e086828a2ccbde05fb5d4795"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#ae8c362a3e086828a2ccbde05fb5d4795">TreatModuleExceptionsAsWarnings</a> () const</td></tr>
 <tr class="memdesc:ae8c362a3e086828a2ccbde05fb5d4795 inherit pub_methods_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether this module should be terminated if an exception leaves the module's main loop or respective event handlers.  <br /></td></tr>
@@ -309,7 +309,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:adbb2e71639fdcab42c9c6c299e4cf2b8 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <a class="el" href="classDynExp_1_1RunnableObject.html#aacef09883d7d4462fc014330663d9f4f" title="Holds information about why the RunnableObject instance is paused.">ReasonWhyPaused</a>.  <br /></td></tr>
 <tr class="separator:adbb2e71639fdcab42c9c6c299e4cf2b8 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject" id="r_a416b8000830913b11eaf02d1f1af49d6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6">Run</a> (QWidget *ParentWidget=nullptr)</td></tr>
-<tr class="memdesc:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread and ensures that all <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instances linked to this instance via <code><a class="el" href="classDynExp_1_1ObjectLink.html" title="Type to define object link parameters as ParamsBase::Param&lt; ObjectLink&lt; ObjectT &gt; &gt; or to define obje...">ObjectLink</a></code> parameters are in a ready state. Calls <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> which is to be overridden by derived classes to start a thread and to pass this thread back by calling <code><a class="el" href="classDynExp_1_1RunnableObject.html#aac70e1485923ee8c78ed5732099b4c90" title="Stores a thread constructed by a derived class overriding RunChild() in Thread taking ownership of th...">StoreThread()</a></code>.  <br /></td></tr>
+<tr class="memdesc:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread and ensures that all <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instances linked to this instance via <code><a class="el" href="classDynExp_1_1ObjectLink.html" title="Type to define object link parameters as ParamsBase::Param&lt; ObjectLink&lt; ObjectT &gt; &gt; or to define obje...">ObjectLink</a></code> parameters are in a ready state. Calls <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> which is to be overridden by derived classes to start a thread and to pass this thread back by calling <code>StoreThread()</code>.  <br /></td></tr>
 <tr class="separator:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8275b7f99072059d5608a4201ed579af inherit pub_methods_classDynExp_1_1RunnableObject" id="r_a8275b7f99072059d5608a4201ed579af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a8275b7f99072059d5608a4201ed579af">RunIfRunAutomatic</a> ()</td></tr>
 <tr class="memdesc:a8275b7f99072059d5608a4201ed579af inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> if <a class="el" href="classDynExp_1_1RunnableObjectParams.html#a1ef775df6c01b554f3c102024646c0dd" title="Determines when the runnable object is started. Refer to RunnableObjectParams::StartupType.">RunnableObjectParams::Startup</a> is set to <a class="el" href="classDynExp_1_1RunnableObjectParams.html#a33b475bb5737bca9bf78ce6a6a7c41f4af69add31b7e16e98b1fa4642036b1bfc">RunnableObjectParams::Automatic</a>.  <br /></td></tr>
@@ -434,6 +434,12 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a1f916e34225a28424655eb8de98bb21f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50b0b0b94611a55863113152a5b1de4f" id="r_a50b0b0b94611a55863113152a5b1de4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a50b0b0b94611a55863113152a5b1de4f">OnCaptureContinuously</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance, bool Checked) const</td></tr>
 <tr class="separator:a50b0b0b94611a55863113152a5b1de4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cf482966875a370f0a9a280c9c67f62" id="r_a3cf482966875a370f0a9a280c9c67f62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a3cf482966875a370f0a9a280c9c67f62">OnSetFilename</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance, const std::string &amp;SaveFilename) const</td></tr>
+<tr class="separator:a3cf482966875a370f0a9a280c9c67f62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65b0c2fe03b4cc7148249b7a577c2b38" id="r_a65b0c2fe03b4cc7148249b7a577c2b38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a65b0c2fe03b4cc7148249b7a577c2b38">OnTrigger</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance) const</td></tr>
+<tr class="separator:a65b0c2fe03b4cc7148249b7a577c2b38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48d0ee2a6ad5f95315b3f40db5e4e4b7" id="r_a48d0ee2a6ad5f95315b3f40db5e4e4b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a48d0ee2a6ad5f95315b3f40db5e4e4b7">OnStop</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance) const</td></tr>
+<tr class="separator:a48d0ee2a6ad5f95315b3f40db5e4e4b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff75739c6518b7be3bdc9a15bc9481ea" id="r_aff75739c6518b7be3bdc9a15bc9481ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#aff75739c6518b7be3bdc9a15bc9481ea">OnPauseImageCapturing</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance, bool ResetImageTransformation=false) const</td></tr>
 <tr class="separator:aff75739c6518b7be3bdc9a15bc9481ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1358c9697c731d005059fd64fcb31c04" id="r_a1358c9697c731d005059fd64fcb31c04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a1358c9697c731d005059fd64fcb31c04">OnResumeImageCapturing</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance) const</td></tr>
@@ -499,7 +505,7 @@ Static Private Attributes</h2></td></tr>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_attribs_classDynExp_1_1ModuleBase"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classDynExp_1_1ModuleBase')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classDynExp_1_1ModuleBase.html">DynExp::ModuleBase</a></td></tr>
 <tr class="memitem:aa62c218c15d17c8beeaafbec0e9e2846 inherit pub_attribs_classDynExp_1_1ModuleBase" id="r_aa62c218c15d17c8beeaafbec0e9e2846"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html">ModuleThreadOnlyType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#aa62c218c15d17c8beeaafbec0e9e2846">ModuleThreadOnly</a></td></tr>
-<tr class="memdesc:aa62c218c15d17c8beeaafbec0e9e2846 inherit pub_attribs_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to the module thread <code><a class="el" href="namespaceDynExp.html#acd637f0e67b9a2815532b5a7e1754bd2" title="Modules run in their own thread. This is the module thread&#39;s main function.">ModuleThreadMain()</a></code>.    <br /></td></tr>
+<tr class="memdesc:aa62c218c15d17c8beeaafbec0e9e2846 inherit pub_attribs_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to the module thread <code><a class="el" href="namespaceDynExp.html#a1ef415c3706dc71e72f030c9d9444291" title="Modules run in their own thread. This is the module thread&#39;s main function.">ModuleThreadMain()</a></code>.    <br /></td></tr>
 <tr class="separator:aa62c218c15d17c8beeaafbec0e9e2846 inherit pub_attribs_classDynExp_1_1ModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafb7bfaf4658e6b499912178450a5de0 inherit pub_attribs_classDynExp_1_1ModuleBase" id="r_aafb7bfaf4658e6b499912178450a5de0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExp_1_1ModuleBase_1_1EventListenersOnlyType.html">EventListenersOnlyType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ModuleBase.html#aafb7bfaf4658e6b499912178450a5de0">EventListenersOnly</a></td></tr>
 <tr class="memdesc:aafb7bfaf4658e6b499912178450a5de0 inherit pub_attribs_classDynExp_1_1ModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to any <code><a class="el" href="classDynExp_1_1TypedEventListeners.html" title="Typed managers of event listeners class whose instances are owned by classes derived from InterModule...">TypedEventListeners</a></code> class.    <br /></td></tr>
@@ -527,6 +533,10 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a8e6abc80a7c35d4fca2ebfa1b1f141f0 inherit pub_static_attribs_classDynExp_1_1Object" id="r_a8e6abc80a7c35d4fca2ebfa1b1f141f0"><td class="memItemLeft" align="right" valign="top">static constexpr std::chrono::milliseconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#a8e6abc80a7c35d4fca2ebfa1b1f141f0">GetParamsTimeoutDefault</a> = std::chrono::milliseconds(100)</td></tr>
 <tr class="memdesc:a8e6abc80a7c35d4fca2ebfa1b1f141f0 inherit pub_static_attribs_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default timeout used by <a class="el" href="classDynExp_1_1Object.html#a13f5742205cff37ac598ab2ccb39ca18" title="Locks the mutex of the parameter class instance Params assigned to this Object instance and returns a...">Object::GetParams()</a> to lock the mutex of the parameter instance assigned to this <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instance.  <br /></td></tr>
 <tr class="separator:a8e6abc80a7c35d4fca2ebfa1b1f141f0 inherit pub_static_attribs_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_types_classDynExp_1_1RunnableObject"><td colspan="2" onclick="javascript:toggleInherit('pro_types_classDynExp_1_1RunnableObject')"><img src="closed.png" alt="-"/>&#160;Protected Types inherited from <a class="el" href="classDynExp_1_1RunnableObject.html">DynExp::RunnableObject</a></td></tr>
+<tr class="memitem:addd2ceca45b37cf3780015a8892b5da6 inherit pro_types_classDynExp_1_1RunnableObject" id="r_addd2ceca45b37cf3780015a8892b5da6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#addd2ceca45b37cf3780015a8892b5da6">ThreadFuncType</a> = std::function&lt; int(std::unique_ptr&lt; <a class="el" href="classDynExp_1_1RunnableInstance.html">RunnableInstance</a> &gt; &amp;&amp;, <a class="el" href="classDynExp_1_1RunnableObject.html">RunnableObject</a> *)&gt;</td></tr>
+<tr class="memdesc:addd2ceca45b37cf3780015a8892b5da6 inherit pro_types_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the thread function executed by <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instances.  <br /></td></tr>
+<tr class="separator:addd2ceca45b37cf3780015a8892b5da6 inherit pro_types_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classDynExp_1_1QModuleBase"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classDynExp_1_1QModuleBase')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classDynExp_1_1QModuleBase.html">DynExp::QModuleBase</a></td></tr>
 <tr class="memitem:a46aa91ec36056a128e2876092c288edf inherit pro_methods_classDynExp_1_1QModuleBase" id="r_a46aa91ec36056a128e2876092c288edf"><td class="memTemplParams" colspan="2">template&lt;typename SenderType , typename SignalType , typename ReceiverType , typename EventType &gt; </td></tr>
 <tr class="memitem:a46aa91ec36056a128e2876092c288edf inherit pro_methods_classDynExp_1_1QModuleBase"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QModuleBase.html#a46aa91ec36056a128e2876092c288edf">Connect</a> (SenderType *Sender, SignalType Signal, ReceiverType *Receiver, EventType Event)</td></tr>
@@ -543,9 +553,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a28a89773cf56f3c229dd9c141de12ab3 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_a28a89773cf56f3c229dd9c141de12ab3"><td class="memItemLeft" align="right" valign="top">std::promise&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a28a89773cf56f3c229dd9c141de12ab3">MakeThreadExitedPromise</a> ()</td></tr>
 <tr class="memdesc:a28a89773cf56f3c229dd9c141de12ab3 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to be used by overridden <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> functions in derived classes to (re)initialize the <a class="el" href="classDynExp_1_1RunnableObject.html#a45a818a181d16129dfb43080152527c4" title="Future which signals that Thread has terminated. Refer to OnThreadHasExited().">ThreadExitedSignal</a> future and to provide the derived class a promise to signal the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance that its thread has terminated.  <br /></td></tr>
 <tr class="separator:a28a89773cf56f3c229dd9c141de12ab3 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac70e1485923ee8c78ed5732099b4c90 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_aac70e1485923ee8c78ed5732099b4c90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#aac70e1485923ee8c78ed5732099b4c90">StoreThread</a> (std::thread &amp;&amp;<a class="el" href="classDynExp_1_1RunnableObject.html#a7f653f6a7407d6a69dd9d75858d6b363">Thread</a>) noexcept</td></tr>
-<tr class="memdesc:aac70e1485923ee8c78ed5732099b4c90 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores a thread constructed by a derived class overriding <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> in <code>Thread</code> taking ownership of the thread. Only call this function within <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a>!</code>  <br /></td></tr>
-<tr class="separator:aac70e1485923ee8c78ed5732099b4c90 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a343b47df52dc884564b9e0c60a1647e7 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_a343b47df52dc884564b9e0c60a1647e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a343b47df52dc884564b9e0c60a1647e7">MakeThread</a> (<a class="el" href="classDynExp_1_1RunnableObject.html#addd2ceca45b37cf3780015a8892b5da6">ThreadFuncType</a> ThreadFunc, std::unique_ptr&lt; <a class="el" href="classDynExp_1_1RunnableInstance.html">RunnableInstance</a> &gt; &amp;&amp;InstancePtr)</td></tr>
+<tr class="memdesc:a343b47df52dc884564b9e0c60a1647e7 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and runs the thread of the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance. Call this function in the derived class overriding <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> and nowhere else!  <br /></td></tr>
+<tr class="separator:a343b47df52dc884564b9e0c60a1647e7 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21fc682e09f7e23e2a65fc8b8eef7106 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_a21fc682e09f7e23e2a65fc8b8eef7106"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a21fc682e09f7e23e2a65fc8b8eef7106">IsCallFromRunnableThread</a> () const</td></tr>
 <tr class="memdesc:a21fc682e09f7e23e2a65fc8b8eef7106 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether <code>Thread's</code> id matches the id of the calling thread. This is thread-safe if the function is called by the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread since <code><a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">Terminate()</a></code> joins the threads before changing the <code>Thread</code> member. It is also thread-safe if the function is called by the thread owning the the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance since <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> and <code><a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">Terminate()</a></code> can only be called by this thread. Only <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> and <code><a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">Terminate()</a></code> (indirectly) modify <code>Thread</code>.  <br /></td></tr>
 <tr class="separator:a21fc682e09f7e23e2a65fc8b8eef7106 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -598,7 +608,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00177">177</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00183">183</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 </div><hr/><h2 class="groupheader">Class Documentation</h2>
 <a name="structDynExpModule_1_1ImageViewer_1_1ImageViewer_1_1AutofocusResultsType" id="structDynExpModule_1_1ImageViewer_1_1ImageViewer_1_1AutofocusResultsType"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#structDynExpModule_1_1ImageViewer_1_1ImageViewer_1_1AutofocusResultsType">&#9670;&#160;</a></span>DynExpModule::ImageViewer::ImageViewer::AutofocusResultsType</h2>
@@ -612,7 +622,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00225">225</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00231">231</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 </div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
@@ -643,7 +653,7 @@ Success = false</td>
       </table>
 </div><div class="memdoc">
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00231">231</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00237">237</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 </div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
@@ -675,7 +685,7 @@ Voltage {}</td>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00181">181</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00187">187</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -691,7 +701,7 @@ Voltage {}</td>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00182">182</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00188">188</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -707,7 +717,7 @@ Voltage {}</td>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00180">180</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00186">186</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -738,7 +748,7 @@ Voltage {}</td>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00329">329</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00332">332</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -765,7 +775,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00338">338</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00341">341</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -794,7 +804,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00860">860</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00919">919</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -822,7 +832,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00776">776</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00835">835</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -850,7 +860,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00756">756</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00815">815</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -878,7 +888,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00830">830</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00889">889</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -906,7 +916,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00791">791</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00850">850</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -934,7 +944,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00807">807</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00866">866</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -961,7 +971,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00185">185</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00191">191</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -999,7 +1009,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00535">535</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00538">538</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -1030,7 +1040,7 @@ Voltage {}</td>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#a6d50167b798951b1a347739976a007d1">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00191">191</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00197">197</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -1062,7 +1072,7 @@ Voltage {}</td>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#af7baae8cb81ade4cc48898d72eff8693">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00194">194</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00200">200</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -1093,7 +1103,7 @@ Voltage {}</td>
 
 <p>Implements <a class="el" href="classDynExp_1_1Object.html#a057f86e9ceec0f7e709e720f66cbb7fb">DynExp::Object</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00190">190</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00196">196</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -1120,7 +1130,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00523">523</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00526">526</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -1147,7 +1157,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00516">516</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00519">519</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -1179,7 +1189,7 @@ Voltage {}</td>
 
 <p>Implements <a class="el" href="classDynExp_1_1QModuleBase.html#a93c2c74f5b7059834ff6422e54a8ec40">DynExp::QModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00385">385</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00388">388</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -1218,7 +1228,7 @@ Voltage {}</td>
 
 <p>Implements <a class="el" href="classDynExp_1_1ModuleBase.html#abe86b2a8c7a6e60a2937be8b2a0e6b00">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00354">354</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00357">357</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -1245,7 +1255,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00184">184</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00190">190</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -1283,7 +1293,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00692">692</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00734">734</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -1321,7 +1331,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00674">674</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00716">716</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -1359,7 +1369,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00581">581</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00590">590</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -1397,7 +1407,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00629">629</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00639">639</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -1435,7 +1445,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00620">620</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00629">629</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -1473,7 +1483,7 @@ Voltage {}</td>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#a77fb87b30e26eea73d6d53d2d871160a">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00568">568</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00574">574</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -1511,7 +1521,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00596">596</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00605">605</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -1549,7 +1559,7 @@ Voltage {}</td>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#a51b4635720cb3b96033970dba4a95500">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00544">544</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00547">547</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -1587,7 +1597,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00641">641</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00683">683</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -1615,7 +1625,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00659">659</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00701">701</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -1645,7 +1655,101 @@ Voltage {}</td>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00342">342</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00345">345</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3cf482966875a370f0a9a280c9c67f62" name="a3cf482966875a370f0a9a280c9c67f62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cf482966875a370f0a9a280c9c67f62">&#9670;&#160;</a></span>OnSetFilename()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DynExpModule::ImageViewer::ImageViewer::OnSetFilename </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *&#160;</td>
+          <td class="paramname"><em>Instance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>SaveFilename</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00652">652</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a48d0ee2a6ad5f95315b3f40db5e4e4b7" name="a48d0ee2a6ad5f95315b3f40db5e4e4b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48d0ee2a6ad5f95315b3f40db5e4e4b7">&#9670;&#160;</a></span>OnStop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DynExpModule::ImageViewer::ImageViewer::OnStop </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *&#160;</td>
+          <td class="paramname"><em>Instance</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00670">670</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a65b0c2fe03b4cc7148249b7a577c2b38" name="a65b0c2fe03b4cc7148249b7a577c2b38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65b0c2fe03b4cc7148249b7a577c2b38">&#9670;&#160;</a></span>OnTrigger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DynExpModule::ImageViewer::ImageViewer::OnTrigger </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *&#160;</td>
+          <td class="paramname"><em>Instance</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00660">660</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -1673,7 +1777,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00725">725</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00767">767</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -1701,7 +1805,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00371">371</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00374">374</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -1729,7 +1833,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00398">398</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8cpp_source.html#l00401">401</a> of file <a class="el" href="ImageViewer_8cpp_source.html">ImageViewer.cpp</a>.</p>
 
 </div>
 </div>
@@ -1754,7 +1858,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00283">283</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00292">292</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -1779,11 +1883,11 @@ Voltage {}</td>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a>(<a class="code hl_enumvalue" href="namespaceDynExpModule_1_1ImageViewer.html#a99282c85f1b86ab5b1fd8ab3b746ef85a5e886a8bb2b1d70492ca45f2d26cae6a">StateType::AutofocusFinished</a>,</div>
 <div class="line">            &amp;<a class="code hl_function" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a1cf928b14b00b8cab24ed3a502c2ab11">ImageViewer::AutofocusFinishedStateFunc</a>, <span class="stringliteral">&quot;Autofocusing...&quot;</span>)</div>
-<div class="ttc" id="aclassDynExpModule_1_1ImageViewer_1_1ImageViewer_html_a1cf928b14b00b8cab24ed3a502c2ab11"><div class="ttname"><a href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a1cf928b14b00b8cab24ed3a502c2ab11">DynExpModule::ImageViewer::ImageViewer::AutofocusFinishedStateFunc</a></div><div class="ttdeci">StateType AutofocusFinishedStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ImageViewer_8cpp_source.html#l00860">ImageViewer.cpp:860</a></div></div>
-<div class="ttc" id="aclassUtil_1_1StateMachineState_html"><div class="ttname"><a href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a></div><div class="ttdoc">State machine state as used by class StateMachine. A state mainly wraps a state function of the membe...</div><div class="ttdef"><b>Definition</b> <a href="Util_8h_source.html#l01304">Util.h:1305</a></div></div>
+<div class="ttc" id="aclassDynExpModule_1_1ImageViewer_1_1ImageViewer_html_a1cf928b14b00b8cab24ed3a502c2ab11"><div class="ttname"><a href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a1cf928b14b00b8cab24ed3a502c2ab11">DynExpModule::ImageViewer::ImageViewer::AutofocusFinishedStateFunc</a></div><div class="ttdeci">StateType AutofocusFinishedStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ImageViewer_8cpp_source.html#l00919">ImageViewer.cpp:919</a></div></div>
+<div class="ttc" id="aclassUtil_1_1StateMachineState_html"><div class="ttname"><a href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a></div><div class="ttdoc">State machine state as used by class StateMachine. A state mainly wraps a state function of the membe...</div><div class="ttdef"><b>Definition</b> <a href="Util_8h_source.html#l01366">Util.h:1367</a></div></div>
 <div class="ttc" id="anamespaceDynExpModule_1_1ImageViewer_html_a99282c85f1b86ab5b1fd8ab3b746ef85a5e886a8bb2b1d70492ca45f2d26cae6a"><div class="ttname"><a href="namespaceDynExpModule_1_1ImageViewer.html#a99282c85f1b86ab5b1fd8ab3b746ef85a5e886a8bb2b1d70492ca45f2d26cae6a">DynExpModule::ImageViewer::StateType::AutofocusFinished</a></div><div class="ttdeci">@ AutofocusFinished</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00272">272</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00281">281</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -1808,10 +1912,10 @@ Voltage {}</td>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a>(<a class="code hl_enumvalue" href="namespaceDynExpModule_1_1ImageViewer.html#a99282c85f1b86ab5b1fd8ab3b746ef85a27e4ec919d90587791bebeed6bc2f532">StateType::AutofocusGotoSample</a>,</div>
 <div class="line">            &amp;<a class="code hl_function" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a6eced45493ab91cd2a2ab7d520692b6c">ImageViewer::AutofocusGotoSampleStateFunc</a>, <span class="stringliteral">&quot;Autofocusing...&quot;</span>)</div>
-<div class="ttc" id="aclassDynExpModule_1_1ImageViewer_1_1ImageViewer_html_a6eced45493ab91cd2a2ab7d520692b6c"><div class="ttname"><a href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a6eced45493ab91cd2a2ab7d520692b6c">DynExpModule::ImageViewer::ImageViewer::AutofocusGotoSampleStateFunc</a></div><div class="ttdeci">StateType AutofocusGotoSampleStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ImageViewer_8cpp_source.html#l00776">ImageViewer.cpp:776</a></div></div>
+<div class="ttc" id="aclassDynExpModule_1_1ImageViewer_1_1ImageViewer_html_a6eced45493ab91cd2a2ab7d520692b6c"><div class="ttname"><a href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a6eced45493ab91cd2a2ab7d520692b6c">DynExpModule::ImageViewer::ImageViewer::AutofocusGotoSampleStateFunc</a></div><div class="ttdeci">StateType AutofocusGotoSampleStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ImageViewer_8cpp_source.html#l00835">ImageViewer.cpp:835</a></div></div>
 <div class="ttc" id="anamespaceDynExpModule_1_1ImageViewer_html_a99282c85f1b86ab5b1fd8ab3b746ef85a27e4ec919d90587791bebeed6bc2f532"><div class="ttname"><a href="namespaceDynExpModule_1_1ImageViewer.html#a99282c85f1b86ab5b1fd8ab3b746ef85a27e4ec919d90587791bebeed6bc2f532">DynExpModule::ImageViewer::StateType::AutofocusGotoSample</a></div><div class="ttdeci">@ AutofocusGotoSample</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00264">264</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00273">273</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -1836,10 +1940,10 @@ Voltage {}</td>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a>(<a class="code hl_enumvalue" href="namespaceDynExpModule_1_1ImageViewer.html#a99282c85f1b86ab5b1fd8ab3b746ef85ae2a6469cbf2373da20f7b038b07b0074">StateType::AutofocusInit</a>,</div>
 <div class="line">            &amp;<a class="code hl_function" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a09ad74b20980fef9f84835e883cb088b">ImageViewer::AutofocusInitStateFunc</a>, <span class="stringliteral">&quot;Autofocusing...&quot;</span>)</div>
-<div class="ttc" id="aclassDynExpModule_1_1ImageViewer_1_1ImageViewer_html_a09ad74b20980fef9f84835e883cb088b"><div class="ttname"><a href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a09ad74b20980fef9f84835e883cb088b">DynExpModule::ImageViewer::ImageViewer::AutofocusInitStateFunc</a></div><div class="ttdeci">StateType AutofocusInitStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ImageViewer_8cpp_source.html#l00756">ImageViewer.cpp:756</a></div></div>
+<div class="ttc" id="aclassDynExpModule_1_1ImageViewer_1_1ImageViewer_html_a09ad74b20980fef9f84835e883cb088b"><div class="ttname"><a href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a09ad74b20980fef9f84835e883cb088b">DynExpModule::ImageViewer::ImageViewer::AutofocusInitStateFunc</a></div><div class="ttdeci">StateType AutofocusInitStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ImageViewer_8cpp_source.html#l00815">ImageViewer.cpp:815</a></div></div>
 <div class="ttc" id="anamespaceDynExpModule_1_1ImageViewer_html_a99282c85f1b86ab5b1fd8ab3b746ef85ae2a6469cbf2373da20f7b038b07b0074"><div class="ttname"><a href="namespaceDynExpModule_1_1ImageViewer.html#a99282c85f1b86ab5b1fd8ab3b746ef85ae2a6469cbf2373da20f7b038b07b0074">DynExpModule::ImageViewer::StateType::AutofocusInit</a></div><div class="ttdeci">@ AutofocusInit</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00262">262</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00271">271</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -1863,7 +1967,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00281">281</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00290">290</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -1887,7 +1991,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00279">279</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00288">288</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -1911,7 +2015,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00280">280</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00289">289</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -1935,7 +2039,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00282">282</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00291">291</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -1960,10 +2064,10 @@ Voltage {}</td>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a>(<a class="code hl_enumvalue" href="namespaceDynExpModule_1_1ImageViewer.html#a99282c85f1b86ab5b1fd8ab3b746ef85a0a2d0c73bb60dd62bcb4f80e933aa786">StateType::AutofocusStep</a>,</div>
 <div class="line">            &amp;<a class="code hl_function" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a07d20d2c9462d5df54c3b79de1da3f0b">ImageViewer::AutofocusStepStateFunc</a>, <span class="stringliteral">&quot;Autofocusing...&quot;</span>)</div>
-<div class="ttc" id="aclassDynExpModule_1_1ImageViewer_1_1ImageViewer_html_a07d20d2c9462d5df54c3b79de1da3f0b"><div class="ttname"><a href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a07d20d2c9462d5df54c3b79de1da3f0b">DynExpModule::ImageViewer::ImageViewer::AutofocusStepStateFunc</a></div><div class="ttdeci">StateType AutofocusStepStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ImageViewer_8cpp_source.html#l00830">ImageViewer.cpp:830</a></div></div>
+<div class="ttc" id="aclassDynExpModule_1_1ImageViewer_1_1ImageViewer_html_a07d20d2c9462d5df54c3b79de1da3f0b"><div class="ttname"><a href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a07d20d2c9462d5df54c3b79de1da3f0b">DynExpModule::ImageViewer::ImageViewer::AutofocusStepStateFunc</a></div><div class="ttdeci">StateType AutofocusStepStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ImageViewer_8cpp_source.html#l00889">ImageViewer.cpp:889</a></div></div>
 <div class="ttc" id="anamespaceDynExpModule_1_1ImageViewer_html_a99282c85f1b86ab5b1fd8ab3b746ef85a0a2d0c73bb60dd62bcb4f80e933aa786"><div class="ttname"><a href="namespaceDynExpModule_1_1ImageViewer.html#a99282c85f1b86ab5b1fd8ab3b746ef85a0a2d0c73bb60dd62bcb4f80e933aa786">DynExpModule::ImageViewer::StateType::AutofocusStep</a></div><div class="ttdeci">@ AutofocusStep</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00270">270</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00279">279</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -1988,10 +2092,10 @@ Voltage {}</td>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a>(<a class="code hl_enumvalue" href="namespaceDynExpModule_1_1ImageViewer.html#a99282c85f1b86ab5b1fd8ab3b746ef85a9b1f7e167a9cbbb26856b7d8e277fe4e">StateType::AutofocusWaitBeforeCapture</a>,</div>
 <div class="line">            &amp;<a class="code hl_function" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a85ddd24025348b514c6533ce4f6cb1c1">ImageViewer::AutofocusWaitBeforeCaptureStateFunc</a>, <span class="stringliteral">&quot;Autofocusing...&quot;</span>)</div>
-<div class="ttc" id="aclassDynExpModule_1_1ImageViewer_1_1ImageViewer_html_a85ddd24025348b514c6533ce4f6cb1c1"><div class="ttname"><a href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a85ddd24025348b514c6533ce4f6cb1c1">DynExpModule::ImageViewer::ImageViewer::AutofocusWaitBeforeCaptureStateFunc</a></div><div class="ttdeci">StateType AutofocusWaitBeforeCaptureStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ImageViewer_8cpp_source.html#l00791">ImageViewer.cpp:791</a></div></div>
+<div class="ttc" id="aclassDynExpModule_1_1ImageViewer_1_1ImageViewer_html_a85ddd24025348b514c6533ce4f6cb1c1"><div class="ttname"><a href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a85ddd24025348b514c6533ce4f6cb1c1">DynExpModule::ImageViewer::ImageViewer::AutofocusWaitBeforeCaptureStateFunc</a></div><div class="ttdeci">StateType AutofocusWaitBeforeCaptureStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ImageViewer_8cpp_source.html#l00850">ImageViewer.cpp:850</a></div></div>
 <div class="ttc" id="anamespaceDynExpModule_1_1ImageViewer_html_a99282c85f1b86ab5b1fd8ab3b746ef85a9b1f7e167a9cbbb26856b7d8e277fe4e"><div class="ttname"><a href="namespaceDynExpModule_1_1ImageViewer.html#a99282c85f1b86ab5b1fd8ab3b746ef85a9b1f7e167a9cbbb26856b7d8e277fe4e">DynExpModule::ImageViewer::StateType::AutofocusWaitBeforeCapture</a></div><div class="ttdeci">@ AutofocusWaitBeforeCapture</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00266">266</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00275">275</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -2016,10 +2120,10 @@ Voltage {}</td>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a>(<a class="code hl_enumvalue" href="namespaceDynExpModule_1_1ImageViewer.html#a99282c85f1b86ab5b1fd8ab3b746ef85a52507c79fcc0ff71010ae2e96fa2b8a6">StateType::AutofocusWaitForImage</a>,</div>
 <div class="line">            &amp;<a class="code hl_function" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a75e89463c4b044ac954bcce2fbe695ea">ImageViewer::AutofocusWaitForImageStateFunc</a>, <span class="stringliteral">&quot;Autofocusing...&quot;</span>)</div>
-<div class="ttc" id="aclassDynExpModule_1_1ImageViewer_1_1ImageViewer_html_a75e89463c4b044ac954bcce2fbe695ea"><div class="ttname"><a href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a75e89463c4b044ac954bcce2fbe695ea">DynExpModule::ImageViewer::ImageViewer::AutofocusWaitForImageStateFunc</a></div><div class="ttdeci">StateType AutofocusWaitForImageStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ImageViewer_8cpp_source.html#l00807">ImageViewer.cpp:807</a></div></div>
+<div class="ttc" id="aclassDynExpModule_1_1ImageViewer_1_1ImageViewer_html_a75e89463c4b044ac954bcce2fbe695ea"><div class="ttname"><a href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a75e89463c4b044ac954bcce2fbe695ea">DynExpModule::ImageViewer::ImageViewer::AutofocusWaitForImageStateFunc</a></div><div class="ttdeci">StateType AutofocusWaitForImageStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ImageViewer_8cpp_source.html#l00866">ImageViewer.cpp:866</a></div></div>
 <div class="ttc" id="anamespaceDynExpModule_1_1ImageViewer_html_a99282c85f1b86ab5b1fd8ab3b746ef85a52507c79fcc0ff71010ae2e96fa2b8a6"><div class="ttname"><a href="namespaceDynExpModule_1_1ImageViewer.html#a99282c85f1b86ab5b1fd8ab3b746ef85a52507c79fcc0ff71010ae2e96fa2b8a6">DynExpModule::ImageViewer::StateType::AutofocusWaitForImage</a></div><div class="ttdeci">@ AutofocusWaitForImage</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00268">268</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00277">277</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -2043,7 +2147,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00284">284</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00293">293</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -2067,7 +2171,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00287">287</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00296">296</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -2091,7 +2195,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00286">286</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00295">295</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -2116,10 +2220,10 @@ Voltage {}</td>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a>(<a class="code hl_enumvalue" href="namespaceDynExpModule_1_1ImageViewer.html#a99282c85f1b86ab5b1fd8ab3b746ef85ae7d31fc0602fb2ede144d18cdffd816b">StateType::Ready</a>,</div>
 <div class="line">            &amp;<a class="code hl_function" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a6b7fe46daa8bed4e42d950129b9bfaab">ImageViewer::ReadyStateFunc</a>, <span class="stringliteral">&quot;Ready&quot;</span>)</div>
-<div class="ttc" id="aclassDynExpModule_1_1ImageViewer_1_1ImageViewer_html_a6b7fe46daa8bed4e42d950129b9bfaab"><div class="ttname"><a href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a6b7fe46daa8bed4e42d950129b9bfaab">DynExpModule::ImageViewer::ImageViewer::ReadyStateFunc</a></div><div class="ttdeci">StateType ReadyStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ImageViewer_8cpp_source.html#l00725">ImageViewer.cpp:725</a></div></div>
+<div class="ttc" id="aclassDynExpModule_1_1ImageViewer_1_1ImageViewer_html_a6b7fe46daa8bed4e42d950129b9bfaab"><div class="ttname"><a href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a6b7fe46daa8bed4e42d950129b9bfaab">DynExpModule::ImageViewer::ImageViewer::ReadyStateFunc</a></div><div class="ttdeci">StateType ReadyStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ImageViewer_8cpp_source.html#l00767">ImageViewer.cpp:767</a></div></div>
 <div class="ttc" id="anamespaceDynExpModule_1_1ImageViewer_html_a99282c85f1b86ab5b1fd8ab3b746ef85ae7d31fc0602fb2ede144d18cdffd816b"><div class="ttname"><a href="namespaceDynExpModule_1_1ImageViewer.html#a99282c85f1b86ab5b1fd8ab3b746ef85ae7d31fc0602fb2ede144d18cdffd816b">DynExpModule::ImageViewer::StateType::Ready</a></div><div class="ttdeci">@ Ready</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00260">260</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00269">269</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>
@@ -2143,7 +2247,7 @@ Voltage {}</td>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00276">276</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ImageViewer_8h_source.html#l00285">285</a> of file <a class="el" href="ImageViewer_8h_source.html">ImageViewer.h</a>.</p>
 
 </div>
 </div>

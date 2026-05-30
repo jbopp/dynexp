@@ -6,5 +6,6 @@ var classDynExpInstr_1_1SmarActParams =
     [ "ConfigureParamsImpl", "classDynExpInstr_1_1SmarActParams.html#a2b2c35f93d196a5c89d3b32cc232de35", null ],
     [ "GetParamClassTag", "classDynExpInstr_1_1SmarActParams.html#aaf0688f082808cfe0d2023fa052d2765", null ],
     [ "Channel", "classDynExpInstr_1_1SmarActParams.html#adae63a6932a5f095913baaed6e07ea9c", null ],
-    [ "HardwareAdapter", "classDynExpInstr_1_1SmarActParams.html#a4e9c577ace238c0d7810047aa159bad3", null ]
+    [ "HardwareAdapter", "classDynExpInstr_1_1SmarActParams.html#a4e9c577ace238c0d7810047aa159bad3", null ],
+    [ "HoldTime", "classDynExpInstr_1_1SmarActParams.html#ad78fb91db51d07350f64e3b966a0c96a", null ]
 ];

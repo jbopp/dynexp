@@ -6,7 +6,7 @@ var classDynExp_1_1HardwareAdapterSerialPortWorker =
     [ "ClearChild", "classDynExp_1_1HardwareAdapterSerialPortWorker.html#a596a6ca7605ddb6c436c666af384c7a8", null ],
     [ "CloseChild", "classDynExp_1_1HardwareAdapterSerialPortWorker.html#a7ccf8ac0e26519775d2dff5387408186", null ],
     [ "FlushChild", "classDynExp_1_1HardwareAdapterSerialPortWorker.html#a4c78b8cdafe7e778c5a2eb74bb1b5196", null ],
-    [ "Init", "classDynExp_1_1HardwareAdapterSerialPortWorker.html#a997c2c2dd8089b5a62a13a876e23988f", null ],
+    [ "Init", "classDynExp_1_1HardwareAdapterSerialPortWorker.html#a028d3405ed674ba12e72adb6f5df641c", null ],
     [ "OnDataAvailable", "classDynExp_1_1HardwareAdapterSerialPortWorker.html#af4b3ade04ebb8506d5ca5db82c63982a", null ],
     [ "OpenChild", "classDynExp_1_1HardwareAdapterSerialPortWorker.html#af20afbd530ea38c61db3fd8831e01b40", null ],
     [ "ReadChild", "classDynExp_1_1HardwareAdapterSerialPortWorker.html#aa9aeece15ad6d21962a0c7269eb3ff27", null ],

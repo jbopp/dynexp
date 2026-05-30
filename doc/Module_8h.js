@@ -15,8 +15,11 @@ var Module_8h =
     [ "DynExp::ModuleInstance", "classDynExp_1_1ModuleInstance.html", "classDynExp_1_1ModuleInstance" ],
     [ "DynExp::EventListenersBase", "classDynExp_1_1EventListenersBase.html", "classDynExp_1_1EventListenersBase" ],
     [ "DynExp::TypedEventListeners< EventFuncArgs >", "classDynExp_1_1TypedEventListeners.html", "classDynExp_1_1TypedEventListeners" ],
+    [ "DynExp::TypedEventListeners< EventFuncArgs >::ListenersTypeKey", "structDynExp_1_1TypedEventListeners_1_1ListenersTypeKey.html", "structDynExp_1_1TypedEventListeners_1_1ListenersTypeKey" ],
+    [ "DynExp::TypedEventListeners< EventFuncArgs >::ListenersTypeKeyHasher", "structDynExp_1_1TypedEventListeners_1_1ListenersTypeKeyHasher.html", "structDynExp_1_1TypedEventListeners_1_1ListenersTypeKeyHasher" ],
     [ "DynExp::InterModuleEventBase", "classDynExp_1_1InterModuleEventBase.html", "classDynExp_1_1InterModuleEventBase" ],
     [ "DynExp::InterModuleEvent< DerivedEvent, EventFuncArgs >", "classDynExp_1_1InterModuleEvent.html", "classDynExp_1_1InterModuleEvent" ],
+    [ "DynExp::InterModuleEventLibrary", "classDynExp_1_1InterModuleEventLibrary.html", "classDynExp_1_1InterModuleEventLibrary" ],
     [ "DynExp::QModuleWidget", "classDynExp_1_1QModuleWidget.html", "classDynExp_1_1QModuleWidget" ],
     [ "DynExp::QModuleDockWidget", "classDynExp_1_1QModuleDockWidget.html", "classDynExp_1_1QModuleDockWidget" ],
     [ "DynExp::QModuleDataBase", "classDynExp_1_1QModuleDataBase.html", "classDynExp_1_1QModuleDataBase" ],
@@ -29,5 +32,5 @@ var Module_8h =
     [ "MakeEvent", "Module_8h.html#a95f0f5b615c5d99ff4325ab785735a7a", null ],
     [ "MakeModule", "Module_8h.html#a4cf294132f114f6832a56c5cc83444cc", null ],
     [ "MakeModuleConfig", "Module_8h.html#a21da3ccf9adc0ec1cbc385df6cd751f6", null ],
-    [ "ModuleThreadMain", "Module_8h.html#acd637f0e67b9a2815532b5a7e1754bd2", null ]
+    [ "ModuleThreadMain", "Module_8h.html#a1ef415c3706dc71e72f030c9d9444291", null ]
 ];

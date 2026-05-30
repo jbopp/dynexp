@@ -44,6 +44,7 @@ var classDynExp_1_1ModuleBase =
     [ "RestoreWindowStatesFromParams", "classDynExp_1_1ModuleBase.html#af397d2e01e526d907480e0b757f58f0d", null ],
     [ "RestoreWindowStatesFromParamsChild", "classDynExp_1_1ModuleBase.html#a8f5d5962e1961e61f8d6e261a13576dd", null ],
     [ "RunChild", "classDynExp_1_1ModuleBase.html#a2d871f2200f496821d35999966862271", null ],
+    [ "SetException", "classDynExp_1_1ModuleBase.html#a6341b4a240cb54c000e7aff7594cdbb9", null ],
     [ "TerminateChild", "classDynExp_1_1ModuleBase.html#a023fca52cd7b9acddaae83a931158961", null ],
     [ "TreatModuleExceptionsAsWarnings", "classDynExp_1_1ModuleBase.html#ae8c362a3e086828a2ccbde05fb5d4795", null ],
     [ "UpdateParamsFromWindowStates", "classDynExp_1_1ModuleBase.html#a6919d21e63bd4f1329275f7e941b0142", null ],

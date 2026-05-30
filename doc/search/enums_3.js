@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['edgetype_0',['EdgeType',['../classDynExpHardware_1_1QutoolsTDCHardwareAdapterParams.html#a79d90909399125d4d6c9a4e84ad40d78',1,'DynExpHardware::QutoolsTDCHardwareAdapterParams']]],
-  ['emitterlistcolumntype_1',['EmitterListColumnType',['../classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#addbb5e10147029cacf9e157f52beb725',1,'DynExpModule::Widefield::WidefieldMicroscopeWidget']]],
-  ['emitterlisttasktype_2',['EmitterListTaskType',['../classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#ae1ef876e016f30cef0cd62f811dc102c',1,'DynExpModule::Widefield::WidefieldMicroscopeWidget']]],
-  ['errorcodetype_3',['ErrorCodeType',['../classDynExpInstr_1_1PI__C__862StageData.html#ab37efb7ecc40e8177436631d91f83559',1,'DynExpInstr::PI_C_862StageData']]],
-  ['errortype_4',['ErrorType',['../namespaceUtil.html#ae3347e48d6767776339d0ccffe6f1041',1,'Util']]]
+  ['directiontype_0',['DirectionType',['../classDynExpInstr_1_1PositionerStage.html#af43aa82445a85377ba3164cfc043c538',1,'DynExpInstr::PositionerStage']]],
+  ['dynexperrorcodes_1',['DynExpErrorCodes',['../namespaceUtil_1_1DynExpErrorCodes.html#a49da632c21753f06d241c7269a24ae57',1,'Util::DynExpErrorCodes']]]
 ];

@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$classUtil_1_1BlobDataType.html" title="Data type which manages a binary large object. The reserved memory is freed upon destruction." alt="" coords="5,5,148,31"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,5,155,31"/>
+<area shape="rect" id="Node000001" href="$classPythonSyntaxHighlighter.html" title="Implementation of highlighting for Python code." alt="" coords="203,5,387,31"/>
+<area shape="poly" id="edge590_Node000000_Node000001" title=" " alt="" coords="168,15,202,15,202,21,168,21"/>
 </map>

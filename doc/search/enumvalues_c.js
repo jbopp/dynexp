@@ -6,6 +6,7 @@ var searchData=
   ['oncreation_3',['OnCreation',['../classDynExp_1_1RunnableObjectParams.html#a33b475bb5737bca9bf78ce6a6a7c41f4ad34691b5a53a925e88d07542d5cadf8f',1,'DynExp::RunnableObjectParams']]],
   ['onlyonboardmemory_4',['OnlyOnboardMemory',['../classDynExpHardware_1_1NIDAQOutputPortParamsExtension.html#a17ef4b5e5960792841387542a1e6978aa731bb2a210f67c106b245698b4b30c3a',1,'DynExpHardware::NIDAQOutputPortParamsExtension']]],
   ['onstreamchanged_5',['OnStreamChanged',['../classDynExpModule_1_1Trajectory1DData.html#aca444537ab348d1d98e96e1b49ee2a68ad9b347416285be414ca98100787a971f',1,'DynExpModule::Trajectory1DData']]],
-  ['outofrange_6',['OutOfRange',['../namespaceUtil_1_1DynExpErrorCodes.html#a49da632c21753f06d241c7269a24ae57a4408e666d77c24ab14ecbb56c7feedd6',1,'Util::DynExpErrorCodes']]],
-  ['overflow_7',['Overflow',['../namespaceUtil_1_1DynExpErrorCodes.html#a49da632c21753f06d241c7269a24ae57aa5504864fe8326ffaa7212043b745508',1,'Util::DynExpErrorCodes']]]
+  ['othererror_6',['OtherError',['../classDynExpInstr_1_1NP__Conex__CC__StageData.html#a62c08d26e9444d5c09969cb156dcdbfcaf3ff7b021f9f84ea661df90660ef176b',1,'DynExpInstr::NP_Conex_CC_StageData']]],
+  ['outofrange_7',['OutOfRange',['../namespaceUtil_1_1DynExpErrorCodes.html#a49da632c21753f06d241c7269a24ae57a4408e666d77c24ab14ecbb56c7feedd6',1,'Util::DynExpErrorCodes']]],
+  ['overflow_8',['Overflow',['../namespaceUtil_1_1DynExpErrorCodes.html#a49da632c21753f06d241c7269a24ae57aa5504864fe8326ffaa7212043b745508',1,'Util::DynExpErrorCodes']]]
 ];

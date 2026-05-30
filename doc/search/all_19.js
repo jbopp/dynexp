@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['z_0',['z',['../structDynExpModule_1_1Widefield_1_1WidefieldMicroscopeData_1_1PositionPoint.html#a3eb425140ba8063275b10ab5c7f4fb01',1,'DynExpModule::Widefield::WidefieldMicroscopeData::PositionPoint::z'],['../classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#a19aefcdbfc1f067f176184463e02f9ba',1,'DynExpModule::Widefield::WidefieldMicroscope::ConfocalOptimizationStateType::Z']]],
+  ['z_0',['z',['../classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#a19aefcdbfc1f067f176184463e02f9ba',1,'DynExpModule::Widefield::WidefieldMicroscope::ConfocalOptimizationStateType::Z'],['../structDynExpModule_1_1Widefield_1_1WidefieldMicroscopeData_1_1PositionPoint.html#a3eb425140ba8063275b10ab5c7f4fb01',1,'DynExpModule::Widefield::WidefieldMicroscopeData::PositionPoint::z']]],
   ['zero_1',['Zero',['../classDynExp_1_1SerialCommunicationHardwareAdapterParams.html#a1c8a8e8243e3e2ac24af5569e28f34bea5f23b4a16f8ebcf1286ef6386ddbe9b2',1,'DynExp::SerialCommunicationHardwareAdapterParams']]],
   ['zi_5fmfli_2',['zi_mfli',['../classDynExpInstr_1_1ZI__MFLI.html',1,'DynExpInstr::ZI_MFLI'],['../classDynExpInstr_1_1ZI__MFLI.html#a7ef7356b005611e02b82ed996f07ac51',1,'DynExpInstr::ZI_MFLI::ZI_MFLI()']]],
   ['zi_5fmfli_2ecpp_3',['ZI_MFLI.cpp',['../ZI__MFLI_8cpp.html',1,'']]],

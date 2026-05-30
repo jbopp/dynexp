@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['makeinstrument_0',['MakeInstrument',['../classDynExp_1_1InstrumentParamsBase.html#ae01039c3b91214023b8656a4ce6fd3c7',1,'DynExp::InstrumentParamsBase']]],
-  ['makemodule_1',['MakeModule',['../classDynExp_1_1ModuleParamsBase.html#abd79971fddeea3386e62d2820da6d127',1,'DynExp::ModuleParamsBase']]],
-  ['modulebase_2',['modulebase',['../classDynExp_1_1ModuleDataBase_1_1ModuleBaseOnlyType.html#ad347664b40adb2e18db97a5c0198628b',1,'DynExp::ModuleDataBase::ModuleBaseOnlyType::ModuleBase'],['../classDynExp_1_1ModuleParamsBase.html#ad347664b40adb2e18db97a5c0198628b',1,'DynExp::ModuleParamsBase::ModuleBase'],['../classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html#ad347664b40adb2e18db97a5c0198628b',1,'DynExp::ModuleBase::ModuleThreadOnlyType::ModuleBase'],['../classDynExp_1_1ModuleBase_1_1EventListenersOnlyType.html#ad347664b40adb2e18db97a5c0198628b',1,'DynExp::ModuleBase::EventListenersOnlyType::ModuleBase']]],
-  ['moduledatabase_3',['moduledatabase',['../classDynExp_1_1ModuleDataBase_1_1ModuleBaseOnlyType.html#a9e6729926356c90942e77fffd1fde1af',1,'DynExp::ModuleDataBase::ModuleBaseOnlyType::ModuleDataBase'],['../classDynExp_1_1ModuleDataBase_1_1ModuleThreadOnlyType.html#a9e6729926356c90942e77fffd1fde1af',1,'DynExp::ModuleDataBase::ModuleThreadOnlyType::ModuleDataBase']]],
-  ['modulethreadmain_4',['modulethreadmain',['../classDynExp_1_1ModuleDataBase_1_1ModuleThreadOnlyType.html#ac83bb615c44d3c2c4026bacb7dea2831',1,'DynExp::ModuleDataBase::ModuleThreadOnlyType::ModuleThreadMain'],['../classDynExp_1_1ModuleBase_1_1ModuleThreadOnlyType.html#ac83bb615c44d3c2c4026bacb7dea2831',1,'DynExp::ModuleBase::ModuleThreadOnlyType::ModuleThreadMain']]]
+  ['linkbase_0',['LinkBase',['../classDynExp_1_1ResourceManagerBase_1_1LinkBaseOnlyType.html#af12584bd282424e88269b02c4c9602ea',1,'DynExp::ResourceManagerBase::LinkBaseOnlyType']]],
+  ['linkedobjectwrapper_1',['LinkedObjectWrapper',['../classDynExp_1_1Object_1_1LinkedObjectWrapperOnlyType.html#a2c89e6b844411b494e99d32cac080bcd',1,'DynExp::Object::LinkedObjectWrapperOnlyType']]]
 ];

@@ -5,5 +5,6 @@ var classDynExpModule_1_1ArbitraryFunctionFromCSVData =
     [ "Init", "classDynExpModule_1_1ArbitraryFunctionFromCSVData.html#a2f375f19d7d69ad00f2dbc63a2f77e90", null ],
     [ "ResetImpl", "classDynExpModule_1_1ArbitraryFunctionFromCSVData.html#a1d509136f171b9bf7fb7eaef71b4bede", null ],
     [ "ResetImpl", "classDynExpModule_1_1ArbitraryFunctionFromCSVData.html#ad4a3fe862bf883f8483f23f405610eac", null ],
+    [ "Communicator", "classDynExpModule_1_1ArbitraryFunctionFromCSVData.html#a66721840f54ac04f864529bdf0e042c9", null ],
     [ "FunctionGenerator", "classDynExpModule_1_1ArbitraryFunctionFromCSVData.html#a3b7cb9fe4ed1ebe486a176671a8d7849", null ]
 ];

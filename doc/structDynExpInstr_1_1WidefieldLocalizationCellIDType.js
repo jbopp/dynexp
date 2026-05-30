@@ -1,6 +1,7 @@
 var structDynExpInstr_1_1WidefieldLocalizationCellIDType =
 [
     [ "HasCellShift", "structDynExpInstr_1_1WidefieldLocalizationCellIDType.html#aea8d4815652bbd83291ac1ed749d2554", null ],
+    [ "SwapCoords", "structDynExpInstr_1_1WidefieldLocalizationCellIDType.html#a99710fba53d6a24f32b9b8b86928acd5", null ],
     [ "CellShift_px_x", "structDynExpInstr_1_1WidefieldLocalizationCellIDType.html#ae483fe93f754ece9b2d40ac03b07cea8", null ],
     [ "CellShift_px_y", "structDynExpInstr_1_1WidefieldLocalizationCellIDType.html#abe381304692e30babf681d6be9ae4c9e", null ],
     [ "IDString", "structDynExpInstr_1_1WidefieldLocalizationCellIDType.html#aa96cf2dc0e1ce5ea2cbbdcf605c69923", null ],

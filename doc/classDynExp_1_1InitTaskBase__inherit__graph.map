@@ -1,63 +1,75 @@
 <map id="DynExp::InitTaskBase" name="DynExp::InitTaskBase">
-<area shape="rect" id="Node000001" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="195,493,357,518"/>
-<area shape="rect" id="Node000003" href="$classDynExpInstr_1_1CameraTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="437,133,633,173"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="292,480,517,172,521,175,297,483"/>
-<area shape="rect" id="Node000006" href="$classDynExpInstr_1_1DataStreamInstrumentTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="405,421,664,461"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="341,487,452,459,454,464,342,492"/>
-<area shape="rect" id="Node000026" href="$classDynExpInstr_1_1InterModuleCommunicatorTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="429,485,641,525"/>
-<area shape="poly" id="edge25_Node000001_Node000026" title=" " alt="" coords="371,503,428,503,428,508,371,508"/>
-<area shape="rect" id="Node000027" href="$classDynExpInstr_1_1PositionerStageTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="429,549,640,589"/>
-<area shape="poly" id="edge26_Node000001_Node000027" title=" " alt="" coords="342,519,454,547,452,552,341,524"/>
-<area shape="rect" id="Node000031" href="$classDynExpInstr_1_1SpectrometerTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="436,613,633,653"/>
-<area shape="poly" id="edge30_Node000001_Node000031" title=" " alt="" coords="302,525,349,563,407,599,437,611,435,616,404,604,346,568,299,530"/>
-<area shape="rect" id="Node000002" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="5,493,147,518"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,503,195,503,195,508,161,508"/>
-<area shape="rect" id="Node000004" href="$classDynExpInstr_1_1DummyCameraTasks_1_1InitTask.html" title=" " alt="" coords="721,69,933,109"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="639,128,734,107,735,112,640,133"/>
-<area shape="rect" id="Node000005" href="$classDynExpInstr_1_1PVCamTasks_1_1InitTask.html" title=" " alt="" coords="731,133,923,173"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="646,151,731,151,731,156,646,156"/>
-<area shape="rect" id="Node000007" href="$classDynExpInstr_1_1FunctionGeneratorTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="712,197,941,237"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="571,411,798,235,801,240,575,415"/>
-<area shape="rect" id="Node000017" href="$classDynExpInstr_1_1InputPortTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="725,357,929,397"/>
-<area shape="poly" id="edge16_Node000006_Node000017" title=" " alt="" coords="639,416,734,395,735,400,640,421"/>
-<area shape="rect" id="Node000022" href="$classDynExpInstr_1_1LockinAmplifierTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="721,421,932,461"/>
-<area shape="poly" id="edge21_Node000006_Node000022" title=" " alt="" coords="678,439,721,439,721,444,678,444"/>
-<area shape="rect" id="Node000024" href="$classDynExpInstr_1_1TimeTaggerTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="716,485,937,525"/>
-<area shape="poly" id="edge23_Node000006_Node000024" title=" " alt="" coords="640,462,735,483,734,488,639,467"/>
-<area shape="rect" id="Node000008" href="$classDynExpInstr_1_1DummyDataStreamInstrumentTasks_1_1InitTask.html" title=" " alt="" coords="991,5,1230,45"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="934,188,939,183,952,168,959,153,963,121,967,88,974,71,988,55,1004,43,1007,48,991,59,978,74,972,89,968,122,964,154,957,171,943,187,938,192"/>
-<area shape="rect" id="Node000009" href="$classDynExpInstr_1_1OutputPortTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="1003,69,1218,109"/>
-<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="930,189,940,183,955,168,963,152,971,135,988,119,1010,107,1013,112,991,123,976,138,968,154,959,171,943,187,933,194"/>
-<area shape="rect" id="Node000014" href="$classDynExpInstr_1_1RS__SMB100BTasks_1_1InitTask.html" title=" " alt="" coords="995,133,1226,173"/>
-<area shape="poly" id="edge13_Node000007_Node000014" title=" " alt="" coords="929,192,1021,171,1022,176,930,197"/>
-<area shape="rect" id="Node000015" href="$classDynExpInstr_1_1RS__SMC100ATasks_1_1InitTask.html" title=" " alt="" coords="995,197,1226,237"/>
-<area shape="poly" id="edge14_Node000007_Node000015" title=" " alt="" coords="955,215,995,215,995,220,955,220"/>
-<area shape="rect" id="Node000016" href="$classDynExpInstr_1_1SwabianInstrumentsPulseStreamerTasks_1_1InitTask.html" title=" " alt="" coords="989,261,1232,301"/>
-<area shape="poly" id="edge15_Node000007_Node000016" title=" " alt="" coords="930,238,1022,259,1021,264,929,243"/>
-<area shape="rect" id="Node000010" href="$classDynExpInstr_1_1AnalogOutTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="1280,37,1493,77"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="1231,73,1279,67,1280,72,1232,78"/>
-<area shape="rect" id="Node000012" href="$classDynExpInstr_1_1DigitalOutTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="1281,101,1492,141"/>
-<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="1232,101,1281,106,1281,112,1231,106"/>
-<area shape="rect" id="Node000011" href="$classDynExpInstr_1_1NIDAQAnalogOutTasks_1_1InitTask.html" title=" " alt="" coords="1541,37,1739,77"/>
-<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="1507,55,1541,55,1541,60,1507,60"/>
-<area shape="rect" id="Node000013" href="$classDynExpInstr_1_1NIDAQDigitalOutTasks_1_1InitTask.html" title=" " alt="" coords="1543,101,1737,141"/>
-<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="1506,119,1542,119,1542,124,1506,124"/>
-<area shape="rect" id="Node000018" href="$classDynExpInstr_1_1AnalogInTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="1009,325,1212,365"/>
-<area shape="poly" id="edge17_Node000017_Node000018" title=" " alt="" coords="942,362,1009,354,1010,359,943,367"/>
-<area shape="rect" id="Node000020" href="$classDynExpInstr_1_1DigitalInTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="1011,389,1211,429"/>
-<area shape="poly" id="edge19_Node000017_Node000020" title=" " alt="" coords="943,388,1011,395,1010,401,942,393"/>
-<area shape="rect" id="Node000019" href="$classDynExpInstr_1_1NIDAQAnalogInTasks_1_1InitTask.html" title=" " alt="" coords="1288,325,1485,365"/>
-<area shape="poly" id="edge18_Node000018_Node000019" title=" " alt="" coords="1226,343,1288,343,1288,348,1226,348"/>
-<area shape="rect" id="Node000021" href="$classDynExpInstr_1_1NIDAQDigitalInTasks_1_1InitTask.html" title=" " alt="" coords="1289,389,1484,429"/>
-<area shape="poly" id="edge20_Node000020_Node000021" title=" " alt="" coords="1225,407,1289,407,1289,412,1225,412"/>
-<area shape="rect" id="Node000023" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1InitTask.html" title=" " alt="" coords="1013,453,1209,493"/>
-<area shape="poly" id="edge22_Node000022_Node000023" title=" " alt="" coords="946,452,1013,460,1012,465,946,457"/>
-<area shape="rect" id="Node000025" href="$classDynExpInstr_1_1QutoolsQuTAGTasks_1_1InitTask.html" title=" " alt="" coords="991,517,1230,557"/>
-<area shape="poly" id="edge24_Node000024_Node000025" title=" " alt="" coords="951,517,992,521,991,527,951,522"/>
-<area shape="rect" id="Node000028" href="$classDynExpInstr_1_1NenionLeakvalveF3Tasks_1_1InitTask.html" title=" " alt="" coords="715,549,938,589"/>
-<area shape="poly" id="edge27_Node000027_Node000028" title=" " alt="" coords="654,567,715,567,715,572,654,572"/>
-<area shape="rect" id="Node000029" href="$classDynExpInstr_1_1PI__C__862__Tasks_1_1InitTask.html" title=" " alt="" coords="743,613,911,653"/>
-<area shape="poly" id="edge28_Node000027_Node000029" title=" " alt="" coords="641,590,743,612,742,618,639,595"/>
-<area shape="rect" id="Node000030" href="$classDynExpInstr_1_1SmarActTasks_1_1InitTask.html" title=" " alt="" coords="727,677,927,717"/>
-<area shape="poly" id="edge29_Node000027_Node000030" title=" " alt="" coords="654,592,666,599,682,615,690,632,698,648,714,663,735,675,733,680,710,667,694,651,686,634,678,618,662,603,651,597"/>
+<area shape="rect" id="Node000001" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="195,557,357,582"/>
+<area shape="rect" id="Node000003" href="$classDynExpInstr_1_1CameraTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="437,165,633,205"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="291,544,518,204,522,207,295,547"/>
+<area shape="rect" id="Node000006" href="$classDynExpInstr_1_1DataStreamInstrumentTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="405,453,664,493"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="310,547,354,525,404,503,442,491,444,496,406,508,356,529,312,552"/>
+<area shape="rect" id="Node000030" href="$classDynExpInstr_1_1InterModuleCommunicatorTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="429,517,641,557"/>
+<area shape="poly" id="edge29_Node000001_Node000030" title=" " alt="" coords="371,555,428,548,429,553,371,560"/>
+<area shape="rect" id="Node000031" href="$classDynExpInstr_1_1LaserTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="445,581,625,621"/>
+<area shape="poly" id="edge30_Node000001_Node000031" title=" " alt="" coords="371,578,445,588,444,593,371,584"/>
+<area shape="rect" id="Node000032" href="$classDynExpInstr_1_1PositionerStageTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="429,645,640,685"/>
+<area shape="poly" id="edge31_Node000001_Node000032" title=" " alt="" coords="312,586,356,609,406,631,444,643,442,648,404,636,354,614,310,591"/>
+<area shape="rect" id="Node000037" href="$classDynExpInstr_1_1SpectrometerTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="436,709,633,749"/>
+<area shape="poly" id="edge36_Node000001_Node000037" title=" " alt="" coords="296,591,342,644,373,672,407,695,437,708,435,713,404,700,370,676,339,648,292,595"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="5,557,147,582"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,567,195,567,195,572,161,572"/>
+<area shape="rect" id="Node000004" href="$classDynExpInstr_1_1DummyCameraTasks_1_1InitTask.html" title=" " alt="" coords="721,101,933,141"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="639,160,734,139,735,144,640,165"/>
+<area shape="rect" id="Node000005" href="$classDynExpInstr_1_1PVCamTasks_1_1InitTask.html" title=" " alt="" coords="731,165,923,205"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="646,183,731,183,731,188,646,188"/>
+<area shape="rect" id="Node000007" href="$classDynExpInstr_1_1FunctionGeneratorTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="712,229,941,269"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="571,443,798,267,801,272,575,447"/>
+<area shape="rect" id="Node000019" href="$classDynExpInstr_1_1InputPortTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="725,389,929,429"/>
+<area shape="poly" id="edge18_Node000006_Node000019" title=" " alt="" coords="639,448,734,427,735,432,640,453"/>
+<area shape="rect" id="Node000026" href="$classDynExpInstr_1_1LockinAmplifierTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="721,453,932,493"/>
+<area shape="poly" id="edge25_Node000006_Node000026" title=" " alt="" coords="678,471,721,471,721,476,678,476"/>
+<area shape="rect" id="Node000028" href="$classDynExpInstr_1_1TimeTaggerTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="716,517,937,557"/>
+<area shape="poly" id="edge27_Node000006_Node000028" title=" " alt="" coords="640,494,735,515,734,520,639,499"/>
+<area shape="rect" id="Node000008" href="$classDynExpInstr_1_1DummyDataStreamInstrumentTasks_1_1InitTask.html" title=" " alt="" coords="991,37,1230,77"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="934,220,939,215,952,200,959,185,963,153,967,120,974,103,988,87,1004,75,1007,80,991,91,978,106,972,121,968,154,964,186,957,203,943,219,938,224"/>
+<area shape="rect" id="Node000009" href="$classDynExpInstr_1_1OutputPortTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="1003,101,1218,141"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="930,221,940,215,955,200,963,184,971,167,988,151,1010,139,1013,144,991,155,976,170,968,186,959,203,943,219,933,226"/>
+<area shape="rect" id="Node000016" href="$classDynExpInstr_1_1RS__SMB100BTasks_1_1InitTask.html" title=" " alt="" coords="995,165,1226,205"/>
+<area shape="poly" id="edge15_Node000007_Node000016" title=" " alt="" coords="929,224,1021,203,1022,208,930,229"/>
+<area shape="rect" id="Node000017" href="$classDynExpInstr_1_1RS__SMC100ATasks_1_1InitTask.html" title=" " alt="" coords="995,229,1226,269"/>
+<area shape="poly" id="edge16_Node000007_Node000017" title=" " alt="" coords="955,247,995,247,995,252,955,252"/>
+<area shape="rect" id="Node000018" href="$classDynExpInstr_1_1SwabianInstrumentsPulseStreamerTasks_1_1InitTask.html" title=" " alt="" coords="989,293,1232,333"/>
+<area shape="poly" id="edge17_Node000007_Node000018" title=" " alt="" coords="930,270,1022,291,1021,296,929,275"/>
+<area shape="rect" id="Node000010" href="$classDynExpInstr_1_1AnalogOutTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="1280,69,1493,109"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="1231,105,1279,99,1280,104,1232,110"/>
+<area shape="rect" id="Node000013" href="$classDynExpInstr_1_1DigitalOutTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="1281,133,1492,173"/>
+<area shape="poly" id="edge12_Node000009_Node000013" title=" " alt="" coords="1232,133,1281,138,1281,144,1231,138"/>
+<area shape="rect" id="Node000011" href="$classDynExpInstr_1_1DummyAnalogOutTasks_1_1InitTask.html" title=" " alt="" coords="1541,5,1748,45"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="1480,63,1563,43,1564,48,1482,69"/>
+<area shape="rect" id="Node000012" href="$classDynExpInstr_1_1NIDAQAnalogOutTasks_1_1InitTask.html" title=" " alt="" coords="1546,69,1743,109"/>
+<area shape="poly" id="edge11_Node000010_Node000012" title=" " alt="" coords="1507,87,1546,87,1546,92,1507,92"/>
+<area shape="rect" id="Node000014" href="$classDynExpInstr_1_1DummyDigitalOutTasks_1_1InitTask.html" title=" " alt="" coords="1543,133,1747,173"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="1506,151,1542,151,1542,156,1506,156"/>
+<area shape="rect" id="Node000015" href="$classDynExpInstr_1_1NIDAQDigitalOutTasks_1_1InitTask.html" title=" " alt="" coords="1547,197,1742,237"/>
+<area shape="poly" id="edge14_Node000013_Node000015" title=" " alt="" coords="1482,174,1564,195,1563,200,1480,179"/>
+<area shape="rect" id="Node000020" href="$classDynExpInstr_1_1AnalogInTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="1009,357,1212,397"/>
+<area shape="poly" id="edge19_Node000019_Node000020" title=" " alt="" coords="942,394,1009,386,1010,391,943,399"/>
+<area shape="rect" id="Node000023" href="$classDynExpInstr_1_1DigitalInTasks_1_1InitTask.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy...." alt="" coords="1011,421,1211,461"/>
+<area shape="poly" id="edge22_Node000019_Node000023" title=" " alt="" coords="943,420,1011,427,1010,433,942,425"/>
+<area shape="rect" id="Node000021" href="$classDynExpInstr_1_1DummyAnalogInTasks_1_1InitTask.html" title=" " alt="" coords="1283,293,1490,333"/>
+<area shape="poly" id="edge20_Node000020_Node000021" title=" " alt="" coords="1210,352,1299,331,1301,336,1212,357"/>
+<area shape="rect" id="Node000022" href="$classDynExpInstr_1_1NIDAQAnalogInTasks_1_1InitTask.html" title=" " alt="" coords="1288,357,1485,397"/>
+<area shape="poly" id="edge21_Node000020_Node000022" title=" " alt="" coords="1226,375,1288,375,1288,380,1226,380"/>
+<area shape="rect" id="Node000024" href="$classDynExpInstr_1_1DummyDigitalInTasks_1_1InitTask.html" title=" " alt="" coords="1285,421,1489,461"/>
+<area shape="poly" id="edge23_Node000023_Node000024" title=" " alt="" coords="1224,439,1285,439,1285,444,1224,444"/>
+<area shape="rect" id="Node000025" href="$classDynExpInstr_1_1NIDAQDigitalInTasks_1_1InitTask.html" title=" " alt="" coords="1289,485,1484,525"/>
+<area shape="poly" id="edge24_Node000023_Node000025" title=" " alt="" coords="1212,462,1301,483,1299,488,1210,467"/>
+<area shape="rect" id="Node000027" href="$classDynExpInstr_1_1ZI__MFLITasks_1_1InitTask.html" title=" " alt="" coords="1013,485,1209,525"/>
+<area shape="poly" id="edge26_Node000026_Node000027" title=" " alt="" coords="946,484,1013,492,1012,497,946,489"/>
+<area shape="rect" id="Node000029" href="$classDynExpInstr_1_1QutoolsQuTAGTasks_1_1InitTask.html" title=" " alt="" coords="991,549,1230,589"/>
+<area shape="poly" id="edge28_Node000028_Node000029" title=" " alt="" coords="951,549,992,553,991,559,951,554"/>
+<area shape="rect" id="Node000033" href="$classDynExpInstr_1_1NP__Conex__CC__Tasks_1_1InitTask.html" title=" " alt="" coords="739,581,914,621"/>
+<area shape="poly" id="edge32_Node000032_Node000033" title=" " alt="" coords="639,640,738,618,739,623,641,645"/>
+<area shape="rect" id="Node000034" href="$classDynExpInstr_1_1NenionLeakvalveF3Tasks_1_1InitTask.html" title=" " alt="" coords="715,645,938,685"/>
+<area shape="poly" id="edge33_Node000032_Node000034" title=" " alt="" coords="654,663,715,663,715,668,654,668"/>
+<area shape="rect" id="Node000035" href="$classDynExpInstr_1_1PI__C__862__Tasks_1_1InitTask.html" title=" " alt="" coords="743,709,911,749"/>
+<area shape="poly" id="edge34_Node000032_Node000035" title=" " alt="" coords="641,686,743,708,742,714,639,691"/>
+<area shape="rect" id="Node000036" href="$classDynExpInstr_1_1SmarActTasks_1_1InitTask.html" title=" " alt="" coords="727,773,927,813"/>
+<area shape="poly" id="edge35_Node000032_Node000036" title=" " alt="" coords="654,688,666,695,682,711,690,728,698,744,714,759,735,771,733,776,710,763,694,747,686,730,678,714,662,699,651,693"/>
 </map>

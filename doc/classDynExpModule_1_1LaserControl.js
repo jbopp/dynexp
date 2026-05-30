@@ -1,0 +1,27 @@
+var classDynExpModule_1_1LaserControl =
+[
+    [ "ConfigType", "classDynExpModule_1_1LaserControl.html#a3d781b5d072f24854a339b803bba2537", null ],
+    [ "ModuleDataType", "classDynExpModule_1_1LaserControl.html#a9c36ee0b04143fcd03e6767d454aa1b1", null ],
+    [ "ParamsType", "classDynExpModule_1_1LaserControl.html#a4afc71338c7dd16ed055aa1bff4c2368", null ],
+    [ "LaserControl", "classDynExpModule_1_1LaserControl.html#a78d41a2d2c51e671f094695439eae446", null ],
+    [ "~LaserControl", "classDynExpModule_1_1LaserControl.html#a5fb1e784b00c57ae4fa1b4ca9fc934df", null ],
+    [ "Category", "classDynExpModule_1_1LaserControl.html#a325d471efe897a6398ec326bf637f4f9", null ],
+    [ "GetCategory", "classDynExpModule_1_1LaserControl.html#a4f994ac2a2e0671e73a616bc46fdd31c", null ],
+    [ "GetMainLoopDelay", "classDynExpModule_1_1LaserControl.html#a045ab4607323e22626d9393241610759", null ],
+    [ "GetName", "classDynExpModule_1_1LaserControl.html#abbc1eed6fc0a3ccfa08265f2cbd14b3e", null ],
+    [ "MakeUIWidget", "classDynExpModule_1_1LaserControl.html#a435e3d71da8a9c337fbb4c14db37d647", null ],
+    [ "ModuleMainLoop", "classDynExpModule_1_1LaserControl.html#add6d51ef732184be2888c1aa2da32e5d", null ],
+    [ "Name", "classDynExpModule_1_1LaserControl.html#a11ee59d73e6db5af89064c1eab9a73e3", null ],
+    [ "OnEnableToggled", "classDynExpModule_1_1LaserControl.html#ae5ac94806671cc04ff404b843ffab04c", null ],
+    [ "OnExit", "classDynExpModule_1_1LaserControl.html#a8ce36d5e7f63792d19dc93926e06d8ac", null ],
+    [ "OnFrequencyValueChanged", "classDynExpModule_1_1LaserControl.html#ae34374de4be2a6492fcc98ef90d9fc3d", null ],
+    [ "OnInit", "classDynExpModule_1_1LaserControl.html#a5bde92e1157aef5f85c60d36db6daa26", null ],
+    [ "OnIntensityValueChanged", "classDynExpModule_1_1LaserControl.html#a3911737d0a525346541d31fb7e53f4ee", null ],
+    [ "OnScanRangeValueChanged", "classDynExpModule_1_1LaserControl.html#a6c3c60e4fb1da8cf4ad26e417792a986", null ],
+    [ "OnScanRateValueChanged", "classDynExpModule_1_1LaserControl.html#a759030386a55e249cfd50e691fbb0b9f", null ],
+    [ "OnScanToggled", "classDynExpModule_1_1LaserControl.html#a09162f5db79d2085a8297269b3cdaf7b", null ],
+    [ "OnWavelengthValueChanged", "classDynExpModule_1_1LaserControl.html#a2d4904cfbb84d066535675c9c8dc8aab", null ],
+    [ "ResetImpl", "classDynExpModule_1_1LaserControl.html#ad4e2f61f8fa7905d3cdce092c1ac6601", null ],
+    [ "UpdateUIChild", "classDynExpModule_1_1LaserControl.html#a63f6ee4a02ae6c24a1ddc16c324d72e2", null ],
+    [ "NumFailedUpdateAttempts", "classDynExpModule_1_1LaserControl.html#ab5c80ccdfeea6aed8292c82ab28a550b", null ]
+];

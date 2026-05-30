@@ -130,7 +130,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default number separators used within DynExp.  <a href="structDynExp_1_1DefaultLocaleSeparator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1DefaultTask.html">DefaultTask</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default task which does not do anything. Though, calling it ensures that <a class="el" href="classDynExp_1_1TaskBase.html#acec8e4a2b180be9dbb6aa8c425c77e9c" title="This callback function is called after the task has finished (either successfully or not) with a refe...">TaskBase::CallbackFunc</a> gets called. This is required to avoid <a class="el" href="classDynExp_1_1InstrumentBase.html#ab98e876c26afcccb0d8f3555f7b7b9b5" title="Calls a (derived) instrument&#39;s function which inserts a task into the instrument&#39;s task queue synchro...">InstrumentBase::AsSyncTask()</a> getting stuck in an infinite loop. All functions overridden from meta instruments, which are expected to enqueue a task, must at least enqueue a <code><a class="el" href="classDynExp_1_1DefaultTask.html" title="Default task which does not do anything. Though, calling it ensures that TaskBase::CallbackFunc gets ...">DefaultTask</a></code> (by calling <code>MakeAndEnqueueTask&lt; DynExp::DefaultTask &gt;(CallbackFunc)</code>;)  <a href="classDynExp_1_1DefaultTask.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default task which does not do anything. Though, calling it ensures that <a class="el" href="classDynExp_1_1TaskBase.html#a02afd4f4f66845da55b01538031ca02d" title="This callback function is called after the task has finished (either successfully or not) with a poin...">TaskBase::CallbackFunc</a> gets called. This is required to avoid <a class="el" href="classDynExp_1_1InstrumentBase.html#ab98e876c26afcccb0d8f3555f7b7b9b5" title="Calls a (derived) instrument&#39;s function which inserts a task into the instrument&#39;s task queue synchro...">InstrumentBase::AsSyncTask()</a> getting stuck in an infinite loop. All functions overridden from meta instruments, which are expected to enqueue a task, must at least enqueue a <code><a class="el" href="classDynExp_1_1DefaultTask.html" title="Default task which does not do anything. Though, calling it ensures that TaskBase::CallbackFunc gets ...">DefaultTask</a></code> (by calling <code>MakeAndEnqueueTask&lt; DynExp::DefaultTask &gt;(std::move(CallbackFunc))</code>;). Moreover, this task can be used to defer the task queue execution by setting the <a class="el" href="classDynExp_1_1TaskBase.html#a116f1e37758e939e43503360e2d8aad6" title="The execution of this task is deferred until the specified point in time is reached if time_since_epo...">DeferUntil</a> parameter.  <a href="classDynExp_1_1DefaultTask.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1DynExpCore.html">DynExpCore</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">DynExp's core class acts as the interface between the user interface and DynExp's internal data like all <a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">DynExp::Object</a> instances and their threads. There should only be one instance of this class. It owns all DynExp resources through the respective <code><a class="el" href="classDynExp_1_1ResourceManagerBase.html" title="Typed resource manager base class deriving from class CommonResourceManagerBase.">ResourceManagerBase</a></code> instances. Logical const-ness: Non-const functions (like functions to run/stop/reset/save/... the project) cannot be called from <a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">DynExp::Object</a> instances possessing a const handle to the <code><a class="el" href="classDynExp_1_1DynExpCore.html" title="DynExp&#39;s core class acts as the interface between the user interface and DynExp&#39;s internal data like ...">DynExpCore</a></code> instance. Instead, these functions should be called through the user interface (from the <code><a class="el" href="classDynExpManager.html" title="Implements DynExp&#39;s main window as a Qt-based user interface (UI).">DynExpManager</a></code> instance).  <a href="classDynExp_1_1DynExpCore.html#details">More...</a><br /></td></tr>
@@ -142,7 +142,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Common base class for all managers of event listeners of type <code><a class="el" href="classDynExp_1_1TypedEventListeners.html" title="Typed managers of event listeners class whose instances are owned by classes derived from InterModule...">TypedEventListeners</a></code>. <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> instances are considered event listeners.  <a href="classDynExp_1_1EventListenersBase.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ExceptionContainer.html">ExceptionContainer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper holding a pointer to an exception and providing functionality for accessing it. Used to transfer exceptions between an instrument's task and the <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> module enqueuing the task. Refer to <a class="el" href="classDynExp_1_1TaskBase.html#a198aea8bb3935b1ac6556b23cc17d147" title="Type of a callback function which is invoked when a task has finished, failed or has been aborted....">TaskBase::CallbackType</a>.  <a href="classDynExp_1_1ExceptionContainer.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper holding a pointer to an exception and providing functionality for accessing it. Used to transfer exceptions between an instrument's task and the <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> module enqueuing the task. Refer to <a class="el" href="classDynExp_1_1TaskBase_1_1CallbackType.html" title="Type owning a callback function which is invoked when a task has finished, failed,...">TaskBase::CallbackType</a>.  <a href="classDynExp_1_1ExceptionContainer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ExitTaskBase.html">ExitTaskBase</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines a task for deinitializing an instrument within an instrument inheritance hierarchy. Each instrument (indirectly) derived from class <code><a class="el" href="classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic...">InstrumentBase</a></code> must be accompanied by a deinitialization task class derived from <code><a class="el" href="classDynExp_1_1ExitTaskBase.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy....">ExitTaskBase</a></code>. Even if the task does not do anything, at least it has to call <a class="el" href="classDynExp_1_1ExitTaskBase.html#ade32a093ce314c193622d5b36c68a826" title="Deinitializes the respective instrument within the instrument inheritance hierarchy....">ExitTaskBase::ExitFuncImpl()</a> of the derived instrument's deinitialization task class.  <a href="classDynExp_1_1ExitTaskBase.html#details">More...</a><br /></td></tr>
@@ -215,6 +215,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEventBase.html">InterModuleEventBase</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Common base class for all inter-module events.  <a href="classDynExp_1_1InterModuleEventBase.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InterModuleEventLibrary.html">InterModuleEventLibrary</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Library type that holds factory functions to all available inter-module events.  <a href="classDynExp_1_1InterModuleEventLibrary.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:classDynExp_1_1LibraryBase" id="r_classDynExp_1_1LibraryBase"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDynExp.html#classDynExp_1_1LibraryBase">LibraryBase</a></td></tr>
 <tr class="memdesc:classDynExp_1_1LibraryBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the base class for a library containing library entries (<a class="el" href="structDynExp_1_1LibraryEntry.html" title="Represents an entry in the library.">DynExp::LibraryEntry</a>).  <a href="namespaceDynExp.html#classDynExp_1_1LibraryBase">More...</a><br /></td></tr>
@@ -367,7 +370,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines an exception caused by a hardware operation on a COM port (e.g. reading/writing data to a COM port).  <a href="classDynExp_1_1SerialPortException.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1TaskBase.html">TaskBase</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for all tasks being processed by instruments. The class must not contain public virtual functions since <a class="el" href="classDynExp_1_1TaskBase.html#acec8e4a2b180be9dbb6aa8c425c77e9c" title="This callback function is called after the task has finished (either successfully or not) with a refe...">TaskBase::CallbackFunc</a> could call them in <code><a class="el" href="classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu...">TaskBase</a>'s</code> destructor.  <a href="classDynExp_1_1TaskBase.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for all tasks being processed by instruments. The class must not contain public virtual functions since <a class="el" href="classDynExp_1_1TaskBase.html#a02afd4f4f66845da55b01538031ca02d" title="This callback function is called after the task has finished (either successfully or not) with a poin...">TaskBase::CallbackFunc</a> could call them in <code><a class="el" href="classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu...">TaskBase</a>'s</code> destructor.  <a href="classDynExp_1_1TaskBase.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1TaskResultType.html">TaskResultType</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the return type of task functions.  <a href="classDynExp_1_1TaskResultType.html#details">More...</a><br /></td></tr>
@@ -455,9 +458,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a05a9d65cc5abe12037f0c65f1d80485e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespaceDynExp.html#aff5ae1451b86061935d6fb2be9253dbf">HardwareAdapterPtrType</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceDynExp.html#a05a9d65cc5abe12037f0c65f1d80485e">MakeHardwareAdapter</a> (const std::thread::id OwnerThreadID, <a class="el" href="namespaceDynExp.html#a7330bf5931734173d955c5c2cca169d3">ParamsBasePtrType</a> &amp;&amp;Params)</td></tr>
 <tr class="memdesc:a05a9d65cc5abe12037f0c65f1d80485e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function to generate a hardware adapter of a specific type.  <br /></td></tr>
 <tr class="separator:a05a9d65cc5abe12037f0c65f1d80485e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6985987f0ba5cd7ab42caef76ac995c9" id="r_a6985987f0ba5cd7ab42caef76ac995c9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDynExp.html#a6985987f0ba5cd7ab42caef76ac995c9">InstrumentThreadMain</a> (<a class="el" href="classDynExp_1_1InstrumentInstance.html">InstrumentInstance</a> Instance, <a class="el" href="classDynExp_1_1InstrumentBase.html">InstrumentBase</a> *const Instrument)</td></tr>
-<tr class="memdesc:a6985987f0ba5cd7ab42caef76ac995c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instruments run in their own thread. This is the instrument thread's main function.  <br /></td></tr>
-<tr class="separator:a6985987f0ba5cd7ab42caef76ac995c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f37d51197dd225ac87ba8dad199dc29" id="r_a1f37d51197dd225ac87ba8dad199dc29"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDynExp.html#a1f37d51197dd225ac87ba8dad199dc29">InstrumentThreadMain</a> (std::unique_ptr&lt; <a class="el" href="classDynExp_1_1RunnableInstance.html">RunnableInstance</a> &gt; &amp;&amp;InstancePtr, <a class="el" href="classDynExp_1_1RunnableObject.html">RunnableObject</a> *BaseObject)</td></tr>
+<tr class="memdesc:a1f37d51197dd225ac87ba8dad199dc29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instruments run in their own thread. This is the instrument thread's main function.  <br /></td></tr>
+<tr class="separator:a1f37d51197dd225ac87ba8dad199dc29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0c1752e52520c8dae87e1ab78390b21" id="r_aa0c1752e52520c8dae87e1ab78390b21"><td class="memTemplParams" colspan="2">template&lt;typename InstrumentT &gt; </td></tr>
 <tr class="memitem:aa0c1752e52520c8dae87e1ab78390b21"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespaceDynExp.html#ae21e8eb7d596ba9acd056adac00cf799">ConfiguratorBasePtrType</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceDynExp.html#aa0c1752e52520c8dae87e1ab78390b21">MakeInstrumentConfig</a> ()</td></tr>
 <tr class="memdesc:aa0c1752e52520c8dae87e1ab78390b21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function to generate a configurator for a specific instrument type.  <br /></td></tr>
@@ -482,9 +485,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a5902149e2f07daa50dd1050ce5c9962d"><td class="memTemplItemLeft" align="right" valign="top">const LibraryVectorT::value_type &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceDynExp.html#a5902149e2f07daa50dd1050ce5c9962d">FindInLibraryVector</a> (const LibraryVectorT &amp;LibraryVector, const std::string &amp;Category, const std::string &amp;Name)</td></tr>
 <tr class="memdesc:a5902149e2f07daa50dd1050ce5c9962d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds an entry in a library vector by category and name.  <br /></td></tr>
 <tr class="separator:a5902149e2f07daa50dd1050ce5c9962d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd637f0e67b9a2815532b5a7e1754bd2" id="r_acd637f0e67b9a2815532b5a7e1754bd2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDynExp.html#acd637f0e67b9a2815532b5a7e1754bd2">ModuleThreadMain</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">ModuleInstance</a> Instance, <a class="el" href="classDynExp_1_1ModuleBase.html">ModuleBase</a> *const Module)</td></tr>
-<tr class="memdesc:acd637f0e67b9a2815532b5a7e1754bd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modules run in their own thread. This is the module thread's main function.  <br /></td></tr>
-<tr class="separator:acd637f0e67b9a2815532b5a7e1754bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ef415c3706dc71e72f030c9d9444291" id="r_a1ef415c3706dc71e72f030c9d9444291"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDynExp.html#a1ef415c3706dc71e72f030c9d9444291">ModuleThreadMain</a> (std::unique_ptr&lt; <a class="el" href="classDynExp_1_1RunnableInstance.html">RunnableInstance</a> &gt; &amp;&amp;InstancePtr, <a class="el" href="classDynExp_1_1RunnableObject.html">RunnableObject</a> *BaseObject)</td></tr>
+<tr class="memdesc:a1ef415c3706dc71e72f030c9d9444291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modules run in their own thread. This is the module thread's main function.  <br /></td></tr>
+<tr class="separator:a1ef415c3706dc71e72f030c9d9444291"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21da3ccf9adc0ec1cbc385df6cd751f6" id="r_a21da3ccf9adc0ec1cbc385df6cd751f6"><td class="memTemplParams" colspan="2">template&lt;typename ModuleT &gt; </td></tr>
 <tr class="memitem:a21da3ccf9adc0ec1cbc385df6cd751f6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespaceDynExp.html#ae21e8eb7d596ba9acd056adac00cf799">ConfiguratorBasePtrType</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceDynExp.html#a21da3ccf9adc0ec1cbc385df6cd751f6">MakeModuleConfig</a> ()</td></tr>
 <tr class="memdesc:a21da3ccf9adc0ec1cbc385df6cd751f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function to generate a configurator for a specific module type.  <br /></td></tr>
@@ -944,7 +947,7 @@ template&lt;typename ObjectType &gt; </div>
 
 <p>Pointer type to store a module (<a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">DynExp::ModuleBase</a>) with. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00023">23</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00024">24</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1018,7 +1021,7 @@ template&lt;typename ObjectType &gt; </div>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="ParamsConfig_8h_source.html#l00028">28</a> of file <a class="el" href="ParamsConfig_8h_source.html">ParamsConfig.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ParamsConfig_8h_source.html#l00032">32</a> of file <a class="el" href="ParamsConfig_8h_source.html">ParamsConfig.h</a>.</p>
 
 </div>
 </div>
@@ -1064,7 +1067,7 @@ template&lt;typename To , typename From , std::enable_if_t&lt; std::is_same_v&lt
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00810">810</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00851">851</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -1109,7 +1112,7 @@ template&lt;typename To , typename From , std::enable_if_t&lt; std::is_same_v&lt
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00851">851</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00898">898</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1300,8 +1303,8 @@ template&lt;typename LibraryVectorT &gt; </div>
 
 </div>
 </div>
-<a id="a6985987f0ba5cd7ab42caef76ac995c9" name="a6985987f0ba5cd7ab42caef76ac995c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6985987f0ba5cd7ab42caef76ac995c9">&#9670;&#160;</a></span>InstrumentThreadMain()</h2>
+<a id="a1f37d51197dd225ac87ba8dad199dc29" name="a1f37d51197dd225ac87ba8dad199dc29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f37d51197dd225ac87ba8dad199dc29">&#9670;&#160;</a></span>InstrumentThreadMain()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1309,14 +1312,14 @@ template&lt;typename LibraryVectorT &gt; </div>
         <tr>
           <td class="memname">int DynExp::InstrumentThreadMain </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classDynExp_1_1InstrumentInstance.html">InstrumentInstance</a>&#160;</td>
-          <td class="paramname"><em>Instance</em>, </td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classDynExp_1_1RunnableInstance.html">RunnableInstance</a> &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>InstancePtr</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classDynExp_1_1InstrumentBase.html">InstrumentBase</a> *const&#160;</td>
-          <td class="paramname"><em>Instrument</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="classDynExp_1_1RunnableObject.html">RunnableObject</a> *&#160;</td>
+          <td class="paramname"><em>BaseObject</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1329,8 +1332,8 @@ template&lt;typename LibraryVectorT &gt; </div>
 <p>Instruments run in their own thread. This is the instrument thread's main function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Instance</td><td>Handle to the instrument thread's data related to the instrument running this thread. The instrument thread is expected to let the lifetime of <code>Instance</code> expire upon termination. </td></tr>
-    <tr><td class="paramname">Instrument</td><td>Pointer to the instrument running this thread </td></tr>
+    <tr><td class="paramname">InstancePtr</td><td>Pointer to a handle to the instrument thread's data related to the instrument running this thread. The instrument thread takes ownership of <code>InstancePtr</code> and is expected to let the lifetime of <code>InstancePtr</code> expire upon termination. </td></tr>
+    <tr><td class="paramname">BaseObject</td><td>Pointer to the instrument running this thread. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1397,7 +1400,7 @@ template&lt;typename ReceiverType , typename... ArgsTs&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00763">763</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00810">810</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1601,7 +1604,7 @@ template&lt;typename ModuleT &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the module of the specified type </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00044">44</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00045">45</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1631,7 +1634,7 @@ template&lt;typename ModuleT &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the configurator for the specified module type </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00031">31</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00032">32</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1721,8 +1724,8 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
 
 </div>
 </div>
-<a id="acd637f0e67b9a2815532b5a7e1754bd2" name="acd637f0e67b9a2815532b5a7e1754bd2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd637f0e67b9a2815532b5a7e1754bd2">&#9670;&#160;</a></span>ModuleThreadMain()</h2>
+<a id="a1ef415c3706dc71e72f030c9d9444291" name="a1ef415c3706dc71e72f030c9d9444291"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ef415c3706dc71e72f030c9d9444291">&#9670;&#160;</a></span>ModuleThreadMain()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1730,14 +1733,14 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
         <tr>
           <td class="memname">int DynExp::ModuleThreadMain </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classDynExp_1_1ModuleInstance.html">ModuleInstance</a>&#160;</td>
-          <td class="paramname"><em>Instance</em>, </td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classDynExp_1_1RunnableInstance.html">RunnableInstance</a> &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>InstancePtr</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classDynExp_1_1ModuleBase.html">ModuleBase</a> *const&#160;</td>
-          <td class="paramname"><em>Module</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="classDynExp_1_1RunnableObject.html">RunnableObject</a> *&#160;</td>
+          <td class="paramname"><em>BaseObject</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1750,8 +1753,8 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
 <p>Modules run in their own thread. This is the module thread's main function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Instance</td><td>Handle to the module thread's data related to the module running this thread. The module thread is expected to let the lifetime of <code>Instance</code> expire upon termination. </td></tr>
-    <tr><td class="paramname">Module</td><td>Pointer to the module running this thread </td></tr>
+    <tr><td class="paramname">InstancePtr</td><td>Pointer to a handle to the module thread's data related to the module running this thread. The module thread takes ownership of <code>InstancePtr</code> and is expected to let the lifetime of <code>InstancePtr</code> expire upon termination. </td></tr>
+    <tr><td class="paramname">BaseObject</td><td>Pointer to the module running this thread. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1889,7 +1892,7 @@ template&lt;typename... InstrTs&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l01234">1234</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l01390">1390</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>

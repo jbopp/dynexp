@@ -124,17 +124,23 @@ $(document).ready(function(){initNavTree('classDynExp_1_1InstrumentBase.html',''
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classDynExp_1_1InstrumentBase__inherit__graph.svg" width="2150" height="651"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classDynExp_1_1InstrumentBase__inherit__graph.svg" width="2168" height="783"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentBase_1_1InstrumenThreadOnlyType.html">InstrumenThreadOnlyType</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic...">InstrumentBase</a>'s</code> private methods to the instrument thread <code><a class="el" href="classDynExp_1_1InstrumentBase_1_1InstrumenThreadOnlyType.html#acfae0e364389e4ec5258f2228c0dfa16" title="Instruments run in their own thread. This is the instrument thread&#39;s main function.">InstrumentThreadMain()</a></code>.  <a href="classDynExp_1_1InstrumentBase_1_1InstrumenThreadOnlyType.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic...">InstrumentBase</a>'s</code> private methods to the instrument thread <code><a class="el" href="classDynExp_1_1InstrumentBase_1_1InstrumenThreadOnlyType.html#a6bae1862fb5b8e9f56b284d916076eeb" title="Instruments run in their own thread. This is the instrument thread&#39;s main function.">InstrumentThreadMain()</a></code>.  <a href="classDynExp_1_1InstrumentBase_1_1InstrumenThreadOnlyType.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
+<tr class="memitem:ae4c1df1468a66aed40479c5567b64322" id="r_ae4c1df1468a66aed40479c5567b64322"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentBase.html#ae4c1df1468a66aed40479c5567b64322">TaskHandlingContinuationType</a> { <a class="el" href="classDynExp_1_1InstrumentBase.html#ae4c1df1468a66aed40479c5567b64322aa0bfb8e59e6c13fc8d990781f77694fe">Continue</a>
+, <a class="el" href="classDynExp_1_1InstrumentBase.html#ae4c1df1468a66aed40479c5567b64322a056fa3d840f48b7bfbbd68c19a4797b3">Terminate</a>
+, <a class="el" href="classDynExp_1_1InstrumentBase.html#ae4c1df1468a66aed40479c5567b64322aa6c82656255dd03988eee0df651c1405">Defer</a>
+ }</td></tr>
+<tr class="memdesc:ae4c1df1468a66aed40479c5567b64322"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates how an instrument should proceed after handling a task.  <a href="classDynExp_1_1InstrumentBase.html#ae4c1df1468a66aed40479c5567b64322">More...</a><br /></td></tr>
+<tr class="separator:ae4c1df1468a66aed40479c5567b64322"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c274377b625b68ffbe58afcb11267b2" id="r_a3c274377b625b68ffbe58afcb11267b2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentBase.html#a3c274377b625b68ffbe58afcb11267b2">ParamsType</a> = <a class="el" href="classDynExp_1_1InstrumentParamsBase.html">InstrumentParamsBase</a></td></tr>
 <tr class="memdesc:a3c274377b625b68ffbe58afcb11267b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the parameter class belonging to this <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> type. Declare this alias in every derived class with the respective parameter class accompanying the derived <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code>. "   <br /></td></tr>
 <tr class="separator:a3c274377b625b68ffbe58afcb11267b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -225,7 +231,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:adbb2e71639fdcab42c9c6c299e4cf2b8 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <a class="el" href="classDynExp_1_1RunnableObject.html#aacef09883d7d4462fc014330663d9f4f" title="Holds information about why the RunnableObject instance is paused.">ReasonWhyPaused</a>.  <br /></td></tr>
 <tr class="separator:adbb2e71639fdcab42c9c6c299e4cf2b8 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject" id="r_a416b8000830913b11eaf02d1f1af49d6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6">Run</a> (QWidget *ParentWidget=nullptr)</td></tr>
-<tr class="memdesc:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread and ensures that all <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instances linked to this instance via <code><a class="el" href="classDynExp_1_1ObjectLink.html" title="Type to define object link parameters as ParamsBase::Param&lt; ObjectLink&lt; ObjectT &gt; &gt; or to define obje...">ObjectLink</a></code> parameters are in a ready state. Calls <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> which is to be overridden by derived classes to start a thread and to pass this thread back by calling <code><a class="el" href="classDynExp_1_1RunnableObject.html#aac70e1485923ee8c78ed5732099b4c90" title="Stores a thread constructed by a derived class overriding RunChild() in Thread taking ownership of th...">StoreThread()</a></code>.  <br /></td></tr>
+<tr class="memdesc:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread and ensures that all <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instances linked to this instance via <code><a class="el" href="classDynExp_1_1ObjectLink.html" title="Type to define object link parameters as ParamsBase::Param&lt; ObjectLink&lt; ObjectT &gt; &gt; or to define obje...">ObjectLink</a></code> parameters are in a ready state. Calls <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> which is to be overridden by derived classes to start a thread and to pass this thread back by calling <code>StoreThread()</code>.  <br /></td></tr>
 <tr class="separator:a416b8000830913b11eaf02d1f1af49d6 inherit pub_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8275b7f99072059d5608a4201ed579af inherit pub_methods_classDynExp_1_1RunnableObject" id="r_a8275b7f99072059d5608a4201ed579af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a8275b7f99072059d5608a4201ed579af">RunIfRunAutomatic</a> ()</td></tr>
 <tr class="memdesc:a8275b7f99072059d5608a4201ed579af inherit pub_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> if <a class="el" href="classDynExp_1_1RunnableObjectParams.html#a1ef775df6c01b554f3c102024646c0dd" title="Determines when the runnable object is started. Refer to RunnableObjectParams::StartupType.">RunnableObjectParams::Startup</a> is set to <a class="el" href="classDynExp_1_1RunnableObjectParams.html#a33b475bb5737bca9bf78ce6a6a7c41f4af69add31b7e16e98b1fa4642036b1bfc">RunnableObjectParams::Automatic</a>.  <br /></td></tr>
@@ -319,7 +325,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ab356af07c76602059ea91367c4b36a76" id="r_ab356af07c76602059ea91367c4b36a76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExp_1_1InstrumentBase_1_1InstrumenThreadOnlyType.html">InstrumenThreadOnlyType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentBase.html#ab356af07c76602059ea91367c4b36a76">InstrumentThreadOnly</a></td></tr>
-<tr class="memdesc:ab356af07c76602059ea91367c4b36a76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic...">InstrumentBase</a>'s</code> private methods to the instrument thread <code><a class="el" href="namespaceDynExp.html#a6985987f0ba5cd7ab42caef76ac995c9" title="Instruments run in their own thread. This is the instrument thread&#39;s main function.">InstrumentThreadMain()</a></code>.    <br /></td></tr>
+<tr class="memdesc:ab356af07c76602059ea91367c4b36a76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic...">InstrumentBase</a>'s</code> private methods to the instrument thread <code><a class="el" href="namespaceDynExp.html#a1f37d51197dd225ac87ba8dad199dc29" title="Instruments run in their own thread. This is the instrument thread&#39;s main function.">InstrumentThreadMain()</a></code>.    <br /></td></tr>
 <tr class="separator:ab356af07c76602059ea91367c4b36a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classDynExp_1_1RunnableObject"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classDynExp_1_1RunnableObject')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classDynExp_1_1RunnableObject.html">DynExp::RunnableObject</a></td></tr>
 <tr class="memitem:acb2919ca14c007ca6bb3d7fe02ef02a4 inherit pub_attribs_classDynExp_1_1RunnableObject" id="r_acb2919ca14c007ca6bb3d7fe02ef02a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExp_1_1RunnableObject_1_1RunnableInstanceOnlyType.html">RunnableInstanceOnlyType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#acb2919ca14c007ca6bb3d7fe02ef02a4">RunnableInstanceOnly</a></td></tr>
@@ -360,9 +366,9 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a28a89773cf56f3c229dd9c141de12ab3 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_a28a89773cf56f3c229dd9c141de12ab3"><td class="memItemLeft" align="right" valign="top">std::promise&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a28a89773cf56f3c229dd9c141de12ab3">MakeThreadExitedPromise</a> ()</td></tr>
 <tr class="memdesc:a28a89773cf56f3c229dd9c141de12ab3 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to be used by overridden <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> functions in derived classes to (re)initialize the <a class="el" href="classDynExp_1_1RunnableObject.html#a45a818a181d16129dfb43080152527c4" title="Future which signals that Thread has terminated. Refer to OnThreadHasExited().">ThreadExitedSignal</a> future and to provide the derived class a promise to signal the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance that its thread has terminated.  <br /></td></tr>
 <tr class="separator:a28a89773cf56f3c229dd9c141de12ab3 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac70e1485923ee8c78ed5732099b4c90 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_aac70e1485923ee8c78ed5732099b4c90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#aac70e1485923ee8c78ed5732099b4c90">StoreThread</a> (std::thread &amp;&amp;<a class="el" href="classDynExp_1_1RunnableObject.html#a7f653f6a7407d6a69dd9d75858d6b363">Thread</a>) noexcept</td></tr>
-<tr class="memdesc:aac70e1485923ee8c78ed5732099b4c90 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores a thread constructed by a derived class overriding <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> in <code>Thread</code> taking ownership of the thread. Only call this function within <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a>!</code>  <br /></td></tr>
-<tr class="separator:aac70e1485923ee8c78ed5732099b4c90 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a343b47df52dc884564b9e0c60a1647e7 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_a343b47df52dc884564b9e0c60a1647e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a343b47df52dc884564b9e0c60a1647e7">MakeThread</a> (<a class="el" href="classDynExp_1_1RunnableObject.html#addd2ceca45b37cf3780015a8892b5da6">ThreadFuncType</a> ThreadFunc, std::unique_ptr&lt; <a class="el" href="classDynExp_1_1RunnableInstance.html">RunnableInstance</a> &gt; &amp;&amp;InstancePtr)</td></tr>
+<tr class="memdesc:a343b47df52dc884564b9e0c60a1647e7 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and runs the thread of the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance. Call this function in the derived class overriding <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> and nowhere else!  <br /></td></tr>
+<tr class="separator:a343b47df52dc884564b9e0c60a1647e7 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21fc682e09f7e23e2a65fc8b8eef7106 inherit pro_methods_classDynExp_1_1RunnableObject" id="r_a21fc682e09f7e23e2a65fc8b8eef7106"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#a21fc682e09f7e23e2a65fc8b8eef7106">IsCallFromRunnableThread</a> () const</td></tr>
 <tr class="memdesc:a21fc682e09f7e23e2a65fc8b8eef7106 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether <code>Thread's</code> id matches the id of the calling thread. This is thread-safe if the function is called by the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread since <code><a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">Terminate()</a></code> joins the threads before changing the <code>Thread</code> member. It is also thread-safe if the function is called by the thread owning the the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance since <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> and <code><a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">Terminate()</a></code> can only be called by this thread. Only <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> and <code><a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">Terminate()</a></code> (indirectly) modify <code>Thread</code>.  <br /></td></tr>
 <tr class="separator:a21fc682e09f7e23e2a65fc8b8eef7106 inherit pro_methods_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -412,7 +418,7 @@ Protected Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
 <tr class="memitem:a02203d17d10533482296eda9dae7be52" id="r_a02203d17d10533482296eda9dae7be52"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentBase.html#a02203d17d10533482296eda9dae7be52">GetExceptionUnsafe</a> (const <a class="el" href="classDynExp_1_1InstrumentBase.html#a1af0557a21acb8ff50786d3addc5a1fa">InstrumentDataTypeSyncPtrConstType</a> &amp;InstrumentDataPtr)</td></tr>
-<tr class="memdesc:a02203d17d10533482296eda9dae7be52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for <a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e" title="Used to transfer exceptions from the instrument thread to the main thread. Stores the exception respo...">InstrumentDataBase::InstrumentException</a>.    <br /></td></tr>
+<tr class="memdesc:a02203d17d10533482296eda9dae7be52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for <a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e" title="Used to transfer exceptions from the instrument thread to the main thread. Stores the exception respo...">InstrumentDataBase::InstrumentException</a>. If <a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e" title="Used to transfer exceptions from the instrument thread to the main thread. Stores the exception respo...">InstrumentDataBase::InstrumentException</a> is nullptr and <a class="el" href="classDynExp_1_1InstrumentDataBase.html#a59e93be727fb424647f3fcfd18a58d6a" title="If set to true, indicates to the main thread that an exception has happened in the instrument thread....">InstrumentDataBase::HasException</a> is still true, returns a pointer to a <a class="el" href="classUtil_1_1Exception.html" title="DynExp exceptions are derived from this class. It contains basic information about the cause of the e...">Util::Exception</a> instance.    <br /></td></tr>
 <tr class="separator:a02203d17d10533482296eda9dae7be52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -438,12 +444,15 @@ Private Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Instrument thread only</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>These functions must be called by instrument thread only. </p>
 </div></td></tr>
-<tr class="memitem:a4ad80da03411380354706d04e3777419" id="r_a4ad80da03411380354706d04e3777419"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentBase.html#a4ad80da03411380354706d04e3777419">HandleTask</a> (<a class="el" href="classDynExp_1_1InstrumentInstance.html">InstrumentInstance</a> &amp;Instance)</td></tr>
-<tr class="memdesc:a4ad80da03411380354706d04e3777419"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes and removes the next pending task from the instrument's task queue.  <br /></td></tr>
-<tr class="separator:a4ad80da03411380354706d04e3777419"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ee74825f4dab8d5217630ae3a81f688" id="r_a3ee74825f4dab8d5217630ae3a81f688"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExp_1_1InstrumentBase.html#ae4c1df1468a66aed40479c5567b64322">TaskHandlingContinuationType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentBase.html#a3ee74825f4dab8d5217630ae3a81f688">HandleTask</a> (<a class="el" href="classDynExp_1_1InstrumentInstance.html">InstrumentInstance</a> &amp;Instance)</td></tr>
+<tr class="memdesc:a3ee74825f4dab8d5217630ae3a81f688"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes and removes the next pending task from the instrument's task queue.  <br /></td></tr>
+<tr class="separator:a3ee74825f4dab8d5217630ae3a81f688"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82f5e9ba9091d6b31b8f186844fb87fc" id="r_a82f5e9ba9091d6b31b8f186844fb87fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentBase.html#a82f5e9ba9091d6b31b8f186844fb87fc">UpdateDataInternal</a> ()</td></tr>
 <tr class="memdesc:a82f5e9ba9091d6b31b8f186844fb87fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts an update task (<code><a class="el" href="classDynExp_1_1UpdateTaskBase.html" title="Defines a task for updating an instrument within an instrument inheritance hierarchy....">UpdateTaskBase</a></code>) into the instrument's task queue. Override <code><a class="el" href="classDynExp_1_1InstrumentBase.html#a3a5b07e95873c660065bc75f07f51aed" title="Determines whether to enqueue update tasks (UpdateTaskBase).">UpdateAdditionalData()</a></code> to adjust behavior.  <br /></td></tr>
 <tr class="separator:a82f5e9ba9091d6b31b8f186844fb87fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e4a2662cbbcb38a510873ca7656aa06" id="r_a6e4a2662cbbcb38a510873ca7656aa06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentBase.html#a6e4a2662cbbcb38a510873ca7656aa06">SetException</a> (std::exception_ptr Exception) noexcept</td></tr>
+<tr class="memdesc:a6e4a2662cbbcb38a510873ca7656aa06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets this instrument instance to an error state and tries to store the exception responsible for the error state in <a class="el" href="classDynExp_1_1InstrumentBase.html#aec018b9e2e65cf41072baa4a5515c3af" title="Instrument data belonging to this InstrumentBase instance.">InstrumentData</a>. If <a class="el" href="classDynExp_1_1InstrumentBase.html#aec018b9e2e65cf41072baa4a5515c3af" title="Instrument data belonging to this InstrumentBase instance.">InstrumentData</a> cannot be locked, still atomically sets an error flag.  <br /></td></tr>
+<tr class="separator:a6e4a2662cbbcb38a510873ca7656aa06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc11939b3a769744cb35e0c791d5ceeb" id="r_acc11939b3a769744cb35e0c791d5ceeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentBase.html#acc11939b3a769744cb35e0c791d5ceeb">OnError</a> ()</td></tr>
 <tr class="memdesc:acc11939b3a769744cb35e0c791d5ceeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derived classes can perform critical shutdown actions after an error has occurred. Override <code><a class="el" href="classDynExp_1_1InstrumentBase.html#a90b1ec6ab7fe93f77b06f37ae8bf8341" title="Derived classes can perform critical shutdown actions after an error has occurred....">OnErrorChild()</a></code> to adjust behavior.  <br /></td></tr>
 <tr class="separator:acc11939b3a769744cb35e0c791d5ceeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -521,11 +530,18 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:adfcff78ecd6c4d17971db3b661e2f6eb" id="r_adfcff78ecd6c4d17971db3b661e2f6eb"><td class="memItemLeft" align="right" valign="top">virtual std::unique_ptr&lt; <a class="el" href="classDynExp_1_1UpdateTaskBase.html">UpdateTaskBase</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1InstrumentBase.html#adfcff78ecd6c4d17971db3b661e2f6eb">MakeUpdateTask</a> () const</td></tr>
 <tr class="memdesc:adfcff78ecd6c4d17971db3b661e2f6eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for an update task (<code><a class="el" href="classDynExp_1_1UpdateTaskBase.html" title="Defines a task for updating an instrument within an instrument inheritance hierarchy....">UpdateTaskBase</a></code>). Override to define the desired update task in derived classes only if the respective task really does something and if it has no pure virtual function.  <br /></td></tr>
 <tr class="separator:adfcff78ecd6c4d17971db3b661e2f6eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_types_classDynExp_1_1RunnableObject"><td colspan="2" onclick="javascript:toggleInherit('pro_types_classDynExp_1_1RunnableObject')"><img src="closed.png" alt="-"/>&#160;Protected Types inherited from <a class="el" href="classDynExp_1_1RunnableObject.html">DynExp::RunnableObject</a></td></tr>
+<tr class="memitem:addd2ceca45b37cf3780015a8892b5da6 inherit pro_types_classDynExp_1_1RunnableObject" id="r_addd2ceca45b37cf3780015a8892b5da6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1RunnableObject.html#addd2ceca45b37cf3780015a8892b5da6">ThreadFuncType</a> = std::function&lt; int(std::unique_ptr&lt; <a class="el" href="classDynExp_1_1RunnableInstance.html">RunnableInstance</a> &gt; &amp;&amp;, <a class="el" href="classDynExp_1_1RunnableObject.html">RunnableObject</a> *)&gt;</td></tr>
+<tr class="memdesc:addd2ceca45b37cf3780015a8892b5da6 inherit pro_types_classDynExp_1_1RunnableObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the thread function executed by <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instances.  <br /></td></tr>
+<tr class="separator:addd2ceca45b37cf3780015a8892b5da6 inherit pro_types_classDynExp_1_1RunnableObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devices (instruments). While meta instruments are used by modules (<code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code>) as an abstraction layer, physical instruments derive from meta instruments and make usually use of one hardware adapter (<code><a class="el" href="classDynExp_1_1HardwareAdapterBase.html" title="Defines the base class for a hardware adapter object. Hardware adapters describe interfaces/connectio...">HardwareAdapterBase</a></code>) to communicate with the underlying hardware. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00450">450</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00479">479</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ab07cbb563d629d268b51c5eae3fefef6" name="ab07cbb563d629d268b51c5eae3fefef6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab07cbb563d629d268b51c5eae3fefef6">&#9670;&#160;</a></span>ConfigType</h2>
@@ -541,7 +557,7 @@ Private Attributes</h2></td></tr>
 
 <p>Type of the configurator class belonging to this <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> type. Declare this alias in every derived class with the respective configurator class accompanying the derived <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00477">477</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00525">525</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -559,7 +575,7 @@ Private Attributes</h2></td></tr>
 
 <p>Defines a task for deinitializing an instrument within an instrument inheritance hierarchy. Each instrument (indirectly) derived from class <code><a class="el" href="classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic...">InstrumentBase</a></code> must be accompanied by a deinitialization task class derived from <code><a class="el" href="classDynExp_1_1ExitTaskBase.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy....">ExitTaskBase</a></code>. Even if the task does not do anything, at least it has to call <a class="el" href="classDynExp_1_1ExitTaskBase.html#ade32a093ce314c193622d5b36c68a826" title="Deinitializes the respective instrument within the instrument inheritance hierarchy....">ExitTaskBase::ExitFuncImpl()</a> of the derived instrument's deinitialization task class.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00503">503</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00551">551</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -578,7 +594,7 @@ Private Attributes</h2></td></tr>
 <p>Defines a task for initializing an instrument within an instrument inheritance hierarchy. Each instrument (indirectly) derived from class <code><a class="el" href="classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic...">InstrumentBase</a></code> must be accompanied by an initialization task class derived from <code><a class="el" href="classDynExp_1_1InitTaskBase.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy....">InitTaskBase</a></code>. Even if the task does not do anything, at least it has to call <a class="el" href="classDynExp_1_1InitTaskBase.html#a1b2737990a3c0ecc97b9a8a2bef6cf65" title="Initializes the respective instrument within the instrument inheritance hierarchy....">InitTaskBase::InitFuncImpl()</a> of the derived instrument's initialization task class.   </p>
 <p>"  </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00502">502</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00550">550</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -596,7 +612,7 @@ Private Attributes</h2></td></tr>
 
 <p>Invoking an instance of this alias is supposed to call <a class="el" href="classDynExp_1_1InstrumentBase.html#aa31383861ecdb9c418666562c1fb7fb8" title="Locks the mutex of the instrument data class instance InstrumentData assigned to this InstrumentBase ...">InstrumentBase::GetInstrumentData()</a> of the instance the <a class="el" href="classUtil_1_1CallableMemberWrapper.html" title="Wraps a member function of some object and stores its default arguments. Moving from CallableMemberWr...">Util::CallableMemberWrapper</a> has been constructed with. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00572">572</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00620">620</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -614,7 +630,7 @@ Private Attributes</h2></td></tr>
 
 <p>Type of the data class belonging to this <code><a class="el" href="classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic...">InstrumentBase</a></code> type. Declare this alias in every derived class with the respective data class accompanying the derived <code><a class="el" href="classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic...">InstrumentBase</a></code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00483">483</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00531">531</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -632,7 +648,7 @@ Private Attributes</h2></td></tr>
 
 <p>Alias for the return type of InstrumentBase::GetInstrumentData() const. Data class instances wrapped into <a class="el" href="classUtil_1_1SynchronizedPointer.html" title="Pointer to lock a class derived from ISynchronizedPointerLockable for synchronizing between threads....">Util::SynchronizedPointer</a> can be accessed in a thread-safe way. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00495">495</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00543">543</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -650,7 +666,7 @@ Private Attributes</h2></td></tr>
 
 <p>Alias for the return type of <a class="el" href="classDynExp_1_1InstrumentBase.html#aa31383861ecdb9c418666562c1fb7fb8" title="Locks the mutex of the instrument data class instance InstrumentData assigned to this InstrumentBase ...">InstrumentBase::GetInstrumentData()</a>. Data class instances wrapped into <a class="el" href="classUtil_1_1SynchronizedPointer.html" title="Pointer to lock a class derived from ISynchronizedPointerLockable for synchronizing between threads....">Util::SynchronizedPointer</a> can be accessed in a thread-safe way. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00489">489</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00537">537</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -669,7 +685,7 @@ Private Attributes</h2></td></tr>
 <p>Type of the parameter class belonging to this <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> type. Declare this alias in every derived class with the respective parameter class accompanying the derived <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code>. "  </p>
 <p>"  </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00476">476</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00524">524</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -687,7 +703,42 @@ Private Attributes</h2></td></tr>
 
 <p>Defines a task for updating an instrument within an instrument inheritance hierarchy. Each instrument (indirectly) derived from class <code><a class="el" href="classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic...">InstrumentBase</a></code> must be accompanied by an update task class derived from <code><a class="el" href="classDynExp_1_1UpdateTaskBase.html" title="Defines a task for updating an instrument within an instrument inheritance hierarchy....">UpdateTaskBase</a></code>. Even if the task does not do anything, at least it has to call <a class="el" href="classDynExp_1_1UpdateTaskBase.html#af23c4a712115c7b2375257a279c6efdb" title="Updates the respective instrument within the instrument inheritance hierarchy. Call UpdateFuncImpl() ...">UpdateTaskBase::UpdateFuncImpl()</a> of the derived instrument's update task class.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00504">504</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00552">552</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="ae4c1df1468a66aed40479c5567b64322" name="ae4c1df1468a66aed40479c5567b64322"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4c1df1468a66aed40479c5567b64322">&#9670;&#160;</a></span>TaskHandlingContinuationType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="classDynExp_1_1InstrumentBase.html#ae4c1df1468a66aed40479c5567b64322">DynExp::InstrumentBase::TaskHandlingContinuationType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indicates how an instrument should proceed after handling a task. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae4c1df1468a66aed40479c5567b64322aa0bfb8e59e6c13fc8d990781f77694fe" name="ae4c1df1468a66aed40479c5567b64322aa0bfb8e59e6c13fc8d990781f77694fe"></a>Continue&#160;</td><td class="fielddoc"><p>Task handling should continue, the instrument does not terminate. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae4c1df1468a66aed40479c5567b64322a056fa3d840f48b7bfbbd68c19a4797b3" name="ae4c1df1468a66aed40479c5567b64322a056fa3d840f48b7bfbbd68c19a4797b3"></a>Terminate&#160;</td><td class="fielddoc"><p>Task handling should not continue, the instrument should terminate. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae4c1df1468a66aed40479c5567b64322aa6c82656255dd03988eee0df651c1405" name="ae4c1df1468a66aed40479c5567b64322aa6c82656255dd03988eee0df651c1405"></a>Defer&#160;</td><td class="fielddoc"><p>Task handling should continue. However, a deferred task currently blocks the instrument queue. Hence, do not enqueue update tasks. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00509">509</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -734,7 +785,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00210">210</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00234">234</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -761,7 +812,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00218">218</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00242">242</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -773,9 +824,6 @@ Private Attributes</h2></td></tr>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename DerivedInstrT , typename... TaskFuncArgTs, typename... ArgTs&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classDynExp_1_1ExceptionContainer.html">ExceptionContainer</a> DynExp::InstrumentBase::AsSyncTask </td>
@@ -795,11 +843,6 @@ template&lt;typename DerivedInstrT , typename... TaskFuncArgTs, typename... ArgT
           <td></td><td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Calls a (derived) instrument's function which inserts a task into the instrument's task queue synchronously. This means that <code><a class="el" href="classDynExp_1_1InstrumentBase.html#ab98e876c26afcccb0d8f3555f7b7b9b5" title="Calls a (derived) instrument&#39;s function which inserts a task into the instrument&#39;s task queue synchro...">AsSyncTask()</a></code> blocks until the task has been executed or aborted. This is achieved by passing a callback function to the task which in turn sets a flag after the task execution. The thread calling <code><a class="el" href="classDynExp_1_1InstrumentBase.html#ab98e876c26afcccb0d8f3555f7b7b9b5" title="Calls a (derived) instrument&#39;s function which inserts a task into the instrument&#39;s task queue synchro...">AsSyncTask()</a></code> blocks (via <code>std::this_thread::yield()</code>) until this flag is set. </p>
@@ -820,7 +863,7 @@ template&lt;typename DerivedInstrT , typename... TaskFuncArgTs, typename... ArgT
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Return the exception possibly thrown by the task. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00649">649</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l01222">1222</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -850,7 +893,7 @@ template&lt;typename DerivedInstrT , typename... TaskFuncArgTs, typename... ArgT
 <p>Every derived class has to redefine this function. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the category of this instrument type. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00511">511</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00559">559</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -878,7 +921,7 @@ template&lt;typename DerivedInstrT , typename... TaskFuncArgTs, typename... ArgT
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00247">247</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00271">271</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -909,9 +952,9 @@ template&lt;typename DerivedInstrT , typename... TaskFuncArgTs, typename... ArgT
 
 <p>Implements <a class="el" href="classDynExp_1_1Object.html#a378599da58153d446bd382e89be2203c">DynExp::Object</a>.</p>
 
-<p>Reimplemented in <a class="el" href="classDynExpInstr_1_1AnalogIn.html#ab2190a40b592fe4b86726956cbbf193e">DynExpInstr::AnalogIn</a>, <a class="el" href="classDynExpInstr_1_1AnalogOut.html#a25342de38bfbd2be2824b46e2724c38a">DynExpInstr::AnalogOut</a>, <a class="el" href="classDynExpInstr_1_1Camera.html#a615a1782db4e6090f50650abab4d441c">DynExpInstr::Camera</a>, <a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#a97b2132be4fe72fc8829a680eeae0806">DynExpInstr::DataStreamInstrument</a>, <a class="el" href="classDynExpInstr_1_1DigitalIn.html#a1a92a2dcd0e60e0be95d35b1ce7091dc">DynExpInstr::DigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DigitalOut.html#ac13467fc1e97ac14171578e025bc8df9">DynExpInstr::DigitalOut</a>, <a class="el" href="classDynExpInstr_1_1FunctionGenerator.html#a1fc1881d05feb5154fc123d1638a2967">DynExpInstr::FunctionGenerator</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a6ee87dcf3ed17651d0e5c392499bd10a">DynExpInstr::gRPCInstrument&lt; DataStreamInstrument, 0, gRPCStubs... &gt;</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a6ee87dcf3ed17651d0e5c392499bd10a">DynExpInstr::gRPCInstrument&lt; DynExp::InstrumentBase, 0, DynExpProto::WidefieldLocalization::WidefieldLocalization &gt;</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a6ee87dcf3ed17651d0e5c392499bd10a">DynExpInstr::gRPCInstrument&lt; Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer &gt;</a>, <a class="el" href="classDynExpInstr_1_1InputPort.html#a5869622d7f6cac3fb7c46c0f27954a8a">DynExpInstr::InputPort</a>, <a class="el" href="classDynExpInstr_1_1LockinAmplifier.html#a5184e32111d0946520512db444727d62">DynExpInstr::LockinAmplifier</a>, <a class="el" href="classDynExpInstr_1_1OutputPort.html#aa79a116c6044a90feae80bb2f81ecc21">DynExpInstr::OutputPort</a>, <a class="el" href="classDynExpInstr_1_1Spectrometer.html#ae1921038b7fe75fee98582090624dc21">DynExpInstr::Spectrometer</a>, <a class="el" href="classDynExpInstr_1_1PositionerStage.html#a39ee08dd70a1a206880a70ac5b0e10f1">DynExpInstr::PositionerStage</a>, and <a class="el" href="classDynExpInstr_1_1TimeTagger.html#a31b62966adaef6aafb26b8efaf772e00">DynExpInstr::TimeTagger</a>.</p>
+<p>Reimplemented in <a class="el" href="classDynExpInstr_1_1AnalogIn.html#ab2190a40b592fe4b86726956cbbf193e">DynExpInstr::AnalogIn</a>, <a class="el" href="classDynExpInstr_1_1AnalogOut.html#a25342de38bfbd2be2824b46e2724c38a">DynExpInstr::AnalogOut</a>, <a class="el" href="classDynExpInstr_1_1Camera.html#a615a1782db4e6090f50650abab4d441c">DynExpInstr::Camera</a>, <a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#a97b2132be4fe72fc8829a680eeae0806">DynExpInstr::DataStreamInstrument</a>, <a class="el" href="classDynExpInstr_1_1DigitalIn.html#a1a92a2dcd0e60e0be95d35b1ce7091dc">DynExpInstr::DigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DigitalOut.html#ac13467fc1e97ac14171578e025bc8df9">DynExpInstr::DigitalOut</a>, <a class="el" href="classDynExpInstr_1_1FunctionGenerator.html#a1fc1881d05feb5154fc123d1638a2967">DynExpInstr::FunctionGenerator</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a6ee87dcf3ed17651d0e5c392499bd10a">DynExpInstr::gRPCInstrument&lt; DataStreamInstrument, 0, gRPCStubs... &gt;</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a6ee87dcf3ed17651d0e5c392499bd10a">DynExpInstr::gRPCInstrument&lt; DynExp::InstrumentBase, 0, DynExpProto::WidefieldLocalization::WidefieldLocalization &gt;</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a6ee87dcf3ed17651d0e5c392499bd10a">DynExpInstr::gRPCInstrument&lt; Laser, 0, DynExpProto::NetworkLaser::NetworkLaser &gt;</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a6ee87dcf3ed17651d0e5c392499bd10a">DynExpInstr::gRPCInstrument&lt; Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer &gt;</a>, <a class="el" href="classDynExpInstr_1_1InputPort.html#a5869622d7f6cac3fb7c46c0f27954a8a">DynExpInstr::InputPort</a>, <a class="el" href="classDynExpInstr_1_1Laser.html#a30f4adbbc062b7f470ac6ada87486173">DynExpInstr::Laser</a>, <a class="el" href="classDynExpInstr_1_1LockinAmplifier.html#a5184e32111d0946520512db444727d62">DynExpInstr::LockinAmplifier</a>, <a class="el" href="classDynExpInstr_1_1OutputPort.html#aa79a116c6044a90feae80bb2f81ecc21">DynExpInstr::OutputPort</a>, <a class="el" href="classDynExpInstr_1_1Spectrometer.html#ae1921038b7fe75fee98582090624dc21">DynExpInstr::Spectrometer</a>, <a class="el" href="classDynExpInstr_1_1PositionerStage.html#a39ee08dd70a1a206880a70ac5b0e10f1">DynExpInstr::PositionerStage</a>, and <a class="el" href="classDynExpInstr_1_1TimeTagger.html#a31b62966adaef6aafb26b8efaf772e00">DynExpInstr::TimeTagger</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00522">522</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00570">570</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -950,7 +993,7 @@ template&lt;typename DerivedInstrT , typename... TaskFuncArgTs, typename... ArgT
 
 <p>Implements <a class="el" href="classDynExp_1_1Object.html#aa0830952501b4064ed831602c3b655b8">DynExp::Object</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00409">409</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00457">457</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -978,7 +1021,7 @@ template&lt;typename DerivedInstrT , typename... TaskFuncArgTs, typename... ArgT
 </table>
 </div><div class="memdoc">
 
-<p>Getter for <a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e" title="Used to transfer exceptions from the instrument thread to the main thread. Stores the exception respo...">InstrumentDataBase::InstrumentException</a>.   </p>
+<p>Getter for <a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e" title="Used to transfer exceptions from the instrument thread to the main thread. Stores the exception respo...">InstrumentDataBase::InstrumentException</a>. If <a class="el" href="classDynExp_1_1InstrumentDataBase.html#addd7549bebc1fe974bf367cfdc01645e" title="Used to transfer exceptions from the instrument thread to the main thread. Stores the exception respo...">InstrumentDataBase::InstrumentException</a> is nullptr and <a class="el" href="classDynExp_1_1InstrumentDataBase.html#a59e93be727fb424647f3fcfd18a58d6a" title="If set to true, indicates to the main thread that an exception has happened in the instrument thread....">InstrumentDataBase::HasException</a> is still true, returns a pointer to a <a class="el" href="classUtil_1_1Exception.html" title="DynExp exceptions are derived from this class. It contains basic information about the cause of the e...">Util::Exception</a> instance.   </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the exception being responsible for the instrument's current state.   </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -987,7 +1030,7 @@ template&lt;typename DerivedInstrT , typename... TaskFuncArgTs, typename... ArgT
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00612">612</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00660">660</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -1016,7 +1059,7 @@ template&lt;typename DerivedInstrT , typename... TaskFuncArgTs, typename... ArgT
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a pointer to <code>InstrumentDataType</code> (non-const) to allow access all of its members. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00222">222</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00246">246</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1045,7 +1088,7 @@ template&lt;typename DerivedInstrT , typename... TaskFuncArgTs, typename... ArgT
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a pointer to const <code>InstrumentDataType</code>, since users of this <code><a class="el" href="classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic...">InstrumentBase</a></code> instance are not allowed to access non-const members of <code>InstrumentDataType</code>. These are only to be accessed by the main thread! </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00227">227</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00251">251</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1082,7 +1125,7 @@ template&lt;typename DerivedInstrT , typename... TaskFuncArgTs, typename... ArgT
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a pointer to <code>InstrumentDataType</code> (non-const) to allow access all of its members. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00232">232</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00256">256</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1112,9 +1155,9 @@ template&lt;typename DerivedInstrT , typename... TaskFuncArgTs, typename... ArgT
 <p>Specifies in which time intervals the instrument's task queue runs to handle pending tasks. </p>
 <dl class="section return"><dt>Returns</dt><dd>Delay time in between task queue executions. Return <code>std::chrono::milliseconds::max()</code> to make the instrument thread only wake up (to handle tasks and to update data) when a task is enqueued. Return 0 to make the task queue delay as small as as possible. </dd></dl>
 
-<p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NenionLeakvalveF3.html#a495f5498bed3ee82a827d3283e49cbc5">DynExpInstr::NenionLeakvalveF3</a>, <a class="el" href="classDynExpInstr_1_1RS__SMB100B.html#adc26fea57525d90450349b6e82c7569b">DynExpInstr::RS_SMB100B</a>, <a class="el" href="classDynExpInstr_1_1RS__SMC100A.html#a447e2e0158cede7440baef3e363861ab">DynExpInstr::RS_SMC100A</a>, <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#acb56e2665b5ac5aa64a6ed7887c17d8c">DynExpInstr::SwabianInstrumentsPulseStreamer</a>, <a class="el" href="classDynExpInstr_1_1ZI__MFLI.html#a39ace3b4bbfe5ed14efc63628c013c24">DynExpInstr::ZI_MFLI</a>, <a class="el" href="classDynExpInstr_1_1Camera.html#ac3524ff1afe5a3473eeb1b2c66a340ce">DynExpInstr::Camera</a>, <a class="el" href="classDynExpInstr_1_1LockinAmplifier.html#a2784bcd683baa6bfa0408303a2db267c">DynExpInstr::LockinAmplifier</a>, <a class="el" href="classDynExpInstr_1_1Spectrometer.html#a89c88ae2f70fcf7efb3fefe3b2adc563">DynExpInstr::Spectrometer</a>, <a class="el" href="classDynExpInstr_1_1PositionerStage.html#a8a62a3d2ea0dd5eb928595ffa3828539">DynExpInstr::PositionerStage</a>, and <a class="el" href="classDynExpInstr_1_1TimeTagger.html#abdf777b753a4d34b42cccb8ec3aeab65">DynExpInstr::TimeTagger</a>.</p>
+<p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NenionLeakvalveF3.html#a495f5498bed3ee82a827d3283e49cbc5">DynExpInstr::NenionLeakvalveF3</a>, <a class="el" href="classDynExpInstr_1_1NP__Conex__CC.html#afdb9cb6c1491364b1d2ddcaaf7a5092a">DynExpInstr::NP_Conex_CC</a>, <a class="el" href="classDynExpInstr_1_1RS__SMB100B.html#adc26fea57525d90450349b6e82c7569b">DynExpInstr::RS_SMB100B</a>, <a class="el" href="classDynExpInstr_1_1RS__SMC100A.html#a447e2e0158cede7440baef3e363861ab">DynExpInstr::RS_SMC100A</a>, <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#acb56e2665b5ac5aa64a6ed7887c17d8c">DynExpInstr::SwabianInstrumentsPulseStreamer</a>, <a class="el" href="classDynExpInstr_1_1ZI__MFLI.html#a39ace3b4bbfe5ed14efc63628c013c24">DynExpInstr::ZI_MFLI</a>, <a class="el" href="classDynExpInstr_1_1Camera.html#ac3524ff1afe5a3473eeb1b2c66a340ce">DynExpInstr::Camera</a>, <a class="el" href="classDynExpInstr_1_1Laser.html#a83132db76d1011b19dfe6e937f252d58">DynExpInstr::Laser</a>, <a class="el" href="classDynExpInstr_1_1LockinAmplifier.html#a2784bcd683baa6bfa0408303a2db267c">DynExpInstr::LockinAmplifier</a>, <a class="el" href="classDynExpInstr_1_1Spectrometer.html#a89c88ae2f70fcf7efb3fefe3b2adc563">DynExpInstr::Spectrometer</a>, <a class="el" href="classDynExpInstr_1_1PositionerStage.html#a8a62a3d2ea0dd5eb928595ffa3828539">DynExpInstr::PositionerStage</a>, and <a class="el" href="classDynExpInstr_1_1TimeTagger.html#abdf777b753a4d34b42cccb8ec3aeab65">DynExpInstr::TimeTagger</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00536">536</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00584">584</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -1144,12 +1187,12 @@ template&lt;typename DerivedInstrT , typename... TaskFuncArgTs, typename... ArgT
 <p>Determines whether task handling should continue. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns false if task handling (the instrument) should stop, true otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00726">726</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00767">767</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
-<a id="a4ad80da03411380354706d04e3777419" name="a4ad80da03411380354706d04e3777419"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ad80da03411380354706d04e3777419">&#9670;&#160;</a></span>HandleTask()</h2>
+<a id="a3ee74825f4dab8d5217630ae3a81f688" name="a3ee74825f4dab8d5217630ae3a81f688"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ee74825f4dab8d5217630ae3a81f688">&#9670;&#160;</a></span>HandleTask()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1158,7 +1201,7 @@ template&lt;typename DerivedInstrT , typename... TaskFuncArgTs, typename... ArgT
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool DynExp::InstrumentBase::HandleTask </td>
+          <td class="memname"><a class="el" href="classDynExp_1_1InstrumentBase.html#ae4c1df1468a66aed40479c5567b64322">InstrumentBase::TaskHandlingContinuationType</a> DynExp::InstrumentBase::HandleTask </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classDynExp_1_1InstrumentInstance.html">InstrumentInstance</a> &amp;&#160;</td>
           <td class="paramname"><em>Instance</em></td><td>)</td>
@@ -1179,9 +1222,9 @@ template&lt;typename DerivedInstrT , typename... TaskFuncArgTs, typename... ArgT
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns false if task handling (the instrument) should stop, true otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns how the instrument should proceed after handling a task at front of the task queue. Always indicates <code><a class="el" href="classDynExp_1_1InstrumentBase.html#ae4c1df1468a66aed40479c5567b64322aa0bfb8e59e6c13fc8d990781f77694fe">InstrumentBase::TaskHandlingContinuationType::Continue</a></code> if there is no task to be handled. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00254">254</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00278">278</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1211,7 +1254,7 @@ template&lt;typename DerivedInstrT , typename... TaskFuncArgTs, typename... ArgT
 <p>Getter for <a class="el" href="classDynExp_1_1InstrumentBase.html#a6a4aa47314f1057959e45bf307c70b49" title="Determines whether the init task (InitTaskBase) has run.">Initialized</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns true when the instrument is initialized and ready to handle tasks, false othweise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00590">590</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00638">638</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -1243,7 +1286,7 @@ template&lt;typename DerivedInstrT , typename... TaskFuncArgTs, typename... ArgT
 
 <p>Implements <a class="el" href="classDynExp_1_1Object.html#a4dc92bcd4b24ce2242b323f6ebac070a">DynExp::Object</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00419">419</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00467">467</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1288,7 +1331,7 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00627">627</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00675">675</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -1318,9 +1361,9 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
 <p>Factory function for an exit task (<code><a class="el" href="classDynExp_1_1ExitTaskBase.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy....">ExitTaskBase</a></code>). Override to define the desired deinitialization task in derived classes only if the respective task really does something and if it has no pure virtual function. </p>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the task (transferring ownership) or nullptr if no exit task is required. A task can be created with <code><a class="el" href="namespaceDynExp.html#a92837960e2b88977b310d2f3eeb28561" title="Factory function to create a task to be enqueued in an instrument&#39;s task queue.">MakeTask()</a></code>. </dd></dl>
 
-<p>Reimplemented in <a class="el" href="classDynExpInstr_1_1DummyDataStreamInstrument.html#a46df978ce43d683faaf1e69b6e192f3c">DynExpInstr::DummyDataStreamInstrument</a>, <a class="el" href="classDynExpInstr_1_1NenionLeakvalveF3.html#aa5faf0bf92a0d4704d8825146afde83d">DynExpInstr::NenionLeakvalveF3</a>, <a class="el" href="classDynExpInstr_1_1NetworkSpectrometer.html#a97bdb3b5e9b02411f8b63eab629f4b60">DynExpInstr::NetworkSpectrometer</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogIn.html#a011e816d9b0f7be12358c58b3f37ad5a">DynExpInstr::NIDAQAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogOut.html#af832ac7e9dd11567e5de2f84ef03e002">DynExpInstr::NIDAQAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalIn.html#a2af29272b93f21f87d8a7fd5a46868ab">DynExpInstr::NIDAQDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalOut.html#a54dbf824af1e4da0f821ba8562b05830">DynExpInstr::NIDAQDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1PI__C__862.html#a70843a605cfeee9f4af86a4a377d5ba4">DynExpInstr::PI_C_862</a>, <a class="el" href="classDynExpInstr_1_1PVCam.html#a6fdd5041283166fe850e5df336ea1cca">DynExpInstr::PVCam</a>, <a class="el" href="classDynExpInstr_1_1QutoolsQuTAG.html#af3e6fafd6adf6bce35f157fd8a33fa56">DynExpInstr::QutoolsQuTAG</a>, <a class="el" href="classDynExpInstr_1_1RS__SMB100B.html#a54c09a0ac8f6c470b9fba9e4b31f4bc2">DynExpInstr::RS_SMB100B</a>, <a class="el" href="classDynExpInstr_1_1RS__SMC100A.html#a6046bccb5072cadda9bd1e96a21a847f">DynExpInstr::RS_SMC100A</a>, <a class="el" href="classDynExpInstr_1_1SmarAct.html#ab1adfcf5e0803d2e506ac1e0b2d068ae">DynExpInstr::SmarAct</a>, <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#a6eb0f07df8ad48f9018610b1dbd1f9d2">DynExpInstr::SwabianInstrumentsPulseStreamer</a>, <a class="el" href="classDynExpInstr_1_1WidefieldLocalization.html#a9a5fcd60c3ec38b7d33acd2903961363">DynExpInstr::WidefieldLocalization</a>, <a class="el" href="classDynExpInstr_1_1ZI__MFLI.html#ad6fe578d6028c10df54079841b80fd7e">DynExpInstr::ZI_MFLI</a>, <a class="el" href="classDynExpInstr_1_1AnalogIn.html#afb3daa21698ef0bfdd023896ad5b5579">DynExpInstr::AnalogIn</a>, <a class="el" href="classDynExpInstr_1_1AnalogOut.html#a1fe4a9c74e5ba796d0656ee6abebe6ce">DynExpInstr::AnalogOut</a>, <a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#affa2e55d6eb6beacd9889e450a392a11">DynExpInstr::DataStreamInstrument</a>, <a class="el" href="classDynExpInstr_1_1DigitalIn.html#a4419c8234b3b96aa8c67eb24b96c20fe">DynExpInstr::DigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DigitalOut.html#a136ca10b582ddb262c2971255cf31bd1">DynExpInstr::DigitalOut</a>, <a class="el" href="classDynExpInstr_1_1FunctionGenerator.html#a56167ec50d688570059eeaf128f6e672">DynExpInstr::FunctionGenerator</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#ad856281610bdf95239d0a5c75ae7e220">DynExpInstr::gRPCInstrument&lt; DataStreamInstrument, 0, gRPCStubs... &gt;</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#ad856281610bdf95239d0a5c75ae7e220">DynExpInstr::gRPCInstrument&lt; DynExp::InstrumentBase, 0, DynExpProto::WidefieldLocalization::WidefieldLocalization &gt;</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#ad856281610bdf95239d0a5c75ae7e220">DynExpInstr::gRPCInstrument&lt; Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer &gt;</a>, <a class="el" href="classDynExpInstr_1_1InputPort.html#afa1d8d112ce9e4197631d29197643826">DynExpInstr::InputPort</a>, <a class="el" href="classDynExpInstr_1_1LockinAmplifier.html#ac3cf57e362e59fd3156e2a0b0ed16a74">DynExpInstr::LockinAmplifier</a>, <a class="el" href="classDynExpInstr_1_1OutputPort.html#a66a6c6a6be13d168498627219174828e">DynExpInstr::OutputPort</a>, and <a class="el" href="classDynExpInstr_1_1TimeTagger.html#ae4c9699d7da22c524b23bafba88f9539">DynExpInstr::TimeTagger</a>.</p>
+<p>Reimplemented in <a class="el" href="classDynExpInstr_1_1DummyAnalogIn.html#a42f692dd208fab3f157a66fc821f5447">DynExpInstr::DummyAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1DummyAnalogOut.html#a00f327934e85e1fb5a2a3439a72d04cb">DynExpInstr::DummyAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1DummyDataStreamInstrument.html#a46df978ce43d683faaf1e69b6e192f3c">DynExpInstr::DummyDataStreamInstrument</a>, <a class="el" href="classDynExpInstr_1_1DummyDigitalIn.html#a739db07d01199b40ab76807f95780ddd">DynExpInstr::DummyDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DummyDigitalOut.html#addc59be82ad89f9604eacd3f6a1689e9">DynExpInstr::DummyDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1NenionLeakvalveF3.html#aa5faf0bf92a0d4704d8825146afde83d">DynExpInstr::NenionLeakvalveF3</a>, <a class="el" href="classDynExpInstr_1_1NetworkLaser.html#abd9a7306687ed078cd33dd4e46ae8480">DynExpInstr::NetworkLaser</a>, <a class="el" href="classDynExpInstr_1_1NetworkSpectrometer.html#a97bdb3b5e9b02411f8b63eab629f4b60">DynExpInstr::NetworkSpectrometer</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogIn.html#a011e816d9b0f7be12358c58b3f37ad5a">DynExpInstr::NIDAQAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogOut.html#af832ac7e9dd11567e5de2f84ef03e002">DynExpInstr::NIDAQAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalIn.html#a2af29272b93f21f87d8a7fd5a46868ab">DynExpInstr::NIDAQDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalOut.html#a54dbf824af1e4da0f821ba8562b05830">DynExpInstr::NIDAQDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1NP__Conex__CC.html#ab02c144ef0bb58cefbd256c2dd33f72d">DynExpInstr::NP_Conex_CC</a>, <a class="el" href="classDynExpInstr_1_1PI__C__862.html#a70843a605cfeee9f4af86a4a377d5ba4">DynExpInstr::PI_C_862</a>, <a class="el" href="classDynExpInstr_1_1PVCam.html#a6fdd5041283166fe850e5df336ea1cca">DynExpInstr::PVCam</a>, <a class="el" href="classDynExpInstr_1_1QutoolsQuTAG.html#af3e6fafd6adf6bce35f157fd8a33fa56">DynExpInstr::QutoolsQuTAG</a>, <a class="el" href="classDynExpInstr_1_1RS__SMB100B.html#a54c09a0ac8f6c470b9fba9e4b31f4bc2">DynExpInstr::RS_SMB100B</a>, <a class="el" href="classDynExpInstr_1_1RS__SMC100A.html#a6046bccb5072cadda9bd1e96a21a847f">DynExpInstr::RS_SMC100A</a>, <a class="el" href="classDynExpInstr_1_1SmarAct.html#ab1adfcf5e0803d2e506ac1e0b2d068ae">DynExpInstr::SmarAct</a>, <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#a6eb0f07df8ad48f9018610b1dbd1f9d2">DynExpInstr::SwabianInstrumentsPulseStreamer</a>, <a class="el" href="classDynExpInstr_1_1WidefieldLocalization.html#a9a5fcd60c3ec38b7d33acd2903961363">DynExpInstr::WidefieldLocalization</a>, <a class="el" href="classDynExpInstr_1_1ZI__MFLI.html#ad6fe578d6028c10df54079841b80fd7e">DynExpInstr::ZI_MFLI</a>, <a class="el" href="classDynExpInstr_1_1AnalogIn.html#afb3daa21698ef0bfdd023896ad5b5579">DynExpInstr::AnalogIn</a>, <a class="el" href="classDynExpInstr_1_1AnalogOut.html#a1fe4a9c74e5ba796d0656ee6abebe6ce">DynExpInstr::AnalogOut</a>, <a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#affa2e55d6eb6beacd9889e450a392a11">DynExpInstr::DataStreamInstrument</a>, <a class="el" href="classDynExpInstr_1_1DigitalIn.html#a4419c8234b3b96aa8c67eb24b96c20fe">DynExpInstr::DigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DigitalOut.html#a136ca10b582ddb262c2971255cf31bd1">DynExpInstr::DigitalOut</a>, <a class="el" href="classDynExpInstr_1_1FunctionGenerator.html#a56167ec50d688570059eeaf128f6e672">DynExpInstr::FunctionGenerator</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#ad856281610bdf95239d0a5c75ae7e220">DynExpInstr::gRPCInstrument&lt; DataStreamInstrument, 0, gRPCStubs... &gt;</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#ad856281610bdf95239d0a5c75ae7e220">DynExpInstr::gRPCInstrument&lt; DynExp::InstrumentBase, 0, DynExpProto::WidefieldLocalization::WidefieldLocalization &gt;</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#ad856281610bdf95239d0a5c75ae7e220">DynExpInstr::gRPCInstrument&lt; Laser, 0, DynExpProto::NetworkLaser::NetworkLaser &gt;</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#ad856281610bdf95239d0a5c75ae7e220">DynExpInstr::gRPCInstrument&lt; Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer &gt;</a>, <a class="el" href="classDynExpInstr_1_1InputPort.html#afa1d8d112ce9e4197631d29197643826">DynExpInstr::InputPort</a>, <a class="el" href="classDynExpInstr_1_1LockinAmplifier.html#ac3cf57e362e59fd3156e2a0b0ed16a74">DynExpInstr::LockinAmplifier</a>, <a class="el" href="classDynExpInstr_1_1OutputPort.html#a66a6c6a6be13d168498627219174828e">DynExpInstr::OutputPort</a>, and <a class="el" href="classDynExpInstr_1_1TimeTagger.html#ae4c9699d7da22c524b23bafba88f9539">DynExpInstr::TimeTagger</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00751">751</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00792">792</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -1350,9 +1393,9 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
 <p>Factory function for an init task (<code><a class="el" href="classDynExp_1_1InitTaskBase.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy....">InitTaskBase</a></code>). Override to define the desired initialization task in derived classes only if the respective task really does something and if it has no pure virtual function. </p>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the task (transferring ownership) or nullptr if no init task is required. A task can be created with <code><a class="el" href="namespaceDynExp.html#a92837960e2b88977b310d2f3eeb28561" title="Factory function to create a task to be enqueued in an instrument&#39;s task queue.">MakeTask()</a></code>. </dd></dl>
 
-<p>Reimplemented in <a class="el" href="classDynExpInstr_1_1DummyCamera.html#af2dc3671d9ba4377e9369e57d7818c5b">DynExpInstr::DummyCamera</a>, <a class="el" href="classDynExpInstr_1_1DummyDataStreamInstrument.html#a2114c60ee3a3dde007c663834c676f42">DynExpInstr::DummyDataStreamInstrument</a>, <a class="el" href="classDynExpInstr_1_1NenionLeakvalveF3.html#ad46d1e3e876ca210afbccbfcf58381eb">DynExpInstr::NenionLeakvalveF3</a>, <a class="el" href="classDynExpInstr_1_1NetworkSpectrometer.html#a8d8c9a1d85d57b5748075270dc61cf6d">DynExpInstr::NetworkSpectrometer</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogIn.html#a06900c05ecf8bc783fb8755db3d121ef">DynExpInstr::NIDAQAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogOut.html#ace784bc5e97c680fc89a21d6001cdb98">DynExpInstr::NIDAQAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalIn.html#aea36128bab8edf92efab2165d33c3e19">DynExpInstr::NIDAQDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalOut.html#ac379baa8e4bceec3648ae9f1ce2adf2c">DynExpInstr::NIDAQDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1PI__C__862.html#a8dc585515468d5781334c142c7317200">DynExpInstr::PI_C_862</a>, <a class="el" href="classDynExpInstr_1_1PVCam.html#af9237a0471fe766d53334344cb1c5e53">DynExpInstr::PVCam</a>, <a class="el" href="classDynExpInstr_1_1QutoolsQuTAG.html#aac52b0bf2b7e652ea22f8a4d986b728b">DynExpInstr::QutoolsQuTAG</a>, <a class="el" href="classDynExpInstr_1_1RS__SMB100B.html#aa41d4cb7b9c568e089a92a8fefc6a7b5">DynExpInstr::RS_SMB100B</a>, <a class="el" href="classDynExpInstr_1_1RS__SMC100A.html#a105f706d3fff1573489959a297857106">DynExpInstr::RS_SMC100A</a>, <a class="el" href="classDynExpInstr_1_1SmarAct.html#a82638fc26f31c83a9482db12d8976e7b">DynExpInstr::SmarAct</a>, <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#ac62b43b6372a35b59d7e00dabd76a4c9">DynExpInstr::SwabianInstrumentsPulseStreamer</a>, <a class="el" href="classDynExpInstr_1_1WidefieldLocalization.html#ab7ba692dbbd346237717db8c562eda75">DynExpInstr::WidefieldLocalization</a>, <a class="el" href="classDynExpInstr_1_1ZI__MFLI.html#a998cda2cf2a8994eda36cdbe9c21d727">DynExpInstr::ZI_MFLI</a>, <a class="el" href="classDynExpInstr_1_1AnalogIn.html#a02562cd7738ba469be44297bce7e76ce">DynExpInstr::AnalogIn</a>, <a class="el" href="classDynExpInstr_1_1AnalogOut.html#a609a9751e00a2387682060e61f7e9053">DynExpInstr::AnalogOut</a>, <a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#a753458150830d4ac29f65c98fd72f7a0">DynExpInstr::DataStreamInstrument</a>, <a class="el" href="classDynExpInstr_1_1DigitalIn.html#a84576473513e6529d9a3984d379f3dad">DynExpInstr::DigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DigitalOut.html#a00ee5a8b10d30a40a474dbb1098b58c0">DynExpInstr::DigitalOut</a>, <a class="el" href="classDynExpInstr_1_1FunctionGenerator.html#a11d9f8c41ba511849af3fb9541b9424c">DynExpInstr::FunctionGenerator</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a9247640da547c5213952148d33533d3e">DynExpInstr::gRPCInstrument&lt; DataStreamInstrument, 0, gRPCStubs... &gt;</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a9247640da547c5213952148d33533d3e">DynExpInstr::gRPCInstrument&lt; DynExp::InstrumentBase, 0, DynExpProto::WidefieldLocalization::WidefieldLocalization &gt;</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a9247640da547c5213952148d33533d3e">DynExpInstr::gRPCInstrument&lt; Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer &gt;</a>, <a class="el" href="classDynExpInstr_1_1InputPort.html#a7fccda982f6ffd966277e92b5785f77e">DynExpInstr::InputPort</a>, <a class="el" href="classDynExpInstr_1_1LockinAmplifier.html#a5fc5c02f970ea3aabcc60ff32a8f5cd4">DynExpInstr::LockinAmplifier</a>, <a class="el" href="classDynExpInstr_1_1OutputPort.html#a21006156902b800db379097a57a14d54">DynExpInstr::OutputPort</a>, and <a class="el" href="classDynExpInstr_1_1TimeTagger.html#aafb733ec58688d5d558607b576d1a896">DynExpInstr::TimeTagger</a>.</p>
+<p>Reimplemented in <a class="el" href="classDynExpInstr_1_1DummyAnalogIn.html#a42fbc3236584a832cfbc073e39fa1a7d">DynExpInstr::DummyAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1DummyAnalogOut.html#adaf7906e4a3b633f690d1c699c299a31">DynExpInstr::DummyAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1DummyCamera.html#af2dc3671d9ba4377e9369e57d7818c5b">DynExpInstr::DummyCamera</a>, <a class="el" href="classDynExpInstr_1_1DummyDataStreamInstrument.html#a2114c60ee3a3dde007c663834c676f42">DynExpInstr::DummyDataStreamInstrument</a>, <a class="el" href="classDynExpInstr_1_1DummyDigitalIn.html#a4c06154942771dad010c16413af155ca">DynExpInstr::DummyDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DummyDigitalOut.html#a56e87e38a986ada030eca7b26af34053">DynExpInstr::DummyDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1NenionLeakvalveF3.html#ad46d1e3e876ca210afbccbfcf58381eb">DynExpInstr::NenionLeakvalveF3</a>, <a class="el" href="classDynExpInstr_1_1NetworkLaser.html#a50b1ead5ceed783023ae6905fa823959">DynExpInstr::NetworkLaser</a>, <a class="el" href="classDynExpInstr_1_1NetworkSpectrometer.html#a8d8c9a1d85d57b5748075270dc61cf6d">DynExpInstr::NetworkSpectrometer</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogIn.html#a06900c05ecf8bc783fb8755db3d121ef">DynExpInstr::NIDAQAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogOut.html#ace784bc5e97c680fc89a21d6001cdb98">DynExpInstr::NIDAQAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalIn.html#aea36128bab8edf92efab2165d33c3e19">DynExpInstr::NIDAQDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalOut.html#ac379baa8e4bceec3648ae9f1ce2adf2c">DynExpInstr::NIDAQDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1NP__Conex__CC.html#a4803ba1b6fac2afedd15ae9f9667ab8b">DynExpInstr::NP_Conex_CC</a>, <a class="el" href="classDynExpInstr_1_1PI__C__862.html#a8dc585515468d5781334c142c7317200">DynExpInstr::PI_C_862</a>, <a class="el" href="classDynExpInstr_1_1PVCam.html#af9237a0471fe766d53334344cb1c5e53">DynExpInstr::PVCam</a>, <a class="el" href="classDynExpInstr_1_1QutoolsQuTAG.html#aac52b0bf2b7e652ea22f8a4d986b728b">DynExpInstr::QutoolsQuTAG</a>, <a class="el" href="classDynExpInstr_1_1RS__SMB100B.html#aa41d4cb7b9c568e089a92a8fefc6a7b5">DynExpInstr::RS_SMB100B</a>, <a class="el" href="classDynExpInstr_1_1RS__SMC100A.html#a105f706d3fff1573489959a297857106">DynExpInstr::RS_SMC100A</a>, <a class="el" href="classDynExpInstr_1_1SmarAct.html#a82638fc26f31c83a9482db12d8976e7b">DynExpInstr::SmarAct</a>, <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#ac62b43b6372a35b59d7e00dabd76a4c9">DynExpInstr::SwabianInstrumentsPulseStreamer</a>, <a class="el" href="classDynExpInstr_1_1WidefieldLocalization.html#ab7ba692dbbd346237717db8c562eda75">DynExpInstr::WidefieldLocalization</a>, <a class="el" href="classDynExpInstr_1_1ZI__MFLI.html#a998cda2cf2a8994eda36cdbe9c21d727">DynExpInstr::ZI_MFLI</a>, <a class="el" href="classDynExpInstr_1_1AnalogIn.html#a02562cd7738ba469be44297bce7e76ce">DynExpInstr::AnalogIn</a>, <a class="el" href="classDynExpInstr_1_1AnalogOut.html#a609a9751e00a2387682060e61f7e9053">DynExpInstr::AnalogOut</a>, <a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#a753458150830d4ac29f65c98fd72f7a0">DynExpInstr::DataStreamInstrument</a>, <a class="el" href="classDynExpInstr_1_1DigitalIn.html#a84576473513e6529d9a3984d379f3dad">DynExpInstr::DigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DigitalOut.html#a00ee5a8b10d30a40a474dbb1098b58c0">DynExpInstr::DigitalOut</a>, <a class="el" href="classDynExpInstr_1_1FunctionGenerator.html#a11d9f8c41ba511849af3fb9541b9424c">DynExpInstr::FunctionGenerator</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a9247640da547c5213952148d33533d3e">DynExpInstr::gRPCInstrument&lt; DataStreamInstrument, 0, gRPCStubs... &gt;</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a9247640da547c5213952148d33533d3e">DynExpInstr::gRPCInstrument&lt; DynExp::InstrumentBase, 0, DynExpProto::WidefieldLocalization::WidefieldLocalization &gt;</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a9247640da547c5213952148d33533d3e">DynExpInstr::gRPCInstrument&lt; Laser, 0, DynExpProto::NetworkLaser::NetworkLaser &gt;</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a9247640da547c5213952148d33533d3e">DynExpInstr::gRPCInstrument&lt; Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer &gt;</a>, <a class="el" href="classDynExpInstr_1_1InputPort.html#a7fccda982f6ffd966277e92b5785f77e">DynExpInstr::InputPort</a>, <a class="el" href="classDynExpInstr_1_1LockinAmplifier.html#a5fc5c02f970ea3aabcc60ff32a8f5cd4">DynExpInstr::LockinAmplifier</a>, <a class="el" href="classDynExpInstr_1_1OutputPort.html#a21006156902b800db379097a57a14d54">DynExpInstr::OutputPort</a>, and <a class="el" href="classDynExpInstr_1_1TimeTagger.html#aafb733ec58688d5d558607b576d1a896">DynExpInstr::TimeTagger</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00742">742</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00783">783</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -1382,9 +1425,9 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
 <p>Factory function for an update task (<code><a class="el" href="classDynExp_1_1UpdateTaskBase.html" title="Defines a task for updating an instrument within an instrument inheritance hierarchy....">UpdateTaskBase</a></code>). Override to define the desired update task in derived classes only if the respective task really does something and if it has no pure virtual function. </p>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the task (transferring ownership) or nullptr if no update task is required. A task can be created with <code><a class="el" href="namespaceDynExp.html#a92837960e2b88977b310d2f3eeb28561" title="Factory function to create a task to be enqueued in an instrument&#39;s task queue.">MakeTask()</a></code>. </dd></dl>
 
-<p>Reimplemented in <a class="el" href="classDynExpInstr_1_1DummyCamera.html#a36cbfa2b3b8944c066a48b04aa2f6ee7">DynExpInstr::DummyCamera</a>, <a class="el" href="classDynExpInstr_1_1DummyDataStreamInstrument.html#abb898109090071d15b63877fafff45d4">DynExpInstr::DummyDataStreamInstrument</a>, <a class="el" href="classDynExpInstr_1_1NenionLeakvalveF3.html#ab03f2d0a04cc233e10c763a3b5db2529">DynExpInstr::NenionLeakvalveF3</a>, <a class="el" href="classDynExpInstr_1_1NetworkSpectrometer.html#af0ebc58459068baee92b4ff2a95231d7">DynExpInstr::NetworkSpectrometer</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogIn.html#aef43daf4361c2fbb5026d0575f070ac2">DynExpInstr::NIDAQAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogOut.html#a9ba188e58ca736fa9dda531f22af0646">DynExpInstr::NIDAQAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalIn.html#a08487bec4bca4e4b4e696876f3299632">DynExpInstr::NIDAQDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalOut.html#aa3170b414150ad86a7fe31250c040ffc">DynExpInstr::NIDAQDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1PI__C__862.html#a9c6c2ba7f96c0d98c192ca7cbcbe749f">DynExpInstr::PI_C_862</a>, <a class="el" href="classDynExpInstr_1_1PVCam.html#aa949b5b20b333aed46571fc7dd44a603">DynExpInstr::PVCam</a>, <a class="el" href="classDynExpInstr_1_1QutoolsQuTAG.html#ad644880637c64110653581a7f876ce96">DynExpInstr::QutoolsQuTAG</a>, <a class="el" href="classDynExpInstr_1_1RS__SMB100B.html#a5551bf0c6175871b3dd5856183615559">DynExpInstr::RS_SMB100B</a>, <a class="el" href="classDynExpInstr_1_1RS__SMC100A.html#abd87fa290b6b3f74c4194f8e4e076be3">DynExpInstr::RS_SMC100A</a>, <a class="el" href="classDynExpInstr_1_1SmarAct.html#ac7a5a0fd0fbbf8f69e018991dca84654">DynExpInstr::SmarAct</a>, <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#a6adde24c97d52ffdda97aaee8c57a214">DynExpInstr::SwabianInstrumentsPulseStreamer</a>, <a class="el" href="classDynExpInstr_1_1WidefieldLocalization.html#a4d0df8f438e761691098c6aef8d49816">DynExpInstr::WidefieldLocalization</a>, <a class="el" href="classDynExpInstr_1_1ZI__MFLI.html#a0b5f025b3c9171c6e39068cf1234d0b8">DynExpInstr::ZI_MFLI</a>, <a class="el" href="classDynExpInstr_1_1AnalogIn.html#ad8c9906ff2cac9e72889f021bda6f943">DynExpInstr::AnalogIn</a>, <a class="el" href="classDynExpInstr_1_1AnalogOut.html#a395c99510fd7b5f72e23e4274e787a37">DynExpInstr::AnalogOut</a>, <a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#ae17ffa8710155d3cc442abe3b1cd5d85">DynExpInstr::DataStreamInstrument</a>, <a class="el" href="classDynExpInstr_1_1DigitalIn.html#a52bb0b75265ada7ac940b683fc68cdfd">DynExpInstr::DigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DigitalOut.html#a7100ececb188e6340d6347904b5eff57">DynExpInstr::DigitalOut</a>, <a class="el" href="classDynExpInstr_1_1FunctionGenerator.html#a2ef98585bf2d6ea2a1a6180aa63d6141">DynExpInstr::FunctionGenerator</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a9b5407927cfdfd7c91f1dff490b06ad2">DynExpInstr::gRPCInstrument&lt; DataStreamInstrument, 0, gRPCStubs... &gt;</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a9b5407927cfdfd7c91f1dff490b06ad2">DynExpInstr::gRPCInstrument&lt; DynExp::InstrumentBase, 0, DynExpProto::WidefieldLocalization::WidefieldLocalization &gt;</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a9b5407927cfdfd7c91f1dff490b06ad2">DynExpInstr::gRPCInstrument&lt; Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer &gt;</a>, <a class="el" href="classDynExpInstr_1_1InputPort.html#a629187503e9d69a026418cc9cd2fddb1">DynExpInstr::InputPort</a>, <a class="el" href="classDynExpInstr_1_1LockinAmplifier.html#a7f6bffd268b8e762ce66393a3593be43">DynExpInstr::LockinAmplifier</a>, <a class="el" href="classDynExpInstr_1_1OutputPort.html#a35697f6a34c1d51f5cd0bdcf3c6acab8">DynExpInstr::OutputPort</a>, and <a class="el" href="classDynExpInstr_1_1TimeTagger.html#aec53a92838dfe098ca368d292c447b91">DynExpInstr::TimeTagger</a>.</p>
+<p>Reimplemented in <a class="el" href="classDynExpInstr_1_1DummyAnalogIn.html#ac18c9084f526491afad030d94e61b89b">DynExpInstr::DummyAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1DummyAnalogOut.html#a734ea5905cfb332a11bb57472c236eda">DynExpInstr::DummyAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1DummyCamera.html#a36cbfa2b3b8944c066a48b04aa2f6ee7">DynExpInstr::DummyCamera</a>, <a class="el" href="classDynExpInstr_1_1DummyDataStreamInstrument.html#abb898109090071d15b63877fafff45d4">DynExpInstr::DummyDataStreamInstrument</a>, <a class="el" href="classDynExpInstr_1_1DummyDigitalIn.html#ae1b0bbedad683952947abd2addad14a8">DynExpInstr::DummyDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DummyDigitalOut.html#a952c5af0bb63243610247a4e19b4cce7">DynExpInstr::DummyDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1NenionLeakvalveF3.html#ab03f2d0a04cc233e10c763a3b5db2529">DynExpInstr::NenionLeakvalveF3</a>, <a class="el" href="classDynExpInstr_1_1NetworkLaser.html#a0e1f44a8f4487591f5d4836f3b2717fd">DynExpInstr::NetworkLaser</a>, <a class="el" href="classDynExpInstr_1_1NetworkSpectrometer.html#af0ebc58459068baee92b4ff2a95231d7">DynExpInstr::NetworkSpectrometer</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogIn.html#aef43daf4361c2fbb5026d0575f070ac2">DynExpInstr::NIDAQAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogOut.html#a9ba188e58ca736fa9dda531f22af0646">DynExpInstr::NIDAQAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalIn.html#a08487bec4bca4e4b4e696876f3299632">DynExpInstr::NIDAQDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalOut.html#aa3170b414150ad86a7fe31250c040ffc">DynExpInstr::NIDAQDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1NP__Conex__CC.html#ae1eb9d5d2d712cf49f44db7107714e75">DynExpInstr::NP_Conex_CC</a>, <a class="el" href="classDynExpInstr_1_1PI__C__862.html#a9c6c2ba7f96c0d98c192ca7cbcbe749f">DynExpInstr::PI_C_862</a>, <a class="el" href="classDynExpInstr_1_1PVCam.html#aa949b5b20b333aed46571fc7dd44a603">DynExpInstr::PVCam</a>, <a class="el" href="classDynExpInstr_1_1QutoolsQuTAG.html#ad644880637c64110653581a7f876ce96">DynExpInstr::QutoolsQuTAG</a>, <a class="el" href="classDynExpInstr_1_1RS__SMB100B.html#a5551bf0c6175871b3dd5856183615559">DynExpInstr::RS_SMB100B</a>, <a class="el" href="classDynExpInstr_1_1RS__SMC100A.html#abd87fa290b6b3f74c4194f8e4e076be3">DynExpInstr::RS_SMC100A</a>, <a class="el" href="classDynExpInstr_1_1SmarAct.html#ac7a5a0fd0fbbf8f69e018991dca84654">DynExpInstr::SmarAct</a>, <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#a6adde24c97d52ffdda97aaee8c57a214">DynExpInstr::SwabianInstrumentsPulseStreamer</a>, <a class="el" href="classDynExpInstr_1_1WidefieldLocalization.html#a4d0df8f438e761691098c6aef8d49816">DynExpInstr::WidefieldLocalization</a>, <a class="el" href="classDynExpInstr_1_1ZI__MFLI.html#a0b5f025b3c9171c6e39068cf1234d0b8">DynExpInstr::ZI_MFLI</a>, <a class="el" href="classDynExpInstr_1_1AnalogIn.html#ad8c9906ff2cac9e72889f021bda6f943">DynExpInstr::AnalogIn</a>, <a class="el" href="classDynExpInstr_1_1AnalogOut.html#a395c99510fd7b5f72e23e4274e787a37">DynExpInstr::AnalogOut</a>, <a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#ae17ffa8710155d3cc442abe3b1cd5d85">DynExpInstr::DataStreamInstrument</a>, <a class="el" href="classDynExpInstr_1_1DigitalIn.html#a52bb0b75265ada7ac940b683fc68cdfd">DynExpInstr::DigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DigitalOut.html#a7100ececb188e6340d6347904b5eff57">DynExpInstr::DigitalOut</a>, <a class="el" href="classDynExpInstr_1_1FunctionGenerator.html#a2ef98585bf2d6ea2a1a6180aa63d6141">DynExpInstr::FunctionGenerator</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a9b5407927cfdfd7c91f1dff490b06ad2">DynExpInstr::gRPCInstrument&lt; DataStreamInstrument, 0, gRPCStubs... &gt;</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a9b5407927cfdfd7c91f1dff490b06ad2">DynExpInstr::gRPCInstrument&lt; DynExp::InstrumentBase, 0, DynExpProto::WidefieldLocalization::WidefieldLocalization &gt;</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a9b5407927cfdfd7c91f1dff490b06ad2">DynExpInstr::gRPCInstrument&lt; Laser, 0, DynExpProto::NetworkLaser::NetworkLaser &gt;</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a9b5407927cfdfd7c91f1dff490b06ad2">DynExpInstr::gRPCInstrument&lt; Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer &gt;</a>, <a class="el" href="classDynExpInstr_1_1InputPort.html#a629187503e9d69a026418cc9cd2fddb1">DynExpInstr::InputPort</a>, <a class="el" href="classDynExpInstr_1_1LockinAmplifier.html#a7f6bffd268b8e762ce66393a3593be43">DynExpInstr::LockinAmplifier</a>, <a class="el" href="classDynExpInstr_1_1OutputPort.html#a35697f6a34c1d51f5cd0bdcf3c6acab8">DynExpInstr::OutputPort</a>, and <a class="el" href="classDynExpInstr_1_1TimeTagger.html#aec53a92838dfe098ca368d292c447b91">DynExpInstr::TimeTagger</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00760">760</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00801">801</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -1415,7 +1458,7 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1RunnableObject.html#a4af7d2755ba134d284e9cfc6ab99b509">DynExp::RunnableObject</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00340">340</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00388">388</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1444,7 +1487,7 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
 
 <p>Derived classes can perform critical shutdown actions after an error has occurred. Override <code><a class="el" href="classDynExp_1_1InstrumentBase.html#a90b1ec6ab7fe93f77b06f37ae8bf8341" title="Derived classes can perform critical shutdown actions after an error has occurred....">OnErrorChild()</a></code> to adjust behavior. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00290">290</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00338">338</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1473,9 +1516,9 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
 
 <p>Derived classes can perform critical shutdown actions after an error has occurred. Override <code><a class="el" href="classDynExp_1_1InstrumentBase.html#a90b1ec6ab7fe93f77b06f37ae8bf8341" title="Derived classes can perform critical shutdown actions after an error has occurred....">OnErrorChild()</a></code> to adjust behavior.   </p>
 
-<p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NenionLeakvalveF3.html#a8f13ab0d963539a8b1bcb6681401f5f2">DynExpInstr::NenionLeakvalveF3</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogIn.html#a253bf404ff97ee3c382d67c87436fd2d">DynExpInstr::NIDAQAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogOut.html#a4232968fd9f2b5282c0007aaf600dfff">DynExpInstr::NIDAQAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalIn.html#af4c34de6949f488aa2920c5c461f4eaa">DynExpInstr::NIDAQDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalOut.html#a0afa76cc4b14a1c2b8f6131ff962a6cc">DynExpInstr::NIDAQDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1PI__C__862.html#a14fe287467a162b1f220af139b3d9e0d">DynExpInstr::PI_C_862</a>, and <a class="el" href="classDynExpInstr_1_1SmarAct.html#a463bcae721372d4f5be5ac4e5b5df4c8">DynExpInstr::SmarAct</a>.</p>
+<p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NenionLeakvalveF3.html#a8f13ab0d963539a8b1bcb6681401f5f2">DynExpInstr::NenionLeakvalveF3</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogIn.html#a253bf404ff97ee3c382d67c87436fd2d">DynExpInstr::NIDAQAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogOut.html#a4232968fd9f2b5282c0007aaf600dfff">DynExpInstr::NIDAQAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalIn.html#af4c34de6949f488aa2920c5c461f4eaa">DynExpInstr::NIDAQDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalOut.html#a0afa76cc4b14a1c2b8f6131ff962a6cc">DynExpInstr::NIDAQDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1NP__Conex__CC.html#a60fc5fd3b71bd455b6d307066aca96bc">DynExpInstr::NP_Conex_CC</a>, <a class="el" href="classDynExpInstr_1_1PI__C__862.html#a14fe287467a162b1f220af139b3d9e0d">DynExpInstr::PI_C_862</a>, and <a class="el" href="classDynExpInstr_1_1SmarAct.html#a463bcae721372d4f5be5ac4e5b5df4c8">DynExpInstr::SmarAct</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00719">719</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00760">760</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -1504,7 +1547,7 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
 
 <p>This function enables derived classes to enqueue tasks to be executed directly before the final exit task (<code><a class="el" href="classDynExp_1_1ExitTaskBase.html" title="Defines a task for deinitializing an instrument within an instrument inheritance hierarchy....">ExitTaskBase</a></code>). Override <code><a class="el" href="classDynExp_1_1InstrumentBase.html#a80b0f1009ed687424cd03db7dc385d65" title="This function enables derived classes to enqueue tasks to be executed directly before the final exit ...">OnPrepareExitChild()</a></code> to adjust behavior. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00385">385</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00433">433</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1535,7 +1578,7 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1AnalogOut.html#a08194cda8d15c6213768dc52dcef4125">DynExpInstr::AnalogOut</a>, and <a class="el" href="classDynExpInstr_1_1DigitalOut.html#a19843499b639f2d483ffdd5cd7d520e7">DynExpInstr::DigitalOut</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00720">720</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00761">761</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -1597,7 +1640,7 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
 
 <p>Implements <a class="el" href="classDynExp_1_1RunnableObject.html#ac90bb7c8a28c813a7f4fd79c081a7aa1">DynExp::RunnableObject</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00317">317</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00365">365</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1628,7 +1671,43 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
 
 <p>Implements <a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63">DynExp::RunnableObject</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00327">327</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00375">375</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6e4a2662cbbcb38a510873ca7656aa06" name="a6e4a2662cbbcb38a510873ca7656aa06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e4a2662cbbcb38a510873ca7656aa06">&#9670;&#160;</a></span>SetException()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DynExp::InstrumentBase::SetException </td>
+          <td>(</td>
+          <td class="paramtype">std::exception_ptr&#160;</td>
+          <td class="paramname"><em>Exception</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets this instrument instance to an error state and tries to store the exception responsible for the error state in <a class="el" href="classDynExp_1_1InstrumentBase.html#aec018b9e2e65cf41072baa4a5515c3af" title="Instrument data belonging to this InstrumentBase instance.">InstrumentData</a>. If <a class="el" href="classDynExp_1_1InstrumentBase.html#aec018b9e2e65cf41072baa4a5515c3af" title="Instrument data belonging to this InstrumentBase instance.">InstrumentData</a> cannot be locked, still atomically sets an error flag. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Exception</td><td>Exception to store. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00324">324</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1666,7 +1745,7 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1RunnableObject.html#afcbabd17804369f574cd8433b36d4339">DynExp::RunnableObject</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00347">347</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00395">395</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1696,7 +1775,7 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
 <p>Determines whether to enqueue update tasks (<code><a class="el" href="classDynExp_1_1UpdateTaskBase.html" title="Defines a task for updating an instrument within an instrument inheritance hierarchy....">UpdateTaskBase</a></code>). </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if update tasks should be appended to the instrument's task queue periodically after handling all pending tasks, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00733">733</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00774">774</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -1717,7 +1796,7 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
 
 <p>Enqueues an update task (instance of class <code><a class="el" href="classDynExp_1_1UpdateTaskBase.html" title="Defines a task for updating an instrument within an instrument inheritance hierarchy....">UpdateTaskBase</a></code>). </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00237">237</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00261">261</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1746,7 +1825,7 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
 
 <p>Inserts an update task (<code><a class="el" href="classDynExp_1_1UpdateTaskBase.html" title="Defines a task for updating an instrument within an instrument inheritance hierarchy....">UpdateTaskBase</a></code>) into the instrument's task queue. Override <code><a class="el" href="classDynExp_1_1InstrumentBase.html#a3a5b07e95873c660065bc75f07f51aed" title="Determines whether to enqueue update tasks (UpdateTaskBase).">UpdateAdditionalData()</a></code> to adjust behavior. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00280">280</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8cpp_source.html#l00314">314</a> of file <a class="el" href="Instrument_8cpp_source.html">Instrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1773,7 +1852,7 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
 
 <p>Determines the default timeout for <code><a class="el" href="classDynExp_1_1InstrumentBase.html#aa31383861ecdb9c418666562c1fb7fb8" title="Locks the mutex of the instrument data class instance InstrumentData assigned to this InstrumentBase ...">GetInstrumentData()</a></code> to lock the mutex synchronizing the instrument's data <a class="el" href="classDynExp_1_1InstrumentBase.html#aec018b9e2e65cf41072baa4a5515c3af" title="Instrument data belonging to this InstrumentBase instance.">InstrumentData</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00543">543</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00591">591</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -1799,7 +1878,7 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
 
 <p>Determines whether the init task (<code><a class="el" href="classDynExp_1_1InitTaskBase.html" title="Defines a task for initializing an instrument within an instrument inheritance hierarchy....">InitTaskBase</a></code>) has run. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00764">764</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00805">805</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -1825,7 +1904,7 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
 
 <p>Instrument data belonging to this <code><a class="el" href="classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic...">InstrumentBase</a></code> instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00763">763</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00804">804</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>
@@ -1841,9 +1920,9 @@ template&lt;typename TaskT , typename... ArgTs&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic...">InstrumentBase</a>'s</code> private methods to the instrument thread <code><a class="el" href="namespaceDynExp.html#a6985987f0ba5cd7ab42caef76ac995c9" title="Instruments run in their own thread. This is the instrument thread&#39;s main function.">InstrumentThreadMain()</a></code>.   </p>
+<p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic...">InstrumentBase</a>'s</code> private methods to the instrument thread <code><a class="el" href="namespaceDynExp.html#a1f37d51197dd225ac87ba8dad199dc29" title="Instruments run in their own thread. This is the instrument thread&#39;s main function.">InstrumentThreadMain()</a></code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00524">524</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Instrument_8h_source.html#l00572">572</a> of file <a class="el" href="Instrument_8h_source.html">Instrument.h</a>.</p>
 
 </div>
 </div>

@@ -1,0 +1,7 @@
+<map id="DynExpInstr::LaserTasks::UpdateTask" name="DynExpInstr::LaserTasks::UpdateTask">
+<area shape="rect" id="Node000001" title="Defines a task for updating an instrument within an instrument inheritance hierarchy...." alt="" coords="9,152,189,192"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1UpdateTaskBase.html" title="Defines a task for updating an instrument within an instrument inheritance hierarchy...." alt="" coords="5,79,193,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,118,102,152,97,152,97,118"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1TaskBase.html" title="Base class for all tasks being processed by instruments. The class must not contain public virtual fu..." alt="" coords="29,5,170,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="102,44,102,79,97,79,97,44"/>
+</map>

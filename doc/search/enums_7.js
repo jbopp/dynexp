@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['measurementmodetype_0',['MeasurementModeType',['../classDynExpModule_1_1ODMR_1_1ODMRData.html#a61d58dead26ade9c893fed116d515b5f',1,'DynExpModule::ODMR::ODMRData']]],
-  ['modulationshapetype_1',['ModulationShapeType',['../structDynExpInstr_1_1FunctionGeneratorDefs_1_1ModulationDescType.html#a13b198a30f2ed8fd6e1922ee2642aff0',1,'DynExpInstr::FunctionGeneratorDefs::ModulationDescType']]],
-  ['modulationtype_2',['ModulationType',['../structDynExpInstr_1_1FunctionGeneratorDefs_1_1ModulationDescType.html#a92e2b638904b5219ac81da250b04bfa3',1,'DynExpInstr::FunctionGeneratorDefs::ModulationDescType']]]
+  ['laserstatetype_0',['LaserStateType',['../classDynExpInstr_1_1LaserData.html#a58ce76464c4f17cd119f77a36e201db7',1,'DynExpInstr::LaserData']]],
+  ['lineendingtype_1',['LineEndingType',['../classDynExp_1_1SerialCommunicationHardwareAdapterParams.html#a1c8a8e8243e3e2ac24af5569e28f34be',1,'DynExp::SerialCommunicationHardwareAdapterParams']]],
+  ['linkedobjectstatetype_2',['LinkedObjectStateType',['../classDynExp_1_1LinkedObjectWrapperContainerBase.html#ac866dadca8f67fd9bbb76d396a603964',1,'DynExp::LinkedObjectWrapperContainerBase']]],
+  ['localizationtype_3',['LocalizationType',['../classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#aad87e03adb87ea1fa1d0f9a56c7fda4e',1,'DynExpModule::Widefield::WidefieldMicroscopeWidget']]],
+  ['localizedemitterstatetype_4',['LocalizedEmitterStateType',['../classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeData.html#a605f5de25534d7b721da7dbc7838c22b',1,'DynExpModule::Widefield::WidefieldMicroscopeData']]]
 ];

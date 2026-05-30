@@ -14,7 +14,7 @@ var classDynExpModule_1_1LockinAmplifierControl =
     [ "Name", "classDynExpModule_1_1LockinAmplifierControl.html#ac4cffb5d12603c57898c6c5d7e46621a", null ],
     [ "OnAutoPhaseClicked", "classDynExpModule_1_1LockinAmplifierControl.html#a24bcafe2ef0b6848cab7a4f59c97219d", null ],
     [ "OnAutoRangeClicked", "classDynExpModule_1_1LockinAmplifierControl.html#a8104a66233d6dba89d25acbd22e82f85", null ],
-    [ "OnEnableClicked", "classDynExpModule_1_1LockinAmplifierControl.html#ac4c5c01a2e6985db4c75bd28bfb4fe35", null ],
+    [ "OnEnableClicked", "classDynExpModule_1_1LockinAmplifierControl.html#a23e2446e8f8726b54018e2104f1ae8d4", null ],
     [ "OnExit", "classDynExpModule_1_1LockinAmplifierControl.html#aaa232157a63de196e7c791381ce98746", null ],
     [ "OnFilterOrderChanged", "classDynExpModule_1_1LockinAmplifierControl.html#a37a5a81599db8db1ebe0e71fb5c3e009", null ],
     [ "OnForceTriggerClicked", "classDynExpModule_1_1LockinAmplifierControl.html#a7cb8a142f7a7a98453badbdf3da79397", null ],

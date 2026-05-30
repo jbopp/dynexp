@@ -7,6 +7,7 @@ var classDynExpModule_1_1ImageViewer_1_1ImageViewerData =
     [ "Init", "classDynExpModule_1_1ImageViewer_1_1ImageViewerData.html#aa4620ac842b92630b5f59ad49cb374e6", null ],
     [ "ResetImpl", "classDynExpModule_1_1ImageViewer_1_1ImageViewerData.html#af7e9701d6fd0d40bf6bcbd453b2294df", null ],
     [ "ResetImpl", "classDynExpModule_1_1ImageViewer_1_1ImageViewerData.html#a26dd92883cf72bb0ae7f66e3b0c226f0", null ],
+    [ "AutoSaveFilename", "classDynExpModule_1_1ImageViewer_1_1ImageViewerData.html#a7a5396ce628043038cc5e2e21ec495c6", null ],
     [ "Camera", "classDynExpModule_1_1ImageViewer_1_1ImageViewerData.html#ab31db4aaa19038a386331699175dc5c1", null ],
     [ "CameraModes", "classDynExpModule_1_1ImageViewer_1_1ImageViewerData.html#a8a7d55d0fa6d947fa04f47b78d288e4a", null ],
     [ "CaptureAfterPause", "classDynExpModule_1_1ImageViewer_1_1ImageViewerData.html#aad01d9e6c8f2aa2ac9dbc7fa07d9e2f7", null ],
