@@ -82,7 +82,7 @@ namespace DynExpModule
 
 		if (!ModuleData->IsDigitalPort)
 		{
-			Widget->ui->ValueLabel->setText(QString::number(ModuleData->Value) + " " + DynExpInstr::DataStreamInstrumentData::UnitTypeToStr(ModuleData->InputPort->GetValueUnit()));
+			Widget->ui->ValueLabel->setText(QString::number(ModuleData->Value) + " " + DynExpInstr::DataStreamInstr::UnitTypeToStr(ModuleData->InputPort->GetValueUnit()));
 			Widget->ui->ValueProgressBar->setMinimum(ModuleData->InputPort->GetHardwareMinValue());
 			Widget->ui->ValueProgressBar->setMaximum(ModuleData->InputPort->GetHardwareMaxValue());
 			Widget->ui->ValueProgressBar->setValue(ModuleData->Value);

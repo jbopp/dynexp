@@ -1,8 +1,12 @@
 # This file is part of DynExp.
 
+# Helper classes
+target_sources(DynExpModules PRIVATE "GraphUtil.cpp" "GraphUtil.h")
+target_sources(DynExpModules PRIVATE "gRPCModule.cpp" "gRPCModule.h")
+
+# Modules
 target_sources(DynExpModules PRIVATE "ArbitraryFunctionFromCSV.cpp" "ArbitraryFunctionFromCSV.h")
 target_sources(DynExpModules PRIVATE "EventSender.cpp" "EventSender.h" "EventSender.ui")
-target_sources(DynExpModules PRIVATE "gRPCModule.cpp" "gRPCModule.h")
 target_sources(DynExpModules PRIVATE "InputPortReader.cpp" "InputPortReader.h" "InputPortReader.ui")
 target_sources(DynExpModules PRIVATE "LaserControl.cpp" "LaserControl.h" "LaserControl.ui")
 target_sources(DynExpModules PRIVATE "LockinAmplifierControl.cpp" "LockinAmplifierControl.h" "LockinAmplifierControl.ui")

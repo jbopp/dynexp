@@ -7,25 +7,6 @@
 
 namespace DynExpModule
 {
-	QString SignalPlotterData::PlotInfoType::GetMultiplierLabel() const
-	{
-		switch (Multiplier)
-		{
-		case 0: return "";
-		case 3: return "m";
-		case 6: return "u";
-		case 9: return "n";
-		default: return "?";
-		}
-	}
-
-	void SignalPlotterData::PlotInfoType::ResetHoveredSample()
-	{
-		HoveredPoint = {};
-		HoveredSample = {};
-		HoveredDistance = std::numeric_limits<typename SignalPlotterData::PlotInfoType::QPointFValueType>::max();
-	}
-
 	SignalPlotterData::SignalPlotterData()
 	{
 		Init();
@@ -43,7 +24,7 @@ namespace DynExpModule
 		RollingView = false;
 		Autoscale = true;
 
-		PlotInfo = PlotInfoType();
+		PlotInfo = Graph::LineGraphPlotInfo();
 		SampleDataList.clear();
 	}
 
@@ -52,7 +33,7 @@ namespace DynExpModule
 		std::vector<DynExpInstr::DataStreamBase::BasicSampleListType> BasicSamplesSeries;
 		decltype(SignalPlotterData::SampleDataList) ProcessedSamples;
 		bool Running{};
-		SignalPlotterData::PlotInfoType PlotInfo;
+		Graph::LineGraphPlotInfo PlotInfo;
 
 		try
 		{
@@ -96,32 +77,10 @@ namespace DynExpModule
 
 		if (Running)
 		{
-			GenerateSampleTimingInfo(BasicSamplesSeries, PlotInfo);
-
-			bool DataAvailable = false;
+			PlotInfo.GenerateSampleTimingInfo(BasicSamplesSeries);
 			for (size_t i = 0; i < ProcessedSamples.size(); ++i)
-				DataAvailable = ProcessBasicSamples(BasicSamplesSeries[i], ProcessedSamples[i], PlotInfo, i) || DataAvailable;
-			
-			if (!DataAvailable)
-			{
-				PlotInfo.MinValues = { 0., 0. };
-				PlotInfo.MaxValues = { 1., 1. };
-			}
-			else
-			{
-				if (std::all_of(ProcessedSamples.cbegin(), ProcessedSamples.cend(), [](const auto& x) { return x.Samples.size() == 1; }))
-				{
-					PlotInfo.MaxValues.setY(std::max(std::abs(PlotInfo.MinValues.y()), std::abs(PlotInfo.MaxValues.y())));
-					PlotInfo.MinValues.setY(0.);
-				}
-				else if (PlotInfo.MinValues.y() == PlotInfo.MaxValues.y())
-				{
-					auto YRangeDelta = std::abs(PlotInfo.MinValues.y()) * .01;
-					YRangeDelta = YRangeDelta == 0. ? 2. : YRangeDelta;
-					PlotInfo.MinValues.setY(PlotInfo.MinValues.y() - YRangeDelta);
-					PlotInfo.MaxValues.setY(PlotInfo.MaxValues.y() + YRangeDelta);
-				}
-			}
+				 PlotInfo.ProcessBasicSamples(BasicSamplesSeries[i], ProcessedSamples[i].Samples, i);
+			PlotInfo.AdjustAxesLimits();
 
 			{
 				auto ModuleData = DynExp::dynamic_ModuleData_cast<SignalPlotter>(Instance.ModuleDataGetter());
@@ -136,7 +95,7 @@ namespace DynExpModule
 
 			PlotInfo.ResetHoveredSample();
 			for (size_t i = 0; i < ProcessedSamples.size(); ++i)
-				ReprocessSamples(ModuleData->SampleDataList[i], PlotInfo, i);
+				PlotInfo.ReprocessSamples(ModuleData->SampleDataList[i].Samples, i);
 
 			ModuleData->PlotInfo = std::move(PlotInfo);
 		}
@@ -171,201 +130,24 @@ namespace DynExpModule
 			Backend->SetAutoscale(ModuleData->Autoscale);
 
 			for (const auto& InstrLabel : ModuleData->GetDataStreamInstrLabels())
-				Backend->InsertSeries(QString::fromStdString(InstrLabel));
+				Backend->GetGraph()->InsertSeries(QString::fromStdString(InstrLabel));
 
 			ModuleData->SetUIInitialized();
 		}
 
 		// Update plotted data
 		ModuleData->Running = Backend->IsRunning();
-		ModuleData->PlotInfo.CursorPosition = Backend->GetCursorPosition();
 
-		bool AnyLineSeriesVisible = false;
-		QStringList BarSeriesNames;
 		for (size_t i = 0; i < ModuleData->GetDataStreamInstrCount(); ++i)
 		{
 			auto& SampleData = ModuleData->SampleDataList.at(i);
-			auto& Series = Backend->GetSeries(Util::NumToT<qsizetype>(i));
-
-			if (Series.Visible)
-			{
-				if (ModuleData->Running)
-				{
-					if (!SampleData.Samples.empty())
-						Series.BarSet->replace(0, std::abs(SampleData.Samples.front().y()));
-					Series.LineSeries->replace(SampleData.Samples);
-				}
-
-				Series.LineSeries->setWidth(!ModuleData->PlotInfo.HoveredPoint.isNull() && ModuleData->PlotInfo.HoveredSeries == i ? 4 : 2);
-			}
+			auto& Series = Backend->GetGraph()->UpdateSeries(i, SampleData.Samples, ModuleData->PlotInfo, ModuleData->Running);
 
 			SampleData.Visible = Series.Visible;
-			Series.BarSeries->setVisible(Series.Visible && SampleData.Samples.size() == 1);
-			Series.LineSeries->setVisible(Series.Visible && SampleData.Samples.size() > 1);
-			AnyLineSeriesVisible = AnyLineSeriesVisible || Series.LineSeries->isVisible();
-			BarSeriesNames.push_back(Series.Name);
-
-			Backend->SeriesChanged(i);
 		}
 
-		// Update axes
-		if (ModuleData->Running)
-		{
-			Backend->GetXCategoryAxis()->setVisible(!AnyLineSeriesVisible);
-			Backend->GetXValueAxis()->setVisible(AnyLineSeriesVisible);
-			if (AnyLineSeriesVisible)
-			{
-				Backend->GetXValueAxis()->setTitleText(ModuleData->PlotInfo.IsBasicSampleTimeUsed ? "time in " + ModuleData->PlotInfo.GetMultiplierLabel() + "s" : "sample in #");
-				Backend->GetXValueAxis()->setLabelFormat(ModuleData->PlotInfo.IsBasicSampleTimeUsed ? "%.3f" : "%.0f");
-				Backend->GetXValueAxis()->setRange(ModuleData->PlotInfo.MinValues.x(), ModuleData->PlotInfo.MaxValues.x());
-			}
-			else
-				Backend->GetXCategoryAxis()->setCategories(BarSeriesNames);
-			
-			Backend->GetYValueAxis()->setTitleText(QString("signal in ") + DynExpInstr::DataStreamInstrumentData::UnitTypeToStr(ModuleData->PlotInfo.ValueUnit));
-			if (ModuleData->PlotInfo.ValueUnit == DynExpInstr::DataStreamInstrumentData::UnitType::LogicLevel)
-			{
-				Backend->GetYValueAxis()->setLabelFormat("%.0f");
-				if (ModuleData->Autoscale)
-					Backend->GetYValueAxis()->setRange(0, 1);
-				Backend->GetYValueAxis()->setTickInterval(1);
-			}
-			else
-			{
-				Backend->GetYValueAxis()->setLabelFormat("%.3f");
-				if (ModuleData->Autoscale)
-					Backend->GetYValueAxis()->setRange(ModuleData->PlotInfo.MinValues.y(), ModuleData->PlotInfo.MaxValues.y());
-				Backend->GetYValueAxis()->setTickInterval(0);
-			}
-
-			Backend->UpdateAxes(AnyLineSeriesVisible);
-		}
-
-		if (AnyLineSeriesVisible)
-		{
-			Backend->SetHoveredPoint(ModuleData->PlotInfo.HoveredPoint);
-			Backend->SetHoveredSample(ModuleData->PlotInfo.HoveredSample);
-		}
-	}
-
-	void SignalPlotter::GenerateSampleTimingInfo(std::vector<DynExpInstr::DataStreamBase::BasicSampleListType>& BasicSamplesSeries,
-		SignalPlotterData::PlotInfoType& PlotInfo)
-	{
-		bool TimingInfoFound = false;
-		PlotInfo.Multiplier = std::numeric_limits<decltype(std::declval<SignalPlotterData::PlotInfoType>().Multiplier)>::max();
-		PlotInfo.LastMinValues = PlotInfo.MinValues;
-		PlotInfo.LastMaxValues = PlotInfo.MaxValues;
-		PlotInfo.MinValues = {
-			std::numeric_limits<typename SignalPlotterData::PlotInfoType::QPointFValueType>::max(),
-			std::numeric_limits<typename SignalPlotterData::PlotInfoType::QPointFValueType>::max()
-		};
-		PlotInfo.MaxValues = {
-			std::numeric_limits<typename SignalPlotterData::PlotInfoType::QPointFValueType>::lowest(),
-			std::numeric_limits<typename SignalPlotterData::PlotInfoType::QPointFValueType>::lowest()
-		};
-		PlotInfo.ResetHoveredSample();
-
-		if (PlotInfo.IsBasicSampleTimeUsed)
-		{
-			for (auto& Samples : BasicSamplesSeries)
-			{
-				if (Samples.empty())
-					continue;
-
-				// Use stable_sort() to not affect the order of samples with equal time, in case the data
-				// stream supports sample timing but the user of the stream ignores it.
-				std::stable_sort(Samples.begin(), Samples.end(), [](const auto& a, const auto& b) {
-					return a.Time < b.Time;
-				});
-
-				TimingInfoFound = true;
-
-				// Switch back to use sample indices as x values if all Time values are equal.
-				if (Samples.front().Time == Samples.back().Time && Samples.size() > 1)
-				{
-					PlotInfo.IsBasicSampleTimeUsed = false;
-					PlotInfo.Multiplier = 0;
-
-					break;
-				}
-
-				// Determine best order of magnitude to display the time with.
-				if (std::abs(Samples.front().Time) < 1e-6 && std::abs(Samples.back().Time) < 1e-6)
-					PlotInfo.Multiplier = std::min(PlotInfo.Multiplier, 9u);
-				else if (std::abs(Samples.front().Time) < 1e-3 && std::abs(Samples.back().Time) < 1e-3)
-					PlotInfo.Multiplier = std::min(PlotInfo.Multiplier, 6u);
-				else if (std::abs(Samples.front().Time) < 1.0 && std::abs(Samples.back().Time) < 1.0)
-					PlotInfo.Multiplier = std::min(PlotInfo.Multiplier, 3u);
-				else
-					PlotInfo.Multiplier = 0;
-			}
-		}
-		
-		if (!TimingInfoFound)
-			PlotInfo.Multiplier = 0;
-	}
-
-	bool SignalPlotter::ProcessBasicSamples(const DynExpInstr::DataStreamBase::BasicSampleListType& BasicSamples,
-		SignalPlotterData::SampleDataType& SampleData, SignalPlotterData::PlotInfoType& PlotInfo, const size_t SeriesIndex)
-	{
-		if (BasicSamples.empty())
-			return false;
-
-		auto YMin{ std::numeric_limits<typename SignalPlotterData::PlotInfoType::QPointFValueType>::max() };
-		auto YMax{ std::numeric_limits<typename SignalPlotterData::PlotInfoType::QPointFValueType>::lowest() };
-
-		for (size_t i = 0; i < BasicSamples.size(); ++i)
-		{
-			const auto X = PlotInfo.IsBasicSampleTimeUsed ? BasicSamples[i].Time * std::pow(10.0, PlotInfo.Multiplier) : i;
-			const auto Y = BasicSamples[i].Value;
-			SampleData.Samples.append({ X, Y });
-
-			YMin = std::min(YMin, Y);
-			YMax = std::max(YMax, Y);
-
-			// To avoid a second loop, do the calculation with axes limits from the previous run.
-			// Find hovered point for series with more than a single sample.
-			if (i)
-				CheckSampleHovered(X, Y, PlotInfo, SeriesIndex);
-		}
-
-		PlotInfo.MinValues = { std::min(PlotInfo.MinValues.x(), SampleData.Samples.first().x()), std::min(PlotInfo.MinValues.y(), YMin) };
-		PlotInfo.MaxValues = { std::max(PlotInfo.MaxValues.x(), SampleData.Samples.last().x()), std::max(PlotInfo.MaxValues.y(), YMax) };
-
-		return true;
-	}
-
-	void SignalPlotter::ReprocessSamples(const SignalPlotterData::SampleDataType& SampleData,
-		SignalPlotterData::PlotInfoType& PlotInfo, const size_t SeriesIndex)
-	{
-		for (size_t i = 0; i < Util::NumToT<size_t>(SampleData.Samples.size()); ++i)
-		{
-			// Find hovered point for series with more than a single sample.
-			if (i)
-				CheckSampleHovered(SampleData.Samples[i].x(), SampleData.Samples[i].y(), PlotInfo, SeriesIndex);
-		}
-	}
-
-	void SignalPlotter::CheckSampleHovered(const typename SignalPlotterData::PlotInfoType::QPointFValueType X,
-		const typename SignalPlotterData::PlotInfoType::QPointFValueType Y,
-		SignalPlotterData::PlotInfoType& PlotInfo, const size_t SeriesIndex)
-	{
-		if (!(PlotInfo.LastMinValues.isNull() && PlotInfo.LastMaxValues.isNull()) && !PlotInfo.CursorPosition.isNull())
-		{
-			const auto XNormalized = (X - PlotInfo.LastMinValues.x()) / (PlotInfo.LastMaxValues.x() - PlotInfo.LastMinValues.x());
-			const auto YNormalized = (Y - PlotInfo.LastMinValues.y()) / (PlotInfo.LastMaxValues.y() - PlotInfo.LastMinValues.y());
-			const auto XDist = XNormalized - PlotInfo.CursorPosition.x();
-			const auto YDist = YNormalized - PlotInfo.CursorPosition.y();
-			const auto Dist = XDist * XDist + YDist * YDist;
-
-			if (Dist < 0.001 && Dist < PlotInfo.HoveredDistance)
-			{
-				PlotInfo.HoveredDistance = Dist;
-				PlotInfo.HoveredPoint = { XNormalized, YNormalized };
-				PlotInfo.HoveredSample = { X, Y };
-				PlotInfo.HoveredSeries = SeriesIndex;
-			}
-		}
+		// Update axes and hovered point
+		Backend->GetGraph()->UpdateData(ModuleData->Autoscale, ModuleData->PlotInfo, ModuleData->Running);
 	}
 
 	void SignalPlotter::OnInit(DynExp::ModuleInstance* Instance) const
@@ -380,7 +162,7 @@ namespace DynExpModule
 		{
 			if (ModuleData->GetDataStreamInstr(0)->GetValueUnit() != ModuleData->PlotInfo.ValueUnit)
 			{
-				ModuleData->PlotInfo.ValueUnit = DynExpInstr::DataStreamInstrumentData::UnitType::Arbitrary;
+				ModuleData->PlotInfo.ValueUnit = DynExpInstr::DataStreamInstr::UnitType::Arbitrary;
 				break;
 			}
 		}
@@ -449,7 +231,7 @@ namespace DynExpModule
 			std::vector<std::pair<SampleIteratorType, SampleIteratorType>> SeriesIterators;
 			auto HeaderIterator = ModuleData->GetDataStreamInstrLabels().cbegin();
 			const auto XUnit = ModuleData->PlotInfo.IsBasicSampleTimeUsed ? "_s" : "_i";
-			const auto YUnit = std::string("_") + DynExpInstr::DataStreamInstrumentData::UnitTypeToStr(ModuleData->PlotInfo.ValueUnit);
+			const auto YUnit = std::string("_") + DynExpInstr::DataStreamInstr::UnitTypeToStr(ModuleData->PlotInfo.ValueUnit);
 			
 			for (const auto& Series : ModuleData->SampleDataList)
 			{

@@ -10,6 +10,7 @@
 
 #include "stdafx.h"
 #include "Instrument.h"
+#include "DataStreamInstrumentUtil.h"
 
 namespace DynExpInstr
 {
@@ -800,27 +801,9 @@ namespace DynExpInstr
 		using ValueType = double;
 
 		/**
-		 * @brief Units which can be used for data stream instruments.
-		 * @warning If this is changed, also change @p ToPrototUnitType(DataStreamInstrumentData::UnitType) and
-		 * @p ToDataStreamInstrumentUnitType(DynExpProto::Common::IntensityUnitType) functions in
-		 * @p NetworkDataStreamInstrument.h and @p IntensityUnitType enumeration in @p Common.proto.
+		 * @copydoc DynExpInstr::DataStreamInstr::UnitType
 		*/
-		enum class UnitType {
-			Arbitrary,		//!< Arbitrary units (a.u.)
-			LogicLevel,		//!< Logic level (TTL) units (1 or 0)
-			Counts,			//!< Count rate in counts per second (cps)
-			Volt,			//!< Voltage in Volt (V)
-			Ampere,			//!< Electric current in Ampere (A)
-			Power_W,		//!< Power in Watt (W)
-			Power_dBm		//!< Power in dBm
-		};
-
-		/**
-		 * @brief Returns a descriptive string of a respective unit to be e.g. used in plots.
-		 * @param Unit Unit type as used by data stream instruments. 
-		 * @return Returns the human-readable unit string.
-		*/
-		static const char* UnitTypeToStr(const UnitType& Unit);
+		using UnitType = DataStreamInstr::UnitType;
 
 		/**
 		 * @brief Constructs a @p DataStreamInstrumentData instance.
@@ -967,10 +950,10 @@ namespace DynExpInstr
 		/**
 		 * @brief Builds and returns a descriptive string of the unit corresponding
 		 * to the values managed by this @p DataStreamInstrument instance.
-		 * @return Returns the result of a call to DataStreamInstrumentData::UnitTypeToStr()
+		 * @return Returns the result of a call to DynExpInstr::DataStreamInstr::UnitTypeToStr()
 		 * on @p GetValueUnit().
 		*/
-		const char* GetValueUnitStr() const noexcept { return DataStreamInstrumentData::UnitTypeToStr(GetValueUnit()); }
+		const char* GetValueUnitStr() const noexcept { return DataStreamInstr::UnitTypeToStr(GetValueUnit()); }
 
 		/** @name Override (instrument tasks)
 		 * Override by derived classes to insert tasks into the instrument's task queue,

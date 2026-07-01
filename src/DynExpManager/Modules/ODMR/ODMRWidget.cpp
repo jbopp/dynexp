@@ -243,7 +243,7 @@ namespace DynExpModule::ODMR
 		{
 			ui->SBParamSweepStart->setMinimum(AuxAnalogOutMinValue);
 			ui->SBParamSweepStart->setMaximum(AuxAnalogOutMaxValue);
-			ui->SBParamSweepStart->setSuffix(QString(" ") + DynExpInstr::DataStreamInstrumentData::UnitTypeToStr(AuxAnalogOutValueUnit));
+			ui->SBParamSweepStart->setSuffix(QString(" ") + DynExpInstr::DataStreamInstr::UnitTypeToStr(AuxAnalogOutValueUnit));
 			ui->SBParamSweepStop->setMinimum(AuxAnalogOutMinValue);
 			ui->SBParamSweepStop->setMaximum(AuxAnalogOutMaxValue);
 			ui->SBParamSweepStop->setSuffix(ui->SBParamSweepStart->suffix());

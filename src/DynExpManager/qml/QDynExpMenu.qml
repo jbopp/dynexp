@@ -5,7 +5,6 @@ import QtQuick.Controls
 
 Menu {
     id: cmPlot
-
     implicitWidth: 200
 
     delegate: MenuItem {
@@ -34,5 +33,9 @@ Menu {
 
     background: Rectangle {
         color: QQuickDefinitions.sPaletteActive.window
+    }
+
+    function applyStyle() {
+        QQuickDefinitions.applySystemPalette(lgPlot.contextMenu.palette)
     }
 }

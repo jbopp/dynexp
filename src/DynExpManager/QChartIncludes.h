@@ -1,3 +1,11 @@
+// This file is part of DynExp.
+
+/**
+ * @file QChartIncludes.h
+ * @brief Includes related to the deprecated QtCharts module.
+ * To be removed after full porting to QtGraphs.
+*/
+
 #pragma once
 
 #include <QChartView>

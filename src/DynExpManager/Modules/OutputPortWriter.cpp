@@ -72,7 +72,7 @@ namespace DynExpModule
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<OutputPortWriter>(ModuleDataGetter());
 
 		QString ValueUnitStr(" ");
-		ValueUnitStr += DynExpInstr::DataStreamInstrumentData::UnitTypeToStr(ModuleData->OutputPort->GetValueUnit());
+		ValueUnitStr += DynExpInstr::DataStreamInstr::UnitTypeToStr(ModuleData->OutputPort->GetValueUnit());
 
 		if (!ModuleData->UIInitialized)
 		{

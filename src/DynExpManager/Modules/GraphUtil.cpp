@@ -1,0 +1,168 @@
+// This file is part of DynExp.
+
+#include "GraphUtil.h"
+
+namespace DynExpModule::Graph
+{
+	QString LineGraphPlotInfo::GetMultiplierLabel() const
+	{
+		switch (Multiplier)
+		{
+		case 0: return "";
+		case 3: return "m";
+		case 6: return "u";
+		case 9: return "n";
+		default: return "?";
+		}
+	}
+
+	void LineGraphPlotInfo::GenerateSampleTimingInfo(std::vector<DynExpInstr::DataStreamBase::BasicSampleListType>& BasicSamplesSeries)
+	{
+		bool TimingInfoFound = false;
+
+		Multiplier = std::numeric_limits<decltype(Multiplier)>::max();
+		MaxSampleCountPerSeries = 0;
+		LastMinValues = MinValues;
+		LastMaxValues = MaxValues;
+		MinValues = {
+			std::numeric_limits<QPointFValueType>::max(),
+			std::numeric_limits<QPointFValueType>::max()
+		};
+		MaxValues = {
+			std::numeric_limits<QPointFValueType>::lowest(),
+			std::numeric_limits<QPointFValueType>::lowest()
+		};
+		ResetHoveredSample();
+
+		if (IsBasicSampleTimeUsed)
+		{
+			for (auto& Samples : BasicSamplesSeries)
+			{
+				if (Samples.empty())
+					continue;
+
+				// Use stable_sort() to not affect the order of samples with equal time, in case the data
+				// stream supports sample timing but the user of the stream ignores it.
+				std::stable_sort(Samples.begin(), Samples.end(), [](const auto& a, const auto& b) {
+					return a.Time < b.Time;
+				});
+
+				TimingInfoFound = true;
+
+				// Switch back to use sample indices as x values if all Time values are equal.
+				if (Samples.front().Time == Samples.back().Time && Samples.size() > 1)
+				{
+					IsBasicSampleTimeUsed = false;
+					Multiplier = 0;
+
+					break;
+				}
+
+				// Determine best order of magnitude to display the time with.
+				if (std::abs(Samples.front().Time) < 1e-6 && std::abs(Samples.back().Time) < 1e-6)
+					Multiplier = std::min(Multiplier, 9u);
+				else if (std::abs(Samples.front().Time) < 1e-3 && std::abs(Samples.back().Time) < 1e-3)
+					Multiplier = std::min(Multiplier, 6u);
+				else if (std::abs(Samples.front().Time) < 1.0 && std::abs(Samples.back().Time) < 1.0)
+					Multiplier = std::min(Multiplier, 3u);
+				else
+					Multiplier = 0;
+			}
+		}
+		
+		if (!TimingInfoFound)
+			Multiplier = 0;
+	}
+
+	bool LineGraphPlotInfo::ProcessBasicSamples(const DynExpInstr::DataStreamBase::BasicSampleListType& BasicSamples,
+		QList<QPointF>& Samples, const size_t SeriesIndex)
+	{
+		if (BasicSamples.empty())
+			return false;
+
+		auto YMin{ std::numeric_limits<QPointFValueType>::max() };
+		auto YMax{ std::numeric_limits<QPointFValueType>::lowest() };
+
+		for (size_t i = 0; i < BasicSamples.size(); ++i)
+		{
+			const auto X = IsBasicSampleTimeUsed ? BasicSamples[i].Time * std::pow(10.0, Multiplier) : i;
+			const auto Y = BasicSamples[i].Value;
+			Samples.append({ X, Y });
+
+			YMin = std::min(YMin, Y);
+			YMax = std::max(YMax, Y);
+
+			// To avoid a second loop, do the calculation with axes limits from the previous run.
+			// Find hovered point for series with more than a single sample.
+			if (i)
+				CheckSampleHovered(X, Y, SeriesIndex);
+		}
+
+		MaxSampleCountPerSeries = std::max(MaxSampleCountPerSeries, BasicSamples.size());
+		MinValues = { std::min(MinValues.x(), Samples.first().x()), std::min(MinValues.y(), YMin) };
+		MaxValues = { std::max(MaxValues.x(), Samples.last().x()), std::max(MaxValues.y(), YMax) };
+
+		return true;
+	}
+
+	void LineGraphPlotInfo::AdjustAxesLimits()
+	{
+		if (!MaxSampleCountPerSeries)
+		{
+			MinValues = { 0., 0. };
+			MaxValues = { 1., 1. };
+		}
+		else
+		{
+			if (MaxSampleCountPerSeries == 1)
+			{
+				MaxValues.setY(std::max(std::abs(MinValues.y()), std::abs(MaxValues.y())));
+				MinValues.setY(0.);
+			}
+			else if (MinValues.y() == MaxValues.y())
+			{
+				auto YRangeDelta = std::abs(MinValues.y()) * .01;
+				YRangeDelta = YRangeDelta == 0. ? 2. : YRangeDelta;
+				MinValues.setY(MinValues.y() - YRangeDelta);
+				MaxValues.setY(MaxValues.y() + YRangeDelta);
+			}
+		}
+	}
+
+	void LineGraphPlotInfo::ReprocessSamples(const QList<QPointF>& Samples, const size_t SeriesIndex)
+	{
+		for (size_t i = 0; i < Util::NumToT<size_t>(Samples.size()); ++i)
+		{
+			// Find hovered point for series with more than a single sample.
+			if (i)
+				CheckSampleHovered(Samples[i].x(), Samples[i].y(), SeriesIndex);
+		}
+	}
+
+	void LineGraphPlotInfo::CheckSampleHovered(const QPointFValueType X, const QPointFValueType Y, const size_t SeriesIndex)
+	{
+		if (!(LastMinValues.isNull() && LastMaxValues.isNull()) && !CursorPosition.isNull())
+		{
+			const auto XNormalized = (X - LastMinValues.x()) / (LastMaxValues.x() - LastMinValues.x());
+			const auto YNormalized = (Y - LastMinValues.y()) / (LastMaxValues.y() - LastMinValues.y());
+			const auto XDist = XNormalized - CursorPosition.x();
+			const auto YDist = YNormalized - CursorPosition.y();
+			const auto Dist = XDist * XDist + YDist * YDist;
+
+			if (Dist < 0.001 && Dist < HoveredDistance)
+			{
+				HoveredDistance = Dist;
+				HoveredPoint = { XNormalized, YNormalized };
+				HoveredSample = { X, Y };
+				HoveredSeries = SeriesIndex;
+			}
+		}
+	}
+
+	void LineGraphPlotInfo::ResetHoveredSample()
+	{
+		HoveredPoint = {};
+		HoveredSample = {};
+		HoveredDistance = std::numeric_limits<QPointFValueType>::max();
+	}
+}

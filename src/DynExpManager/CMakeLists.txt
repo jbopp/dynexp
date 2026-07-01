@@ -7,6 +7,11 @@ if (POLICY CMP0141)
 	cmake_policy(SET CMP0141 NEW)
 endif()
 
+# Normalize file paths and suppress warning (new in version 4.3).
+if (POLICY CMP0207)
+	cmake_policy(SET CMP0207 NEW)
+endif()
+
 # Language standard
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
@@ -228,9 +233,11 @@ target_sources(DynExpCore PRIVATE
 set_source_files_properties("qml/QQuickDefinitions.qml" PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
 qt_add_qml_module(DynExpQuick URI Modules.DynExpQuick
 	VERSION 1.0 STATIC
-	QML_FILES "qml/QQuickDefinitions.qml" "qml/QDynExpMenu.qml"
+	QML_FILES "qml/QQuickDefinitions.qml" "qml/QDynExpMenu.qml" "qml/QDynExpLineGraph.qml"
+	SOURCES "qml/QDynExpLineGraph.cpp" "qml/QDynExpLineGraph.h"
 	OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/Modules/DynExpQuick"
 )
+target_include_directories(DynExpQuick PRIVATE "qml")
 target_link_libraries(DynExpQuick PRIVATE DynExpConfig)
 
 add_subdirectory(proto)
