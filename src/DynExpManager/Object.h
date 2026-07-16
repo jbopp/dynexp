@@ -2004,6 +2004,14 @@ namespace DynExp
 		static std::string CategoryAndNameToStr(const std::string& Category, const std::string& Name);
 
 		/**
+		 * @brief Removes the category and name part built by Object::CategoryAndNameToStr() from the string 
+		 * @p ObjectDesc constructed by LinkedObjectWrapper::GetLinkedObjectDesc().
+		 * @param ObjectDesc String containing an object name and its type's category and name.
+		 * @return Returns the string with the part build by Object::CategoryAndNameToStr() removed.
+		*/
+		static std::string RemoveCategoryAndName(const std::string& ObjectDesc);
+
+		/**
 		 * @brief Default timeout used by Object::GetParams() to lock the mutex of the parameter instance
 		 * assigned to this @p Object instance.
 		*/

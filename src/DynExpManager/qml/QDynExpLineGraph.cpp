@@ -43,7 +43,7 @@ namespace DynExpQuick
 		QStringList SeriesNames;
 
 		for (const auto& Series : PlotSeries)
-			SeriesNames.push_back(Series.Name);
+			SeriesNames.push_back(QString::fromStdString(DynExp::Object::RemoveCategoryAndName(Series.Name.toStdString())));
 
 		return SeriesNames;
 	}

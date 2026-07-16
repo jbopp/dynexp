@@ -242,7 +242,7 @@ namespace DynExpModule
 
 				SeriesIterators.emplace_back(Series.Samples.cbegin(), Series.Samples.cend());
 
-				Header = std::regex_replace(Header, std::regex("(\\([^()]*\\))"), "");	// remove instrument category.
+				Header = Object::RemoveCategoryAndName(Header);
 				std::erase_if(Header, [](char c) { return c == ' ' || c == '_' || c == ';'; });
 				CSVData << "X_" << Header << XUnit << ";Y_" << Header << YUnit << ";";
 			}

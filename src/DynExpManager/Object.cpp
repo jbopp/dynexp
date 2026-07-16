@@ -355,6 +355,11 @@ namespace DynExp
 			return Category + " -> " + Name;
 	}
 
+	std::string Object::RemoveCategoryAndName(const std::string& ObjectDesc)
+	{
+		return std::regex_replace(ObjectDesc, std::regex("(\\([^()]*\\))"), "");
+	}
+
 	Object::Object(const std::thread::id OwnerThreadID, ParamsBasePtrType&& Params)
 		: LinkedObjectWrapperOnly(*this), OwnerThreadID(OwnerThreadID), Params(std::move(Params))
 	{
