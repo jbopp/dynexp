@@ -108,8 +108,8 @@ namespace DynExpQuick
 
 		void SeriesChanged(size_t Index) { PlotModel.SeriesChanged(Index); }
 
-		void UpdateData(bool Autoscale,
-			DynExpModule::Graph::LineGraphPlotInfo& PlotInfo, bool UpdateAxes = true);
+		void UpdateData(DynExpModule::Graph::LineGraphPlotInfo& PlotInfo,
+			bool Autoscale = true, bool UpdateAxes = true);
 
 	signals:
 		// to QML

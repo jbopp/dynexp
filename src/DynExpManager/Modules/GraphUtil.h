@@ -26,6 +26,11 @@ namespace DynExpModule::Graph
 		QString GetMultiplierLabel() const;
 
 		/**
+		 * @brief Resets the instance to generate information from new sample series.
+		*/
+		void Reset();
+
+		/**
 		 * @brief Extracts sample timing information for x axis scaling from @p BasicSamples and stores the
 		 * results in this @p DynExpLineGraphPlotInfo instance.
 		 * @param BasicSamplesSeries Vector of vectors of BasicSamples to investigate. The outer vector represents a
@@ -37,12 +42,12 @@ namespace DynExpModule::Graph
 		/**
 		 * @brief Converts @p BasicSamples to displayable format and stores their minimal and maximal values in
 		 * this @p DynExpLineGraphPlotInfo instance.
-		 * @param BasicSamples Vector of BasicSamples to convert. Samples are moved from this vector.
+		 * @param BasicSamples Vector of BasicSamples to convert. Move to this parameter to avoid copying.
 		 * @param Samples Destiny to store the processed samples in.
 		 * @param SeriesIndex Index of the data series that is to be processed.
 		 * @return Returns true if at least one sample has been processed, false otherwise.
 		*/
-		bool ProcessBasicSamples(const DynExpInstr::DataStreamBase::BasicSampleListType& BasicSamples,
+		bool ProcessBasicSamples(DynExpInstr::DataStreamBase::BasicSampleListType BasicSamples,
 			QList<QPointF>& Samples, const size_t SeriesIndex);
 
 		/**

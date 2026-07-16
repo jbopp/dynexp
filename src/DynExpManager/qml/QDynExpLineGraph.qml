@@ -23,6 +23,8 @@ Item {
         }
     }
 
+    property alias graphsView: gvPlot
+
     Rectangle {
         id: rPlotInfoBox
         anchors {

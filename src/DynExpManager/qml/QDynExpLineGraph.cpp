@@ -232,8 +232,8 @@ namespace DynExpQuick
 		return Series;
 	}
 
-	void DynExpLineGraphBackend::UpdateData(bool Autoscale,
-		DynExpModule::Graph::LineGraphPlotInfo& PlotInfo, bool UpdateAxes)
+	void DynExpLineGraphBackend::UpdateData(DynExpModule::Graph::LineGraphPlotInfo& PlotInfo,
+		bool Autoscale, bool UpdateAxes)
 	{
 		const bool AnyLineSeriesVisible = PlotModel.IsAnyLineSeriesVisible();
 

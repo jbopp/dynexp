@@ -206,7 +206,7 @@ int main(int argc, char *argv[])
 		DynExpModule::NetworkTimeTagger,
 		DynExpModule::OutputPortWriter,
 		DynExpModule::SignalDesigner,
-		DynExpModule::SignalPlotter,
+		DynExpModule::SignalPlotter::SignalPlotter,
 		DynExpModule::SpectrumViewer::SpectrumViewer,
 		DynExpModule::Stage1D,
 		DynExpModule::StreamManipulator,

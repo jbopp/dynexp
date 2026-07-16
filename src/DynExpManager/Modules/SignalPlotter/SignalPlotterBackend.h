@@ -12,7 +12,7 @@
 #include "stdafx.h"
 #include "qml/QDynExpLineGraph.h"
 
-namespace DynExpModule
+namespace DynExpModule::SignalPlotter
 {
 	class SignalPlotterBackend : public QObject
 	{
@@ -50,6 +50,7 @@ namespace DynExpModule
 
 	private:
 		bool Running = true;
+
 		DynExpQuick::DynExpLineGraphBackend* Graph = nullptr;
 	};
 }

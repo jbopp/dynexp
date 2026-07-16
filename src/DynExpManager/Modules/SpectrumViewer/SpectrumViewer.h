@@ -8,91 +8,37 @@
 #pragma once
 
 #include "stdafx.h"
-#include "QChartIncludes.h"
 #include "DynExpCore.h"
+#include "../GraphUtil.h"
 #include "../../MetaInstruments/Spectrometer.h"
 #include "../../Instruments/InterModuleCommunicator.h"
 
 #include "CommonModuleEvents.h"
 #include "SpectrumViewerEvents.h"
 
-#include <QWidget>
-
-namespace Ui
-{
-	class SpectrumViewer;
-}
-
 namespace DynExpModule::SpectrumViewer
 {
 	class SpectrumViewer;
-	class SpectrumViewerData;
 
-	class SpectrumViewerWidget : public DynExp::QModuleWidget
+	class SpectrumViewerData : public DynExp::QMLModuleDataBase
 	{
-		Q_OBJECT
-
 	public:
 		struct SampleDataType
 		{
-			SampleDataType() { Reset(); }
+			std::string ToStr(DynExpInstr::SpectrometerData::TimeType ExposureTime, const DynExpModule::Graph::LineGraphPlotInfo& PlotInfo) const;
 
-			void Reset();
-			std::string ToStr(DynExpInstr::SpectrometerData::TimeType ExposureTime) const;
-
-			QList<QPointF> Points;
-			QPointF MinValues;
-			QPointF MaxValues;
-
-			DynExpInstr::SpectrometerData::FrequencyUnitType FrequencyUnit;
-			DynExpInstr::SpectrometerData::IntensityUnitType IntensityUnit;
+			QList<QPointF> Samples;
 		};
 
-		SpectrumViewerWidget(SpectrumViewer& Owner, QModuleWidget* parent = nullptr);
-		~SpectrumViewerWidget() = default;
-
-		bool AllowResize() const noexcept override final { return true; }
-
-		const auto GetUI() const noexcept { return ui.get(); }
-
-		void InitializeUI(Util::SynchronizedPointer<SpectrumViewerData>& ModuleData);
-		void UpdateUI(Util::SynchronizedPointer<SpectrumViewerData>& ModuleData);
-		void SetData(SampleDataType&& SampleData, DynExpInstr::SpectrometerData::TimeType ExposureTime);
-
-	private:
-		void FinishedSavingData() noexcept { IsSavingData = false; }
-		using FinishedSavingDataGuardType = Util::OnDestruction<SpectrumViewerWidget, decltype(&SpectrumViewerWidget::FinishedSavingData)>;
-
-		std::unique_ptr<Ui::SpectrumViewer> ui;
-
-		QXYSeries* DataSeries;
-		QChart* DataChart;
-		QValueAxis* XAxis;
-		QValueAxis* YAxis;
-
-		SampleDataType CurrentSpectrum;
-		DynExpInstr::SpectrometerData::TimeType CurrentExposureTime{};
-
-		// If data is currently being saved to file, do not update internal data.
-		std::atomic_bool IsSavingData = false;
-
-	private slots:
-		void OnSaveCSVClicked();
-	};
-
-	class SpectrumViewerData : public DynExp::QModuleDataBase
-	{
-	public:
 		SpectrumViewerData() { Init(); }
 		virtual ~SpectrumViewerData() = default;
 
 		bool IsUIInitialized() const noexcept { return UIInitialized; }
 		void SetUIInitialized() noexcept { UIInitialized = true; }
+
 		auto& GetSpectrometer() { return Spectrometer; }
 		auto& GetCommunicator() { return Communicator; }
 
-		DynExpInstr::SpectrometerData::FrequencyUnitType FrequencyUnit;
-		DynExpInstr::SpectrometerData::IntensityUnitType IntensityUnit;
 		double MinFrequency;
 		double MaxFrequency;
 		DynExpInstr::SpectrometerData::TimeType MinExposureTime;
@@ -105,12 +51,13 @@ namespace DynExpModule::SpectrumViewer
 		DynExpInstr::SpectrometerData::CapturingStateType CapturingState;
 		double CapturingProgress;
 		std::string AutoSaveFilename;
-
-		SpectrumViewerWidget::SampleDataType CurrentSpectrum;
 		bool SpectrumRecordingPaused;
 
+		Graph::LineGraphPlotInfo PlotInfo;
+		SampleDataType CurrentSpectrum;
+
 	private:
-		void ResetImpl(dispatch_tag<QModuleDataBase>) override final;
+		void ResetImpl(dispatch_tag<QMLModuleDataBase>) override final;
 		virtual void ResetImpl(dispatch_tag<SpectrumViewerData>) {};
 
 		void Init();
@@ -121,10 +68,10 @@ namespace DynExpModule::SpectrumViewer
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> Communicator;
 	};
 
-	class SpectrumViewerParams : public DynExp::QModuleParamsBase
+	class SpectrumViewerParams : public DynExp::QMLModuleParamsBase
 	{
 	public:
-		SpectrumViewerParams(DynExp::ItemIDType ID, const DynExp::DynExpCore& Core) : QModuleParamsBase(ID, Core) {}
+		SpectrumViewerParams(DynExp::ItemIDType ID, const DynExp::DynExpCore& Core) : QMLModuleParamsBase(ID, Core) {}
 		virtual ~SpectrumViewerParams() = default;
 
 		virtual const char* GetParamClassTag() const noexcept override { return "SpectrumViewerParams"; }
@@ -135,10 +82,10 @@ namespace DynExpModule::SpectrumViewer
 			"InterModuleCommunicator", "Inter-module communicator", "Inter-module communicator to control this module with", DynExpUI::Icons::Instrument, true };
 
 	private:
-		void ConfigureParamsImpl(dispatch_tag<QModuleParamsBase>) override final {}
+		void ConfigureParamsImpl(dispatch_tag<QMLModuleParamsBase>) override final {}
 	};
 
-	class SpectrumViewerConfigurator : public DynExp::QModuleConfiguratorBase
+	class SpectrumViewerConfigurator : public DynExp::QMLModuleConfiguratorBase
 	{
 	public:
 		using ObjectType = SpectrumViewer;
@@ -151,7 +98,7 @@ namespace DynExpModule::SpectrumViewer
 		virtual DynExp::ParamsBasePtrType MakeParams(DynExp::ItemIDType ID, const DynExp::DynExpCore& Core) const override final { return DynExp::MakeParams<SpectrumViewerConfigurator>(ID, Core); }
 	};
 
-	class SpectrumViewer : public DynExp::QModuleBase
+	class SpectrumViewer : public DynExp::QMLModuleBase
 	{
 	public:
 		using ParamsType = SpectrumViewerParams;
@@ -162,7 +109,7 @@ namespace DynExpModule::SpectrumViewer
 		constexpr static auto Category() noexcept { return "Image Capturing"; }
 
 		SpectrumViewer(const std::thread::id OwnerThreadID, DynExp::ParamsBasePtrType&& Params)
-			: QModuleBase(OwnerThreadID, std::move(Params)) {}
+			: QMLModuleBase(OwnerThreadID, std::move(Params)) {}
 		virtual ~SpectrumViewer() = default;
 
 		virtual std::string GetName() const override { return Name(); }
@@ -173,22 +120,19 @@ namespace DynExpModule::SpectrumViewer
 	private:
 		Util::DynExpErrorCodes::DynExpErrorCodes ModuleMainLoop(DynExp::ModuleInstance& Instance) override final;
 
-		void ResetImpl(dispatch_tag<QModuleBase>) override final;
+		void ResetImpl(dispatch_tag<QMLModuleBase>) override final;
 
-		std::unique_ptr<DynExp::QModuleWidget> MakeUIWidget() override final;
+		void MakeConnections(QObject* Backend) override final;
+		QAnyStringView GetModuleSourceUri() const noexcept override final { return "Modules.SpectrumViewer"; }
+		QAnyStringView GetModuleSourceTypeName() const noexcept override final { return "SpectrumViewer"; }
 		void UpdateUIChild(const ModuleBase::ModuleDataGetterType& ModuleDataGetter) override final;
-
-		SpectrumViewerWidget::SampleDataType ProcessSpectrum(DynExpInstr::SpectrometerData::SpectrumType&& Spectrum,
-			Util::SynchronizedPointer<SpectrumViewerData>& ModuleData);
-		void SaveSpectrum(const SpectrumViewerWidget::SampleDataType& Spectrum,
-			Util::SynchronizedPointer<SpectrumViewerData>& ModuleData);
 
 		// Events, run in module thread
 		void OnInit(DynExp::ModuleInstance* Instance) const override final;
 		void OnExit(DynExp::ModuleInstance* Instance) const override final;
 
-		void OnRunClicked(DynExp::ModuleInstance* Instance, bool) const;
-		void OnStopClicked(DynExp::ModuleInstance* Instance, bool) const;
+		void OnRunClicked(DynExp::ModuleInstance* Instance) const;
+		void OnStopClicked(DynExp::ModuleInstance* Instance) const;
 		void OnSilentModeToggled(DynExp::ModuleInstance* Instance, bool Checked) const;
 		void OnExposureTimeChanged(DynExp::ModuleInstance* Instance, int Value) const;
 		void OnLowerLimitChanged(DynExp::ModuleInstance* Instance, double Value) const;
@@ -199,6 +143,25 @@ namespace DynExpModule::SpectrumViewer
 		void OnPauseSpectrumRecording(DynExp::ModuleInstance* Instance) const;
 		void OnResumeSpectrumRecording(DynExp::ModuleInstance* Instance) const;
 
+		// Events, run in UI thread
+		void OnSaveSpectrum() const;
+
+		void FinishedSavingData() const noexcept { IsSavingData = false; }
+		using FinishedSavingDataGuardType = Util::OnDestruction<const SpectrumViewer, decltype(&SpectrumViewer::FinishedSavingData)>;
+
+		/**
+		 * @brief If data is currently being saved to file, do not update internal data.
+		*/
+		mutable std::atomic_bool IsSavingData = false;
+
 		size_t NumFailedUpdateAttempts = 0;
+
+		/**
+		 * @brief Does nothing but ensures that this module's Qt connections are disconnected when
+		 * @p SignalContext is destroyed. Moreover, @p SignalContext is created in the UI thread
+		 * (that creates this module instance). Hence, it ensures that Qt connections using this
+		 * context are executed in the UI thread.
+		*/
+		QObject SignalContext;
 	};
 }

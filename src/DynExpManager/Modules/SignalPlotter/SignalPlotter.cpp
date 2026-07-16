@@ -5,13 +5,8 @@
 
 #include "SignalPlotterBackend.h"
 
-namespace DynExpModule
+namespace DynExpModule::SignalPlotter
 {
-	SignalPlotterData::SignalPlotterData()
-	{
-		Init();
-	}
-
 	void SignalPlotterData::ResetImpl(dispatch_tag<QMLModuleDataBase>)
 	{
 		Init();
@@ -19,13 +14,14 @@ namespace DynExpModule
 
 	void SignalPlotterData::Init()
 	{
-		UIInitialized = false;
 		Running = true;
 		RollingView = false;
 		Autoscale = true;
 
 		PlotInfo = Graph::LineGraphPlotInfo();
 		SampleDataList.clear();
+
+		UIInitialized = false;
 	}
 
 	Util::DynExpErrorCodes::DynExpErrorCodes SignalPlotter::ModuleMainLoop(DynExp::ModuleInstance& Instance)
@@ -77,9 +73,10 @@ namespace DynExpModule
 
 		if (Running)
 		{
+			PlotInfo.Reset();
 			PlotInfo.GenerateSampleTimingInfo(BasicSamplesSeries);
 			for (size_t i = 0; i < ProcessedSamples.size(); ++i)
-				 PlotInfo.ProcessBasicSamples(BasicSamplesSeries[i], ProcessedSamples[i].Samples, i);
+				 PlotInfo.ProcessBasicSamples(std::move(BasicSamplesSeries[i]), ProcessedSamples[i].Samples, i);
 			PlotInfo.AdjustAxesLimits();
 
 			{
@@ -147,7 +144,7 @@ namespace DynExpModule
 		}
 
 		// Update axes and hovered point
-		Backend->GetGraph()->UpdateData(ModuleData->Autoscale, ModuleData->PlotInfo, ModuleData->Running);
+		Backend->GetGraph()->UpdateData(ModuleData->PlotInfo, ModuleData->Autoscale, ModuleData->Running);
 	}
 
 	void SignalPlotter::OnInit(DynExp::ModuleInstance* Instance) const

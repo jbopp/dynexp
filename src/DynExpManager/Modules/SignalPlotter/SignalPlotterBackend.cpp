@@ -3,7 +3,7 @@
 #include "stdafx.h"
 #include "SignalPlotterBackend.h"
 
-namespace DynExpModule
+namespace DynExpModule::SignalPlotter
 {
 	SignalPlotterBackend::SignalPlotterBackend(QObject* parent) : QObject(parent)
 	{

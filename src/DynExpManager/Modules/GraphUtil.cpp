@@ -16,10 +16,8 @@ namespace DynExpModule::Graph
 		}
 	}
 
-	void LineGraphPlotInfo::GenerateSampleTimingInfo(std::vector<DynExpInstr::DataStreamBase::BasicSampleListType>& BasicSamplesSeries)
+	void LineGraphPlotInfo::Reset()
 	{
-		bool TimingInfoFound = false;
-
 		Multiplier = std::numeric_limits<decltype(Multiplier)>::max();
 		MaxSampleCountPerSeries = 0;
 		LastMinValues = MinValues;
@@ -32,7 +30,13 @@ namespace DynExpModule::Graph
 			std::numeric_limits<QPointFValueType>::lowest(),
 			std::numeric_limits<QPointFValueType>::lowest()
 		};
+
 		ResetHoveredSample();
+	}
+
+	void LineGraphPlotInfo::GenerateSampleTimingInfo(std::vector<DynExpInstr::DataStreamBase::BasicSampleListType>& BasicSamplesSeries)
+	{
+		bool TimingInfoFound = false;
 
 		if (IsBasicSampleTimeUsed)
 		{
@@ -74,7 +78,7 @@ namespace DynExpModule::Graph
 			Multiplier = 0;
 	}
 
-	bool LineGraphPlotInfo::ProcessBasicSamples(const DynExpInstr::DataStreamBase::BasicSampleListType& BasicSamples,
+	bool LineGraphPlotInfo::ProcessBasicSamples(DynExpInstr::DataStreamBase::BasicSampleListType BasicSamples,
 		QList<QPointF>& Samples, const size_t SeriesIndex)
 	{
 		if (BasicSamples.empty())

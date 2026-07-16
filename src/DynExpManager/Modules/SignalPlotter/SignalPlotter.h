@@ -12,12 +12,7 @@
 #include "../GraphUtil.h"
 #include "../../MetaInstruments/DataStreamInstrument.h"
 
-namespace DynExpQuick
-{
-	struct DynExpLineGraphPlotInfo;
-}
-
-namespace DynExpModule
+namespace DynExpModule::SignalPlotter
 {
 	class SignalPlotter;
 
@@ -37,7 +32,7 @@ namespace DynExpModule
 			bool Visible = true;
 		};
 
-		SignalPlotterData();
+		SignalPlotterData() { Init(); }
 		virtual ~SignalPlotterData() = default;
 
 		void LockInstruments(DynExp::ModuleInstance* Instance, const DynExp::ParamsBase::ListParam<DynExp::ObjectLink<DynExpInstr::DataStreamInstrument>>& InstrParam) { Instance->LockObject(InstrParam, DataStreamInstr); }
