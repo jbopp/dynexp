@@ -8,6 +8,7 @@
 #pragma once
 
 #include "Exception.h"
+#include "Units.h"
 
 /**
  * @brief %DynExp's %Util namespace contains commonly used functions and templates as well as extensions
@@ -614,17 +615,12 @@ namespace Util
 		seed ^= hasher(value) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
 	}
 
-	/** @name Physical units and related functions
-	 * These definitions and functions provide access to physical quantities and convert in between them.
+	/** @name Physical unit conversion
+	 * These functions convert physical quantities.
 	*/
 	///@{
 	using seconds = std::chrono::duration<double>;					//!< Extends std::chrono by a duration data type for seconds capable of storing fractions of seconds.
 	using picoseconds = std::chrono::duration<double, std::pico>;	//!< Extends std::chrono by a duration data type for picoseconds.
-
-	/**
-	 * @brief Speed of light in vacuum in m/s
-	*/
-	static constexpr double SpeedOfLight = (GSL_CONST_MKSA_SPEED_OF_LIGHT);
 
 	/**
 	 * @brief Converts the frequency value of an electromagnetic wave in Hz to the corresponding
@@ -632,7 +628,7 @@ namespace Util
 	 * @param Value Frequency in Hz or wavelength in m
 	 * @return Corresponding wavelength in m or frequency in Hz
 	*/
-	constexpr auto ConvertFrequencyWavelength(double Value) noexcept { return SpeedOfLight / Value; }
+	constexpr auto ConvertFrequencyWavelength(double Value) noexcept { return DynExp::SpeedOfLight / Value; }
 	///@}
 
 	/** @name Conversion functions

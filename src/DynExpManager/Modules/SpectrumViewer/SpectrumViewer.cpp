@@ -102,8 +102,8 @@ namespace DynExpModule::SpectrumViewer
 		CSVData << "ExposureTime = " << ExposureTime.count() << " " << Util::ToUnitStr<DynExpInstr::SpectrometerData::TimeType>() << "\n";
 		CSVData << "HEADER_END\n";
 
-		//CSVData << "f[" << DynExpInstr::SpectrometerData::FrequencyUnitTypeToStr(FrequencyUnit)
-		//	<< "];I[" << DynExpInstr::SpectrometerData::IntensityUnitTypeToStr(IntensityUnit) << "]\n";
+		//CSVData << "f[" << DynExp::UnitTypeToStr(FrequencyUnit)
+		//	<< "];I[" << DynExp::UnitTypeToStr(IntensityUnit) << "]\n";
 		for (const auto& Sample : Samples)
 			CSVData << Sample.x() << ";" << Sample.y() << "\n";
 

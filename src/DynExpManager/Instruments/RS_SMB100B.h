@@ -182,7 +182,7 @@ namespace DynExpInstr
 		virtual std::string GetName() const override { return Name(); }
 
 		virtual std::chrono::milliseconds GetTaskQueueDelay() const override { return std::chrono::milliseconds(100); }
-		virtual DataStreamInstrumentData::UnitType GetValueUnit() const noexcept override { return DataStreamInstrumentData::UnitType::Power_dBm; }
+		virtual DynExp::UnitType GetValueUnit() const noexcept override { return DynExp::UnitType::Power_dBm; }
 		virtual bool IsPhaseAdjustable() const noexcept override { return false; }
 
 		// Tasks

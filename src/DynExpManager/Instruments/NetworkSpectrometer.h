@@ -19,43 +19,23 @@ namespace DynExpInstr
 {
 	class NetworkSpectrometer;
 
-	constexpr DynExpProto::Common::FrequencyUnitType ToPrototUnitType(SpectrometerData::FrequencyUnitType Unit)
+	constexpr DynExp::UnitType ToSpectrometerUnitType(DynExpProto::Common::FrequencyUnitType Unit)
 	{
 		switch (Unit)
 		{
-		case SpectrometerData::FrequencyUnitType::Hz: return DynExpProto::Common::FrequencyUnitType::Hz;
-		case SpectrometerData::FrequencyUnitType::nm: return DynExpProto::Common::FrequencyUnitType::nm;
-		case SpectrometerData::FrequencyUnitType::Inv_cm: return DynExpProto::Common::FrequencyUnitType::Inv_cm;
-		default: throw Util::InvalidDataException("The given unit does not exist in the SpectrometerData::FrequencyUnitType enumeration. Did you forget to adjust the FrequencyUnitType enumeration in class \"SpectrometerData\"?");
+		case DynExpProto::Common::FrequencyUnitType::Hz: return DynExp::UnitType::Freq_Hz;
+		case DynExpProto::Common::FrequencyUnitType::nm: return DynExp::UnitType::Length_nm;
+		case DynExpProto::Common::FrequencyUnitType::Inv_cm: return DynExp::UnitType::Inv_cm;
+		default: throw Util::InvalidDataException("The given unit is not supported here. Did you forget to adjust this function or the FrequencyUnitType enumeration in file \"Common.proto\"?");
 		}
 	}
 
-	constexpr SpectrometerData::FrequencyUnitType ToSpectrometerUnitType(DynExpProto::Common::FrequencyUnitType Unit)
+	constexpr DynExp::UnitType ToSpectrometerUnitType(DynExpProto::Common::IntensityUnitType Unit)
 	{
 		switch (Unit)
 		{
-		case DynExpProto::Common::FrequencyUnitType::Hz: return SpectrometerData::FrequencyUnitType::Hz;
-		case DynExpProto::Common::FrequencyUnitType::nm: return SpectrometerData::FrequencyUnitType::nm;
-		case DynExpProto::Common::FrequencyUnitType::Inv_cm: return SpectrometerData::FrequencyUnitType::Inv_cm;
-		default: throw Util::InvalidDataException("The given unit does not exist in the DynExpProto::Common::FrequencyUnitType enumeration or is not supported by this instrument. Did you forget to adjust the FrequencyUnitType enumeration in file \"Common.proto\"?");
-		}
-	}
-
-	constexpr DynExpProto::Common::IntensityUnitType ToPrototUnitType(SpectrometerData::IntensityUnitType Unit)
-	{
-		switch (Unit)
-		{
-		case SpectrometerData::IntensityUnitType::Counts: return DynExpProto::Common::IntensityUnitType::Counts;
-		default: throw Util::InvalidDataException("The given unit does not exist in the SpectrometerData::IntensityUnitType enumeration. Did you forget to adjust the IntensityUnitType enumeration in class \"SpectrometerData\"?");
-		}
-	}
-
-	constexpr SpectrometerData::IntensityUnitType ToSpectrometerUnitType(DynExpProto::Common::IntensityUnitType Unit)
-	{
-		switch (Unit)
-		{
-		case DynExpProto::Common::IntensityUnitType::Counts: return SpectrometerData::IntensityUnitType::Counts;
-		default: throw Util::InvalidDataException("The given unit does not exist in the DynExpProto::Common::IntensityUnitType enumeration or is not supported by this instrument. Did you forget to adjust the IntensityUnitType enumeration in file \"Common.proto\"?");
+		case DynExpProto::Common::IntensityUnitType::Counts: return DynExp::UnitType::Counts;
+		default: throw Util::InvalidDataException("The given unit is not supported here. Did you forget to adjust this function or the IntensityUnitType enumeration in file \"Common.proto\"?");
 		}
 	}
 
@@ -168,8 +148,8 @@ namespace DynExpInstr
 		virtual CapturingStateType GetCapturingStateChild() const noexcept override { return CapturingState; }
 		virtual double GetCapturingProgressChild() const noexcept override { return CapturingProgress; }
 
-		FrequencyUnitType FrequencyUnit = FrequencyUnitType::Hz;
-		IntensityUnitType IntensityUnit = IntensityUnitType::Counts;
+		DynExp::UnitType FrequencyUnit = DynExp::UnitType::Freq_Hz;
+		DynExp::UnitType IntensityUnit = DynExp::UnitType::Counts;
 		double MinFrequency = 0.0;
 		double MaxFrequency = 0.0;
 
@@ -219,8 +199,8 @@ namespace DynExpInstr
 
 		virtual std::string GetName() const override { return Name(); }
 
-		virtual SpectrometerData::FrequencyUnitType GetFrequencyUnit() const override;
-		virtual SpectrometerData::IntensityUnitType GetIntensityUnit() const override;
+		virtual DynExp::UnitType GetFrequencyUnit() const override;
+		virtual DynExp::UnitType GetIntensityUnit() const override;
 		virtual double GetMinFrequency() const override;
 		virtual double GetMaxFrequency() const override;
 

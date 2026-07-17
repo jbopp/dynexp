@@ -21,33 +21,18 @@ namespace DynExpInstr
 
 	using NetworkDataStreamInstrumentDataSampleStreamType = BasicSampleStream;
 
-	constexpr DynExpProto::Common::IntensityUnitType ToPrototUnitType(DataStreamInstrumentData::UnitType Unit)
+	constexpr DynExp::UnitType ToDataStreamInstrumentUnitType(DynExpProto::Common::IntensityUnitType Unit)
 	{
 		switch (Unit)
 		{
-		case DataStreamInstrumentData::UnitType::Arbitrary: return DynExpProto::Common::IntensityUnitType::Arbitrary;
-		case DataStreamInstrumentData::UnitType::LogicLevel: return DynExpProto::Common::IntensityUnitType::LogicLevel;
-		case DataStreamInstrumentData::UnitType::Counts: return DynExpProto::Common::IntensityUnitType::Counts;
-		case DataStreamInstrumentData::UnitType::Volt: return DynExpProto::Common::IntensityUnitType::Volt;
-		case DataStreamInstrumentData::UnitType::Ampere: return DynExpProto::Common::IntensityUnitType::Ampere;
-		case DataStreamInstrumentData::UnitType::Power_W: return DynExpProto::Common::IntensityUnitType::Power_W;
-		case DataStreamInstrumentData::UnitType::Power_dBm: return DynExpProto::Common::IntensityUnitType::Power_dBm;
-		default: throw Util::InvalidDataException("The given unit does not exist in the DataStreamInstrumentData::UnitType enumeration. Did you forget to adjust the UnitType enumeration in class \"DataStreamInstrumentData\"?");
-		}
-	}
-
-	constexpr DataStreamInstrumentData::UnitType ToDataStreamInstrumentUnitType(DynExpProto::Common::IntensityUnitType Unit)
-	{
-		switch (Unit)
-		{
-		case DynExpProto::Common::IntensityUnitType::Arbitrary: return DataStreamInstrumentData::UnitType::Arbitrary;
-		case DynExpProto::Common::IntensityUnitType::LogicLevel: return DataStreamInstrumentData::UnitType::LogicLevel;
-		case DynExpProto::Common::IntensityUnitType::Counts: return DataStreamInstrumentData::UnitType::Counts;
-		case DynExpProto::Common::IntensityUnitType::Volt: return DataStreamInstrumentData::UnitType::Volt;
-		case DynExpProto::Common::IntensityUnitType::Ampere: return DataStreamInstrumentData::UnitType::Ampere;
-		case DynExpProto::Common::IntensityUnitType::Power_W: return DataStreamInstrumentData::UnitType::Power_W;
-		case DynExpProto::Common::IntensityUnitType::Power_dBm: return DataStreamInstrumentData::UnitType::Power_dBm;
-		default: throw Util::InvalidDataException("The given unit does not exist in the DynExpProto::Common::IntensityUnitType enumeration or is not supported by this instrument. Did you forget to adjust the IntensityUnitType enumeration in file \"Common.proto\"?");
+		case DynExpProto::Common::IntensityUnitType::Arbitrary: return DynExp::UnitType::Arbitrary;
+		case DynExpProto::Common::IntensityUnitType::LogicLevel: return DynExp::UnitType::LogicLevel;
+		case DynExpProto::Common::IntensityUnitType::Counts: return DynExp::UnitType::Counts;
+		case DynExpProto::Common::IntensityUnitType::Volt: return DynExp::UnitType::Volt;
+		case DynExpProto::Common::IntensityUnitType::Ampere: return DynExp::UnitType::Ampere;
+		case DynExpProto::Common::IntensityUnitType::Power_W: return DynExp::UnitType::Power_W;
+		case DynExpProto::Common::IntensityUnitType::Power_dBm: return DynExp::UnitType::Power_dBm;
+		default: throw Util::InvalidDataException("The given unit is not supported here. Did you forget to adjust this function or the IntensityUnitType enumeration in file \"Common.proto\"?");
 		}
 	}
 
@@ -366,7 +351,7 @@ namespace DynExpInstr
 
 		struct RemoteStreamInfoType
 		{
-			DataStreamInstrumentData::UnitType ValueUnit = DataStreamInstrumentData::UnitType::Ampere;
+			DynExp::UnitType ValueUnit = DynExp::UnitType::Ampere;
 			double HardwareMinValue = 0;
 			double HardwareMaxValue = 0;
 			bool IsBasicSampleTimeUsed = false;
@@ -516,7 +501,7 @@ namespace DynExpInstr
 		virtual ~NetworkDataStreamInstrument() {}
 
 		// Only available if derived directly from DataStreamInstrument since other BaseInstr might already override this function differently.
-		virtual DataStreamInstrumentData::UnitType GetValueUnit() const override
+		virtual DynExp::UnitType GetValueUnit() const override
 		{
 			auto InstrData = dynamic_InstrumentData_cast<NetworkDataStreamInstrumentT>(this->GetInstrumentData());
 			return InstrData->GetValueUnit();

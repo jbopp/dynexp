@@ -100,7 +100,7 @@ namespace DynExpInstr
 
 		virtual std::string GetName() const override { return Name(); }
 
-		virtual DataStreamInstrumentData::UnitType GetValueUnit() const noexcept override { return DataStreamInstrumentData::UnitType::Arbitrary; }
+		virtual DynExp::UnitType GetValueUnit() const noexcept override { return DynExp::UnitType::Arbitrary; }
 
 		// Override in order to suppress Util::NotImplementedException.
 		virtual void WriteData(DynExp::TaskBase::CallbackType CallbackFunc = nullptr) const override { MakeAndEnqueueTask<DynExp::DefaultTask>(std::move(CallbackFunc)); }

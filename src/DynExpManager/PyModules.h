@@ -39,7 +39,7 @@ namespace DynExpInstr
 		 * @param IsTimeUsed @copydoc #IsTimeUsed
 		 * @param ValueUnit @copydoc #ValueUnit
 		*/
-		PyDataStreamInstrument(bool IsTimeUsed, DataStreamInstrumentData::UnitType ValueUnit) noexcept
+		PyDataStreamInstrument(bool IsTimeUsed, DynExp::UnitType ValueUnit) noexcept
 			: IsTimeUsed(IsTimeUsed), ValueUnit(ValueUnit) {}
 
 		/**
@@ -84,9 +84,9 @@ namespace DynExpInstr
 		bool IsTimeUsed{ false };
 		
 		/**
-		 * @brief Refer to DynExpInstr::DataStreamInstrumentData::UnitType.
+		 * @brief Refer to DynExp::UnitType.
 		*/
-		DataStreamInstrumentData::UnitType ValueUnit{ DataStreamInstrumentData::UnitType::Arbitrary };
+		DynExp::UnitType ValueUnit{ DynExp::UnitType::Arbitrary };
 
 		/**
 		 * @brief Contains the result of DynExpInstr::DataStreamBase::GetStreamSizeRead().

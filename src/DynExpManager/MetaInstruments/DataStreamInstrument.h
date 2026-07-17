@@ -10,7 +10,6 @@
 
 #include "stdafx.h"
 #include "Instrument.h"
-#include "DataStreamInstrumentUtil.h"
 
 namespace DynExpInstr
 {
@@ -801,11 +800,6 @@ namespace DynExpInstr
 		using ValueType = double;
 
 		/**
-		 * @copydoc DynExpInstr::DataStreamInstr::UnitType
-		*/
-		using UnitType = DataStreamInstr::UnitType;
-
-		/**
 		 * @brief Constructs a @p DataStreamInstrumentData instance.
 		 * @param SampleStream Data stream the related @p DataStreamInstrument instance
 		 * operates on. The @p DataStreamInstrumentData instance takes ownership of the stream.
@@ -841,10 +835,10 @@ namespace DynExpInstr
 
 		ValueType GetHardwareMinValue() const noexcept { return HardwareMinValue; }			//!< Returns #HardwareMinValue.
 		ValueType GetHardwareMaxValue() const noexcept { return HardwareMaxValue; }			//!< Returns #HardwareMaxValue.
-		UnitType GetValueUnit() const noexcept { return ValueUnit; }						//!< Returns #ValueUnit.
+		DynExp::UnitType GetValueUnit() const noexcept { return ValueUnit; }				//!< Returns #ValueUnit.
 		void SetHardwareMinValue(ValueType Value) noexcept { HardwareMinValue = Value; }	//!< Sets #HardwareMinValue.
 		void SetHardwareMaxValue(ValueType Value) noexcept { HardwareMaxValue = Value; }	//!< Sets #HardwareMaxValue.
-		void SetValueUnit(UnitType Unit) noexcept { ValueUnit = Unit; }						//!< Sets #ValueUnit.
+		void SetValueUnit(DynExp::UnitType Unit) noexcept { ValueUnit = Unit; }				//!< Sets #ValueUnit.
 
 	private:
 		void ResetImpl(dispatch_tag<InstrumentDataBase>) override final;
@@ -859,7 +853,7 @@ namespace DynExpInstr
 		///@{
 		ValueType HardwareMinValue;		//!< Minimal possible value to read/write from/to the hardware adapter
 		ValueType HardwareMaxValue;		//!< Maximal possible value to read/write from/to the hardware adapter
-		UnitType ValueUnit;				//!< Unit type of the values to be read/written from/to the hardware adapter
+		DynExp::UnitType ValueUnit;		//!< Unit type of the values to be read/written from/to the hardware adapter
 		///@}
 	};
 
@@ -944,16 +938,16 @@ namespace DynExpInstr
 		 * Do not enforce @p noexcept to allow overriding functions which throw exceptions.
 		 * @return Unit of values in the instrument's data stream
 		*/
-		virtual DataStreamInstrumentData::UnitType GetValueUnit() const = 0;
+		virtual DynExp::UnitType GetValueUnit() const = 0;
 		///@}
 
 		/**
 		 * @brief Builds and returns a descriptive string of the unit corresponding
 		 * to the values managed by this @p DataStreamInstrument instance.
-		 * @return Returns the result of a call to DynExpInstr::DataStreamInstr::UnitTypeToStr()
+		 * @return Returns the result of a call to DynExp::UnitTypeToStr()
 		 * on @p GetValueUnit().
 		*/
-		const char* GetValueUnitStr() const noexcept { return DataStreamInstr::UnitTypeToStr(GetValueUnit()); }
+		const char* GetValueUnitStr() const noexcept { return DynExp::UnitTypeToStr(GetValueUnit()); }
 
 		/** @name Override (instrument tasks)
 		 * Override by derived classes to insert tasks into the instrument's task queue,

@@ -94,6 +94,7 @@
 
 // DynExp
 #include "DynExpDefinitions.h"
+#include "Units.h"
 #include "Util.h"
 #include "circularbuf.h"
 #include "QtUtil.h"

@@ -230,7 +230,7 @@ namespace DynExpInstr
 		virtual std::string GetName() const override { return Name(); }
 
 		virtual std::chrono::milliseconds GetTaskQueueDelay() const override { return std::chrono::milliseconds(100); }
-		virtual DataStreamInstrumentData::UnitType GetValueUnit() const noexcept override;
+		virtual DynExp::UnitType GetValueUnit() const noexcept override;
 
 		// Tasks
 		virtual void WriteData(DynExp::TaskBase::CallbackType CallbackFunc) const override { MakeAndEnqueueTask<SwabianInstrumentsPulseStreamerTasks::WriteTask>(std::move(CallbackFunc)); }

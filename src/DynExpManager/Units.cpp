@@ -1,8 +1,8 @@
 // This file is part of DynExp.
 
-#include "DataStreamInstrumentUtil.h"
+#include "Units.h"
 
-namespace DynExpInstr::DataStreamInstr
+namespace DynExp
 {
 	const char* UnitTypeToStr(const UnitType& Unit)
 	{
@@ -15,6 +15,14 @@ namespace DynExpInstr::DataStreamInstr
 		case UnitType::Ampere: return "A";
 		case UnitType::Power_W: return "W";
 		case UnitType::Power_dBm: return "dBm";
+		case UnitType::Time_s: return "s";
+		case UnitType::Time_ms: return "ms";
+		case UnitType::Time_us: return "us";
+		case UnitType::Time_ns: return "ns";
+		case UnitType::Time_ps: return "ps";
+		case UnitType::Freq_Hz: return "Hz";
+		case UnitType::Length_nm: return "nm";
+		case UnitType::Inv_cm: return "1/cm";
 		default: return "<unknown unit>";
 		}
 	}

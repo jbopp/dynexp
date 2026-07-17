@@ -3,7 +3,7 @@
 target_sources(DynExpInstruments PRIVATE "AnalogIn.cpp" "AnalogIn.h")
 target_sources(DynExpInstruments PRIVATE "AnalogOut.cpp" "AnalogOut.h")
 target_sources(DynExpInstruments PRIVATE "Camera.cpp" "Camera.h")
-target_sources(DynExpInstruments PRIVATE "DataStreamInstrument.cpp" "DataStreamInstrument.h" "DataStreamInstrumentUtil.cpp" "DataStreamInstrumentUtil.h")
+target_sources(DynExpInstruments PRIVATE "DataStreamInstrument.cpp" "DataStreamInstrument.h")
 target_sources(DynExpInstruments PRIVATE "DigitalIn.cpp" "DigitalIn.h")
 target_sources(DynExpInstruments PRIVATE "DigitalOut.cpp" "DigitalOut.h")
 target_sources(DynExpInstruments PRIVATE "FunctionGenerator.cpp" "FunctionGenerator.h")

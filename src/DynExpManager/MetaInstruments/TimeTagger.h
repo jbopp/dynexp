@@ -282,7 +282,7 @@ namespace DynExpInstr
 		virtual std::string GetCategory() const override { return Category(); }
 
 		virtual std::chrono::milliseconds GetTaskQueueDelay() const override { return std::chrono::milliseconds(10); }
-		virtual DataStreamInstrumentData::UnitType GetValueUnit() const noexcept override { return DataStreamInstrumentData::UnitType::Counts; }
+		virtual DynExp::UnitType GetValueUnit() const noexcept override { return DynExp::UnitType::Counts; }
 
 		/** @name Override (instrument information)
 		 * Override by derived classes to provide information about the instrument.

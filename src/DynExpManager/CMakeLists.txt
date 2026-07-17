@@ -225,6 +225,8 @@ target_sources(DynExpCore PRIVATE
 	"TextEditor.cpp"
 	"TextEditor.h"
 	"TextEditor.ui"
+	"Units.cpp"
+	"Units.h"
 	"Util.cpp"
 	"Util.h"
 )

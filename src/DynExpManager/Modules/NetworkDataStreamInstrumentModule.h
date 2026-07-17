@@ -105,7 +105,7 @@ namespace DynExpModule
 				auto Instrument = ModuleData->GetDataStreamInstrument().get();
 				auto InstrData = DynExp::dynamic_InstrumentData_cast<DynExpInstr::DataStreamInstrument>(Instrument->GetInstrumentData());
 
-				ResponseMessage.set_valueunit(DynExpInstr::ToPrototUnitType(Instrument->GetValueUnit()));
+				ResponseMessage.set_valueunit(DynExpInstr::ToProtoIntensityUnitType(Instrument->GetValueUnit()));
 				ResponseMessage.set_hardwareminvalue(InstrData->GetHardwareMinValue());
 				ResponseMessage.set_hardwaremaxvalue(InstrData->GetHardwareMaxValue());
 				ResponseMessage.set_isbasicsampletimeused(InstrData->GetSampleStream()->IsBasicSampleTimeUsed());

@@ -4,8 +4,7 @@ syntax = "proto3";
 
 package DynExpProto.Common;
 
-// See definition of DynExpInstr::LaserData::FrequencyUnitType in Laser.h
-// See definition of DynExpInstr::SpectrometerData::FrequencyUnitType in Spectrometer.h
+// See definition of DynExp::UnitType in Units.h
 enum FrequencyUnitType
 {
 	Hz = 0;
@@ -13,9 +12,7 @@ enum FrequencyUnitType
 	Inv_cm = 2;
 }
 
-// See definition of DynExpInstr::DataStreamInstrumentData::UnitType in DataStreamInstrument.h
-// See definition of DynExpInstr::LaserData::IntensityUnitType in Laser.h
-// See definition of DynExpInstr::SpectrometerData::IntensityUnitType in Spectrometer.h
+// See definition of DynExp::UnitType in Units.h
 enum IntensityUnitType
 {
 	Arbitrary = 0;

@@ -250,8 +250,8 @@ namespace DynExpQuick
 			else
 				XCategoryAxis->setCategories(PlotModel.GetSeriesNames());
 
-			YValueAxis->setTitleText(QString("signal in ") + DynExpInstr::DataStreamInstr::UnitTypeToStr(PlotInfo.ValueUnit));
-			if (PlotInfo.ValueUnit == DynExpInstr::DataStreamInstr::UnitType::LogicLevel)
+			YValueAxis->setTitleText(QString("signal in ") + DynExp::UnitTypeToStr(PlotInfo.ValueUnit));
+			if (PlotInfo.ValueUnit == DynExp::UnitType::LogicLevel)
 			{
 				YValueAxis->setLabelFormat("%.0f");
 				if (Autoscale)

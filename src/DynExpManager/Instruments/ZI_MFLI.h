@@ -371,7 +371,7 @@ namespace DynExpInstr
 		virtual std::chrono::milliseconds GetTaskQueueDelay() const override { return std::chrono::milliseconds(200); }
 
 		// Further information about the instrument
-		virtual DataStreamInstrumentData::UnitType GetValueUnit() const noexcept override { return SignalInput == DynExpHardware::ZILabOneHardwareAdapter::SignalInputType::Current ? DataStreamInstrumentData::UnitType::Ampere : DataStreamInstrumentData::UnitType::Volt; }
+		virtual DynExp::UnitType GetValueUnit() const noexcept override { return SignalInput == DynExpHardware::ZILabOneHardwareAdapter::SignalInputType::Current ? DynExp::UnitType::Ampere : DynExp::UnitType::Volt; }
 		virtual const char* GetSensitivityUnitString() const noexcept override { return SignalInput == DynExpHardware::ZILabOneHardwareAdapter::SignalInputType::Current ? "A" : "V"; }
 
 		virtual Util::OptionalBool HasFinished() const override;

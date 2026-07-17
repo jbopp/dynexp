@@ -220,7 +220,7 @@ namespace DynExpInstr
 			return Response.resolution();
 		}
 
-		virtual DataStreamInstrumentData::UnitType GetValueUnit() const override
+		virtual DynExp::UnitType GetValueUnit() const override
 		{
 			StubPtrType<StubType> StubPtr;
 			{

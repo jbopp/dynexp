@@ -13,7 +13,7 @@ namespace DynExpInstr
 		if (ApplyDataStreamSizeFromParams())
 			InstrData->GetSampleStream()->SetStreamSize(InstrParams->StreamSizeParams.StreamSize);
 
-		InstrData->SetValueUnit(DataStreamInstrumentData::UnitType::Counts);
+		InstrData->SetValueUnit(DynExp::UnitType::Counts);
 		InstrData->SetStreamMode(InstrParams->StreamMode);
 
 		InitFuncImpl(dispatch_tag<InitTask>(), Instance);

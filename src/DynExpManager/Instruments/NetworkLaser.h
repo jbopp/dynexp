@@ -19,41 +19,22 @@ namespace DynExpInstr
 {
 	class NetworkLaser;
 
-	constexpr DynExpProto::Common::FrequencyUnitType ToPrototUnitType(LaserData::FrequencyUnitType Unit)
+	constexpr DynExp::UnitType ToLaserUnitType(DynExpProto::Common::FrequencyUnitType Unit)
 	{
 		switch (Unit)
 		{
-		case LaserData::FrequencyUnitType::Hz: return DynExpProto::Common::FrequencyUnitType::Hz;
-		case LaserData::FrequencyUnitType::nm: return DynExpProto::Common::FrequencyUnitType::nm;
-		default: throw Util::InvalidDataException("The given unit does not exist in the LaserData::FrequencyUnitType enumeration. Did you forget to adjust the FrequencyUnitType enumeration in class \"LaserData\"?");
+		case DynExpProto::Common::FrequencyUnitType::Hz: return DynExp::UnitType::Freq_Hz;
+		case DynExpProto::Common::FrequencyUnitType::nm: return DynExp::UnitType::Length_nm;
+		default: throw Util::InvalidDataException("The given unit is not supported here. Did you forget to adjust this function or the FrequencyUnitType enumeration in file \"Common.proto\"?");
 		}
 	}
 
-	constexpr LaserData::FrequencyUnitType ToLaserUnitType(DynExpProto::Common::FrequencyUnitType Unit)
+	constexpr DynExp::UnitType ToLaserUnitType(DynExpProto::Common::IntensityUnitType Unit)
 	{
 		switch (Unit)
 		{
-		case DynExpProto::Common::FrequencyUnitType::Hz: return LaserData::FrequencyUnitType::Hz;
-		case DynExpProto::Common::FrequencyUnitType::nm: return LaserData::FrequencyUnitType::nm;
-		default: throw Util::InvalidDataException("The given unit does not exist in the DynExpProto::Common::FrequencyUnitType enumeration or is not supported by this instrument. Did you forget to adjust the FrequencyUnitType enumeration in file \"Common.proto\"?");
-		}
-	}
-
-	constexpr DynExpProto::Common::IntensityUnitType ToPrototUnitType(LaserData::IntensityUnitType Unit)
-	{
-		switch (Unit)
-		{
-		case LaserData::IntensityUnitType::Power_W: return DynExpProto::Common::IntensityUnitType::Power_W;
-		default: throw Util::InvalidDataException("The given unit does not exist in the LaserData::IntensityUnitType enumeration. Did you forget to adjust the IntensityUnitType enumeration in class \"LaserData\"?");
-		}
-	}
-
-	constexpr LaserData::IntensityUnitType ToLaserUnitType(DynExpProto::Common::IntensityUnitType Unit)
-	{
-		switch (Unit)
-		{
-		case DynExpProto::Common::IntensityUnitType::Power_W: return LaserData::IntensityUnitType::Power_W;
-		default: throw Util::InvalidDataException("The given unit does not exist in the DynExpProto::Common::IntensityUnitType enumeration or is not supported by this instrument. Did you forget to adjust the IntensityUnitType enumeration in file \"Common.proto\"?");
+		case DynExpProto::Common::IntensityUnitType::Power_W: return DynExp::UnitType::Power_W;
+		default: throw Util::InvalidDataException("The given unit is not supported here. Did you forget to adjust this function or the IntensityUnitType enumeration in file \"Common.proto\"?");
 		}
 	}
 
@@ -201,8 +182,8 @@ namespace DynExpInstr
 
 		virtual LaserStateType GetLaserStateChild() const noexcept override { return LaserState; }
 
-		FrequencyUnitType FrequencyUnit = FrequencyUnitType::Hz;
-		IntensityUnitType IntensityUnit = IntensityUnitType::Power_W;
+		DynExp::UnitType FrequencyUnit = DynExp::UnitType::Freq_Hz;
+		DynExp::UnitType IntensityUnit = DynExp::UnitType::Power_W;
 		double HardwareMinFrequency = 0.0;
 		double HardwareMaxFrequency = 0.0;
 		double HardwareMinIntensity = 0.0;
@@ -258,8 +239,8 @@ namespace DynExpInstr
 
 		virtual std::string GetName() const override { return Name(); }
 
-		virtual LaserData::FrequencyUnitType GetFrequencyUnit() const override;
-		virtual LaserData::IntensityUnitType GetIntensityUnit() const override;
+		virtual DynExp::UnitType GetFrequencyUnit() const override;
+		virtual DynExp::UnitType GetIntensityUnit() const override;
 		virtual double GetMinFrequency() const override;
 		virtual double GetMaxFrequency() const override;
 		virtual double GetMinIntensity() const override;

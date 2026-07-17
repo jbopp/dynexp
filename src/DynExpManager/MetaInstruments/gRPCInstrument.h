@@ -22,6 +22,44 @@ namespace DynExpInstr
 	class gRPCInstrument;
 
 	/**
+	 * @brief Converts a physical unit of type DynExp::UnitType to a unit defined in the
+	 * @p FrequencyUnitType enumeration in @p Common.proto.
+	 * @param Unit Physical DynExp unit to convert
+	 * @return Corresponding gRPC unit
+	*/
+	constexpr DynExpProto::Common::FrequencyUnitType ToProtoFrequencyUnitType(DynExp::UnitType Unit)
+	{
+		switch (Unit)
+		{
+		case DynExp::UnitType::Freq_Hz: return DynExpProto::Common::FrequencyUnitType::Hz;
+		case DynExp::UnitType::Length_nm: return DynExpProto::Common::FrequencyUnitType::nm;
+		case DynExp::UnitType::Inv_cm: return DynExpProto::Common::FrequencyUnitType::Inv_cm;
+		default: throw Util::InvalidDataException("The given unit is not supported here. Did you forget to adjust this function or the UnitType enumeration in file \"Units.h\"?");
+		}
+	}
+
+	/**
+	 * @brief Converts a physical unit of type DynExp::UnitType to a unit defined in the
+	 * @p IntensityUnitType enumeration in @p Common.proto.
+	 * @param Unit Physical DynExp unit to convert
+	 * @return Corresponding gRPC unit
+	*/
+	constexpr DynExpProto::Common::IntensityUnitType ToProtoIntensityUnitType(DynExp::UnitType Unit)
+	{
+		switch (Unit)
+		{
+		case DynExp::UnitType::Arbitrary: return DynExpProto::Common::IntensityUnitType::Arbitrary;
+		case DynExp::UnitType::LogicLevel: return DynExpProto::Common::IntensityUnitType::LogicLevel;
+		case DynExp::UnitType::Counts: return DynExpProto::Common::IntensityUnitType::Counts;
+		case DynExp::UnitType::Volt: return DynExpProto::Common::IntensityUnitType::Volt;
+		case DynExp::UnitType::Ampere: return DynExpProto::Common::IntensityUnitType::Ampere;
+		case DynExp::UnitType::Power_W: return DynExpProto::Common::IntensityUnitType::Power_W;
+		case DynExp::UnitType::Power_dBm: return DynExpProto::Common::IntensityUnitType::Power_dBm;
+		default: throw Util::InvalidDataException("The given unit is not supported here. Did you forget to adjust this function or the UnitType enumeration in file \"Units.h\"?");
+		}
+	}
+
+	/**
 	 * @brief Tasks for @p gRPCInstrument
 	*/
 	namespace gRPCInstrumentTasks

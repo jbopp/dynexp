@@ -142,7 +142,7 @@ namespace DynExpModule
 			{
 				auto ModuleData = DynExp::dynamic_ModuleData_cast<NetworkAnalogInT>(Instance.ModuleDataGetter());
 
-				ResponseMessage.set_unit(DynExpInstr::ToPrototUnitType(ModuleData->GetAnalogIn()->GetValueUnit()));
+				ResponseMessage.set_unit(DynExpInstr::ToProtoIntensityUnitType(ModuleData->GetAnalogIn()->GetValueUnit()));
 			}
 		};
 

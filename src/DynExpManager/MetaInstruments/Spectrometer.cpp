@@ -5,26 +5,6 @@
 
 namespace DynExpInstr
 {
-	const char* SpectrometerData::FrequencyUnitTypeToStr(const FrequencyUnitType& Unit)
-	{
-		switch (Unit)
-		{
-		case FrequencyUnitType::Hz: return "Hz";
-		case FrequencyUnitType::nm: return "nm";
-		case FrequencyUnitType::Inv_cm: return "1/cm";
-		default: return "<unknown unit>";
-		}
-	}
-
-	const char* SpectrometerData::IntensityUnitTypeToStr(const IntensityUnitType& Unit)
-	{
-		switch (Unit)
-		{
-		case IntensityUnitType::Counts: return "#";
-		default: return "<unknown unit>";
-		}
-	}
-
 	SpectrometerData::SpectrumType::SpectrumType(SpectrumType&& Other)
 		: FrequencyUnit(Other.FrequencyUnit), IntensityUnit(Other.IntensityUnit), Samples(std::move(Other.Samples))
 	{

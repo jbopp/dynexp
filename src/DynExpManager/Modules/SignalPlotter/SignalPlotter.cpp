@@ -159,7 +159,7 @@ namespace DynExpModule::SignalPlotter
 		{
 			if (ModuleData->GetDataStreamInstr(0)->GetValueUnit() != ModuleData->PlotInfo.ValueUnit)
 			{
-				ModuleData->PlotInfo.ValueUnit = DynExpInstr::DataStreamInstr::UnitType::Arbitrary;
+				ModuleData->PlotInfo.ValueUnit = DynExp::UnitType::Arbitrary;
 				break;
 			}
 		}
@@ -228,7 +228,7 @@ namespace DynExpModule::SignalPlotter
 			std::vector<std::pair<SampleIteratorType, SampleIteratorType>> SeriesIterators;
 			auto HeaderIterator = ModuleData->GetDataStreamInstrLabels().cbegin();
 			const auto XUnit = ModuleData->PlotInfo.IsBasicSampleTimeUsed ? "_s" : "_i";
-			const auto YUnit = std::string("_") + DynExpInstr::DataStreamInstr::UnitTypeToStr(ModuleData->PlotInfo.ValueUnit);
+			const auto YUnit = std::string("_") + DynExp::UnitTypeToStr(ModuleData->PlotInfo.ValueUnit);
 			
 			for (const auto& Series : ModuleData->SampleDataList)
 			{

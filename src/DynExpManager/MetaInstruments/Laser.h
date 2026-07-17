@@ -66,41 +66,6 @@ namespace DynExpInstr
 	{
 	public:
 		/**
-		 * @brief Supported laser frequency units.
-		 * @warning If this is changed, also change @p ToPrototUnitType(LaserData::FrequencyUnitType) and
-		 * @p ToLaserUnitType(DynExpProto::Common::FrequencyUnitType) functions in @p NetworkLaser.h and
-		 * @p FrequencyUnitType enumeration in @p Common.proto.
-		*/
-		enum class FrequencyUnitType {
-			Hz,			//!< Frequency in Hz
-			nm,			//!< Wavelength in nm
-		};
-
-		/**
-		 * @brief Supported laser intensity units.
-		 * @warning If this is changed, also change @p ToPrototUnitType(LaserData::IntensityUnitType) and
-		 * @p ToLaserUnitType(DynExpProto::Common::IntensityUnitType) functions in @p NetworkLaser.h and
-		 * @p IntensityUnitType enumeration in @p Common.proto.
-		*/
-		enum class IntensityUnitType {
-			Power_W		//!< Power in Watt (W)
-		};
-		
-		/**
-		 * @brief Returns a descriptive string of a respective frequency unit to be e.g. used in the UI.
-		 * @param Unit Frequency unit type as used by laser instruments.
-		 * @return Unit string
-		*/
-		static const char* FrequencyUnitTypeToStr(const FrequencyUnitType& Unit);
-
-		/**
-		 * @brief Returns a descriptive string of a respective intensity unit to be e.g. used in the UI.
-		 * @param Unit Intensity unit type as used by laser instruments.
-		 * @return Unit string
-		*/
-		static const char* IntensityUnitTypeToStr(const IntensityUnitType& Unit);
-
-		/**
 		 * @brief Possible laser states.
 		*/
 		enum class LaserStateType {
@@ -225,13 +190,13 @@ namespace DynExpInstr
 			* @brief Determines the frequency unit.
 			* @return Frequency unit
 		*/
-		virtual LaserData::FrequencyUnitType GetFrequencyUnit() const = 0;
+		virtual DynExp::UnitType GetFrequencyUnit() const = 0;
 		
 		/**
 			* @brief Determines the intensity unit.
 			* @return Intensity unit
 		*/
-		virtual LaserData::IntensityUnitType GetIntensityUnit() const = 0;
+		virtual DynExp::UnitType GetIntensityUnit() const = 0;
 
 		/**
 		 * @brief Determines the minimal emission frequency. The default implementation returns

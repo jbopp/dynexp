@@ -79,7 +79,7 @@ namespace DynExpModule::Graph
 		/**
 		 * @brief Joint unit of the plot's value axis.
 		*/
-		DynExpInstr::DataStreamInstr::UnitType ValueUnit = DynExpInstr::DataStreamInstr::UnitType::Arbitrary;
+		DynExp::UnitType ValueUnit = DynExp::UnitType::Arbitrary;
 
 		/**
 		 * @brief Use sample indices or time data for plot's joint x axis?

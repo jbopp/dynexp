@@ -216,11 +216,11 @@ namespace DynExpInstr
 	{
 	}
 
-	DataStreamInstrumentData::UnitType SwabianInstrumentsPulseStreamer::GetValueUnit() const noexcept
+	DynExp::UnitType SwabianInstrumentsPulseStreamer::GetValueUnit() const noexcept
 	{
 		auto InstrData = DynExp::dynamic_InstrumentData_cast<SwabianInstrumentsPulseStreamer>(GetInstrumentData());
 
-		return InstrData->IsDigitalChannel() ? DataStreamInstrumentData::UnitType::LogicLevel : DataStreamInstrumentData::UnitType::Volt;
+		return InstrData->IsDigitalChannel() ? DynExp::UnitType::LogicLevel : DynExp::UnitType::Volt;
 	}
 
 	void SwabianInstrumentsPulseStreamer::SetConstantOutput(const DynExpHardware::SIPulseStreamerHardwareAdapter::PulseType& Pulse, DynExp::TaskBase::CallbackType CallbackFunc) const

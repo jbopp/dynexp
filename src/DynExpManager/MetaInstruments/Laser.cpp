@@ -5,25 +5,6 @@
 
 namespace DynExpInstr
 {
-	const char* LaserData::FrequencyUnitTypeToStr(const FrequencyUnitType& Unit)
-	{
-		switch (Unit)
-		{
-		case FrequencyUnitType::Hz: return "Hz";
-		case FrequencyUnitType::nm: return "nm";
-		default: return "<unknown unit>";
-		}
-	}
-
-	const char* LaserData::IntensityUnitTypeToStr(const IntensityUnitType& Unit)
-	{
-		switch (Unit)
-		{
-		case IntensityUnitType::Power_W: return "W";
-		default: return "<unknown unit>";
-		}
-	}
-
 	void LaserData::ResetImpl(dispatch_tag<InstrumentDataBase>)
 	{
 		Frequency = 0.0;		

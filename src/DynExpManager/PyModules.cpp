@@ -7,7 +7,7 @@ PYBIND11_MAKE_OPAQUE(decltype(DynExpInstr::PyDataStreamInstrument::Samples));
 
 /**
  * @brief Creates an embedded Python module @p PyModuleDataStreamInstrument
- * which contains DynExpInstr::BasicSample, DynExpInstr::DataStreamInstrumentData::UnitType,
+ * which contains DynExpInstr::BasicSample, DynExp::UnitType,
  * DynExpInstr::PyDataStreamInstrument::Samples, and DynExpInstr::PyDataStreamInstrument
  * as respective Python classes.
 */
@@ -22,14 +22,14 @@ PYBIND11_EMBEDDED_MODULE(PyModuleDataStreamInstrument, m)
 		.def_readwrite("Value", &BasicSample::Value)
 		.def_readwrite("Time", &BasicSample::Time);
 
-	py::enum_<DataStreamInstrumentData::UnitType>(m, "UnitType")
-		.value("Arbitrary", DataStreamInstrumentData::UnitType::Arbitrary)
-		.value("LogicLevel", DataStreamInstrumentData::UnitType::LogicLevel)
-		.value("Counts", DataStreamInstrumentData::UnitType::Counts)
-		.value("Volt", DataStreamInstrumentData::UnitType::Volt)
-		.value("Ampere", DataStreamInstrumentData::UnitType::Ampere)
-		.value("Power_W", DataStreamInstrumentData::UnitType::Power_W)
-		.value("Power_dBm", DataStreamInstrumentData::UnitType::Power_dBm);
+	py::enum_<DynExp::UnitType>(m, "UnitType")
+		.value("Arbitrary", DynExp::UnitType::Arbitrary)
+		.value("LogicLevel", DynExp::UnitType::LogicLevel)
+		.value("Counts", DynExp::UnitType::Counts)
+		.value("Volt", DynExp::UnitType::Volt)
+		.value("Ampere", DynExp::UnitType::Ampere)
+		.value("Power_W", DynExp::UnitType::Power_W)
+		.value("Power_dBm", DynExp::UnitType::Power_dBm);
 
 	py::bind_vector<decltype(DynExpInstr::PyDataStreamInstrument::Samples)>(m, "SampleListType");
 

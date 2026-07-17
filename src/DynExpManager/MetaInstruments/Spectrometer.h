@@ -71,42 +71,6 @@ namespace DynExpInstr
 		using TimeType = std::chrono::milliseconds;
 
 		/**
-		 * @brief Supported spectrometer frequency units.
-		 * @warning If this is changed, also change @p ToPrototUnitType(SpectrometerData::FrequencyUnitType) and
-		 * @p ToSpectrometerUnitType(DynExpProto::Common::FrequencyUnitType) functions in @p NetworkSpectrometer.h and
-		 * @p FrequencyUnitType enumeration in @p Common.proto.
-		*/
-		enum class FrequencyUnitType {
-			Hz,			//!< Frequency in Hz
-			nm,			//!< Wavelength in nm
-			Inv_cm		//!< Wavenumber in 1/cm
-		};
-
-		/**
-		 * @brief Supported spectrometer intensity units.
-		 * @warning If this is changed, also change @p ToPrototUnitType(SpectrometerData::IntensityUnitType) and
-		 * @p ToSpectrometerUnitType(DynExpProto::Common::IntensityUnitType) functions in @p NetworkSpectrometer.h and
-		 * @p IntensityUnitType enumeration in @p Common.proto.
-		*/
-		enum class IntensityUnitType {
-			Counts		//!< Number of counts (arbitrary unit)
-		};
-
-		/**
-		 * @brief Returns a descriptive string of a respective frequency unit to be e.g. used in plots.
-		 * @param Unit Frequency unit type as used by spectrometer instruments.
-		 * @return Unit string
-		*/
-		static const char* FrequencyUnitTypeToStr(const FrequencyUnitType& Unit);
-
-		/**
-		 * @brief Returns a descriptive string of a respective intensity unit to be e.g. used in plots.
-		 * @param Unit Intensity unit type as used by spectrometer instruments.
-		 * @return Unit string
-		*/
-		static const char* IntensityUnitTypeToStr(const IntensityUnitType& Unit);
-
-		/**
 		 * @brief Possible spectrometer states.
 		*/
 		enum class CapturingStateType {
@@ -124,16 +88,16 @@ namespace DynExpInstr
 		public:
 			/**
 			 * @brief Constructs a @p SpectrumType instance with #FrequencyUnit set to
-			 * FrequencyUnitType::Hz and #IntensityUnit set to IntensityUnitType::Counts.
+			 * DynExp::UnitType::Freq_Hz and #IntensityUnit set to DynExp::UnitType::Counts.
 			*/
-			SpectrumType() : FrequencyUnit(FrequencyUnitType::Hz), IntensityUnit(IntensityUnitType::Counts) {}
+			SpectrumType() : FrequencyUnit(DynExp::UnitType::Freq_Hz), IntensityUnit(DynExp::UnitType::Counts) {}
 			
 			/**
 			 * @brief Constructs a @p SpectrumType instance with the specified units.
 			 * @param FrequencyUnit @copybrief #FrequencyUnit
 			 * @param IntensityUnit @copybrief #IntensityUnit
 			*/
-			SpectrumType(FrequencyUnitType FrequencyUnit, IntensityUnitType IntensityUnit) : FrequencyUnit(FrequencyUnit), IntensityUnit(IntensityUnit) {}
+			SpectrumType(DynExp::UnitType FrequencyUnit, DynExp::UnitType IntensityUnit) : FrequencyUnit(FrequencyUnit), IntensityUnit(IntensityUnit) {}
 			
 			/**
 			 * @brief Copy-constructs a @p SpectrumType instance.
@@ -175,8 +139,8 @@ namespace DynExpInstr
 			bool HasSpectrum() const noexcept { return !Samples.empty(); }
 
 		private:
-			FrequencyUnitType FrequencyUnit;	//!< The spectrum's frequency (x-axis) unit.
-			IntensityUnitType IntensityUnit;	//!< The spectrum's intensity (y-axis) unit.
+			DynExp::UnitType FrequencyUnit;		//!< The spectrum's frequency (x-axis) unit.
+			DynExp::UnitType IntensityUnit;		//!< The spectrum's intensity (y-axis) unit.
 
 			std::map<double, double> Samples;	//!< Samples of the spectrum as tuples in units (#FrequencyUnit, #IntensityUnit)
 		};
@@ -356,13 +320,13 @@ namespace DynExpInstr
 		 * @brief Determines the frequency (x-axis) unit of the spectra acquired by the derived instrument.
 		 * @return Frequency unit of the acquired spectra
 		*/
-		virtual SpectrometerData::FrequencyUnitType GetFrequencyUnit() const = 0;
+		virtual DynExp::UnitType GetFrequencyUnit() const = 0;
 
 		/**
 		 * @brief Determines the intensity (y-axis) unit of the spectra acquired by the derived instrument.
 		 * @return Intensity unit of the acquired spectra
 		*/
-		virtual SpectrometerData::IntensityUnitType GetIntensityUnit() const = 0;
+		virtual DynExp::UnitType GetIntensityUnit() const = 0;
 
 		/**
 		 * @brief Determines the minimal lower frequency limit where the spectrum acquisition can begin.

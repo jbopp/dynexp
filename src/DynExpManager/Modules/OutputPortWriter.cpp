@@ -72,7 +72,7 @@ namespace DynExpModule
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<OutputPortWriter>(ModuleDataGetter());
 
 		QString ValueUnitStr(" ");
-		ValueUnitStr += DynExpInstr::DataStreamInstr::UnitTypeToStr(ModuleData->OutputPort->GetValueUnit());
+		ValueUnitStr += DynExp::UnitTypeToStr(ModuleData->OutputPort->GetValueUnit());
 
 		if (!ModuleData->UIInitialized)
 		{
@@ -112,7 +112,7 @@ namespace DynExpModule
 
 		Instance->LockObject(ModuleParams->OutputPort, ModuleData->OutputPort);
 
-		ModuleData->IsDigitalPort = ModuleData->OutputPort->GetValueUnit() == DynExpInstr::DataStreamInstrumentData::UnitType::LogicLevel;
+		ModuleData->IsDigitalPort = ModuleData->OutputPort->GetValueUnit() == DynExp::UnitType::LogicLevel;
 		ModuleData->MinAllowedValue = ModuleData->OutputPort->GetUserMinValue();
 		ModuleData->MaxAllowedValue = ModuleData->OutputPort->GetUserMaxValue();
 	}
