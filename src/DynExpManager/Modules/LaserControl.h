@@ -57,8 +57,8 @@ namespace DynExpModule
 		double IntensityInWToLaserUnit(double Value) const;
 		double IntensityInLaserUnitToW(double Value) const;
 
-		DynExp::UnitType FrequencyUnit;
-		DynExp::UnitType IntensityUnit;
+		DynExp::Units::UnitType FrequencyUnit;
+		DynExp::Units::UnitType IntensityUnit;
 		double HardwareMinFrequency;
 		double HardwareMaxFrequency;
 		double HardwareMinIntensity;

@@ -84,7 +84,7 @@ namespace DynExpInstr
 	}
 
 	DataStreamInstrumentData::DataStreamInstrumentData(DataStreamBasePtrType&& SampleStream)
-		: SampleStream(std::move(SampleStream)), HardwareMinValue(0), HardwareMaxValue(0), ValueUnit(DynExp::UnitType::Arbitrary)
+		: SampleStream(std::move(SampleStream)), HardwareMinValue(0), HardwareMaxValue(0), ValueUnit(DynExp::Units::UnitType::Arbitrary)
 	{
 		if (!this->SampleStream)
 			throw Util::InvalidArgException("SampleStream cannot be nullptr.");
@@ -96,7 +96,7 @@ namespace DynExpInstr
 
 		HardwareMinValue = 0;
 		HardwareMaxValue = 0;
-		ValueUnit = DynExp::UnitType::Arbitrary;
+		ValueUnit = DynExp::Units::UnitType::Arbitrary;
 
 		ResetImpl(dispatch_tag<DataStreamInstrumentData>());
 	}

@@ -118,9 +118,9 @@ namespace DynExpModule
 	{
 		switch (FrequencyUnit)
 		{
-		case DynExp::UnitType::Freq_Hz:
+		case DynExp::Units::UnitType::Freq_Hz:
 			return Value;
-		case DynExp::UnitType::Wavelength_nm:
+		case DynExp::Units::UnitType::Wavelength_nm:
 			return Util::ConvertFrequencyWavelength(Value) * 1e9;
 		default:
 			throw Util::NotImplementedException("Cannot convert frequency in Hz to the unit required by the laser instrument.");
@@ -131,9 +131,9 @@ namespace DynExpModule
 	{
 		switch (FrequencyUnit)
 		{
-		case DynExp::UnitType::Freq_Hz:
+		case DynExp::Units::UnitType::Freq_Hz:
 			return Value;
-		case DynExp::UnitType::Wavelength_nm:
+		case DynExp::Units::UnitType::Wavelength_nm:
 			return Util::ConvertFrequencyWavelength(Value * 1e-9);
 		default:
 			throw Util::NotImplementedException("Cannot convert frequency in unit required by the laser instrument to Hz.");
@@ -144,7 +144,7 @@ namespace DynExpModule
 	{
 		switch (IntensityUnit)
 		{
-		case DynExp::UnitType::Power_W:
+		case DynExp::Units::UnitType::Power_W:
 			return Value;
 		default:
 			throw Util::NotImplementedException("Cannot convert intensity in W to the unit required by the laser instrument.");
@@ -155,7 +155,7 @@ namespace DynExpModule
 	{
 		switch (IntensityUnit)
 		{
-		case DynExp::UnitType::Power_W:
+		case DynExp::Units::UnitType::Power_W:
 			return Value;
 		default:
 			throw Util::NotImplementedException("Cannot convert intensity in unit required by the laser instrument to W.");
@@ -169,8 +169,8 @@ namespace DynExpModule
 
 	void LaserControlData::Init()
 	{
-		FrequencyUnit = DynExp::UnitType::Freq_Hz;
-		IntensityUnit = DynExp::UnitType::Power_W;
+		FrequencyUnit = DynExp::Units::UnitType::Freq_Hz;
+		IntensityUnit = DynExp::Units::UnitType::Power_W;
 		HardwareMinFrequency = 0.0;
 		HardwareMaxFrequency = 0.0;
 		HardwareMinIntensity = 0.0;

@@ -167,7 +167,7 @@ namespace DynExpInstr
 		 * For non-final methods, do not enforce noexcept to allow overriding functions which throw exceptions.
 		*/
 		///@{
-		virtual DynExp::UnitType GetValueUnit() const override { return DynExp::UnitType::Volt; }
+		virtual DynExp::Units::UnitType GetValueUnit() const override { return DynExp::Units::UnitType::Volt; }
 
 		/**
 		 * @brief Retrieves sample stream settings of the instrument's data stream from the instrument's

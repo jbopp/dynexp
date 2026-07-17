@@ -138,7 +138,7 @@ namespace DynExpModule::ODMR
 		RFGeneratorMaxFuncDesc = {};
 		RFGeneratorDefaultFuncDesc = {};
 
-		AuxAnalogOutValueUnit = DynExp::UnitType::Arbitrary;
+		AuxAnalogOutValueUnit = DynExp::Units::UnitType::Arbitrary;
 		AuxAnalogOutMinValue = 0.0;
 		AuxAnalogOutMaxValue = 1.0;
 

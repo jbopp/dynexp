@@ -628,7 +628,7 @@ namespace Util
 	 * @param Value Frequency in Hz or wavelength in m
 	 * @return Corresponding wavelength in m or frequency in Hz
 	*/
-	constexpr auto ConvertFrequencyWavelength(double Value) noexcept { return DynExp::SpeedOfLight / Value; }
+	constexpr auto ConvertFrequencyWavelength(double Value) noexcept { return DynExp::Units::SpeedOfLight / Value; }
 	///@}
 
 	/** @name Conversion functions

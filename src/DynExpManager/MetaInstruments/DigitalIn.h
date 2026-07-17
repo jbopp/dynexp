@@ -170,7 +170,7 @@ namespace DynExpInstr
 		virtual DataStreamInstrumentData::ValueType GetHardwareMinValue() const noexcept override final { return 0; }
 		virtual DataStreamInstrumentData::ValueType GetHardwareMaxValue() const noexcept override final { return 1; }
 		virtual DataStreamInstrumentData::ValueType GetHardwareResolution() const noexcept override final { return 1; }
-		virtual DynExp::UnitType GetValueUnit() const noexcept override final { return DynExp::UnitType::LogicLevel; }
+		virtual DynExp::Units::UnitType GetValueUnit() const noexcept override final { return DynExp::Units::UnitType::LogicLevel; }
 		
 		/**
 		 * @brief Retrieves sample stream settings of the instrument's data stream from the instrument's

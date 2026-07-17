@@ -4,7 +4,7 @@ syntax = "proto3";
 
 package DynExpProto.Common;
 
-// See definition of DynExp::UnitType in Units.h
+// See definition of DynExp::Units::UnitType in Units.h
 enum FrequencyUnitType
 {
 	Hz = 0;
@@ -12,7 +12,7 @@ enum FrequencyUnitType
 	Inv_cm = 2;
 }
 
-// See definition of DynExp::UnitType in Units.h
+// See definition of DynExp::Units::UnitType in Units.h
 enum IntensityUnitType
 {
 	Arbitrary = 0;

@@ -2,7 +2,7 @@
 
 #include "Units.h"
 
-namespace DynExp
+namespace DynExp::Units
 {
 	bool IsIntegerUnit(UnitType Unit)
 	{

@@ -82,7 +82,7 @@ namespace DynExpModule
 
 		if (!ModuleData->IsDigitalPort)
 		{
-			Widget->ui->ValueLabel->setText(QString::number(ModuleData->Value) + " " + DynExp::UnitTypeToStr(ModuleData->InputPort->GetValueUnit()));
+			Widget->ui->ValueLabel->setText(QString::number(ModuleData->Value) + " " + DynExp::Units::UnitTypeToStr(ModuleData->InputPort->GetValueUnit()));
 			Widget->ui->ValueProgressBar->setMinimum(ModuleData->InputPort->GetHardwareMinValue());
 			Widget->ui->ValueProgressBar->setMaximum(ModuleData->InputPort->GetHardwareMaxValue());
 			Widget->ui->ValueProgressBar->setValue(ModuleData->Value);
@@ -102,7 +102,7 @@ namespace DynExpModule
 		Instance->LockObject(ModuleParams->InputPort, ModuleData->InputPort);
 		ModuleData->InputPort->ReadData();
 
-		ModuleData->IsDigitalPort = ModuleData->InputPort->GetValueUnit() == DynExp::UnitType::LogicLevel;
+		ModuleData->IsDigitalPort = ModuleData->InputPort->GetValueUnit() == DynExp::Units::UnitType::LogicLevel;
 	}
 
 	void InputPortReader::OnExit(DynExp::ModuleInstance* Instance) const

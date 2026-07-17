@@ -40,7 +40,7 @@ namespace DynExpModule::SignalPlotter
 
 			if (Running)
 			{
-				PlotInfo.XUnit = DynExp::UnitType::Time_s;
+				PlotInfo.XUnit = DynExp::Units::UnitType::Time_s;
 
 				for (size_t i = 0; i < ProcessedSamples.size(); ++i)
 				{
@@ -60,7 +60,7 @@ namespace DynExpModule::SignalPlotter
 						SampleStream->SeekBeg(std::ios_base::in);
 
 					BasicSamplesSeries.emplace_back(SampleStream->ReadBasicSamples(SampleStream->GetStreamSizeRead()));
-					PlotInfo.XUnit = (PlotInfo.XUnit == DynExp::UnitType::Time_s && SampleStream->IsBasicSampleTimeUsed()) ? DynExp::UnitType::Time_s : DynExp::UnitType::Index;
+					PlotInfo.XUnit = (PlotInfo.XUnit == DynExp::Units::UnitType::Time_s && SampleStream->IsBasicSampleTimeUsed()) ? DynExp::Units::UnitType::Time_s : DynExp::Units::UnitType::Index;
 				}
 			}
 
@@ -160,7 +160,7 @@ namespace DynExpModule::SignalPlotter
 		{
 			if (ModuleData->GetDataStreamInstr(0)->GetValueUnit() != ModuleData->PlotInfo.YUnit)
 			{
-				ModuleData->PlotInfo.YUnit = DynExp::UnitType::Arbitrary;
+				ModuleData->PlotInfo.YUnit = DynExp::Units::UnitType::Arbitrary;
 				break;
 			}
 		}
@@ -228,8 +228,8 @@ namespace DynExpModule::SignalPlotter
 			using SampleIteratorType = decltype(SignalPlotterData::SampleDataType::Samples)::const_iterator;
 			std::vector<std::pair<SampleIteratorType, SampleIteratorType>> SeriesIterators;
 			auto HeaderIterator = ModuleData->GetDataStreamInstrLabels().cbegin();
-			const auto XUnit = std::string("_") + DynExp::UnitTypeToStr(ModuleData->PlotInfo.XUnit);
-			const auto YUnit = std::string("_") + DynExp::UnitTypeToStr(ModuleData->PlotInfo.YUnit);
+			const auto XUnit = std::string("_") + DynExp::Units::UnitTypeToStr(ModuleData->PlotInfo.XUnit);
+			const auto YUnit = std::string("_") + DynExp::Units::UnitTypeToStr(ModuleData->PlotInfo.YUnit);
 			
 			for (const auto& Series : ModuleData->SampleDataList)
 			{

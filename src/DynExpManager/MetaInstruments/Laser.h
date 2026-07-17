@@ -187,16 +187,16 @@ namespace DynExpInstr
 		*/
 		///@{
 		/**
-			* @brief Determines the frequency unit.
-			* @return Frequency unit
+		 * @brief Determines the frequency unit.
+		 * @return Frequency unit
 		*/
-		virtual DynExp::UnitType GetFrequencyUnit() const = 0;
+		virtual DynExp::Units::UnitType GetFrequencyUnit() const = 0;
 		
 		/**
-			* @brief Determines the intensity unit.
-			* @return Intensity unit
+		 * @brief Determines the intensity unit.
+		 * @return Intensity unit
 		*/
-		virtual DynExp::UnitType GetIntensityUnit() const = 0;
+		virtual DynExp::Units::UnitType GetIntensityUnit() const = 0;
 
 		/**
 		 * @brief Determines the minimal emission frequency. The default implementation returns

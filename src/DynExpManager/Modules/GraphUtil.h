@@ -79,12 +79,12 @@ namespace DynExpModule::Graph
 		/**
 		 * @brief Joint unit of the plot's x axis.
 		*/
-		DynExp::UnitType XUnit = DynExp::UnitType::Index;
+		DynExp::Units::UnitType XUnit = DynExp::Units::UnitType::Index;
 
 		/**
 		 * @brief Joint unit of the plot's y axis.
 		*/
-		DynExp::UnitType YUnit = DynExp::UnitType::Arbitrary;
+		DynExp::Units::UnitType YUnit = DynExp::Units::UnitType::Arbitrary;
 
 		/**
 		 * @brief Best order of magnitude to scale the plot's joint time axis with.

@@ -19,22 +19,22 @@ namespace DynExpInstr
 {
 	class NetworkSpectrometer;
 
-	constexpr DynExp::UnitType ToSpectrometerUnitType(DynExpProto::Common::FrequencyUnitType Unit)
+	constexpr DynExp::Units::UnitType ToSpectrometerUnitType(DynExpProto::Common::FrequencyUnitType Unit)
 	{
 		switch (Unit)
 		{
-		case DynExpProto::Common::FrequencyUnitType::Hz: return DynExp::UnitType::Freq_Hz;
-		case DynExpProto::Common::FrequencyUnitType::nm: return DynExp::UnitType::Wavelength_nm;
-		case DynExpProto::Common::FrequencyUnitType::Inv_cm: return DynExp::UnitType::Inv_cm;
+		case DynExpProto::Common::FrequencyUnitType::Hz: return DynExp::Units::UnitType::Freq_Hz;
+		case DynExpProto::Common::FrequencyUnitType::nm: return DynExp::Units::UnitType::Wavelength_nm;
+		case DynExpProto::Common::FrequencyUnitType::Inv_cm: return DynExp::Units::UnitType::Inv_cm;
 		default: throw Util::InvalidDataException("The given unit is not supported here. Did you forget to adjust this function or the FrequencyUnitType enumeration in file \"Common.proto\"?");
 		}
 	}
 
-	constexpr DynExp::UnitType ToSpectrometerUnitType(DynExpProto::Common::IntensityUnitType Unit)
+	constexpr DynExp::Units::UnitType ToSpectrometerUnitType(DynExpProto::Common::IntensityUnitType Unit)
 	{
 		switch (Unit)
 		{
-		case DynExpProto::Common::IntensityUnitType::Counts: return DynExp::UnitType::Counts;
+		case DynExpProto::Common::IntensityUnitType::Counts: return DynExp::Units::UnitType::Counts;
 		default: throw Util::InvalidDataException("The given unit is not supported here. Did you forget to adjust this function or the IntensityUnitType enumeration in file \"Common.proto\"?");
 		}
 	}
@@ -148,8 +148,8 @@ namespace DynExpInstr
 		virtual CapturingStateType GetCapturingStateChild() const noexcept override { return CapturingState; }
 		virtual double GetCapturingProgressChild() const noexcept override { return CapturingProgress; }
 
-		DynExp::UnitType FrequencyUnit = DynExp::UnitType::Freq_Hz;
-		DynExp::UnitType IntensityUnit = DynExp::UnitType::Counts;
+		DynExp::Units::UnitType FrequencyUnit = DynExp::Units::UnitType::Freq_Hz;
+		DynExp::Units::UnitType IntensityUnit = DynExp::Units::UnitType::Counts;
 		double MinFrequency = 0.0;
 		double MaxFrequency = 0.0;
 
@@ -199,8 +199,8 @@ namespace DynExpInstr
 
 		virtual std::string GetName() const override { return Name(); }
 
-		virtual DynExp::UnitType GetFrequencyUnit() const override;
-		virtual DynExp::UnitType GetIntensityUnit() const override;
+		virtual DynExp::Units::UnitType GetFrequencyUnit() const override;
+		virtual DynExp::Units::UnitType GetIntensityUnit() const override;
 		virtual double GetMinFrequency() const override;
 		virtual double GetMaxFrequency() const override;
 

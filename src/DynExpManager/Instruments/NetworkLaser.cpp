@@ -248,8 +248,8 @@ namespace DynExpInstr
 
 	void NetworkLaserData::ResetImpl(dispatch_tag<gRPCInstrumentData<Laser, 0, DynExpProto::NetworkLaser::NetworkLaser>>)
 	{
-		FrequencyUnit = DynExp::UnitType::Freq_Hz;
-		IntensityUnit = DynExp::UnitType::Power_W;
+		FrequencyUnit = DynExp::Units::UnitType::Freq_Hz;
+		IntensityUnit = DynExp::Units::UnitType::Power_W;
 		HardwareMinFrequency = 0.0;
 		HardwareMaxFrequency = 0.0;
 		HardwareMinIntensity = 0.0;
@@ -270,14 +270,14 @@ namespace DynExpInstr
 	{
 	}
 
-	DynExp::UnitType NetworkLaser::GetFrequencyUnit() const
+	DynExp::Units::UnitType NetworkLaser::GetFrequencyUnit() const
 	{
 		auto InstrData = DynExp::dynamic_InstrumentData_cast<NetworkLaser>(GetInstrumentData());
 
 		return InstrData->GetFrequencyUnit();
 	}
 
-	DynExp::UnitType NetworkLaser::GetIntensityUnit() const
+	DynExp::Units::UnitType NetworkLaser::GetIntensityUnit() const
 	{
 		auto InstrData = DynExp::dynamic_InstrumentData_cast<NetworkLaser>(GetInstrumentData());
 

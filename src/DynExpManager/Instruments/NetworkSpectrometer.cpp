@@ -179,8 +179,8 @@ namespace DynExpInstr
 
 	void NetworkSpectrometerData::ResetImpl(dispatch_tag<gRPCInstrumentData<Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer>>)
 	{
-		FrequencyUnit = DynExp::UnitType::Freq_Hz;
-		IntensityUnit = DynExp::UnitType::Counts;
+		FrequencyUnit = DynExp::Units::UnitType::Freq_Hz;
+		IntensityUnit = DynExp::Units::UnitType::Counts;
 		MinFrequency = 0.0;
 		MaxFrequency = 0.0;
 
@@ -195,14 +195,14 @@ namespace DynExpInstr
 	{
 	}
 
-	DynExp::UnitType NetworkSpectrometer::GetFrequencyUnit() const
+	DynExp::Units::UnitType NetworkSpectrometer::GetFrequencyUnit() const
 	{
 		auto InstrData = DynExp::dynamic_InstrumentData_cast<NetworkSpectrometer>(GetInstrumentData());
 
 		return InstrData->GetFrequencyUnit();
 	}
 
-	DynExp::UnitType NetworkSpectrometer::GetIntensityUnit() const
+	DynExp::Units::UnitType NetworkSpectrometer::GetIntensityUnit() const
 	{
 		auto InstrData = DynExp::dynamic_InstrumentData_cast<NetworkSpectrometer>(GetInstrumentData());
 

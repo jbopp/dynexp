@@ -19,21 +19,21 @@ namespace DynExpInstr
 {
 	class NetworkLaser;
 
-	constexpr DynExp::UnitType ToLaserUnitType(DynExpProto::Common::FrequencyUnitType Unit)
+	constexpr DynExp::Units::UnitType ToLaserUnitType(DynExpProto::Common::FrequencyUnitType Unit)
 	{
 		switch (Unit)
 		{
-		case DynExpProto::Common::FrequencyUnitType::Hz: return DynExp::UnitType::Freq_Hz;
-		case DynExpProto::Common::FrequencyUnitType::nm: return DynExp::UnitType::Wavelength_nm;
+		case DynExpProto::Common::FrequencyUnitType::Hz: return DynExp::Units::UnitType::Freq_Hz;
+		case DynExpProto::Common::FrequencyUnitType::nm: return DynExp::Units::UnitType::Wavelength_nm;
 		default: throw Util::InvalidDataException("The given unit is not supported here. Did you forget to adjust this function or the FrequencyUnitType enumeration in file \"Common.proto\"?");
 		}
 	}
 
-	constexpr DynExp::UnitType ToLaserUnitType(DynExpProto::Common::IntensityUnitType Unit)
+	constexpr DynExp::Units::UnitType ToLaserUnitType(DynExpProto::Common::IntensityUnitType Unit)
 	{
 		switch (Unit)
 		{
-		case DynExpProto::Common::IntensityUnitType::Power_W: return DynExp::UnitType::Power_W;
+		case DynExpProto::Common::IntensityUnitType::Power_W: return DynExp::Units::UnitType::Power_W;
 		default: throw Util::InvalidDataException("The given unit is not supported here. Did you forget to adjust this function or the IntensityUnitType enumeration in file \"Common.proto\"?");
 		}
 	}
@@ -182,8 +182,8 @@ namespace DynExpInstr
 
 		virtual LaserStateType GetLaserStateChild() const noexcept override { return LaserState; }
 
-		DynExp::UnitType FrequencyUnit = DynExp::UnitType::Freq_Hz;
-		DynExp::UnitType IntensityUnit = DynExp::UnitType::Power_W;
+		DynExp::Units::UnitType FrequencyUnit = DynExp::Units::UnitType::Freq_Hz;
+		DynExp::Units::UnitType IntensityUnit = DynExp::Units::UnitType::Power_W;
 		double HardwareMinFrequency = 0.0;
 		double HardwareMaxFrequency = 0.0;
 		double HardwareMinIntensity = 0.0;
@@ -239,8 +239,8 @@ namespace DynExpInstr
 
 		virtual std::string GetName() const override { return Name(); }
 
-		virtual DynExp::UnitType GetFrequencyUnit() const override;
-		virtual DynExp::UnitType GetIntensityUnit() const override;
+		virtual DynExp::Units::UnitType GetFrequencyUnit() const override;
+		virtual DynExp::Units::UnitType GetIntensityUnit() const override;
 		virtual double GetMinFrequency() const override;
 		virtual double GetMaxFrequency() const override;
 		virtual double GetMinIntensity() const override;

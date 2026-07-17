@@ -21,17 +21,17 @@ namespace DynExpInstr
 
 	using NetworkDataStreamInstrumentDataSampleStreamType = BasicSampleStream;
 
-	constexpr DynExp::UnitType ToDataStreamInstrumentUnitType(DynExpProto::Common::IntensityUnitType Unit)
+	constexpr DynExp::Units::UnitType ToDataStreamInstrumentUnitType(DynExpProto::Common::IntensityUnitType Unit)
 	{
 		switch (Unit)
 		{
-		case DynExpProto::Common::IntensityUnitType::Arbitrary: return DynExp::UnitType::Arbitrary;
-		case DynExpProto::Common::IntensityUnitType::LogicLevel: return DynExp::UnitType::LogicLevel;
-		case DynExpProto::Common::IntensityUnitType::Counts: return DynExp::UnitType::Counts;
-		case DynExpProto::Common::IntensityUnitType::Volt: return DynExp::UnitType::Volt;
-		case DynExpProto::Common::IntensityUnitType::Ampere: return DynExp::UnitType::Ampere;
-		case DynExpProto::Common::IntensityUnitType::Power_W: return DynExp::UnitType::Power_W;
-		case DynExpProto::Common::IntensityUnitType::Power_dBm: return DynExp::UnitType::Power_dBm;
+		case DynExpProto::Common::IntensityUnitType::Arbitrary: return DynExp::Units::UnitType::Arbitrary;
+		case DynExpProto::Common::IntensityUnitType::LogicLevel: return DynExp::Units::UnitType::LogicLevel;
+		case DynExpProto::Common::IntensityUnitType::Counts: return DynExp::Units::UnitType::Counts;
+		case DynExpProto::Common::IntensityUnitType::Volt: return DynExp::Units::UnitType::Volt;
+		case DynExpProto::Common::IntensityUnitType::Ampere: return DynExp::Units::UnitType::Ampere;
+		case DynExpProto::Common::IntensityUnitType::Power_W: return DynExp::Units::UnitType::Power_W;
+		case DynExpProto::Common::IntensityUnitType::Power_dBm: return DynExp::Units::UnitType::Power_dBm;
 		default: throw Util::InvalidDataException("The given unit is not supported here. Did you forget to adjust this function or the IntensityUnitType enumeration in file \"Common.proto\"?");
 		}
 	}
@@ -351,7 +351,7 @@ namespace DynExpInstr
 
 		struct RemoteStreamInfoType
 		{
-			DynExp::UnitType ValueUnit = DynExp::UnitType::Ampere;
+			DynExp::Units::UnitType ValueUnit = DynExp::Units::UnitType::Ampere;
 			double HardwareMinValue = 0;
 			double HardwareMaxValue = 0;
 			bool IsBasicSampleTimeUsed = false;
@@ -501,7 +501,7 @@ namespace DynExpInstr
 		virtual ~NetworkDataStreamInstrument() {}
 
 		// Only available if derived directly from DataStreamInstrument since other BaseInstr might already override this function differently.
-		virtual DynExp::UnitType GetValueUnit() const override
+		virtual DynExp::Units::UnitType GetValueUnit() const override
 		{
 			auto InstrData = dynamic_InstrumentData_cast<NetworkDataStreamInstrumentT>(this->GetInstrumentData());
 			return InstrData->GetValueUnit();

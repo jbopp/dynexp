@@ -207,7 +207,7 @@ namespace DynExpInstr
 		 * For non-final methods, do not enforce noexcept to allow overriding functions which throw exceptions.
 		*/
 		///@{
-		virtual DynExp::UnitType GetValueUnit() const override { return DynExp::UnitType::Volt; }
+		virtual DynExp::Units::UnitType GetValueUnit() const override { return DynExp::Units::UnitType::Volt; }
 		virtual DataStreamInstrumentData::ValueType GetUserMinValue() const override;
 		virtual DataStreamInstrumentData::ValueType GetUserMaxValue() const override;
 

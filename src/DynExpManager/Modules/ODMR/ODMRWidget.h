@@ -108,7 +108,7 @@ namespace DynExpModule::ODMR
 		QLogValueAxis* SensitivityXAxis;
 		QLogValueAxis* SensitivityYAxis;
 
-		DynExp::UnitType AuxAnalogOutValueUnit = DynExp::UnitType::Arbitrary;
+		DynExp::Units::UnitType AuxAnalogOutValueUnit = DynExp::Units::UnitType::Arbitrary;
 		DynExpInstr::DataStreamInstrumentData::ValueType AuxAnalogOutMinValue = 0.0;
 		DynExpInstr::DataStreamInstrumentData::ValueType AuxAnalogOutMaxValue = 1.0;
 

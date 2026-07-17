@@ -243,17 +243,17 @@ namespace DynExpQuick
 			XValueAxis->setVisible(AnyLineSeriesVisible);
 			if (AnyLineSeriesVisible)
 			{
-				XValueAxis->setTitleText(DynExp::UnitCategoryToStr(PlotInfo.XUnit) + QString(" in ") +
-					(PlotInfo.XUnit == DynExp::UnitType::Time_s ? PlotInfo.GetMultiplierLabel() + "s" : DynExp::UnitTypeToStr(PlotInfo.XUnit)));
-				XValueAxis->setLabelFormat(DynExp::IsIntegerUnit(PlotInfo.XUnit) ? "%.0f" : "%.3f");
+				XValueAxis->setTitleText(DynExp::Units::UnitCategoryToStr(PlotInfo.XUnit) + QString(" in ") +
+					(PlotInfo.XUnit == DynExp::Units::UnitType::Time_s ? PlotInfo.GetMultiplierLabel() + "s" : DynExp::Units::UnitTypeToStr(PlotInfo.XUnit)));
+				XValueAxis->setLabelFormat(DynExp::Units::IsIntegerUnit(PlotInfo.XUnit) ? "%.0f" : "%.3f");
 				XValueAxis->setRange(PlotInfo.MinValues.x(), PlotInfo.MaxValues.x());
 			}
 			else
 				XCategoryAxis->setCategories(PlotModel.GetSeriesNames());
 
-			YValueAxis->setTitleText(DynExp::UnitCategoryToStr(PlotInfo.YUnit) + QString(" in ") + DynExp::UnitTypeToStr(PlotInfo.YUnit));
-			YValueAxis->setLabelFormat(DynExp::IsIntegerUnit(PlotInfo.YUnit) ? "%.0f" : "%.3f");
-			if (PlotInfo.YUnit == DynExp::UnitType::LogicLevel)
+			YValueAxis->setTitleText(DynExp::Units::UnitCategoryToStr(PlotInfo.YUnit) + QString(" in ") + DynExp::Units::UnitTypeToStr(PlotInfo.YUnit));
+			YValueAxis->setLabelFormat(DynExp::Units::IsIntegerUnit(PlotInfo.YUnit) ? "%.0f" : "%.3f");
+			if (PlotInfo.YUnit == DynExp::Units::UnitType::LogicLevel)
 			{
 				if (Autoscale)
 					YValueAxis->setRange(0, 1);

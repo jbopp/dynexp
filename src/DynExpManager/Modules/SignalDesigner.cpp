@@ -67,7 +67,7 @@ namespace DynExpModule
 		{
 			if (ModuleData->WaveformCaps.Test(DynExpInstr::FunctionGenerator::WaveformCapsType::Sine) ||
 				(ModuleData->WaveformCaps.Test(DynExpInstr::FunctionGenerator::WaveformCapsType::UserDefined) &&
-					ModuleData->GetFuncGen()->GetValueUnit() != DynExp::UnitType::LogicLevel))
+					ModuleData->GetFuncGen()->GetValueUnit() != DynExp::Units::UnitType::LogicLevel))
 				ModuleData->CurrentWaveform = DynExpInstr::FunctionGeneratorDefs::WaveformTypes::Sine;
 			else if (ModuleData->WaveformCaps.Test(DynExpInstr::FunctionGenerator::WaveformCapsType::Rect) ||
 				ModuleData->WaveformCaps.Test(DynExpInstr::FunctionGenerator::WaveformCapsType::UserDefined))
@@ -110,14 +110,14 @@ namespace DynExpModule
 			SigTypeListView->setRowHidden(ui->CBSignalType->findText("Sine", Qt::MatchFlag::MatchContains),
 				(!ModuleData->WaveformCaps.Test(DynExpInstr::FunctionGenerator::WaveformCapsType::Sine) &&
 					!ModuleData->WaveformCaps.Test(DynExpInstr::FunctionGenerator::WaveformCapsType::UserDefined))
-				|| ModuleData->GetFuncGen()->GetValueUnit() == DynExp::UnitType::LogicLevel);
+				|| ModuleData->GetFuncGen()->GetValueUnit() == DynExp::Units::UnitType::LogicLevel);
 			SigTypeListView->setRowHidden(ui->CBSignalType->findText("Rect", Qt::MatchFlag::MatchContains),
 				!ModuleData->WaveformCaps.Test(DynExpInstr::FunctionGenerator::WaveformCapsType::Rect) &&
 				!ModuleData->WaveformCaps.Test(DynExpInstr::FunctionGenerator::WaveformCapsType::UserDefined));
 			SigTypeListView->setRowHidden(ui->CBSignalType->findText("Ramp", Qt::MatchFlag::MatchContains),
 				(!ModuleData->WaveformCaps.Test(DynExpInstr::FunctionGenerator::WaveformCapsType::Ramp) &&
 					!ModuleData->WaveformCaps.Test(DynExpInstr::FunctionGenerator::WaveformCapsType::UserDefined))
-				|| ModuleData->GetFuncGen()->GetValueUnit() == DynExp::UnitType::LogicLevel);
+				|| ModuleData->GetFuncGen()->GetValueUnit() == DynExp::Units::UnitType::LogicLevel);
 			SigTypeListView->setRowHidden(ui->CBSignalType->findText("Pulse", Qt::MatchFlag::MatchContains),
 				!ModuleData->WaveformCaps.Test(DynExpInstr::FunctionGenerator::WaveformCapsType::Pulse) &&
 				!ModuleData->WaveformCaps.Test(DynExpInstr::FunctionGenerator::WaveformCapsType::UserDefined));
@@ -165,7 +165,7 @@ namespace DynExpModule
 		ui->SBFrequencyInHz->setValue(ModuleData->CurrentFrequencyInHz);
 		
 		// Amplitude
-		if (ModuleData->GetFuncGen()->GetValueUnit() != DynExp::UnitType::LogicLevel)
+		if (ModuleData->GetFuncGen()->GetValueUnit() != DynExp::Units::UnitType::LogicLevel)
 		{
 			ui->SBAmplitude->setMinimum(ModuleData->MinFuncDesc.Amplitude);
 			ui->SBAmplitude->setMaximum(ModuleData->MaxFuncDesc.Amplitude);
@@ -175,7 +175,7 @@ namespace DynExpModule
 		
 		// Offset
 		if ((ModuleData->MinFuncDesc.Offset == 0 && ModuleData->MaxFuncDesc.Offset == 0)
-			|| ModuleData->GetFuncGen()->GetValueUnit() == DynExp::UnitType::LogicLevel)
+			|| ModuleData->GetFuncGen()->GetValueUnit() == DynExp::Units::UnitType::LogicLevel)
 		{
 			ui->LYOffset->setVisible(false);
 			ui->SBYOffset->setVisible(false);
@@ -202,7 +202,7 @@ namespace DynExpModule
 		ui->TWPulses->setRowCount(0);
 		ui->TWPulses->setHorizontalHeaderLabels({ "Time [us]", "Value [" + QString(ModuleData->GetFuncGen()->GetValueUnitStr()) + "]" });
 		auto OldDelegate = ui->TWPulses->itemDelegateForColumn(1);
-		ui->TWPulses->setItemDelegateForColumn(1, ModuleData->GetFuncGen()->GetValueUnit() == DynExp::UnitType::LogicLevel ?
+		ui->TWPulses->setItemDelegateForColumn(1, ModuleData->GetFuncGen()->GetValueUnit() == DynExp::Units::UnitType::LogicLevel ?
 			new Util::DigitalOnlyItemDelegate(this) : new Util::NumericOnlyItemDelegate(this));
 		if (OldDelegate)
 			OldDelegate->deleteLater();
@@ -411,9 +411,9 @@ namespace DynExpModule
 			ModuleData->CurrentWaveform != DynExpInstr::FunctionGeneratorDefs::WaveformTypes::Pulse);
 		Widget->GetUI()->SBPhaseInDegree->setVisible(ModuleData->GetFuncGen()->IsPhaseAdjustable() &&
 			ModuleData->CurrentWaveform != DynExpInstr::FunctionGeneratorDefs::WaveformTypes::Pulse);
-		Widget->GetUI()->LAmplitude->setVisible(ModuleData->GetFuncGen()->GetValueUnit() != DynExp::UnitType::LogicLevel &&
+		Widget->GetUI()->LAmplitude->setVisible(ModuleData->GetFuncGen()->GetValueUnit() != DynExp::Units::UnitType::LogicLevel &&
 			ModuleData->CurrentWaveform != DynExpInstr::FunctionGeneratorDefs::WaveformTypes::Pulse);
-		Widget->GetUI()->SBAmplitude->setVisible(ModuleData->GetFuncGen()->GetValueUnit() != DynExp::UnitType::LogicLevel &&
+		Widget->GetUI()->SBAmplitude->setVisible(ModuleData->GetFuncGen()->GetValueUnit() != DynExp::Units::UnitType::LogicLevel &&
 			ModuleData->CurrentWaveform != DynExpInstr::FunctionGeneratorDefs::WaveformTypes::Pulse);
 		Widget->GetUI()->LDutyCycle->setVisible(ModuleData->CurrentWaveform == DynExpInstr::FunctionGeneratorDefs::WaveformTypes::Rect ||
 			ModuleData->CurrentWaveform == DynExpInstr::FunctionGeneratorDefs::WaveformTypes::Ramp);

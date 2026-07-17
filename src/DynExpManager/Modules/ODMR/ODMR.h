@@ -93,7 +93,7 @@ namespace DynExpModule::ODMR
 		DynExpInstr::FunctionGeneratorDefs::FunctionDescType RFGeneratorMaxFuncDesc;
 		DynExpInstr::FunctionGeneratorDefs::FunctionDescType RFGeneratorDefaultFuncDesc;
 
-		DynExp::UnitType AuxAnalogOutValueUnit;
+		DynExp::Units::UnitType AuxAnalogOutValueUnit;
 		DynExpInstr::DataStreamInstrumentData::ValueType AuxAnalogOutMinValue;
 		DynExpInstr::DataStreamInstrumentData::ValueType AuxAnalogOutMaxValue;
 

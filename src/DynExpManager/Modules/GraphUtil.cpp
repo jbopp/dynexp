@@ -39,7 +39,7 @@ namespace DynExpModule::Graph
 	{
 		bool TimingInfoFound = false;
 
-		if (DynExp::IsTimeUnitStrict(XUnit))
+		if (DynExp::Units::IsTimeUnitStrict(XUnit))
 		{
 			for (auto& Samples : BasicSamplesSeries)
 			{
@@ -57,13 +57,13 @@ namespace DynExpModule::Graph
 				// Switch back to use sample indices as x values if all Time values are equal.
 				if (Samples.front().Time == Samples.back().Time && Samples.size() > 1)
 				{
-					XUnit = DynExp::UnitType::Index;
+					XUnit = DynExp::Units::UnitType::Index;
 					Multiplier = 0;
 
 					break;
 				}
 
-				if (XUnit == DynExp::UnitType::Time_s)
+				if (XUnit == DynExp::Units::UnitType::Time_s)
 				{
 					// Determine best order of magnitude to display the time with if time is given in seconds.
 					if (std::abs(Samples.front().Time) < 1e-9 && std::abs(Samples.back().Time) < 1e-9)
@@ -97,7 +97,7 @@ namespace DynExpModule::Graph
 
 		for (size_t i = 0; i < BasicSamples.size(); ++i)
 		{
-			const auto X = DynExp::IsTimeUnitStrict(XUnit) ? BasicSamples[i].Time * std::pow(10.0, Multiplier) : i;
+			const auto X = DynExp::Units::IsTimeUnitStrict(XUnit) ? BasicSamples[i].Time * std::pow(10.0, Multiplier) : i;
 			const auto Y = BasicSamples[i].Value;
 			Samples.append({ X, Y });
 

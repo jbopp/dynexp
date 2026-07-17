@@ -835,10 +835,10 @@ namespace DynExpInstr
 
 		ValueType GetHardwareMinValue() const noexcept { return HardwareMinValue; }			//!< Returns #HardwareMinValue.
 		ValueType GetHardwareMaxValue() const noexcept { return HardwareMaxValue; }			//!< Returns #HardwareMaxValue.
-		DynExp::UnitType GetValueUnit() const noexcept { return ValueUnit; }				//!< Returns #ValueUnit.
+		DynExp::Units::UnitType GetValueUnit() const noexcept { return ValueUnit; }			//!< Returns #ValueUnit.
 		void SetHardwareMinValue(ValueType Value) noexcept { HardwareMinValue = Value; }	//!< Sets #HardwareMinValue.
 		void SetHardwareMaxValue(ValueType Value) noexcept { HardwareMaxValue = Value; }	//!< Sets #HardwareMaxValue.
-		void SetValueUnit(DynExp::UnitType Unit) noexcept { ValueUnit = Unit; }				//!< Sets #ValueUnit.
+		void SetValueUnit(DynExp::Units::UnitType Unit) noexcept { ValueUnit = Unit; }		//!< Sets #ValueUnit.
 
 	private:
 		void ResetImpl(dispatch_tag<InstrumentDataBase>) override final;
@@ -851,9 +851,9 @@ namespace DynExpInstr
 		 * hardware adapter assigned to the related @p DataStreamInstrument instance.
 		*/
 		///@{
-		ValueType HardwareMinValue;		//!< Minimal possible value to read/write from/to the hardware adapter
-		ValueType HardwareMaxValue;		//!< Maximal possible value to read/write from/to the hardware adapter
-		DynExp::UnitType ValueUnit;		//!< Unit type of the values to be read/written from/to the hardware adapter
+		ValueType HardwareMinValue;			//!< Minimal possible value to read/write from/to the hardware adapter
+		ValueType HardwareMaxValue;			//!< Maximal possible value to read/write from/to the hardware adapter
+		DynExp::Units::UnitType ValueUnit;	//!< Unit type of the values to be read/written from/to the hardware adapter
 		///@}
 	};
 
@@ -938,16 +938,16 @@ namespace DynExpInstr
 		 * Do not enforce @p noexcept to allow overriding functions which throw exceptions.
 		 * @return Unit of values in the instrument's data stream
 		*/
-		virtual DynExp::UnitType GetValueUnit() const = 0;
+		virtual DynExp::Units::UnitType GetValueUnit() const = 0;
 		///@}
 
 		/**
 		 * @brief Builds and returns a descriptive string of the unit corresponding
 		 * to the values managed by this @p DataStreamInstrument instance.
-		 * @return Returns the result of a call to DynExp::UnitTypeToStr()
+		 * @return Returns the result of a call to DynExp::Units::UnitTypeToStr()
 		 * on @p GetValueUnit().
 		*/
-		const char* GetValueUnitStr() const noexcept { return DynExp::UnitTypeToStr(GetValueUnit()); }
+		const char* GetValueUnitStr() const noexcept { return DynExp::Units::UnitTypeToStr(GetValueUnit()); }
 
 		/** @name Override (instrument tasks)
 		 * Override by derived classes to insert tasks into the instrument's task queue,

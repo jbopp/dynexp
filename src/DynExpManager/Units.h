@@ -8,13 +8,13 @@
 
 #pragma once
 
-namespace DynExp
+namespace DynExp::Units
 {
 	/**
 	 * @brief Units which can be used with DynExp instruments.
 	 * @warning If this is changed, also update
-	 * DynExpInstr::ToProtoFrequencyUnitType(DynExp::UnitType) in @p gRPCInstrument.h and
-	 * DynExpInstr::ToProtoIntensityUnitType(DynExp::UnitType) in @p gRPCInstrument.h and
+	 * DynExpInstr::ToProtoFrequencyUnitType(DynExp::Units::UnitType) in @p gRPCInstrument.h and
+	 * DynExpInstr::ToProtoIntensityUnitType(DynExp::Units::UnitType) in @p gRPCInstrument.h and
 	 * DynExpInstr::ToDataStreamInstrumentUnitType(DynExpProto::Common::IntensityUnitType) in @p NetworkDataStreamInstrument.h and
 	 * DynExpInstr::ToLaserUnitType(DynExpProto::Common::FrequencyUnitType) in @p NetworkLaser.h and
 	 * DynExpInstr::ToLaserUnitType(DynExpProto::Common::IntensityUnitType) in @p NetworkLaser.h and
@@ -48,37 +48,37 @@ namespace DynExp
 	};
 
 	/**
-	 * @brief Checks whether #Unit implies integer values.
+	 * @brief Checks whether @p Unit implies integer values.
 	 * @param Unit Unit type as used by DynExp instruments.
-	 * @return Returns true if #Unit implies integer values, false otherwise.
+	 * @return Returns true if @p Unit implies integer values, false otherwise.
 	*/
 	bool IsIntegerUnit(UnitType Unit);
 
 	/**
-	 * @brief Checks whether #Unit is an intensity-like unit.
+	 * @brief Checks whether @p Unit is an intensity-like unit.
 	 * @param Unit Unit type as used by DynExp instruments.
-	 * @return Returns true if #Unit is intensity-like, false otherwise.
+	 * @return Returns true if @p Unit is intensity-like, false otherwise.
 	*/
 	bool IsIntensityUnit(UnitType Unit);
 
 	/**
-	 * @brief Checks whether #Unit is a time-like unit.
+	 * @brief Checks whether @p Unit is a time-like unit.
 	 * @param Unit Unit type as used by DynExp instruments.
-	 * @return Returns true if #Unit is time-like, false otherwise.
+	 * @return Returns true if @p Unit is time-like, false otherwise.
 	*/
 	bool IsTimeUnit(UnitType Unit);
 
 	/**
-	 * @brief Checks whether #Unit is a time unit (excluding UnitType::Index).
+	 * @brief Checks whether @p Unit is a time unit (excluding UnitType::Index).
 	 * @param Unit Unit type as used by DynExp instruments.
-	 * @return Returns true if #Unit is a time, false otherwise.
+	 * @return Returns true if @p Unit is a time, false otherwise.
 	*/
 	bool IsTimeUnitStrict(UnitType Unit);
 
 	/**
-	 * @brief Checks whether #Unit is a frequency-like unit.
+	 * @brief Checks whether @p Unit is a frequency-like unit.
 	 * @param Unit Unit type as used by DynExp instruments.
-	 * @return Returns true if #Unit is frequency-like, false otherwise.
+	 * @return Returns true if @p Unit is frequency-like, false otherwise.
 	*/
 	bool IsFrequencyUnit(UnitType Unit);
 

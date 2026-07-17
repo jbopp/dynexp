@@ -88,16 +88,16 @@ namespace DynExpInstr
 		public:
 			/**
 			 * @brief Constructs a @p SpectrumType instance with #FrequencyUnit set to
-			 * DynExp::UnitType::Freq_Hz and #IntensityUnit set to DynExp::UnitType::Counts.
+			 * DynExp::Units::UnitType::Freq_Hz and #IntensityUnit set to DynExp::Units::UnitType::Counts.
 			*/
-			SpectrumType() : FrequencyUnit(DynExp::UnitType::Freq_Hz), IntensityUnit(DynExp::UnitType::Counts) {}
+			SpectrumType() : FrequencyUnit(DynExp::Units::UnitType::Freq_Hz), IntensityUnit(DynExp::Units::UnitType::Counts) {}
 			
 			/**
 			 * @brief Constructs a @p SpectrumType instance with the specified units.
 			 * @param FrequencyUnit @copybrief #FrequencyUnit
 			 * @param IntensityUnit @copybrief #IntensityUnit
 			*/
-			SpectrumType(DynExp::UnitType FrequencyUnit, DynExp::UnitType IntensityUnit) : FrequencyUnit(FrequencyUnit), IntensityUnit(IntensityUnit) {}
+			SpectrumType(DynExp::Units::UnitType FrequencyUnit, DynExp::Units::UnitType IntensityUnit) : FrequencyUnit(FrequencyUnit), IntensityUnit(IntensityUnit) {}
 			
 			/**
 			 * @brief Copy-constructs a @p SpectrumType instance.
@@ -139,8 +139,8 @@ namespace DynExpInstr
 			bool HasSpectrum() const noexcept { return !Samples.empty(); }
 
 		private:
-			DynExp::UnitType FrequencyUnit;		//!< The spectrum's frequency (x-axis) unit.
-			DynExp::UnitType IntensityUnit;		//!< The spectrum's intensity (y-axis) unit.
+			DynExp::Units::UnitType FrequencyUnit;		//!< The spectrum's frequency (x-axis) unit.
+			DynExp::Units::UnitType IntensityUnit;		//!< The spectrum's intensity (y-axis) unit.
 
 			std::map<double, double> Samples;	//!< Samples of the spectrum as tuples in units (#FrequencyUnit, #IntensityUnit)
 		};
@@ -320,13 +320,13 @@ namespace DynExpInstr
 		 * @brief Determines the frequency (x-axis) unit of the spectra acquired by the derived instrument.
 		 * @return Frequency unit of the acquired spectra
 		*/
-		virtual DynExp::UnitType GetFrequencyUnit() const = 0;
+		virtual DynExp::Units::UnitType GetFrequencyUnit() const = 0;
 
 		/**
 		 * @brief Determines the intensity (y-axis) unit of the spectra acquired by the derived instrument.
 		 * @return Intensity unit of the acquired spectra
 		*/
-		virtual DynExp::UnitType GetIntensityUnit() const = 0;
+		virtual DynExp::Units::UnitType GetIntensityUnit() const = 0;
 
 		/**
 		 * @brief Determines the minimal lower frequency limit where the spectrum acquisition can begin.

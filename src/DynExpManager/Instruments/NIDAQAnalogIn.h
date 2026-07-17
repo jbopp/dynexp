@@ -147,7 +147,7 @@ namespace DynExpInstr
 		virtual DataStreamInstrumentData::ValueType GetHardwareMinValue() const noexcept override { return HardwareMinValue(); }
 		virtual DataStreamInstrumentData::ValueType GetHardwareMaxValue() const noexcept override { return HardwareMaxValue(); }
 		virtual DataStreamInstrumentData::ValueType GetHardwareResolution() const noexcept override final { return HardwareResolution(); }
-		virtual DynExp::UnitType GetValueUnit() const noexcept override { return DynExp::UnitType::Volt; }
+		virtual DynExp::Units::UnitType GetValueUnit() const noexcept override { return DynExp::Units::UnitType::Volt; }
 		virtual StreamSizeParamsExtension::ValueType GetStreamSizeParams() const override;
 		virtual NumericSampleStreamParamsExtension::ValueType GetNumericSampleStreamParams() const override;
 
