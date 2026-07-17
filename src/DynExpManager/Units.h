@@ -34,6 +34,7 @@ namespace DynExp
 		Power_dBm,		//!< Power in dBm
 		//
 		// Time-like
+		Index,			//!< Sample index
 		Time_s,			//!< Time in s
 		Time_ms,		//!< Time in ms
 		Time_us,		//!< Time in us
@@ -42,16 +43,58 @@ namespace DynExp
 		//
 		// Frequency-like
 		Freq_Hz,		//!< Frequency in Hz
-		Length_nm,		//!< Wavelength in nm
-		Inv_cm			//!< Wavenumber in 1/cm
+		Inv_cm,			//!< Wavenumber in 1/cm
+		Wavelength_nm	//!< Wavelength in nm
 	};
+
+	/**
+	 * @brief Checks whether #Unit implies integer values.
+	 * @param Unit Unit type as used by DynExp instruments.
+	 * @return Returns true if #Unit implies integer values, false otherwise.
+	*/
+	bool IsIntegerUnit(UnitType Unit);
+
+	/**
+	 * @brief Checks whether #Unit is an intensity-like unit.
+	 * @param Unit Unit type as used by DynExp instruments.
+	 * @return Returns true if #Unit is intensity-like, false otherwise.
+	*/
+	bool IsIntensityUnit(UnitType Unit);
+
+	/**
+	 * @brief Checks whether #Unit is a time-like unit.
+	 * @param Unit Unit type as used by DynExp instruments.
+	 * @return Returns true if #Unit is time-like, false otherwise.
+	*/
+	bool IsTimeUnit(UnitType Unit);
+
+	/**
+	 * @brief Checks whether #Unit is a time unit (excluding UnitType::Index).
+	 * @param Unit Unit type as used by DynExp instruments.
+	 * @return Returns true if #Unit is a time, false otherwise.
+	*/
+	bool IsTimeUnitStrict(UnitType Unit);
+
+	/**
+	 * @brief Checks whether #Unit is a frequency-like unit.
+	 * @param Unit Unit type as used by DynExp instruments.
+	 * @return Returns true if #Unit is frequency-like, false otherwise.
+	*/
+	bool IsFrequencyUnit(UnitType Unit);
+
+	/**
+	 * @brief Returns a descriptive string of the given unit's category (e.g. 'intensity').
+	 * @param Unit Unit type as used by DynExp instruments.
+	 * @return Returns the human-readable unit category string.
+	*/
+	const char* UnitCategoryToStr(UnitType Unit);
 
 	/**
 	 * @brief Returns a descriptive string of a respective unit to be e.g. used in plots.
 	 * @param Unit Unit type as used by DynExp instruments.
 	 * @return Returns the human-readable unit string.
 	*/
-	const char* UnitTypeToStr(const UnitType& Unit);
+	const char* UnitTypeToStr(UnitType Unit);
 
 	/**
 	 * @brief Speed of light in vacuum in m/s

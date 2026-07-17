@@ -37,10 +37,11 @@ namespace DynExpModule::SignalPlotter
 			ProcessedSamples.resize(ModuleData->GetDataStreamInstrCount());
 			Running = ModuleData->Running && !IsSavingData;
 			PlotInfo = ModuleData->PlotInfo;
-			PlotInfo.IsBasicSampleTimeUsed = true;
 
 			if (Running)
 			{
+				PlotInfo.XUnit = DynExp::UnitType::Time_s;
+
 				for (size_t i = 0; i < ProcessedSamples.size(); ++i)
 				{
 					ProcessedSamples[i].Visible = ModuleData->SampleDataList.size() == ProcessedSamples.size() ? ModuleData->SampleDataList[i].Visible : true;
@@ -59,7 +60,7 @@ namespace DynExpModule::SignalPlotter
 						SampleStream->SeekBeg(std::ios_base::in);
 
 					BasicSamplesSeries.emplace_back(SampleStream->ReadBasicSamples(SampleStream->GetStreamSizeRead()));
-					PlotInfo.IsBasicSampleTimeUsed = PlotInfo.IsBasicSampleTimeUsed && SampleStream->IsBasicSampleTimeUsed();
+					PlotInfo.XUnit = (PlotInfo.XUnit == DynExp::UnitType::Time_s && SampleStream->IsBasicSampleTimeUsed()) ? DynExp::UnitType::Time_s : DynExp::UnitType::Index;
 				}
 			}
 
@@ -154,12 +155,12 @@ namespace DynExpModule::SignalPlotter
 
 		ModuleData->LockInstruments(Instance, ModuleParams->DataStreamInstr);
 
-		ModuleData->PlotInfo.ValueUnit = ModuleData->GetDataStreamInstr(0)->GetValueUnit();
+		ModuleData->PlotInfo.YUnit = ModuleData->GetDataStreamInstr(0)->GetValueUnit();
 		for (size_t i = 1; i < ModuleData->GetDataStreamInstrCount(); ++i)
 		{
-			if (ModuleData->GetDataStreamInstr(0)->GetValueUnit() != ModuleData->PlotInfo.ValueUnit)
+			if (ModuleData->GetDataStreamInstr(0)->GetValueUnit() != ModuleData->PlotInfo.YUnit)
 			{
-				ModuleData->PlotInfo.ValueUnit = DynExp::UnitType::Arbitrary;
+				ModuleData->PlotInfo.YUnit = DynExp::UnitType::Arbitrary;
 				break;
 			}
 		}
@@ -227,8 +228,8 @@ namespace DynExpModule::SignalPlotter
 			using SampleIteratorType = decltype(SignalPlotterData::SampleDataType::Samples)::const_iterator;
 			std::vector<std::pair<SampleIteratorType, SampleIteratorType>> SeriesIterators;
 			auto HeaderIterator = ModuleData->GetDataStreamInstrLabels().cbegin();
-			const auto XUnit = ModuleData->PlotInfo.IsBasicSampleTimeUsed ? "_s" : "_i";
-			const auto YUnit = std::string("_") + DynExp::UnitTypeToStr(ModuleData->PlotInfo.ValueUnit);
+			const auto XUnit = std::string("_") + DynExp::UnitTypeToStr(ModuleData->PlotInfo.XUnit);
+			const auto YUnit = std::string("_") + DynExp::UnitTypeToStr(ModuleData->PlotInfo.YUnit);
 			
 			for (const auto& Series : ModuleData->SampleDataList)
 			{

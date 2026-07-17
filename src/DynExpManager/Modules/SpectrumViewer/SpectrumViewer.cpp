@@ -282,8 +282,8 @@ namespace DynExpModule::SpectrumViewer
 		if (ModuleParams->Communicator.ContainsID())
 			Instance->LockObject(ModuleParams->Communicator, ModuleData->GetCommunicator());
 
-		//ModuleData->PlotInfo.FrequencyUnit = ModuleData->GetSpectrometer()->GetFrequencyUnit();
-		//ModuleData->PlotInfo.IntensityUnit = ModuleData->GetSpectrometer()->GetIntensityUnit();
+		ModuleData->PlotInfo.XUnit = ModuleData->GetSpectrometer()->GetFrequencyUnit();
+		ModuleData->PlotInfo.YUnit = ModuleData->GetSpectrometer()->GetIntensityUnit();
 		ModuleData->MinFrequency = ModuleData->GetSpectrometer()->GetMinFrequency();
 		ModuleData->MaxFrequency = ModuleData->GetSpectrometer()->GetMaxFrequency();
 

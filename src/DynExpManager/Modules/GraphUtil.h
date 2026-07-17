@@ -77,14 +77,14 @@ namespace DynExpModule::Graph
 		void ResetHoveredSample();
 
 		/**
-		 * @brief Joint unit of the plot's value axis.
+		 * @brief Joint unit of the plot's x axis.
 		*/
-		DynExp::UnitType ValueUnit = DynExp::UnitType::Arbitrary;
+		DynExp::UnitType XUnit = DynExp::UnitType::Index;
 
 		/**
-		 * @brief Use sample indices or time data for plot's joint x axis?
+		 * @brief Joint unit of the plot's y axis.
 		*/
-		bool IsBasicSampleTimeUsed = true;
+		DynExp::UnitType YUnit = DynExp::UnitType::Arbitrary;
 
 		/**
 		 * @brief Best order of magnitude to scale the plot's joint time axis with.

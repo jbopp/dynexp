@@ -24,7 +24,7 @@ namespace DynExpInstr
 		switch (Unit)
 		{
 		case DynExpProto::Common::FrequencyUnitType::Hz: return DynExp::UnitType::Freq_Hz;
-		case DynExpProto::Common::FrequencyUnitType::nm: return DynExp::UnitType::Length_nm;
+		case DynExpProto::Common::FrequencyUnitType::nm: return DynExp::UnitType::Wavelength_nm;
 		case DynExpProto::Common::FrequencyUnitType::Inv_cm: return DynExp::UnitType::Inv_cm;
 		default: throw Util::InvalidDataException("The given unit is not supported here. Did you forget to adjust this function or the FrequencyUnitType enumeration in file \"Common.proto\"?");
 		}

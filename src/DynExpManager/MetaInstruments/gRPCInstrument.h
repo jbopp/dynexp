@@ -32,7 +32,7 @@ namespace DynExpInstr
 		switch (Unit)
 		{
 		case DynExp::UnitType::Freq_Hz: return DynExpProto::Common::FrequencyUnitType::Hz;
-		case DynExp::UnitType::Length_nm: return DynExpProto::Common::FrequencyUnitType::nm;
+		case DynExp::UnitType::Wavelength_nm: return DynExpProto::Common::FrequencyUnitType::nm;
 		case DynExp::UnitType::Inv_cm: return DynExpProto::Common::FrequencyUnitType::Inv_cm;
 		default: throw Util::InvalidDataException("The given unit is not supported here. Did you forget to adjust this function or the UnitType enumeration in file \"Units.h\"?");
 		}

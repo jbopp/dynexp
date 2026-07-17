@@ -243,24 +243,24 @@ namespace DynExpQuick
 			XValueAxis->setVisible(AnyLineSeriesVisible);
 			if (AnyLineSeriesVisible)
 			{
-				XValueAxis->setTitleText(PlotInfo.IsBasicSampleTimeUsed ? "time in " + PlotInfo.GetMultiplierLabel() + "s" : "sample in #");
-				XValueAxis->setLabelFormat(PlotInfo.IsBasicSampleTimeUsed ? "%.3f" : "%.0f");
+				XValueAxis->setTitleText(DynExp::UnitCategoryToStr(PlotInfo.XUnit) + QString(" in ") +
+					(PlotInfo.XUnit == DynExp::UnitType::Time_s ? PlotInfo.GetMultiplierLabel() + "s" : DynExp::UnitTypeToStr(PlotInfo.XUnit)));
+				XValueAxis->setLabelFormat(DynExp::IsIntegerUnit(PlotInfo.XUnit) ? "%.0f" : "%.3f");
 				XValueAxis->setRange(PlotInfo.MinValues.x(), PlotInfo.MaxValues.x());
 			}
 			else
 				XCategoryAxis->setCategories(PlotModel.GetSeriesNames());
 
-			YValueAxis->setTitleText(QString("signal in ") + DynExp::UnitTypeToStr(PlotInfo.ValueUnit));
-			if (PlotInfo.ValueUnit == DynExp::UnitType::LogicLevel)
+			YValueAxis->setTitleText(DynExp::UnitCategoryToStr(PlotInfo.YUnit) + QString(" in ") + DynExp::UnitTypeToStr(PlotInfo.YUnit));
+			YValueAxis->setLabelFormat(DynExp::IsIntegerUnit(PlotInfo.YUnit) ? "%.0f" : "%.3f");
+			if (PlotInfo.YUnit == DynExp::UnitType::LogicLevel)
 			{
-				YValueAxis->setLabelFormat("%.0f");
 				if (Autoscale)
 					YValueAxis->setRange(0, 1);
 				YValueAxis->setTickInterval(1);
 			}
 			else
 			{
-				YValueAxis->setLabelFormat("%.3f");
 				if (Autoscale)
 					YValueAxis->setRange(PlotInfo.MinValues.y(), PlotInfo.MaxValues.y());
 				YValueAxis->setTickInterval(0);

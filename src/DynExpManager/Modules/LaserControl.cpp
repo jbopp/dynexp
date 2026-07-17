@@ -120,7 +120,7 @@ namespace DynExpModule
 		{
 		case DynExp::UnitType::Freq_Hz:
 			return Value;
-		case DynExp::UnitType::Length_nm:
+		case DynExp::UnitType::Wavelength_nm:
 			return Util::ConvertFrequencyWavelength(Value) * 1e9;
 		default:
 			throw Util::NotImplementedException("Cannot convert frequency in Hz to the unit required by the laser instrument.");
@@ -133,7 +133,7 @@ namespace DynExpModule
 		{
 		case DynExp::UnitType::Freq_Hz:
 			return Value;
-		case DynExp::UnitType::Length_nm:
+		case DynExp::UnitType::Wavelength_nm:
 			return Util::ConvertFrequencyWavelength(Value * 1e-9);
 		default:
 			throw Util::NotImplementedException("Cannot convert frequency in unit required by the laser instrument to Hz.");

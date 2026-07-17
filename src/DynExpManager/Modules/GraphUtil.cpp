@@ -12,6 +12,7 @@ namespace DynExpModule::Graph
 		case 3: return "m";
 		case 6: return "u";
 		case 9: return "n";
+		case 12: return "p";
 		default: return "?";
 		}
 	}
@@ -38,7 +39,7 @@ namespace DynExpModule::Graph
 	{
 		bool TimingInfoFound = false;
 
-		if (IsBasicSampleTimeUsed)
+		if (DynExp::IsTimeUnitStrict(XUnit))
 		{
 			for (auto& Samples : BasicSamplesSeries)
 			{
@@ -56,19 +57,26 @@ namespace DynExpModule::Graph
 				// Switch back to use sample indices as x values if all Time values are equal.
 				if (Samples.front().Time == Samples.back().Time && Samples.size() > 1)
 				{
-					IsBasicSampleTimeUsed = false;
+					XUnit = DynExp::UnitType::Index;
 					Multiplier = 0;
 
 					break;
 				}
 
-				// Determine best order of magnitude to display the time with.
-				if (std::abs(Samples.front().Time) < 1e-6 && std::abs(Samples.back().Time) < 1e-6)
-					Multiplier = std::min(Multiplier, 9u);
-				else if (std::abs(Samples.front().Time) < 1e-3 && std::abs(Samples.back().Time) < 1e-3)
-					Multiplier = std::min(Multiplier, 6u);
-				else if (std::abs(Samples.front().Time) < 1.0 && std::abs(Samples.back().Time) < 1.0)
-					Multiplier = std::min(Multiplier, 3u);
+				if (XUnit == DynExp::UnitType::Time_s)
+				{
+					// Determine best order of magnitude to display the time with if time is given in seconds.
+					if (std::abs(Samples.front().Time) < 1e-9 && std::abs(Samples.back().Time) < 1e-9)
+						Multiplier = std::min(Multiplier, 12u);
+					else if (std::abs(Samples.front().Time) < 1e-6 && std::abs(Samples.back().Time) < 1e-6)
+						Multiplier = std::min(Multiplier, 9u);
+					else if (std::abs(Samples.front().Time) < 1e-3 && std::abs(Samples.back().Time) < 1e-3)
+						Multiplier = std::min(Multiplier, 6u);
+					else if (std::abs(Samples.front().Time) < 1.0 && std::abs(Samples.back().Time) < 1.0)
+						Multiplier = std::min(Multiplier, 3u);
+					else
+						Multiplier = 0;
+				}
 				else
 					Multiplier = 0;
 			}
@@ -89,7 +97,7 @@ namespace DynExpModule::Graph
 
 		for (size_t i = 0; i < BasicSamples.size(); ++i)
 		{
-			const auto X = IsBasicSampleTimeUsed ? BasicSamples[i].Time * std::pow(10.0, Multiplier) : i;
+			const auto X = DynExp::IsTimeUnitStrict(XUnit) ? BasicSamples[i].Time * std::pow(10.0, Multiplier) : i;
 			const auto Y = BasicSamples[i].Value;
 			Samples.append({ X, Y });
 
