@@ -117,6 +117,40 @@ namespace DynExpModule::Graph
 		return true;
 	}
 
+	bool LineGraphPlotInfo::ProcessSpectrum(DynExpInstr::SpectrometerData::SpectrumType Spectrum,
+		QList<QPointF>& Samples, const size_t SeriesIndex)
+	{
+		if (!Spectrum.HasSpectrum())
+			return false;
+
+		auto YMin{ std::numeric_limits<QPointFValueType>::max() };
+		auto YMax{ std::numeric_limits<QPointFValueType>::lowest() };
+
+		size_t i = 0;
+		for (const auto& Sample : Spectrum.GetSpectrum())
+		{
+			const auto X = XUnit != DynExp::Units::UnitType::Index ? Sample.first : i;
+			const auto Y = Sample.second;
+			Samples.append({ X, Y });
+
+			YMin = std::min(YMin, Y);
+			YMax = std::max(YMax, Y);
+
+			// To avoid a second loop, do the calculation with axes limits from the previous run.
+			// Find hovered point for series with more than a single sample.
+			if (i)
+				CheckSampleHovered(X, Y, SeriesIndex);
+
+			++i;
+		}
+
+		MaxSampleCountPerSeries = std::max(MaxSampleCountPerSeries, Spectrum.GetSpectrum().size());
+		MinValues = { std::min(MinValues.x(), Samples.first().x()), std::min(MinValues.y(), YMin) };
+		MaxValues = { std::max(MaxValues.x(), Samples.last().x()), std::max(MaxValues.y(), YMax) };
+
+		return true;
+	}
+
 	void LineGraphPlotInfo::AdjustAxesLimits()
 	{
 		if (!MaxSampleCountPerSeries)
@@ -143,6 +177,9 @@ namespace DynExpModule::Graph
 
 	void LineGraphPlotInfo::ReprocessSamples(const QList<QPointF>& Samples, const size_t SeriesIndex)
 	{
+		LastMinValues = MinValues;
+		LastMaxValues = MaxValues;
+
 		for (size_t i = 0; i < Util::NumToT<size_t>(Samples.size()); ++i)
 		{
 			// Find hovered point for series with more than a single sample.

@@ -9,6 +9,66 @@ namespace DynExpModule::SpectrumViewer
 	{
 	}
 
+	void SpectrumViewerBackend::SetExposureTimeRange(QPoint Range) noexcept
+	{
+		if (ExposureTimeRange == Range)
+			return;
+
+		ExposureTimeRange = Range;
+
+		emit rangesChanged();
+	}
+
+	void SpectrumViewerBackend::SetExposureTimeUnit(QString Unit) noexcept
+	{
+		if (ExposureTimeUnit == Unit)
+			return;
+
+		ExposureTimeUnit = Unit;
+
+		emit rangesChanged();
+	}
+
+	void SpectrumViewerBackend::SetLimitRange(QPointF Range) noexcept
+	{
+		if (LimitRange == Range)
+			return;
+
+		LimitRange = Range;
+
+		emit rangesChanged();
+	}
+
+	void SpectrumViewerBackend::SetLimitUnit(QString Unit) noexcept
+	{
+		if (LimitUnit == Unit)
+			return;
+
+		LimitUnit = Unit;
+
+		emit rangesChanged();
+	}
+
+	void SpectrumViewerBackend::SetProgress(double Progress) noexcept
+	{
+		if (this->Progress == Progress)
+			return;
+
+		this->Progress = Progress;
+
+		emit progressChanged(Progress);
+	}
+
+	void SpectrumViewerBackend::SetState(StateType State) noexcept
+	{
+		if (this->State == State)
+			return;
+
+		this->State = State;
+
+		emit stateChanged(State);
+	}
+
 	void SpectrumViewerBackend::SetSilent(bool Silent) noexcept
 	{
 		if (this->Silent == Silent)
@@ -16,7 +76,7 @@ namespace DynExpModule::SpectrumViewer
 
 		this->Silent = Silent;
 
-		emit qsilentChanged(Silent);
+		emit silentChanged(Silent);
 	}
 
 	void SpectrumViewerBackend::SetExposureTime(int ExposureTime) noexcept
@@ -26,7 +86,7 @@ namespace DynExpModule::SpectrumViewer
 
 		this->ExposureTime = ExposureTime;
 
-		emit qexposureTimeChanged(ExposureTime);
+		emit exposureTimeChanged(ExposureTime);
 	}
 
 	void SpectrumViewerBackend::SetLowerLimit(double LowerLimit) noexcept
@@ -36,7 +96,7 @@ namespace DynExpModule::SpectrumViewer
 
 		this->LowerLimit = LowerLimit;
 
-		emit qlowerLimitChanged(LowerLimit);
+		emit lowerLimitChanged(LowerLimit);
 	}
 
 	void SpectrumViewerBackend::SetUpperLimit(double UpperLimit) noexcept
@@ -46,7 +106,7 @@ namespace DynExpModule::SpectrumViewer
 
 		this->UpperLimit = UpperLimit;
 
-		emit qupperLimitChanged(UpperLimit);
+		emit upperLimitChanged(UpperLimit);
 	}
 
 	DynExpQuick::DynExpLineGraphBackend* SpectrumViewerBackend::GetGraph() const

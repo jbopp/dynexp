@@ -19,7 +19,7 @@ namespace DynExpModule::SignalPlotter
 		Q_OBJECT
 		QML_ELEMENT
 
-		Q_PROPERTY(bool Running READ IsRunning WRITE SetRunning NOTIFY qrunningChanged)
+		Q_PROPERTY(bool Running READ IsRunning WRITE SetRunning NOTIFY runningChanged)
 
 	public:
 		SignalPlotterBackend(QObject* parent = nullptr);
@@ -37,8 +37,9 @@ namespace DynExpModule::SignalPlotter
 		Q_INVOKABLE void SetGraphBackend(QObject* Object);
 
 	signals:
+		void runningChanged(bool);
+
 		// to QML
-		void qrunningChanged(bool);
 		void qrollingViewChanged(bool);
 		void qautoscaleChanged(bool);
 

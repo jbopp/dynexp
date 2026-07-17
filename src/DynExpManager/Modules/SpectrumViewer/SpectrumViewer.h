@@ -44,7 +44,6 @@ namespace DynExpModule::SpectrumViewer
 		DynExpInstr::SpectrometerData::TimeType MinExposureTime;
 		DynExpInstr::SpectrometerData::TimeType MaxExposureTime;
 		DynExpInstr::SpectrometerData::TimeType CurrentExposureTime;
-		DynExpInstr::SpectrometerData::TimeType AcquisitionExposureTime;
 		double CurrentLowerFrequency;
 		double CurrentUpperFrequency;
 		bool SilentModeEnabled;
@@ -126,6 +125,8 @@ namespace DynExpModule::SpectrumViewer
 		QAnyStringView GetModuleSourceUri() const noexcept override final { return "Modules.SpectrumViewer"; }
 		QAnyStringView GetModuleSourceTypeName() const noexcept override final { return "SpectrumViewer"; }
 		void UpdateUIChild(const ModuleBase::ModuleDataGetterType& ModuleDataGetter) override final;
+
+		void SaveSpectrum(Util::SynchronizedPointer<SpectrumViewerData>& ModuleData);
 
 		// Events, run in module thread
 		void OnInit(DynExp::ModuleInstance* Instance) const override final;

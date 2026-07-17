@@ -16,7 +16,7 @@ namespace DynExpModule::SignalPlotter
 
 		this->Running = Running;
 		
-		emit qrunningChanged(Running);
+		emit runningChanged(Running);
 	}
 
 	DynExpQuick::DynExpLineGraphBackend* SignalPlotterBackend::GetGraph() const

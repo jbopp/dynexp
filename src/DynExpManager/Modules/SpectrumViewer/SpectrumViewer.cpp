@@ -7,94 +7,6 @@
 
 namespace DynExpModule::SpectrumViewer
 {
-	/*void SpectrumViewerWidget::InitializeUI(Util::SynchronizedPointer<SpectrumViewerData>& ModuleData)
-	{
-		ui->SBExposureTime->setRange(ModuleData->MinExposureTime.count(), ModuleData->MaxExposureTime.count());
-		ui->SBExposureTime->setSuffix(" " + QString::fromStdString(Util::ToUnitStr<DynExpInstr::SpectrometerData::TimeType>()));
-		ui->SBLowerFrequency->setRange(ModuleData->MinFrequency, ModuleData->MaxFrequency);
-		ui->SBLowerFrequency->setSuffix(" " + QString(DynExpInstr::SpectrometerData::FrequencyUnitTypeToStr(ModuleData->FrequencyUnit)));
-		ui->SBUpperFrequency->setRange(ModuleData->MinFrequency, ModuleData->MaxFrequency);
-		ui->SBUpperFrequency->setSuffix(" " + QString(DynExpInstr::SpectrometerData::FrequencyUnitTypeToStr(ModuleData->FrequencyUnit)));
-
-		if (XAxis)
-		{
-			DataChart->removeAxis(XAxis);
-			delete XAxis;
-		}
-		if (YAxis)
-		{
-			DataChart->removeAxis(YAxis);
-			delete YAxis;
-		}
-
-		XAxis = new QValueAxis(this);
-		YAxis = new QValueAxis(this);
-		XAxis->setTitleText(QString("Frequency in ") + DynExpInstr::SpectrometerData::FrequencyUnitTypeToStr(ModuleData->FrequencyUnit));
-		XAxis->setLabelFormat("%d");
-		YAxis->setTitleText(QString("Intensity in ") + DynExpInstr::SpectrometerData::IntensityUnitTypeToStr(ModuleData->IntensityUnit));
-		YAxis->setLabelFormat("%d");
-
-		// Chart takes ownership of axes.
-		DataChart->addAxis(XAxis, Qt::AlignBottom);
-		DataChart->addAxis(YAxis, Qt::AlignLeft);
-	}*/
-
-	/*void SpectrumViewerWidget::UpdateUI(Util::SynchronizedPointer<SpectrumViewerData>& ModuleData)
-	{
-		ui->action_Save_CSV->setEnabled(ModuleData->CapturingState != DynExpInstr::SpectrometerData::CapturingStateType::Capturing);
-		ui->action_Run->setEnabled(ModuleData->CapturingState != DynExpInstr::SpectrometerData::CapturingStateType::Capturing);
-		ui->action_Stop->setEnabled(ModuleData->CapturingState == DynExpInstr::SpectrometerData::CapturingStateType::Capturing);
-		ui->SBExposureTime->setEnabled(ModuleData->CapturingState != DynExpInstr::SpectrometerData::CapturingStateType::Capturing);
-		ui->SBLowerFrequency->setEnabled(ModuleData->CapturingState != DynExpInstr::SpectrometerData::CapturingStateType::Capturing);
-		ui->SBUpperFrequency->setEnabled(ModuleData->CapturingState != DynExpInstr::SpectrometerData::CapturingStateType::Capturing);
-
-		{
-			const QSignalBlocker Blocker(ui->action_SilentMode);
-			ui->action_SilentMode->setChecked(ModuleData->SilentModeEnabled);
-		} // Blocker destroyed here.
-
-		if (!ui->SBExposureTime->hasFocus())
-		{
-			const QSignalBlocker Blocker(ui->SBExposureTime);
-			ui->SBExposureTime->setValue(ModuleData->CurrentExposureTime.count());
-		}
-
-		if (!ui->SBLowerFrequency->hasFocus())
-		{
-			const QSignalBlocker Blocker(ui->SBLowerFrequency);
-			ui->SBLowerFrequency->setValue(ModuleData->CurrentLowerFrequency);
-		}
-
-		if (!ui->SBUpperFrequency->hasFocus())
-		{
-			const QSignalBlocker Blocker(ui->SBUpperFrequency);
-			ui->SBUpperFrequency->setValue(ModuleData->CurrentUpperFrequency);
-		}
-
-		switch (ModuleData->CapturingState)
-		{
-		case DynExpInstr::SpectrometerData::CapturingStateType::Capturing:
-			ui->LState->setText(" Acquiring spectrum...");
-			ui->LState->setStyleSheet(DynExpUI::StatusBarBusyStyleSheet);
-			break;
-		case DynExpInstr::SpectrometerData::CapturingStateType::Warning:
-			ui->LState->setText(" The spectrometer is in a warning state.");
-			ui->LState->setStyleSheet(DynExpUI::StatusBarWarningStyleSheet);
-			break;
-		case DynExpInstr::SpectrometerData::CapturingStateType::Error:
-			ui->LState->setText(" The spectrometer is in an error state.");
-			ui->LState->setStyleSheet(DynExpUI::StatusBarErrorStyleSheet);
-			break;
-		default:
-			ui->LState->setText(" Ready");
-			ui->LState->setStyleSheet("");
-		}
-
-		ui->PBProgress->setVisible(ModuleData->CapturingState == DynExpInstr::SpectrometerData::CapturingStateType::Capturing
-			&& ModuleData->CapturingProgress > 0);
-		ui->PBProgress->setValue(ModuleData->CapturingProgress > 0 ? Util::NumToT<int>(ModuleData->CapturingProgress) : 0);
-	}*/
-
 	std::string SpectrumViewerData::SampleDataType::ToStr(DynExpInstr::SpectrometerData::TimeType ExposureTime, const DynExpModule::Graph::LineGraphPlotInfo& PlotInfo) const
 	{
 		std::stringstream CSVData;
@@ -102,8 +14,7 @@ namespace DynExpModule::SpectrumViewer
 		CSVData << "ExposureTime = " << ExposureTime.count() << " " << Util::ToUnitStr<DynExpInstr::SpectrometerData::TimeType>() << "\n";
 		CSVData << "HEADER_END\n";
 
-		//CSVData << "f[" << DynExp::Units::UnitTypeToStr(FrequencyUnit)
-		//	<< "];I[" << DynExp::Units::UnitTypeToStr(IntensityUnit) << "]\n";
+		CSVData << "f[" << DynExp::Units::UnitTypeToStr(PlotInfo.XUnit) << "];I[" << DynExp::Units::UnitTypeToStr(PlotInfo.YUnit) << "]\n";
 		for (const auto& Sample : Samples)
 			CSVData << Sample.x() << ";" << Sample.y() << "\n";
 
@@ -122,7 +33,6 @@ namespace DynExpModule::SpectrumViewer
 		MinExposureTime = DynExpInstr::SpectrometerData::TimeType();
 		MaxExposureTime = DynExpInstr::SpectrometerData::TimeType();
 		CurrentExposureTime = DynExpInstr::SpectrometerData::TimeType();
-		AcquisitionExposureTime = DynExpInstr::SpectrometerData::TimeType();
 		CurrentLowerFrequency = 0.0;
 		CurrentUpperFrequency = 0.0;
 		SilentModeEnabled = false;
@@ -158,17 +68,7 @@ namespace DynExpModule::SpectrumViewer
 			ModuleData->CapturingProgress = InstrData->GetCapturingProgress();
 
 			if (InstrData->HasSpectrum() && !ModuleData->SpectrumRecordingPaused)
-			{
 				Spectrum = InstrData->GetSpectrum();
-
-				if (Spectrum.HasSpectrum() && !ModuleData->AutoSaveFilename.empty())
-				{
-					if (ModuleData->GetCommunicator().valid())
-						ModuleData->GetCommunicator()->PostEvent(*this, FinishedEvent{});
-
-					ModuleData->AutoSaveFilename.clear();
-				}
-			}
 
 			NumFailedUpdateAttempts = 0;
 		} // ModuleData and instruments' data unlocked here.
@@ -181,7 +81,7 @@ namespace DynExpModule::SpectrumViewer
 		if (Spectrum.HasSpectrum())
 		{
 			PlotInfo.Reset();
-			//PlotInfo.ProcessSpectrum(std::move(Spectrum), ProcessedSamples.Samples, 0);
+			PlotInfo.ProcessSpectrum(std::move(Spectrum), ProcessedSamples.Samples, 0);
 			PlotInfo.AdjustAxesLimits();
 
 			{
@@ -189,6 +89,15 @@ namespace DynExpModule::SpectrumViewer
 
 				ModuleData->CurrentSpectrum = std::move(ProcessedSamples);
 				ModuleData->PlotInfo = std::move(PlotInfo);
+
+				if (!ModuleData->AutoSaveFilename.empty())
+				{
+					SaveSpectrum(ModuleData);
+					ModuleData->AutoSaveFilename.clear();
+
+					if (ModuleData->GetCommunicator().valid())
+						ModuleData->GetCommunicator()->PostEvent(*this, FinishedEvent{});
+				}
 			} // ModuleData unlocked here.
 		}
 		else
@@ -229,42 +138,43 @@ namespace DynExpModule::SpectrumViewer
 
 		if (!ModuleData->IsUIInitialized())
 		{
+			Backend->SetExposureTimeRange({ Util::NumToT<int>(ModuleData->MinExposureTime.count()), Util::NumToT<int>(ModuleData->MaxExposureTime.count()) });
+			Backend->SetExposureTimeUnit(QString::fromStdString(Util::ToUnitStr<DynExpInstr::SpectrometerData::TimeType>()));
+			Backend->SetLimitRange({ ModuleData->MinFrequency, ModuleData->MaxFrequency });
+			Backend->SetLimitUnit(DynExp::Units::UnitTypeToStr(ModuleData->PlotInfo.XUnit));
+
 			Backend->GetGraph()->InsertSeries("Spectrum");
 
 			ModuleData->SetUIInitialized();
 		}
 
+		switch (ModuleData->CapturingState)
+		{
+		case DynExpInstr::SpectrometerData::CapturingStateType::Warning: Backend->SetState(SpectrumViewerBackend::Warning); break;
+		case DynExpInstr::SpectrometerData::CapturingStateType::Error: Backend->SetState(SpectrumViewerBackend::Error); break;
+		case DynExpInstr::SpectrometerData::CapturingStateType::Capturing: Backend->SetState(SpectrumViewerBackend::Capturing); break;
+		default: Backend->SetState(SpectrumViewerBackend::Ready);
+		}
+
+		if (!Backend->IsSilentFocused())
+			Backend->SetSilent(ModuleData->SilentModeEnabled);
+		if (!Backend->IsExposureTimeFocused())
+			Backend->SetExposureTime(Util::NumToT<int>(ModuleData->CurrentExposureTime.count()));
+		if (!Backend->IsLowerLimitFocused())
+			Backend->SetLowerLimit(ModuleData->CurrentLowerFrequency);
+		if (!Backend->IsUpperLimitFocused())
+			Backend->SetUpperLimit(ModuleData->CurrentUpperFrequency);
+		Backend->SetProgress(ModuleData->CapturingProgress > 0. && ModuleData->CapturingProgress <= 100. ? ModuleData->CapturingProgress / 100. : 0.);
+
 		Backend->GetGraph()->UpdateSeries(0, ModuleData->CurrentSpectrum.Samples, ModuleData->PlotInfo);
 		Backend->GetGraph()->UpdateData(ModuleData->PlotInfo);
 	}
 
-	/*SpectrumViewerWidget::SampleDataType SpectrumViewer::ProcessSpectrum(DynExpInstr::SpectrometerData::SpectrumType&& Spectrum,
-		Util::SynchronizedPointer<SpectrumViewerData>& ModuleData)
+	void SpectrumViewer::SaveSpectrum(Util::SynchronizedPointer<SpectrumViewerData>& ModuleData)
 	{
-		SpectrumViewerWidget::SampleDataType TransformedSpectrum;
-		TransformedSpectrum.FrequencyUnit = Spectrum.GetFrequencyUnit();
-		TransformedSpectrum.IntensityUnit = Spectrum.GetIntensityUnit();
-
-		if (!Spectrum.HasSpectrum())
-			return TransformedSpectrum;
-
-		double YMin(std::numeric_limits<double>::max()), YMax(std::numeric_limits<double>::lowest());
-		for (const auto& Sample : Spectrum.GetSpectrum())
-		{
-			TransformedSpectrum.Points.append({ Sample.first, Sample.second });
-
-			YMin = std::min(YMin, Sample.second);
-			YMax = std::max(YMax, Sample.second);
-		}
-
-		TransformedSpectrum.MinValues = { Spectrum.GetSpectrum().begin()->first, YMin};
-		TransformedSpectrum.MaxValues = { Spectrum.GetSpectrum().rbegin()->first, YMax};
-
-		if (!TransformedSpectrum.Points.empty() && !ModuleData->AutoSaveFilename.empty())
-			SaveSpectrum(TransformedSpectrum, ModuleData);
-
-		return TransformedSpectrum;
-	}*/
+		if (!Util::SaveToFile(QString::fromStdString(ModuleData->AutoSaveFilename), ModuleData->CurrentSpectrum.ToStr(ModuleData->CurrentExposureTime, ModuleData->PlotInfo)))
+			Util::EventLog().Log("[SpectrumViewer] Saving spectrum as \"" + ModuleData->AutoSaveFilename + "\" to file failed.", Util::ErrorType::Error);
+	}
 
 	void SpectrumViewer::OnInit(DynExp::ModuleInstance* Instance) const
 	{
@@ -315,7 +225,6 @@ namespace DynExpModule::SpectrumViewer
 			return;
 
 		ModuleData->SpectrumRecordingPaused = false;
-		ModuleData->AcquisitionExposureTime = ModuleData->CurrentExposureTime;
 		ModuleData->GetSpectrometer()->Record();
 	}
 
@@ -403,7 +312,7 @@ namespace DynExpModule::SpectrumViewer
 			return;
 
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<SpectrumViewer>(GetModuleData());
-		if (!Util::SaveToFile(QString::fromStdString(ModuleData->AutoSaveFilename), ModuleData->CurrentSpectrum.ToStr(ModuleData->CurrentExposureTime, ModuleData->PlotInfo)))
-			Util::EventLog().Log("[SpectrumViewer] Saving spectrum as \"" + ModuleData->AutoSaveFilename + "\" to file failed.", Util::ErrorType::Error);
+		if (!Util::SaveToFile(Filename, ModuleData->CurrentSpectrum.ToStr(ModuleData->CurrentExposureTime, ModuleData->PlotInfo)))
+			QMessageBox::warning(GetWidget(), "DynExp - Error", "Error writing data to file.");
 	}
 }

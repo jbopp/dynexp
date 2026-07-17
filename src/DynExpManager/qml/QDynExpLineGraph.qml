@@ -108,7 +108,8 @@ Item {
         cursorShape: Qt.CrossCursor
         acceptedButtons: Qt.RightButton
         onClicked: {
-            cmPlot.popup()
+            if (cmPlot.count)
+                cmPlot.popup()
         }
         onPositionChanged: function(mouse) {
             if (mouse.x >= gvPlot.plotArea.x && mouse.x <= gvPlot.plotArea.x + gvPlot.plotArea.width &&

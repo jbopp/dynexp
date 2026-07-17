@@ -9,6 +9,7 @@
 
 #include "stdafx.h"
 #include "../MetaInstruments/DataStreamInstrument.h"
+#include "../MetaInstruments/Spectrometer.h"
 
 namespace DynExpModule::Graph
 {
@@ -48,6 +49,17 @@ namespace DynExpModule::Graph
 		 * @return Returns true if at least one sample has been processed, false otherwise.
 		*/
 		bool ProcessBasicSamples(DynExpInstr::DataStreamBase::BasicSampleListType BasicSamples,
+			QList<QPointF>& Samples, const size_t SeriesIndex);
+
+		/**
+		 * @brief Converts @p Spectrum to displayable format and stores its minimal and maximal values in
+		 * this @p DynExpLineGraphPlotInfo instance.
+		 * @param Spectrum Spectrum to convert. Move to this parameter to avoid copying.
+		 * @param Samples Destiny to store the processed samples in.
+		 * @param SeriesIndex Index of the data series that is to be processed.
+		 * @return Returns true if at least one sample has been processed, false otherwise.
+		*/
+		bool ProcessSpectrum(DynExpInstr::SpectrometerData::SpectrumType Spectrum,
 			QList<QPointF>& Samples, const size_t SeriesIndex);
 
 		/**
