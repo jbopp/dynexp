@@ -878,6 +878,30 @@ namespace DynExp
 	{
 	}
 
+	void QMLModuleBase::DisableUI()
+	{
+		auto Widget = GetWidget<QMLModuleWidget>();
+		if (!Widget)
+			return;
+
+		auto Root = qobject_cast<QQuickItem*>(Widget->GetRootObject());
+		if (Root)
+			Root->setEnabled(false);
+	}
+
+	void QMLModuleBase::UpdateUI()
+	{
+		auto Widget = GetWidget<QMLModuleWidget>();
+		if (!Widget)
+			return;
+
+		auto Root = qobject_cast<QQuickItem*>(Widget->GetRootObject());
+		if (Root)
+			Root->setEnabled(true);
+
+		QModuleBase::UpdateUI();
+	}
+
 	void QMLModuleBase::ResetImpl(dispatch_tag<QModuleBase>)
 	{
 		ResetImpl(dispatch_tag<QMLModuleBase>());

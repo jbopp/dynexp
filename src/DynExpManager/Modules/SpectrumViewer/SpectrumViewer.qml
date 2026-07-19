@@ -81,6 +81,7 @@ Rectangle {
             }
             ToolButton {
                 id: tbSilent
+                opacity: enabled ? 1.0 : 0.4
                 height: 32
                 width: 32
                 anchors.verticalCenter: parent.verticalCenter

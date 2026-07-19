@@ -32,6 +32,7 @@ Rectangle {
         Switch {
             id: sRun
             text: qsTr("Run")
+            opacity: enabled ? 1.0 : 0.4
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             anchors.leftMargin: 6
@@ -41,6 +42,7 @@ Rectangle {
         ToolButton {
             id: tbSave
             text: qsTr("Save")
+            opacity: enabled ? 1.0 : 0.4
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: sRun.right
             icon.source: "qrc:///DynExpManager/icons/Document-save.svg"
@@ -49,6 +51,7 @@ Rectangle {
         ToolButton {
             id: tbSources
             text: qsTr("Sources...")
+            opacity: enabled ? 1.0 : 0.4
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: tbSave.right
             anchors.right: parent.right

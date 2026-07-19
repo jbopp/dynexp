@@ -1691,8 +1691,8 @@ namespace DynExp
 		QAction& InitUI(DynExpManager& DynExpMgr, QMdiArea* const MdiArea);
 
 		void HideUI();						//!< Removes #MdiSubWindow, #DockWidget, and #ModuleWindowFocusAction setting them to @p nullptr.
-		void DisableUI();					//!< Disables all user interface controls in #Widget. Does nothing if #Widget is @p nullptr.
-		void UpdateUI();					//!< Enables the user interface controls in #Widget. Does nothing if #Widget is @p nullptr. Calls @p UpdateUIChild().
+		virtual void DisableUI();			//!< Disables all user interface controls in #Widget. Does nothing if #Widget is @p nullptr.
+		virtual void UpdateUI();			//!< Enables the user interface controls in #Widget. Does nothing if #Widget is @p nullptr. Calls @p UpdateUIChild().
 
 		/**
 		 * @brief Updates the icon assigned to #ModuleWindowFocusAction depending on whether #Widget
@@ -1965,6 +1965,9 @@ namespace DynExp
 
 		virtual ~QMLModuleBase() = 0;
 
+		void DisableUI() override;
+		void UpdateUI() override;
+
 	protected:
 		/**
 		 * @brief Getter for QML module's UI backend.
@@ -1988,7 +1991,6 @@ namespace DynExp
 		 * Override by derived classes.
 		*/
 		///@{
-
 		/**
 		 * @brief Use QModuleBase::Connect() to connect Qt QML signals to the module's event functions.
 		 * @param Backend Pointer to QML module's UI backend.
