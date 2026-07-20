@@ -180,7 +180,7 @@ Item {
         }
 
         function onQhoveredSampleChanged(hoveredSample) {
-            if (hoveredSample.x != 0 && hoveredSample.y != 0) {
+            if (hoveredSample.x != 0 || hoveredSample.y != 0) {
                 lPlotInfoBoxXValue.text = "x: " + hoveredSample.x.toFixed(3)
                 lPlotInfoBoxYValue.text = "y: " + hoveredSample.y.toFixed(3)
                 rPlotInfoBox.visible = true

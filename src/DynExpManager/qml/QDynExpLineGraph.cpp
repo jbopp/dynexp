@@ -243,15 +243,18 @@ namespace DynExpQuick
 			XValueAxis->setVisible(AnyLineSeriesVisible);
 			if (AnyLineSeriesVisible)
 			{
-				XValueAxis->setTitleText(DynExp::Units::UnitCategoryToStr(PlotInfo.XUnit) + QString(" in ") +
-					(PlotInfo.XUnit == DynExp::Units::UnitType::Time_s ? PlotInfo.GetMultiplierLabel() + "s" : DynExp::Units::UnitTypeToStr(PlotInfo.XUnit)));
+				if (PlotInfo.XLabel.isEmpty())
+					XValueAxis->setTitleText(DynExp::Units::UnitCategoryToStr(PlotInfo.XUnit) + QString(" [") +
+						(PlotInfo.XUnit == DynExp::Units::UnitType::Time_s ? PlotInfo.GetMultiplierLabel() + "s" : DynExp::Units::UnitTypeToStr(PlotInfo.XUnit)) + "]");
+				else
+					XValueAxis->setTitleText(PlotInfo.XLabel);
 				XValueAxis->setLabelFormat(DynExp::Units::IsIntegerUnit(PlotInfo.XUnit) ? "%.0f" : "%.3f");
 				XValueAxis->setRange(PlotInfo.MinValues.x(), PlotInfo.MaxValues.x());
 			}
 			else
 				XCategoryAxis->setCategories(PlotModel.GetSeriesNames());
 
-			YValueAxis->setTitleText(DynExp::Units::UnitCategoryToStr(PlotInfo.YUnit) + QString(" in ") + DynExp::Units::UnitTypeToStr(PlotInfo.YUnit));
+			YValueAxis->setTitleText(PlotInfo.YLabel.isEmpty() ? QString::fromStdString(DynExp::Units::UnitToStr(PlotInfo.YUnit)) : PlotInfo.YLabel);
 			YValueAxis->setLabelFormat(DynExp::Units::IsIntegerUnit(PlotInfo.YUnit) ? "%.0f" : "%.3f");
 			if (PlotInfo.YUnit == DynExp::Units::UnitType::LogicLevel)
 			{

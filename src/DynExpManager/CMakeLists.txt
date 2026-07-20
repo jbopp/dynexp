@@ -126,14 +126,13 @@ find_package(Qt6 COMPONENTS
 	Network
 	Quick
 	QuickControls2
+	QuickWidgets
 	Svg
 	Widgets
 	Xml
 	REQUIRED
 )
 find_package(Qt6SerialPort CONFIG REQUIRED)
-find_package(Qt6Charts CONFIG REQUIRED)
-find_package(Qt6DataVisualization CONFIG REQUIRED)
 if (${Qt6_FOUND})
 	message("Using Qt " ${Qt6_VERSION})
 endif()
@@ -271,11 +270,10 @@ target_link_libraries(DynExpConfig INTERFACE
 	Qt::Network
 	Qt::Quick
 	Qt::QuickControls2
+	Qt::QuickWidgets
 	Qt::SerialPort
 	Qt::Widgets
 	Qt::Xml
-	Qt::Charts
-	Qt::DataVisualization
 	GSL::gsl
 	gRPC::grpc++
 	Python3::Module

@@ -8,6 +8,8 @@
 
 #pragma once
 
+#include <string>
+
 namespace DynExp::Units
 {
 	/**
@@ -44,7 +46,10 @@ namespace DynExp::Units
 		// Frequency-like
 		Freq_Hz,		//!< Frequency in Hz
 		Inv_cm,			//!< Wavenumber in 1/cm
-		Wavelength_nm	//!< Wavelength in nm
+		Wavelength_nm,	//!< Wavelength in nm
+		//
+		// Other
+		Unitless		//!< Unitless scalar number
 	};
 
 	/**
@@ -90,11 +95,19 @@ namespace DynExp::Units
 	const char* UnitCategoryToStr(UnitType Unit);
 
 	/**
-	 * @brief Returns a descriptive string of a respective unit to be e.g. used in plots.
+	 * @brief Returns a descriptive string of the given unit's type (e.g. 'dBm').
 	 * @param Unit Unit type as used by DynExp instruments.
-	 * @return Returns the human-readable unit string.
+	 * @return Returns the human-readable unit type string.
 	*/
 	const char* UnitTypeToStr(UnitType Unit);
+
+	/**
+	 * @brief Returns a descriptive string of a respective unit category and type
+	 * to be e.g. used in plots.
+	 * @param Unit Unit type as used by DynExp instruments.
+	 * @return Returns the human-readable string, like '[category] in [type]'.
+	*/
+	std::string UnitToStr(UnitType Unit);
 
 	/**
 	 * @brief Speed of light in vacuum in m/s

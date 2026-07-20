@@ -80,6 +80,7 @@ namespace DynExp::Units
 		case UnitType::Freq_Hz:
 		case UnitType::Inv_cm: return "frequency";
 		case UnitType::Wavelength_nm: return "wavelength";
+		case UnitType::Unitless: return "number";
 		default: return "<unknown unit category>";
 		}
 	}
@@ -104,7 +105,16 @@ namespace DynExp::Units
 		case UnitType::Freq_Hz: return "Hz";
 		case UnitType::Inv_cm: return "1/cm";
 		case UnitType::Wavelength_nm: return "nm";
+		case UnitType::Unitless: return "";
 		default: return "<unknown unit>";
 		}
+	}
+
+	std::string UnitToStr(UnitType Unit)
+	{
+		if (Unit == UnitType::Unitless)
+			return UnitCategoryToStr(Unit);
+		else
+			return std::string(UnitCategoryToStr(Unit)) + " [" + UnitTypeToStr(Unit) + "]";
 	}
 }

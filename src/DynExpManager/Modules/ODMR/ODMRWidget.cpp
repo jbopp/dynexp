@@ -40,7 +40,7 @@ namespace DynExpModule::ODMR
 		ODMRDataChart = new QChart();
 		ui->ODMRChartView->setChart(ODMRDataChart);						// Takes ownership of ODMRDataChart.
 		ui->ODMRChartView->setRenderHint(QPainter::Antialiasing);
-		ODMRDataChart->setTheme(DynExpUI::DefaultQChartTheme);
+		ODMRDataChart->setTheme(QChart::ChartThemeDark);
 		ODMRDataChart->legend()->setVisible(false);
 		ODMRXAxis->setTitleText("frequency in GHz");
 
@@ -48,7 +48,7 @@ namespace DynExpModule::ODMR
 		SensitivityDataChart = new QChart();
 		ui->SensitivityChartView->setChart(SensitivityDataChart);		// Takes ownership of SensitivityDataChart.
 		ui->SensitivityChartView->setRenderHint(QPainter::Antialiasing);
-		SensitivityDataChart->setTheme(DynExpUI::DefaultQChartTheme);
+		SensitivityDataChart->setTheme(QChart::ChartThemeDark);
 		SensitivityDataChart->legend()->setVisible(false);
 		SensitivityXAxis->setBase(10);
 		SensitivityXAxis->setTitleText("frequency in Hz");

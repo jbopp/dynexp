@@ -8,10 +8,17 @@
 #pragma once
 
 #include "stdafx.h"
-#include "QChartIncludes.h"
 #include "DynExpCore.h"
 
-#include <QWidget>
+#include <QChartView>
+
+#include <QtCharts/QBarSeries>
+#include <QtCharts/QBarSet>
+#include <QtCharts/QLineSeries>
+#include <QtCharts/QLogValueAxis>
+#include <QtCharts/QScatterSeries>
+#include <QtCharts/QValueAxis>
+#include <QtCharts/QXYSeries>
 
 namespace Ui
 {

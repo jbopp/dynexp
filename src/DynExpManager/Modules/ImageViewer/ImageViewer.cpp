@@ -36,7 +36,7 @@ namespace DynExpModule::ImageViewer
 		ui->Histogram->setChart(HistogramChart);				// Takes ownership of HistogramChart.
 		ui->Histogram->setRenderHint(QPainter::Antialiasing);
 		HistogramChart->addSeries(HistogramBarSeries);
-		HistogramChart->setTheme(DynExpUI::DefaultQChartTheme);
+		HistogramChart->setTheme(QChart::ChartThemeDark);
 		HistogramChart->legend()->setVisible(false);
 		HistogramXAxis->setTitleText("pixel value");
 		HistogramXAxis->setLabelFormat("%d");

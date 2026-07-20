@@ -70,6 +70,8 @@ namespace DynExpModule::SignalPlotter
 		{
 			if (NumFailedUpdateAttempts++ >= 3)
 				Instance.GetOwner().SetWarning(e);
+
+			return Util::DynExpErrorCodes::NoError;
 		}
 
 		if (Running)
