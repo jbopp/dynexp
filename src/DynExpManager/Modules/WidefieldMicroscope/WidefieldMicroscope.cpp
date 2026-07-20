@@ -601,6 +601,11 @@ namespace DynExpModule::Widefield
 			return std::chrono::milliseconds(2);
 	}
 
+	void WidefieldMicroscope::RegisterConfocalGraphEvents(DynExpQuick::DynExpSurfaceGraphBackend* ConfocalGraph)
+	{
+		Connect(ConfocalGraph, &DynExpQuick::DynExpSurfaceGraphBackend::selectedPointChanged, this, &WidefieldMicroscope::ConfocalSurfaceSelectedPointChanged);
+	}
+
 	void WidefieldMicroscope::OnSaveCurrentImage(DynExp::ModuleInstance* Instance, QString Filename) const
 	{
 		static constexpr const char* SaveErrorMsg = "[WidefieldMicroscope] Saving an image failed.";
@@ -742,7 +747,6 @@ namespace DynExpModule::Widefield
 		Connect(Widget->GetUI()->SBConfocalOptimizationInitZStepSize, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &WidefieldMicroscope::OnConfocalOptimizationInitZStepSizeChanged);
 		Connect(Widget->GetUI()->SBConfocalOptimizationTolerance, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &WidefieldMicroscope::OnConfocalOptimizationToleranceChanged);
 		Connect(Widget->GetUI()->BConfocalScan, &QPushButton::clicked, this, &WidefieldMicroscope::OnPerformConfocalScan);
-		Connect(Widget->GetConfocalSurface3DSeries(), &QSurface3DSeries::selectedPointChanged, this, &WidefieldMicroscope::ConfocalSurfaceSelectedPointChanged);
 		Connect(Widget->GetUI()->SBHBTBinWidth, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnHBTBinWidthChanged);
 		Connect(Widget->GetUI()->SBHBTBinCount, QOverload<int>::of(&QSpinBox::valueChanged), this, &WidefieldMicroscope::OnHBTBinCountChanged);
 		Connect(Widget->GetUI()->SBHBTAcquisitionTime, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &WidefieldMicroscope::OnHHBTMaxIntegrationTimeChanged);
@@ -932,16 +936,16 @@ namespace DynExpModule::Widefield
 		MoveSampleTo(CalcMarkerToConfocalSpotDestiny(ModuleParams, ModuleData, MarkerPos, SamplePos), ModuleData);
 	}
 
-	WidefieldMicroscope::ModuleDataType::QSurfaceDataRowsType WidefieldMicroscope::CalculateConfocalScanPositions(const int Width, const int Height,
+	QSurfaceDataArray WidefieldMicroscope::CalculateConfocalScanPositions(const int Width, const int Height,
 		const int DistPerPixel, const WidefieldMicroscopeData::PositionPoint CenterPosition) const
 	{
-		ModuleDataType::QSurfaceDataRowsType QSurfaceDataRows;
+		QSurfaceDataArray QSurfaceDataRows;
 		ConfocalScanPositions.clear();
 
 		for (int i = 1; i <= Height; ++i)
 		{
 			auto y = CenterPosition.y + (-static_cast<double>(Height) / 2 + i) * DistPerPixel;
-			auto Row = std::make_unique<QSurfaceDataRow>(Width);
+			auto Row = QSurfaceDataRow(Width);
 
 			for (auto j = Width; j > 0; --j)
 			{
@@ -954,13 +958,13 @@ namespace DynExpModule::Widefield
 					x = CenterPosition.x + (static_cast<double>(Width) / 2 - j + 1) * DistPerPixel;
 
 				auto ColIndex = i % 2 ? j - 1 : Width - j;
-				(*Row)[ColIndex].setPosition(QVector3D(std::round(x), 0, std::round(y)));
+				Row[ColIndex].setPosition(QVector3D(std::round(x), 0, std::round(y)));
 				ConfocalScanPositions.emplace_back(static_cast<WidefieldMicroscopeData::PositionType>(x), static_cast<WidefieldMicroscopeData::PositionType>(y));
 				ConfocalScanPositions.back().RowIndex = Util::NumToT<int>(QSurfaceDataRows.size());
 				ConfocalScanPositions.back().ColumnIndex = ColIndex;
 			}
 
-			QSurfaceDataRows.push_back(std::move(Row));
+			QSurfaceDataRows << std::move(Row);
 		}
 
 		return QSurfaceDataRows;

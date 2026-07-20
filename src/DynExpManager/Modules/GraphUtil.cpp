@@ -86,6 +86,36 @@ namespace DynExpModule::Graph
 			Multiplier = 0;
 	}
 
+	bool LineGraphPlotInfo::ProcessSamples(QList<QPointF> RawSamples, QList<QPointF>& Samples, const size_t SeriesIndex)
+	{
+		if (Samples.empty())
+			return false;
+
+		auto YMin{ std::numeric_limits<QPointFValueType>::max() };
+		auto YMax{ std::numeric_limits<QPointFValueType>::lowest() };
+
+		for (qsizetype i = 0; i < Samples.size(); ++i)
+		{
+			const auto X = DynExp::Units::IsTimeUnitStrict(XUnit) ? RawSamples.at(i).x() * std::pow(10.0, Multiplier) : i;
+			const auto Y = RawSamples.at(i).y();
+			Samples.append({ X, Y });
+
+			YMin = std::min(YMin, Y);
+			YMax = std::max(YMax, Y);
+
+			// To avoid a second loop, do the calculation with axes limits from the previous run.
+			// Find hovered point for series with more than a single sample.
+			if (i)
+				CheckSampleHovered(X, Y, SeriesIndex);
+		}
+
+		MaxSampleCountPerSeries = std::max(MaxSampleCountPerSeries, Util::NumToT<size_t>(RawSamples.size()));
+		MinValues = { std::min(MinValues.x(), Samples.first().x()), std::min(MinValues.y(), YMin) };
+		MaxValues = { std::max(MaxValues.x(), Samples.last().x()), std::max(MaxValues.y(), YMax) };
+
+		return true;
+	}
+
 	bool LineGraphPlotInfo::ProcessBasicSamples(DynExpInstr::DataStreamBase::BasicSampleListType BasicSamples,
 		QList<QPointF>& Samples, const size_t SeriesIndex)
 	{
@@ -184,7 +214,7 @@ namespace DynExpModule::Graph
 		{
 			// Find hovered point for series with more than a single sample.
 			if (i)
-				CheckSampleHovered(Samples[i].x(), Samples[i].y(), SeriesIndex);
+				CheckSampleHovered(Samples.at(i).x(), Samples.at(i).y(), SeriesIndex);
 		}
 	}
 

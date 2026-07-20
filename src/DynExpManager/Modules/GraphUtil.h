@@ -41,6 +41,16 @@ namespace DynExpModule::Graph
 		void GenerateSampleTimingInfo(std::vector<DynExpInstr::DataStreamBase::BasicSampleListType>& BasicSamplesSeries);
 
 		/**
+		 * @brief Converts @p RawSamples to displayable format and stores their minimal and maximal values in
+		 * this @p DynExpLineGraphPlotInfo instance.
+		 * @param RawSamples List of QPointF samples to convert.
+		 * @param Samples Destiny to store the processed samples in.
+		 * @param SeriesIndex Index of the data series that is to be processed.
+		 * @return Returns true if at least one sample has been processed, false otherwise.
+		*/
+		bool ProcessSamples(QList<QPointF> RawSamples, QList<QPointF>& Samples, const size_t SeriesIndex);
+
+		/**
 		 * @brief Converts @p BasicSamples to displayable format and stores their minimal and maximal values in
 		 * this @p DynExpLineGraphPlotInfo instance.
 		 * @param BasicSamples Vector of BasicSamples to convert. Move to this parameter to avoid copying.
@@ -97,6 +107,16 @@ namespace DynExpModule::Graph
 		 * @brief Joint unit of the plot's y axis.
 		*/
 		DynExp::Units::UnitType YUnit = DynExp::Units::UnitType::Arbitrary;
+
+		/**
+		 * @brief If empty, the x label is constructed from #XUnit. Otherwise, #XLabel is used.
+		*/
+		QString XLabel;
+
+		/**
+		 * @brief If empty, the y label is constructed from #YUnit. Otherwise, #YLabel is used.
+		*/
+		QString YLabel;
 
 		/**
 		 * @brief Best order of magnitude to scale the plot's joint time axis with.

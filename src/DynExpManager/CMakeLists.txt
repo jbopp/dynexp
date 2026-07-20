@@ -234,8 +234,8 @@ target_sources(DynExpCore PRIVATE
 set_source_files_properties("qml/QQuickDefinitions.qml" PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
 qt_add_qml_module(DynExpQuick URI Modules.DynExpQuick
 	VERSION 1.0 STATIC
-	QML_FILES "qml/QQuickDefinitions.qml" "qml/QDynExpMenu.qml" "qml/QDynExpLineGraph.qml"
-	SOURCES "qml/QDynExpLineGraph.cpp" "qml/QDynExpLineGraph.h"
+	QML_FILES "qml/QQuickDefinitions.qml" "qml/QDynExpMenu.qml" "qml/QDynExpLineGraph.qml" "qml/QDynExpSurfaceGraph.qml"
+	SOURCES "qml/QDynExpLineGraph.cpp" "qml/QDynExpLineGraph.h" "qml/QDynExpSurfaceGraph.cpp" "qml/QDynExpSurfaceGraph.h"
 	OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/Modules/DynExpQuick"
 )
 target_include_directories(DynExpQuick PRIVATE "qml")

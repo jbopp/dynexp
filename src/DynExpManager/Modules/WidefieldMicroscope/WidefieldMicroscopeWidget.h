@@ -8,10 +8,9 @@
 #pragma once
 
 #include "stdafx.h"
-#include "QChartIncludes.h"
 #include "DynExpCore.h"
-
-#include <QWidget>
+#include "qml/QDynExpLineGraph.h"
+#include "qml/QDynExpSurfaceGraph.h"
 
 namespace Ui
 {
@@ -146,7 +145,6 @@ namespace DynExpModule::Widefield
 		const auto GetUI() const noexcept { return ui.get(); }
 		const auto& GetWidefieldConfocalModeActionGroup() const noexcept { return WidefieldConfocalModeActionGroup; }
 		const auto& GetMainGraphicsView() const noexcept { return MainGraphicsView; }
-		const auto& GetConfocalSurface3DSeries() const noexcept { return ConfocalSurface3DSeries; }
 		bool GetUIInitialized() const noexcept { return UIInitialized; }
 
 		void SetMainGraphicsImage(const QImage& Image) noexcept;
@@ -179,19 +177,14 @@ namespace DynExpModule::Widefield
 		QMenu* EmitterListContextMenu;
 
 		QMenu* ConfocalMapContextMenu;
-		Q3DSurface* ConfocalGraph;
-		QWidget* ConfocalGraphContainer;
 		QSurfaceDataProxy* ConfocalSurfaceDataProxy;
-		QSurfaceDataArray* ConfocalSurfaceDataArray;
-		QSurface3DSeries* ConfocalSurface3DSeries;
+		DynExpQuick::DynExpSurfaceGraphBackend* ConfocalGraph;
 		size_t NumItemsInArray;
 		double ConfocalSurfaceMinCounts;
 		double ConfocalSurfaceMaxCounts;
 
-		QXYSeries* HBTDataSeries;
-		QChart* HBTDataChart;
-		QValueAxis* HBTXAxis;
-		QValueAxis* HBTYAxis;
+		DynExpQuick::DynExpLineGraphBackend* HBTGraph;
+		Graph::LineGraphPlotInfo HBTPlotInfo;
 
 		QMenu* CharacterizationStepsContextMenu;
 

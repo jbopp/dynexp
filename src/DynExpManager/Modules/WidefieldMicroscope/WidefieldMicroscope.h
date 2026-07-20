@@ -53,7 +53,6 @@ namespace DynExpModule::Widefield
 		using CameraTimeType = DynExpInstr::CameraData::TimeType;
 		using LocalizedPositionsMapType = std::map<Util::MarkerGraphicsView::MarkerType::IDType, LocalizedEmitterType>;
 		using SPDTimeType = std::chrono::milliseconds;
-		using QSurfaceDataRowsType = std::vector<std::unique_ptr<QSurfaceDataRow>>;
 
 		struct PositionPoint
 		{
@@ -258,7 +257,7 @@ namespace DynExpModule::Widefield
 		const auto& GetConfocalScanResults() const noexcept { return ConfocalScanResults; }
 		void ClearConfocalScanResults() { ConfocalScanResults.clear(); }
 		auto GetConfocalScanSurfacePlotRows() noexcept { return std::move(ConfocalScanSurfacePlotRows); }
-		void SetConfocalScanSurfacePlotRows(QSurfaceDataRowsType&& QSurfaceDataRows) noexcept { ConfocalScanSurfacePlotRows = std::move(QSurfaceDataRows); }
+		void SetConfocalScanSurfacePlotRows(QSurfaceDataArray&& QSurfaceDataRows) noexcept { ConfocalScanSurfacePlotRows = std::move(QSurfaceDataRows); }
 		bool HasConfocalScanSurfacePlotRows() const noexcept { return !ConfocalScanSurfacePlotRows.empty(); }
 		void ClearConfocalScanSurfacePlotRows() { ConfocalScanSurfacePlotRows.clear(); }
 
@@ -428,7 +427,7 @@ namespace DynExpModule::Widefield
 
 		// vector of pairs <sample stage positions in nm, count rate in Hz>
 		std::vector<std::pair<PositionPoint, double>> ConfocalScanResults;
-		QSurfaceDataRowsType ConfocalScanSurfacePlotRows;
+		QSurfaceDataArray ConfocalScanSurfacePlotRows;
 
 		// HBT
 		Util::picoseconds HBTBinWidth;
@@ -582,6 +581,8 @@ namespace DynExpModule::Widefield
 
 		std::chrono::milliseconds GetMainLoopDelay() const override final;
 
+		void RegisterConfocalGraphEvents(DynExpQuick::DynExpSurfaceGraphBackend* ConfocalGraph);
+
 		// Events which the UI thread might enqueue.
 		void OnSaveCurrentImage(DynExp::ModuleInstance* Instance, QString Filename) const;
 		void OnGoToSamplePos(DynExp::ModuleInstance* Instance, QPointF SamplePos) const;
@@ -618,7 +619,7 @@ namespace DynExpModule::Widefield
 			QPoint MarkerPos, QPointF SamplePos) const;
 		void BringMarkerToConfocalSpot(Util::SynchronizedPointer<const ParamsType>& ModuleParams, Util::SynchronizedPointer<ModuleDataType>& ModuleData,
 			QPoint MarkerPos, QPointF SamplePos) const;
-		ModuleDataType::QSurfaceDataRowsType CalculateConfocalScanPositions(const int Width, const int Height,
+		QSurfaceDataArray CalculateConfocalScanPositions(const int Width, const int Height,
 			const int DistPerPixel, const WidefieldMicroscopeData::PositionPoint CenterPosition) const;
 		void UpdatePumpPower(Util::SynchronizedPointer<ModuleDataType>& ModuleData) const;
 		void PrepareImageRecording(Util::SynchronizedPointer<ModuleDataType>& ModuleData) const;

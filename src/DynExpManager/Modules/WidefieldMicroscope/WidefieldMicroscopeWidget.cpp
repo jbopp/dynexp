@@ -45,13 +45,11 @@ namespace DynExpModule::Widefield
 		StatusBar(this),
 		WidefieldConfocalModeActionGroup(new QActionGroup(this)), MainGraphicsView(nullptr),
 		MainGraphicsScene(new QGraphicsScene(this)), CurrentConfocalSpotPosition(0, 0),
-		EmitterListContextMenu(new QMenu(this)),
-		ConfocalMapContextMenu(new QMenu(this)), ConfocalGraph(nullptr), ConfocalGraphContainer(nullptr),
-		ConfocalSurfaceDataProxy(new QSurfaceDataProxy(this)), ConfocalSurfaceDataArray(nullptr),
-		ConfocalSurface3DSeries(new QSurface3DSeries(ConfocalSurfaceDataProxy)),
+		EmitterListContextMenu(new QMenu(this)), ConfocalMapContextMenu(new QMenu(this)),
+		ConfocalSurfaceDataProxy(new QSurfaceDataProxy()), ConfocalGraph(nullptr),
 		NumItemsInArray(0),
 		ConfocalSurfaceMinCounts(std::numeric_limits<decltype(ConfocalSurfaceMinCounts)>::max()), ConfocalSurfaceMaxCounts(0),
-		HBTDataSeries(nullptr), HBTDataChart(nullptr), HBTXAxis(new QValueAxis(this)), HBTYAxis(new QValueAxis(this)),
+		HBTGraph(nullptr),
 		CharacterizationStepsContextMenu(new QMenu(this))
 	{
 		ui->setupUi(this);
@@ -118,50 +116,59 @@ namespace DynExpModule::Widefield
 		ConfocalMapContextMenu->addAction(ui->action_confocal_map_save_raw_data);
 		ConfocalMapContextMenu->addAction(ui->action_confocal_map_reset);
 		ui->BConfocalGraphTools->setMenu(ConfocalMapContextMenu);
-		ConfocalGraph = new Q3DSurface(); // Ownership transferred to ConfocalGraphContainer below.
-		ConfocalGraphContainer = QWidget::createWindowContainer(ConfocalGraph, ui->WidgetConfocalGraphContainer);
-		ConfocalGraphContainer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);		
-		ui->WidgetConfocalGraphContainer->layout()->addWidget(ConfocalGraphContainer);
-		ConfocalGraph->activeTheme()->setType(DynExpUI::DefaultQ3DTheme);
-		ConfocalGraph->activeTheme()->setLabelBorderEnabled(false);
-		ConfocalGraph->scene()->activeCamera()->setCameraPreset(Q3DCamera::CameraPreset::CameraPresetDirectlyAbove);
-		ConfocalGraph->setShadowQuality(QAbstract3DGraph::ShadowQuality::ShadowQualityNone);
-		ConfocalGraph->setOrthoProjection(true);
-		ConfocalGraph->setSelectionMode(QAbstract3DGraph::SelectionFlag::SelectionItem);
 		
-		ConfocalGraph->axisX()->setLabelFormat("%.0f");
-		ConfocalGraph->axisX()->setAutoAdjustRange(true);
-		ConfocalGraph->axisX()->setLabelAutoRotation(90);
-		ConfocalGraph->axisX()->setTitle("X in nm");
-		ConfocalGraph->axisX()->setTitleVisible(true);
-		ConfocalGraph->axisY()->setLabelFormat("%.0f");
-		ConfocalGraph->axisY()->setAutoAdjustRange(false);
-		ConfocalGraph->axisY()->setTitle("Count rate in Hz");
-		ConfocalGraph->axisY()->setTitleVisible(true);
-		ConfocalGraph->axisZ()->setLabelFormat("%.0f");
-		ConfocalGraph->axisZ()->setAutoAdjustRange(true);
-		ConfocalGraph->axisZ()->setTitle("Y in nm");
-		ConfocalGraph->axisZ()->setTitleVisible(true);
+		//ui->WidgetConfocalGraph->loadFromModule("Modules.DynExpQuick", "QDynExpSurfaceGraph");
+		connect(ui->WidgetConfocalGraph, &QQuickWidget::statusChanged, [this, &Owner](QQuickWidget::Status Status) {
+			if (Status == QQuickWidget::Status::Ready && ui->WidgetConfocalGraph->rootObject())
+			{
+				auto BackendVariant = ui->WidgetConfocalGraph->rootObject()->property("backend");
+				ConfocalGraph = BackendVariant.isValid() ? BackendVariant.value<DynExpQuick::DynExpSurfaceGraphBackend*>() : nullptr;
 
-		ConfocalSurface3DSeries->setDrawMode(QSurface3DSeries::DrawSurface);
-		ConfocalSurface3DSeries->setFlatShadingEnabled(true);
+				if (!ConfocalGraph)
+					return;
+
+				// Takes ownership of ConfocalSurfaceDataProxy.
+				ConfocalGraph->SetProxy(ConfocalSurfaceDataProxy);
+
+				ConfocalGraph->GetXValueAxis()->setLabelFormat("%.0f");
+				ConfocalGraph->GetXValueAxis()->setAutoAdjustRange(true);
+				ConfocalGraph->GetXValueAxis()->setTitle("X in nm");
+				ConfocalGraph->GetXValueAxis()->setTitleVisible(true);
+				ConfocalGraph->GetYValueAxis()->setLabelFormat("%.0f");
+				ConfocalGraph->GetYValueAxis()->setAutoAdjustRange(false);
+				ConfocalGraph->GetYValueAxis()->setTitle("Count rate in Hz");
+				ConfocalGraph->GetYValueAxis()->setTitleVisible(true);
+				ConfocalGraph->GetZValueAxis()->setLabelFormat("%.0f");
+				ConfocalGraph->GetZValueAxis()->setAutoAdjustRange(true);
+				ConfocalGraph->GetZValueAxis()->setTitle("Y in nm");
+				ConfocalGraph->GetZValueAxis()->setTitleVisible(true);
+				ConfocalGraph->UpdateData();
+
+				Owner.RegisterConfocalGraphEvents(ConfocalGraph);
+			}
+		});
+		ui->WidgetConfocalGraph->loadFromModule("Modules.DynExpQuick", "QDynExpSurfaceGraph");
+		
+		/*
 		ConfocalSurface3DSeries->setBaseGradient(DynExpUI::GetDefaultLinearGradient());
-		ConfocalSurface3DSeries->setColorStyle(Q3DTheme::ColorStyleRangeGradient);
 		ConfocalSurface3DSeries->setItemLabelFormat("(@xLabel nm, @zLabel nm): @yLabel Hz");
-		ConfocalGraph->addSeries(ConfocalSurface3DSeries);
+		*/
 
 		// Graph to display HBT result
-		HBTDataChart = new QChart();
-		ui->HBTChart->setChart(HBTDataChart);		// Takes ownership of HBTDataChart.
-		ui->HBTChart->setRenderHint(QPainter::Antialiasing);
-		HBTDataChart->setTheme(DynExpUI::DefaultQChartTheme);
-		HBTDataChart->legend()->setVisible(false);
-		HBTXAxis->setTitleText("time in ps");
-		HBTYAxis->setTitleText("g(2)");
+		connect(ui->WidgetHBTGraph, &QQuickWidget::statusChanged, [this](QQuickWidget::Status Status) {
+			if (Status == QQuickWidget::Status::Ready && ui->WidgetHBTGraph->rootObject())
+			{
+				auto BackendVariant = ui->WidgetHBTGraph->rootObject()->property("backend");
+				HBTGraph = BackendVariant.isValid() ? BackendVariant.value<DynExpQuick::DynExpLineGraphBackend*>() : nullptr;
 
-		// Chart takes ownership of axes.
-		HBTDataChart->addAxis(HBTXAxis, Qt::AlignBottom);
-		HBTDataChart->addAxis(HBTYAxis, Qt::AlignLeft);
+				if (HBTGraph)
+					HBTGraph->InsertSeries("g2");
+			}
+		});
+		ui->WidgetHBTGraph->loadFromModule("Modules.DynExpQuick", "QDynExpLineGraph");
+		HBTPlotInfo.XUnit = DynExp::Units::UnitType::Time_ps;
+		HBTPlotInfo.YUnit = DynExp::Units::UnitType::Counts;
+		HBTPlotInfo.YLabel = "g(2)";
 
 		// Characterization steps
 		CharacterizationStepsContextMenu->addAction(ui->action_CharacterizationSteps_Widefield_PLE);
@@ -496,21 +503,11 @@ namespace DynExpModule::Widefield
 
 		if (ModuleData->HasConfocalScanSurfacePlotRows())
 		{
-			auto Rows = ModuleData->GetConfocalScanSurfacePlotRows();
 			NumItemsInArray = 0;
 			ConfocalSurfaceMinCounts = std::numeric_limits<decltype(ConfocalSurfaceMinCounts)>::max();
 			ConfocalSurfaceMaxCounts = 0;
 
-			// Deletes old array.
-			ConfocalSurfaceDataProxy->resetArray(nullptr);
-			// Ownership transferred to ConfocalSurfaceDataProxy below with resetArray().
-			ConfocalSurfaceDataArray = new QSurfaceDataArray;
-			ConfocalSurfaceDataArray->reserve(Util::NumToT<int>(Rows.size()));
-
-			for (auto& Row : Rows)
-				*ConfocalSurfaceDataArray << Row.release();
-
-			ConfocalSurfaceDataProxy->resetArray(ConfocalSurfaceDataArray);
+			ConfocalSurfaceDataProxy->resetArray(ModuleData->GetConfocalScanSurfacePlotRows());
 		}
 
 		if (ModuleData->GetConfocalScanResults().size() > NumItemsInArray)
@@ -521,8 +518,7 @@ namespace DynExpModule::Widefield
 				if (ResultItem.first.RowIndex < 0 || ResultItem.first.ColumnIndex < 0)
 					continue;
 
-				auto& SurfaceItem = ConfocalSurfaceDataArray->operator[](ResultItem.first.RowIndex)->operator[](ResultItem.first.ColumnIndex);
-
+				QSurfaceDataItem SurfaceItem = ConfocalSurfaceDataProxy->itemAt(ResultItem.first.RowIndex, ResultItem.first.ColumnIndex);
 				SurfaceItem.setY(ResultItem.second);
 				ConfocalSurfaceDataProxy->setItem(ResultItem.first.RowIndex, ResultItem.first.ColumnIndex, SurfaceItem);
 
@@ -533,7 +529,7 @@ namespace DynExpModule::Widefield
 			}
 
 			if (ConfocalSurfaceMinCounts < std::numeric_limits<decltype(ConfocalSurfaceMinCounts)>::max() && ConfocalSurfaceMaxCounts > 0)
-				ConfocalGraph->axisY()->setRange(ConfocalSurfaceMinCounts, ConfocalSurfaceMaxCounts);
+				ConfocalGraph->GetYValueAxis()->setRange(ConfocalSurfaceMinCounts, ConfocalSurfaceMaxCounts);
 		}
 	}
 
@@ -547,20 +543,19 @@ namespace DynExpModule::Widefield
 			ui->SBHBTAcquisitionTime->setValue(static_cast<double>(ModuleData->GetHBTMaxIntegrationTime().count()) / std::chrono::microseconds::period::den);
 		ui->LEHBTTotalIntegrationTime->setText(QString::number(ModuleData->GetHBTTotalIntegrationTime().count() / std::chrono::microseconds::period::den) + " s");
 
-		if (ui->HBTChart->isVisible())
+		if (ui->WidgetHBTGraph->isVisible() && HBTGraph)
 		{
-			HBTDataChart->removeAllSeries();
-			HBTDataSeries = new QLineSeries(this);
-			HBTDataSeries->append(ModuleData->GetHBTDataPoints());
-			HBTDataSeries->setPointsVisible(false);
+			HBTPlotInfo.Reset();
+			HBTPlotInfo.MaxSampleCountPerSeries = Util::NumToT<size_t>(ModuleData->GetHBTDataPoints().size());
+			HBTPlotInfo.MinValues = ModuleData->GetHBTDataPointsMinValues();
+			HBTPlotInfo.MaxValues = ModuleData->GetHBTDataPointsMaxValues();
+			HBTPlotInfo.AdjustAxesLimits();
+			HBTPlotInfo.ReprocessSamples(ModuleData->GetHBTDataPoints(), 0);
 
-			HBTXAxis->setRange(ModuleData->GetHBTDataPointsMinValues().x(), ModuleData->GetHBTDataPointsMaxValues().x());
-			HBTYAxis->setRange(ModuleData->GetHBTDataPointsMinValues().y(), ModuleData->GetHBTDataPointsMaxValues().y());
+			HBTGraph->UpdateSeries(0, ModuleData->GetHBTDataPoints(), HBTPlotInfo);
+			HBTGraph->UpdateData(HBTPlotInfo);
+
 			ui->LEHBTMinValue->setText(QString::number(ModuleData->GetHBTDataPointsMinValues().y()));
-
-			HBTDataChart->addSeries(HBTDataSeries);
-			HBTDataSeries->attachAxis(HBTDataChart->axes()[0]);
-			HBTDataSeries->attachAxis(HBTDataChart->axes()[1]);
 		}
 	}
 
@@ -808,12 +803,12 @@ namespace DynExpModule::Widefield
 
 	void WidefieldMicroscopeWidget::OnConfocalMapResetClicked()
 	{
-		ConfocalGraph->scene()->activeCamera()->setCameraPreset(Q3DCamera::CameraPreset::CameraPresetDirectlyAbove);
+		ConfocalGraph->ResetCamera();
 	}
 
 	void WidefieldMicroscopeWidget::OnConfocalMapSaveRawDataClicked()
 	{
-		if (!ConfocalSurfaceDataArray)
+		if (!ConfocalSurfaceDataProxy->rowCount())
 			return;
 
 		auto Filename = Util::PromptSaveFilePathModule(this, "Save data", ".csv", " Comma-separated values file (*.csv)");
