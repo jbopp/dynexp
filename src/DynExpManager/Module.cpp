@@ -480,15 +480,18 @@ namespace DynExp
 	void QModuleWidget::closeEvent(QCloseEvent* Event)
 	{
 		if (DynExpMgr)
-			if (QMessageBox::question(this, "DynExp - Stop module?",
+		{
+			if (QMessageBox::StandardButton::Yes == QMessageBox::question(this, "DynExp - Stop module?",
 				QString::fromStdString("Do you want to stop this module?"),
-				QMessageBox::StandardButton::Yes | QMessageBox::StandardButton::No, QMessageBox::StandardButton::No)
-				== QMessageBox::StandardButton::Yes)
+				QMessageBox::StandardButton::Yes | QMessageBox::StandardButton::No, QMessageBox::StandardButton::No))
+			{
 				if (DynExpMgr->StopItem(&Owner))
 				{
 					Event->accept();
 					return;
 				}
+			}
+		}
 
 		Event->ignore();
 	}
@@ -515,8 +518,18 @@ namespace DynExp
 
 	void QModuleDockWidget::closeEvent(QCloseEvent* Event)
 	{
+		if (!widget() || !widget()->isVisible())
+		{
+			Event->accept();
+			return;
+		}
+
+		if (qobject_cast<QModuleWidget*>(widget())->AllowDocked())
+			Owner.DockUndockWindow();
+		else
+			widget()->close();
+
 		Event->ignore();
-		Owner.DockUndockWindow();
 	}
 
 	// Delegate Ctrl+1 - Ctrl+9 to main window
@@ -617,10 +630,20 @@ namespace DynExp
 		DockWidget->setFeatures(QDockWidget::DockWidgetFeature::DockWidgetClosable | QDockWidget::DockWidgetFeature::DockWidgetFloatable);
 		DockWidget->setLocale(QLocale(QLocale::Language::English, QLocale::Country::UnitedStates));		// For number format.
 
-		// Insert new Widget into main MDI area. MdiSubWindow becomes Widget's parent.
-		MdiSubWindow->setWidget(WidgetPtr.release());
-		MdiArea->addSubWindow(MdiSubWindow.get(), Widget->GetQtWindowFlags());
-		Widget->EnableDockWindowShortcut(false);
+		if (Widget->AllowDocked())
+		{
+			// Insert new Widget into main MDI area. MdiSubWindow becomes Widget's parent.
+			MdiSubWindow->setWidget(WidgetPtr.release());
+			MdiArea->addSubWindow(MdiSubWindow.get(), Widget->GetQtWindowFlags());
+			Widget->EnableDockWindowShortcut(false);
+		}
+		else
+		{
+			// Display widget as its own window. DockWidget becomes Widget's parent.
+			Widget->setParent(DockWidget.get());
+			DockWidget->setWidget(WidgetPtr.release());
+			Widget->EnableDockWindowShortcut(true);
+		}
 
 		SetWidgetProperties(MdiSubWindow.get());
 		SetWidgetProperties(DockWidget.get());
@@ -630,7 +653,10 @@ namespace DynExp
 		ModuleWindowFocusAction = std::make_unique<QAction>(QString::fromStdString(GetObjectName(std::chrono::seconds(1))));
 		QObject::connect(ModuleWindowFocusAction.get(), &QAction::triggered, Widget, &QModuleWidget::OnFocusWindow);
 
-		MdiSubWindow->show();
+		if (Widget->AllowDocked())
+			MdiSubWindow->show();
+		else
+			DockWidget->showNormal();
 
 		return *ModuleWindowFocusAction;
 	}
@@ -673,7 +699,7 @@ namespace DynExp
 
 	void QModuleBase::DockWindow() noexcept
 	{
-		if (!Widget || !MdiArea || !MdiSubWindow || !DockWidget)
+		if (!Widget || !MdiArea || !MdiSubWindow || !DockWidget || !Widget->AllowDocked())
 			return;
 
 		DockWidget->hide();

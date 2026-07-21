@@ -1436,6 +1436,13 @@ namespace DynExp
 		 * @return Return true when the window should be resizable by the user, false otherwise.
 		*/
 		virtual bool AllowResize() const noexcept { return false; }
+
+		/**
+		 * @brief Indicates the docking behavior of the user interface window. Override to adjust.
+		 * @return Return false when the window should always be undocked from DynExp's main window,
+		 * false otherwise.
+		*/
+		virtual bool AllowDocked() const noexcept { return true; }
 		///@}
 
 		/**

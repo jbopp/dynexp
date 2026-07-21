@@ -130,6 +130,7 @@ namespace DynExpModule::Widefield
 		~WidefieldMicroscopeWidget() = default;
 
 		bool AllowResize() const noexcept override final { return true; }
+		bool AllowDocked() const noexcept override final { return false; }
 
 		const WidefieldMicroscope& GetCastOwner() const noexcept;
 
