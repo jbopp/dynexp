@@ -113,6 +113,7 @@ namespace DynExpModule::SignalPlotter
 	{
 		QObject::connect(static_cast<SignalPlotterBackend*>(Backend), &SignalPlotterBackend::saveData, &SignalContext, [this]() { OnSaveData(); });
 
+		Connect(static_cast<SignalPlotterBackend*>(Backend), &SignalPlotterBackend::runningChanged, this, &SignalPlotter::OnRunningChanged);
 		Connect(static_cast<SignalPlotterBackend*>(Backend), &SignalPlotterBackend::rollingViewChanged, this, &SignalPlotter::OnRollingViewChanged);
 		Connect(static_cast<SignalPlotterBackend*>(Backend), &SignalPlotterBackend::autoscaleChanged, this, &SignalPlotter::OnAutoscaleChanged);
 		Connect(static_cast<SignalPlotterBackend*>(Backend), &SignalPlotterBackend::clearStream, this, &SignalPlotter::OnClearStream);
@@ -176,6 +177,20 @@ namespace DynExpModule::SignalPlotter
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<SignalPlotter>(Instance->ModuleDataGetter());
 
 		ModuleData->UnlockInstruments(Instance);
+	}
+
+	void SignalPlotter::OnRunningChanged(DynExp::ModuleInstance* Instance, bool State) const
+	{
+		auto ModuleData = DynExp::dynamic_ModuleData_cast<SignalPlotter>(Instance->ModuleDataGetter());
+
+		if (State)
+		{
+			for (size_t i = 0; i < ModuleData->SampleDataList.size(); ++i)
+			{
+				if (ModuleData->SampleDataList[i].Visible)
+					ModuleData->GetDataStreamInstr(i)->ResetStreamSize();
+			}
+		}
 	}
 
 	void SignalPlotter::OnRollingViewChanged(DynExp::ModuleInstance* Instance, bool State) const

@@ -51,4 +51,11 @@ Item {
         applySystemPaletteColorGroup(p.inactive, sPaletteInactive)
         applySystemPaletteColorGroup(p.disabled, sPaletteDisabled)
     }
+
+    readonly property Gradient defaultGradient: Gradient {
+        GradientStop { position: 0.00; color: "#231557" }
+        GradientStop { position: 0.29; color: "#44107A" }
+        GradientStop { position: 0.67; color: "#FF1361" }
+        GradientStop { position: 1.00; color: "#FFF800" }
+    }
 }

@@ -117,7 +117,6 @@ namespace DynExpModule::Widefield
 		ConfocalMapContextMenu->addAction(ui->action_confocal_map_reset);
 		ui->BConfocalGraphTools->setMenu(ConfocalMapContextMenu);
 		
-		//ui->WidgetConfocalGraph->loadFromModule("Modules.DynExpQuick", "QDynExpSurfaceGraph");
 		connect(ui->WidgetConfocalGraph, &QQuickWidget::statusChanged, [this, &Owner](QQuickWidget::Status Status) {
 			if (Status == QQuickWidget::Status::Ready && ui->WidgetConfocalGraph->rootObject())
 			{
@@ -142,17 +141,13 @@ namespace DynExpModule::Widefield
 				ConfocalGraph->GetZValueAxis()->setAutoAdjustRange(true);
 				ConfocalGraph->GetZValueAxis()->setTitle("Y in nm");
 				ConfocalGraph->GetZValueAxis()->setTitleVisible(true);
+				ConfocalGraph->SetItemLabelFormat("(@xLabel nm, @zLabel nm): @yLabel Hz");
 				ConfocalGraph->UpdateData();
 
 				Owner.RegisterConfocalGraphEvents(ConfocalGraph);
 			}
 		});
 		ui->WidgetConfocalGraph->loadFromModule("Modules.DynExpQuick", "QDynExpSurfaceGraph");
-		
-		/*
-		ConfocalSurface3DSeries->setBaseGradient(DynExpUI::GetDefaultLinearGradient());
-		ConfocalSurface3DSeries->setItemLabelFormat("(@xLabel nm, @zLabel nm): @yLabel Hz");
-		*/
 
 		// Graph to display HBT result
 		connect(ui->WidgetHBTGraph, &QQuickWidget::statusChanged, [this](QQuickWidget::Status Status) {

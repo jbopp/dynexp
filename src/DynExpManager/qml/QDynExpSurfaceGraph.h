@@ -20,6 +20,7 @@ namespace DynExpQuick
 		Q_PROPERTY(QValue3DAxis* XValueAxis READ GetXValueAxis CONSTANT)
 		Q_PROPERTY(QValue3DAxis* YValueAxis READ GetYValueAxis CONSTANT)
 		Q_PROPERTY(QValue3DAxis* ZValueAxis READ GetZValueAxis CONSTANT)
+		Q_PROPERTY(QString ItemLabelFormat READ GetItemLabelFormat WRITE SetItemLabelFormat NOTIFY itemLabelFormatChanged)
 		Q_PROPERTY(QPoint SelectedPoint READ GetSelectedPoint WRITE SetSelectedPoint NOTIFY selectedPointChanged)
 
 	public:
@@ -33,6 +34,8 @@ namespace DynExpQuick
 		auto GetZValueAxis() const noexcept { return ZValueAxis.get(); }
 		auto GetZValueAxis() noexcept { return ZValueAxis.get(); }
 
+		auto GetItemLabelFormat() const noexcept { return ItemLabelFormat; }
+		void SetItemLabelFormat(QString ItemLabelFormat) noexcept;
 		auto GetSelectedPoint() const noexcept { return SelectedPoint; }
 		void SetSelectedPoint(QPoint SelectedPoint) noexcept;
 
@@ -41,6 +44,7 @@ namespace DynExpQuick
 		void ResetCamera() { emit qresetCamera(); }
 
 	signals:
+		void itemLabelFormatChanged(QString);
 		void selectedPointChanged(QPoint);
 
 		// to QML
@@ -53,6 +57,7 @@ namespace DynExpQuick
 		const std::unique_ptr<QValue3DAxis> YValueAxis;
 		const std::unique_ptr<QValue3DAxis> ZValueAxis;
 
+		QString ItemLabelFormat;
 		QPoint SelectedPoint;
 	};
 }

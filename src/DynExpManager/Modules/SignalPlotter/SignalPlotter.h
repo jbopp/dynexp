@@ -127,6 +127,7 @@ namespace DynExpModule::SignalPlotter
 		// Events, run in module thread
 		void OnInit(DynExp::ModuleInstance* Instance) const override final;
 		void OnExit(DynExp::ModuleInstance* Instance) const override final;
+		void OnRunningChanged(DynExp::ModuleInstance* Instance, bool State) const;
 		void OnRollingViewChanged(DynExp::ModuleInstance* Instance, bool State) const;
 		void OnAutoscaleChanged(DynExp::ModuleInstance* Instance, bool State) const;
 		void OnClearStream(DynExp::ModuleInstance* Instance) const;

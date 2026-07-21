@@ -11,6 +11,16 @@ namespace DynExpQuick
 	{
 	}
 
+	void DynExpSurfaceGraphBackend::SetItemLabelFormat(QString ItemLabelFormat) noexcept
+	{
+		if (this->ItemLabelFormat == ItemLabelFormat)
+			return;
+
+		this->ItemLabelFormat = ItemLabelFormat;
+
+		emit itemLabelFormatChanged(ItemLabelFormat);
+	}
+
 	void DynExpSurfaceGraphBackend::SetSelectedPoint(QPoint SelectedPoint) noexcept
 	{
 		if (this->SelectedPoint == SelectedPoint)
