@@ -89,7 +89,7 @@
 // Modules
 #include "Modules/ArbitraryFunctionFromCSV.h"
 #include "Modules/EventSender.h"
-//#include "Modules/ImageViewer/ImageViewer.h"
+#include "Modules/ImageViewer/ImageViewer.h"
 #include "Modules/InputPortReader.h"
 #include "Modules/LaserControl.h"
 #include "Modules/LaserScanningSpectroscopy/LaserScanningSpectroscopy.h"
@@ -193,7 +193,7 @@ int main(int argc, char *argv[])
 	constexpr DynExp::ModuleLibrary<
 		DynExpModule::ArbitraryFunctionFromCSV,
 		DynExpModule::EventSender,
-		//DynExpModule::ImageViewer::ImageViewer,
+		DynExpModule::ImageViewer::ImageViewer,
 		DynExpModule::InputPortReader,
 		DynExpModule::LaserControl,
 		DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy,

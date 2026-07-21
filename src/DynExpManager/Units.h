@@ -49,7 +49,8 @@ namespace DynExp::Units
 		Wavelength_nm,	//!< Wavelength in nm
 		//
 		// Other
-		Unitless		//!< Unitless scalar number
+		Unitless,		//!< Unitless scalar number
+		UnitlessInt		//!< Unitless scalar integer number
 	};
 
 	/**

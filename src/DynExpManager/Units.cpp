@@ -10,7 +10,8 @@ namespace DynExp::Units
 		{
 		case UnitType::LogicLevel:
 		case UnitType::Counts:
-		case UnitType::Index: return true;
+		case UnitType::Index:
+		case UnitType::UnitlessInt: return true;
 		default: return false;
 		}
 	}
@@ -80,7 +81,8 @@ namespace DynExp::Units
 		case UnitType::Freq_Hz:
 		case UnitType::Inv_cm: return "frequency";
 		case UnitType::Wavelength_nm: return "wavelength";
-		case UnitType::Unitless: return "number";
+		case UnitType::Unitless:
+		case UnitType::UnitlessInt: return "number";
 		default: return "<unknown unit category>";
 		}
 	}
@@ -105,14 +107,15 @@ namespace DynExp::Units
 		case UnitType::Freq_Hz: return "Hz";
 		case UnitType::Inv_cm: return "1/cm";
 		case UnitType::Wavelength_nm: return "nm";
-		case UnitType::Unitless: return "";
+		case UnitType::Unitless:
+		case UnitType::UnitlessInt: return "";
 		default: return "<unknown unit>";
 		}
 	}
 
 	std::string UnitToStr(UnitType Unit)
 	{
-		if (Unit == UnitType::Unitless)
+		if (Unit == UnitType::Unitless || Unit == UnitType::UnitlessInt)
 			return UnitCategoryToStr(Unit);
 		else
 			return std::string(UnitCategoryToStr(Unit)) + " [" + UnitTypeToStr(Unit) + "]";

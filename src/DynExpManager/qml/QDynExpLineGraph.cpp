@@ -13,14 +13,14 @@ namespace DynExpQuick
 		BarSeries->append(BarSet);
 	}
 
-	size_t DynExpLineGraphPlotModel::InsertSeries(QString Name)
+	size_t DynExpLineGraphPlotModel::InsertSeries(QString Name, QColor Color)
 	{
 		int iIndex = Util::NumToT<int>(PlotSeries.size());
 
 		beginInsertRows({}, iIndex, iIndex);
 		PlotSeries.push_back({ Name });
-		PlotSeries.back().LineSeries->setColor(DynExpUI::PlotColors::ColorFromIndex(PlotSeries.size() - 1));
-		PlotSeries.back().BarSet->setColor(DynExpUI::PlotColors::ColorFromIndex(PlotSeries.size() - 1));
+		PlotSeries.back().LineSeries->setColor(Color.isValid() ? Color : DynExpUI::PlotColors::ColorFromIndex(PlotSeries.size() - 1));
+		PlotSeries.back().BarSet->setColor(Color.isValid() ? Color : DynExpUI::PlotColors::ColorFromIndex(PlotSeries.size() - 1));
 		endInsertRows();
 
 		return PlotSeries.size() - 1;
@@ -187,9 +187,9 @@ namespace DynExpQuick
 		emit qhoveredSampleChanged(HoveredSample);
 	}
 
-	void DynExpLineGraphBackend::InsertSeries(QString Name)
+	void DynExpLineGraphBackend::InsertSeries(QString Name, QColor Color)
 	{
-		const auto Index = PlotModel.InsertSeries(Name);
+		const auto Index = PlotModel.InsertSeries(Name, Color);
 		auto& Series = PlotModel.GetSeries(Index);
 
 		emit qinsertSeries(Series.BarSeries.get(), Series.LineSeries.get());

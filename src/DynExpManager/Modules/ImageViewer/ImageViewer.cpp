@@ -11,8 +11,7 @@ namespace DynExpModule::ImageViewer
 		: QModuleWidget(Owner, parent),
 		ui(std::make_unique<Ui::ImageViewer>()),
 		HistogramContextMenu(new QMenu(this)), HistogramLinLogActionGroup(new QActionGroup(this)),
-		HistogramBarSetI(nullptr), HistogramBarSetR(nullptr), HistogramBarSetG(nullptr), HistogramBarSetB(nullptr),
-		HistogramBarSeries(new QBarSeries(this)), HistogramChart(nullptr), HistogramXAxis(new QValueAxis(this)), HistogramYAxis(new QValueAxis(this)),
+		HistogramGraph(nullptr),
 		GraphicsView(nullptr), GraphicsPixmapItem(nullptr), GraphicsScene(new QGraphicsScene(this))
 	{
 		ui->setupUi(this);
@@ -32,21 +31,25 @@ namespace DynExpModule::ImageViewer
 		HistogramColorAction = HistogramContextMenu->addAction("Show &colors");
 		HistogramColorAction->setCheckable(true);
 
-		HistogramChart = new QChart();
-		ui->Histogram->setChart(HistogramChart);				// Takes ownership of HistogramChart.
-		ui->Histogram->setRenderHint(QPainter::Antialiasing);
-		HistogramChart->addSeries(HistogramBarSeries);
-		HistogramChart->setTheme(QChart::ChartThemeDark);
-		HistogramChart->legend()->setVisible(false);
-		HistogramXAxis->setTitleText("pixel value");
-		HistogramXAxis->setLabelFormat("%d");
-		HistogramXAxis->setRange(0, 255);
-		HistogramXAxis->setTickCount(255 / 85 + 1);
-		HistogramChart->addAxis(HistogramXAxis, Qt::AlignBottom);
-		HistogramYAxis->setTitleText("counts");
-		HistogramYAxis->setLabelFormat("%.0e");
-		HistogramYAxis->setRange(0, 1);
-		HistogramChart->addAxis(HistogramYAxis, Qt::AlignLeft);
+		// Graph to display histogram
+		connect(ui->Histogram, &QQuickWidget::statusChanged, [this](QQuickWidget::Status Status) {
+			if (Status == QQuickWidget::Status::Ready && ui->Histogram->rootObject())
+			{
+				auto BackendVariant = ui->Histogram->rootObject()->property("backend");
+				HistogramGraph = BackendVariant.isValid() ? BackendVariant.value<DynExpQuick::DynExpLineGraphBackend*>() : nullptr;
+
+				if (HistogramGraph)
+				{
+					HistogramGraph->InsertSeries("I", QColorConstants::White);
+					HistogramGraph->InsertSeries("R", QColorConstants::Red);
+					HistogramGraph->InsertSeries("G", QColorConstants::Green);
+					HistogramGraph->InsertSeries("B", QColorConstants::Blue);
+				}
+			}
+		});
+		ui->Histogram->loadFromModule("Modules.DynExpQuick", "QDynExpLineGraph");
+		HistogramPlotInfo.XUnit = DynExp::Units::UnitType::UnitlessInt;
+		HistogramPlotInfo.XLabel = "pixel value";
 
 		GraphicsView = new Util::MarkerGraphicsView(ui->MainSplitter);
 		GraphicsView->setObjectName(QString::fromUtf8("Image"));
@@ -119,6 +122,17 @@ namespace DynExpModule::ImageViewer
 		ui->ImageGeometry->setText(QString::number(Pixmap.width()) + " x " + QString::number(Pixmap.height()));
 	}
 
+	void ImageViewerWidget::ReprocessScene()
+	{
+		HistogramPlotInfo.ResetHoveredSample();
+		HistogramPlotInfo.ReprocessSamples(ProcessedSeriesI, 0);
+		HistogramPlotInfo.ReprocessSamples(ProcessedSeriesR, 1);
+		HistogramPlotInfo.ReprocessSamples(ProcessedSeriesG, 2);
+		HistogramPlotInfo.ReprocessSamples(ProcessedSeriesB, 3);
+
+		HistogramGraph->UpdateData(HistogramPlotInfo);
+	}
+
 	bool ImageViewerWidget::eventFilter(QObject* obj, QEvent* event)
 	{
 		if (GraphicsView->viewport())
@@ -145,81 +159,55 @@ namespace DynExpModule::ImageViewer
 		if (ComputeHistogram == CHT::NoHistogram || IntensityHistogram.size() >= std::numeric_limits<int>::max())
 			return;
 
-		// Remove all existing data series.
-		if (HistogramBarSetI)
-			if (HistogramBarSeries->remove(HistogramBarSetI))
-				HistogramBarSetI = nullptr;
-		if (HistogramBarSetR)
-			if (HistogramBarSeries->remove(HistogramBarSetR))
-				HistogramBarSetR = nullptr;
-		if (HistogramBarSetG)
-			if (HistogramBarSeries->remove(HistogramBarSetG))
-				HistogramBarSetG = nullptr;
-		if (HistogramBarSetB)
-			if (HistogramBarSeries->remove(HistogramBarSetB))
-				HistogramBarSetB = nullptr;
+		bool LogPlot = HistogramLogAction->isChecked();
+		QList<QPointF> SeriesI, SeriesR, SeriesG, SeriesB;
+		for (int i = 0; i < static_cast<int>(IntensityHistogram.size()); ++i)
+		{
+			if (ComputeHistogram == CHT::IntensityHistogram ||
+				ComputeHistogram == CHT::IntensityAndRGBHistogram)
+			{
+				// Add .1 in log case to avoid NaN if value is 0.
+				SeriesI << QPointF(i, (LogPlot ? std::log10(IntensityHistogram[i] + .1) : IntensityHistogram[i]));
+			}
 
-		// Some removals failed. Do not continue in order to avoid memory leaks.
-		if (HistogramBarSetI || HistogramBarSetR || HistogramBarSetG || HistogramBarSetB)
-			return;
+			if (ComputeHistogram == CHT::RGBHistogram ||
+				ComputeHistogram == CHT::IntensityAndRGBHistogram)
+			{
+				// Add .1 in log case to avoid NaN if value is 0.
+				SeriesR << QPointF(i, (LogPlot ? std::log10(std::get<0>(RGBHistogram)[i] + .1) : std::get<0>(RGBHistogram)[i]));
+				SeriesG << QPointF(i, (LogPlot ? std::log10(std::get<1>(RGBHistogram)[i] + .1) : std::get<1>(RGBHistogram)[i]));
+				SeriesB << QPointF(i, (LogPlot ? std::log10(std::get<2>(RGBHistogram)[i] + .1) : std::get<2>(RGBHistogram)[i]));
+			}
+		}
 
-		HistogramChart->removeSeries(HistogramBarSeries);
-
-		// Create new data series.
+		HistogramPlotInfo.Reset();
+		ProcessedSeriesI.clear();
+		ProcessedSeriesR.clear();
+		ProcessedSeriesG.clear();
+		ProcessedSeriesB.clear();
 		if (ComputeHistogram == CHT::IntensityHistogram ||
 			ComputeHistogram == CHT::IntensityAndRGBHistogram)
 		{
-			HistogramBarSetI = new QBarSet("I", this);
-			HistogramBarSetI->setColor(Qt::white);
-			HistogramBarSetI->setBorderColor(Qt::white);
+			HistogramPlotInfo.ProcessSamples(SeriesI, ProcessedSeriesI, 0);
 		}
-		
+
 		if (ComputeHistogram == CHT::RGBHistogram ||
 			ComputeHistogram == CHT::IntensityAndRGBHistogram)
 		{
-			HistogramBarSetR = new QBarSet("R", this);
-			HistogramBarSetG = new QBarSet("G", this);
-			HistogramBarSetB = new QBarSet("B", this);
-			HistogramBarSetR->setColor(Qt::red);
-			HistogramBarSetR->setBorderColor(Qt::red);
-			HistogramBarSetG->setColor(Qt::green);
-			HistogramBarSetG->setBorderColor(Qt::green);
-			HistogramBarSetB->setColor(Qt::blue);
-			HistogramBarSetB->setBorderColor(Qt::blue);
+			HistogramPlotInfo.ProcessSamples(SeriesR, ProcessedSeriesR, 1);
+			HistogramPlotInfo.ProcessSamples(SeriesG, ProcessedSeriesG, 2);
+			HistogramPlotInfo.ProcessSamples(SeriesB, ProcessedSeriesB, 3);
 		}
 
-		bool LogPlot = HistogramLogAction->isChecked();
-		qreal MaxValue = 1;
-		for (int i = 0; i < static_cast<int>(IntensityHistogram.size()); ++i)
-		{
-			if (HistogramBarSetI)
-			{
-				// Add .1 in log case to avoid NaN if value is 0.
-				*HistogramBarSetI << (LogPlot ? std::log10(IntensityHistogram[i] + .1) : IntensityHistogram[i]);
+		HistogramPlotInfo.YUnit = LogPlot ? DynExp::Units::UnitType::Unitless : DynExp::Units::UnitType::UnitlessInt;
+		HistogramPlotInfo.YLabel = QString(LogPlot ? "log. " : "") + "counts";
+		HistogramPlotInfo.AdjustAxesLimits();
 
-				MaxValue = std::max(MaxValue, HistogramBarSetI->at(i));
-			}
-
-			if (HistogramBarSetR && HistogramBarSetG && HistogramBarSetB)
-			{
-				// Add .1 in log case to avoid NaN if value is 0.
-				*HistogramBarSetR << (LogPlot ? std::log10(std::get<0>(RGBHistogram)[i] + .1) : std::get<0>(RGBHistogram)[i]);
-				*HistogramBarSetG << (LogPlot ? std::log10(std::get<1>(RGBHistogram)[i] + .1) : std::get<1>(RGBHistogram)[i]);
-				*HistogramBarSetB << (LogPlot ? std::log10(std::get<2>(RGBHistogram)[i] + .1) : std::get<2>(RGBHistogram)[i]);
-
-				MaxValue = std::max({ MaxValue, HistogramBarSetR->at(i), HistogramBarSetG->at(i), HistogramBarSetB->at(i) });
-			}
-		}
-
-		if (HistogramBarSetI)
-			HistogramBarSeries->append(HistogramBarSetI);
-		if (HistogramBarSetR && HistogramBarSetG && HistogramBarSetB)
-			HistogramBarSeries->append({ HistogramBarSetR, HistogramBarSetG, HistogramBarSetB });
-		
-		HistogramChart->addSeries(HistogramBarSeries);
-		HistogramYAxis->setMax(MaxValue);
-		HistogramBarSeries->attachAxis(HistogramXAxis);
-		HistogramBarSeries->attachAxis(HistogramYAxis);
+		HistogramGraph->UpdateSeries(0, ProcessedSeriesI, HistogramPlotInfo);
+		HistogramGraph->UpdateSeries(1, ProcessedSeriesR, HistogramPlotInfo);
+		HistogramGraph->UpdateSeries(2, ProcessedSeriesG, HistogramPlotInfo);
+		HistogramGraph->UpdateSeries(3, ProcessedSeriesB, HistogramPlotInfo);
+		HistogramGraph->UpdateData(HistogramPlotInfo);
 	}
 
 	void ImageViewerWidget::OnHistogramContextMenuRequested(const QPoint& Position)
@@ -487,6 +475,8 @@ namespace DynExpModule::ImageViewer
 
 			Widget->UpdateScene();
 		}
+		else
+			Widget->ReprocessScene();
 
 		if (Ready && !Widget->GetSaveImageFilename().isEmpty())
 		{

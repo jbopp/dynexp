@@ -88,13 +88,13 @@ namespace DynExpModule::Graph
 
 	bool LineGraphPlotInfo::ProcessSamples(QList<QPointF> RawSamples, QList<QPointF>& Samples, const size_t SeriesIndex)
 	{
-		if (Samples.empty())
+		if (RawSamples.empty())
 			return false;
 
 		auto YMin{ std::numeric_limits<QPointFValueType>::max() };
 		auto YMax{ std::numeric_limits<QPointFValueType>::lowest() };
 
-		for (qsizetype i = 0; i < Samples.size(); ++i)
+		for (qsizetype i = 0; i < RawSamples.size(); ++i)
 		{
 			const auto X = DynExp::Units::IsTimeUnitStrict(XUnit) ? RawSamples.at(i).x() * std::pow(10.0, Multiplier) : i;
 			const auto Y = RawSamples.at(i).y();

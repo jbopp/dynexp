@@ -9,6 +9,7 @@
 
 #include "stdafx.h"
 #include "DynExpCore.h"
+#include "qml/QDynExpLineGraph.h"
 #include "../../MetaInstruments/Camera.h"
 #include "../../MetaInstruments/AnalogOut.h"
 #include "../../Instruments/InterModuleCommunicator.h"
@@ -16,15 +17,6 @@
 #include "CommonModuleEvents.h"
 #include "ImageViewerEvents.h"
 
-#include <QChartView>
-
-#include <QtCharts/QBarSeries>
-#include <QtCharts/QBarSet>
-#include <QtCharts/QLineSeries>
-#include <QtCharts/QLogValueAxis>
-#include <QtCharts/QScatterSeries>
-#include <QtCharts/QValueAxis>
-#include <QtCharts/QXYSeries>
 
 namespace Ui
 {
@@ -63,6 +55,7 @@ namespace DynExpModule::ImageViewer
 		void SetRGBHistogram(Util::ImageRGBHistogramType&& NewRGBHistogram) noexcept;
 		auto GetComputeHistogram() const noexcept;
 		void UpdateScene();
+		void ReprocessScene();
 		auto GetSaveImageFilename() const { return SaveImageFilename; }
 		void ResetSaveImageFilename() { SaveImageFilename.clear(); }
 
@@ -81,14 +74,12 @@ namespace DynExpModule::ImageViewer
 		QAction* HistogramBWAction;
 		QAction* HistogramColorAction;
 
-		QBarSet* HistogramBarSetI;
-		QBarSet* HistogramBarSetR;
-		QBarSet* HistogramBarSetG;
-		QBarSet* HistogramBarSetB;
-		QBarSeries* HistogramBarSeries;
-		QChart* HistogramChart;
-		QValueAxis* HistogramXAxis;
-		QValueAxis* HistogramYAxis;
+		DynExpQuick::DynExpLineGraphBackend* HistogramGraph;
+		Graph::LineGraphPlotInfo HistogramPlotInfo;
+		QList<QPointF> ProcessedSeriesI;
+		QList<QPointF> ProcessedSeriesR;
+		QList<QPointF> ProcessedSeriesG;
+		QList<QPointF> ProcessedSeriesB;
 
 		Util::MarkerGraphicsView* GraphicsView;
 		QPixmap Pixmap;

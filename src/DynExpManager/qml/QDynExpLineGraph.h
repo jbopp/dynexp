@@ -41,7 +41,7 @@ namespace DynExpQuick
 		DynExpLineGraphPlotModel(QObject* Parent = nullptr) : QAbstractListModel(Parent) {}
 		~DynExpLineGraphPlotModel() = default;
 
-		size_t InsertSeries(QString Name);
+		size_t InsertSeries(QString Name, QColor Color);
 		void RemoveSeries(size_t Index);
 		size_t GetNumSeries() const noexcept { return PlotSeries.size(); }
 		QStringList GetSeriesNames() const;
@@ -98,7 +98,7 @@ namespace DynExpQuick
 		auto GetYValueAxis() const noexcept { return YValueAxis.get(); }
 		auto GetYValueAxis() noexcept { return YValueAxis.get(); }
 
-		void InsertSeries(QString Name);
+		void InsertSeries(QString Name, QColor Color = {});
 		void RemoveSeries(QString Name);
 		const DynExpLineGraphPlotSeries& UpdateSeries(size_t Index, const QList<QPointF>& Samples,
 			const DynExpModule::Graph::LineGraphPlotInfo& PlotInfo, bool UpdateSamples = true);
