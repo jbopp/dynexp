@@ -116,21 +116,13 @@ namespace DynExpModule::ImageViewer
 			OnZoomFitClicked(ui->action_Zoom_fit->isChecked());
 		}
 
-		if (ui->ExposureTimeGroupBox->isVisible() && !ui->ExposureTimeGroupBox->visibleRegion().isEmpty())
-			UpdateHistogram();
-
 		ui->ImageGeometry->setText(QString::number(Pixmap.width()) + " x " + QString::number(Pixmap.height()));
 	}
 
-	void ImageViewerWidget::ReprocessScene()
+	void ImageViewerWidget::UpdateHistogram()
 	{
-		HistogramPlotInfo.ResetHoveredSample();
-		HistogramPlotInfo.ReprocessSamples(ProcessedSeriesI, 0);
-		HistogramPlotInfo.ReprocessSamples(ProcessedSeriesR, 1);
-		HistogramPlotInfo.ReprocessSamples(ProcessedSeriesG, 2);
-		HistogramPlotInfo.ReprocessSamples(ProcessedSeriesB, 3);
-
-		HistogramGraph->UpdateData(HistogramPlotInfo);
+		if (ui->ExposureTimeGroupBox->isVisible() && !ui->ExposureTimeGroupBox->visibleRegion().isEmpty())
+			UpdateHistogramImpl();
 	}
 
 	bool ImageViewerWidget::eventFilter(QObject* obj, QEvent* event)
@@ -151,13 +143,10 @@ namespace DynExpModule::ImageViewer
 		OnZoomFitClicked(ui->action_Zoom_fit->isChecked());
 	}
 
-	void ImageViewerWidget::UpdateHistogram()
+	void ImageViewerWidget::UpdateHistogramImpl()
 	{
 		using CHT = DynExpInstr::CameraData::ComputeHistogramType;
-
 		auto ComputeHistogram = GetComputeHistogram();
-		if (ComputeHistogram == CHT::NoHistogram || IntensityHistogram.size() >= std::numeric_limits<int>::max())
-			return;
 
 		bool LogPlot = HistogramLogAction->isChecked();
 		QList<QPointF> SeriesI, SeriesR, SeriesG, SeriesB;
@@ -475,8 +464,8 @@ namespace DynExpModule::ImageViewer
 
 			Widget->UpdateScene();
 		}
-		else
-			Widget->ReprocessScene();
+
+		Widget->UpdateHistogram();
 
 		if (Ready && !Widget->GetSaveImageFilename().isEmpty())
 		{

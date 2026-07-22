@@ -217,8 +217,15 @@ namespace DynExpQuick
 			if (UpdateSamples)
 			{
 				if (!Samples.empty())
+				{
 					Series.BarSet->replace(0, std::abs(Samples.front().y()));
-				Series.LineSeries->replace(Samples);
+					Series.LineSeries->replace(Samples);
+				}
+				else
+				{
+					// Circumvent QML bug that does not update empty series. This point is not plotted.
+					Series.LineSeries->replace({ {0., 0.} });
+				}
 			}
 
 			Series.LineSeries->setWidth(!PlotInfo.HoveredPoint.isNull() && PlotInfo.HoveredSeries == Index ? 4 : 2);

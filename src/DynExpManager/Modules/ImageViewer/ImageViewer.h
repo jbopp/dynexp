@@ -55,7 +55,7 @@ namespace DynExpModule::ImageViewer
 		void SetRGBHistogram(Util::ImageRGBHistogramType&& NewRGBHistogram) noexcept;
 		auto GetComputeHistogram() const noexcept;
 		void UpdateScene();
-		void ReprocessScene();
+		void UpdateHistogram();
 		auto GetSaveImageFilename() const { return SaveImageFilename; }
 		void ResetSaveImageFilename() { SaveImageFilename.clear(); }
 
@@ -65,7 +65,7 @@ namespace DynExpModule::ImageViewer
 		bool eventFilter(QObject* obj, QEvent* event) override;
 		virtual void resizeEvent(QResizeEvent* event) override;
 
-		void UpdateHistogram();
+		void UpdateHistogramImpl();
 
 		QMenu* HistogramContextMenu;
 		QActionGroup* HistogramLinLogActionGroup;
