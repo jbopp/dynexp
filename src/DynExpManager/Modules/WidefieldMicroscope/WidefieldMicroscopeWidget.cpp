@@ -46,8 +46,7 @@ namespace DynExpModule::Widefield
 		WidefieldConfocalModeActionGroup(new QActionGroup(this)), MainGraphicsView(nullptr),
 		MainGraphicsScene(new QGraphicsScene(this)), CurrentConfocalSpotPosition(0, 0),
 		EmitterListContextMenu(new QMenu(this)), ConfocalMapContextMenu(new QMenu(this)),
-		ConfocalSurfaceDataProxy(new QSurfaceDataProxy()), ConfocalGraph(nullptr),
-		NumItemsInArray(0),
+		ConfocalGraph(nullptr), NumItemsInArray(0),
 		ConfocalSurfaceMinCounts(std::numeric_limits<decltype(ConfocalSurfaceMinCounts)>::max()), ConfocalSurfaceMaxCounts(0),
 		HBTGraph(nullptr),
 		CharacterizationStepsContextMenu(new QMenu(this))
@@ -126,9 +125,6 @@ namespace DynExpModule::Widefield
 				if (!ConfocalGraph)
 					return;
 
-				// Takes ownership of ConfocalSurfaceDataProxy.
-				ConfocalGraph->SetProxy(ConfocalSurfaceDataProxy);
-
 				ConfocalGraph->GetXValueAxis()->setLabelFormat("%.0f");
 				ConfocalGraph->GetXValueAxis()->setAutoAdjustRange(true);
 				ConfocalGraph->GetXValueAxis()->setTitle("X in nm");
@@ -141,10 +137,10 @@ namespace DynExpModule::Widefield
 				ConfocalGraph->GetZValueAxis()->setAutoAdjustRange(true);
 				ConfocalGraph->GetZValueAxis()->setTitle("Y in nm");
 				ConfocalGraph->GetZValueAxis()->setTitleVisible(true);
-				ConfocalGraph->SetItemLabelFormat("(@xLabel nm, @zLabel nm): @yLabel Hz");
 				ConfocalGraph->UpdateData();
 
 				Owner.RegisterConfocalGraphEvents(ConfocalGraph);
+				connect(ConfocalGraph, &DynExpQuick::DynExpSurfaceGraphBackend::selectedPointChanged, this, [this]() { NumItemsInArray = 0; });
 			}
 		});
 		ui->WidgetConfocalGraph->loadFromModule("Modules.DynExpQuick", "QDynExpSurfaceGraph");
@@ -502,20 +498,26 @@ namespace DynExpModule::Widefield
 			ConfocalSurfaceMinCounts = std::numeric_limits<decltype(ConfocalSurfaceMinCounts)>::max();
 			ConfocalSurfaceMaxCounts = 0;
 
-			ConfocalSurfaceDataProxy->resetArray(ModuleData->GetConfocalScanSurfacePlotRows());
+			ConfocalGraph->GetProxy()->resetArray(ModuleData->GetConfocalScanSurfacePlotRows());
+			ConfocalGraph->ResetSelectedPoint();
 		}
 
 		if (ModuleData->GetConfocalScanResults().size() > NumItemsInArray)
 		{
+			QPoint Selection = { -1, -1 };
 			for (auto i = NumItemsInArray; i < ModuleData->GetConfocalScanResults().size(); ++i)
 			{
 				const auto& ResultItem = ModuleData->GetConfocalScanResults()[i];
 				if (ResultItem.first.RowIndex < 0 || ResultItem.first.ColumnIndex < 0)
 					continue;
 
-				QSurfaceDataItem SurfaceItem = ConfocalSurfaceDataProxy->itemAt(ResultItem.first.RowIndex, ResultItem.first.ColumnIndex);
+				QSurfaceDataItem SurfaceItem = ConfocalGraph->GetProxy()->itemAt(ResultItem.first.RowIndex, ResultItem.first.ColumnIndex);
 				SurfaceItem.setY(ResultItem.second);
-				ConfocalSurfaceDataProxy->setItem(ResultItem.first.RowIndex, ResultItem.first.ColumnIndex, SurfaceItem);
+				ConfocalGraph->GetProxy()->setItem(ResultItem.first.RowIndex, ResultItem.first.ColumnIndex, SurfaceItem);
+
+				if (ConfocalGraph->GetSelectedPoint().x() == ResultItem.first.RowIndex &&
+					ConfocalGraph->GetSelectedPoint().y() == ResultItem.first.ColumnIndex)
+					Selection = { ResultItem.first.RowIndex, ResultItem.first.ColumnIndex };
 
 				ConfocalSurfaceMinCounts = std::min(ConfocalSurfaceMinCounts, ResultItem.second);
 				ConfocalSurfaceMaxCounts = std::max(ConfocalSurfaceMaxCounts, ResultItem.second);
@@ -523,8 +525,20 @@ namespace DynExpModule::Widefield
 				++NumItemsInArray;
 			}
 
-			if (ConfocalSurfaceMinCounts < std::numeric_limits<decltype(ConfocalSurfaceMinCounts)>::max() && ConfocalSurfaceMaxCounts > 0)
-				ConfocalGraph->GetYValueAxis()->setRange(ConfocalSurfaceMinCounts, ConfocalSurfaceMaxCounts);
+			if (Selection.x() >= 0 && Selection.y() >= 0)
+			{
+				QSurfaceDataItem SurfaceItem = ConfocalGraph->GetProxy()->itemAt(Selection.x(), Selection.y());
+				SurfaceItem.setY(ConfocalSurfaceMaxCounts * 1.03);
+				ConfocalGraph->GetProxy()->setItem(Selection.x(), Selection.y(), SurfaceItem);
+			}
+
+			if (ConfocalSurfaceMinCounts < std::numeric_limits<decltype(ConfocalSurfaceMinCounts)>::max() && ConfocalSurfaceMaxCounts > 0 &&
+				ConfocalSurfaceMinCounts < ConfocalSurfaceMaxCounts)
+				ConfocalGraph->GetYValueAxis()->setRange(ConfocalSurfaceMinCounts, ConfocalSurfaceMaxCounts * 1.03);
+			else
+				ConfocalGraph->GetYValueAxis()->setRange(ConfocalSurfaceMaxCounts - 1, ConfocalSurfaceMaxCounts + 1);
+
+			ConfocalGraph->UpdateData();
 		}
 	}
 
@@ -799,11 +813,12 @@ namespace DynExpModule::Widefield
 	void WidefieldMicroscopeWidget::OnConfocalMapResetClicked()
 	{
 		ConfocalGraph->ResetCamera();
+		ConfocalGraph->ResetSelectedPoint();
 	}
 
 	void WidefieldMicroscopeWidget::OnConfocalMapSaveRawDataClicked()
 	{
-		if (!ConfocalSurfaceDataProxy->rowCount())
+		if (!ConfocalGraph->GetProxy()->rowCount())
 			return;
 
 		auto Filename = Util::PromptSaveFilePathModule(this, "Save data", ".csv", " Comma-separated values file (*.csv)");

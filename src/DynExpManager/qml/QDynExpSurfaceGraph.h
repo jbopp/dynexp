@@ -8,7 +8,8 @@
 #pragma once
 
 #include <qqml.h>
-#include <QtGraphsWidgets/Q3DSurfaceWidgetItem>
+#include <QtGraphs/QSurface3DSeries>
+#include <QtGraphs/QValue3DAxis>
 
 namespace DynExpQuick
 {
@@ -20,44 +21,44 @@ namespace DynExpQuick
 		Q_PROPERTY(QValue3DAxis* XValueAxis READ GetXValueAxis CONSTANT)
 		Q_PROPERTY(QValue3DAxis* YValueAxis READ GetYValueAxis CONSTANT)
 		Q_PROPERTY(QValue3DAxis* ZValueAxis READ GetZValueAxis CONSTANT)
-		Q_PROPERTY(QString ItemLabelFormat READ GetItemLabelFormat WRITE SetItemLabelFormat NOTIFY itemLabelFormatChanged)
 		Q_PROPERTY(QPoint SelectedPoint READ GetSelectedPoint WRITE SetSelectedPoint NOTIFY selectedPointChanged)
 
 	public:
 		DynExpSurfaceGraphBackend(QObject* parent = nullptr);
 		~DynExpSurfaceGraphBackend() = default;
 
-		auto GetXValueAxis() const noexcept { return XValueAxis.get(); }
-		auto GetXValueAxis() noexcept { return XValueAxis.get(); }
-		auto GetYValueAxis() const noexcept { return YValueAxis.get(); }
-		auto GetYValueAxis() noexcept { return YValueAxis.get(); }
-		auto GetZValueAxis() const noexcept { return ZValueAxis.get(); }
-		auto GetZValueAxis() noexcept { return ZValueAxis.get(); }
+		const auto* GetProxy() const noexcept { return Proxy; }
+		Q_INVOKABLE QSurfaceDataProxy* GetProxy() noexcept { return Proxy; }
+		const auto* GetXValueAxis() const noexcept { return XValueAxis.get(); }
+		auto* GetXValueAxis() noexcept { return XValueAxis.get(); }
+		const auto* GetYValueAxis() const noexcept { return YValueAxis.get(); }
+		auto* GetYValueAxis() noexcept { return YValueAxis.get(); }
+		const auto* GetZValueAxis() const noexcept { return ZValueAxis.get(); }
+		auto* GetZValueAxis() noexcept { return ZValueAxis.get(); }
 
-		auto GetItemLabelFormat() const noexcept { return ItemLabelFormat; }
-		void SetItemLabelFormat(QString ItemLabelFormat) noexcept;
+		Q_INVOKABLE QVector3D GetDataItemPosition() const;
+
 		auto GetSelectedPoint() const noexcept { return SelectedPoint; }
 		void SetSelectedPoint(QPoint SelectedPoint) noexcept;
+		void ResetSelectedPoint() noexcept;
 
-		void SetProxy(QSurfaceDataProxy* Proxy) { emit qproxyChanged(Proxy); }
 		void UpdateData();
 		void ResetCamera() { emit qresetCamera(); }
 
 	signals:
-		void itemLabelFormatChanged(QString);
 		void selectedPointChanged(QPoint);
 
 		// to QML
-		void qproxyChanged(QSurfaceDataProxy*);
 		void qdataChanged();
 		void qresetCamera();
 
 	private:
+
+		QSurfaceDataProxy* const Proxy = nullptr;
 		const std::unique_ptr<QValue3DAxis> XValueAxis;
 		const std::unique_ptr<QValue3DAxis> YValueAxis;
 		const std::unique_ptr<QValue3DAxis> ZValueAxis;
 
-		QString ItemLabelFormat;
 		QPoint SelectedPoint;
 	};
 }

@@ -178,7 +178,6 @@ namespace DynExpModule::Widefield
 		QMenu* EmitterListContextMenu;
 
 		QMenu* ConfocalMapContextMenu;
-		QSurfaceDataProxy* ConfocalSurfaceDataProxy;
 		DynExpQuick::DynExpSurfaceGraphBackend* ConfocalGraph;
 		size_t NumItemsInArray;
 		double ConfocalSurfaceMinCounts;

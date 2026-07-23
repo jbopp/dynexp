@@ -91,12 +91,12 @@ namespace DynExpQuick
 		QPointF GetHoveredSample() const noexcept { return HoveredSample; }
 		void SetHoveredSample(QPointF HoveredSample) noexcept;
 
-		auto GetXCategoryAxis() const noexcept { return XCategoryAxis.get(); }
-		auto GetXCategoryAxis() noexcept { return XCategoryAxis.get(); }
-		auto GetXValueAxis() const noexcept { return XValueAxis.get(); }
-		auto GetXValueAxis() noexcept { return XValueAxis.get(); }
-		auto GetYValueAxis() const noexcept { return YValueAxis.get(); }
-		auto GetYValueAxis() noexcept { return YValueAxis.get(); }
+		const auto* GetXCategoryAxis() const noexcept { return XCategoryAxis.get(); }
+		auto* GetXCategoryAxis() noexcept { return XCategoryAxis.get(); }
+		const auto* GetXValueAxis() const noexcept { return XValueAxis.get(); }
+		auto* GetXValueAxis() noexcept { return XValueAxis.get(); }
+		const auto* GetYValueAxis() const noexcept { return YValueAxis.get(); }
+		auto* GetYValueAxis() noexcept { return YValueAxis.get(); }
 
 		void InsertSeries(QString Name, QColor Color = {});
 		void RemoveSeries(QString Name);

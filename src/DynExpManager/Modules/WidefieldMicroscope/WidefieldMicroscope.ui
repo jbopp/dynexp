@@ -895,7 +895,7 @@
               </size>
              </property>
              <property name="focusPolicy">
-              <enum>Qt::FocusPolicy::NoFocus</enum>
+              <enum>Qt::FocusPolicy::StrongFocus</enum>
              </property>
              <property name="acceptDrops">
               <bool>false</bool>
