@@ -45,10 +45,15 @@ namespace DynExp::Units
 		//
 		// Frequency-like
 		Freq_Hz,		//!< Frequency in Hz
+		Freq_kHz,		//!< Frequency in kHz
+		Freq_MHz,		//!< Frequency in MHz
+		Freq_GHz,		//!< Frequency in GHz
+		Freq_THz,		//!< Frequency in THz
 		Inv_cm,			//!< Wavenumber in 1/cm
 		Wavelength_nm,	//!< Wavelength in nm
 		//
 		// Other
+		TperSqrtHz,		//!< Magnetic field amplitude spectral density in T/sqrt(Hz)
 		Unitless,		//!< Unitless scalar number
 		UnitlessInt		//!< Unitless scalar integer number
 	};

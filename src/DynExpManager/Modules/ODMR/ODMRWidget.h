@@ -9,16 +9,7 @@
 
 #include "stdafx.h"
 #include "DynExpCore.h"
-
-#include <QChartView>
-
-#include <QtCharts/QBarSeries>
-#include <QtCharts/QBarSet>
-#include <QtCharts/QLineSeries>
-#include <QtCharts/QLogValueAxis>
-#include <QtCharts/QScatterSeries>
-#include <QtCharts/QValueAxis>
-#include <QtCharts/QXYSeries>
+#include "qml/QDynExpLineGraph.h"
 
 namespace Ui
 {
@@ -51,19 +42,16 @@ namespace DynExpModule::ODMR
 		QList<QPointF> DataPoints;
 		QList<QPointF> FitPoints;
 		std::tuple<double, double> FitParams;	// tuple<c0, c1> with fit model ODMRSignal = c0 + c1 * frequency
-		QPointF DataPointsMinValues;
-		QPointF DataPointsMaxValues;
-		QPointF SelectedPoint;
 		bool HasChanged = false;
+		Graph::LineGraphPlotInfo PlotInfo;
 	};
 
 	struct SensitivityPlotType
 	{
 		// x is frequency in Hz, y is sensitivity in T/sqrt(Hz).
 		QList<QPointF> DataPoints;
-		QPointF DataPointsMinValues;
-		QPointF DataPointsMaxValues;
 		bool HasChanged = false;
+		Graph::LineGraphPlotInfo PlotInfo;
 	};
 
 	class ODMRWidget : public DynExp::QModuleWidget
@@ -93,27 +81,19 @@ namespace DynExpModule::ODMR
 		void InitializeUI(Util::SynchronizedPointer<ODMRData>& ModuleData);
 		void SetUIState(const StateMachineStateType* State, Util::SynchronizedPointer<ODMRData>& ModuleData);
 		void UpdateUIData(Util::SynchronizedPointer<ODMRData>& ModuleData);
-		void UpdateODMRPlot(const ODMRPlotType& ODMRPlot);
-		void UpdateSensitivityPlot(const SensitivityPlotType& SensitivityPlot);
+		void UpdateODMRPlot(ODMRPlotType& ODMRPlot);
+		void UpdateSensitivityPlot(SensitivityPlotType& SensitivityPlot);
 
 		const auto GetUI() const noexcept { return ui.get(); }
 		bool GetUIInitialized() const noexcept { return UIInitialized; }
-		auto GetODMRDataSeries() const noexcept { return ODMRDataSeries; }
+		const auto* GetODMRGraph() const noexcept { return ODMRGraph; }
 
 	private:
 		std::unique_ptr<Ui::ODMR> ui;
 		StatusBarType StatusBar;
 
-		QLineSeries* ODMRDataSeries;
-		QLineSeries* ODMRFitSeries;
-		QChart* ODMRDataChart;
-		QValueAxis* ODMRXAxis;
-		QValueAxis* ODMRYAxis;
-
-		QXYSeries* SensitivityDataSeries;
-		QChart* SensitivityDataChart;
-		QLogValueAxis* SensitivityXAxis;
-		QLogValueAxis* SensitivityYAxis;
+		DynExpQuick::DynExpLineGraphBackend* ODMRGraph;
+		DynExpQuick::DynExpLineGraphBackend* SensitivityGraph;
 
 		DynExp::Units::UnitType AuxAnalogOutValueUnit = DynExp::Units::UnitType::Arbitrary;
 		DynExpInstr::DataStreamInstrumentData::ValueType AuxAnalogOutMinValue = 0.0;

@@ -96,8 +96,8 @@ namespace DynExpModule::Graph
 
 		for (qsizetype i = 0; i < RawSamples.size(); ++i)
 		{
-			const auto X = DynExp::Units::IsTimeUnitStrict(XUnit) ? RawSamples.at(i).x() * std::pow(10.0, Multiplier) : i;
-			const auto Y = RawSamples.at(i).y();
+			const auto X = ApplyXLog(DynExp::Units::IsTimeUnitStrict(XUnit) ? RawSamples.at(i).x() * std::pow(10.0, Multiplier) : i);
+			const auto Y = ApplyYLog(RawSamples.at(i).y());
 			Samples.append({ X, Y });
 
 			YMin = std::min(YMin, Y);
@@ -127,8 +127,8 @@ namespace DynExpModule::Graph
 
 		for (size_t i = 0; i < BasicSamples.size(); ++i)
 		{
-			const auto X = DynExp::Units::IsTimeUnitStrict(XUnit) ? BasicSamples[i].Time * std::pow(10.0, Multiplier) : i;
-			const auto Y = BasicSamples[i].Value;
+			const auto X = ApplyXLog(DynExp::Units::IsTimeUnitStrict(XUnit) ? BasicSamples[i].Time * std::pow(10.0, Multiplier) : i);
+			const auto Y = ApplyYLog(BasicSamples[i].Value);
 			Samples.append({ X, Y });
 
 			YMin = std::min(YMin, Y);
@@ -159,8 +159,8 @@ namespace DynExpModule::Graph
 		size_t i = 0;
 		for (const auto& Sample : Spectrum.GetSpectrum())
 		{
-			const auto X = XUnit != DynExp::Units::UnitType::Index ? Sample.first : i;
-			const auto Y = Sample.second;
+			const auto X = ApplyXLog(XUnit != DynExp::Units::UnitType::Index ? Sample.first : i);
+			const auto Y = ApplyYLog(Sample.second);
 			Samples.append({ X, Y });
 
 			YMin = std::min(YMin, Y);

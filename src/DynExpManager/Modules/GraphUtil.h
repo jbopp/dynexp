@@ -109,6 +109,16 @@ namespace DynExpModule::Graph
 		DynExp::Units::UnitType YUnit = DynExp::Units::UnitType::Arbitrary;
 
 		/**
+		 * @brief Determines whether x axis is logarithmic.
+		*/
+		bool XIsLogarithmic = false;
+
+		/**
+		 * @brief Determines whether y axis is logarithmic.
+		*/
+		bool YIsLogarithmic = false;
+
+		/**
 		 * @brief If empty, the x label is constructed from #XUnit. Otherwise, #XLabel is used.
 		*/
 		QString XLabel;
@@ -173,5 +183,9 @@ namespace DynExpModule::Graph
 		 * @brief Distance between the mouse cursor and the hovered point.
 		*/
 		QPointFValueType HoveredDistance = std::numeric_limits<QPointFValueType>::max();
+
+		private:
+			double inline ApplyXLog(double Value) const { return XIsLogarithmic ? std::log10(Value) : Value; }
+			double inline ApplyYLog(double Value) const { return YIsLogarithmic ? std::log10(Value) : Value; }
 	};
 }

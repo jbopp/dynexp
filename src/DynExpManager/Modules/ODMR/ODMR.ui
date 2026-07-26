@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>900</width>
-    <height>710</height>
+    <height>757</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -454,7 +454,7 @@
                  <double>1000000000.000000000000000</double>
                 </property>
                 <property name="stepType">
-                 <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                 <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
                 </property>
                 <property name="value">
                  <double>100.000000000000000</double>
@@ -467,7 +467,7 @@
            <item>
             <spacer name="verticalSpacer">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -712,7 +712,7 @@
                    <double>1000000000.000000000000000</double>
                   </property>
                   <property name="stepType">
-                   <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                   <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
                   </property>
                   <property name="value">
                    <double>1000.000000000000000</double>
@@ -848,7 +848,7 @@
            <item>
             <spacer name="verticalSpacer_2">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -1052,7 +1052,7 @@
            <item>
             <spacer name="verticalSpacer_3">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -1165,7 +1165,13 @@
         <number>1</number>
        </property>
        <item>
-        <widget class="QChartView" name="ODMRChartView">
+        <widget class="QQuickWidget" name="ODMRGraph">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="minimumSize">
           <size>
            <width>400</width>
@@ -1175,22 +1181,18 @@
          <property name="acceptDrops">
           <bool>false</bool>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="LODMRCurrentSelection">
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         <property name="resizeMode">
+          <enum>QQuickWidget::ResizeMode::SizeRootObjectToView</enum>
          </property>
         </widget>
        </item>
        <item>
         <spacer name="verticalSpacer_4">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Orientation::Vertical</enum>
          </property>
          <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
+          <enum>QSizePolicy::Policy::Fixed</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -1201,7 +1203,13 @@
         </spacer>
        </item>
        <item>
-        <widget class="QChartView" name="SensitivityChartView">
+        <widget class="QQuickWidget" name="SensitivityGraph">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="minimumSize">
           <size>
            <width>400</width>
@@ -1210,6 +1218,9 @@
          </property>
          <property name="acceptDrops">
           <bool>false</bool>
+         </property>
+         <property name="resizeMode">
+          <enum>QQuickWidget::ResizeMode::SizeRootObjectToView</enum>
          </property>
         </widget>
        </item>
@@ -1224,9 +1235,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>QChartView</class>
-   <extends>QGraphicsView</extends>
-   <header>QtCharts</header>
+   <class>QQuickWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">QtQuickWidgets/QQuickWidget</header>
   </customwidget>
  </customwidgets>
  <tabstops>
@@ -1272,8 +1283,6 @@
   <tabstop>BStart</tabstop>
   <tabstop>BStartSensitivity</tabstop>
   <tabstop>BStop</tabstop>
-  <tabstop>ODMRChartView</tabstop>
-  <tabstop>SensitivityChartView</tabstop>
  </tabstops>
  <resources>
   <include location="../../QModules.qrc"/>

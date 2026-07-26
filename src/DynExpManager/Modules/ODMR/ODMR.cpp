@@ -145,7 +145,14 @@ namespace DynExpModule::ODMR
 		AcquisitionTime = 0.0;
 
 		ODMRPlot = ODMRPlotType();
+		ODMRPlot.PlotInfo.XUnit = DynExp::Units::UnitType::Freq_GHz;
+		ODMRPlot.PlotInfo.YUnit = DynExp::Units::UnitType::Volt;
+		ODMRPlot.PlotInfo.YLabel = "ODMR signal [V]";
 		SensitivityPlot = SensitivityPlotType();
+		SensitivityPlot.PlotInfo.XUnit = DynExp::Units::UnitType::Freq_Hz;
+		SensitivityPlot.PlotInfo.YUnit = DynExp::Units::UnitType::TperSqrtHz;
+		SensitivityPlot.PlotInfo.XIsLogarithmic = true;
+		SensitivityPlot.PlotInfo.YIsLogarithmic = true;
 
 		Features = {};
 	}
@@ -256,14 +263,14 @@ namespace DynExpModule::ODMR
 		Connect(Widget->GetUI()->BRFOn, &QPushButton::clicked, this, &ODMR::OnRFOnClicked);
 		Connect(Widget->GetUI()->BRFOff, &QPushButton::clicked, this, &ODMR::OnRFOffClicked);
 
+		Connect(Widget->GetODMRGraph(), &DynExpQuick::DynExpLineGraphBackend::onSampleClicked, this, &ODMR::OnODMRGraphClicked);
+
 		return Widget;
 	}
 
 	void ODMR::UpdateUIChild(const ModuleBase::ModuleDataGetterType& ModuleDataGetter)
 	{
 		auto Widget = GetWidget<ODMRWidget>();
-		ODMRPlotType ODMRPlot;
-		SensitivityPlotType SensitivityPlot;
 
 		{
 			auto ModuleData = DynExp::dynamic_ModuleData_cast<ODMR>(ModuleDataGetter());
@@ -274,26 +281,9 @@ namespace DynExpModule::ODMR
 			Widget->InitializeUI(ModuleData);
 			Widget->SetUIState(StateMachine.GetCurrentState(), ModuleData);
 			Widget->UpdateUIData(ModuleData);
-
-			if (ModuleData->ODMRPlot.HasChanged)
-			{
-				ODMRPlot = ModuleData->ODMRPlot;
-				ModuleData->ODMRPlot.HasChanged = false;
-			}
-			if (ModuleData->SensitivityPlot.HasChanged)
-			{
-				SensitivityPlot = ModuleData->SensitivityPlot;
-				ModuleData->SensitivityPlot.HasChanged = false;
-			}
+			Widget->UpdateODMRPlot(ModuleData->ODMRPlot);
+			Widget->UpdateSensitivityPlot(ModuleData->SensitivityPlot);
 		} // ModuleData unlocked here (heavy plot operations follow).
-
-		if (ODMRPlot.HasChanged)
-		{
-			Widget->UpdateODMRPlot(ODMRPlot);
-			ConnectChartWidgets(Widget->GetODMRDataSeries());
-		}
-		if (SensitivityPlot.HasChanged)
-			Widget->UpdateSensitivityPlot(SensitivityPlot);
 	}
 
 	void ODMR::InitSweepValues(Util::SynchronizedPointer<ModuleDataType>& ModuleData)
@@ -364,15 +354,6 @@ namespace DynExpModule::ODMR
 
 		// Trigger RF sweep and data acquisition now.
 		ModuleData->GetTrigger()->SetSync(1);
-	}
-
-	void ODMR::ConnectChartWidgets(QLineSeries* ODMRLineSeries)
-	{
-		if (!ODMRLineSeries)
-			return;
-
-		Connect(ODMRLineSeries, &QXYSeries::hovered, this, &ODMR::OnODMRChartHovered);
-		Connect(ODMRLineSeries, &QXYSeries::clicked, this, &ODMR::OnODMRChartClicked);
 	}
 
 	void ODMR::OnInit(DynExp::ModuleInstance* Instance) const
@@ -668,13 +649,7 @@ namespace DynExpModule::ODMR
 		ModuleData->GetRFGenerator()->Stop();
 	}
 
-	void ODMR::OnODMRChartHovered(DynExp::ModuleInstance* Instance, QPointF Point, bool State) const
-	{
-		auto ModuleData = DynExp::dynamic_ModuleData_cast<ODMR>(Instance->ModuleDataGetter());
-		ModuleData->ODMRPlot.SelectedPoint = State ? Point : QPointF();
-	}
-
-	void ODMR::OnODMRChartClicked(DynExp::ModuleInstance* Instance, QPointF Point) const
+	void ODMR::OnODMRGraphClicked(DynExp::ModuleInstance* Instance, QPointF Point) const
 	{
 		if (Point.isNull())
 			return;
@@ -787,13 +762,12 @@ namespace DynExpModule::ODMR
 		bool IsBasicSampleTimeUsed{};
 		double SamplingRate{ .0 };
 		DynExpInstr::DataStreamBase::BasicSampleListType ODMRSamples;
-		decltype(ODMRPlotType::DataPoints) ODMRDataPoints;
-		decltype(ODMRPlotType::DataPointsMinValues) ODMRDataPointsMinValues = { std::numeric_limits<double>::max(), std::numeric_limits<double>::max() };
-		decltype(ODMRPlotType::DataPointsMaxValues) ODMRDataPointsMaxValues = { std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest() };
+		decltype(ODMRPlotType::DataPoints) ODMRDataPoints, ProcessedODMRDataPoints;
 		decltype(ODMRData::SensitivityResonanceFreq) SensitivityResonanceFreq{};
 		decltype(ODMRData::SensitivityResonanceSpan) SensitivityResonanceSpan{};
 		decltype(ODMRPlotType::FitParams) ODMRFitParams{};
-		decltype(ODMRPlotType::FitPoints) ODMRFitPoints{};
+		decltype(ODMRPlotType::FitPoints) ODMRFitPoints, ProcessedODMRFitPoints;
+		decltype(ODMRPlotType::PlotInfo) ODMRPlotInfo;
 		std::vector<double> FitXData;
 		std::vector<double> FitYData;
 		std::string Filename;
@@ -813,6 +787,7 @@ namespace DynExpModule::ODMR
 			RFFreqSpacing = ModuleData->RFFreqSpacing;
 			SensitivityResonanceFreq = ModuleData->SensitivityResonanceFreq;
 			SensitivityResonanceSpan = ModuleData->SensitivityResonanceSpan;
+			ODMRPlotInfo = ModuleData->ODMRPlot.PlotInfo;
 
 			auto SignalDetectorData = DynExp::dynamic_InstrumentData_cast<DynExpInstr::DataStreamInstrument>(ModuleData->GetSignalDetector()->GetInstrumentData());
 			SignalDetectorData->GetSampleStream()->SeekBeg(std::ios_base::in);
@@ -835,8 +810,6 @@ namespace DynExpModule::ODMR
 
 			auto Frequency = RFStartFreq + (IsBasicSampleTimeUsed ? Sample.Time : (static_cast<double>(i) / SamplingRate)) / RFDwellTime * RFFreqSpacing;
 			ODMRDataPoints.push_back({ Frequency / 1e9, Sample.Value });
-			ODMRDataPointsMinValues = { std::min(ODMRDataPointsMinValues.x(), Frequency / 1e9), std::min(ODMRDataPointsMinValues.y(), Sample.Value) };
-			ODMRDataPointsMaxValues = { std::max(ODMRDataPointsMaxValues.x(), Frequency / 1e9), std::max(ODMRDataPointsMaxValues.y(), Sample.Value) };
 			if (Save)
 				SaveSamples.emplace_back(std::make_tuple(Frequency, Sample.Time, Sample.Value));
 
@@ -859,15 +832,19 @@ namespace DynExpModule::ODMR
 				ODMRFitPoints.push_back({ (f + SensitivityResonanceFreq) / 1e9, c0 + c1 * f });
 		}
 
+		ODMRPlotInfo.Reset();
+		ODMRPlotInfo.ProcessSamples(ODMRDataPoints, ProcessedODMRDataPoints, 0);
+		ODMRPlotInfo.ProcessSamples(ODMRFitPoints, ProcessedODMRFitPoints, 1);
+		ODMRPlotInfo.AdjustAxesLimits();
+
 		{
 			auto ModuleData = DynExp::dynamic_ModuleData_cast<ODMR>(Instance.ModuleDataGetter());
 
-			ModuleData->ODMRPlot.DataPoints = std::move(ODMRDataPoints);
-			ModuleData->ODMRPlot.DataPointsMinValues = ODMRDataPointsMinValues;
-			ModuleData->ODMRPlot.DataPointsMaxValues = ODMRDataPointsMaxValues;
+			ModuleData->ODMRPlot.DataPoints = std::move(ProcessedODMRDataPoints);
+			ModuleData->ODMRPlot.FitPoints = std::move(ProcessedODMRFitPoints);
 			ModuleData->ODMRPlot.FitParams = ODMRFitParams;
-			ModuleData->ODMRPlot.FitPoints = ODMRFitPoints;
 			ModuleData->ODMRPlot.HasChanged = true;
+			ModuleData->ODMRPlot.PlotInfo = ODMRPlotInfo;
 
 			Filename = Util::RemoveExtFromPath(ModuleData->SaveDataPath) + "_ODMR" + Util::ToStr(ModuleData->CurrentSaveIndex) + "_Sweep" + Util::ToStr(ModuleData->CurrentSweepIndex) + ".csv";
 			ValueUnitStr = ModuleData->GetSignalDetector()->GetValueUnitStr();
@@ -933,9 +910,8 @@ namespace DynExpModule::ODMR
 		decltype(ODMRData::GyromagneticRatio) GyromagneticRatio{};
 		DynExpInstr::DataStreamBase::BasicSampleListType SensitivitySamples;
 		std::vector<std::complex<double>> SensitivityASD;
-		decltype(SensitivityPlotType::DataPoints) SensitivityDataPoints;
-		decltype(SensitivityPlotType::DataPointsMinValues) SensitivityDataPointsMinValues = { std::numeric_limits<double>::max(), std::numeric_limits<double>::max() };
-		decltype(SensitivityPlotType::DataPointsMaxValues) SensitivityDataPointsMaxValues = { std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest() };
+		decltype(SensitivityPlotType::DataPoints) SensitivityDataPoints, ProcessedSensitivityDataPoints;
+		decltype(SensitivityPlotType::PlotInfo) SensitivityPlotInfo;
 		std::string Filename;
 		std::string FilenamePrefix;
 		std::string ValueUnitStr;
@@ -953,6 +929,7 @@ namespace DynExpModule::ODMR
 			SensitivityAnalysisEnabled = ModuleData->SensitivityAnalysisEnabled;
 			ODMRFitParams = ModuleData->ODMRPlot.FitParams;
 			GyromagneticRatio = ModuleData->GyromagneticRatio;
+			SensitivityPlotInfo = ModuleData->SensitivityPlot.PlotInfo;
 
 			auto SignalDetectorData = DynExp::dynamic_InstrumentData_cast<DynExpInstr::DataStreamInstrument>(ModuleData->GetSignalDetector()->GetInstrumentData());
 			SignalDetectorData->GetSampleStream()->SeekBeg(std::ios_base::in);
@@ -989,24 +966,21 @@ namespace DynExpModule::ODMR
 
 			if (SensitivityASD.size() == Frequencies.size())
 				for (size_t i = 1; i < SensitivityASD.size(); ++i)		// Ignore 0 Hz frequency component
-				{
 					SensitivityDataPoints.push_back({ Frequencies[i], SensitivityASD[i].real() });
-					SensitivityDataPointsMinValues = { std::min(SensitivityDataPointsMinValues.x(), SensitivityDataPoints.back().x()),
-						std::min(SensitivityDataPointsMinValues.y(), SensitivityDataPoints.back().y()) };
-					SensitivityDataPointsMaxValues = { std::max(SensitivityDataPointsMaxValues.x(), SensitivityDataPoints.back().x()),
-						std::max(SensitivityDataPointsMaxValues.y(), SensitivityDataPoints.back().y()) };
-				}
-		} 
+		}
+
+		SensitivityPlotInfo.Reset();
+		SensitivityPlotInfo.ProcessSamples(SensitivityDataPoints, ProcessedSensitivityDataPoints, 0);
+		SensitivityPlotInfo.AdjustAxesLimits();
 
 		{
 			auto ModuleData = DynExp::dynamic_ModuleData_cast<ODMR>(Instance.ModuleDataGetter());
 
 			if (StateMachine.GetContext() != &SensitivityOffResonanceContext)
 			{
-				ModuleData->SensitivityPlot.DataPoints = std::move(SensitivityDataPoints);
-				ModuleData->SensitivityPlot.DataPointsMinValues = SensitivityDataPointsMinValues;
-				ModuleData->SensitivityPlot.DataPointsMaxValues = SensitivityDataPointsMaxValues;
+				ModuleData->SensitivityPlot.DataPoints = std::move(ProcessedSensitivityDataPoints);
 				ModuleData->SensitivityPlot.HasChanged = true;
+				ModuleData->SensitivityPlot.PlotInfo = SensitivityPlotInfo;
 
 				FilenamePrefix = "Sensitivity";
 			}

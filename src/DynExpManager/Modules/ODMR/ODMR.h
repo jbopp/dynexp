@@ -183,7 +183,6 @@ namespace DynExpModule::ODMR
 		void InitRFGenerator(double Frequency, bool EnableRF, Util::SynchronizedPointer<ModuleDataType>& ModuleData) const;
 		void SetAuxAnalogOutValue(Util::SynchronizedPointer<ModuleDataType>& ModuleData) const;
 		void WaitUntilReadyAndTrigger(Util::SynchronizedPointer<ModuleDataType>& ModuleData) const;
-		void ConnectChartWidgets(QLineSeries* ODMRLineSeries);
 
 		// Events, run in module thread
 		void OnInit(DynExp::ModuleInstance* Instance) const override final;
@@ -234,8 +233,7 @@ namespace DynExpModule::ODMR
 		void OnRFOnClicked(DynExp::ModuleInstance* Instance, bool) const;
 		void OnRFOffClicked(DynExp::ModuleInstance* Instance, bool) const;
 
-		void OnODMRChartHovered(DynExp::ModuleInstance* Instance, QPointF Point, bool State) const;
-		void OnODMRChartClicked(DynExp::ModuleInstance* Instance, QPointF Point) const;
+		void OnODMRGraphClicked(DynExp::ModuleInstance* Instance, QPointF Point) const;
 
 		// State functions for state machine
 		StateType InitializingStateFunc(DynExp::ModuleInstance& Instance);

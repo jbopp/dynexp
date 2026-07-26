@@ -26,8 +26,7 @@ namespace DynExpModule::ODMR
 	ODMRWidget::ODMRWidget(ODMR& Owner, QModuleWidget* parent)
 		: QModuleWidget(Owner, parent),
 		ui(std::make_unique<Ui::ODMR>()), StatusBar(this),
-		ODMRDataSeries(nullptr), ODMRFitSeries(nullptr), ODMRDataChart(nullptr), ODMRXAxis(new QValueAxis(this)), ODMRYAxis(new QValueAxis(this)),
-		SensitivityDataSeries(nullptr), SensitivityDataChart(nullptr), SensitivityXAxis(new QLogValueAxis(this)), SensitivityYAxis(new QLogValueAxis(this))
+		ODMRGraph(nullptr), SensitivityGraph(nullptr)
 	{
 		ui->setupUi(this);
 
@@ -37,29 +36,33 @@ namespace DynExpModule::ODMR
 		ui->MainStatusBar->addWidget(StatusBar.AcquisitionTimeLabel, 3);
 
 		// Graph to display a single ODMR trace
-		ODMRDataChart = new QChart();
-		ui->ODMRChartView->setChart(ODMRDataChart);						// Takes ownership of ODMRDataChart.
-		ui->ODMRChartView->setRenderHint(QPainter::Antialiasing);
-		ODMRDataChart->setTheme(QChart::ChartThemeDark);
-		ODMRDataChart->legend()->setVisible(false);
-		ODMRXAxis->setTitleText("frequency in GHz");
+		connect(ui->ODMRGraph, &QQuickWidget::statusChanged, [this](QQuickWidget::Status Status) {
+			if (Status == QQuickWidget::Status::Ready && ui->ODMRGraph->rootObject())
+			{
+				auto BackendVariant = ui->ODMRGraph->rootObject()->property("backend");
+				ODMRGraph = BackendVariant.isValid() ? BackendVariant.value<DynExpQuick::DynExpLineGraphBackend*>() : nullptr;
+
+				if (ODMRGraph)
+				{
+					ODMRGraph->InsertSeries("meas");
+					ODMRGraph->InsertSeries("fit");
+				}
+			}
+		});
+		ui->ODMRGraph->loadFromModule("Modules.DynExpQuick", "QDynExpLineGraph");
 
 		// Graph to display a single sensitivity measurement
-		SensitivityDataChart = new QChart();
-		ui->SensitivityChartView->setChart(SensitivityDataChart);		// Takes ownership of SensitivityDataChart.
-		ui->SensitivityChartView->setRenderHint(QPainter::Antialiasing);
-		SensitivityDataChart->setTheme(QChart::ChartThemeDark);
-		SensitivityDataChart->legend()->setVisible(false);
-		SensitivityXAxis->setBase(10);
-		SensitivityXAxis->setTitleText("frequency in Hz");
-		SensitivityYAxis->setBase(10);
-		SensitivityYAxis->setTitleText("sensitivity ASD in T/sqrt(Hz)");
+		connect(ui->SensitivityGraph, &QQuickWidget::statusChanged, [this](QQuickWidget::Status Status) {
+			if (Status == QQuickWidget::Status::Ready && ui->SensitivityGraph->rootObject())
+			{
+				auto BackendVariant = ui->SensitivityGraph->rootObject()->property("backend");
+				SensitivityGraph = BackendVariant.isValid() ? BackendVariant.value<DynExpQuick::DynExpLineGraphBackend*>() : nullptr;
 
-		// Chart takes ownership of axes.
-		ODMRDataChart->addAxis(ODMRXAxis, Qt::AlignBottom);
-		ODMRDataChart->addAxis(ODMRYAxis, Qt::AlignLeft);
-		SensitivityDataChart->addAxis(SensitivityXAxis, Qt::AlignBottom);
-		SensitivityDataChart->addAxis(SensitivityYAxis, Qt::AlignLeft);
+				if (SensitivityGraph)
+					SensitivityGraph->InsertSeries("noise");
+			}
+		});
+		ui->SensitivityGraph->loadFromModule("Modules.DynExpQuick", "QDynExpLineGraph");
 
 		connect(ui->CBParamSweepType, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &ODMRWidget::OnSweepSeriesParamChanged);
 	}
@@ -115,8 +118,6 @@ namespace DynExpModule::ODMR
 			ui->SBSensitivitySamplingRate->setEnabled(ModuleData->TestFeature(ODMRData::FeatureType::LockinDetection));
 			ui->SBSensitivityDuration->setEnabled(ModuleData->TestFeature(ODMRData::FeatureType::LockinDetection));
 
-			ODMRYAxis->setTitleText(QString("ODMR signal in ") + ModuleData->GetSignalDetector()->GetValueUnitStr());
-
 			// This is not emitted if setCurrentIndex() does not change the index (because it already is the desired value).
 			// So, do it manually.
 			OnSweepSeriesParamChanged(ui->CBParamSweepType->currentIndex());
@@ -153,7 +154,6 @@ namespace DynExpModule::ODMR
 	void ODMRWidget::UpdateUIData(Util::SynchronizedPointer<ODMRData>& ModuleData)
 	{
 		ui->LERFNumSamples->setText(QString::number(ModuleData->GetNumSamples()));
-		ui->LODMRCurrentSelection->setText(ModuleData->ODMRPlot.SelectedPoint.isNull() ? QString() : (QString::number(ModuleData->ODMRPlot.SelectedPoint.x() * 1e3, 'f', 3) + " MHz"));
 		ui->LEODMRFitSlope->setText(QString::number(std::get<1>(ModuleData->ODMRPlot.FitParams) * 1e6) + " [y]/MHz");
 		ui->LEODMRFitOffset->setText(QString::number(std::get<0>(ModuleData->ODMRPlot.FitParams)) + " [y]");
 
@@ -163,40 +163,34 @@ namespace DynExpModule::ODMR
 		StatusBar.Update();
 	}
 
-	void ODMRWidget::UpdateODMRPlot(const ODMRPlotType& ODMRPlot)
+	void ODMRWidget::UpdateODMRPlot(ODMRPlotType& ODMRPlot)
 	{
-		ODMRDataChart->removeAllSeries();
-		ODMRDataSeries = new QLineSeries(this);
-		ODMRDataSeries->append(ODMRPlot.DataPoints);
-		ODMRDataSeries->setPointsVisible(false);
-		ODMRFitSeries = new QLineSeries(this);
-		ODMRFitSeries->append(ODMRPlot.FitPoints);
-		ODMRFitSeries->setPointsVisible(false);
+		if (ODMRPlot.HasChanged)
+			ODMRPlot.HasChanged = false;
+		else
+		{
+			ODMRPlot.PlotInfo.ResetHoveredSample();
+			ODMRPlot.PlotInfo.ReprocessSamples(ODMRPlot.DataPoints, 0);
+			ODMRPlot.PlotInfo.ReprocessSamples(ODMRPlot.FitPoints, 0);
+		}
 
-		ODMRXAxis->setRange(ODMRPlot.DataPointsMinValues.x(), ODMRPlot.DataPointsMaxValues.x());
-		ODMRYAxis->setRange(ODMRPlot.DataPointsMinValues.y(), ODMRPlot.DataPointsMaxValues.y());
-
-		ODMRDataChart->addSeries(ODMRDataSeries);
-		ODMRDataChart->addSeries(ODMRFitSeries);
-		ODMRDataSeries->attachAxis(ODMRDataChart->axes()[0]);
-		ODMRDataSeries->attachAxis(ODMRDataChart->axes()[1]);
-		ODMRFitSeries->attachAxis(ODMRDataChart->axes()[0]);
-		ODMRFitSeries->attachAxis(ODMRDataChart->axes()[1]);
+		ODMRGraph->UpdateSeries(0, ODMRPlot.DataPoints, ODMRPlot.PlotInfo);
+		ODMRGraph->UpdateSeries(1, ODMRPlot.FitPoints, ODMRPlot.PlotInfo);
+		ODMRGraph->UpdateData(ODMRPlot.PlotInfo);
 	}
 
-	void ODMRWidget::UpdateSensitivityPlot(const SensitivityPlotType& SensitivityPlot)
+	void ODMRWidget::UpdateSensitivityPlot(SensitivityPlotType& SensitivityPlot)
 	{
-		SensitivityDataChart->removeAllSeries();
-		SensitivityDataSeries = new QLineSeries(this);
-		SensitivityDataSeries->append(SensitivityPlot.DataPoints);
-		SensitivityDataSeries->setPointsVisible(false);
+		if (SensitivityPlot.HasChanged)
+			SensitivityPlot.HasChanged = false;
+		else
+		{
+			SensitivityPlot.PlotInfo.ResetHoveredSample();
+			SensitivityPlot.PlotInfo.ReprocessSamples(SensitivityPlot.DataPoints, 0);
+		}
 
-		SensitivityYAxis->setRange(SensitivityPlot.DataPointsMinValues.y(), SensitivityPlot.DataPointsMaxValues.y());
-		SensitivityXAxis->setRange(SensitivityPlot.DataPointsMinValues.x(), SensitivityPlot.DataPointsMaxValues.x());
-
-		SensitivityDataChart->addSeries(SensitivityDataSeries);
-		SensitivityDataSeries->attachAxis(SensitivityDataChart->axes()[0]);
-		SensitivityDataSeries->attachAxis(SensitivityDataChart->axes()[1]);
+		SensitivityGraph->UpdateSeries(0, SensitivityPlot.DataPoints, SensitivityPlot.PlotInfo);
+		SensitivityGraph->UpdateData(SensitivityPlot.PlotInfo);
 	}
 
 	void ODMRWidget::OnBrowseSavePathClicked()

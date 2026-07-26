@@ -251,7 +251,7 @@ namespace DynExpQuick
 			if (AnyLineSeriesVisible)
 			{
 				if (PlotInfo.XLabel.isEmpty())
-					XValueAxis->setTitleText(DynExp::Units::UnitCategoryToStr(PlotInfo.XUnit) + QString(" [") +
+					XValueAxis->setTitleText(QString(PlotInfo.XIsLogarithmic ? "log. " : "") + DynExp::Units::UnitCategoryToStr(PlotInfo.XUnit) + " [" +
 						(PlotInfo.XUnit == DynExp::Units::UnitType::Time_s ? PlotInfo.GetMultiplierLabel() + "s" : DynExp::Units::UnitTypeToStr(PlotInfo.XUnit)) + "]");
 				else
 					XValueAxis->setTitleText(PlotInfo.XLabel);
@@ -261,7 +261,8 @@ namespace DynExpQuick
 			else
 				XCategoryAxis->setCategories(PlotModel.GetSeriesNames());
 
-			YValueAxis->setTitleText(PlotInfo.YLabel.isEmpty() ? QString::fromStdString(DynExp::Units::UnitToStr(PlotInfo.YUnit)) : PlotInfo.YLabel);
+			YValueAxis->setTitleText(PlotInfo.YLabel.isEmpty() ?
+				((PlotInfo.YIsLogarithmic ? "log. " : "") + QString::fromStdString(DynExp::Units::UnitToStr(PlotInfo.YUnit))) : PlotInfo.YLabel);
 			YValueAxis->setLabelFormat(DynExp::Units::IsIntegerUnit(PlotInfo.YUnit) ? "%.0f" : "%.3f");
 			if (PlotInfo.YUnit == DynExp::Units::UnitType::LogicLevel)
 			{

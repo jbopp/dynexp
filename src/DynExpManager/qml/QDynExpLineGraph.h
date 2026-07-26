@@ -112,6 +112,8 @@ namespace DynExpQuick
 			bool Autoscale = true, bool UpdateAxes = true);
 
 	signals:
+		void onSampleClicked(QPointF);
+
 		// to QML
 		void qinsertSeries(QBarSeries*, QLineSeries*);
 		void qremoveSeries(QBarSeries*, QLineSeries*);

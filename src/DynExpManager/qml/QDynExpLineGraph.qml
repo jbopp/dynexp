@@ -106,10 +106,18 @@ Item {
         hoverEnabled: true
         scrollGestureEnabled: false
         cursorShape: Qt.CrossCursor
-        acceptedButtons: Qt.RightButton
-        onClicked: {
-            if (cmPlot.count)
-                cmPlot.popup()
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+        onClicked: function(mouse) {
+            switch (mouse.button) {
+            case Qt.LeftButton:
+                if (backend.HoveredSample.x != 0 || backend.HoveredSample.y != 0)
+                    backend.onSampleClicked(backend.HoveredSample)
+                break
+            case Qt.RightButton:
+                if (cmPlot.count)
+                    cmPlot.popup()
+                break
+            }
         }
         onPositionChanged: function(mouse) {
             if (mouse.x >= gvPlot.plotArea.x && mouse.x <= gvPlot.plotArea.x + gvPlot.plotArea.width &&

@@ -55,6 +55,10 @@ namespace DynExp::Units
 		switch (Unit)
 		{
 		case UnitType::Freq_Hz:
+		case UnitType::Freq_kHz:
+		case UnitType::Freq_MHz:
+		case UnitType::Freq_GHz:
+		case UnitType::Freq_THz:
 		case UnitType::Inv_cm:
 		case UnitType::Wavelength_nm: return true;
 		default: return false;
@@ -79,8 +83,13 @@ namespace DynExp::Units
 		case UnitType::Time_ns:
 		case UnitType::Time_ps: return "time";
 		case UnitType::Freq_Hz:
+		case UnitType::Freq_kHz:
+		case UnitType::Freq_MHz:
+		case UnitType::Freq_GHz:
+		case UnitType::Freq_THz:
 		case UnitType::Inv_cm: return "frequency";
 		case UnitType::Wavelength_nm: return "wavelength";
+		case UnitType::TperSqrtHz: return "amplitude spectral density";
 		case UnitType::Unitless:
 		case UnitType::UnitlessInt: return "number";
 		default: return "<unknown unit category>";
@@ -105,8 +114,13 @@ namespace DynExp::Units
 		case UnitType::Time_ns: return "ns";
 		case UnitType::Time_ps: return "ps";
 		case UnitType::Freq_Hz: return "Hz";
+		case UnitType::Freq_kHz: return "kHz";
+		case UnitType::Freq_MHz: return "MHz";
+		case UnitType::Freq_GHz: return "GHz";
+		case UnitType::Freq_THz: return "THz";
 		case UnitType::Inv_cm: return "1/cm";
 		case UnitType::Wavelength_nm: return "nm";
+		case UnitType::TperSqrtHz: return "T/sqrt(Hz)";
 		case UnitType::Unitless:
 		case UnitType::UnitlessInt: return "";
 		default: return "<unknown unit>";
