@@ -87,6 +87,13 @@ namespace DynExp::Units
 	bool IsTimeUnitStrict(UnitType Unit);
 
 	/**
+	 * @brief Checks whether @p Unit is a sample index unit (UnitType::Index).
+	 * @param Unit Unit type as used by DynExp instruments.
+	 * @return Returns true if @p Unit is a sample index unit, false otherwise.
+	*/
+	bool IsIndexUnit(UnitType Unit);
+
+	/**
 	 * @brief Checks whether @p Unit is a frequency-like unit.
 	 * @param Unit Unit type as used by DynExp instruments.
 	 * @return Returns true if @p Unit is frequency-like, false otherwise.

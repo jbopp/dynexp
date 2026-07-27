@@ -50,6 +50,11 @@ namespace DynExp::Units
 		return IsTimeUnit(Unit) && Unit != UnitType::Index;
 	}
 
+	bool IsIndexUnit(UnitType Unit)
+	{
+		return Unit == UnitType::Index;
+	}
+
 	bool IsFrequencyUnit(UnitType Unit)
 	{
 		switch (Unit)

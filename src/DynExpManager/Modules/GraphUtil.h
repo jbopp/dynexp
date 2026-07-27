@@ -185,7 +185,7 @@ namespace DynExpModule::Graph
 		QPointFValueType HoveredDistance = std::numeric_limits<QPointFValueType>::max();
 
 		private:
-			double inline ApplyXLog(double Value) const { return XIsLogarithmic ? std::log10(Value) : Value; }
+			double inline ApplyXLog(double Value) const { return XIsLogarithmic ? (Value > .0 ? std::log10(Value) : .0) : Value; }
 			double inline ApplyYLog(double Value) const { return YIsLogarithmic ? std::log10(Value) : Value; }
 	};
 }

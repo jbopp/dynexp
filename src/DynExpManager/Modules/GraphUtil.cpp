@@ -19,7 +19,7 @@ namespace DynExpModule::Graph
 
 	void LineGraphPlotInfo::Reset()
 	{
-		Multiplier = std::numeric_limits<decltype(Multiplier)>::max();
+		Multiplier = 0;
 		MaxSampleCountPerSeries = 0;
 		LastMinValues = MinValues;
 		LastMaxValues = MaxValues;
@@ -38,6 +38,7 @@ namespace DynExpModule::Graph
 	void LineGraphPlotInfo::GenerateSampleTimingInfo(std::vector<DynExpInstr::DataStreamBase::BasicSampleListType>& BasicSamplesSeries)
 	{
 		bool TimingInfoFound = false;
+		Multiplier = std::numeric_limits<decltype(Multiplier)>::max();
 
 		if (DynExp::Units::IsTimeUnitStrict(XUnit))
 		{
@@ -96,12 +97,15 @@ namespace DynExpModule::Graph
 
 		for (qsizetype i = 0; i < RawSamples.size(); ++i)
 		{
-			const auto X = ApplyXLog(DynExp::Units::IsTimeUnitStrict(XUnit) ? RawSamples.at(i).x() * std::pow(10.0, Multiplier) : i);
+			const auto X = ApplyXLog(!DynExp::Units::IsIndexUnit(XUnit) ? RawSamples.at(i).x() * std::pow(10.0, Multiplier) : i);
 			const auto Y = ApplyYLog(RawSamples.at(i).y());
 			Samples.append({ X, Y });
 
-			YMin = std::min(YMin, Y);
-			YMax = std::max(YMax, Y);
+			if (std::isfinite(Y))
+			{
+				YMin = std::min(YMin, Y);
+				YMax = std::max(YMax, Y);
+			}
 
 			// To avoid a second loop, do the calculation with axes limits from the previous run.
 			// Find hovered point for series with more than a single sample.
@@ -127,12 +131,15 @@ namespace DynExpModule::Graph
 
 		for (size_t i = 0; i < BasicSamples.size(); ++i)
 		{
-			const auto X = ApplyXLog(DynExp::Units::IsTimeUnitStrict(XUnit) ? BasicSamples[i].Time * std::pow(10.0, Multiplier) : i);
+			const auto X = ApplyXLog(!DynExp::Units::IsIndexUnit(XUnit) ? BasicSamples[i].Time * std::pow(10.0, Multiplier) : i);
 			const auto Y = ApplyYLog(BasicSamples[i].Value);
 			Samples.append({ X, Y });
 
-			YMin = std::min(YMin, Y);
-			YMax = std::max(YMax, Y);
+			if (std::isfinite(Y))
+			{
+				YMin = std::min(YMin, Y);
+				YMax = std::max(YMax, Y);
+			}
 
 			// To avoid a second loop, do the calculation with axes limits from the previous run.
 			// Find hovered point for series with more than a single sample.
@@ -159,12 +166,15 @@ namespace DynExpModule::Graph
 		size_t i = 0;
 		for (const auto& Sample : Spectrum.GetSpectrum())
 		{
-			const auto X = ApplyXLog(XUnit != DynExp::Units::UnitType::Index ? Sample.first : i);
+			const auto X = ApplyXLog(!DynExp::Units::IsIndexUnit(XUnit) ? Sample.first : i);
 			const auto Y = ApplyYLog(Sample.second);
 			Samples.append({ X, Y });
 
-			YMin = std::min(YMin, Y);
-			YMax = std::max(YMax, Y);
+			if (std::isfinite(Y))
+			{
+				YMin = std::min(YMin, Y);
+				YMax = std::max(YMax, Y);
+			}
 
 			// To avoid a second loop, do the calculation with axes limits from the previous run.
 			// Find hovered point for series with more than a single sample.
