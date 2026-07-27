@@ -220,6 +220,9 @@ int main(int argc, char *argv[])
 	int ErrorReturnCode = Util::DynExpErrorCodes::GeneralError;
 	try
 	{
+		// Fix path issue with vcpkg and qml
+		qputenv("QML_IMPORT_PATH", "./qml");
+
 		// Set up language and application settings.
 		std::locale::global(std::locale(std::locale(DynExp::DefaultLocale), new DynExp::DefaultLocaleSeparator));
 		QLocale::setDefault(Util::GetDefaultQtLocale());

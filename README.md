@@ -96,7 +96,7 @@ This might take several hours and consume about 90 GB disk space. After successf
 
 ### Basic setup
 #### Windows
-Compilation was tested using MSVC build tools version >= 17.10.0 on Windows 10 64-bit.
+Compilation was tested using MSVC build tools version >= 18.8.1 on Windows 10 64-bit.
 Compile via the Visual Studio user interface opening the folder `src/DynExpManager` and setting `CMakeLists.txt` as the startup item.
 Do not forget to chose the desired build configuration (release, debug etc.).
 
@@ -123,11 +123,11 @@ export FONTCONFIG_PATH=/etc/fonts/
 
 ### Manual Qt installation
 If you wish to install Qt manually or to use an already installed Qt version, refer to <https://www.qt.io/download-open-source> and follow the instructions given there.
-Skip installing `qtbase`, `qtserialport`, `qtcharts`, `qtdatavis3d`, and `qtsvg` via vcpkg in that case (but make sure that they are available in your manual Qt installation).
+Skip installing `qtbase`, `qtserialport`, `qtgraphs`, and `qtsvg` via vcpkg in that case (but make sure that they are available in your manual Qt installation).
 To skip the automatic installation of Qt libraries with vcpkg, execute the respective `install_dependencies.[ps1|sh]` script with the `-skip-install-qt` flag under Windows and with `--skip-install-qt` under Linux, respectively.
 Set the cmake variable `CMAKE_PREFIX_PATH` to the Qt installation directory by renaming the file `CMakeUserPresets.json.default` to `CMakeUserPresets.json` and adding the line
 ```json
-"CMAKE_PREFIX_PATH": "C:/[adjust-path]/Qt/6.4.2/msvc2019_64/"
+"CMAKE_PREFIX_PATH": "C:/[adjust-path]/Qt/6.11.1/msvc2019_64/"
 ```
 to the `cacheVariables` sections of the different configuration presets in `CMakeUserPresets.json`.
 Then, build the specific user configuration preset.

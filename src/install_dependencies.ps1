@@ -17,7 +17,7 @@ if (-not (Test-Path -Path $LIB_DIR -PathType Container)) {
 $cmd = ""
 
 if (-not ${skip-install-qt}) {
-    $cmd += "& `"$LIB_DIR\vcpkg`" install qtbase:x64-windows; "
+    $cmd += "& `"$LIB_DIR\vcpkg`" install qtbase[windeployqt]:x64-windows; "
     $cmd += "& `"$LIB_DIR\vcpkg`" install qtgraphs:x64-windows; "
     $cmd += "& `"$LIB_DIR\vcpkg`" install qtserialport:x64-windows; "
     $cmd += "& `"$LIB_DIR\vcpkg`" install qtsvg:x64-windows; "

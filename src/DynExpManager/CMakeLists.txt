@@ -371,7 +371,7 @@ if (WIN32)
 			if (NOT DEFINED ZLIB_RUNTIME_LIBRARY_RELEASE)
 				# Replace "lib" only if followed by "/zlib" (not in case of other "lib/" folders).
 				string(REGEX REPLACE "/lib/z" "/bin/z" ZLIB_RUNTIME_LIBRARY_RELEASE "${ZLIB_LIBRARY_RELEASE}")
-				string(REGEX REPLACE "\.lib$" "1.dll" ZLIB_RUNTIME_LIBRARY_RELEASE "${ZLIB_RUNTIME_LIBRARY_RELEASE}")
+				string(REGEX REPLACE "\.lib$" ".dll" ZLIB_RUNTIME_LIBRARY_RELEASE "${ZLIB_RUNTIME_LIBRARY_RELEASE}")
 			endif()
 			add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${ZLIB_RUNTIME_LIBRARY_RELEASE} "${DYNEXP_DEPLOY_DIR}")
 		endif()
