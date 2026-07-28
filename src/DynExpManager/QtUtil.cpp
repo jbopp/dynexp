@@ -415,7 +415,7 @@ namespace Util
 		if (!scene())
 			return;
 		if (Index >= Markers.size())
-			throw OutOfRangeException("The given marker index exceeds the amount of markers stored in this MarkerGraphicsView.");
+			throw OutOfRangeException("The given marker index exceeds the number of markers stored in this MarkerGraphicsView.");
 
 		auto Marker = Markers.cbegin() + Index;
 		if (!OnlyUserDeletableMarkers || Marker->IsUserDeletable())

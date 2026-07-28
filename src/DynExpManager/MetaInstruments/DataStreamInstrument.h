@@ -278,16 +278,16 @@ namespace DynExpInstr
 		*/
 		///@{
 		/**
-		 * @brief Determines the amount of samples which can be read from the stream's
+		 * @brief Determines the number of samples which can be read from the stream's
 		 * current get pointer position till the stream's end.
-		 * @return Returns the amount of available samples.
+		 * @return Returns the number of available samples.
 		*/
 		virtual size_t GetNumAvailableSamplesToReadTillEnd() const noexcept = 0;
 
 		/**
-		 * @brief Determines the amount of samples which can be written to the stream
+		 * @brief Determines the number of samples which can be written to the stream
 		 * untill the stream's end is reached.
-		 * @return Returns the amount of free samples.
+		 * @return Returns the number of free samples.
 		*/
 		virtual size_t GetNumFreeSamplesToWrite() const noexcept = 0;
 
@@ -328,12 +328,12 @@ namespace DynExpInstr
 		///@}
 
 		/**
-		 * @brief Determines the amount of samples which have been written to the
+		 * @brief Determines the number of samples which have been written to the
 		 * stream after the last @p Count samples. This is useful if the caller
 		 * just wants to obtain recent samples but not the entire stream. Then, the
-		 * caller should remember the amount of samples it knows already and call
+		 * caller should remember the number of samples it knows already and call
 		 * @p ReadRecentBasicSamples() next.
-		 * @param Count Amount of samples which are known by the caller.
+		 * @param Count Number of samples which are known by the caller.
 		 * @return Number of samples written to the stream recently.
 		 */
 		size_t GetNumRecentBasicSamples(size_t Count) const;
@@ -341,7 +341,7 @@ namespace DynExpInstr
 		/**
 		 * @brief Reads the most recent samples from the stream skipping
 		 * @p Count samples. Also refer to @p GetNumRecentBasicSamples().
-		 * @param Count Amount of samples which are known by the caller.
+		 * @param Count Number of samples which are known by the caller.
 		 * @return Read samples
 		*/
 		BasicSampleListType ReadRecentBasicSamples(size_t Count);
@@ -494,7 +494,7 @@ namespace DynExpInstr
 
 		/**
 		 * @brief Reads multiple samples from the stream's buffer #StreamBuffer.
-		 * @param Count Amount of samples to read
+		 * @param Count Number of samples to read
 		 * @return Samples read
 		*/
 		std::vector<SampleT> ReadSamples(size_t Count)
@@ -531,7 +531,7 @@ namespace DynExpInstr
 
 		mutable Util::circularbuf StreamBuffer;		//!< Circular stream buffer
 		std::iostream Stream;						//!< Stream to operate on #StreamBuffer
-		size_t NumSamplesWritten;					//!< Amount of samples which have been written to #Stream in total
+		size_t NumSamplesWritten;					//!< Number of samples which have been written to #Stream in total
 	};
 
 	/**

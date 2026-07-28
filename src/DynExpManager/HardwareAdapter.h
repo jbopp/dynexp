@@ -287,7 +287,7 @@ namespace DynExp
 		constexpr static std::array<char, 2> LineEndingToChar(SerialCommunicationHardwareAdapterParams::LineEndingType LineEnding) noexcept;
 
 		/**
-		 * @brief Determines the amount of characters required to express a line ending type
+		 * @brief Determines the number of characters required to express a line ending type
 		 * defined by SerialCommunicationHardwareAdapterParams::LineEndingType.
 		 * @param LineEnding Line ending type
 		 * @return Number of char(acters) the specified line ending consists of

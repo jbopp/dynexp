@@ -294,7 +294,7 @@ namespace DynExpHardware
 		if (Result != DAQmxErrorOperationTimedOut)	// Ignore spurious timeout erros. Returns an empty vector if this error occurs.
 			CheckReadError(Task, Result);
 
-		// BytesPerSample is the amount of bytes that one channel consists of.
+		// BytesPerSample is the number of bytes that one channel consists of.
 		if (BytesPerSample != Task->GetSampleSizeInBytes())
 			ThrowExceptionUnsafe(std::make_exception_ptr(Util::InvalidDataException(
 				"Received data from DAQmxReadDigitalLines() which does not correspond to the expected memory layout.")));

@@ -49,7 +49,7 @@ namespace Util
 	 * @p SkipEntriesFront and @p SkipEntriesEnd ans entry names trimmed according to @p SkipCharsFront and
 	 * @p SkipCharsEnd.
 	 * @throws Util::OutOfRangeException is thrown when @p SkipEntriesFront and @p SkipEntriesEnd are
-	 * incompatible with the actual amount of enum entries in @p EnumType.
+	 * incompatible with the actual number of enum entries in @p EnumType.
 	*/
 	template <typename EnumType>
 	auto QtEnumToTextValueList(unsigned short SkipEntriesFront = 0, unsigned short SkipEntriesEnd = 0,
@@ -474,7 +474,7 @@ namespace Util
 		 * @param Index Index of the marker to remove
 		 * @param OnlyUserDeletableMarkers If true, the marker is also removed if it is not user-deletable. If false,
 		 * non-user-deletable markers are not removed.
-		 * @throws OutOfRangeException is thrown if Index exceeds the amount of markers stored in the graphics view.
+		 * @throws OutOfRangeException is thrown if Index exceeds the number of markers stored in the graphics view.
 		*/
 		void RemoveMarker(size_t Index, bool OnlyUserDeletableMarkers = false);
 

@@ -18,10 +18,11 @@ $cmd = ""
 
 if (-not ${skip-install-qt}) {
     $cmd += "& `"$LIB_DIR\vcpkg`" install qtbase:x64-windows; "
+    $cmd += "& `"$LIB_DIR\vcpkg`" install qtgraphs:x64-windows; "
     $cmd += "& `"$LIB_DIR\vcpkg`" install qtserialport:x64-windows; "
+    $cmd += "& `"$LIB_DIR\vcpkg`" install qtsvg:x64-windows; "
     $cmd += "& `"$LIB_DIR\vcpkg`" install qtcharts:x64-windows; "
     $cmd += "& `"$LIB_DIR\vcpkg`" install qtdatavis3d:x64-windows; "
-    $cmd += "& `"$LIB_DIR\vcpkg`" install qtsvg:x64-windows; "
 }
 
 $cmd += "& `"$LIB_DIR\vcpkg`" install gsl:x64-windows; "

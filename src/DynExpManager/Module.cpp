@@ -803,4 +803,92 @@ namespace DynExp
 	{
 		ResetImpl(dispatch_tag<QModuleBase>());
 	}
+
+	QMLModuleWidget::QMLModuleWidget(QAnyStringView SourceUri, QAnyStringView SourceTypeName, QMLModuleBase& Owner, QWidget* Parent)
+		: QModuleWidget(Owner, Parent),
+		QuickView(new QQuickView(SourceUri, SourceTypeName)),
+		QuickViewContainer(QWidget::createWindowContainer(QuickView, this))
+	{
+		const auto QMLErrors = QuickView->errors();
+		if (!QMLErrors.empty())
+		{
+			std::string QMLErrorStr;
+			for (const auto& QMLError : QMLErrors)
+				QMLErrorStr += ("\n" + QMLError.toString()).toStdString();
+
+			throw Util::Exception("QuickView cannot be constructed due to:" + QMLErrorStr);
+		}
+
+		QuickViewContainer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+		auto Layout = new QVBoxLayout(this);
+		Layout->setContentsMargins(0, 0, 0, 0);
+		Layout->addWidget(QuickViewContainer);
+
+		auto QMLRoot = QuickView->rootObject();
+		if (QMLRoot)
+		{
+			auto ImplicitWidth = QMLRoot->property("implicitWidth");
+			auto ImplicitHeight = QMLRoot->property("implicitHeight");
+
+			if (ImplicitWidth.isValid() && ImplicitHeight.isValid())
+				QuickViewContainer->setMinimumSize(ImplicitWidth.toInt(), ImplicitHeight.toInt());
+		}
+	}
+
+	QObject* QMLModuleWidget::GetRootObject() const noexcept
+	{
+		return QuickView->rootObject();
+	}
+
+	QObject* QMLModuleWidget::GetBackend() const noexcept
+	{
+		if (!Backend)
+		{
+			auto Root = GetRootObject();
+			if (!Root)
+				return nullptr;
+
+			auto BackendVariant = Root->property("backend");
+			Backend = BackendVariant.isValid() ? BackendVariant.value<QObject*>() : nullptr;
+		}
+
+		return Backend;
+	}
+
+	void QMLModuleDataBase::ResetImpl(dispatch_tag<QModuleDataBase>)
+	{
+		ResetImpl(dispatch_tag<QMLModuleDataBase>());
+	}
+
+	QMLModuleParamsBase::~QMLModuleParamsBase()
+	{
+	}
+
+	QMLModuleConfiguratorBase::~QMLModuleConfiguratorBase()
+	{
+	}
+
+	QMLModuleBase::QMLModuleBase(const std::thread::id OwnerThreadID, DynExp::ParamsBasePtrType&& Params)
+		: QModuleBase(OwnerThreadID, std::move(Params))
+	{
+	}
+
+	QMLModuleBase::~QMLModuleBase()
+	{
+	}
+
+	void QMLModuleBase::ResetImpl(dispatch_tag<QModuleBase>)
+	{
+		ResetImpl(dispatch_tag<QMLModuleBase>());
+	}
+
+	std::unique_ptr<QModuleWidget> QMLModuleBase::MakeUIWidget()
+	{
+		auto Widget = std::make_unique<QMLModuleWidget>(GetModuleSourceUri(), GetModuleSourceTypeName(), *this);
+
+		MakeConnections(Widget->GetBackend());
+
+		return Widget;
+	}
 }

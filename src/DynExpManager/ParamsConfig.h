@@ -227,7 +227,7 @@ public:
 	 * @param DefaultValue Refer to ParamsConfigDialog::Param::DefaultIndex.
 	 * @param TextList List of text entries from which the user can select one
 	 * @throws Util::EmptyException is thrown if @p TextList is empty.
-	 * @throws Util::OutOfRangeException is thrown if @p Value or @p DefaultValue are larger than the amount of entries in @p TextList.
+	 * @throws Util::OutOfRangeException is thrown if @p Value or @p DefaultValue are larger than the number of entries in @p TextList.
 	*/
 	void AddParam(ParamInfo&& Info, const std::any Destiny, const TextListIndexType Value,
 		const TextListIndexType DefaultValue, const TextListType& TextList);

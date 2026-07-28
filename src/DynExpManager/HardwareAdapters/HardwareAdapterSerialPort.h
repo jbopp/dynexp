@@ -81,9 +81,9 @@ namespace DynExp
 		Param<BaudRateType> BaudRate = { *this, BaudRateTypeStrList(), "BaudRate", "Baud rate",
 			"Data rate in bits per second", true, BaudRateType::Baud9600 };					//!< Baud rate
 		Param<QSerialPort::DataBits> DataBits = { *this, Util::QtEnumToTextValueList<QSerialPort::DataBits>(0, 0, 4), "DataBits", "Data bits",
-			"Number of data bits in each character", true, QSerialPort::Data8 };			//!< Amount of data bits
+			"Number of data bits in each character", true, QSerialPort::Data8 };			//!< Number of data bits
 		Param<QSerialPort::StopBits> StopBits = { *this, Util::QtEnumToTextValueList<QSerialPort::StopBits>(0, 0, 0, 4), "StopBits", "Stop bits",
-			"Number of stop bits after each character", true, QSerialPort::OneStop };		//!< Amount of stop bits
+			"Number of stop bits after each character", true, QSerialPort::OneStop };		//!< Number of stop bits
 		Param<QSerialPort::Parity> Parity = { *this, Util::QtEnumToTextValueList<QSerialPort::Parity>(0, 0, 0, 6), "Parity", "Parity",
 			"Error detection method", true, QSerialPort::NoParity };						//!< Parity setting
 
@@ -130,8 +130,8 @@ namespace DynExp
 		 * communication with the given settings
 		 * @param PortName COM port name
 		 * @param BaudRate Baud rate
-		 * @param DataBits Amount of data bits
-		 * @param StopBits Amount of stop bits
+		 * @param DataBits Number of data bits
+		 * @param StopBits Number of stop bits
 		 * @param Parity Parity setting
 		*/
 		void Init(QString PortName, HardwareAdapterSerialPortParams::BaudRateType BaudRate, QSerialPort::DataBits DataBits,

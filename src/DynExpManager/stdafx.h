@@ -62,20 +62,14 @@
 #endif
 
 // Qt
-#include <Q3DSurface>
-#include <QBarSeries>
-#include <QBarSet>
 #include <QByteArray>
-#include <QChartView>
 #include <QImage>
-#include <QLineSeries>
-#include <QLogValueAxis>
-#include <QScatterSeries>
+#include <QQuickItem>
+#include <QQuickStyle>
+#include <QQuickView>
 #include <QThread>
-#include <QValueAxis>
 #include <QtWidgets>
 #include <QtXml>
-#include <QXYSeries>
 
 // GNU Scientific Library (GSL)
 #include <gsl/gsl_const_mksa.h>

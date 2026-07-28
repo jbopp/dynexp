@@ -116,11 +116,14 @@ target_compile_definitions(DynExpConfig INTERFACE QT_DISABLE_DEPRECATED_BEFORE=0
 # Qt
 find_package(Qt6 COMPONENTS
 	Core
+	Graphs
 	Gui
+	Network
+	Quick
+	QuickControls2
 	Svg
 	Widgets
 	Xml
-	Network
 	REQUIRED
 )
 find_package(Qt6SerialPort CONFIG REQUIRED)
@@ -129,6 +132,15 @@ find_package(Qt6DataVisualization CONFIG REQUIRED)
 if (${Qt6_FOUND})
 	message("Using Qt " ${Qt6_VERSION})
 endif()
+
+# Set RESOURCE_PREFIX argument for qt_add_qml_module() to "/qt/qml/".
+qt_policy(SET QTP0001 NEW)
+
+# Enables inclusion of qml files in subdirectory "qml".
+qt_policy(SET QTP0004 NEW)
+
+# IMPORT of qt_add_qml_module() refers to CMake targets.
+qt_policy(SET QTP0005 NEW)
 
 # GNU Scientific Library (GSL)
 find_package(GSL REQUIRED)
@@ -212,6 +224,15 @@ target_sources(DynExpCore PRIVATE
 	"Util.h"
 )
 
+# DynExp's QML source files
+set_source_files_properties("qml/QQuickDefinitions.qml" PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
+qt_add_qml_module(DynExpQuick URI Modules.DynExpQuick
+	VERSION 1.0 STATIC
+	QML_FILES "qml/QQuickDefinitions.qml" "qml/QDynExpMenu.qml"
+	OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/Modules/DynExpQuick"
+)
+target_link_libraries(DynExpQuick PRIVATE DynExpConfig)
+
 add_subdirectory(proto)
 add_subdirectory(HardwareAdapters)
 add_subdirectory(MetaInstruments)
@@ -236,11 +257,14 @@ list(TRANSFORM EXTRA_LIBS PREPEND "../../../vendor/")
 list(TRANSFORM SHARED_LIBS PREPEND "../../../vendor/")
 target_link_libraries(DynExpConfig INTERFACE
 	Qt::Core
+	Qt::Graphs
 	Qt::Gui
+	Qt::Network
+	Qt::Quick
+	Qt::QuickControls2
+	Qt::SerialPort
 	Qt::Widgets
 	Qt::Xml
-	Qt::Network
-	Qt::SerialPort
 	Qt::Charts
 	Qt::DataVisualization
 	GSL::gsl
@@ -269,6 +293,8 @@ target_link_libraries(DynExp PRIVATE
 	DynExpInstruments
 	DynExpModules
 )
+
+qt_import_qml_plugins(DynExp)
 
 if (UNIX)
 	# Add symbols required by std::stacktrace
@@ -328,9 +354,9 @@ if (WIN32)
 		# Copy Qt DLLs to build folder using debug libraries
 		string(REGEX REPLACE "\.exe$" "\.debug\.bat" WINDEPLOYQT_DEBUG_EXECUTABLE "${WINDEPLOYQT_EXECUTABLE}")
 		if (EXISTS "${WINDEPLOYQT_DEBUG_EXECUTABLE}")
-			add_custom_command(TARGET DynExp POST_BUILD WORKING_DIRECTORY "${DYNEXP_DEPLOY_DIR}" COMMAND "${WINDEPLOYQT_DEBUG_EXECUTABLE}" ARGS --no-translations $<TARGET_FILE_NAME:DynExp>)
+			add_custom_command(TARGET DynExp POST_BUILD WORKING_DIRECTORY "${DYNEXP_DEPLOY_DIR}" COMMAND "${WINDEPLOYQT_DEBUG_EXECUTABLE}" ARGS --qmldir ${PROJECT_SOURCE_DIR} --no-translations $<TARGET_FILE_NAME:DynExp>)
 		else()
-			add_custom_command(TARGET DynExp POST_BUILD WORKING_DIRECTORY "${DYNEXP_DEPLOY_DIR}" COMMAND Qt::windeployqt ARGS --no-translations $<TARGET_FILE_NAME:DynExp>)
+			add_custom_command(TARGET DynExp POST_BUILD WORKING_DIRECTORY "${DYNEXP_DEPLOY_DIR}" COMMAND Qt::windeployqt ARGS --qmldir ${PROJECT_SOURCE_DIR} --no-translations $<TARGET_FILE_NAME:DynExp>)
 		endif()
 
 		# Fix bug regarding zlib in debug mode (depending on configuration, zlib1.dll is also required in debug mode).
@@ -347,7 +373,7 @@ if (WIN32)
 		add_custom_command(TARGET DynExp POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${Python3_RUNTIME_LIBRARY_RELEASE} "${DYNEXP_DEPLOY_DIR}")
 	else()
 		# Copy Qt DLLs to build folder
-		add_custom_command(TARGET DynExp POST_BUILD WORKING_DIRECTORY "${DYNEXP_DEPLOY_DIR}" COMMAND Qt::windeployqt ARGS --no-translations $<TARGET_FILE_NAME:DynExp>)
+		add_custom_command(TARGET DynExp POST_BUILD WORKING_DIRECTORY "${DYNEXP_DEPLOY_DIR}" COMMAND Qt::windeployqt ARGS --qmldir ${PROJECT_SOURCE_DIR} --no-translations $<TARGET_FILE_NAME:DynExp>)
 	endif()
 
 	# Install required DLLs. Must come last to avoid non-resolved runtime dependency errors.

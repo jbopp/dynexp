@@ -171,7 +171,7 @@ namespace DynExp
 
 		/**
 		 * @brief Map containing pointers to all users making use of this ObjectUserList instance's owner as keys
-		 * and the amount of their active registrations as values
+		 * and the number of their active registrations as values.
 		*/
 		std::unordered_map<const Object*, size_t> UserList;
 	};
@@ -3329,7 +3329,7 @@ namespace DynExp
 		 * @tparam IndexType Type of @p Index. Needs to be castable to @p size_t
 		 * @param Index Index of the entry in #Containers to return
 		 * @return Returns the element of #Containers at the position @p Index.
-		 * @throws Util::OutOfRangeException is thrown if @p Index exceeds the amount of list entries in #Containers.
+		 * @throws Util::OutOfRangeException is thrown if @p Index exceeds the number of list entries in #Containers.
 		*/
 		template <typename IndexType>
 		auto& operator[](IndexType Index)
@@ -3337,7 +3337,7 @@ namespace DynExp
 			auto i = Util::NumToT<size_t>(Index);
 
 			if (i >= Containers.size())
-				throw Util::OutOfRangeException("The specified object index is higher than the amount of linked objects.");
+				throw Util::OutOfRangeException("The specified object index is higher than the number of linked objects.");
 
 			return *Containers[i];
 		}

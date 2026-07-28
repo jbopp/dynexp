@@ -8,6 +8,7 @@
 #pragma once
 
 #include "stdafx.h"
+#include "QChartIncludes.h"
 #include "DynExpCore.h"
 
 #include <QWidget>

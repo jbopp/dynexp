@@ -119,7 +119,7 @@ namespace DynExpInstr
 			void Reset();
 
 			bool Enabled;								//!< Indicates whether a g^(2) measurement instead of timestamp readout is active.
-			long long EventCounts;						//!< Indicates the amount of time-tagged events used to calculate g^(2).
+			long long EventCounts;						//!< Indicates the number of time-tagged events used to calculate g^(2).
 			std::chrono::microseconds IntegrationTime;	//!< Indicates the duration for which the g^(2) measurement is running.
 
 			ResultVectorType ResultVector;				//!< Stores the g^(2)(t) samples.

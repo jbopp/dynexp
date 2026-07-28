@@ -102,7 +102,7 @@
 #include "Modules/NetworkTimeTaggerModule.h"
 #include "Modules/OutputPortWriter.h"
 #include "Modules/SignalDesigner.h"
-#include "Modules/SignalPlotter.h"
+#include "Modules/SignalPlotter/SignalPlotter.h"
 #include "Modules/SpectrumViewer/SpectrumViewer.h"
 #include "Modules/Stage1D.h"
 #include "Modules/StreamManipulator.h"
@@ -227,6 +227,9 @@ int main(int argc, char *argv[])
 		QApplication App(argc, argv);
 		QApplication::setApplicationName(DynExp::DynExpName);
 		QApplication::setApplicationVersion(DynExp::DynExpVersion);
+		
+		App.setStyle(QStyleFactory::create("Fusion"));
+		QQuickStyle::setStyle("Fusion");
 
 		// Turn off GSL error handler.
 		gsl_set_error_handler_off();

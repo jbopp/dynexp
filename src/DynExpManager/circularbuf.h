@@ -83,9 +83,9 @@ namespace Util
 
 	private:
 		/**
-		 * @brief Returns the amount of characters available to be read from the current get pointer
+		 * @brief Returns the number of characters available to be read from the current get pointer
 		 * position to the get area's end.
-		 * @return Amount of available characters
+		 * @return Number of available characters
 		*/
 		std::streamsize avail_get_count() const noexcept;
 

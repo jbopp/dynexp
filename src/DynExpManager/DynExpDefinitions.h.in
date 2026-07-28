@@ -101,6 +101,7 @@ namespace DynExpUI
 		const QColor green("lime");
 
 		QPalette GetPalette();
+
 		constexpr auto GetStyleSheet()
 		{
 			return "\
@@ -110,8 +111,47 @@ namespace DynExpUI
 		}
 	}
 
-	constexpr auto DefaultQChartTheme = QChart::ChartThemeDark;
-	constexpr auto DefaultQ3DTheme = Q3DTheme::ThemeStoneMoss;
+	/**
+	 * @brief Colors for plotting
+	*/
+	namespace PlotColors
+	{
+		/**
+		 * @brief Returns the plot color cycle list.
+		 * @return Each entry of the returned list represents a plot color.
+		*/
+		constexpr const std::vector<QColor>& GetColors()
+		{
+			static const std::vector<QColor> Colors {
+				QColor("#8DFF3F"),	// lime green
+				QColor("#00D7FF"),	// cyan
+				QColor("#FFB000"),	// orange
+				QColor("#B07CFF"),	// purple
+				QColor("#00C4A7"),	// teal
+				QColor("#FF69C6"),	// magenta
+				QColor("#4FA3FF"),	// sky blue
+				QColor("#FFD84D"),	// gold
+				QColor("#66E6A8"),	// mint
+				QColor("#D2A8FF")	// lavender
+			};
+
+			return Colors;
+		}
+
+		/**
+		 * @brief Returns the plot color from the cycle list to be assigned to the plot with index @p Index.
+		 * @param Index Plot index
+		 * @return Color from @p GetColors() corresponding to the given index. If @p Index exceeds the size
+		 * of the color cycle list, cycling through the list is repeated.
+		*/
+		constexpr QColor ColorFromIndex(size_t Index)
+		{
+			const auto& Colors = GetColors();
+
+			return Colors[Index % Colors.size()];
+		}
+	}
+
 	constexpr auto PushButtonDefaultStyleSheet = "border:none;";
 	constexpr auto StatusBarDefaultStyleSheet = "text-align:left center; padding-left:8px;";
 	constexpr auto StatusBarReadyStyleSheetBright = "color: black;";
@@ -132,12 +172,12 @@ namespace DynExpUI
 			+ "}QPushButton:hover{" + HoverStyle + "}";
 	}
 
-	static const auto PushButtonReadyStyleSheetBright = MakePushButtonStyleSheet(StatusBarReadyStyleSheetBright, StatusBarReadyStyleSheetHover);
-	static const auto PushButtonReadyStyleSheetDark = MakePushButtonStyleSheet(StatusBarReadyStyleSheetDark, StatusBarReadyStyleSheetHover);
-	static const auto PushButtonRunningStyleSheet = MakePushButtonStyleSheet(StatusBarRunningStyleSheet, StatusBarRunningStyleSheetHover);
-	static const auto PushButtonWarningStyleSheet = MakePushButtonStyleSheet(StatusBarWarningStyleSheet, StatusBarWarningStyleSheetHover);
-	static const auto PushButtonErrorStyleSheet = MakePushButtonStyleSheet(StatusBarErrorStyleSheet, StatusBarErrorStyleSheetHover);
-	static const auto PushButtonBusyStyleSheet = MakePushButtonStyleSheet(StatusBarBusyStyleSheet, StatusBarBusyStyleSheetHover);
+	inline const auto PushButtonReadyStyleSheetBright = MakePushButtonStyleSheet(StatusBarReadyStyleSheetBright, StatusBarReadyStyleSheetHover);
+	inline const auto PushButtonReadyStyleSheetDark = MakePushButtonStyleSheet(StatusBarReadyStyleSheetDark, StatusBarReadyStyleSheetHover);
+	inline const auto PushButtonRunningStyleSheet = MakePushButtonStyleSheet(StatusBarRunningStyleSheet, StatusBarRunningStyleSheetHover);
+	inline const auto PushButtonWarningStyleSheet = MakePushButtonStyleSheet(StatusBarWarningStyleSheet, StatusBarWarningStyleSheetHover);
+	inline const auto PushButtonErrorStyleSheet = MakePushButtonStyleSheet(StatusBarErrorStyleSheet, StatusBarErrorStyleSheetHover);
+	inline const auto PushButtonBusyStyleSheet = MakePushButtonStyleSheet(StatusBarBusyStyleSheet, StatusBarBusyStyleSheetHover);
 
 	QLinearGradient GetDefaultLinearGradient();
 }

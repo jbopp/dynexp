@@ -443,7 +443,7 @@ namespace DynExpHardware
 			auto Result = pl_set_param(PVCamHandle, PARAM_READOUT_PORT, &Port.first);
 			CheckError(Result);
 
-			// Query amount of available camera speed modes for the selected port.
+			// Query number of available camera speed modes for the selected port.
 			uns32 SpeedCount;
 			Result = pl_get_param(PVCamHandle, PARAM_SPDTAB_INDEX, ATTR_COUNT, &SpeedCount);
 			CheckError(Result);

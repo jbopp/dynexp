@@ -54,7 +54,7 @@ namespace DynExpInstr
 		///@}
 
 		/**
-		 * @brief Allows to calculate the ID of the last consumed sample based on the amount of samples consumed from the stream.
+		 * @brief Allows to calculate the ID of the last consumed sample based on the number of samples consumed from the stream.
 		 * @param NumConsumedSamples Number of samples consumed from @p Samples 
 		 * @return ID of the last consumed sample
 		*/

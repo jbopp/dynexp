@@ -1,3 +1,5 @@
+# This file is part of DynExp.
+
 target_sources(DynExpModules PRIVATE
 	"SpectrumViewer.cpp"
 	"SpectrumViewer.h"

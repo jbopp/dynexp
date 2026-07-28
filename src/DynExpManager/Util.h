@@ -951,7 +951,7 @@ namespace Util
 	 * @tparam ...Ts Data types of the columns
 	 * @param CSVData csv data to parse
 	 * @param Delimiter Delimiter character the csv data is separated with
-	 * @param SkipLines Amount of header lines (separated by '\\n') to skip at the beginning of @p CSVData
+	 * @param SkipLines Number of header lines (separated by '\\n') to skip at the beginning of @p CSVData
 	 * @return Vector of parsed csv data
 	*/
 	template <typename... Ts>
@@ -1299,7 +1299,7 @@ namespace Util
 
 		/**
 		 * @brief Constructs a FeatureTester instance with the Flags passed as an array being set
-		 * @tparam N Amount of flags contained in @p Flags. Automatically derived. Do not specify.
+		 * @tparam N Number of flags contained in @p Flags. Automatically derived. Do not specify.
 		 * @param Flags Flags to set
 		*/
 		template <size_t N>
@@ -1311,7 +1311,7 @@ namespace Util
 
 		/**
 		 * @brief Tests whether all of the flags passed as an array are set.
-		 * @tparam N Amount of flags contained in @p Flags. Automatically derived. Do not specify.
+		 * @tparam N Number of flags contained in @p Flags. Automatically derived. Do not specify.
 		 * @param Flags Flags Flags to check
 		 * @return Returns true if all flags contained in @p Flags are set, false otherwise.
 		*/
@@ -1354,7 +1354,7 @@ namespace Util
 	 * of the member function pointer type CallableT to be invoked by the state machine. 
 	 * @tparam CallableT Type of the state function associated with the state machine state.
 	 * The state function is expected to be a member function of the class also managing the state machine.
-	 * It can accept an arbitrary amount of arguments (such as a reference to DynExp::ModuleInstance).
+	 * It can accept an arbitrary number of arguments (such as a reference to DynExp::ModuleInstance).
 	 * Furthermore, it is expected to return a value of type @p StateEnumType as the identifier of the
 	 * next state machine state. @p StateEnumType is an enum class type of elements being identifiers
 	 * of all states associated with a state machine.

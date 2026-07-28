@@ -17,6 +17,7 @@ namespace DynExp
 	class EventListenersBase;
 	class InterModuleEventLibrary;
 	class QModuleBase;
+	class QMLModuleBase;
 
 	/**
 	 * @brief Pointer type to store a module (DynExp::ModuleBase) with
@@ -1764,8 +1765,9 @@ namespace DynExp
 		 * @tparam WidgetType Type derived from @p QModuleWidget to cast #Widget to.
 		 * @return Returns #Widget cast with @p dynamic_cast to @p WidgetType.
 		 * @throws Util::InvalidStateException is thrown if #Widget is @p nullptr since it has not been created yet.
+		 * @warning Accessing UI objects from another thread than the application's main thread is strongly forbidden!
 		*/
-		template <typename WidgetType>
+		template <typename WidgetType = QModuleWidget>
 		WidgetType* GetWidget() const;
 
 	private:
@@ -1851,14 +1853,174 @@ namespace DynExp
 	WidgetType* QModuleBase::GetWidget() const
 	{
 		// EnsureCallFromOwningThread(); considered here, but it also prohibits legitimate calls
-		// to thread-safe (probably const) member functions of the widget. Note, accessing the UI
-		// objects from another thread than the application's main thread is strongly forbidden!
+		// to thread-safe (probably const) member functions of the widget.
 
 		if (!Widget)
 			throw Util::InvalidStateException("UI widget has not been created yet.");
 
 		// Throws if it fails.
 		return &dynamic_cast<WidgetType&>(*Widget);
+	}
+
+	class QMLModuleWidget : public QModuleWidget
+	{
+	public:
+		/**
+		 * @brief Constructs a @p QMLModuleWidget instance.
+		 * @param SourceUri uri of the qml module to construct this widget from
+		 * @param SourceTypeName Type nname of the qml module to construct this widget from
+		 * @copydetails QModuleWidget::QModuleWidget
+		*/
+		QMLModuleWidget(QAnyStringView SourceUri, QAnyStringView SourceTypeName, QMLModuleBase& Owner, QWidget* Parent = nullptr);
+
+		~QMLModuleWidget() = default;
+
+		/**
+		 * @brief Getter for this QML module UI's root QML item.
+		 * @return Returns QML module UI's root object or @p nullptr if there is no root object.
+		*/
+		QObject* GetRootObject() const noexcept;
+
+		/**
+		 * @brief Getter for this QML module's UI backend. The backend is cached in #Backend.
+		 * @return Returns QML module's UI backend or @p nullptr if the backend is not set.
+		*/
+		QObject* GetBackend() const noexcept;
+
+		bool AllowResize() const noexcept override { return true; }
+
+	private:
+		QQuickView* QuickView;											//!< QQuick target displaying the UI
+		QWidget* QuickViewContainer;									//!< Widget containing #QuickView
+		mutable QObject* Backend = nullptr;								//!< Pointer to C++ backend synchronized with QML UI
+	};
+
+	/**
+	 * @brief Data class for @p QMLModuleBase.
+	*/
+	class QMLModuleDataBase : public QModuleDataBase
+	{
+	public:
+		QMLModuleDataBase() = default;
+		virtual ~QMLModuleDataBase() = default;
+
+	private:
+		void ResetImpl(dispatch_tag<QModuleDataBase>) override final;
+		virtual void ResetImpl(dispatch_tag<QMLModuleDataBase>) {};		//!< @copydoc ResetImpl(dispatch_tag<DynExp::ModuleDataBase>)
+	};
+
+	/**
+	 * @brief Parameter class for @p QMLModuleBase.
+	*/
+	class QMLModuleParamsBase : public QModuleParamsBase
+	{
+	public:
+		/**
+		 * @brief Constructs the parameters for a @p QMLModuleBase instance.
+		 * @copydetails ParamsBase::ParamsBase
+		*/
+		QMLModuleParamsBase(ItemIDType ID, const DynExpCore& Core)
+			: QModuleParamsBase(ID, Core) {}
+
+		virtual ~QMLModuleParamsBase() = 0;
+
+		virtual const char* GetParamClassTag() const noexcept override { return "QMLModuleParamsBase"; }
+
+	private:
+		void ConfigureParamsImpl(dispatch_tag<QModuleParamsBase>) override final { ConfigureParamsImpl(dispatch_tag<QMLModuleParamsBase>()); }
+		virtual void ConfigureParamsImpl(dispatch_tag<QMLModuleParamsBase>) {}	//!< @copydoc ConfigureParamsImpl(dispatch_tag<DynExp::ModuleParamsBase>)
+
+		DummyParam Dummy = { *this };											//!< @copydoc DynExp::ParamsBase::DummyParam
+	};
+
+	/**
+	 * @brief Configurator class for @p QMLModuleBase
+	*/
+	class QMLModuleConfiguratorBase : public QModuleConfiguratorBase
+	{
+	public:
+		using ObjectType = QMLModuleBase;
+		using ParamsType = QMLModuleParamsBase;
+
+		QMLModuleConfiguratorBase() = default;
+		virtual ~QMLModuleConfiguratorBase() = 0;
+	};
+
+	/**
+	 * @brief Base class for modules with a QML-based user interface.
+	 * Derive from this class to implement modules with a QML user interface.
+	*/
+	class QMLModuleBase : public QModuleBase
+	{
+	public:
+		using ParamsType = QMLModuleParamsBase;									//!< @copydoc Object::ParamsType
+		using ConfigType = QMLModuleConfiguratorBase;							//!< @copydoc Object::ConfigType
+		using ModuleDataType = QMLModuleDataBase;								//!< @copydoc ModuleBase::ModuleDataType
+
+		/**
+		 * @brief Constructs a @p QMLModuleBase instance.
+		 * @copydetails ModuleBase::ModuleBase
+		*/
+		QMLModuleBase(const std::thread::id OwnerThreadID, DynExp::ParamsBasePtrType&& Params);
+
+		virtual ~QMLModuleBase() = 0;
+
+	protected:
+		/**
+		 * @brief Getter for QML module's UI backend.
+		 * @tparam BackendType Type of QML module's UI backend.
+		 * @return Returns QML module's UI backend cast with @p dynamic_cast to @p BackendType.
+		 * @throws Util::InvalidStateException is thrown if QModuleBase::Widget is @p nullptr since it has not been created yet
+		 * or if the QML module's UI backend is not set.
+		 * @warning This functions must be called by the thread owning this @p Object instance only.
+		 * Accessing UI objects from another thread than the application's main thread is strongly forbidden!
+		*/
+		template <typename BackendType>
+		BackendType* GetBackend() const;
+
+	private:
+		void ResetImpl(dispatch_tag<QModuleBase>) override final;
+		virtual void ResetImpl(dispatch_tag<QMLModuleBase>) = 0;	//!< @copydoc ResetImpl(dispatch_tag<DynExp::ModuleBase>)
+
+		std::unique_ptr<QModuleWidget> MakeUIWidget() override final;
+
+		/** @name Override
+		 * Override by derived classes.
+		*/
+		///@{
+
+		/**
+		 * @brief Use QModuleBase::Connect() to connect Qt QML signals to the module's event functions.
+		 * @param Backend Pointer to QML module's UI backend.
+		*/
+		virtual void MakeConnections(QObject* Backend) {}
+
+		/**
+		 * @brief Used by QModuleBase::MakeUIWidget to construct the module's user interface
+		 * QML widget.
+		 * @return Return the uri of the qml module to construct the widget from.
+		*/
+		virtual QAnyStringView GetModuleSourceUri() const noexcept = 0;
+
+		/**
+		 * @brief Used by QModuleBase::MakeUIWidget to construct the module's user interface
+		 * QML widget.
+		 * @return Return the type name of the qml module to construct the widget from.
+		*/
+		virtual QAnyStringView GetModuleSourceTypeName() const noexcept = 0;
+		///@}
+	};
+
+	template <typename BackendType>
+	BackendType* QMLModuleBase::GetBackend() const
+	{
+		EnsureCallFromOwningThread();
+
+		auto Backend = GetWidget<QMLModuleWidget>()->GetBackend();
+		if (!Backend)
+			throw Util::InvalidStateException("QML module's UI backend has not been set.");
+
+		return &dynamic_cast<BackendType&>(*Backend);
 	}
 }
 

@@ -66,7 +66,7 @@ namespace DynExp
 
 	protected:
 		CommonResourceManagerBase() = default;
-		~CommonResourceManagerBase() = default;
+		virtual ~CommonResourceManagerBase() = default;
 
 		/**
 		 * @brief Getter for the thread id of the thread which constructed (and owns) @p Core.
@@ -133,7 +133,7 @@ namespace DynExp
 		ItemIDType GetNextID() const noexcept { return CurrentID; }
 
 		/**
-		 * @brief Determines the amount of resources stored in this resource manager.
+		 * @brief Determines the number of resources stored in this resource manager.
 		 * @return Returns the size of #Map. 
 		*/
 		const auto GetNumResources() const noexcept { return Map.size(); }
@@ -664,7 +664,7 @@ namespace DynExp
 		/**
 		 * @brief Counts the instruments managed by this resource manager which are
 		 * running (as determined by RunnableObject::IsRunning()).
-		 * @return Returns the amount of owned running instruments.
+		 * @return Returns the number of owned running instruments.
 		*/
 		size_t GetNumRunningInstruments() const;
 
@@ -707,7 +707,7 @@ namespace DynExp
 		/**
 		 * @brief Counts the modules managed by this resource manager which are
 		 * running (as determined by RunnableObject::IsRunning()).
-		 * @return Returns the amount of owned running modules.
+		 * @return Returns the number of owned running modules.
 		*/
 		size_t GetNumRunningModules() const;
 

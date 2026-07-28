@@ -17,8 +17,6 @@ DynExpManager::DynExpManager(DynExp::DynExpCore& DynExpCore, QWidget* parent)
 	ItemTreeHardwareAdapters(nullptr), ItemTreeInstruments(nullptr), ItemTreeModules(nullptr),
 	StatusBar(this), IsResetting(false), ShouldRedrawCircuitDiagram(true), ShouldUpdateCircuitDiagram(false)
 {
-	qApp->setStyle(QStyleFactory::create("Fusion"));
-
 	ui->setupUi(this);
 
 	// Item Libraries

@@ -70,7 +70,7 @@ namespace DynExpHardware
 		virtual const char* GetParamClassTag() const noexcept override { return "NIDAQHardwareAdapterParams"; }
 
 		DynExp::ParamsBase::Param<ChannelModeType> ChannelMode = { *this, ChannelModeTypeStrList(), "ChannelMode", "Channel mode",
-			"If timing is configured for multiple channels (stream size > 1 sample), they have to be combined into a number of NI-DAQmx tasks limited by the amount of the respective device's clocks.",
+			"If timing is configured for multiple channels (stream size > 1 sample), they have to be combined into a number of NI-DAQmx tasks limited by the number of the respective device's clocks.",
 			true, ChannelModeType::TaskPerChannel };
 
 		DynExpInstr::StreamSizeParamsExtension StreamSizeParams;
