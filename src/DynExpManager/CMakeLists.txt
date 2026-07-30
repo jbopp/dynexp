@@ -23,7 +23,7 @@ set(CMAKE_AUTOUIC ON)
 
 # Project configuration
 project("DynExp")
-set(PROJECT_VERSION 1.1.0)
+set(PROJECT_VERSION 1.2.0)
 
 # Add DynExp's targets
 add_library(DynExpConfig INTERFACE)
