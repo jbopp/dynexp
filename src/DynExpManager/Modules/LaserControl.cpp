@@ -45,13 +45,6 @@ namespace DynExpModule
 
 	void LaserControlWidget::UpdateUI(Util::SynchronizedPointer<LaserControlData>& ModuleData)
 	{
-		ui->action_Enable->setEnabled(ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::Ready ||
-			ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::EmissionEnabledConstant ||
-			ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::EmissionEnabledScanning);
-		ui->action_Scan->setEnabled(ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::Ready ||
-			ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::EmissionEnabledConstant ||
-			ModuleData->LaserState == DynExpInstr::LaserData::LaserStateType::EmissionEnabledScanning);
-
 		if (std::isnan(ModuleData->CurrentFrequency))
 		{
 			ui->LActualFrequency->setText("Output unstable");

@@ -67,6 +67,10 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		auto& GetWFCommunicator() { return WFCommunicator; }
 		auto& GetLaser() { return Laser; }
 
+		std::string_view GetUIMessage() const noexcept { return UIMessage; }
+		void SetInvalidStartupStateMessage() { UIMessage = "Laser can not be in Startup state during data capturing."; }
+		void ClearUIMessage() { UIMessage = ""; }
+
 		bool IsStepwiseScan;
 		double LowerFrequencyLimit;
 		double UpperFrequencyLimit;
@@ -97,6 +101,8 @@ namespace DynExpModule::LaserScanningSpectroscopy
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::Laser> Laser;
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> PLECommunicator;
 		DynExp::LinkedObjectWrapperContainer<DynExpInstr::InterModuleCommunicator> WFCommunicator;
+
+		std::string UIMessage;
 	};
 
 	class LaserScanningSpectroscopyParams : public DynExp::QModuleParamsBase
