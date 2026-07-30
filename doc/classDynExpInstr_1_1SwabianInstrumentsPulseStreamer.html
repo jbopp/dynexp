@@ -259,9 +259,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acb56e2665b5ac5aa64a6ed7887c17d8c" id="r_acb56e2665b5ac5aa64a6ed7887c17d8c"><td class="memItemLeft" align="right" valign="top">virtual std::chrono::milliseconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#acb56e2665b5ac5aa64a6ed7887c17d8c">GetTaskQueueDelay</a> () const override</td></tr>
 <tr class="memdesc:acb56e2665b5ac5aa64a6ed7887c17d8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies in which time intervals the instrument's task queue runs to handle pending tasks.  <br /></td></tr>
 <tr class="separator:acb56e2665b5ac5aa64a6ed7887c17d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abce2302500500fd167ed48b99beb601c" id="r_abce2302500500fd167ed48b99beb601c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330">DataStreamInstrumentData::UnitType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#abce2302500500fd167ed48b99beb601c">GetValueUnit</a> () const noexcept override</td></tr>
-<tr class="memdesc:abce2302500500fd167ed48b99beb601c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines which unit corresponds to the values managed by this <code><a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html" title="Implementation of the data stream meta instrument, which is a base class for all instruments reading/...">DataStreamInstrument</a></code> instance. Do not enforce <code>noexcept</code> to allow overriding functions which throw exceptions.  <br /></td></tr>
-<tr class="separator:abce2302500500fd167ed48b99beb601c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adae7147bc5b31dc969e84c494ca9d422" id="r_adae7147bc5b31dc969e84c494ca9d422"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespaceDynExp_1_1Units.html#a31646c74e14969210d5674e7cf74b8eb">DynExp::Units::UnitType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#adae7147bc5b31dc969e84c494ca9d422">GetValueUnit</a> () const noexcept override</td></tr>
+<tr class="memdesc:adae7147bc5b31dc969e84c494ca9d422"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines which unit corresponds to the values managed by this <code><a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html" title="Implementation of the data stream meta instrument, which is a base class for all instruments reading/...">DataStreamInstrument</a></code> instance. Do not enforce <code>noexcept</code> to allow overriding functions which throw exceptions.  <br /></td></tr>
+<tr class="separator:adae7147bc5b31dc969e84c494ca9d422"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acce75d4e98d3d32ae886bc8dd93d2994" id="r_acce75d4e98d3d32ae886bc8dd93d2994"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#acce75d4e98d3d32ae886bc8dd93d2994">WriteData</a> (<a class="el" href="classDynExp_1_1TaskBase_1_1CallbackType.html">DynExp::TaskBase::CallbackType</a> CallbackFunc) const override</td></tr>
 <tr class="memdesc:acce75d4e98d3d32ae886bc8dd93d2994"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueues a task to write data from the data stream to the hardware.  <br /></td></tr>
 <tr class="separator:acce75d4e98d3d32ae886bc8dd93d2994"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -530,6 +530,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object" id="r_af55298b0589b9239ff3076d540c97449"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#af55298b0589b9239ff3076d540c97449">CategoryAndNameToStr</a> (const std::string &amp;Category, const std::string &amp;Name)</td></tr>
 <tr class="memdesc:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string from an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> category and name to allow the user to identify an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> type.  <br /></td></tr>
 <tr class="separator:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object" id="r_acaf8f71896eb782a22155311c10a799a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#acaf8f71896eb782a22155311c10a799a">RemoveCategoryAndName</a> (const std::string &amp;ObjectDesc)</td></tr>
+<tr class="memdesc:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the category and name part built by <a class="el" href="classDynExp_1_1Object.html#af55298b0589b9239ff3076d540c97449" title="Builds a string from an Object&#39;s category and name to allow the user to identify an Object&#39;s type.">Object::CategoryAndNameToStr()</a> from the string <code>ObjectDesc</code> constructed by <a class="el" href="classDynExp_1_1LinkedObjectWrapper.html#a8aae6a3a96ddb6671a223da80c150dc8" title="Builds and returns a human-readable string uniquely identifying the Object instance DestinyResource....">LinkedObjectWrapper::GetLinkedObjectDesc()</a>.  <br /></td></tr>
+<tr class="separator:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -1072,8 +1075,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="abce2302500500fd167ed48b99beb601c" name="abce2302500500fd167ed48b99beb601c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abce2302500500fd167ed48b99beb601c">&#9670;&#160;</a></span>GetValueUnit()</h2>
+<a id="adae7147bc5b31dc969e84c494ca9d422" name="adae7147bc5b31dc969e84c494ca9d422"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adae7147bc5b31dc969e84c494ca9d422">&#9670;&#160;</a></span>GetValueUnit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1082,7 +1085,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330">DataStreamInstrumentData::UnitType</a> DynExpInstr::SwabianInstrumentsPulseStreamer::GetValueUnit </td>
+          <td class="memname"><a class="el" href="namespaceDynExp_1_1Units.html#a31646c74e14969210d5674e7cf74b8eb">DynExp::Units::UnitType</a> DynExpInstr::SwabianInstrumentsPulseStreamer::GetValueUnit </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1098,7 +1101,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Determines which unit corresponds to the values managed by this <code><a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html" title="Implementation of the data stream meta instrument, which is a base class for all instruments reading/...">DataStreamInstrument</a></code> instance. Do not enforce <code>noexcept</code> to allow overriding functions which throw exceptions. </p>
 <dl class="section return"><dt>Returns</dt><dd>Unit of values in the instrument's data stream </dd></dl>
 
-<p>Implements <a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#a893b4bf8036fb748c43ec8b6e044f14e">DynExpInstr::DataStreamInstrument</a>.</p>
+<p>Implements <a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#a90dc29f7e71814a80d02aaa3a01fe100">DynExpInstr::DataStreamInstrument</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="SwabianInstrumentsPulseStreamer_8cpp_source.html#l00219">219</a> of file <a class="el" href="SwabianInstrumentsPulseStreamer_8cpp_source.html">SwabianInstrumentsPulseStreamer.cpp</a>.</p>
 

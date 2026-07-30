@@ -221,12 +221,12 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Override (instrument information)</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Override by derived classes to provide information about the instrument. </p>
 </div></td></tr>
-<tr class="memitem:ad15761274f53a923edc77648789b8052" id="r_ad15761274f53a923edc77648789b8052"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classDynExpInstr_1_1LaserData.html#a2b85bb4211dba740da5e22459bb347d4">LaserData::FrequencyUnitType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1Laser.html#ad15761274f53a923edc77648789b8052">GetFrequencyUnit</a> () const =0</td></tr>
-<tr class="memdesc:ad15761274f53a923edc77648789b8052"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the frequency unit.  <br /></td></tr>
-<tr class="separator:ad15761274f53a923edc77648789b8052"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99233f1e8beccfd01e3546c4eda5cf8c" id="r_a99233f1e8beccfd01e3546c4eda5cf8c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classDynExpInstr_1_1LaserData.html#a9e594439d3169c3a1fafd455ffe61e2f">LaserData::IntensityUnitType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1Laser.html#a99233f1e8beccfd01e3546c4eda5cf8c">GetIntensityUnit</a> () const =0</td></tr>
-<tr class="memdesc:a99233f1e8beccfd01e3546c4eda5cf8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the intensity unit.  <br /></td></tr>
-<tr class="separator:a99233f1e8beccfd01e3546c4eda5cf8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6455be91fe569ff30e17795f4d00f201" id="r_a6455be91fe569ff30e17795f4d00f201"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespaceDynExp_1_1Units.html#a31646c74e14969210d5674e7cf74b8eb">DynExp::Units::UnitType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1Laser.html#a6455be91fe569ff30e17795f4d00f201">GetFrequencyUnit</a> () const =0</td></tr>
+<tr class="memdesc:a6455be91fe569ff30e17795f4d00f201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the frequency unit.  <br /></td></tr>
+<tr class="separator:a6455be91fe569ff30e17795f4d00f201"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7108bce8641c7454805d5385a94cab73" id="r_a7108bce8641c7454805d5385a94cab73"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespaceDynExp_1_1Units.html#a31646c74e14969210d5674e7cf74b8eb">DynExp::Units::UnitType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1Laser.html#a7108bce8641c7454805d5385a94cab73">GetIntensityUnit</a> () const =0</td></tr>
+<tr class="memdesc:a7108bce8641c7454805d5385a94cab73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the intensity unit.  <br /></td></tr>
+<tr class="separator:a7108bce8641c7454805d5385a94cab73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ab2749767ee2e12c93b62f2581b22ad" id="r_a7ab2749767ee2e12c93b62f2581b22ad"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1Laser.html#a7ab2749767ee2e12c93b62f2581b22ad">GetMinFrequency</a> () const</td></tr>
 <tr class="memdesc:a7ab2749767ee2e12c93b62f2581b22ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the minimal emission frequency. The default implementation returns <code><a class="el" href="classDynExpInstr_1_1Laser.html#aadeb469f0d99e28b25cc09442ef322ce" title="Determines the maximal emission frequency.">GetMaxFrequency()</a></code> which indicates that the laser does not support frequency tuning.  <br /></td></tr>
 <tr class="separator:a7ab2749767ee2e12c93b62f2581b22ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -425,6 +425,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object" id="r_af55298b0589b9239ff3076d540c97449"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#af55298b0589b9239ff3076d540c97449">CategoryAndNameToStr</a> (const std::string &amp;Category, const std::string &amp;Name)</td></tr>
 <tr class="memdesc:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string from an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> category and name to allow the user to identify an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> type.  <br /></td></tr>
 <tr class="separator:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object" id="r_acaf8f71896eb782a22155311c10a799a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#acaf8f71896eb782a22155311c10a799a">RemoveCategoryAndName</a> (const std::string &amp;ObjectDesc)</td></tr>
+<tr class="memdesc:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the category and name part built by <a class="el" href="classDynExp_1_1Object.html#af55298b0589b9239ff3076d540c97449" title="Builds a string from an Object&#39;s category and name to allow the user to identify an Object&#39;s type.">Object::CategoryAndNameToStr()</a> from the string <code>ObjectDesc</code> constructed by <a class="el" href="classDynExp_1_1LinkedObjectWrapper.html#a8aae6a3a96ddb6671a223da80c150dc8" title="Builds and returns a human-readable string uniquely identifying the Object instance DestinyResource....">LinkedObjectWrapper::GetLinkedObjectDesc()</a>.  <br /></td></tr>
+<tr class="separator:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -535,7 +538,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Meta instrument for a laser. </p>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00188">188</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00153">153</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a1022e036537172f36df479a80ca8b1c7" name="a1022e036537172f36df479a80ca8b1c7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1022e036537172f36df479a80ca8b1c7">&#9670;&#160;</a></span>ConfigType</h2>
@@ -551,7 +554,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Type of the configurator class belonging to this <code>Object</code> type. Declare this alias in every derived class with the respective configurator class accompanying the derived <code>Object</code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00192">192</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00157">157</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
 
 </div>
 </div>
@@ -569,7 +572,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Defines a task for deinitializing an instrument within an instrument inheritance hierarchy. Each instrument (indirectly) derived from class <code>InstrumentBase</code> must be accompanied by a deinitialization task class derived from <code>ExitTaskBase</code>. Even if the task does not do anything, at least it has to call ExitTaskBase::ExitFuncImpl() of the derived instrument's deinitialization task class.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00200">200</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00165">165</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
 
 </div>
 </div>
@@ -588,7 +591,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Defines a task for initializing an instrument within an instrument inheritance hierarchy. Each instrument (indirectly) derived from class <code>InstrumentBase</code> must be accompanied by an initialization task class derived from <code>InitTaskBase</code>. Even if the task does not do anything, at least it has to call InitTaskBase::InitFuncImpl() of the derived instrument's initialization task class.   </p>
 <p>"  </p>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00199">199</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00164">164</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
 
 </div>
 </div>
@@ -606,7 +609,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Type of the data class belonging to this <code>InstrumentBase</code> type. Declare this alias in every derived class with the respective data class accompanying the derived <code>InstrumentBase</code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00193">193</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00158">158</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
 
 </div>
 </div>
@@ -625,7 +628,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Type of the parameter class belonging to this <code>Object</code> type. Declare this alias in every derived class with the respective parameter class accompanying the derived <code>Object</code>. "  </p>
 <p>"  </p>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00191">191</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00156">156</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
 
 </div>
 </div>
@@ -643,7 +646,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Defines a task for updating an instrument within an instrument inheritance hierarchy. Each instrument (indirectly) derived from class <code>InstrumentBase</code> must be accompanied by an update task class derived from <code>UpdateTaskBase</code>. Even if the task does not do anything, at least it has to call UpdateTaskBase::UpdateFuncImpl() of the derived instrument's update task class.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00201">201</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00166">166</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
 
 </div>
 </div>
@@ -698,7 +701,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00210">210</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00175">175</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
 
 </div>
 </div>
@@ -725,7 +728,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Laser_8cpp_source.html#l00045">45</a> of file <a class="el" href="Laser_8cpp_source.html">Laser.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8cpp_source.html#l00026">26</a> of file <a class="el" href="Laser_8cpp_source.html">Laser.cpp</a>.</p>
 
 </div>
 </div>
@@ -756,7 +759,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Every derived class has to redefine this function.   </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the category of this instrument type.   </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00205">205</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00170">170</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
 
 </div>
 </div>
@@ -836,7 +839,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NetworkLaser.html#a58e69c9bee767d267d10fed696330e1c">DynExpInstr::NetworkLaser</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8cpp_source.html#l00054">54</a> of file <a class="el" href="Laser_8cpp_source.html">Laser.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8cpp_source.html#l00035">35</a> of file <a class="el" href="Laser_8cpp_source.html">Laser.cpp</a>.</p>
 
 </div>
 </div>
@@ -905,12 +908,12 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a6ee87dcf3ed17651d0e5c392499bd10a">DynExpInstr::gRPCInstrument&lt; Laser, 0, DynExpProto::NetworkLaser::NetworkLaser &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00216">216</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00181">181</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
 
 </div>
 </div>
-<a id="ad15761274f53a923edc77648789b8052" name="ad15761274f53a923edc77648789b8052"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad15761274f53a923edc77648789b8052">&#9670;&#160;</a></span>GetFrequencyUnit()</h2>
+<a id="a6455be91fe569ff30e17795f4d00f201" name="a6455be91fe569ff30e17795f4d00f201"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6455be91fe569ff30e17795f4d00f201">&#9670;&#160;</a></span>GetFrequencyUnit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -919,7 +922,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classDynExpInstr_1_1LaserData.html#a2b85bb4211dba740da5e22459bb347d4">LaserData::FrequencyUnitType</a> DynExpInstr::Laser::GetFrequencyUnit </td>
+          <td class="memname">virtual <a class="el" href="namespaceDynExp_1_1Units.html#a31646c74e14969210d5674e7cf74b8eb">DynExp::Units::UnitType</a> DynExpInstr::Laser::GetFrequencyUnit </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -935,12 +938,12 @@ Additional Inherited Members</h2></td></tr>
 <p>Determines the frequency unit. </p>
 <dl class="section return"><dt>Returns</dt><dd>Frequency unit </dd></dl>
 
-<p>Implemented in <a class="el" href="classDynExpInstr_1_1NetworkLaser.html#a22187ba9115fcc477143fd6a6263008a">DynExpInstr::NetworkLaser</a>.</p>
+<p>Implemented in <a class="el" href="classDynExpInstr_1_1NetworkLaser.html#a785d84b8a17449a1c17ee1b94a358c2f">DynExpInstr::NetworkLaser</a>.</p>
 
 </div>
 </div>
-<a id="a99233f1e8beccfd01e3546c4eda5cf8c" name="a99233f1e8beccfd01e3546c4eda5cf8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99233f1e8beccfd01e3546c4eda5cf8c">&#9670;&#160;</a></span>GetIntensityUnit()</h2>
+<a id="a7108bce8641c7454805d5385a94cab73" name="a7108bce8641c7454805d5385a94cab73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7108bce8641c7454805d5385a94cab73">&#9670;&#160;</a></span>GetIntensityUnit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -949,7 +952,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classDynExpInstr_1_1LaserData.html#a9e594439d3169c3a1fafd455ffe61e2f">LaserData::IntensityUnitType</a> DynExpInstr::Laser::GetIntensityUnit </td>
+          <td class="memname">virtual <a class="el" href="namespaceDynExp_1_1Units.html#a31646c74e14969210d5674e7cf74b8eb">DynExp::Units::UnitType</a> DynExpInstr::Laser::GetIntensityUnit </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -965,7 +968,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Determines the intensity unit. </p>
 <dl class="section return"><dt>Returns</dt><dd>Intensity unit </dd></dl>
 
-<p>Implemented in <a class="el" href="classDynExpInstr_1_1NetworkLaser.html#aba9e29d9198ec77cd5aac84170031afc">DynExpInstr::NetworkLaser</a>.</p>
+<p>Implemented in <a class="el" href="classDynExpInstr_1_1NetworkLaser.html#a2228f4ea30ef18530c56c8133f183a40">DynExpInstr::NetworkLaser</a>.</p>
 
 </div>
 </div>
@@ -993,7 +996,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Determines the maximal emission frequency. </p>
-<dl class="section return"><dt>Returns</dt><dd>Maximal emission frequency in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#ad15761274f53a923edc77648789b8052" title="Determines the frequency unit.">GetFrequencyUnit()</a></code>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Maximal emission frequency in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#a6455be91fe569ff30e17795f4d00f201" title="Determines the frequency unit.">GetFrequencyUnit()</a></code>. </dd></dl>
 
 <p>Implemented in <a class="el" href="classDynExpInstr_1_1NetworkLaser.html#ae4acefb8af32d928f5bd3a22677428de">DynExpInstr::NetworkLaser</a>.</p>
 
@@ -1023,7 +1026,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Determines the maximal emission intensity. </p>
-<dl class="section return"><dt>Returns</dt><dd>Maximal emission intensity in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#a99233f1e8beccfd01e3546c4eda5cf8c" title="Determines the intensity unit.">GetIntensityUnit()</a></code>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Maximal emission intensity in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#a7108bce8641c7454805d5385a94cab73" title="Determines the intensity unit.">GetIntensityUnit()</a></code>. </dd></dl>
 
 <p>Implemented in <a class="el" href="classDynExpInstr_1_1NetworkLaser.html#accbb07f0b9a0075046639c399381cc3f">DynExpInstr::NetworkLaser</a>.</p>
 
@@ -1053,11 +1056,11 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Determines the maximal frequency scan range. The default implementation returns 0.0, indicating that the laser does not support scanning. </p>
-<dl class="section return"><dt>Returns</dt><dd>Maximal scan range in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#ad15761274f53a923edc77648789b8052" title="Determines the frequency unit.">GetFrequencyUnit()</a></code>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Maximal scan range in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#a6455be91fe569ff30e17795f4d00f201" title="Determines the frequency unit.">GetFrequencyUnit()</a></code>. </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NetworkLaser.html#a3d066d1ac9cfe4be842bbe29f861152c">DynExpInstr::NetworkLaser</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00274">274</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00239">239</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
 
 </div>
 </div>
@@ -1085,11 +1088,11 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Determines the maximal frequency scan rate. The default implementation returns 0.0, indicating that the laser does not support scanning. </p>
-<dl class="section return"><dt>Returns</dt><dd>Maximal scan rate in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#ad15761274f53a923edc77648789b8052" title="Determines the frequency unit.">GetFrequencyUnit()</a></code> per second. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Maximal scan rate in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#a6455be91fe569ff30e17795f4d00f201" title="Determines the frequency unit.">GetFrequencyUnit()</a></code> per second. </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NetworkLaser.html#a5c5622a0fa97b2afd733c1ecbb0401ad">DynExpInstr::NetworkLaser</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00288">288</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00253">253</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
 
 </div>
 </div>
@@ -1117,11 +1120,11 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Determines the minimal emission frequency. The default implementation returns <code><a class="el" href="classDynExpInstr_1_1Laser.html#aadeb469f0d99e28b25cc09442ef322ce" title="Determines the maximal emission frequency.">GetMaxFrequency()</a></code> which indicates that the laser does not support frequency tuning. </p>
-<dl class="section return"><dt>Returns</dt><dd>Minimal emission frequency in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#ad15761274f53a923edc77648789b8052" title="Determines the frequency unit.">GetFrequencyUnit()</a></code>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Minimal emission frequency in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#a6455be91fe569ff30e17795f4d00f201" title="Determines the frequency unit.">GetFrequencyUnit()</a></code>. </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NetworkLaser.html#a2108b2bc0656d06b576f3260453bf860">DynExpInstr::NetworkLaser</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00241">241</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00206">206</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
 
 </div>
 </div>
@@ -1149,11 +1152,11 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Determines the minimal emission intensity. The default implementation returns <code><a class="el" href="classDynExpInstr_1_1Laser.html#a1e667babdae273c3aa50fe4e0767bbd7" title="Determines the maximal emission intensity.">GetMaxIntensity()</a></code> which indicates that the laser does not support intensity adjustment. </p>
-<dl class="section return"><dt>Returns</dt><dd>Minimal emission intensity in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#a99233f1e8beccfd01e3546c4eda5cf8c" title="Determines the intensity unit.">GetIntensityUnit()</a></code>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Minimal emission intensity in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#a7108bce8641c7454805d5385a94cab73" title="Determines the intensity unit.">GetIntensityUnit()</a></code>. </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NetworkLaser.html#ac9d859676471c2074ee8e2af06d8bc1d">DynExpInstr::NetworkLaser</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00254">254</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00219">219</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
 
 </div>
 </div>
@@ -1181,11 +1184,11 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Determines the minimal frequency scan range. The default implementation returns 0.0, indicating that the laser does not support scanning. </p>
-<dl class="section return"><dt>Returns</dt><dd>Minimal scan range in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#ad15761274f53a923edc77648789b8052" title="Determines the frequency unit.">GetFrequencyUnit()</a></code>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Minimal scan range in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#a6455be91fe569ff30e17795f4d00f201" title="Determines the frequency unit.">GetFrequencyUnit()</a></code>. </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NetworkLaser.html#a809241402451cdcbf58f644d66089072">DynExpInstr::NetworkLaser</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00267">267</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00232">232</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
 
 </div>
 </div>
@@ -1213,11 +1216,11 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Determines the minimal frequency scan rate. The default implementation returns 0.0, indicating that the laser does not support scanning. </p>
-<dl class="section return"><dt>Returns</dt><dd>Minimal scan rate in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#ad15761274f53a923edc77648789b8052" title="Determines the frequency unit.">GetFrequencyUnit()</a></code> per second. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Minimal scan rate in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#a6455be91fe569ff30e17795f4d00f201" title="Determines the frequency unit.">GetFrequencyUnit()</a></code> per second. </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NetworkLaser.html#a191a4ded8cfaa8657cbf32486222f2df">DynExpInstr::NetworkLaser</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00281">281</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00246">246</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
 
 </div>
 </div>
@@ -1245,11 +1248,11 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Determines the mode hop free tuning range. The default implementation returns 0.0, indicating that the laser does not support frequency tuning. </p>
-<dl class="section return"><dt>Returns</dt><dd>Mode hop free tuning range in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#ad15761274f53a923edc77648789b8052" title="Determines the frequency unit.">GetFrequencyUnit()</a></code>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Mode hop free tuning range in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#a6455be91fe569ff30e17795f4d00f201" title="Determines the frequency unit.">GetFrequencyUnit()</a></code>. </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NetworkLaser.html#ac9aa4e6a094b23cb1a0b86048dd8e8d7">DynExpInstr::NetworkLaser</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00295">295</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00260">260</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
 
 </div>
 </div>
@@ -1282,7 +1285,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NetworkLaser.html#a74cb4e39d3f57f26234e4e096508e49c">DynExpInstr::NetworkLaser</a>, and <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#aa3add60d4ed9f1412dc9ff8e1fbfc7b6">DynExpInstr::gRPCInstrument&lt; Laser, 0, DynExpProto::NetworkLaser::NetworkLaser &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00215">215</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00180">180</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
 
 </div>
 </div>
@@ -1314,7 +1317,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1InstrumentBase.html#a7a6bf7866631c2f3879efaced4c7e21b">DynExp::InstrumentBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00218">218</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00183">183</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
 
 </div>
 </div>
@@ -1344,7 +1347,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Every derived class has to redefine this function.   </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the name of this DynExp object type.   </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00204">204</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8h_source.html#l00169">169</a> of file <a class="el" href="Laser_8h_source.html">Laser.h</a>.</p>
 
 </div>
 </div>
@@ -1372,7 +1375,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Laser_8cpp_source.html#l00059">59</a> of file <a class="el" href="Laser_8cpp_source.html">Laser.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8cpp_source.html#l00040">40</a> of file <a class="el" href="Laser_8cpp_source.html">Laser.cpp</a>.</p>
 
 </div>
 </div>
@@ -1446,7 +1449,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NetworkLaser.html#a77bd41b2b74dc8c30e5f51b3d773da60">DynExpInstr::NetworkLaser</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Laser_8cpp_source.html#l00049">49</a> of file <a class="el" href="Laser_8cpp_source.html">Laser.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Laser_8cpp_source.html#l00030">30</a> of file <a class="el" href="Laser_8cpp_source.html">Laser.cpp</a>.</p>
 
 </div>
 </div>
@@ -1487,7 +1490,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Sets the laser's emission frequency. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Frequency</td><td>Emission frequency in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#ad15761274f53a923edc77648789b8052" title="Determines the frequency unit.">GetFrequencyUnit()</a></code> </td></tr>
+    <tr><td class="paramname">Frequency</td><td>Emission frequency in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#a6455be91fe569ff30e17795f4d00f201" title="Determines the frequency unit.">GetFrequencyUnit()</a></code> </td></tr>
     <tr><td class="paramname">CallbackFunc</td><td>This callback function is called after the task has finished (either successfully or not) with a pointer to the current task and with a reference to the exception which occurred during the task execution (if an exception has occurred).   </td></tr>
   </table>
   </dd>
@@ -1534,7 +1537,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Sets the laser's output intensity. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Intensity</td><td>Output intensity in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#a99233f1e8beccfd01e3546c4eda5cf8c" title="Determines the intensity unit.">GetIntensityUnit()</a></code> </td></tr>
+    <tr><td class="paramname">Intensity</td><td>Output intensity in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#a7108bce8641c7454805d5385a94cab73" title="Determines the intensity unit.">GetIntensityUnit()</a></code> </td></tr>
     <tr><td class="paramname">CallbackFunc</td><td>This callback function is called after the task has finished (either successfully or not) with a pointer to the current task and with a reference to the exception which occurred during the task execution (if an exception has occurred).   </td></tr>
   </table>
   </dd>
@@ -1581,7 +1584,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Sets the laser's frequency scan range. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ScanRange</td><td>Scan range in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#ad15761274f53a923edc77648789b8052" title="Determines the frequency unit.">GetFrequencyUnit()</a></code> </td></tr>
+    <tr><td class="paramname">ScanRange</td><td>Scan range in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#a6455be91fe569ff30e17795f4d00f201" title="Determines the frequency unit.">GetFrequencyUnit()</a></code> </td></tr>
     <tr><td class="paramname">CallbackFunc</td><td>This callback function is called after the task has finished (either successfully or not) with a pointer to the current task and with a reference to the exception which occurred during the task execution (if an exception has occurred).   </td></tr>
   </table>
   </dd>
@@ -1628,7 +1631,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Sets the laser's frequency scan rate. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ScanRate</td><td>Scan rate in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#ad15761274f53a923edc77648789b8052" title="Determines the frequency unit.">GetFrequencyUnit()</a></code> </td></tr>
+    <tr><td class="paramname">ScanRate</td><td>Scan rate in units of <code><a class="el" href="classDynExpInstr_1_1Laser.html#a6455be91fe569ff30e17795f4d00f201" title="Determines the frequency unit.">GetFrequencyUnit()</a></code> </td></tr>
     <tr><td class="paramname">CallbackFunc</td><td>This callback function is called after the task has finished (either successfully or not) with a pointer to the current task and with a reference to the exception which occurred during the task execution (if an exception has occurred).   </td></tr>
   </table>
   </dd>

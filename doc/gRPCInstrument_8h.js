@@ -9,5 +9,7 @@ var gRPCInstrument_8h =
     [ "DynExpInstr::gRPCInstrument< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1gRPCInstrument.html", "classDynExpInstr_1_1gRPCInstrument" ],
     [ "StubFuncPtrType", "gRPCInstrument_8h.html#afb19d47b899004f4b3e9a879c153faab", null ],
     [ "StubPtrType", "gRPCInstrument_8h.html#a8932a1ef830d5a7f979dbe7bfae246a2", null ],
-    [ "InvokeStubFunc", "gRPCInstrument_8h.html#a778e34a419a318f85a7e04a772995eda", null ]
+    [ "InvokeStubFunc", "gRPCInstrument_8h.html#a778e34a419a318f85a7e04a772995eda", null ],
+    [ "ToProtoFrequencyUnitType", "gRPCInstrument_8h.html#a4051036678d0af047720359f10452a8d", null ],
+    [ "ToProtoIntensityUnitType", "gRPCInstrument_8h.html#a22a280453d5d183016475ff482840903", null ]
 ];

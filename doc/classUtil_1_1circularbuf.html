@@ -157,7 +157,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a39c414b70386651b0ce63401b8bcd0ef" id="r_a39c414b70386651b0ce63401b8bcd0ef"><td class="memItemLeft" align="right" valign="top">std::streamsize&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUtil_1_1circularbuf.html#a39c414b70386651b0ce63401b8bcd0ef">avail_get_count</a> () const noexcept</td></tr>
-<tr class="memdesc:a39c414b70386651b0ce63401b8bcd0ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the amount of characters available to be read from the current get pointer position to the get area's end.  <br /></td></tr>
+<tr class="memdesc:a39c414b70386651b0ce63401b8bcd0ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of characters available to be read from the current get pointer position to the get area's end.  <br /></td></tr>
 <tr class="separator:a39c414b70386651b0ce63401b8bcd0ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31c5638688d70cd89ee83466117393d0" id="r_a31c5638688d70cd89ee83466117393d0"><td class="memItemLeft" align="right" valign="top">virtual pos_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUtil_1_1circularbuf.html#a31c5638688d70cd89ee83466117393d0">seekoff</a> (off_type off, std::ios_base::seekdir dir, std::ios_base::openmode which=std::ios_base::in|std::ios_base::out) override</td></tr>
 <tr class="memdesc:a31c5638688d70cd89ee83466117393d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the position of the pointer(s) specified by <code>which</code> to the position <code>pos</code> relative to <code>dir</code>. Takes the stream's circularity into account.  <br /></td></tr>
@@ -273,8 +273,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the amount of characters available to be read from the current get pointer position to the get area's end. </p>
-<dl class="section return"><dt>Returns</dt><dd>Amount of available characters </dd></dl>
+<p>Returns the number of characters available to be read from the current get pointer position to the get area's end. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of available characters </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="circularbuf_8cpp_source.html#l00071">71</a> of file <a class="el" href="circularbuf_8cpp_source.html">circularbuf.cpp</a>.</p>
 
@@ -317,7 +317,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Indicates whether characters can be read from the get area. Not const since <code><a class="el" href="classUtil_1_1circularbuf.html#afa9b9d9387ca9b3b5cc6a3a99a4aaa14" title="Expands the get area to the size of the put area. Resets put_overflowed.">sync()</a></code> needs to be called to get correct size after a character has been written recently. </p>
-<dl class="section return"><dt>Returns</dt><dd>Returns true if <code><a class="el" href="classUtil_1_1circularbuf.html#a39c414b70386651b0ce63401b8bcd0ef" title="Returns the amount of characters available to be read from the current get pointer position to the ge...">avail_get_count()</a></code> returns 0, false otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if <code><a class="el" href="classUtil_1_1circularbuf.html#a39c414b70386651b0ce63401b8bcd0ef" title="Returns the number of characters available to be read from the current get pointer position to the ge...">avail_get_count()</a></code> returns 0, false otherwise. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="circularbuf_8cpp_source.html#l00015">15</a> of file <a class="el" href="circularbuf_8cpp_source.html">circularbuf.cpp</a>.</p>
 

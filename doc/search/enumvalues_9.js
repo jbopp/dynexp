@@ -8,5 +8,5 @@ var searchData=
   ['localmode_5',['LocalMode',['../classDynExpInstr_1_1NenionLeakvalveF3Data.html#ad5dcccb43c91f85354f7e3bd1d916a13aa9de29b1ddc0eecb369c3b79f95f522c',1,'DynExpInstr::NenionLeakvalveF3Data']]],
   ['locked_6',['Locked',['../classDynExp_1_1TaskBase.html#af488adc63e3806691efea75e6f2d8eadad0f2e5376298c880665077b565ffd7dd',1,'DynExp::TaskBase']]],
   ['lockindetection_7',['LockinDetection',['../classDynExpModule_1_1ODMR_1_1ODMRData.html#a2f7189ae71312fa36265abd44265150aae045042b00c58d55b870a0af1e4ce405',1,'DynExpModule::ODMR::ODMRData']]],
-  ['logiclevel_8',['LogicLevel',['../classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330a58813f2732898c58eee184424f672d28',1,'DynExpInstr::DataStreamInstrumentData']]]
+  ['logiclevel_8',['LogicLevel',['../namespaceDynExp_1_1Units.html#a31646c74e14969210d5674e7cf74b8eba58813f2732898c58eee184424f672d28',1,'DynExp::Units']]]
 ];

@@ -120,7 +120,7 @@ $(document).ready(function(){initNavTree('classDynExp_1_1QModuleWidget.html','')
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classDynExp_1_1QModuleWidget__inherit__graph.svg" width="667" height="886"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classDynExp_1_1QModuleWidget__inherit__graph.svg" width="667" height="808"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -148,6 +148,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a297623b95ca91162e2790891cd32b374" id="r_a297623b95ca91162e2790891cd32b374"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QModuleWidget.html#a297623b95ca91162e2790891cd32b374">AllowResize</a> () const noexcept</td></tr>
 <tr class="memdesc:a297623b95ca91162e2790891cd32b374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates the resizing behavior of the user interface window. Override to adjust.  <br /></td></tr>
 <tr class="separator:a297623b95ca91162e2790891cd32b374"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21d47efd33461bc5abba23868f51edad" id="r_a21d47efd33461bc5abba23868f51edad"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QModuleWidget.html#a21d47efd33461bc5abba23868f51edad">AllowDocked</a> () const noexcept</td></tr>
+<tr class="memdesc:a21d47efd33461bc5abba23868f51edad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates the docking behavior of the user interface window. Override to adjust.  <br /></td></tr>
+<tr class="separator:a21d47efd33461bc5abba23868f51edad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -202,7 +205,7 @@ Friends</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Window class for Qt-based user interfaces belonging to DynExp modules. User interface Qt window classes belonging to a module derived from <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> have to derive from this class. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01394">1394</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01395">1395</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6042064470f67c6955dcf774e858faf9" name="a6042064470f67c6955dcf774e858faf9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6042064470f67c6955dcf774e858faf9">&#9670;&#160;</a></span>QModuleWidget()</h2>
@@ -269,6 +272,38 @@ Friends</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a21d47efd33461bc5abba23868f51edad" name="a21d47efd33461bc5abba23868f51edad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21d47efd33461bc5abba23868f51edad">&#9670;&#160;</a></span>AllowDocked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool DynExp::QModuleWidget::AllowDocked </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indicates the docking behavior of the user interface window. Override to adjust. </p>
+<dl class="section return"><dt>Returns</dt><dd>Return false when the window should always be undocked from <a class="el" href="namespaceDynExp.html" title="DynExp&#39;s main namespace contains the implementation of DynExp including classes to manage resources (...">DynExp</a>'s main window, false otherwise. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#af7a6aa4a83041a72be88cf404b0c1ee6">DynExpModule::Widefield::WidefieldMicroscopeWidget</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01445">1445</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+
+</div>
+</div>
 <a id="a297623b95ca91162e2790891cd32b374" name="a297623b95ca91162e2790891cd32b374"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a297623b95ca91162e2790891cd32b374">&#9670;&#160;</a></span>AllowResize()</h2>
 
@@ -295,9 +330,9 @@ Friends</h2></td></tr>
 <p>Indicates the resizing behavior of the user interface window. Override to adjust. </p>
 <dl class="section return"><dt>Returns</dt><dd>Return true when the window should be resizable by the user, false otherwise. </dd></dl>
 
-<p>Reimplemented in <a class="el" href="classDynExpModule_1_1EventSenderWidget.html#ab814d86db7a16c5fc49142a2bfd53b68">DynExpModule::EventSenderWidget</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewerWidget.html#ab0f781ed6654a3bd50461501fb048c85">DynExpModule::ImageViewer::ImageViewerWidget</a>, <a class="el" href="classDynExpModule_1_1LaserControlWidget.html#af6c544258c98506023839be2ece12e3c">DynExpModule::LaserControlWidget</a>, <a class="el" href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyWidget.html#ac6b55e1a6c5b74db6e3d14f029a32195">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopyWidget</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControlWidget.html#a3675457b7e97cb9346162f32ee57cfd3">DynExpModule::LockinAmplifierControlWidget</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMRWidget.html#aa1a1f6c9e127c9d6df806bc473f37b2e">DynExpModule::ODMR::ODMRWidget</a>, <a class="el" href="classDynExpModule_1_1SignalDesignerWidget.html#a31c82b999a1620be30f0d8fdb99fb07d">DynExpModule::SignalDesignerWidget</a>, <a class="el" href="classDynExpModule_1_1SignalPlotterWidget.html#adfa6ed772e737f89636f7c3cc3d94965">DynExpModule::SignalPlotterWidget</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerWidget.html#a791a0398a8103aaed935ae15cc1baa1c">DynExpModule::SpectrumViewer::SpectrumViewerWidget</a>, <a class="el" href="classDynExpModule_1_1Trajectory1DWidget.html#a73c01875661b0f1981a2768f47a0a495">DynExpModule::Trajectory1DWidget</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#ad075dde0b3532675c78c54047612bd45">DynExpModule::Widefield::WidefieldMicroscopeWidget</a>.</p>
+<p>Reimplemented in <a class="el" href="classDynExp_1_1QMLModuleWidget.html#aa06164ee2b5574fb6f119aa63dc61821">DynExp::QMLModuleWidget</a>, <a class="el" href="classDynExpModule_1_1EventSenderWidget.html#ab814d86db7a16c5fc49142a2bfd53b68">DynExpModule::EventSenderWidget</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewerWidget.html#ab0f781ed6654a3bd50461501fb048c85">DynExpModule::ImageViewer::ImageViewerWidget</a>, <a class="el" href="classDynExpModule_1_1LaserControlWidget.html#af6c544258c98506023839be2ece12e3c">DynExpModule::LaserControlWidget</a>, <a class="el" href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyWidget.html#ac6b55e1a6c5b74db6e3d14f029a32195">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopyWidget</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControlWidget.html#a3675457b7e97cb9346162f32ee57cfd3">DynExpModule::LockinAmplifierControlWidget</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMRWidget.html#aa1a1f6c9e127c9d6df806bc473f37b2e">DynExpModule::ODMR::ODMRWidget</a>, <a class="el" href="classDynExpModule_1_1SignalDesignerWidget.html#a31c82b999a1620be30f0d8fdb99fb07d">DynExpModule::SignalDesignerWidget</a>, <a class="el" href="classDynExpModule_1_1Trajectory1DWidget.html#a73c01875661b0f1981a2768f47a0a495">DynExpModule::Trajectory1DWidget</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#ad075dde0b3532675c78c54047612bd45">DynExpModule::Widefield::WidefieldMicroscopeWidget</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01437">1437</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01438">1438</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -421,7 +456,7 @@ Friends</h2></td></tr>
 <p>Getter for the owning module. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns <a class="el" href="classDynExp_1_1QModuleWidget.html#a45d4e4ffcc39bed0379ec9e2643efc8b" title="Module owning this user interface window (reference, because it should never change nor be nullptr).">Owner</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01427">1427</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01428">1428</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -540,7 +575,7 @@ Friends</h2></td></tr>
 
 <p>Qt slot called when <a class="el" href="classDynExp_1_1QModuleWidget.html#ade59f4c3277133394aeb6994d5c2c843" title="Shortcut (Ctrl + D) to dock/undock a module window to/from DynExp&#39;s main window.">DockWindowShortcut</a> is activated, calls <a class="el" href="classDynExp_1_1QModuleBase.html#a10cf4d140fb73b17369d65c7bb376b1b" title="Toggles the docking state of Widget. Does nothing if any of Widget, MdiArea, MdiSubWindow,...">QModuleBase::DockUndockWindow()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00496">496</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00499">499</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -569,7 +604,7 @@ Friends</h2></td></tr>
 
 <p>Qt slot called when <a class="el" href="classDynExp_1_1QModuleWidget.html#aac3e3aff8cb884292ff2468a7ace3705" title="Shortcut (Ctrl + 0) to activate/focus DynExp&#39;s main window.">FocusMainWindowShortcut</a> is activated, calls <a class="el" href="classDynExp_1_1QModuleBase.html#a389abee1c19841daa73d627511638cb1" title="Focuses/activates DynExp&#39;s main window calling DynExpManager::FocusMainWindow(). Does nothing if Widg...">QModuleBase::FocusMainWindow()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00506">506</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00509">509</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -598,7 +633,7 @@ Friends</h2></td></tr>
 
 <p>Qt slot called when <a class="el" href="classDynExp_1_1QModuleBase.html#af2e9fca9f7746dbd87ee89aee5d74d43" title="Qt action to push module window into focus. When triggered, QModuleWidget::OnFocusWindow() in invoked...">QModuleBase::ModuleWindowFocusAction</a> is triggered, calls <a class="el" href="classDynExp_1_1QModuleBase.html#aa74b4ffa98dc563afa2c4236b0dd10de" title="Focuses/activates Widget and moves it on top of other windows if possible. Does nothing if any of Wid...">QModuleBase::SetFocus()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00501">501</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8cpp_source.html#l00504">504</a> of file <a class="el" href="Module_8cpp_source.html">Module.cpp</a>.</p>
 
 </div>
 </div>
@@ -651,7 +686,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01398">1398</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01399">1399</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -678,7 +713,7 @@ Friends</h2></td></tr>
 
 <p>Shortcut (Ctrl + D) to dock/undock a module window to/from DynExp's main window. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01481">1481</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01489">1489</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -704,7 +739,7 @@ Friends</h2></td></tr>
 
 <p>DynExp's main window (pointer, because it is set later by <a class="el" href="classDynExp_1_1QModuleBase.html#aca3d25f5a76521fb896a83043254904e" title="Sets up the module&#39;s user interface widgets and window frames. Called by the main user interface thre...">QModuleBase::InitUI()</a>). </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01479">1479</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01487">1487</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -730,7 +765,7 @@ Friends</h2></td></tr>
 
 <p>Shortcut (Ctrl + 0) to activate/focus DynExp's main window. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01482">1482</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01490">1490</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -756,7 +791,7 @@ Friends</h2></td></tr>
 
 <p>Module owning this user interface window (reference, because it should never change nor be <code>nullptr</code>). </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01478">1478</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l01486">1486</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>

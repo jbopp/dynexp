@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('classDynExp_1_1RunnableObject.html',''
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classDynExp_1_1RunnableObject__inherit__graph.svg" width="1611" height="1702"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classDynExp_1_1RunnableObject__inherit__graph.svg" width="1611" height="1636"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
@@ -434,11 +434,14 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object" id="r_af55298b0589b9239ff3076d540c97449"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#af55298b0589b9239ff3076d540c97449">CategoryAndNameToStr</a> (const std::string &amp;Category, const std::string &amp;Name)</td></tr>
 <tr class="memdesc:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string from an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> category and name to allow the user to identify an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> type.  <br /></td></tr>
 <tr class="separator:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object" id="r_acaf8f71896eb782a22155311c10a799a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#acaf8f71896eb782a22155311c10a799a">RemoveCategoryAndName</a> (const std::string &amp;ObjectDesc)</td></tr>
+<tr class="memdesc:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the category and name part built by <a class="el" href="classDynExp_1_1Object.html#af55298b0589b9239ff3076d540c97449" title="Builds a string from an Object&#39;s category and name to allow the user to identify an Object&#39;s type.">Object::CategoryAndNameToStr()</a> from the string <code>ObjectDesc</code> constructed by <a class="el" href="classDynExp_1_1LinkedObjectWrapper.html#a8aae6a3a96ddb6671a223da80c150dc8" title="Builds and returns a human-readable string uniquely identifying the Object instance DestinyResource....">LinkedObjectWrapper::GetLinkedObjectDesc()</a>.  <br /></td></tr>
+<tr class="separator:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Defines an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> which possesses a thread it runs in. The <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> can be started and stopped as well as paused and resumed. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02425">2425</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02433">2433</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ac5466b09b2bf0fb4d5ca625629b5d797" name="ac5466b09b2bf0fb4d5ca625629b5d797"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac5466b09b2bf0fb4d5ca625629b5d797">&#9670;&#160;</a></span>ConfigType</h2>
@@ -454,7 +457,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Type of the configurator class belonging to this <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> type. Declare this alias in every derived class with the respective configurator class accompanying the derived <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02483">2483</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02491">2491</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -473,7 +476,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Type of the parameter class belonging to this <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> type. Declare this alias in every derived class with the respective parameter class accompanying the derived <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code>. "  </p>
 <p>"  </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02482">2482</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02490">2490</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -499,7 +502,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Type of the thread function executed by <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instances. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02563">2563</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02571">2571</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -545,7 +548,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00518">518</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00523">523</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -572,7 +575,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00524">524</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00529">529</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -604,7 +607,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1Object.html#a8a0fd11d2dc276253b9ec9d710acb864">DynExp::Object</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02625">2625</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02633">2633</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -633,7 +636,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Removes the reason why this <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance has been paused (since it is resumed). </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02618">2618</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02626">2626</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -668,7 +671,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00663">663</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00668">668</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -706,7 +709,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classDynExp_1_1Object.html#a3b662d20884737cc10c6b336dc822597">DynExp::Object</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00678">678</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00683">683</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -735,7 +738,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Returns <a class="el" href="classDynExp_1_1RunnableObject.html#aacef09883d7d4462fc014330663d9f4f" title="Holds information about why the RunnableObject instance is paused.">ReasonWhyPaused</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02555">2555</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02563">2563</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -764,7 +767,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Returns <a class="el" href="classDynExp_1_1RunnableObject.html#a90c4c0e78078946252ade4c3f0fc088a" title="Reflects the value of RunnableObjectParams::Startup. This variable is only updated when Run() is call...">Startup</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02554">2554</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02562">2562</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -793,7 +796,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Initializes member variables in case of a reset. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00634">634</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00639">639</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -823,7 +826,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Checks whether <code>Thread's</code> id matches the id of the calling thread. This is thread-safe if the function is called by the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread since <code><a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">Terminate()</a></code> joins the threads before changing the <code>Thread</code> member. It is also thread-safe if the function is called by the thread owning the the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance since <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> and <code><a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">Terminate()</a></code> can only be called by this thread. Only <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> and <code><a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">Terminate()</a></code> (indirectly) modify <code>Thread</code>. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns true of both ids match, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00658">658</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00663">663</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -852,7 +855,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Returns <a class="el" href="classDynExp_1_1RunnableObject.html#aa2e7e86495da4f938eaaca0774b21abd" title="Indicates whether this RunnableObject instance&#39;s thread should terminate.">ShouldExit</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02552">2552</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02560">2560</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -881,7 +884,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Returns <a class="el" href="classDynExp_1_1RunnableObject.html#a9d31acb25204f3e22bac761e9a8cd645" title="Indicates whether the RunnableObject instance is paused.">Paused</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02551">2551</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02559">2559</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -910,7 +913,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Returns <a class="el" href="classDynExp_1_1RunnableObject.html#a14503e0c26947af03db4d24dbd90630f" title="Indicates whether the RunnableObject instance is running.">Running</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02550">2550</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02558">2558</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -949,7 +952,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExp_1_1ModuleBase.html#ab40d048de291a9076061c4a6773ba4eb">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02654">2654</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02662">2662</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -996,7 +999,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00651">651</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00656">656</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1026,7 +1029,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Helper function to be used by overridden <code><a class="el" href="classDynExp_1_1RunnableObject.html#a4c5f38623b6ded650104c80f52885c63" title="Refer to Run().">RunChild()</a></code> functions in derived classes to (re)initialize the <a class="el" href="classDynExp_1_1RunnableObject.html#a45a818a181d16129dfb43080152527c4" title="Future which signals that Thread has terminated. Refer to OnThreadHasExited().">ThreadExitedSignal</a> future and to provide the derived class a promise to signal the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance that its thread has terminated. </p>
 <dl class="section return"><dt>Returns</dt><dd>Promise bound to the <a class="el" href="classDynExp_1_1RunnableObject.html#a45a818a181d16129dfb43080152527c4" title="Future which signals that Thread has terminated. Refer to OnThreadHasExited().">ThreadExitedSignal</a> future </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00643">643</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00648">648</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1057,7 +1060,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExp_1_1InstrumentBase.html#af174ed78a803e2761c40a66591f21c33">DynExp::InstrumentBase</a>, and <a class="el" href="classDynExp_1_1ModuleBase.html#a25c78a68f51f2c1f0b8316f3f85c4996">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02637">2637</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02645">2645</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1086,7 +1089,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>This function is called when the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread terminates. The thread receives a <code><a class="el" href="classDynExp_1_1RunnableInstance.html" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R...">RunnableInstance</a></code> instance as a parameter. When it exits, this <code><a class="el" href="classDynExp_1_1RunnableInstance.html" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R...">RunnableInstance</a></code> instance is destroyed. So, <code><a class="el" href="classDynExp_1_1RunnableInstance.html" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R...">RunnableInstance</a>'s</code> destructor is invoked. It calls <a class="el" href="classDynExp_1_1RunnableInstance.html#a544841063410f6c131f8bd8e91ba1320" title="Signals that Owner&#39;s thread has exited. Refer to RunnableObject::OnThreadHasExited().">RunnableInstance::SetThreadExited()</a>, which in turn calls this function, and signals the thread termination to <a class="el" href="classDynExp_1_1RunnableObject.html#a45a818a181d16129dfb43080152527c4" title="Future which signals that Thread has terminated. Refer to OnThreadHasExited().">ThreadExitedSignal</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00715">715</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00720">720</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1118,7 +1121,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classDynExp_1_1Object.html#a53b82dbe7ee6bb4e9b948c462fffc964">DynExp::Object</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00670">670</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00675">675</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1183,7 +1186,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00550">550</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00555">555</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1240,7 +1243,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00594">594</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00599">599</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1262,7 +1265,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Calls <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> if <a class="el" href="classDynExp_1_1RunnableObjectParams.html#a1ef775df6c01b554f3c102024646c0dd" title="Determines when the runnable object is started. Refer to RunnableObjectParams::StartupType.">RunnableObjectParams::Startup</a> is set to <a class="el" href="classDynExp_1_1RunnableObjectParams.html#a33b475bb5737bca9bf78ce6a6a7c41f4ad34691b5a53a925e88d07542d5cadf8f">RunnableObjectParams::OnCreation</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance has been started now, false otherwise (e.g. if it is already running or if the startup policy (<code><a class="el" href="classDynExp_1_1RunnableObjectParams.html#a1ef775df6c01b554f3c102024646c0dd" title="Determines when the runnable object is started. Refer to RunnableObjectParams::StartupType.">RunnableObjectParams::Startup</a></code>) prohibits so). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00607">607</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00612">612</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1301,7 +1304,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00624">624</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00629">629</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1337,7 +1340,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02613">2613</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02621">2621</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1373,7 +1376,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02607">2607</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02615">2615</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1412,7 +1415,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00617">617</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00622">622</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1450,7 +1453,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExp_1_1InstrumentBase.html#a8f0f729f7385a04160c0911c8d31b507">DynExp::InstrumentBase</a>, and <a class="el" href="classDynExp_1_1ModuleBase.html#a023fca52cd7b9acddaae83a931158961">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02646">2646</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02654">2654</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1503,7 +1506,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00683">683</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00688">688</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1556,7 +1559,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00697">697</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00702">702</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1583,7 +1586,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Indicates whether the <code><a class="el" href="classDynExp_1_1RunnableInstance.html" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R...">RunnableInstance</a></code> instance belonging to this <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread should recheck the states of all <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instances this <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> uses. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02708">2708</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02716">2716</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1609,7 +1612,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Indicates whether the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance is paused. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02693">2693</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02701">2701</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1635,7 +1638,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Holds information about why the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance is paused. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02694">2694</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02702">2702</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1653,7 +1656,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a>'s</code> private methods to class <code><a class="el" href="classDynExp_1_1RunnableInstance.html" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R...">RunnableInstance</a></code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02557">2557</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02565">2565</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1679,7 +1682,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Indicates whether the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance is running. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02692">2692</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02700">2700</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1705,7 +1708,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Default timeout e.g. used as a default for calls to <a class="el" href="classDynExp_1_1InstrumentBase.html#aa31383861ecdb9c418666562c1fb7fb8" title="Locks the mutex of the instrument data class instance InstrumentData assigned to this InstrumentBase ...">InstrumentBase::GetInstrumentData</a> or <a class="el" href="classDynExp_1_1ModuleBase.html#a09d6b4890c72c88ac9b9407fc51f0436" title="Locks the mutex of the module data class instance ModuleData assigned to this ModuleBase instance and...">ModuleBase::GetModuleData</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02489">2489</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02497">2497</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1731,7 +1734,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Indicates whether this <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread should terminate. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02701">2701</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02709">2709</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1757,7 +1760,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reflects the value of <code><a class="el" href="classDynExp_1_1RunnableObjectParams.html#a1ef775df6c01b554f3c102024646c0dd" title="Determines when the runnable object is started. Refer to RunnableObjectParams::StartupType.">RunnableObjectParams::Startup</a></code>. This variable is only updated when <code><a class="el" href="classDynExp_1_1RunnableObject.html#a416b8000830913b11eaf02d1f1af49d6" title="Starts the RunnableObject instance&#39;s thread and ensures that all Object instances linked to this inst...">Run()</a></code> is called. It is atomic to allow the UI thread reading it safely. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02688">2688</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02696">2696</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1783,7 +1786,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Default timeout used as a default for calls to <a class="el" href="classDynExp_1_1RunnableObject.html#afae3d704e86c69825835ba35399d87f1" title="Notifies the RunnableObject instance&#39;s thread to terminate and waits until it has ended....">RunnableObject::Terminate</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02494">2494</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02502">2502</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1809,7 +1812,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>The <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02690">2690</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02698">2698</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1835,7 +1838,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Future which signals that <code>Thread</code> has terminated. Refer to <code><a class="el" href="classDynExp_1_1RunnableObject.html#aade476f5ee6747da8d8db41b700550e6" title="This function is called when the RunnableObject instance&#39;s thread terminates. The thread receives a R...">OnThreadHasExited()</a></code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02691">2691</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02699">2699</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>

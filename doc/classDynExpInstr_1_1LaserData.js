@@ -1,12 +1,5 @@
 var classDynExpInstr_1_1LaserData =
 [
-    [ "FrequencyUnitType", "classDynExpInstr_1_1LaserData.html#a2b85bb4211dba740da5e22459bb347d4", [
-      [ "Hz", "classDynExpInstr_1_1LaserData.html#a2b85bb4211dba740da5e22459bb347d4ad1e2634cb743590b235fe6b1dfa763ba", null ],
-      [ "nm", "classDynExpInstr_1_1LaserData.html#a2b85bb4211dba740da5e22459bb347d4a93122a9e4abcba124d5a7d4beaba3f89", null ]
-    ] ],
-    [ "IntensityUnitType", "classDynExpInstr_1_1LaserData.html#a9e594439d3169c3a1fafd455ffe61e2f", [
-      [ "Power_W", "classDynExpInstr_1_1LaserData.html#a9e594439d3169c3a1fafd455ffe61e2fad85f3ce80951d209e1aa36423fd4bfb6", null ]
-    ] ],
     [ "LaserStateType", "classDynExpInstr_1_1LaserData.html#a58ce76464c4f17cd119f77a36e201db7", [
       [ "Startup", "classDynExpInstr_1_1LaserData.html#a58ce76464c4f17cd119f77a36e201db7a13e685964c2548aa748f7ea263bad4e5", null ],
       [ "Ready", "classDynExpInstr_1_1LaserData.html#a58ce76464c4f17cd119f77a36e201db7ae7d31fc0602fb2ede144d18cdffd816b", null ],
@@ -16,14 +9,12 @@ var classDynExpInstr_1_1LaserData =
     ] ],
     [ "LaserData", "classDynExpInstr_1_1LaserData.html#a51a693eadb5b8ca34d4aaeb71546198d", null ],
     [ "~LaserData", "classDynExpInstr_1_1LaserData.html#a34f7501c2d37f084722ce855dc29fba6", null ],
-    [ "FrequencyUnitTypeToStr", "classDynExpInstr_1_1LaserData.html#ab7ae8f81b7f270045c941cdbf2b41440", null ],
     [ "GetFrequencyValue", "classDynExpInstr_1_1LaserData.html#a7e11b0bb35494270d9536863639a5a43", null ],
     [ "GetIntensityValue", "classDynExpInstr_1_1LaserData.html#afff3b221b92e11477ba46e8401373970", null ],
     [ "GetLaserState", "classDynExpInstr_1_1LaserData.html#ad77e116a7d21790abc7510b4c58e10e2", null ],
     [ "GetLaserStateChild", "classDynExpInstr_1_1LaserData.html#a35881f631005091089972901157d6ec7", null ],
     [ "GetScanRangeValue", "classDynExpInstr_1_1LaserData.html#ac02042717ada3a092b7470f479abc7f5", null ],
     [ "GetScanRateValue", "classDynExpInstr_1_1LaserData.html#a341c6c1226f5c15d27002a7e0a04e374", null ],
-    [ "IntensityUnitTypeToStr", "classDynExpInstr_1_1LaserData.html#a14e2e3c46213e96a66bfefcd9aceb1ba", null ],
     [ "ResetImpl", "classDynExpInstr_1_1LaserData.html#a71e4fc6ea11f81b27c125fd78da575f6", null ],
     [ "ResetImpl", "classDynExpInstr_1_1LaserData.html#a841e719cdccd0c8a91dd6a9a603eeda1", null ],
     [ "SetFrequencyValue", "classDynExpInstr_1_1LaserData.html#a6d92aa7f86992e031178d1be3ddc9ef4", null ],

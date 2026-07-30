@@ -2,12 +2,15 @@ var classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyD
 [
     [ "LaserScanningSpectroscopyData", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html#a7bb09b370faaba36b5e07092651bb3ae", null ],
     [ "~LaserScanningSpectroscopyData", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html#a378498c91465aa17d906e744ebd89ebd", null ],
+    [ "ClearUIMessage", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html#add6c17a5fe0ec240977e9c67cdc82f4f", null ],
     [ "GetLaser", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html#aaa145de54eda3da5acb448143c177a14", null ],
     [ "GetPLECommunicator", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html#a9aeade9fb964730ffb097264ef78ffb9", null ],
+    [ "GetUIMessage", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html#a62dd11b08d11d0b44209a771e531921a", null ],
     [ "GetWFCommunicator", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html#ade2d747af999c9e4f1f1f4abef599e97", null ],
     [ "Init", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html#a777863d3f5bf9336f8195587f4d6ded8", null ],
     [ "ResetImpl", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html#a88da6d48f135a565c21ce94c03e45de6", null ],
     [ "ResetImpl", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html#a2d8264d2c5da21c2aa3fb560764ce546", null ],
+    [ "SetInvalidStartupStateMessage", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html#a585315b65e299e4b745ca56ea729fa29", null ],
     [ "CenterFrequency", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html#a452ac19c317ce48257369b77dc479a24", null ],
     [ "CurrentRepCount", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html#a072920740fbc0e2d84afd8cdfb6b3add", null ],
     [ "CurrentStepCount", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html#af005d033904a766c27b602173a7e6b80", null ],
@@ -28,6 +31,7 @@ var classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyD
     [ "ScanEndFrequency", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html#afa21f64958bf60562c6824411a2f828b", null ],
     [ "ScanStartFrequency", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html#a02628f19275a7403c2fe71f8ec89e4cb", null ],
     [ "StepSize", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html#a89569563dc9812d24083fcffdc47e0d9", null ],
+    [ "UIMessage", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html#a58676c194d1882a70ef7fdb90600b70d", null ],
     [ "UpperFrequencyLimit", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html#afd67611ec4d8bc0c053f005ccf4c639e", null ],
     [ "WFCommunicator", "classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopyData.html#ad42b7195566c818fe1aed866baee2997", null ]
 ];

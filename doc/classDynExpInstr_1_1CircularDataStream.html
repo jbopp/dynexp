@@ -141,10 +141,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a7fe7ed06bc25c8eac3684c89ff2366c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the size of a single sample in bytes.  <br /></td></tr>
 <tr class="separator:a7fe7ed06bc25c8eac3684c89ff2366c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cb2e4b49ff351cd30fdace9d83ac97d" id="r_a1cb2e4b49ff351cd30fdace9d83ac97d"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1CircularDataStream.html#a1cb2e4b49ff351cd30fdace9d83ac97d">GetNumAvailableSamplesToReadTillEnd</a> () const noexcept override</td></tr>
-<tr class="memdesc:a1cb2e4b49ff351cd30fdace9d83ac97d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the amount of samples which can be read from the stream's current get pointer position till the stream's end.  <br /></td></tr>
+<tr class="memdesc:a1cb2e4b49ff351cd30fdace9d83ac97d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the number of samples which can be read from the stream's current get pointer position till the stream's end.  <br /></td></tr>
 <tr class="separator:a1cb2e4b49ff351cd30fdace9d83ac97d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a655e64c13783bd6129b8c9f1d980a477" id="r_a655e64c13783bd6129b8c9f1d980a477"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1CircularDataStream.html#a655e64c13783bd6129b8c9f1d980a477">GetNumFreeSamplesToWrite</a> () const noexcept override</td></tr>
-<tr class="memdesc:a655e64c13783bd6129b8c9f1d980a477"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the amount of samples which can be written to the stream untill the stream's end is reached.  <br /></td></tr>
+<tr class="memdesc:a655e64c13783bd6129b8c9f1d980a477"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the number of samples which can be written to the stream untill the stream's end is reached.  <br /></td></tr>
 <tr class="separator:a655e64c13783bd6129b8c9f1d980a477"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51976fce5cc4aebbfd729221b2c7dcfa" id="r_a51976fce5cc4aebbfd729221b2c7dcfa"><td class="memItemLeft" align="right" valign="top">std::streampos&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1CircularDataStream.html#a51976fce5cc4aebbfd729221b2c7dcfa">GetReadPosition</a> () const noexcept override</td></tr>
 <tr class="memdesc:a51976fce5cc4aebbfd729221b2c7dcfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the current position of the stream's read (get) pointer in samples.  <br /></td></tr>
@@ -181,10 +181,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6ff2887d4c357b70605bcaac08fabce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classDynExpInstr_1_1CircularDataStreamBase"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classDynExpInstr_1_1CircularDataStreamBase')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html">DynExpInstr::CircularDataStreamBase</a></td></tr>
 <tr class="memitem:a374f1d1c947ebffdc5fc962a7e50e762 inherit pub_methods_classDynExpInstr_1_1CircularDataStreamBase" id="r_a374f1d1c947ebffdc5fc962a7e50e762"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html#a374f1d1c947ebffdc5fc962a7e50e762">GetNumRecentBasicSamples</a> (size_t Count) const</td></tr>
-<tr class="memdesc:a374f1d1c947ebffdc5fc962a7e50e762 inherit pub_methods_classDynExpInstr_1_1CircularDataStreamBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the amount of samples which have been written to the stream after the last <code>Count</code> samples. This is useful if the caller just wants to obtain recent samples but not the entire stream. Then, the caller should remember the amount of samples it knows already and call <code><a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html#aaa3984aba3474951a54fc29ede98ef39" title="Reads the most recent samples from the stream skipping Count samples. Also refer to GetNumRecentBasic...">ReadRecentBasicSamples()</a></code> next.  <br /></td></tr>
+<tr class="memdesc:a374f1d1c947ebffdc5fc962a7e50e762 inherit pub_methods_classDynExpInstr_1_1CircularDataStreamBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the number of samples which have been written to the stream after the last <code>Count</code> samples. This is useful if the caller just wants to obtain recent samples but not the entire stream. Then, the caller should remember the number of samples it knows already and call <code><a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html#aaa3984aba3474951a54fc29ede98ef39" title="Reads the most recent samples from the stream skipping Count samples. Also refer to GetNumRecentBasic...">ReadRecentBasicSamples()</a></code> next.  <br /></td></tr>
 <tr class="separator:a374f1d1c947ebffdc5fc962a7e50e762 inherit pub_methods_classDynExpInstr_1_1CircularDataStreamBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa3984aba3474951a54fc29ede98ef39 inherit pub_methods_classDynExpInstr_1_1CircularDataStreamBase" id="r_aaa3984aba3474951a54fc29ede98ef39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExpInstr_1_1DataStreamBase.html#a4a4c56e212ef01aa21c6ebd4917dbdef">BasicSampleListType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html#aaa3984aba3474951a54fc29ede98ef39">ReadRecentBasicSamples</a> (size_t Count)</td></tr>
-<tr class="memdesc:aaa3984aba3474951a54fc29ede98ef39 inherit pub_methods_classDynExpInstr_1_1CircularDataStreamBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the most recent samples from the stream skipping <code>Count</code> samples. Also refer to <code><a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html#a374f1d1c947ebffdc5fc962a7e50e762" title="Determines the amount of samples which have been written to the stream after the last Count samples....">GetNumRecentBasicSamples()</a></code>.  <br /></td></tr>
+<tr class="memdesc:aaa3984aba3474951a54fc29ede98ef39 inherit pub_methods_classDynExpInstr_1_1CircularDataStreamBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the most recent samples from the stream skipping <code>Count</code> samples. Also refer to <code><a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html#a374f1d1c947ebffdc5fc962a7e50e762" title="Determines the number of samples which have been written to the stream after the last Count samples....">GetNumRecentBasicSamples()</a></code>.  <br /></td></tr>
 <tr class="separator:aaa3984aba3474951a54fc29ede98ef39 inherit pub_methods_classDynExpInstr_1_1CircularDataStreamBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classDynExpInstr_1_1DataStreamBase"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classDynExpInstr_1_1DataStreamBase')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classDynExpInstr_1_1DataStreamBase.html">DynExpInstr::DataStreamBase</a></td></tr>
 <tr class="memitem:a29cf0bc2fbffd5dc1ec5d72ffd7e0566 inherit pub_methods_classDynExpInstr_1_1DataStreamBase" id="r_a29cf0bc2fbffd5dc1ec5d72ffd7e0566"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1DataStreamBase.html#a29cf0bc2fbffd5dc1ec5d72ffd7e0566">~DataStreamBase</a> ()=default</td></tr>
@@ -232,7 +232,7 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:acf46d296a71cf30b7da57e4663150c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stream to operate on <a class="el" href="classDynExpInstr_1_1CircularDataStream.html#ac33d213e68bcd64851f66c8e23661794" title="Circular stream buffer.">StreamBuffer</a>.  <br /></td></tr>
 <tr class="separator:acf46d296a71cf30b7da57e4663150c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e3196d533288e1a061c056a947696df" id="r_a4e3196d533288e1a061c056a947696df"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1CircularDataStream.html#a4e3196d533288e1a061c056a947696df">NumSamplesWritten</a></td></tr>
-<tr class="memdesc:a4e3196d533288e1a061c056a947696df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of samples which have been written to <a class="el" href="classDynExpInstr_1_1CircularDataStream.html#acf46d296a71cf30b7da57e4663150c80" title="Stream to operate on StreamBuffer.">Stream</a> in total.  <br /></td></tr>
+<tr class="memdesc:a4e3196d533288e1a061c056a947696df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of samples which have been written to <a class="el" href="classDynExpInstr_1_1CircularDataStream.html#acf46d296a71cf30b7da57e4663150c80" title="Stream to operate on StreamBuffer.">Stream</a> in total.  <br /></td></tr>
 <tr class="separator:a4e3196d533288e1a061c056a947696df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader">(De)serialization</h2></td></tr>
@@ -456,8 +456,8 @@ template&lt;typename SampleT , std::enable_if_t&lt; std::is_trivially_copyable_v
 </table>
 </div><div class="memdoc">
 
-<p>Determines the amount of samples which can be read from the stream's current get pointer position till the stream's end. </p>
-<dl class="section return"><dt>Returns</dt><dd>Returns the amount of available samples. </dd></dl>
+<p>Determines the number of samples which can be read from the stream's current get pointer position till the stream's end. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns the number of available samples. </dd></dl>
 
 <p>Implements <a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html#ae5fa303b5ac78fd7fddf40d428b0fc7a">DynExpInstr::CircularDataStreamBase</a>.</p>
 
@@ -490,8 +490,8 @@ template&lt;typename SampleT , std::enable_if_t&lt; std::is_trivially_copyable_v
 </table>
 </div><div class="memdoc">
 
-<p>Determines the amount of samples which can be written to the stream untill the stream's end is reached. </p>
-<dl class="section return"><dt>Returns</dt><dd>Returns the amount of free samples. </dd></dl>
+<p>Determines the number of samples which can be written to the stream untill the stream's end is reached. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns the number of free samples. </dd></dl>
 
 <p>Implements <a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html#a7b760e3ff38f0d722418f5d4a275e997">DynExpInstr::CircularDataStreamBase</a>.</p>
 
@@ -730,7 +730,7 @@ template&lt;typename SampleT , std::enable_if_t&lt; std::is_trivially_copyable_v
 <p>Reads multiple samples from the stream's buffer <a class="el" href="classDynExpInstr_1_1CircularDataStream.html#ac33d213e68bcd64851f66c8e23661794" title="Circular stream buffer.">StreamBuffer</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Count</td><td>Amount of samples to read </td></tr>
+    <tr><td class="paramname">Count</td><td>Number of samples to read </td></tr>
   </table>
   </dd>
 </dl>
@@ -1212,7 +1212,7 @@ template&lt;typename SampleT , std::enable_if_t&lt; std::is_trivially_copyable_v
 </table>
 </div><div class="memdoc">
 
-<p>Amount of samples which have been written to <a class="el" href="classDynExpInstr_1_1CircularDataStream.html#acf46d296a71cf30b7da57e4663150c80" title="Stream to operate on StreamBuffer.">Stream</a> in total. </p>
+<p>Number of samples which have been written to <a class="el" href="classDynExpInstr_1_1CircularDataStream.html#acf46d296a71cf30b7da57e4663150c80" title="Stream to operate on StreamBuffer.">Stream</a> in total. </p>
 
 <p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00534">534</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 

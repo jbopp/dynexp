@@ -2,18 +2,15 @@ var ODMRWidget_8h =
 [
     [ "DynExpModule::ODMR::ODMRPlotType", "namespaceDynExpModule_1_1ODMR.html#structDynExpModule_1_1ODMR_1_1ODMRPlotType", [
       [ "DataPoints", "namespaceDynExpModule_1_1ODMR.html#a353ecf8e560f36ae1717c5991319c098", null ],
-      [ "DataPointsMaxValues", "namespaceDynExpModule_1_1ODMR.html#a7bc6bdf2d08c4569108c63811dc7e506", null ],
-      [ "DataPointsMinValues", "namespaceDynExpModule_1_1ODMR.html#a891f1ab1531c56d6f8e1f415140e7c44", null ],
       [ "FitParams", "namespaceDynExpModule_1_1ODMR.html#a7caa3a4be9a4330540d73318b22e30f9", null ],
       [ "FitPoints", "namespaceDynExpModule_1_1ODMR.html#ac7038b4b56eaf0ac7b701a245be83397", null ],
       [ "HasChanged", "namespaceDynExpModule_1_1ODMR.html#a9983a5df73a9d3c02897f704a595448a", null ],
-      [ "SelectedPoint", "namespaceDynExpModule_1_1ODMR.html#aa54817a8ac94b5ca5fe4fcfa79e912bd", null ]
+      [ "PlotInfo", "namespaceDynExpModule_1_1ODMR.html#aa5448c8a98421669bd459b002c138f82", null ]
     ] ],
     [ "DynExpModule::ODMR::SensitivityPlotType", "namespaceDynExpModule_1_1ODMR.html#structDynExpModule_1_1ODMR_1_1SensitivityPlotType", [
       [ "DataPoints", "namespaceDynExpModule_1_1ODMR.html#ab7ab7bb8edcfd05f08a2bb4bfc450f43", null ],
-      [ "DataPointsMaxValues", "namespaceDynExpModule_1_1ODMR.html#a7e0390ccf3b7e579aee86cc4de69db46", null ],
-      [ "DataPointsMinValues", "namespaceDynExpModule_1_1ODMR.html#aaa2962b7b2cc1aa3bc22c17008b941d4", null ],
-      [ "HasChanged", "namespaceDynExpModule_1_1ODMR.html#a633d60f3830fb5a641bb7d2b00338866", null ]
+      [ "HasChanged", "namespaceDynExpModule_1_1ODMR.html#a633d60f3830fb5a641bb7d2b00338866", null ],
+      [ "PlotInfo", "namespaceDynExpModule_1_1ODMR.html#aed2a15664bd6bb6c6f22156b8054b21d", null ]
     ] ],
     [ "DynExpModule::ODMR::ODMRWidget", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html", "classDynExpModule_1_1ODMR_1_1ODMRWidget" ],
     [ "DynExpModule::ODMR::ODMRWidget::StatusBarType", "structDynExpModule_1_1ODMR_1_1ODMRWidget_1_1StatusBarType.html", "structDynExpModule_1_1ODMR_1_1ODMRWidget_1_1StatusBarType" ],

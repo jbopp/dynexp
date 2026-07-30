@@ -19,7 +19,7 @@ var classDynExpInstr_1_1TimeTagger =
     [ "GetName", "classDynExpInstr_1_1TimeTagger.html#a6031b7de9a2c4a56c18456f39d8a355e", null ],
     [ "GetResolution", "classDynExpInstr_1_1TimeTagger.html#a2ef5a583948d127ef56e17f115c13aa2", null ],
     [ "GetTaskQueueDelay", "classDynExpInstr_1_1TimeTagger.html#abdf777b753a4d34b42cccb8ec3aeab65", null ],
-    [ "GetValueUnit", "classDynExpInstr_1_1TimeTagger.html#a0d74a17eea9c0c659345b2f9299aec0a", null ],
+    [ "GetValueUnit", "classDynExpInstr_1_1TimeTagger.html#ad71d7f2bb306757e827e61356a36d7b3", null ],
     [ "MakeExitTask", "classDynExpInstr_1_1TimeTagger.html#ae4c9699d7da22c524b23bafba88f9539", null ],
     [ "MakeInitTask", "classDynExpInstr_1_1TimeTagger.html#aafb733ec58688d5d558607b576d1a896", null ],
     [ "MakeUpdateTask", "classDynExpInstr_1_1TimeTagger.html#aec53a92838dfe098ca368d292c447b91", null ],

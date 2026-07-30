@@ -8,18 +8,9 @@ var classDynExpInstr_1_1SpectrometerData =
       [ "Error", "classDynExpInstr_1_1SpectrometerData.html#a77750835de7f969234feb8b43d3f7b73a902b0d55fddef6f8d651fe1035b7d4bd", null ],
       [ "Capturing", "classDynExpInstr_1_1SpectrometerData.html#a77750835de7f969234feb8b43d3f7b73a62411b76d12a4ad116da05c356ff9bf3", null ]
     ] ],
-    [ "FrequencyUnitType", "classDynExpInstr_1_1SpectrometerData.html#ae42e8db302c481aab3ecfbd2115bf233", [
-      [ "Hz", "classDynExpInstr_1_1SpectrometerData.html#ae42e8db302c481aab3ecfbd2115bf233ad1e2634cb743590b235fe6b1dfa763ba", null ],
-      [ "nm", "classDynExpInstr_1_1SpectrometerData.html#ae42e8db302c481aab3ecfbd2115bf233a93122a9e4abcba124d5a7d4beaba3f89", null ],
-      [ "Inv_cm", "classDynExpInstr_1_1SpectrometerData.html#ae42e8db302c481aab3ecfbd2115bf233a36569f7fac6afec2f023d1a9f22465ce", null ]
-    ] ],
-    [ "IntensityUnitType", "classDynExpInstr_1_1SpectrometerData.html#aeca5ad2b16f00f82ce45b5388d8f2306", [
-      [ "Counts", "classDynExpInstr_1_1SpectrometerData.html#aeca5ad2b16f00f82ce45b5388d8f2306afbc82f77563b61ff6ee1a8202837307d", null ]
-    ] ],
     [ "SpectrometerData", "classDynExpInstr_1_1SpectrometerData.html#a05b7262c6fbc201172fa3c6365c0f634", null ],
     [ "~SpectrometerData", "classDynExpInstr_1_1SpectrometerData.html#a8e77837d260b794c432e15d13e0831d7", null ],
     [ "ClearSpectrum", "classDynExpInstr_1_1SpectrometerData.html#a7d9d8b5a0aea02a2a382f73b58565731", null ],
-    [ "FrequencyUnitTypeToStr", "classDynExpInstr_1_1SpectrometerData.html#ab981b53deb841257dd4b4f1de0589ec5", null ],
     [ "GetCapturingProgress", "classDynExpInstr_1_1SpectrometerData.html#a9f49cfebc8cae327ebc4c8218784a8f4", null ],
     [ "GetCapturingProgressChild", "classDynExpInstr_1_1SpectrometerData.html#a4ecca2fdba1489037d68b97dfaa0432b", null ],
     [ "GetCapturingState", "classDynExpInstr_1_1SpectrometerData.html#a1460017358aa8eb5ef11fd8e75b713a8", null ],
@@ -33,7 +24,6 @@ var classDynExpInstr_1_1SpectrometerData =
     [ "GetSpectrum", "classDynExpInstr_1_1SpectrometerData.html#a881f58b2fd2885234ccf89027b52c408", null ],
     [ "GetSpectrumCopy", "classDynExpInstr_1_1SpectrometerData.html#a16b291189c9c5129d16ebe211365b68b", null ],
     [ "HasSpectrum", "classDynExpInstr_1_1SpectrometerData.html#ac38ee244b0db73bb4920383921f136d8", null ],
-    [ "IntensityUnitTypeToStr", "classDynExpInstr_1_1SpectrometerData.html#a7c0f1e45c8c059e232028166cd4443b4", null ],
     [ "IsCapturing", "classDynExpInstr_1_1SpectrometerData.html#ad9521fa0f0213d2ba8f95ff6bb71a4da", null ],
     [ "ResetImpl", "classDynExpInstr_1_1SpectrometerData.html#a7dc58a8344a88b36165086e78c5bfc38", null ],
     [ "ResetImpl", "classDynExpInstr_1_1SpectrometerData.html#a0118a3074aafbcc9e8399868542c13a2", null ],

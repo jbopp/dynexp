@@ -1,0 +1,38 @@
+var Units_8h =
+[
+    [ "UnitType", "Units_8h.html#a31646c74e14969210d5674e7cf74b8eb", [
+      [ "Arbitrary", "Units_8h.html#a31646c74e14969210d5674e7cf74b8eba3c1fc46575f79b15fc8990642387d07f", null ],
+      [ "LogicLevel", "Units_8h.html#a31646c74e14969210d5674e7cf74b8eba58813f2732898c58eee184424f672d28", null ],
+      [ "Counts", "Units_8h.html#a31646c74e14969210d5674e7cf74b8ebafbc82f77563b61ff6ee1a8202837307d", null ],
+      [ "Volt", "Units_8h.html#a31646c74e14969210d5674e7cf74b8ebae991c96ea6cbafafe60de03464daeadc", null ],
+      [ "Ampere", "Units_8h.html#a31646c74e14969210d5674e7cf74b8eba2ee3b9f6a94ce5398d1386f42f9c87ac", null ],
+      [ "Power_W", "Units_8h.html#a31646c74e14969210d5674e7cf74b8ebad85f3ce80951d209e1aa36423fd4bfb6", null ],
+      [ "Power_dBm", "Units_8h.html#a31646c74e14969210d5674e7cf74b8eba373af13cf2597f4967d04989230b07c0", null ],
+      [ "Index", "Units_8h.html#a31646c74e14969210d5674e7cf74b8eba88fa71f0a6e0dfedbb46d91cc0b37a50", null ],
+      [ "Time_s", "Units_8h.html#a31646c74e14969210d5674e7cf74b8eba10314cbd0b3bd36b60a586e8ed122be9", null ],
+      [ "Time_ms", "Units_8h.html#a31646c74e14969210d5674e7cf74b8eba040a67b523daaeb3ca7705253c87f9fb", null ],
+      [ "Time_us", "Units_8h.html#a31646c74e14969210d5674e7cf74b8eba7db7ccf6bae89811ae05df0b6ee9e959", null ],
+      [ "Time_ns", "Units_8h.html#a31646c74e14969210d5674e7cf74b8ebaa43e43cc8d27c997967455c2a12a2214", null ],
+      [ "Time_ps", "Units_8h.html#a31646c74e14969210d5674e7cf74b8eba17d00471038415ee52eed750c396fe35", null ],
+      [ "Freq_Hz", "Units_8h.html#a31646c74e14969210d5674e7cf74b8eba5989db36a8835bf631111d9550f17882", null ],
+      [ "Freq_kHz", "Units_8h.html#a31646c74e14969210d5674e7cf74b8eba9bd9951ebb8d2e44ed39cbd43d32d68f", null ],
+      [ "Freq_MHz", "Units_8h.html#a31646c74e14969210d5674e7cf74b8ebabbd8f042154eba035971c1fa3f0c229c", null ],
+      [ "Freq_GHz", "Units_8h.html#a31646c74e14969210d5674e7cf74b8eba6948e29ddc1f18ca446d0ea53c46a88f", null ],
+      [ "Freq_THz", "Units_8h.html#a31646c74e14969210d5674e7cf74b8eba2bb3dcfb8c8b4061d403b436d334164e", null ],
+      [ "Inv_cm", "Units_8h.html#a31646c74e14969210d5674e7cf74b8eba36569f7fac6afec2f023d1a9f22465ce", null ],
+      [ "Wavelength_nm", "Units_8h.html#a31646c74e14969210d5674e7cf74b8eba83faa1fc3e5a6e5e8babd23cadd8c718", null ],
+      [ "TperSqrtHz", "Units_8h.html#a31646c74e14969210d5674e7cf74b8eba103da72b8d0b0eb5f7b34210bc7d520c", null ],
+      [ "Unitless", "Units_8h.html#a31646c74e14969210d5674e7cf74b8eba512500ca8007e72ebc6fb801d5f526bd", null ],
+      [ "UnitlessInt", "Units_8h.html#a31646c74e14969210d5674e7cf74b8ebaa401144255aca7d313117bff5970cfae", null ]
+    ] ],
+    [ "IsFrequencyUnit", "Units_8h.html#adf0e741de76e152f7e72b6ecc1668dba", null ],
+    [ "IsIndexUnit", "Units_8h.html#a049616f9d3b11a2fc7f2511cfa9c68c9", null ],
+    [ "IsIntegerUnit", "Units_8h.html#abc1feecccc40550d5d7491e7327f9f64", null ],
+    [ "IsIntensityUnit", "Units_8h.html#ab7c69ccdea23c969322ef3b13ef57e4e", null ],
+    [ "IsTimeUnit", "Units_8h.html#a23ad648ab47c24f952b2fb5c565f6894", null ],
+    [ "IsTimeUnitStrict", "Units_8h.html#ac9a18e7faa94ad560cad0c28c1388a26", null ],
+    [ "UnitCategoryToStr", "Units_8h.html#a66ea53c2714126b9d28dee45d97a0d44", null ],
+    [ "UnitToStr", "Units_8h.html#a40f18290d33adc13685f4875200348f3", null ],
+    [ "UnitTypeToStr", "Units_8h.html#afa38b036b901840db4dda77f0c8095df", null ],
+    [ "SpeedOfLight", "Units_8h.html#a983d0bf872f4ad564e7596d4fc20fae6", null ]
+];

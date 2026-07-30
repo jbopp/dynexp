@@ -227,9 +227,9 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Override (instrument information)</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Override by derived classes to provide information about the instrument. </p>
 </div></td></tr>
-<tr class="memitem:a893b4bf8036fb748c43ec8b6e044f14e" id="r_a893b4bf8036fb748c43ec8b6e044f14e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330">DataStreamInstrumentData::UnitType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#a893b4bf8036fb748c43ec8b6e044f14e">GetValueUnit</a> () const =0</td></tr>
-<tr class="memdesc:a893b4bf8036fb748c43ec8b6e044f14e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines which unit corresponds to the values managed by this <code><a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html" title="Implementation of the data stream meta instrument, which is a base class for all instruments reading/...">DataStreamInstrument</a></code> instance. Do not enforce <code>noexcept</code> to allow overriding functions which throw exceptions.  <br /></td></tr>
-<tr class="separator:a893b4bf8036fb748c43ec8b6e044f14e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90dc29f7e71814a80d02aaa3a01fe100" id="r_a90dc29f7e71814a80d02aaa3a01fe100"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespaceDynExp_1_1Units.html#a31646c74e14969210d5674e7cf74b8eb">DynExp::Units::UnitType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#a90dc29f7e71814a80d02aaa3a01fe100">GetValueUnit</a> () const =0</td></tr>
+<tr class="memdesc:a90dc29f7e71814a80d02aaa3a01fe100"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines which unit corresponds to the values managed by this <code><a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html" title="Implementation of the data stream meta instrument, which is a base class for all instruments reading/...">DataStreamInstrument</a></code> instance. Do not enforce <code>noexcept</code> to allow overriding functions which throw exceptions.  <br /></td></tr>
+<tr class="separator:a90dc29f7e71814a80d02aaa3a01fe100"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Override (instrument tasks)</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Override by derived classes to insert tasks into the instrument's task queue, which read/write data from a hardware adapter into the buffer of this instrument's data stream or vice versa. Logical const-ness: const member functions to allow modules inserting tasks into the instrument's task queue. </p>
 </div></td></tr>
@@ -410,6 +410,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object" id="r_af55298b0589b9239ff3076d540c97449"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#af55298b0589b9239ff3076d540c97449">CategoryAndNameToStr</a> (const std::string &amp;Category, const std::string &amp;Name)</td></tr>
 <tr class="memdesc:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string from an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> category and name to allow the user to identify an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> type.  <br /></td></tr>
 <tr class="separator:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object" id="r_acaf8f71896eb782a22155311c10a799a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#acaf8f71896eb782a22155311c10a799a">RemoveCategoryAndName</a> (const std::string &amp;ObjectDesc)</td></tr>
+<tr class="memdesc:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the category and name part built by <a class="el" href="classDynExp_1_1Object.html#af55298b0589b9239ff3076d540c97449" title="Builds a string from an Object&#39;s category and name to allow the user to identify an Object&#39;s type.">Object::CategoryAndNameToStr()</a> from the string <code>ObjectDesc</code> constructed by <a class="el" href="classDynExp_1_1LinkedObjectWrapper.html#a8aae6a3a96ddb6671a223da80c150dc8" title="Builds and returns a human-readable string uniquely identifying the Object instance DestinyResource....">LinkedObjectWrapper::GetLinkedObjectDesc()</a>.  <br /></td></tr>
+<tr class="separator:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -529,7 +532,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of the data stream meta instrument, which is a base class for all instruments reading/writing single/multiple values from/to input/output devices. </p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00924">924</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00901">901</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a4ab730dba95971ba58c6e98641ba6354" name="a4ab730dba95971ba58c6e98641ba6354"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4ab730dba95971ba58c6e98641ba6354">&#9670;&#160;</a></span>ConfigType</h2>
@@ -545,7 +548,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Type of the configurator class belonging to this <code>Object</code> type. Declare this alias in every derived class with the respective configurator class accompanying the derived <code>Object</code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00928">928</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00905">905</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 
 </div>
 </div>
@@ -563,7 +566,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Defines a task for deinitializing an instrument within an instrument inheritance hierarchy. Each instrument (indirectly) derived from class <code>InstrumentBase</code> must be accompanied by a deinitialization task class derived from <code>ExitTaskBase</code>. Even if the task does not do anything, at least it has to call ExitTaskBase::ExitFuncImpl() of the derived instrument's deinitialization task class.   </p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00936">936</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00913">913</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 
 </div>
 </div>
@@ -582,7 +585,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Defines a task for initializing an instrument within an instrument inheritance hierarchy. Each instrument (indirectly) derived from class <code>InstrumentBase</code> must be accompanied by an initialization task class derived from <code>InitTaskBase</code>. Even if the task does not do anything, at least it has to call InitTaskBase::InitFuncImpl() of the derived instrument's initialization task class.   </p>
 <p>"  </p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00935">935</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00912">912</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 
 </div>
 </div>
@@ -600,7 +603,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Type of the data class belonging to this <code>InstrumentBase</code> type. Declare this alias in every derived class with the respective data class accompanying the derived <code>InstrumentBase</code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00929">929</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00906">906</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 
 </div>
 </div>
@@ -619,7 +622,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Type of the parameter class belonging to this <code>Object</code> type. Declare this alias in every derived class with the respective parameter class accompanying the derived <code>Object</code>. "  </p>
 <p>"  </p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00927">927</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00904">904</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 
 </div>
 </div>
@@ -637,7 +640,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Defines a task for updating an instrument within an instrument inheritance hierarchy. Each instrument (indirectly) derived from class <code>InstrumentBase</code> must be accompanied by an update task class derived from <code>UpdateTaskBase</code>. Even if the task does not do anything, at least it has to call UpdateTaskBase::UpdateFuncImpl() of the derived instrument's update task class.   </p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00937">937</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00914">914</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 
 </div>
 </div>
@@ -692,7 +695,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00946">946</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00923">923</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 
 </div>
 </div>
@@ -719,7 +722,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8cpp_source.html#l00127">127</a> of file <a class="el" href="DataStreamInstrument_8cpp_source.html">DataStreamInstrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8cpp_source.html#l00112">112</a> of file <a class="el" href="DataStreamInstrument_8cpp_source.html">DataStreamInstrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -749,7 +752,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the result of <a class="el" href="classDynExpInstr_1_1DataStreamBase.html#a2c3eb1c9bc4f2900b391a65ba4bc4b1a" title="Determines whether the stream contains at least one sample which can be read (i.e....">DataStreamBase::CanRead()</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8cpp_source.html#l00153">153</a> of file <a class="el" href="DataStreamInstrument_8cpp_source.html">DataStreamInstrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8cpp_source.html#l00138">138</a> of file <a class="el" href="DataStreamInstrument_8cpp_source.html">DataStreamInstrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -779,7 +782,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Every derived class has to redefine this function.   </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the category of this instrument type.   </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00941">941</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00918">918</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 
 </div>
 </div>
@@ -807,7 +810,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8cpp_source.html#l00161">161</a> of file <a class="el" href="DataStreamInstrument_8cpp_source.html">DataStreamInstrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8cpp_source.html#l00146">146</a> of file <a class="el" href="DataStreamInstrument_8cpp_source.html">DataStreamInstrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -845,7 +848,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NIDAQAnalogOut.html#a13c7751a32e85c982bff65813495b876">DynExpInstr::NIDAQAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalOut.html#a81e76b79514b628b3d3abca6ca794755">DynExpInstr::NIDAQDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#a64512ff8ab8901271de2dee01a351e2a">DynExpInstr::SwabianInstrumentsPulseStreamer</a>, and <a class="el" href="classDynExpInstr_1_1ZI__MFLI.html#a21bd214c38ef77c8343b41c3e4d2d3f0">DynExpInstr::ZI_MFLI</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l01002">1002</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00979">979</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 
 </div>
 </div>
@@ -878,7 +881,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1AnalogIn.html#ab2190a40b592fe4b86726956cbbf193e">DynExpInstr::AnalogIn</a>, <a class="el" href="classDynExpInstr_1_1AnalogOut.html#a25342de38bfbd2be2824b46e2724c38a">DynExpInstr::AnalogOut</a>, <a class="el" href="classDynExpInstr_1_1DigitalIn.html#a1a92a2dcd0e60e0be95d35b1ce7091dc">DynExpInstr::DigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DigitalOut.html#ac13467fc1e97ac14171578e025bc8df9">DynExpInstr::DigitalOut</a>, <a class="el" href="classDynExpInstr_1_1FunctionGenerator.html#a1fc1881d05feb5154fc123d1638a2967">DynExpInstr::FunctionGenerator</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a6ee87dcf3ed17651d0e5c392499bd10a">DynExpInstr::gRPCInstrument&lt; DataStreamInstrument, 0, gRPCStubs... &gt;</a>, <a class="el" href="classDynExpInstr_1_1InputPort.html#a5869622d7f6cac3fb7c46c0f27954a8a">DynExpInstr::InputPort</a>, <a class="el" href="classDynExpInstr_1_1LockinAmplifier.html#a5184e32111d0946520512db444727d62">DynExpInstr::LockinAmplifier</a>, <a class="el" href="classDynExpInstr_1_1OutputPort.html#aa79a116c6044a90feae80bb2f81ecc21">DynExpInstr::OutputPort</a>, and <a class="el" href="classDynExpInstr_1_1TimeTagger.html#a31b62966adaef6aafb26b8efaf772e00">DynExpInstr::TimeTagger</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00952">952</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00929">929</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 
 </div>
 </div>
@@ -911,12 +914,12 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1DummyAnalogIn.html#a08295623d7a0817e540e156af85ac167">DynExpInstr::DummyAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1DummyAnalogOut.html#a612f7e8181440994748d9e1a707031b0">DynExpInstr::DummyAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1DummyDataStreamInstrument.html#a88a437d0ab82340fa6b9aa1a7ecc1f6b">DynExpInstr::DummyDataStreamInstrument</a>, <a class="el" href="classDynExpInstr_1_1DummyDigitalIn.html#a074e418daec2cbb7693085198f0a12ab">DynExpInstr::DummyDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DummyDigitalOut.html#a5f6b9d2112e94d69965e76397cc76f81">DynExpInstr::DummyDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogIn.html#afa689df2f57aa3b092113119a9732bc6">DynExpInstr::NIDAQAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogOut.html#a9025adc05730bf7707d873014a387f53">DynExpInstr::NIDAQAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalIn.html#a8b56ee45908c8b9f156bcde397d729a4">DynExpInstr::NIDAQDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalOut.html#aa81e9f20517675da41073cdfe52dec4d">DynExpInstr::NIDAQDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1QutoolsQuTAG.html#a95b1f166f3fc4457a927da958f9fea29">DynExpInstr::QutoolsQuTAG</a>, <a class="el" href="classDynExpInstr_1_1RS__SMB100B.html#aff29f3f11be191a914205c1327eb86a9">DynExpInstr::RS_SMB100B</a>, <a class="el" href="classDynExpInstr_1_1RS__SMC100A.html#ad192a6b074a95154fdeedfdf06557b4e">DynExpInstr::RS_SMC100A</a>, <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#a409f197735415b011ce85e99c1a59f26">DynExpInstr::SwabianInstrumentsPulseStreamer</a>, <a class="el" href="classDynExpInstr_1_1ZI__MFLI.html#a80d9e22c5396a4b8459cdcf83a71b242">DynExpInstr::ZI_MFLI</a>, <a class="el" href="classDynExpInstr_1_1AnalogIn.html#a35cc8fc92e4a6a20e28061335cfc15f8">DynExpInstr::AnalogIn</a>, <a class="el" href="classDynExpInstr_1_1AnalogOut.html#a20f5a32602985ae4388fe9eb7b47237a">DynExpInstr::AnalogOut</a>, <a class="el" href="classDynExpInstr_1_1DigitalIn.html#a03fff3e8f2945abe0eb6346ed4706578">DynExpInstr::DigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DigitalOut.html#a85df109b9e7de4101288026d825ba6fc">DynExpInstr::DigitalOut</a>, <a class="el" href="classDynExpInstr_1_1FunctionGenerator.html#a6e7c6b7b79d63399b842088bab08e76a">DynExpInstr::FunctionGenerator</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#aa3add60d4ed9f1412dc9ff8e1fbfc7b6">DynExpInstr::gRPCInstrument&lt; DataStreamInstrument, 0, gRPCStubs... &gt;</a>, <a class="el" href="classDynExpInstr_1_1InputPort.html#a9f2c63cfa91a0bbb36d34573c0fc870e">DynExpInstr::InputPort</a>, <a class="el" href="classDynExpInstr_1_1LockinAmplifier.html#ae80a6d76425ae889db41df1cd6844fa6">DynExpInstr::LockinAmplifier</a>, <a class="el" href="classDynExpInstr_1_1OutputPort.html#a524152fca7ddd0f084fc5a659de1bf99">DynExpInstr::OutputPort</a>, and <a class="el" href="classDynExpInstr_1_1TimeTagger.html#a6031b7de9a2c4a56c18456f39d8a355e">DynExpInstr::TimeTagger</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00951">951</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00928">928</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 
 </div>
 </div>
-<a id="a893b4bf8036fb748c43ec8b6e044f14e" name="a893b4bf8036fb748c43ec8b6e044f14e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a893b4bf8036fb748c43ec8b6e044f14e">&#9670;&#160;</a></span>GetValueUnit()</h2>
+<a id="a90dc29f7e71814a80d02aaa3a01fe100" name="a90dc29f7e71814a80d02aaa3a01fe100"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90dc29f7e71814a80d02aaa3a01fe100">&#9670;&#160;</a></span>GetValueUnit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -925,7 +928,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330">DataStreamInstrumentData::UnitType</a> DynExpInstr::DataStreamInstrument::GetValueUnit </td>
+          <td class="memname">virtual <a class="el" href="namespaceDynExp_1_1Units.html#a31646c74e14969210d5674e7cf74b8eb">DynExp::Units::UnitType</a> DynExpInstr::DataStreamInstrument::GetValueUnit </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -941,7 +944,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Determines which unit corresponds to the values managed by this <code><a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html" title="Implementation of the data stream meta instrument, which is a base class for all instruments reading/...">DataStreamInstrument</a></code> instance. Do not enforce <code>noexcept</code> to allow overriding functions which throw exceptions. </p>
 <dl class="section return"><dt>Returns</dt><dd>Unit of values in the instrument's data stream </dd></dl>
 
-<p>Implemented in <a class="el" href="classDynExpInstr_1_1DummyDataStreamInstrument.html#a4c1a0c5c8f8d78f6cae0c80e2e7701b2">DynExpInstr::DummyDataStreamInstrument</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogIn.html#ae3ee7bc5b200e1ac1e8b668dde0f4a41">DynExpInstr::NIDAQAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogOut.html#a1c72b68854fdd5b563afd52751c81722">DynExpInstr::NIDAQAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1RS__SMB100B.html#a508fdb3c0fa1dd2da8adb0f8a07bb515">DynExpInstr::RS_SMB100B</a>, <a class="el" href="classDynExpInstr_1_1RS__SMC100A.html#ae5efb9195d4561e119370b7ce9abec0a">DynExpInstr::RS_SMC100A</a>, <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#abce2302500500fd167ed48b99beb601c">DynExpInstr::SwabianInstrumentsPulseStreamer</a>, <a class="el" href="classDynExpInstr_1_1ZI__MFLI.html#af2757d55b4ddf933edd060c4420fe84e">DynExpInstr::ZI_MFLI</a>, <a class="el" href="classDynExpInstr_1_1TimeTagger.html#a0d74a17eea9c0c659345b2f9299aec0a">DynExpInstr::TimeTagger</a>, <a class="el" href="classDynExpInstr_1_1DigitalIn.html#aae4e20dd18b6197df51c3adc2ae3e74c">DynExpInstr::DigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DigitalOut.html#a38fd42547c75461692b0fa5dea3da037">DynExpInstr::DigitalOut</a>, <a class="el" href="classDynExpInstr_1_1AnalogIn.html#a116ac28dc5de2be393d45513b3683ea5">DynExpInstr::AnalogIn</a>, and <a class="el" href="classDynExpInstr_1_1AnalogOut.html#a9d7193be84de0a3eeedcf09c4978f10f">DynExpInstr::AnalogOut</a>.</p>
+<p>Implemented in <a class="el" href="classDynExpInstr_1_1DummyDataStreamInstrument.html#a27410ef4541c656e8929e3156499febc">DynExpInstr::DummyDataStreamInstrument</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogIn.html#ae3c9c22eabbcad0fc7069a1113caa90b">DynExpInstr::NIDAQAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogOut.html#a26d85d52ee2f8f818850f6a97eebbefe">DynExpInstr::NIDAQAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1RS__SMB100B.html#ad93d7f4a51d91759b89f92e3ba85f116">DynExpInstr::RS_SMB100B</a>, <a class="el" href="classDynExpInstr_1_1RS__SMC100A.html#ac39d2aa8fd240c900a655af3789c8ba0">DynExpInstr::RS_SMC100A</a>, <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#adae7147bc5b31dc969e84c494ca9d422">DynExpInstr::SwabianInstrumentsPulseStreamer</a>, <a class="el" href="classDynExpInstr_1_1ZI__MFLI.html#a7b99cb8b54a805a9132256a424c5f7ca">DynExpInstr::ZI_MFLI</a>, <a class="el" href="classDynExpInstr_1_1TimeTagger.html#ad71d7f2bb306757e827e61356a36d7b3">DynExpInstr::TimeTagger</a>, <a class="el" href="classDynExpInstr_1_1DigitalIn.html#aeb1b9f15487af84b5d0848d7160b475d">DynExpInstr::DigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DigitalOut.html#a23261f6de525675bd6dddfeddaf05ab2">DynExpInstr::DigitalOut</a>, <a class="el" href="classDynExpInstr_1_1AnalogIn.html#a7b3c5388a9600d65a967dee82afd8c84">DynExpInstr::AnalogIn</a>, and <a class="el" href="classDynExpInstr_1_1AnalogOut.html#a9006156cd58f85925dab110074067da4">DynExpInstr::AnalogOut</a>.</p>
 
 </div>
 </div>
@@ -969,9 +972,9 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Builds and returns a descriptive string of the unit corresponding to the values managed by this <code><a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html" title="Implementation of the data stream meta instrument, which is a base class for all instruments reading/...">DataStreamInstrument</a></code> instance. </p>
-<dl class="section return"><dt>Returns</dt><dd>Returns the result of a call to <a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a902062adcf9bf42bf3f266d4466a3de3" title="Returns a descriptive string of a respective unit to be e.g. used in plots.">DataStreamInstrumentData::UnitTypeToStr()</a> on <code><a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#a893b4bf8036fb748c43ec8b6e044f14e" title="Determines which unit corresponds to the values managed by this DataStreamInstrument instance....">GetValueUnit()</a></code>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the result of a call to <a class="el" href="namespaceDynExp_1_1Units.html#afa38b036b901840db4dda77f0c8095df" title="Returns a descriptive string of the given unit&#39;s type (e.g. &#39;dBm&#39;).">DynExp::Units::UnitTypeToStr()</a> on <code><a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#a90dc29f7e71814a80d02aaa3a01fe100" title="Determines which unit corresponds to the values managed by this DataStreamInstrument instance....">GetValueUnit()</a></code>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00973">973</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00950">950</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 
 </div>
 </div>
@@ -1003,7 +1006,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1DummyAnalogIn.html#a82fa47b4f773274e6eafc47bb579a699">DynExpInstr::DummyAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1DummyAnalogOut.html#ad20ff076143f3ade278fe17c1f68c5d3">DynExpInstr::DummyAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1DummyDigitalIn.html#aa2931309ba4608e1207bfb8056694604">DynExpInstr::DummyDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DummyDigitalOut.html#aecbc392196a19921af31cc925f047bc1">DynExpInstr::DummyDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogIn.html#ac9c3bd8926ee5b2a893f5baee1b22d2b">DynExpInstr::NIDAQAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogOut.html#a51512aff8b171de5c2428428de14bb92">DynExpInstr::NIDAQAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalIn.html#a3e0e01fe6169fc9e1afe70a62a56ba50">DynExpInstr::NIDAQDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalOut.html#a073493fe6817b2b073aad550b2ff57f0">DynExpInstr::NIDAQDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#accbcffe28f99613dc9f3b1ab52e98726">DynExpInstr::SwabianInstrumentsPulseStreamer</a>, and <a class="el" href="classDynExpInstr_1_1ZI__MFLI.html#a6a319f88ea0bd8a49815dfb7d2d82e6c">DynExpInstr::ZI_MFLI</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l01049">1049</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l01026">1026</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 
 </div>
 </div>
@@ -1035,7 +1038,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1RS__SMB100B.html#a48a59fb26e6c6665e236b69cb6652f68">DynExpInstr::RS_SMB100B</a>, <a class="el" href="classDynExpInstr_1_1RS__SMC100A.html#a24a551eb14472e144f0d1dbf529a8d7d">DynExpInstr::RS_SMC100A</a>, <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#a2d34a59a97fc4e70d161ef111287cf87">DynExpInstr::SwabianInstrumentsPulseStreamer</a>, and <a class="el" href="classDynExpInstr_1_1ZI__MFLI.html#af91101eadf1631257cba837a3217ad1a">DynExpInstr::ZI_MFLI</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l01058">1058</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l01035">1035</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 
 </div>
 </div>
@@ -1069,7 +1072,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1DummyAnalogIn.html#a42f692dd208fab3f157a66fc821f5447">DynExpInstr::DummyAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1DummyAnalogOut.html#a00f327934e85e1fb5a2a3439a72d04cb">DynExpInstr::DummyAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1DummyDataStreamInstrument.html#a46df978ce43d683faaf1e69b6e192f3c">DynExpInstr::DummyDataStreamInstrument</a>, <a class="el" href="classDynExpInstr_1_1DummyDigitalIn.html#a739db07d01199b40ab76807f95780ddd">DynExpInstr::DummyDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DummyDigitalOut.html#addc59be82ad89f9604eacd3f6a1689e9">DynExpInstr::DummyDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogIn.html#a011e816d9b0f7be12358c58b3f37ad5a">DynExpInstr::NIDAQAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogOut.html#af832ac7e9dd11567e5de2f84ef03e002">DynExpInstr::NIDAQAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalIn.html#a2af29272b93f21f87d8a7fd5a46868ab">DynExpInstr::NIDAQDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalOut.html#a54dbf824af1e4da0f821ba8562b05830">DynExpInstr::NIDAQDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1QutoolsQuTAG.html#af3e6fafd6adf6bce35f157fd8a33fa56">DynExpInstr::QutoolsQuTAG</a>, <a class="el" href="classDynExpInstr_1_1RS__SMB100B.html#a54c09a0ac8f6c470b9fba9e4b31f4bc2">DynExpInstr::RS_SMB100B</a>, <a class="el" href="classDynExpInstr_1_1RS__SMC100A.html#a6046bccb5072cadda9bd1e96a21a847f">DynExpInstr::RS_SMC100A</a>, <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#a6eb0f07df8ad48f9018610b1dbd1f9d2">DynExpInstr::SwabianInstrumentsPulseStreamer</a>, <a class="el" href="classDynExpInstr_1_1ZI__MFLI.html#ad6fe578d6028c10df54079841b80fd7e">DynExpInstr::ZI_MFLI</a>, <a class="el" href="classDynExpInstr_1_1AnalogIn.html#afb3daa21698ef0bfdd023896ad5b5579">DynExpInstr::AnalogIn</a>, <a class="el" href="classDynExpInstr_1_1AnalogOut.html#a1fe4a9c74e5ba796d0656ee6abebe6ce">DynExpInstr::AnalogOut</a>, <a class="el" href="classDynExpInstr_1_1DigitalIn.html#a4419c8234b3b96aa8c67eb24b96c20fe">DynExpInstr::DigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DigitalOut.html#a136ca10b582ddb262c2971255cf31bd1">DynExpInstr::DigitalOut</a>, <a class="el" href="classDynExpInstr_1_1FunctionGenerator.html#a56167ec50d688570059eeaf128f6e672">DynExpInstr::FunctionGenerator</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#ad856281610bdf95239d0a5c75ae7e220">DynExpInstr::gRPCInstrument&lt; DataStreamInstrument, 0, gRPCStubs... &gt;</a>, <a class="el" href="classDynExpInstr_1_1InputPort.html#afa1d8d112ce9e4197631d29197643826">DynExpInstr::InputPort</a>, <a class="el" href="classDynExpInstr_1_1LockinAmplifier.html#ac3cf57e362e59fd3156e2a0b0ed16a74">DynExpInstr::LockinAmplifier</a>, <a class="el" href="classDynExpInstr_1_1OutputPort.html#a66a6c6a6be13d168498627219174828e">DynExpInstr::OutputPort</a>, and <a class="el" href="classDynExpInstr_1_1TimeTagger.html#ae4c9699d7da22c524b23bafba88f9539">DynExpInstr::TimeTagger</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l01082">1082</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l01059">1059</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 
 </div>
 </div>
@@ -1103,7 +1106,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1DummyAnalogIn.html#a42fbc3236584a832cfbc073e39fa1a7d">DynExpInstr::DummyAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1DummyAnalogOut.html#adaf7906e4a3b633f690d1c699c299a31">DynExpInstr::DummyAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1DummyDataStreamInstrument.html#a2114c60ee3a3dde007c663834c676f42">DynExpInstr::DummyDataStreamInstrument</a>, <a class="el" href="classDynExpInstr_1_1DummyDigitalIn.html#a4c06154942771dad010c16413af155ca">DynExpInstr::DummyDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DummyDigitalOut.html#a56e87e38a986ada030eca7b26af34053">DynExpInstr::DummyDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogIn.html#a06900c05ecf8bc783fb8755db3d121ef">DynExpInstr::NIDAQAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogOut.html#ace784bc5e97c680fc89a21d6001cdb98">DynExpInstr::NIDAQAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalIn.html#aea36128bab8edf92efab2165d33c3e19">DynExpInstr::NIDAQDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalOut.html#ac379baa8e4bceec3648ae9f1ce2adf2c">DynExpInstr::NIDAQDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1QutoolsQuTAG.html#aac52b0bf2b7e652ea22f8a4d986b728b">DynExpInstr::QutoolsQuTAG</a>, <a class="el" href="classDynExpInstr_1_1RS__SMB100B.html#aa41d4cb7b9c568e089a92a8fefc6a7b5">DynExpInstr::RS_SMB100B</a>, <a class="el" href="classDynExpInstr_1_1RS__SMC100A.html#a105f706d3fff1573489959a297857106">DynExpInstr::RS_SMC100A</a>, <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#ac62b43b6372a35b59d7e00dabd76a4c9">DynExpInstr::SwabianInstrumentsPulseStreamer</a>, <a class="el" href="classDynExpInstr_1_1ZI__MFLI.html#a998cda2cf2a8994eda36cdbe9c21d727">DynExpInstr::ZI_MFLI</a>, <a class="el" href="classDynExpInstr_1_1AnalogIn.html#a02562cd7738ba469be44297bce7e76ce">DynExpInstr::AnalogIn</a>, <a class="el" href="classDynExpInstr_1_1AnalogOut.html#a609a9751e00a2387682060e61f7e9053">DynExpInstr::AnalogOut</a>, <a class="el" href="classDynExpInstr_1_1DigitalIn.html#a84576473513e6529d9a3984d379f3dad">DynExpInstr::DigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DigitalOut.html#a00ee5a8b10d30a40a474dbb1098b58c0">DynExpInstr::DigitalOut</a>, <a class="el" href="classDynExpInstr_1_1FunctionGenerator.html#a11d9f8c41ba511849af3fb9541b9424c">DynExpInstr::FunctionGenerator</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a9247640da547c5213952148d33533d3e">DynExpInstr::gRPCInstrument&lt; DataStreamInstrument, 0, gRPCStubs... &gt;</a>, <a class="el" href="classDynExpInstr_1_1InputPort.html#a7fccda982f6ffd966277e92b5785f77e">DynExpInstr::InputPort</a>, <a class="el" href="classDynExpInstr_1_1LockinAmplifier.html#a5fc5c02f970ea3aabcc60ff32a8f5cd4">DynExpInstr::LockinAmplifier</a>, <a class="el" href="classDynExpInstr_1_1OutputPort.html#a21006156902b800db379097a57a14d54">DynExpInstr::OutputPort</a>, and <a class="el" href="classDynExpInstr_1_1TimeTagger.html#aafb733ec58688d5d558607b576d1a896">DynExpInstr::TimeTagger</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l01081">1081</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l01058">1058</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 
 </div>
 </div>
@@ -1137,7 +1140,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1DummyAnalogIn.html#ac18c9084f526491afad030d94e61b89b">DynExpInstr::DummyAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1DummyAnalogOut.html#a734ea5905cfb332a11bb57472c236eda">DynExpInstr::DummyAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1DummyDataStreamInstrument.html#abb898109090071d15b63877fafff45d4">DynExpInstr::DummyDataStreamInstrument</a>, <a class="el" href="classDynExpInstr_1_1DummyDigitalIn.html#ae1b0bbedad683952947abd2addad14a8">DynExpInstr::DummyDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DummyDigitalOut.html#a952c5af0bb63243610247a4e19b4cce7">DynExpInstr::DummyDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogIn.html#aef43daf4361c2fbb5026d0575f070ac2">DynExpInstr::NIDAQAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogOut.html#a9ba188e58ca736fa9dda531f22af0646">DynExpInstr::NIDAQAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalIn.html#a08487bec4bca4e4b4e696876f3299632">DynExpInstr::NIDAQDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalOut.html#aa3170b414150ad86a7fe31250c040ffc">DynExpInstr::NIDAQDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1QutoolsQuTAG.html#ad644880637c64110653581a7f876ce96">DynExpInstr::QutoolsQuTAG</a>, <a class="el" href="classDynExpInstr_1_1RS__SMB100B.html#a5551bf0c6175871b3dd5856183615559">DynExpInstr::RS_SMB100B</a>, <a class="el" href="classDynExpInstr_1_1RS__SMC100A.html#abd87fa290b6b3f74c4194f8e4e076be3">DynExpInstr::RS_SMC100A</a>, <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#a6adde24c97d52ffdda97aaee8c57a214">DynExpInstr::SwabianInstrumentsPulseStreamer</a>, <a class="el" href="classDynExpInstr_1_1ZI__MFLI.html#a0b5f025b3c9171c6e39068cf1234d0b8">DynExpInstr::ZI_MFLI</a>, <a class="el" href="classDynExpInstr_1_1AnalogIn.html#ad8c9906ff2cac9e72889f021bda6f943">DynExpInstr::AnalogIn</a>, <a class="el" href="classDynExpInstr_1_1AnalogOut.html#a395c99510fd7b5f72e23e4274e787a37">DynExpInstr::AnalogOut</a>, <a class="el" href="classDynExpInstr_1_1DigitalIn.html#a52bb0b75265ada7ac940b683fc68cdfd">DynExpInstr::DigitalIn</a>, <a class="el" href="classDynExpInstr_1_1DigitalOut.html#a7100ececb188e6340d6347904b5eff57">DynExpInstr::DigitalOut</a>, <a class="el" href="classDynExpInstr_1_1FunctionGenerator.html#a2ef98585bf2d6ea2a1a6180aa63d6141">DynExpInstr::FunctionGenerator</a>, <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a9b5407927cfdfd7c91f1dff490b06ad2">DynExpInstr::gRPCInstrument&lt; DataStreamInstrument, 0, gRPCStubs... &gt;</a>, <a class="el" href="classDynExpInstr_1_1InputPort.html#a629187503e9d69a026418cc9cd2fddb1">DynExpInstr::InputPort</a>, <a class="el" href="classDynExpInstr_1_1LockinAmplifier.html#a7f6bffd268b8e762ce66393a3593be43">DynExpInstr::LockinAmplifier</a>, <a class="el" href="classDynExpInstr_1_1OutputPort.html#a35697f6a34c1d51f5cd0bdcf3c6acab8">DynExpInstr::OutputPort</a>, and <a class="el" href="classDynExpInstr_1_1TimeTagger.html#aec53a92838dfe098ca368d292c447b91">DynExpInstr::TimeTagger</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l01083">1083</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l01060">1060</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 
 </div>
 </div>
@@ -1167,7 +1170,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Every derived class has to redefine this function.   </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the name of this DynExp object type.   </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00940">940</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00917">917</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 
 </div>
 </div>
@@ -1205,7 +1208,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NIDAQAnalogIn.html#ae9111e17f83fb6093e8cc99dc921df38">DynExpInstr::NIDAQAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalIn.html#ada8c7c8515cda81ccaaf11b40fcb4f56">DynExpInstr::NIDAQDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1QutoolsQuTAG.html#ade08bc978c850f4c552ce14d7192bc07">DynExpInstr::QutoolsQuTAG</a>, and <a class="el" href="classDynExpInstr_1_1ZI__MFLI.html#ac41d48c6546c2bcfee08df0ce6397239">DynExpInstr::ZI_MFLI</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8cpp_source.html#l00131">131</a> of file <a class="el" href="DataStreamInstrument_8cpp_source.html">DataStreamInstrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8cpp_source.html#l00116">116</a> of file <a class="el" href="DataStreamInstrument_8cpp_source.html">DataStreamInstrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1263,7 +1266,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8cpp_source.html#l00168">168</a> of file <a class="el" href="DataStreamInstrument_8cpp_source.html">DataStreamInstrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8cpp_source.html#l00153">153</a> of file <a class="el" href="DataStreamInstrument_8cpp_source.html">DataStreamInstrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1301,7 +1304,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1DummyDataStreamInstrument.html#a6cdcadae351903117e1f4a6dbe0e913d">DynExpInstr::DummyDataStreamInstrument</a>, <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#a2eafaf45f3ba8c6c030c4fdc7d0babc2">DynExpInstr::SwabianInstrumentsPulseStreamer</a>, <a class="el" href="classDynExpInstr_1_1InputPort.html#aaa9e6800844f2fc31ec2e9fdda5c3774">DynExpInstr::InputPort</a>, <a class="el" href="classDynExpInstr_1_1OutputPort.html#af3f0b51d9995f68f0016f2795c2efb9d">DynExpInstr::OutputPort</a>, and <a class="el" href="classDynExpInstr_1_1TimeTagger.html#a3ad87ac614ecd5f7b94d6a4497b89bf3">DynExpInstr::TimeTagger</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l01040">1040</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l01017">1017</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 
 </div>
 </div>
@@ -1339,7 +1342,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NIDAQAnalogIn.html#a638e38b084e0db8d26583b673a33adeb">DynExpInstr::NIDAQAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogOut.html#ac2a35f2e3bbcf533e5a84c19e4237647">DynExpInstr::NIDAQAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalIn.html#ace2161e19d63604d7ce536e9560d3b03">DynExpInstr::NIDAQDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalOut.html#a17baedfb753ce01da0ad2881b58d4455">DynExpInstr::NIDAQDigitalOut</a>, and <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#a37a28c1081eeefdde07e4a2581c35f7b">DynExpInstr::SwabianInstrumentsPulseStreamer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8cpp_source.html#l00142">142</a> of file <a class="el" href="DataStreamInstrument_8cpp_source.html">DataStreamInstrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8cpp_source.html#l00127">127</a> of file <a class="el" href="DataStreamInstrument_8cpp_source.html">DataStreamInstrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1388,7 +1391,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1QutoolsQuTAG.html#a1a54cf5c24cf322f49d20cf690d9d238">DynExpInstr::QutoolsQuTAG</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8cpp_source.html#l00148">148</a> of file <a class="el" href="DataStreamInstrument_8cpp_source.html">DataStreamInstrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8cpp_source.html#l00133">133</a> of file <a class="el" href="DataStreamInstrument_8cpp_source.html">DataStreamInstrument.cpp</a>.</p>
 
 </div>
 </div>
@@ -1426,7 +1429,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NIDAQAnalogIn.html#a6a1d12d6afdc7dec0fc79038a6d58623">DynExpInstr::NIDAQAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogOut.html#adabe09eff87463a0ec826543c5126d3a">DynExpInstr::NIDAQAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalIn.html#a5b4ac8954a847ee2685769979da3b753">DynExpInstr::NIDAQDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalOut.html#a3296ee213f986940af2f8c42c0fe3b7e">DynExpInstr::NIDAQDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1RS__SMB100B.html#a78aef90c8cc969279b3af5a4d96d59ee">DynExpInstr::RS_SMB100B</a>, <a class="el" href="classDynExpInstr_1_1RS__SMC100A.html#af7d30048971fb8f8732cb5cf95b0fc0b">DynExpInstr::RS_SMC100A</a>, <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#af56d9303d91ac500f57c9d0776a1c813">DynExpInstr::SwabianInstrumentsPulseStreamer</a>, and <a class="el" href="classDynExpInstr_1_1ZI__MFLI.html#aa76fcce2923a06dd741b0959b76eb740">DynExpInstr::ZI_MFLI</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l01009">1009</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00986">986</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 
 </div>
 </div>
@@ -1464,7 +1467,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NIDAQAnalogIn.html#acda90df4b6d5853daba8cc09b01b086e">DynExpInstr::NIDAQAnalogIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogOut.html#a27544aa0714b66b9867b885301c6b1b5">DynExpInstr::NIDAQAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalIn.html#ad83c90c76eccad7738fb06791192c509">DynExpInstr::NIDAQDigitalIn</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalOut.html#a116d83408e8234ddb8f5bd2924440e8d">DynExpInstr::NIDAQDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1RS__SMB100B.html#a62e0cd3af4cb98f9a1fc31d4316ad0c2">DynExpInstr::RS_SMB100B</a>, <a class="el" href="classDynExpInstr_1_1RS__SMC100A.html#a1923fef0aba4f8272cbc3e1a544404d5">DynExpInstr::RS_SMC100A</a>, <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#a6745adbc8f2475ea2fef06dd00f8b934">DynExpInstr::SwabianInstrumentsPulseStreamer</a>, and <a class="el" href="classDynExpInstr_1_1ZI__MFLI.html#ac274a93b1bd59e273b1d8c5aaaa08832">DynExpInstr::ZI_MFLI</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l01016">1016</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8h_source.html#l00993">993</a> of file <a class="el" href="DataStreamInstrument_8h_source.html">DataStreamInstrument.h</a>.</p>
 
 </div>
 </div>
@@ -1508,7 +1511,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1DummyAnalogOut.html#a36a942dc2de37758f6ab89d2d3d83297">DynExpInstr::DummyAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1DummyDigitalOut.html#aa00f701adb25ae711aea472bcc7d0b2b">DynExpInstr::DummyDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQAnalogOut.html#a4207133ba48b9d7138401fee04171706">DynExpInstr::NIDAQAnalogOut</a>, <a class="el" href="classDynExpInstr_1_1NIDAQDigitalOut.html#a64d79a0d8c700d898baa70b6aedaecec">DynExpInstr::NIDAQDigitalOut</a>, <a class="el" href="classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#acce75d4e98d3d32ae886bc8dd93d2994">DynExpInstr::SwabianInstrumentsPulseStreamer</a>, and <a class="el" href="classDynExpInstr_1_1DummyDataStreamInstrument.html#ac0450de1a475a0a68aee302ebbf542e7">DynExpInstr::DummyDataStreamInstrument</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8cpp_source.html#l00137">137</a> of file <a class="el" href="DataStreamInstrument_8cpp_source.html">DataStreamInstrument.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DataStreamInstrument_8cpp_source.html#l00122">122</a> of file <a class="el" href="DataStreamInstrument_8cpp_source.html">DataStreamInstrument.cpp</a>.</p>
 
 </div>
 </div>

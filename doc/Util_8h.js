@@ -92,6 +92,5 @@ var Util_8h =
     [ "ToUnitStr< std::chrono::seconds >", "Util_8h.html#a1291cad87815f03694922382ba402222", null ],
     [ "TrimTrailingZeros", "Util_8h.html#ab963e59ba11ee8e43e8e1fe3482fa377", null ],
     [ "VersionFromString", "Util_8h.html#a68b9b93456301284ca7d695c51a4001a", null ],
-    [ "is_contained_in_v", "Util_8h.html#a132b3de3103b01ab172ee946b4ad0c96", null ],
-    [ "SpeedOfLight", "Util_8h.html#a9d2af7b8b0545b3670b402f217dba6bf", null ]
+    [ "is_contained_in_v", "Util_8h.html#a132b3de3103b01ab172ee946b4ad0c96", null ]
 ];

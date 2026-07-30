@@ -1,0 +1,19 @@
+<map id="DynExp::QMLModuleParamsBase" name="DynExp::QMLModuleParamsBase">
+<area shape="rect" id="Node000001" title="Parameter class for QMLModuleBase." alt="" coords="1445,45,1683,70"/>
+<area shape="rect" id="Node000008" href="$classDynExpModule_1_1SignalPlotter_1_1SignalPlotterParams.html" title=" " alt="" coords="1743,5,1953,45"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1690,40,1742,35,1743,40,1691,46"/>
+<area shape="rect" id="Node000009" href="$classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerParams.html" title=" " alt="" coords="1731,69,1965,109"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1691,69,1731,73,1730,79,1690,74"/>
+<area shape="rect" id="Node000002" href="$classDynExp_1_1QModuleParamsBase.html" title="Parameter class for QModuleBase." alt="" coords="1179,45,1397,70"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1411,55,1445,55,1445,60,1411,60"/>
+<area shape="rect" id="Node000003" href="$classDynExp_1_1ModuleParamsBase.html" title="Parameter class for ModuleBase." alt="" coords="923,45,1131,70"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1145,55,1179,55,1179,60,1145,60"/>
+<area shape="rect" id="Node000004" href="$classDynExp_1_1RunnableObjectParams.html" title="Parameter class for RunnableObject." alt="" coords="644,45,875,70"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="888,55,922,55,922,60,888,60"/>
+<area shape="rect" id="Node000005" href="$classDynExp_1_1ParamsBase.html" title="Abstract base class for object parameter classes. Each class derived from class Object must be accomp..." alt="" coords="436,45,596,70"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="610,55,644,55,644,60,610,60"/>
+<area shape="rect" id="Node000006" href="$classUtil_1_1ISynchronizedPointerLockable.html" title="Interface to allow synchronizing the access to derived classes between different threads by making th..." alt="" coords="197,37,388,77"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="402,55,436,55,436,60,402,60"/>
+<area shape="rect" id="Node000007" href="$classUtil_1_1INonCopyable.html" title="Interface to delete copy constructor and copy assignment operator and thus make derived classes non&#45;c..." alt="" coords="5,45,149,70"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="163,55,197,55,197,60,163,60"/>
+</map>

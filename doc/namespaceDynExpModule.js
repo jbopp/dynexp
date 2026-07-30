@@ -1,8 +1,10 @@
 var namespaceDynExpModule =
 [
+    [ "Graph", "namespaceDynExpModule_1_1Graph.html", "namespaceDynExpModule_1_1Graph" ],
     [ "ImageViewer", "namespaceDynExpModule_1_1ImageViewer.html", "namespaceDynExpModule_1_1ImageViewer" ],
     [ "LaserScanningSpectroscopy", "namespaceDynExpModule_1_1LaserScanningSpectroscopy.html", "namespaceDynExpModule_1_1LaserScanningSpectroscopy" ],
     [ "ODMR", "namespaceDynExpModule_1_1ODMR.html", "namespaceDynExpModule_1_1ODMR" ],
+    [ "SignalPlotter", "namespaceDynExpModule_1_1SignalPlotter.html", "namespaceDynExpModule_1_1SignalPlotter" ],
     [ "SpectrumViewer", "namespaceDynExpModule_1_1SpectrumViewer.html", "namespaceDynExpModule_1_1SpectrumViewer" ],
     [ "Widefield", "namespaceDynExpModule_1_1Widefield.html", "namespaceDynExpModule_1_1Widefield" ],
     [ "ArbitraryFunctionFromCSV", "classDynExpModule_1_1ArbitraryFunctionFromCSV.html", "classDynExpModule_1_1ArbitraryFunctionFromCSV" ],
@@ -71,11 +73,6 @@ var namespaceDynExpModule =
     [ "SignalDesignerData", "classDynExpModule_1_1SignalDesignerData.html", "classDynExpModule_1_1SignalDesignerData" ],
     [ "SignalDesignerParams", "classDynExpModule_1_1SignalDesignerParams.html", "classDynExpModule_1_1SignalDesignerParams" ],
     [ "SignalDesignerWidget", "classDynExpModule_1_1SignalDesignerWidget.html", "classDynExpModule_1_1SignalDesignerWidget" ],
-    [ "SignalPlotter", "classDynExpModule_1_1SignalPlotter.html", "classDynExpModule_1_1SignalPlotter" ],
-    [ "SignalPlotterConfigurator", "classDynExpModule_1_1SignalPlotterConfigurator.html", "classDynExpModule_1_1SignalPlotterConfigurator" ],
-    [ "SignalPlotterData", "classDynExpModule_1_1SignalPlotterData.html", "classDynExpModule_1_1SignalPlotterData" ],
-    [ "SignalPlotterParams", "classDynExpModule_1_1SignalPlotterParams.html", "classDynExpModule_1_1SignalPlotterParams" ],
-    [ "SignalPlotterWidget", "classDynExpModule_1_1SignalPlotterWidget.html", "classDynExpModule_1_1SignalPlotterWidget" ],
     [ "Stage1D", "classDynExpModule_1_1Stage1D.html", "classDynExpModule_1_1Stage1D" ],
     [ "Stage1DConfigurator", "classDynExpModule_1_1Stage1DConfigurator.html", "classDynExpModule_1_1Stage1DConfigurator" ],
     [ "Stage1DData", "classDynExpModule_1_1Stage1DData.html", "classDynExpModule_1_1Stage1DData" ],

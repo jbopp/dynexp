@@ -14,7 +14,7 @@ var classDynExpInstr_1_1SwabianInstrumentsPulseStreamer =
     [ "GetParamDefaultsChild", "classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#a9c6657464d2ff70fb6203ca3b1d2a3a8", null ],
     [ "GetTaskQueueDelay", "classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#acb56e2665b5ac5aa64a6ed7887c17d8c", null ],
     [ "GetTriggerCapsChild", "classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#a975a32068360a6a7726493032fc83ea4", null ],
-    [ "GetValueUnit", "classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#abce2302500500fd167ed48b99beb601c", null ],
+    [ "GetValueUnit", "classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#adae7147bc5b31dc969e84c494ca9d422", null ],
     [ "GetWaveformCapsChild", "classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#a4eee5864b27f1b8c18ed13ca653ac571", null ],
     [ "HasFinished", "classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#accbcffe28f99613dc9f3b1ab52e98726", null ],
     [ "IsRunning", "classDynExpInstr_1_1SwabianInstrumentsPulseStreamer.html#a2d34a59a97fc4e70d161ef111287cf87", null ],

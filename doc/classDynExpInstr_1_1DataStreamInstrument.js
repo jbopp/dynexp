@@ -14,7 +14,7 @@ var classDynExpInstr_1_1DataStreamInstrument =
     [ "ClearData", "classDynExpInstr_1_1DataStreamInstrument.html#a0fca308b238803e22bd40f06e9a91691", null ],
     [ "GetCategory", "classDynExpInstr_1_1DataStreamInstrument.html#a97b2132be4fe72fc8829a680eeae0806", null ],
     [ "GetName", "classDynExpInstr_1_1DataStreamInstrument.html#ab9ce0203ef832c60e0aa157e28506d2a", null ],
-    [ "GetValueUnit", "classDynExpInstr_1_1DataStreamInstrument.html#a893b4bf8036fb748c43ec8b6e044f14e", null ],
+    [ "GetValueUnit", "classDynExpInstr_1_1DataStreamInstrument.html#a90dc29f7e71814a80d02aaa3a01fe100", null ],
     [ "GetValueUnitStr", "classDynExpInstr_1_1DataStreamInstrument.html#af0b767fa347b26ebf8a3b21d71bb1c16", null ],
     [ "HasFinished", "classDynExpInstr_1_1DataStreamInstrument.html#a0e9f6188267d3b7ae4eb4f636448a947", null ],
     [ "IsRunning", "classDynExpInstr_1_1DataStreamInstrument.html#aff65e58c813c200774eabe59d6a9f89d", null ],

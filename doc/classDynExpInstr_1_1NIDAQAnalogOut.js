@@ -12,7 +12,7 @@ var classDynExpInstr_1_1NIDAQAnalogOut =
     [ "GetName", "classDynExpInstr_1_1NIDAQAnalogOut.html#a9025adc05730bf7707d873014a387f53", null ],
     [ "GetNumericSampleStreamParams", "classDynExpInstr_1_1NIDAQAnalogOut.html#a16af3da0d8c08218a4b0fcd935095740", null ],
     [ "GetStreamSizeParams", "classDynExpInstr_1_1NIDAQAnalogOut.html#ac483606c25c81d530400025e36cc2bca", null ],
-    [ "GetValueUnit", "classDynExpInstr_1_1NIDAQAnalogOut.html#a1c72b68854fdd5b563afd52751c81722", null ],
+    [ "GetValueUnit", "classDynExpInstr_1_1NIDAQAnalogOut.html#a26d85d52ee2f8f818850f6a97eebbefe", null ],
     [ "GetWaveformCapsChild", "classDynExpInstr_1_1NIDAQAnalogOut.html#a4011f75d5ed17e8f6021da90f12eebad", null ],
     [ "HardwareMaxValue", "classDynExpInstr_1_1NIDAQAnalogOut.html#a6f5dc59f22e8ab9ddbf491ac4646bb0c", null ],
     [ "HardwareMinValue", "classDynExpInstr_1_1NIDAQAnalogOut.html#a9aa6ca57042bbfb04bdefc2f32a1316d", null ],

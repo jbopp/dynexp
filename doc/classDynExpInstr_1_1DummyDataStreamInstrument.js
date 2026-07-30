@@ -6,7 +6,7 @@ var classDynExpInstr_1_1DummyDataStreamInstrument =
     [ "DummyDataStreamInstrument", "classDynExpInstr_1_1DummyDataStreamInstrument.html#acef3456a26c491d8b85e73811aa2afe0", null ],
     [ "~DummyDataStreamInstrument", "classDynExpInstr_1_1DummyDataStreamInstrument.html#aad0b72527259ee88be96b4ebe15e3d69", null ],
     [ "GetName", "classDynExpInstr_1_1DummyDataStreamInstrument.html#a88a437d0ab82340fa6b9aa1a7ecc1f6b", null ],
-    [ "GetValueUnit", "classDynExpInstr_1_1DummyDataStreamInstrument.html#a4c1a0c5c8f8d78f6cae0c80e2e7701b2", null ],
+    [ "GetValueUnit", "classDynExpInstr_1_1DummyDataStreamInstrument.html#a27410ef4541c656e8929e3156499febc", null ],
     [ "GetWaveformCapsChild", "classDynExpInstr_1_1DummyDataStreamInstrument.html#a6bda31d9b12de32ace6c364289ce8b59", null ],
     [ "MakeExitTask", "classDynExpInstr_1_1DummyDataStreamInstrument.html#a46df978ce43d683faaf1e69b6e192f3c", null ],
     [ "MakeInitTask", "classDynExpInstr_1_1DummyDataStreamInstrument.html#a2114c60ee3a3dde007c663834c676f42", null ],

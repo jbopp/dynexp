@@ -259,9 +259,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a447e2e0158cede7440baef3e363861ab" id="r_a447e2e0158cede7440baef3e363861ab"><td class="memItemLeft" align="right" valign="top">virtual std::chrono::milliseconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1RS__SMC100A.html#a447e2e0158cede7440baef3e363861ab">GetTaskQueueDelay</a> () const override</td></tr>
 <tr class="memdesc:a447e2e0158cede7440baef3e363861ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies in which time intervals the instrument's task queue runs to handle pending tasks.  <br /></td></tr>
 <tr class="separator:a447e2e0158cede7440baef3e363861ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5efb9195d4561e119370b7ce9abec0a" id="r_ae5efb9195d4561e119370b7ce9abec0a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330">DataStreamInstrumentData::UnitType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1RS__SMC100A.html#ae5efb9195d4561e119370b7ce9abec0a">GetValueUnit</a> () const noexcept override</td></tr>
-<tr class="memdesc:ae5efb9195d4561e119370b7ce9abec0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines which unit corresponds to the values managed by this <code><a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html" title="Implementation of the data stream meta instrument, which is a base class for all instruments reading/...">DataStreamInstrument</a></code> instance. Do not enforce <code>noexcept</code> to allow overriding functions which throw exceptions.  <br /></td></tr>
-<tr class="separator:ae5efb9195d4561e119370b7ce9abec0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac39d2aa8fd240c900a655af3789c8ba0" id="r_ac39d2aa8fd240c900a655af3789c8ba0"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespaceDynExp_1_1Units.html#a31646c74e14969210d5674e7cf74b8eb">DynExp::Units::UnitType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1RS__SMC100A.html#ac39d2aa8fd240c900a655af3789c8ba0">GetValueUnit</a> () const noexcept override</td></tr>
+<tr class="memdesc:ac39d2aa8fd240c900a655af3789c8ba0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines which unit corresponds to the values managed by this <code><a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html" title="Implementation of the data stream meta instrument, which is a base class for all instruments reading/...">DataStreamInstrument</a></code> instance. Do not enforce <code>noexcept</code> to allow overriding functions which throw exceptions.  <br /></td></tr>
+<tr class="separator:ac39d2aa8fd240c900a655af3789c8ba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59c293c5228060db76a8be179f4b2320" id="r_a59c293c5228060db76a8be179f4b2320"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1RS__SMC100A.html#a59c293c5228060db76a8be179f4b2320">IsPhaseAdjustable</a> () const noexcept override</td></tr>
 <tr class="memdesc:a59c293c5228060db76a8be179f4b2320"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether the function generator has the capability to set the phase of the generated waveform.  <br /></td></tr>
 <tr class="separator:a59c293c5228060db76a8be179f4b2320"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -526,6 +526,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object" id="r_af55298b0589b9239ff3076d540c97449"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#af55298b0589b9239ff3076d540c97449">CategoryAndNameToStr</a> (const std::string &amp;Category, const std::string &amp;Name)</td></tr>
 <tr class="memdesc:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string from an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> category and name to allow the user to identify an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> type.  <br /></td></tr>
 <tr class="separator:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object" id="r_acaf8f71896eb782a22155311c10a799a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#acaf8f71896eb782a22155311c10a799a">RemoveCategoryAndName</a> (const std::string &amp;ObjectDesc)</td></tr>
+<tr class="memdesc:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the category and name part built by <a class="el" href="classDynExp_1_1Object.html#af55298b0589b9239ff3076d540c97449" title="Builds a string from an Object&#39;s category and name to allow the user to identify an Object&#39;s type.">Object::CategoryAndNameToStr()</a> from the string <code>ObjectDesc</code> constructed by <a class="el" href="classDynExp_1_1LinkedObjectWrapper.html#a8aae6a3a96ddb6671a223da80c150dc8" title="Builds and returns a human-readable string uniquely identifying the Object instance DestinyResource....">LinkedObjectWrapper::GetLinkedObjectDesc()</a>.  <br /></td></tr>
+<tr class="separator:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -1070,8 +1073,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="ae5efb9195d4561e119370b7ce9abec0a" name="ae5efb9195d4561e119370b7ce9abec0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5efb9195d4561e119370b7ce9abec0a">&#9670;&#160;</a></span>GetValueUnit()</h2>
+<a id="ac39d2aa8fd240c900a655af3789c8ba0" name="ac39d2aa8fd240c900a655af3789c8ba0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac39d2aa8fd240c900a655af3789c8ba0">&#9670;&#160;</a></span>GetValueUnit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1080,7 +1083,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330">DataStreamInstrumentData::UnitType</a> DynExpInstr::RS_SMC100A::GetValueUnit </td>
+          <td class="memname">virtual <a class="el" href="namespaceDynExp_1_1Units.html#a31646c74e14969210d5674e7cf74b8eb">DynExp::Units::UnitType</a> DynExpInstr::RS_SMC100A::GetValueUnit </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1096,7 +1099,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Determines which unit corresponds to the values managed by this <code><a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html" title="Implementation of the data stream meta instrument, which is a base class for all instruments reading/...">DataStreamInstrument</a></code> instance. Do not enforce <code>noexcept</code> to allow overriding functions which throw exceptions. </p>
 <dl class="section return"><dt>Returns</dt><dd>Unit of values in the instrument's data stream </dd></dl>
 
-<p>Implements <a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#a893b4bf8036fb748c43ec8b6e044f14e">DynExpInstr::DataStreamInstrument</a>.</p>
+<p>Implements <a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#a90dc29f7e71814a80d02aaa3a01fe100">DynExpInstr::DataStreamInstrument</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="RS__SMC100A_8h_source.html#l00185">185</a> of file <a class="el" href="RS__SMC100A_8h_source.html">RS_SMC100A.h</a>.</p>
 

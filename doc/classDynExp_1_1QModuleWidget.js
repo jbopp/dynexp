@@ -2,6 +2,7 @@ var classDynExp_1_1QModuleWidget =
 [
     [ "QModuleWidget", "classDynExp_1_1QModuleWidget.html#a6042064470f67c6955dcf774e858faf9", null ],
     [ "~QModuleWidget", "classDynExp_1_1QModuleWidget.html#ad5da04c72ae68b2648d59b6792b27d5a", null ],
+    [ "AllowDocked", "classDynExp_1_1QModuleWidget.html#a21d47efd33461bc5abba23868f51edad", null ],
     [ "AllowResize", "classDynExp_1_1QModuleWidget.html#a297623b95ca91162e2790891cd32b374", null ],
     [ "closeEvent", "classDynExp_1_1QModuleWidget.html#a455ad8bfa7adc599e6970adcd055320b", null ],
     [ "EnableDockWindowShortcut", "classDynExp_1_1QModuleWidget.html#af1e7e12edff9b9c20a97332f8afc9d32", null ],

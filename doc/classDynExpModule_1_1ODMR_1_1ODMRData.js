@@ -44,7 +44,7 @@ var classDynExpModule_1_1ODMR_1_1ODMRData =
     [ "AuxAnalogOut", "classDynExpModule_1_1ODMR_1_1ODMRData.html#aa16d59b795e26e6599435ccc0dde7389", null ],
     [ "AuxAnalogOutMaxValue", "classDynExpModule_1_1ODMR_1_1ODMRData.html#add2c8af809de4c1680bc70da9b94a81f", null ],
     [ "AuxAnalogOutMinValue", "classDynExpModule_1_1ODMR_1_1ODMRData.html#a1bb5da53279b1ba27c429ff910657811", null ],
-    [ "AuxAnalogOutValueUnit", "classDynExpModule_1_1ODMR_1_1ODMRData.html#a2a185c0d27019f65a07e7235011a54e9", null ],
+    [ "AuxAnalogOutValueUnit", "classDynExpModule_1_1ODMR_1_1ODMRData.html#a52dda0ffb85371d1b59d1a27499c1ec1", null ],
     [ "CurrentSaveIndex", "classDynExpModule_1_1ODMR_1_1ODMRData.html#a8b52aa99d0d39eba99f41a8dd4652779", null ],
     [ "CurrentSweepIndex", "classDynExpModule_1_1ODMR_1_1ODMRData.html#a3db3b5b830095227e3e89b74608ede87", null ],
     [ "Features", "classDynExpModule_1_1ODMR_1_1ODMRData.html#a51cb67f4d839a18bdf7c887eae0fda58", null ],

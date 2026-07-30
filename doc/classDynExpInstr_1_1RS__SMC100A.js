@@ -14,7 +14,7 @@ var classDynExpInstr_1_1RS__SMC100A =
     [ "GetSweepCapsChild", "classDynExpInstr_1_1RS__SMC100A.html#a586cdedc3cc0d0d028bc1ace3b5838e3", null ],
     [ "GetTaskQueueDelay", "classDynExpInstr_1_1RS__SMC100A.html#a447e2e0158cede7440baef3e363861ab", null ],
     [ "GetTriggerCapsChild", "classDynExpInstr_1_1RS__SMC100A.html#a77dc711345f2247ec97bfe2e1ead7d28", null ],
-    [ "GetValueUnit", "classDynExpInstr_1_1RS__SMC100A.html#ae5efb9195d4561e119370b7ce9abec0a", null ],
+    [ "GetValueUnit", "classDynExpInstr_1_1RS__SMC100A.html#ac39d2aa8fd240c900a655af3789c8ba0", null ],
     [ "GetWaveformCapsChild", "classDynExpInstr_1_1RS__SMC100A.html#a3692926b38c86121ae68f59bde29f77b", null ],
     [ "IsPhaseAdjustable", "classDynExpInstr_1_1RS__SMC100A.html#a59c293c5228060db76a8be179f4b2320", null ],
     [ "IsRunning", "classDynExpInstr_1_1RS__SMC100A.html#a24a551eb14472e144f0d1dbf529a8d7d", null ],

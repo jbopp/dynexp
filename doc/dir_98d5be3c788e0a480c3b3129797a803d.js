@@ -4,6 +4,7 @@ var dir_98d5be3c788e0a480c3b3129797a803d =
     [ "Instruments", "dir_0da42046d2d6f05823dedebd1ee5614d.html", "dir_0da42046d2d6f05823dedebd1ee5614d" ],
     [ "MetaInstruments", "dir_4e013caeeea61262a6dac45a7a8bba06.html", "dir_4e013caeeea61262a6dac45a7a8bba06" ],
     [ "Modules", "dir_2ab72d9bf9e32bc56d72b9abb37a6f89.html", "dir_2ab72d9bf9e32bc56d72b9abb37a6f89" ],
+    [ "qml", "dir_ff18f722c1dbc3f59ba156445e964a20.html", "dir_ff18f722c1dbc3f59ba156445e964a20" ],
     [ "BusyDialog.cpp", "BusyDialog_8cpp.html", null ],
     [ "BusyDialog.h", "BusyDialog_8h.html", "BusyDialog_8h" ],
     [ "ChoiceListDialog.cpp", "ChoiceListDialog_8cpp.html", null ],
@@ -53,6 +54,8 @@ var dir_98d5be3c788e0a480c3b3129797a803d =
     [ "stdafx.h", "stdafx_8h.html", "stdafx_8h" ],
     [ "TextEditor.cpp", "TextEditor_8cpp.html", null ],
     [ "TextEditor.h", "TextEditor_8h.html", "TextEditor_8h" ],
+    [ "Units.cpp", "Units_8cpp.html", "Units_8cpp" ],
+    [ "Units.h", "Units_8h.html", "Units_8h" ],
     [ "Util.cpp", "Util_8cpp.html", "Util_8cpp" ],
     [ "Util.h", "Util_8h.html", "Util_8h" ]
 ];

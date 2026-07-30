@@ -12,9 +12,7 @@ var NetworkSpectrometer_8h =
     [ "DynExpInstr::NetworkSpectrometerParams", "classDynExpInstr_1_1NetworkSpectrometerParams.html", "classDynExpInstr_1_1NetworkSpectrometerParams" ],
     [ "DynExpInstr::NetworkSpectrometerConfigurator", "classDynExpInstr_1_1NetworkSpectrometerConfigurator.html", "classDynExpInstr_1_1NetworkSpectrometerConfigurator" ],
     [ "DynExpInstr::NetworkSpectrometer", "classDynExpInstr_1_1NetworkSpectrometer.html", "classDynExpInstr_1_1NetworkSpectrometer" ],
-    [ "ToPrototUnitType", "NetworkSpectrometer_8h.html#a9ac398463faf59927a74a4a9676e4343", null ],
-    [ "ToPrototUnitType", "NetworkSpectrometer_8h.html#afce064f4f4645548beb910c2bde801db", null ],
     [ "ToSpectrometerStateType", "NetworkSpectrometer_8h.html#aa590f28e852b390a0918d79dbbdbac26", null ],
-    [ "ToSpectrometerUnitType", "NetworkSpectrometer_8h.html#a72b8ffdb0f43af49f2a93c77a6a9dbfb", null ],
-    [ "ToSpectrometerUnitType", "NetworkSpectrometer_8h.html#af3f22a7260a1ca94be280a88ea878563", null ]
+    [ "ToSpectrometerUnitType", "NetworkSpectrometer_8h.html#acf65ebf207c4432bada16f894e1b45cb", null ],
+    [ "ToSpectrometerUnitType", "NetworkSpectrometer_8h.html#adab25c8f8044a67e550d93e6187c4f74", null ]
 ];

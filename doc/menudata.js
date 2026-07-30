@@ -258,7 +258,9 @@ var menudata={children:[
 {text:"t",url:"functions_eval.html#index_t"},
 {text:"u",url:"functions_eval.html#index_u"},
 {text:"v",url:"functions_eval.html#index_v"},
+{text:"w",url:"functions_eval.html#index_w"},
 {text:"z",url:"functions_eval.html#index_z"}]},
+{text:"Properties",url:"functions_prop.html"},
 {text:"Related Symbols",url:"functions_rela.html",children:[
 {text:"d",url:"functions_rela.html#index_d"},
 {text:"e",url:"functions_rela.html#index_e"},

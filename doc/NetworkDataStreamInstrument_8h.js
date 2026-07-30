@@ -18,13 +18,12 @@ var NetworkDataStreamInstrument_8h =
       [ "IsBasicSampleTimeUsed", "classDynExpInstr_1_1NetworkDataStreamInstrumentData.html#ada9d36ef8816804cdbcec676a5a26ab0", null ],
       [ "StreamSizeRead", "classDynExpInstr_1_1NetworkDataStreamInstrumentData.html#aae9e360ec0f9aebe6ad844391d882bad", null ],
       [ "StreamSizeWrite", "classDynExpInstr_1_1NetworkDataStreamInstrumentData.html#a03d9e44f9d2df96cc100378dcaaeeaa1", null ],
-      [ "ValueUnit", "classDynExpInstr_1_1NetworkDataStreamInstrumentData.html#ac6265d806b42cb45df92054bfae77b5a", null ]
+      [ "ValueUnit", "classDynExpInstr_1_1NetworkDataStreamInstrumentData.html#a94cc6b4225e78d31edbb9ce916d853f3", null ]
     ] ],
     [ "DynExpInstr::NetworkDataStreamInstrumentParams< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1NetworkDataStreamInstrumentParams.html", "classDynExpInstr_1_1NetworkDataStreamInstrumentParams" ],
     [ "DynExpInstr::NetworkDataStreamInstrumentConfigurator< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1NetworkDataStreamInstrumentConfigurator.html", "classDynExpInstr_1_1NetworkDataStreamInstrumentConfigurator" ],
     [ "DynExpInstr::NetworkDataStreamInstrumentT< BaseInstr,, gRPCStubs >", "classDynExpInstr_1_1NetworkDataStreamInstrumentT.html", "classDynExpInstr_1_1NetworkDataStreamInstrumentT" ],
     [ "DynExpInstr::NetworkDataStreamInstrument", "classDynExpInstr_1_1NetworkDataStreamInstrument.html", "classDynExpInstr_1_1NetworkDataStreamInstrument" ],
     [ "NetworkDataStreamInstrumentDataSampleStreamType", "NetworkDataStreamInstrument_8h.html#a5fe335abc8737f23252b8e67b2cba2bb", null ],
-    [ "ToDataStreamInstrumentUnitType", "NetworkDataStreamInstrument_8h.html#a6983f96cadf60694e934998eabc87826", null ],
-    [ "ToPrototUnitType", "NetworkDataStreamInstrument_8h.html#a0dcad92ec920170353a178ad21aec57f", null ]
+    [ "ToDataStreamInstrumentUnitType", "NetworkDataStreamInstrument_8h.html#a53a23aa739d17f1fdad23a2f4d40b60f", null ]
 ];

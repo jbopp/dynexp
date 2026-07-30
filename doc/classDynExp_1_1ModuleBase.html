@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('classDynExp_1_1ModuleBase.html',''); i
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classDynExp_1_1ModuleBase__inherit__graph.svg" width="1516" height="1042"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classDynExp_1_1ModuleBase__inherit__graph.svg" width="1523" height="1047"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
@@ -326,6 +326,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object" id="r_af55298b0589b9239ff3076d540c97449"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#af55298b0589b9239ff3076d540c97449">CategoryAndNameToStr</a> (const std::string &amp;Category, const std::string &amp;Name)</td></tr>
 <tr class="memdesc:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string from an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> category and name to allow the user to identify an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> type.  <br /></td></tr>
 <tr class="separator:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object" id="r_acaf8f71896eb782a22155311c10a799a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#acaf8f71896eb782a22155311c10a799a">RemoveCategoryAndName</a> (const std::string &amp;ObjectDesc)</td></tr>
+<tr class="memdesc:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the category and name part built by <a class="el" href="classDynExp_1_1Object.html#af55298b0589b9239ff3076d540c97449" title="Builds a string from an Object&#39;s category and name to allow the user to identify an Object&#39;s type.">Object::CategoryAndNameToStr()</a> from the string <code>ObjectDesc</code> constructed by <a class="el" href="classDynExp_1_1LinkedObjectWrapper.html#a8aae6a3a96ddb6671a223da80c150dc8" title="Builds and returns a human-readable string uniquely identifying the Object instance DestinyResource....">LinkedObjectWrapper::GetLinkedObjectDesc()</a>.  <br /></td></tr>
+<tr class="separator:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -550,7 +553,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for modules. Modules implement programs on their own (e.g. measurement protocols or servers for ethernet communication). They might have a user interface. Modules make use of meta instruments (<code><a class="el" href="classDynExp_1_1InstrumentBase.html" title="Base class for instruments. Instruments comprise virtual devices (meta instruments) and physial devic...">InstrumentBase</a></code>) to implement e.g. measurement routines on a higher level, which renders the modules independent from physical devices from specific manufacturers. Derive from this class to implement modules without a user interface. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00427">427</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00428">428</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ad5aeb623c59ea374c078c24bb85d9d1a" name="ad5aeb623c59ea374c078c24bb85d9d1a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad5aeb623c59ea374c078c24bb85d9d1a">&#9670;&#160;</a></span>ConfigType</h2>
@@ -566,7 +569,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Type of the configurator class belonging to this <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> type. Declare this alias in every derived class with the respective configurator class accompanying the derived <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00481">481</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00482">482</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -584,7 +587,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Invoking an instance of this alias is supposed to call <a class="el" href="classDynExp_1_1ModuleBase.html#a09d6b4890c72c88ac9b9407fc51f0436" title="Locks the mutex of the module data class instance ModuleData assigned to this ModuleBase instance and...">ModuleBase::GetModuleData()</a> of the instance the <a class="el" href="classUtil_1_1CallableMemberWrapper.html" title="Wraps a member function of some object and stores its default arguments. Moving from CallableMemberWr...">Util::CallableMemberWrapper</a> has been constructed with. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00623">623</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00624">624</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -602,7 +605,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Type of the data class belonging to this <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> type. Declare this alias in every derived class with the respective data class accompanying the derived <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00487">487</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00488">488</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -620,7 +623,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Alias for the return type of ModuleBase::GetModuleData() const. Data class instances wrapped into <a class="el" href="classUtil_1_1SynchronizedPointer.html" title="Pointer to lock a class derived from ISynchronizedPointerLockable for synchronizing between threads....">Util::SynchronizedPointer</a> can be accessed in a thread-safe way. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00499">499</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00500">500</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -638,7 +641,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Alias for the return type of <a class="el" href="classDynExp_1_1ModuleBase.html#a09d6b4890c72c88ac9b9407fc51f0436" title="Locks the mutex of the module data class instance ModuleData assigned to this ModuleBase instance and...">ModuleBase::GetModuleData()</a>. Data class instances wrapped into <a class="el" href="classUtil_1_1SynchronizedPointer.html" title="Pointer to lock a class derived from ISynchronizedPointerLockable for synchronizing between threads....">Util::SynchronizedPointer</a> can be accessed in a thread-safe way. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00493">493</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00494">494</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -657,7 +660,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Type of the parameter class belonging to this <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> type. Declare this alias in every derived class with the respective parameter class accompanying the derived <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code>. "  </p>
 <p>"  </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00480">480</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00481">481</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -798,7 +801,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Every derived class has to redefine this function. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the category of this module type. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00505">505</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00506">506</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -900,9 +903,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classDynExp_1_1Object.html#a378599da58153d446bd382e89be2203c">DynExp::Object</a>.</p>
 
-<p>Reimplemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a967269a12f232208345f7e36266f46ed">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1EventSender.html#aa3a1c6d157c971dfb6e79310b7e6185c">DynExpModule::EventSender</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#ae6f5109578a311f8eeb43c0c31831afc">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#ae6f5109578a311f8eeb43c0c31831afc">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a599238c3fd92fed1fd040f7b920d03a8">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#a2dd0a060b41a04d092e35c76f0883815">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LaserControl.html#a4f994ac2a2e0671e73a616bc46fdd31c">DynExpModule::LaserControl</a>, <a class="el" href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a6476dcc9a5faf855e6d1d433bfa2d473">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#ac7f4d7237150121f8739d74bee455214">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a1a4649a045214c704de902d9268f4ac4">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#a1fe975acc1a070922751bf259ba98fb2">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalDesigner.html#ae80b4812600437d628c787f9511bcd02">DynExpModule::SignalDesigner</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter.html#a0de2444508ea5e84a3ea85eec2ba0869">DynExpModule::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#ad7ff633fc9d84f47fb4bbf0836630da7">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#ae6b0e4030dd0e346cd54bfa16277355d">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#a5bb8b3b859e73d5a69d86f2e43f58bc2">DynExpModule::StreamManipulator</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#af1d38843f5d4d428a7b9e8489685beb6">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#a80a37a0ee7b5f8625b79ebf4c3102805">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
+<p>Reimplemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a967269a12f232208345f7e36266f46ed">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1EventSender.html#aa3a1c6d157c971dfb6e79310b7e6185c">DynExpModule::EventSender</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#ae6f5109578a311f8eeb43c0c31831afc">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#ae6f5109578a311f8eeb43c0c31831afc">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a599238c3fd92fed1fd040f7b920d03a8">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#a2dd0a060b41a04d092e35c76f0883815">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LaserControl.html#a4f994ac2a2e0671e73a616bc46fdd31c">DynExpModule::LaserControl</a>, <a class="el" href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a6476dcc9a5faf855e6d1d433bfa2d473">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#ac7f4d7237150121f8739d74bee455214">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a1a4649a045214c704de902d9268f4ac4">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#a1fe975acc1a070922751bf259ba98fb2">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalDesigner.html#ae80b4812600437d628c787f9511bcd02">DynExpModule::SignalDesigner</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter_1_1SignalPlotter.html#a73d22bcde209115f60bfd3fe1574732a">DynExpModule::SignalPlotter::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#ad7ff633fc9d84f47fb4bbf0836630da7">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#ae6b0e4030dd0e346cd54bfa16277355d">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#a5bb8b3b859e73d5a69d86f2e43f58bc2">DynExpModule::StreamManipulator</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#af1d38843f5d4d428a7b9e8489685beb6">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#a80a37a0ee7b5f8625b79ebf4c3102805">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00516">516</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00517">517</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -978,7 +981,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the exception being responsible for the module's current state.   </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00647">647</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00648">648</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1008,9 +1011,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Specifies in which time intervals the module's event queue runs to handle pending events. </p>
 <dl class="section return"><dt>Returns</dt><dd>Delay time in between event queue executions. Return <code>std::chrono::milliseconds::max()</code> to make the module thread only wake up to execute the module main loop (after handling enqueued events) when an event is enqueued. Return 0 to make the module main loop execute as fast as possible. </dd></dl>
 
-<p>Reimplemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a80ffa0ba1c89af283830c7132743b28f">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1EventSender.html#ae2dcca2d7b2024409c44a6e26c3e9817">DynExpModule::EventSender</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a28acf451c41f47435e58b12319ea06bf">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a28acf451c41f47435e58b12319ea06bf">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a8981571eb09187a6125e450fa5d11ea3">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#a364a982e4c9a5bc8c75f5df8282f1859">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LaserControl.html#a045ab4607323e22626d9393241610759">DynExpModule::LaserControl</a>, <a class="el" href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a2e06ae7130f31bc1a882b43d689404cf">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#a21d4f950e245f675267ecea4c132e4e6">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a471fc95eaad1138349a2682bf967019c">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#affa7ae0dbd2c181dea1dfece434d5ebe">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter.html#a096da5998caa8c9e35b2006a42de4c43">DynExpModule::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#af03d022bdb99273d2bb88fc2b2162ba1">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#aaada5b9359b0c0e58cda837482b79ff9">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#adef61dee90809b4af30e263ba7dc3e86">DynExpModule::StreamManipulator</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#a39c436c9e3e1f422e050eb762bc11d53">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#ae59e24b742dc548d4fd8fbf2db376172">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
+<p>Reimplemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a80ffa0ba1c89af283830c7132743b28f">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1EventSender.html#ae2dcca2d7b2024409c44a6e26c3e9817">DynExpModule::EventSender</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a28acf451c41f47435e58b12319ea06bf">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a28acf451c41f47435e58b12319ea06bf">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a8981571eb09187a6125e450fa5d11ea3">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#a364a982e4c9a5bc8c75f5df8282f1859">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LaserControl.html#a045ab4607323e22626d9393241610759">DynExpModule::LaserControl</a>, <a class="el" href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a2e06ae7130f31bc1a882b43d689404cf">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#a21d4f950e245f675267ecea4c132e4e6">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a471fc95eaad1138349a2682bf967019c">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#affa7ae0dbd2c181dea1dfece434d5ebe">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter_1_1SignalPlotter.html#ac2a8c3cc5217b18b94a13dc75ebadb4e">DynExpModule::SignalPlotter::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#af03d022bdb99273d2bb88fc2b2162ba1">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#aaada5b9359b0c0e58cda837482b79ff9">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#adef61dee90809b4af30e263ba7dc3e86">DynExpModule::StreamManipulator</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#a39c436c9e3e1f422e050eb762bc11d53">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#ae59e24b742dc548d4fd8fbf2db376172">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00543">543</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00544">544</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1173,7 +1176,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExp_1_1QModuleBase.html#a506328ffa55d9148d61ed062528c380b">DynExp::QModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00527">527</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00528">528</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1267,7 +1270,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00827">827</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00828">828</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1343,7 +1346,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Return <a class="el" href="namespaceUtil_1_1DynExpErrorCodes.html#a49da632c21753f06d241c7269a24ae57a0902dabc399ef983a70150b54f735e24">Util::DynExpErrorCodes::NoError</a> if module loop should continue, annother error code otherwise. </dd></dl>
 
-<p>Implemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a73a99804febe1a03631ef6f66edb7042">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1EventSender.html#a44d0f81688c31432a4c69c6f6ca7e229">DynExpModule::EventSender</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a813ccd4f60b51e1ac0b9351ac688c527">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a813ccd4f60b51e1ac0b9351ac688c527">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a4ca1e44d6defd64b5b926faf1117e2ea">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#a956ee0c17ec437665f001fe8af01b890">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LaserControl.html#add6d51ef732184be2888c1aa2da32e5d">DynExpModule::LaserControl</a>, <a class="el" href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a62f06db210bd4a8701aacdd139bc4bcb">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#a5f8b06da646c5bfbecd26c5cc842501f">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a311914bb55e4a4048226554d6c527010">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#a0e48421f79c08c418a4333d453fe6efa">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalDesigner.html#a5a26348ab17d2ed9d16a165ddc87e877">DynExpModule::SignalDesigner</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter.html#a223c63a821966293de301c558d86ffd6">DynExpModule::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#a3fdd44280aa4bc9dc4274dc0b9462f73">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#addaaf771d71b2d63d512b2bd9a45c8ee">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#a64ab53f56daba425cd2c10f88e7bd28d">DynExpModule::StreamManipulator</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#acb86499d11bb4fa93fdb0f9290acdfb5">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#a67b144ddccd2ae5bf086e70937a36aa4">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
+<p>Implemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a73a99804febe1a03631ef6f66edb7042">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1EventSender.html#a44d0f81688c31432a4c69c6f6ca7e229">DynExpModule::EventSender</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a813ccd4f60b51e1ac0b9351ac688c527">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a813ccd4f60b51e1ac0b9351ac688c527">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a4ca1e44d6defd64b5b926faf1117e2ea">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#a956ee0c17ec437665f001fe8af01b890">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LaserControl.html#add6d51ef732184be2888c1aa2da32e5d">DynExpModule::LaserControl</a>, <a class="el" href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a62f06db210bd4a8701aacdd139bc4bcb">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#a5f8b06da646c5bfbecd26c5cc842501f">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a311914bb55e4a4048226554d6c527010">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#a0e48421f79c08c418a4333d453fe6efa">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalDesigner.html#a5a26348ab17d2ed9d16a165ddc87e877">DynExpModule::SignalDesigner</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter_1_1SignalPlotter.html#a70978e833156af599f3aa174cd461483">DynExpModule::SignalPlotter::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#a3fdd44280aa4bc9dc4274dc0b9462f73">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#addaaf771d71b2d63d512b2bd9a45c8ee">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#a64ab53f56daba425cd2c10f88e7bd28d">DynExpModule::StreamManipulator</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#acb86499d11bb4fa93fdb0f9290acdfb5">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#a67b144ddccd2ae5bf086e70937a36aa4">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
 
 </div>
 </div>
@@ -1379,7 +1382,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00739">739</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00740">740</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1520,7 +1523,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p>Reimplemented in <a class="el" href="classDynExpModule_1_1gRPCModule.html#a2d00dda2dcdacdc79f553476c2554ce0">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, and <a class="el" href="classDynExpModule_1_1gRPCModule.html#a2d00dda2dcdacdc79f553476c2554ce0">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00718">718</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00719">719</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1556,9 +1559,9 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a6d484cf3852d5089d1259a1aa8729a87">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1EventSender.html#abecd9e71b3d61ee0f9b3aa0463104524">DynExpModule::EventSender</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#af3e72dc07a1d478f089039f247eec7e5">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#af3e72dc07a1d478f089039f247eec7e5">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a75b40e2ca3e4317e08c1511f2042da0f">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#aa76edd858c11f57c8a5df8b99d11a6f1">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LaserControl.html#a8ce36d5e7f63792d19dc93926e06d8ac">DynExpModule::LaserControl</a>, <a class="el" href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a8d0b6b7e9e833b934be665c835278083">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#aaa232157a63de196e7c791381ce98746">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a3089cd398d623afb7269f4f415ea6151">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#a37ae6c00575b0d633a3c558887c3b6d7">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalDesigner.html#a62c41daeaf8077b4f3b040abd42d5f90">DynExpModule::SignalDesigner</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter.html#a3adc0f5e1bba080fd16ba07a817062c3">DynExpModule::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#a06da27806f46240c106991753cb72c94">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#ad5f545c1109c4fec2e236d4e01e72ff1">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#ab924fa1db8a207f4d5cb2d059984910f">DynExpModule::StreamManipulator</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#a9f80fc455b81ffb43fe634e8e4441ebf">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#ab5c8afd987c57e557e4c7e1e386f58e6">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
+<p>Reimplemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a6d484cf3852d5089d1259a1aa8729a87">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1EventSender.html#abecd9e71b3d61ee0f9b3aa0463104524">DynExpModule::EventSender</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#af3e72dc07a1d478f089039f247eec7e5">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#af3e72dc07a1d478f089039f247eec7e5">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a75b40e2ca3e4317e08c1511f2042da0f">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#aa76edd858c11f57c8a5df8b99d11a6f1">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LaserControl.html#a8ce36d5e7f63792d19dc93926e06d8ac">DynExpModule::LaserControl</a>, <a class="el" href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a8d0b6b7e9e833b934be665c835278083">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#aaa232157a63de196e7c791381ce98746">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a3089cd398d623afb7269f4f415ea6151">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#a37ae6c00575b0d633a3c558887c3b6d7">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalDesigner.html#a62c41daeaf8077b4f3b040abd42d5f90">DynExpModule::SignalDesigner</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter_1_1SignalPlotter.html#a2f5c8578dcd14e785b2f0fdbc370be43">DynExpModule::SignalPlotter::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#a06da27806f46240c106991753cb72c94">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#ad5f545c1109c4fec2e236d4e01e72ff1">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#ab924fa1db8a207f4d5cb2d059984910f">DynExpModule::StreamManipulator</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#a9f80fc455b81ffb43fe634e8e4441ebf">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#ab5c8afd987c57e557e4c7e1e386f58e6">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00773">773</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00774">774</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1594,9 +1597,9 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a7181f10f1d8889eca671cd55814bf7c8">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1EventSender.html#ac019da2ae37210b05c19b5e4bdac94be">DynExpModule::EventSender</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a0457346a17af6b957c0a3b0927f35a15">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a0457346a17af6b957c0a3b0927f35a15">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a320b12959831ffbef29d9ace81d331e0">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#a643b636412d65077fd675b2e31e24d26">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LaserControl.html#a5bde92e1157aef5f85c60d36db6daa26">DynExpModule::LaserControl</a>, <a class="el" href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a56dbb3f2c7fcacdc84bc49f5243dd116">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#a54c003cfc15acfa19c5a5c59f4887fc8">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#ae50cb435ff957b0192734801279f25b5">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#ac70194c783f83d9a88a03f2c242aa715">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalDesigner.html#a89f37e2a8055e29ec69651b08cb369fa">DynExpModule::SignalDesigner</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter.html#ad533808c7519d41277c180a1a6f77aa8">DynExpModule::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#a4eb78a050431d412662dbe667981d74f">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#acc011c965289d1575c9a1e593985106a">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#a0b25947611ac176e213863ef4c3e11a9">DynExpModule::StreamManipulator</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#a53da5848d24caf10b4b868f4bb6baffe">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#a304ddda54875a234944cae501fa8c10a">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
+<p>Reimplemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a7181f10f1d8889eca671cd55814bf7c8">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1EventSender.html#ac019da2ae37210b05c19b5e4bdac94be">DynExpModule::EventSender</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a0457346a17af6b957c0a3b0927f35a15">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a0457346a17af6b957c0a3b0927f35a15">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1ImageViewer_1_1ImageViewer.html#a320b12959831ffbef29d9ace81d331e0">DynExpModule::ImageViewer::ImageViewer</a>, <a class="el" href="classDynExpModule_1_1InputPortReader.html#a643b636412d65077fd675b2e31e24d26">DynExpModule::InputPortReader</a>, <a class="el" href="classDynExpModule_1_1LaserControl.html#a5bde92e1157aef5f85c60d36db6daa26">DynExpModule::LaserControl</a>, <a class="el" href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a56dbb3f2c7fcacdc84bc49f5243dd116">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy</a>, <a class="el" href="classDynExpModule_1_1LockinAmplifierControl.html#a54c003cfc15acfa19c5a5c59f4887fc8">DynExpModule::LockinAmplifierControl</a>, <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#ae50cb435ff957b0192734801279f25b5">DynExpModule::ODMR::ODMR</a>, <a class="el" href="classDynExpModule_1_1OutputPortWriter.html#ac70194c783f83d9a88a03f2c242aa715">DynExpModule::OutputPortWriter</a>, <a class="el" href="classDynExpModule_1_1SignalDesigner.html#a89f37e2a8055e29ec69651b08cb369fa">DynExpModule::SignalDesigner</a>, <a class="el" href="classDynExpModule_1_1SignalPlotter_1_1SignalPlotter.html#a2ba7109567fca2f786c10bd69e00d3f2">DynExpModule::SignalPlotter::SignalPlotter</a>, <a class="el" href="classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html#a4eb78a050431d412662dbe667981d74f">DynExpModule::SpectrumViewer::SpectrumViewer</a>, <a class="el" href="classDynExpModule_1_1Stage1D.html#acc011c965289d1575c9a1e593985106a">DynExpModule::Stage1D</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#a0b25947611ac176e213863ef4c3e11a9">DynExpModule::StreamManipulator</a>, <a class="el" href="classDynExpModule_1_1Trajectory1D.html#a53da5848d24caf10b4b868f4bb6baffe">DynExpModule::Trajectory1D</a>, and <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html#a304ddda54875a234944cae501fa8c10a">DynExpModule::Widefield::WidefieldMicroscope</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00764">764</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00765">765</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1668,7 +1671,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00716">716</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00717">717</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1740,7 +1743,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00717">717</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00718">718</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1867,7 +1870,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p><code><a class="el" href="classDynExp_1_1ModuleBase.html#af397d2e01e526d907480e0b757f58f0d" title="RestoreWindowStatesFromParams() only calls RestoreWindowStatesFromParamsChild(). Override RestoreWind...">RestoreWindowStatesFromParams()</a></code> only calls <code><a class="el" href="classDynExp_1_1ModuleBase.html#a8f5d5962e1961e61f8d6e261a13576dd" title="RestoreWindowStatesFromParams() only calls RestoreWindowStatesFromParamsChild(). Override RestoreWind...">RestoreWindowStatesFromParamsChild()</a></code>. Override <code><a class="el" href="classDynExp_1_1ModuleBase.html#a8f5d5962e1961e61f8d6e261a13576dd" title="RestoreWindowStatesFromParams() only calls RestoreWindowStatesFromParamsChild(). Override RestoreWind...">RestoreWindowStatesFromParamsChild()</a></code> to restore the styles of possibly owned windows according to the style saved in the module's parameters. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00564">564</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00565">565</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1898,7 +1901,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p>Reimplemented in <a class="el" href="classDynExp_1_1QModuleBase.html#a2ed40d999b1f90b10ba27c21743041a7">DynExp::QModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00720">720</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00721">721</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -2035,7 +2038,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p>Reimplemented in <a class="el" href="classDynExpModule_1_1ArbitraryFunctionFromCSV.html#a3b1a4a9eebf82ff46d1e6d9a3c4f2c27">DynExpModule::ArbitraryFunctionFromCSV</a>, <a class="el" href="classDynExpModule_1_1EventSender.html#af5b1bfcf779574e253c833fdc0b8cde9">DynExpModule::EventSender</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a7ee2b9470535eebcec71f8c00085c8b4">DynExpModule::gRPCModule&lt; gRPCServices &gt;</a>, <a class="el" href="classDynExpModule_1_1gRPCModule.html#a7ee2b9470535eebcec71f8c00085c8b4">DynExpModule::gRPCModule&lt; gRPCServices... &gt;</a>, <a class="el" href="classDynExpModule_1_1StreamManipulator.html#aea29b764e6a3f348f1fed99ea3a18418">DynExpModule::StreamManipulator</a>, and <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#af696df25279114dd84237335196ed27c">DynExpModule::ODMR::ODMR</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00535">535</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00536">536</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -2064,7 +2067,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p><code><a class="el" href="classDynExp_1_1ModuleBase.html#a6919d21e63bd4f1329275f7e941b0142" title="UpdateParamsFromWindowStates() only calls UpdateParamsFromWindowStatesChild(). Override UpdateParamsF...">UpdateParamsFromWindowStates()</a></code> only calls <code><a class="el" href="classDynExp_1_1ModuleBase.html#acdd5df7dceed175019e087a8694ed8fc" title="UpdateParamsFromWindowStates() only calls UpdateParamsFromWindowStatesChild(). Override UpdateParamsF...">UpdateParamsFromWindowStatesChild()</a></code>. Override <code><a class="el" href="classDynExp_1_1ModuleBase.html#acdd5df7dceed175019e087a8694ed8fc" title="UpdateParamsFromWindowStates() only calls UpdateParamsFromWindowStatesChild(). Override UpdateParamsF...">UpdateParamsFromWindowStatesChild()</a></code> to store the styles of possibly owned windows in the module's parameters. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00571">571</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00572">572</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -2095,7 +2098,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p>Reimplemented in <a class="el" href="classDynExp_1_1QModuleBase.html#a15c2ad1e72a7749344585dbb32305bb1">DynExp::QModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00721">721</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00722">722</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -2114,7 +2117,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to any <code><a class="el" href="classDynExp_1_1TypedEventListeners.html" title="Typed managers of event listeners class whose instances are owned by classes derived from InterModule...">TypedEventListeners</a></code> class.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00553">553</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00554">554</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -2140,7 +2143,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p>Determines the default timeout for <code><a class="el" href="classDynExp_1_1ModuleBase.html#a09d6b4890c72c88ac9b9407fc51f0436" title="Locks the mutex of the module data class instance ModuleData assigned to this ModuleBase instance and...">GetModuleData()</a></code> to lock the mutex synchronizing the module's data <a class="el" href="classDynExp_1_1ModuleBase.html#a56ccafca54cfc4f7f6231b198b1e2d86" title="Module data belonging to this ModuleBase instance.">ModuleData</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00550">550</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00551">551</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -2166,7 +2169,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p>Module data belonging to this <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00788">788</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00789">789</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -2184,7 +2187,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a>'s</code> private methods to the module thread <code><a class="el" href="namespaceDynExp.html#a1ef415c3706dc71e72f030c9d9444291" title="Modules run in their own thread. This is the module thread&#39;s main function.">ModuleThreadMain()</a></code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00552">552</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00553">553</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -2210,7 +2213,7 @@ template&lt;typename ReceiverType , typename EventType , typename... ArgsTs&gt; 
 
 <p>Holds a list of pointers to managers of event listeners of the events this module has registered/subscribed to. The stored pointers always outlive all module instances since they are static members of types derived from <code><a class="el" href="classDynExp_1_1InterModuleEvent.html" title="Typed base class for inter-module events to realize CRTP.">InterModuleEvent</a></code>. The same event listener may occur multiple times in this list if this module registered to the same event multiple times for different inter-module communicators. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00797">797</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00798">798</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>

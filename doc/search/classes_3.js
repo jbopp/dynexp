@@ -47,5 +47,9 @@ var searchData=
   ['dummyparam_44',['DummyParam',['../classDynExp_1_1ParamsBase_1_1DummyParam.html',1,'DynExp::ParamsBase']]],
   ['dynexpabout_45',['DynExpAbout',['../classDynExpAbout.html',1,'']]],
   ['dynexpcore_46',['DynExpCore',['../classDynExp_1_1DynExpCore.html',1,'DynExp']]],
-  ['dynexpmanager_47',['DynExpManager',['../classDynExpManager.html',1,'']]]
+  ['dynexplinegraphbackend_47',['DynExpLineGraphBackend',['../classDynExpQuick_1_1DynExpLineGraphBackend.html',1,'DynExpQuick']]],
+  ['dynexplinegraphplotmodel_48',['DynExpLineGraphPlotModel',['../classDynExpQuick_1_1DynExpLineGraphPlotModel.html',1,'DynExpQuick']]],
+  ['dynexplinegraphplotseries_49',['DynExpLineGraphPlotSeries',['../structDynExpQuick_1_1DynExpLineGraphPlotSeries.html',1,'DynExpQuick']]],
+  ['dynexpmanager_50',['DynExpManager',['../classDynExpManager.html',1,'']]],
+  ['dynexpsurfacegraphbackend_51',['DynExpSurfaceGraphBackend',['../classDynExpQuick_1_1DynExpSurfaceGraphBackend.html',1,'DynExpQuick']]]
 ];

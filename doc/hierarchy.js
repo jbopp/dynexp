@@ -144,6 +144,10 @@ var hierarchy =
             [ "DynExpModule::NetworkDataStreamInstrumentConfigurator< gRPCServices >", "classDynExpModule_1_1NetworkDataStreamInstrumentConfigurator.html", null ]
           ] ],
           [ "DynExp::QModuleConfiguratorBase", "classDynExp_1_1QModuleConfiguratorBase.html", [
+            [ "DynExp::QMLModuleConfiguratorBase", "classDynExp_1_1QMLModuleConfiguratorBase.html", [
+              [ "DynExpModule::SignalPlotter::SignalPlotterConfigurator", "classDynExpModule_1_1SignalPlotter_1_1SignalPlotterConfigurator.html", null ],
+              [ "DynExpModule::SpectrumViewer::SpectrumViewerConfigurator", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerConfigurator.html", null ]
+            ] ],
             [ "DynExpModule::EventSenderConfigurator", "classDynExpModule_1_1EventSenderConfigurator.html", null ],
             [ "DynExpModule::ImageViewer::ImageViewerConfigurator", "classDynExpModule_1_1ImageViewer_1_1ImageViewerConfigurator.html", null ],
             [ "DynExpModule::InputPortReaderConfigurator", "classDynExpModule_1_1InputPortReaderConfigurator.html", null ],
@@ -153,8 +157,6 @@ var hierarchy =
             [ "DynExpModule::ODMR::ODMRConfigurator", "classDynExpModule_1_1ODMR_1_1ODMRConfigurator.html", null ],
             [ "DynExpModule::OutputPortWriterConfigurator", "classDynExpModule_1_1OutputPortWriterConfigurator.html", null ],
             [ "DynExpModule::SignalDesignerConfigurator", "classDynExpModule_1_1SignalDesignerConfigurator.html", null ],
-            [ "DynExpModule::SignalPlotterConfigurator", "classDynExpModule_1_1SignalPlotterConfigurator.html", null ],
-            [ "DynExpModule::SpectrumViewer::SpectrumViewerConfigurator", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerConfigurator.html", null ],
             [ "DynExpModule::Stage1DConfigurator", "classDynExpModule_1_1Stage1DConfigurator.html", null ],
             [ "DynExpModule::Trajectory1DConfigurator", "classDynExpModule_1_1Trajectory1DConfigurator.html", null ],
             [ "DynExpModule::Widefield::WidefieldMicroscopeConfigurator", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeConfigurator.html", null ]
@@ -186,6 +188,7 @@ var hierarchy =
     [ "DynExp::Object::dispatch_tag< typename >", "classDynExp_1_1Object.html#structDynExp_1_1Object_1_1dispatch__tag", null ],
     [ "DynExp::ParamsBase::dispatch_tag< typename >", "classDynExp_1_1ParamsBase.html#structDynExp_1_1ParamsBase_1_1dispatch__tag", null ],
     [ "DynExp::UpdateTaskBase::dispatch_tag< typename >", "classDynExp_1_1UpdateTaskBase.html#structDynExp_1_1UpdateTaskBase_1_1dispatch__tag", null ],
+    [ "DynExpQuick::DynExpLineGraphPlotSeries", "structDynExpQuick_1_1DynExpLineGraphPlotSeries.html", null ],
     [ "DynExp::SerialCommunicationHardwareAdapter::endl", "classDynExp_1_1SerialCommunicationHardwareAdapter.html#structDynExp_1_1SerialCommunicationHardwareAdapter_1_1endl", null ],
     [ "ErrorListDialog::ErrorEntryType", "structErrorListDialog_1_1ErrorEntryType.html", null ],
     [ "DynExp::EventBase", "classDynExp_1_1EventBase.html", [
@@ -448,6 +451,10 @@ var hierarchy =
             [ "DynExpModule::NetworkDataStreamInstrumentT< gRPCServices >", "classDynExpModule_1_1NetworkDataStreamInstrumentT.html", null ]
           ] ],
           [ "DynExp::QModuleBase", "classDynExp_1_1QModuleBase.html", [
+            [ "DynExp::QMLModuleBase", "classDynExp_1_1QMLModuleBase.html", [
+              [ "DynExpModule::SignalPlotter::SignalPlotter", "classDynExpModule_1_1SignalPlotter_1_1SignalPlotter.html", null ],
+              [ "DynExpModule::SpectrumViewer::SpectrumViewer", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html", null ]
+            ] ],
             [ "DynExpModule::EventSender", "classDynExpModule_1_1EventSender.html", null ],
             [ "DynExpModule::ImageViewer::ImageViewer", "classDynExpModule_1_1ImageViewer_1_1ImageViewer.html", null ],
             [ "DynExpModule::InputPortReader", "classDynExpModule_1_1InputPortReader.html", null ],
@@ -457,8 +464,6 @@ var hierarchy =
             [ "DynExpModule::ODMR::ODMR", "classDynExpModule_1_1ODMR_1_1ODMR.html", null ],
             [ "DynExpModule::OutputPortWriter", "classDynExpModule_1_1OutputPortWriter.html", null ],
             [ "DynExpModule::SignalDesigner", "classDynExpModule_1_1SignalDesigner.html", null ],
-            [ "DynExpModule::SignalPlotter", "classDynExpModule_1_1SignalPlotter.html", null ],
-            [ "DynExpModule::SpectrumViewer::SpectrumViewer", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html", null ],
             [ "DynExpModule::Stage1D", "classDynExpModule_1_1Stage1D.html", null ],
             [ "DynExpModule::Trajectory1D", "classDynExpModule_1_1Trajectory1D.html", null ],
             [ "DynExpModule::Widefield::WidefieldMicroscope", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html", null ]
@@ -557,6 +562,10 @@ var hierarchy =
             [ "DynExpModule::NetworkDataStreamInstrumentData< gRPCServices >", "classDynExpModule_1_1NetworkDataStreamInstrumentData.html", null ]
           ] ],
           [ "DynExp::QModuleDataBase", "classDynExp_1_1QModuleDataBase.html", [
+            [ "DynExp::QMLModuleDataBase", "classDynExp_1_1QMLModuleDataBase.html", [
+              [ "DynExpModule::SignalPlotter::SignalPlotterData", "classDynExpModule_1_1SignalPlotter_1_1SignalPlotterData.html", null ],
+              [ "DynExpModule::SpectrumViewer::SpectrumViewerData", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerData.html", null ]
+            ] ],
             [ "DynExpModule::EventSenderData", "classDynExpModule_1_1EventSenderData.html", null ],
             [ "DynExpModule::ImageViewer::ImageViewerData", "classDynExpModule_1_1ImageViewer_1_1ImageViewerData.html", null ],
             [ "DynExpModule::InputPortReaderData", "classDynExpModule_1_1InputPortReaderData.html", null ],
@@ -566,8 +575,6 @@ var hierarchy =
             [ "DynExpModule::ODMR::ODMRData", "classDynExpModule_1_1ODMR_1_1ODMRData.html", null ],
             [ "DynExpModule::OutputPortWriterData", "classDynExpModule_1_1OutputPortWriterData.html", null ],
             [ "DynExpModule::SignalDesignerData", "classDynExpModule_1_1SignalDesignerData.html", null ],
-            [ "DynExpModule::SignalPlotterData", "classDynExpModule_1_1SignalPlotterData.html", null ],
-            [ "DynExpModule::SpectrumViewer::SpectrumViewerData", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerData.html", null ],
             [ "DynExpModule::Stage1DData", "classDynExpModule_1_1Stage1DData.html", null ],
             [ "DynExpModule::Trajectory1DData", "classDynExpModule_1_1Trajectory1DData.html", null ],
             [ "DynExpModule::Widefield::WidefieldMicroscopeData", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeData.html", null ]
@@ -657,6 +664,10 @@ var hierarchy =
                 [ "DynExpModule::NetworkDataStreamInstrumentParams< gRPCServices >", "classDynExpModule_1_1NetworkDataStreamInstrumentParams.html", null ]
               ] ],
               [ "DynExp::QModuleParamsBase", "classDynExp_1_1QModuleParamsBase.html", [
+                [ "DynExp::QMLModuleParamsBase", "classDynExp_1_1QMLModuleParamsBase.html", [
+                  [ "DynExpModule::SignalPlotter::SignalPlotterParams", "classDynExpModule_1_1SignalPlotter_1_1SignalPlotterParams.html", null ],
+                  [ "DynExpModule::SpectrumViewer::SpectrumViewerParams", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerParams.html", null ]
+                ] ],
                 [ "DynExpModule::EventSenderParams", "classDynExpModule_1_1EventSenderParams.html", null ],
                 [ "DynExpModule::ImageViewer::ImageViewerParams", "classDynExpModule_1_1ImageViewer_1_1ImageViewerParams.html", null ],
                 [ "DynExpModule::InputPortReaderParams", "classDynExpModule_1_1InputPortReaderParams.html", null ],
@@ -666,8 +677,6 @@ var hierarchy =
                 [ "DynExpModule::ODMR::ODMRParams", "classDynExpModule_1_1ODMR_1_1ODMRParams.html", null ],
                 [ "DynExpModule::OutputPortWriterParams", "classDynExpModule_1_1OutputPortWriterParams.html", null ],
                 [ "DynExpModule::SignalDesignerParams", "classDynExpModule_1_1SignalDesignerParams.html", null ],
-                [ "DynExpModule::SignalPlotterParams", "classDynExpModule_1_1SignalPlotterParams.html", null ],
-                [ "DynExpModule::SpectrumViewer::SpectrumViewerParams", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerParams.html", null ],
                 [ "DynExpModule::Stage1DParams", "classDynExpModule_1_1Stage1DParams.html", null ],
                 [ "DynExpModule::Trajectory1DParams", "classDynExpModule_1_1Trajectory1DParams.html", null ],
                 [ "DynExpModule::Widefield::WidefieldMicroscopeParams", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeParams.html", null ]
@@ -729,6 +738,7 @@ var hierarchy =
     [ "DynExp::LibraryEntry< ObjectTypeBasePtr >", "structDynExp_1_1LibraryEntry.html", null ],
     [ "DynExp::LibraryObjectFactoryParamList< ObjectTypeBasePtr,... >", "namespaceDynExp.html#classDynExp_1_1LibraryObjectFactoryParamList", null ],
     [ "DynExp::LibraryStringParamList<... >", "namespaceDynExp.html#classDynExp_1_1LibraryStringParamList", null ],
+    [ "DynExpModule::Graph::LineGraphPlotInfo", "structDynExpModule_1_1Graph_1_1LineGraphPlotInfo.html", null ],
     [ "DynExp::LinkBase", "classDynExp_1_1LinkBase.html", [
       [ "DynExp::ParamsBase::LinkListParamBase", "classDynExp_1_1ParamsBase_1_1LinkListParamBase.html", [
         [ "DynExp::ParamsBase::ListParam< LinkType, std::enable_if_t< std::is_base_of_v< ObjectLinkBase, LinkType > > >", "classDynExp_1_1ParamsBase_1_1ListParam_3_01LinkType_00_01std_1_1enable__if__t_3_01std_1_1is__basd243784fc46965d1256228ffb7d1529c.html", null ]
@@ -878,6 +888,9 @@ var hierarchy =
     [ "Util::PyStdoutLoggerWrapper", "classUtil_1_1PyStdoutLoggerWrapper.html", null ],
     [ "DynExpModule::PyStreamManipulatorInputData", "structDynExpModule_1_1PyStreamManipulatorInputData.html", null ],
     [ "DynExpModule::PyStreamManipulatorOutputData", "structDynExpModule_1_1PyStreamManipulatorOutputData.html", null ],
+    [ "QAbstractListModel", null, [
+      [ "DynExpQuick::DynExpLineGraphPlotModel", "classDynExpQuick_1_1DynExpLineGraphPlotModel.html", null ]
+    ] ],
     [ "QDialog", null, [
       [ "BusyDialog", "classBusyDialog.html", null ],
       [ "ChoiceListDialog", "classChoiceListDialog.html", null ],
@@ -905,6 +918,10 @@ var hierarchy =
     ] ],
     [ "QObject", null, [
       [ "DynExp::QSerialCommunicationHardwareAdapter", "classDynExp_1_1QSerialCommunicationHardwareAdapter.html", null ],
+      [ "DynExpModule::SignalPlotter::SignalPlotterBackend", "classDynExpModule_1_1SignalPlotter_1_1SignalPlotterBackend.html", null ],
+      [ "DynExpModule::SpectrumViewer::SpectrumViewerBackend", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerBackend.html", null ],
+      [ "DynExpQuick::DynExpLineGraphBackend", "classDynExpQuick_1_1DynExpLineGraphBackend.html", null ],
+      [ "DynExpQuick::DynExpSurfaceGraphBackend", "classDynExpQuick_1_1DynExpSurfaceGraphBackend.html", null ],
       [ "Util::QWorker", "classUtil_1_1QWorker.html", [
         [ "DynExp::QSerialCommunicationHardwareAdapterWorker", "classDynExp_1_1QSerialCommunicationHardwareAdapterWorker.html", [
           [ "DynExp::HardwareAdapterSerialPortWorker", "classDynExp_1_1HardwareAdapterSerialPortWorker.html", null ],
@@ -921,6 +938,7 @@ var hierarchy =
     ] ],
     [ "QWidget", null, [
       [ "DynExp::QModuleWidget", "classDynExp_1_1QModuleWidget.html", [
+        [ "DynExp::QMLModuleWidget", "classDynExp_1_1QMLModuleWidget.html", null ],
         [ "DynExpModule::EventSenderWidget", "classDynExpModule_1_1EventSenderWidget.html", null ],
         [ "DynExpModule::ImageViewer::ImageViewerWidget", "classDynExpModule_1_1ImageViewer_1_1ImageViewerWidget.html", null ],
         [ "DynExpModule::InputPortReaderWidget", "classDynExpModule_1_1InputPortReaderWidget.html", null ],
@@ -930,8 +948,6 @@ var hierarchy =
         [ "DynExpModule::ODMR::ODMRWidget", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html", null ],
         [ "DynExpModule::OutputPortWriterWidget", "classDynExpModule_1_1OutputPortWriterWidget.html", null ],
         [ "DynExpModule::SignalDesignerWidget", "classDynExpModule_1_1SignalDesignerWidget.html", null ],
-        [ "DynExpModule::SignalPlotterWidget", "classDynExpModule_1_1SignalPlotterWidget.html", null ],
-        [ "DynExpModule::SpectrumViewer::SpectrumViewerWidget", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerWidget.html", null ],
         [ "DynExpModule::Stage1DWidget", "classDynExpModule_1_1Stage1DWidget.html", null ],
         [ "DynExpModule::Trajectory1DWidget", "classDynExpModule_1_1Trajectory1DWidget.html", null ],
         [ "DynExpModule::Widefield::WidefieldMicroscopeWidget", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html", null ]
@@ -945,8 +961,8 @@ var hierarchy =
     [ "DynExp::Resource< PointerType >", "structDynExp_1_1Resource.html", null ],
     [ "DynExp::RunnableObject::RunnableInstanceOnlyType", "classDynExp_1_1RunnableObject_1_1RunnableInstanceOnlyType.html", null ],
     [ "DynExp::RunnableInstance::RunnableObjectOnlyType", "classDynExp_1_1RunnableInstance_1_1RunnableObjectOnlyType.html", null ],
-    [ "DynExpModule::SignalPlotterWidget::SampleDataType", "structDynExpModule_1_1SignalPlotterWidget_1_1SampleDataType.html", null ],
-    [ "DynExpModule::SpectrumViewer::SpectrumViewerWidget::SampleDataType", "structDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerWidget_1_1SampleDataType.html", null ],
+    [ "DynExpModule::SignalPlotter::SignalPlotterData::SampleDataType", "classDynExpModule_1_1SignalPlotter_1_1SignalPlotterData.html#structDynExpModule_1_1SignalPlotter_1_1SignalPlotterData_1_1SampleDataType", null ],
+    [ "DynExpModule::SpectrumViewer::SpectrumViewerData::SampleDataType", "structDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerData_1_1SampleDataType.html", null ],
     [ "DynExpHardware::SIPulseStreamerHardwareAdapter::SampleType", "structDynExpHardware_1_1SIPulseStreamerHardwareAdapter_1_1SampleType.html", null ],
     [ "DynExpModule::ODMR::SensitivityPlotType", "namespaceDynExpModule_1_1ODMR.html#structDynExpModule_1_1ODMR_1_1SensitivityPlotType", null ],
     [ "DynExpInstr::SmarActData::SmarActChannelStatusType", "structDynExpInstr_1_1SmarActData_1_1SmarActChannelStatusType.html", null ],

@@ -1,7 +1,7 @@
 var classDynExpInstr_1_1PyDataStreamInstrument =
 [
     [ "PyDataStreamInstrument", "classDynExpInstr_1_1PyDataStreamInstrument.html#a99026861901f7af557a71c021c4687a2", null ],
-    [ "PyDataStreamInstrument", "classDynExpInstr_1_1PyDataStreamInstrument.html#a77d6f84c847ba5844044c19b1447c6c9", null ],
+    [ "PyDataStreamInstrument", "classDynExpInstr_1_1PyDataStreamInstrument.html#a4412c85d4059a777f9b6542d8105e638", null ],
     [ "CalcLastConsumedSampleID", "classDynExpInstr_1_1PyDataStreamInstrument.html#afa1cadf6fd970c292811c96613476fd6", null ],
     [ "Clear", "classDynExpInstr_1_1PyDataStreamInstrument.html#a5f7733dee5b3233b6fa942a6cc2b56a4", null ],
     [ "Cleared", "classDynExpInstr_1_1PyDataStreamInstrument.html#aa8bdd9f0db52cddd9d73d02ba819366a", null ],
@@ -15,5 +15,5 @@ var classDynExpInstr_1_1PyDataStreamInstrument =
     [ "ShouldClearFlag", "classDynExpInstr_1_1PyDataStreamInstrument.html#a5bdfc12e8604ef1c563962986732a356", null ],
     [ "StreamSizeRead", "classDynExpInstr_1_1PyDataStreamInstrument.html#aba02926c89e48903391ea1c9a5377ff8", null ],
     [ "StreamSizeWrite", "classDynExpInstr_1_1PyDataStreamInstrument.html#a61e13abcf3823ed1c7cab992a91dca31", null ],
-    [ "ValueUnit", "classDynExpInstr_1_1PyDataStreamInstrument.html#ad9e87414cf2aff679d5c3b4613a94776", null ]
+    [ "ValueUnit", "classDynExpInstr_1_1PyDataStreamInstrument.html#ad983fd1be3cca110a2baa0aa68239e87", null ]
 ];

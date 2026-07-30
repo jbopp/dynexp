@@ -6,8 +6,8 @@ var searchData=
   ['zi_5fmfli_2ecpp_3',['ZI_MFLI.cpp',['../ZI__MFLI_8cpp.html',1,'']]],
   ['zi_5fmfli_2eh_4',['ZI_MFLI.h',['../ZI__MFLI_8h.html',1,'']]],
   ['zi_5fmfliconfigurator_5',['zi_mfliconfigurator',['../classDynExpInstr_1_1ZI__MFLIConfigurator.html',1,'DynExpInstr::ZI_MFLIConfigurator'],['../classDynExpInstr_1_1ZI__MFLIConfigurator.html#a5598ecb3ff06ea255a0fb45d0dd34c51',1,'DynExpInstr::ZI_MFLIConfigurator::ZI_MFLIConfigurator()']]],
-  ['zi_5fmflidata_6',['zi_mflidata',['../classDynExpInstr_1_1ZI__MFLIData.html#af164c0dc44edef7c846758b06f954a2b',1,'DynExpInstr::ZI_MFLIData::ZI_MFLIData()'],['../classDynExpInstr_1_1ZI__MFLIData.html',1,'DynExpInstr::ZI_MFLIData']]],
-  ['zi_5fmfliparams_7',['zi_mfliparams',['../classDynExpInstr_1_1ZI__MFLIParams.html',1,'DynExpInstr::ZI_MFLIParams'],['../classDynExpInstr_1_1ZI__MFLIParams.html#a6730a9c24ba15182883207596e966bfd',1,'DynExpInstr::ZI_MFLIParams::ZI_MFLIParams()']]],
+  ['zi_5fmflidata_6',['zi_mflidata',['../classDynExpInstr_1_1ZI__MFLIData.html',1,'DynExpInstr::ZI_MFLIData'],['../classDynExpInstr_1_1ZI__MFLIData.html#af164c0dc44edef7c846758b06f954a2b',1,'DynExpInstr::ZI_MFLIData::ZI_MFLIData()']]],
+  ['zi_5fmfliparams_7',['zi_mfliparams',['../classDynExpInstr_1_1ZI__MFLIParams.html#a6730a9c24ba15182883207596e966bfd',1,'DynExpInstr::ZI_MFLIParams::ZI_MFLIParams()'],['../classDynExpInstr_1_1ZI__MFLIParams.html',1,'DynExpInstr::ZI_MFLIParams']]],
   ['zi_5fmflitaskbase_8',['zi_mflitaskbase',['../classDynExpInstr_1_1ZI__MFLITasks_1_1ZI__MFLITaskBase.html',1,'DynExpInstr::ZI_MFLITasks::ZI_MFLITaskBase'],['../classDynExpInstr_1_1ZI__MFLITasks_1_1ZI__MFLITaskBase.html#a8d0805e2ad5364099224197860f6da95',1,'DynExpInstr::ZI_MFLITasks::ZI_MFLITaskBase::ZI_MFLITaskBase()']]],
   ['zi_5fmflitasks_3a_3aupdatetask_9',['UpdateTask',['../classDynExpInstr_1_1ZI__MFLIData.html#aec8a3640c931dece8bd11a38d5336043',1,'DynExpInstr::ZI_MFLIData']]],
   ['ziconnection_10',['ZIConnection',['../classDynExpHardware_1_1ZILabOneHardwareAdapter.html#a3d2cf2b2aa936927cfe0b0c45fa20111',1,'DynExpHardware::ZILabOneHardwareAdapter']]],
@@ -18,5 +18,6 @@ var searchData=
   ['zoomfactor_15',['zoomfactor',['../classCircuitDiagram.html#a5e41482859b20113a25a53f091447dcd',1,'CircuitDiagram::ZoomFactor'],['../classUtil_1_1MarkerGraphicsView.html#aaada0f5e3feda76ef13a654ef79c2165',1,'Util::MarkerGraphicsView::ZoomFactor']]],
   ['zoomin_16',['zoomin',['../classCircuitDiagram.html#ab11f27ac70aebf1b0042a30ca6ca470d',1,'CircuitDiagram::ZoomIn()'],['../classUtil_1_1MarkerGraphicsView.html#aa3238cd278dc534c99f5c9cc30a0a3af',1,'Util::MarkerGraphicsView::ZoomIn()']]],
   ['zoomout_17',['zoomout',['../classCircuitDiagram.html#a9bb17dbffe2880a98da88f121d442291',1,'CircuitDiagram::ZoomOut()'],['../classUtil_1_1MarkerGraphicsView.html#ab27907b1c90fa0bcdf8f6631f2c83121',1,'Util::MarkerGraphicsView::ZoomOut()']]],
-  ['zoomreset_18',['zoomreset',['../classCircuitDiagram.html#a75df801735a5e85d54185f6f814b4a83',1,'CircuitDiagram::ZoomReset()'],['../classUtil_1_1MarkerGraphicsView.html#a1fec0b0e6646b1c9648eaca3fe648d8f',1,'Util::MarkerGraphicsView::ZoomReset()']]]
+  ['zoomreset_18',['zoomreset',['../classCircuitDiagram.html#a75df801735a5e85d54185f6f814b4a83',1,'CircuitDiagram::ZoomReset()'],['../classUtil_1_1MarkerGraphicsView.html#a1fec0b0e6646b1c9648eaca3fe648d8f',1,'Util::MarkerGraphicsView::ZoomReset()']]],
+  ['zvalueaxis_19',['zvalueaxis',['../classDynExpQuick_1_1DynExpSurfaceGraphBackend.html#ad98bed051eab298c174c2099df68afdf',1,'DynExpQuick::DynExpSurfaceGraphBackend::ZValueAxis'],['../classDynExpQuick_1_1DynExpSurfaceGraphBackend.html#a2b0524641039c3cb32af97c714a40dca',1,'DynExpQuick::DynExpSurfaceGraphBackend::ZValueAxis']]]
 ];

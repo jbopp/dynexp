@@ -165,6 +165,5 @@ var namespaceUtil =
     [ "TrimTrailingZeros", "namespaceUtil.html#ab963e59ba11ee8e43e8e1fe3482fa377", null ],
     [ "VersionFromString", "namespaceUtil.html#a68b9b93456301284ca7d695c51a4001a", null ],
     [ "is_contained_in_v", "namespaceUtil.html#a132b3de3103b01ab172ee946b4ad0c96", null ],
-    [ "PyTab", "namespaceUtil.html#aaa3490cda96786eb40f5fd6a386b6042", null ],
-    [ "SpeedOfLight", "namespaceUtil.html#a9d2af7b8b0545b3670b402f217dba6bf", null ]
+    [ "PyTab", "namespaceUtil.html#aaa3490cda96786eb40f5fd6a386b6042", null ]
 ];

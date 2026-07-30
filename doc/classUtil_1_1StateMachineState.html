@@ -156,12 +156,12 @@ Private Attributes</h2></td></tr>
 class Util::StateMachineState&lt; CallableT, &gt;</div><p>State machine state as used by class <a class="el" href="classUtil_1_1StateMachine.html" title="This class models a state machine. It keeps track of the current state and allows to invoke its assoc...">StateMachine</a>. A state mainly wraps a state function of the member function pointer type CallableT to be invoked by the state machine. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">CallableT</td><td>Type of the state function associated with the state machine state. The state function is expected to be a member function of the class also managing the state machine. It can accept an arbitrary amount of arguments (such as a reference to <a class="el" href="classDynExp_1_1ModuleInstance.html" title="Defines data for a thread belonging to a ModuleBase instance. Refer to RunnableInstance.">DynExp::ModuleInstance</a>). Furthermore, it is expected to return a value of type <code>StateEnumType</code> as the identifier of the next state machine state. <code>StateEnumType</code> is an enum class type of elements being identifiers of all states associated with a state machine. </td></tr>
+    <tr><td class="paramname">CallableT</td><td>Type of the state function associated with the state machine state. The state function is expected to be a member function of the class also managing the state machine. It can accept an arbitrary number of arguments (such as a reference to <a class="el" href="classDynExp_1_1ModuleInstance.html" title="Defines data for a thread belonging to a ModuleBase instance. Refer to RunnableInstance.">DynExp::ModuleInstance</a>). Furthermore, it is expected to return a value of type <code>StateEnumType</code> as the identifier of the next state machine state. <code>StateEnumType</code> is an enum class type of elements being identifiers of all states associated with a state machine. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01366">1366</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01362">1362</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a2f7dbc9e5e12fe759204b11326aec7bc" name="a2f7dbc9e5e12fe759204b11326aec7bc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2f7dbc9e5e12fe759204b11326aec7bc">&#9670;&#160;</a></span>CallableType</h2>
@@ -177,7 +177,7 @@ template&lt;typename CallableT , std::enable_if_t&lt; std::is_enum_v&lt; <a clas
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01370">1370</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01366">1366</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -195,7 +195,7 @@ template&lt;typename CallableT , std::enable_if_t&lt; std::is_enum_v&lt; <a clas
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01369">1369</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01365">1365</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -259,7 +259,7 @@ template&lt;typename CallableT , std::enable_if_t&lt; std::is_enum_v&lt; <a clas
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01379">1379</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01375">1375</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -291,7 +291,7 @@ template&lt;typename CallableT , std::enable_if_t&lt; std::is_enum_v&lt; <a clas
 
 <p>Returns the state's description. </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01384">1384</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01380">1380</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -322,7 +322,7 @@ template&lt;typename CallableT , std::enable_if_t&lt; std::is_enum_v&lt; <a clas
 
 <p>Returns the state's unique identifier. </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01383">1383</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01379">1379</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -380,7 +380,7 @@ template&lt;typename... ArgTs&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the identifer of the next state machine state to transition into. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01396">1396</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01392">1392</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -411,7 +411,7 @@ template&lt;typename CallableT , std::enable_if_t&lt; std::is_enum_v&lt; <a clas
 
 <p>Returns whether this is a final state. </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01385">1385</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01381">1381</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -438,7 +438,7 @@ template&lt;typename CallableT , std::enable_if_t&lt; std::is_enum_v&lt; <a clas
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01404">1404</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01400">1400</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -466,7 +466,7 @@ template&lt;typename CallableT , std::enable_if_t&lt; std::is_enum_v&lt; <a clas
 
 <p>For final states, it is ensured that the state's state function can delete the state machine. No memory assigned to the state machine will be accessed after the call to <a class="el" href="classUtil_1_1StateMachineState.html#a6ffe3a9eb4a56870df5c4f7016e26e5f" title="Invokes the state function associated with this state on an instance of the class the state function ...">Invoke()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01410">1410</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01406">1406</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -492,7 +492,7 @@ template&lt;typename CallableT , std::enable_if_t&lt; std::is_enum_v&lt; <a clas
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01402">1402</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01398">1398</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -518,7 +518,7 @@ template&lt;typename CallableT , std::enable_if_t&lt; std::is_enum_v&lt; <a clas
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01403">1403</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l01399">1399</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>

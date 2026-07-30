@@ -142,6 +142,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad075dde0b3532675c78c54047612bd45" id="r_ad075dde0b3532675c78c54047612bd45"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#ad075dde0b3532675c78c54047612bd45">AllowResize</a> () const noexcept override final</td></tr>
 <tr class="memdesc:ad075dde0b3532675c78c54047612bd45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates the resizing behavior of the user interface window. Override to adjust.  <br /></td></tr>
 <tr class="separator:ad075dde0b3532675c78c54047612bd45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7a6aa4a83041a72be88cf404b0c1ee6" id="r_af7a6aa4a83041a72be88cf404b0c1ee6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#af7a6aa4a83041a72be88cf404b0c1ee6">AllowDocked</a> () const noexcept override final</td></tr>
+<tr class="memdesc:af7a6aa4a83041a72be88cf404b0c1ee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates the docking behavior of the user interface window. Override to adjust.  <br /></td></tr>
+<tr class="separator:af7a6aa4a83041a72be88cf404b0c1ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1e0d08729ba57c1a78bda2ad92e2546" id="r_af1e0d08729ba57c1a78bda2ad92e2546"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html">WidefieldMicroscope</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#af1e0d08729ba57c1a78bda2ad92e2546">GetCastOwner</a> () const noexcept</td></tr>
 <tr class="separator:af1e0d08729ba57c1a78bda2ad92e2546"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa875917da9bf548a51510368d00aaa77" id="r_aa875917da9bf548a51510368d00aaa77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#aa875917da9bf548a51510368d00aaa77">InitializeUI</a> (<a class="el" href="classUtil_1_1SynchronizedPointer.html">Util::SynchronizedPointer</a>&lt; <a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeData.html">WidefieldMicroscopeData</a> &gt; &amp;ModuleData)</td></tr>
@@ -164,8 +167,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6291133d0284ae1ffd0e615987eee36c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae61699626d203e946cde45cd6635e5a3" id="r_ae61699626d203e946cde45cd6635e5a3"><td class="memItemLeft" align="right" valign="top">const auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#ae61699626d203e946cde45cd6635e5a3">GetMainGraphicsView</a> () const noexcept</td></tr>
 <tr class="separator:ae61699626d203e946cde45cd6635e5a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5fb7d87ccfdde6dce1dbeef8ade513a" id="r_af5fb7d87ccfdde6dce1dbeef8ade513a"><td class="memItemLeft" align="right" valign="top">const auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#af5fb7d87ccfdde6dce1dbeef8ade513a">GetConfocalSurface3DSeries</a> () const noexcept</td></tr>
-<tr class="separator:af5fb7d87ccfdde6dce1dbeef8ade513a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92a8cde1915a15e6fa18d6d93ed3000e" id="r_a92a8cde1915a15e6fa18d6d93ed3000e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#a92a8cde1915a15e6fa18d6d93ed3000e">GetUIInitialized</a> () const noexcept</td></tr>
 <tr class="separator:a92a8cde1915a15e6fa18d6d93ed3000e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70a89ae49d2ae0091f609875a2c1f511" id="r_a70a89ae49d2ae0091f609875a2c1f511"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#a70a89ae49d2ae0091f609875a2c1f511">SetMainGraphicsImage</a> (const QImage &amp;Image) noexcept</td></tr>
@@ -289,30 +290,18 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a7f52b936909fb07f5f2b89ee57cb41e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8e201a348465731ca118fa53ff87815" id="r_ac8e201a348465731ca118fa53ff87815"><td class="memItemLeft" align="right" valign="top">QMenu *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#ac8e201a348465731ca118fa53ff87815">ConfocalMapContextMenu</a></td></tr>
 <tr class="separator:ac8e201a348465731ca118fa53ff87815"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ce22af36ea7ed0041a7d8cbc40121d9" id="r_a7ce22af36ea7ed0041a7d8cbc40121d9"><td class="memItemLeft" align="right" valign="top">Q3DSurface *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#a7ce22af36ea7ed0041a7d8cbc40121d9">ConfocalGraph</a></td></tr>
-<tr class="separator:a7ce22af36ea7ed0041a7d8cbc40121d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59f33ade7f1aeadbe4e88b44dd5425c9" id="r_a59f33ade7f1aeadbe4e88b44dd5425c9"><td class="memItemLeft" align="right" valign="top">QWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#a59f33ade7f1aeadbe4e88b44dd5425c9">ConfocalGraphContainer</a></td></tr>
-<tr class="separator:a59f33ade7f1aeadbe4e88b44dd5425c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86b2eaa1025c352cc943a0e1dad2c125" id="r_a86b2eaa1025c352cc943a0e1dad2c125"><td class="memItemLeft" align="right" valign="top">QSurfaceDataProxy *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#a86b2eaa1025c352cc943a0e1dad2c125">ConfocalSurfaceDataProxy</a></td></tr>
-<tr class="separator:a86b2eaa1025c352cc943a0e1dad2c125"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a699e94a453fbbce4613a7f0a2325da44" id="r_a699e94a453fbbce4613a7f0a2325da44"><td class="memItemLeft" align="right" valign="top">QSurfaceDataArray *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#a699e94a453fbbce4613a7f0a2325da44">ConfocalSurfaceDataArray</a></td></tr>
-<tr class="separator:a699e94a453fbbce4613a7f0a2325da44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0cd4fc048058bfac331cbff4b2043bb" id="r_ab0cd4fc048058bfac331cbff4b2043bb"><td class="memItemLeft" align="right" valign="top">QSurface3DSeries *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#ab0cd4fc048058bfac331cbff4b2043bb">ConfocalSurface3DSeries</a></td></tr>
-<tr class="separator:ab0cd4fc048058bfac331cbff4b2043bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae569e3c0935385f4a3169bf06873a09c" id="r_ae569e3c0935385f4a3169bf06873a09c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExpQuick_1_1DynExpSurfaceGraphBackend.html">DynExpQuick::DynExpSurfaceGraphBackend</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#ae569e3c0935385f4a3169bf06873a09c">ConfocalGraph</a></td></tr>
+<tr class="separator:ae569e3c0935385f4a3169bf06873a09c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8790498c52bffa05952250715a4eaf47" id="r_a8790498c52bffa05952250715a4eaf47"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#a8790498c52bffa05952250715a4eaf47">NumItemsInArray</a></td></tr>
 <tr class="separator:a8790498c52bffa05952250715a4eaf47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b25cc3a93b462635707f67a9b4d6dbe" id="r_a7b25cc3a93b462635707f67a9b4d6dbe"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#a7b25cc3a93b462635707f67a9b4d6dbe">ConfocalSurfaceMinCounts</a></td></tr>
 <tr class="separator:a7b25cc3a93b462635707f67a9b4d6dbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b75e9e98f77e22fca522871e7253c4a" id="r_a3b75e9e98f77e22fca522871e7253c4a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#a3b75e9e98f77e22fca522871e7253c4a">ConfocalSurfaceMaxCounts</a></td></tr>
 <tr class="separator:a3b75e9e98f77e22fca522871e7253c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e152f6609a79c3465a349a076dab746" id="r_a6e152f6609a79c3465a349a076dab746"><td class="memItemLeft" align="right" valign="top">QXYSeries *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#a6e152f6609a79c3465a349a076dab746">HBTDataSeries</a></td></tr>
-<tr class="separator:a6e152f6609a79c3465a349a076dab746"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba9e6943f0eebfd98664e7d8848543d7" id="r_aba9e6943f0eebfd98664e7d8848543d7"><td class="memItemLeft" align="right" valign="top">QChart *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#aba9e6943f0eebfd98664e7d8848543d7">HBTDataChart</a></td></tr>
-<tr class="separator:aba9e6943f0eebfd98664e7d8848543d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a819670ce65012511f8e73e4f636b57c8" id="r_a819670ce65012511f8e73e4f636b57c8"><td class="memItemLeft" align="right" valign="top">QValueAxis *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#a819670ce65012511f8e73e4f636b57c8">HBTXAxis</a></td></tr>
-<tr class="separator:a819670ce65012511f8e73e4f636b57c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2915f66f137d3c3940ded5831fb072b7" id="r_a2915f66f137d3c3940ded5831fb072b7"><td class="memItemLeft" align="right" valign="top">QValueAxis *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#a2915f66f137d3c3940ded5831fb072b7">HBTYAxis</a></td></tr>
-<tr class="separator:a2915f66f137d3c3940ded5831fb072b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e065bec43a3860c75be23d6bfe89cab" id="r_a9e065bec43a3860c75be23d6bfe89cab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExpQuick_1_1DynExpLineGraphBackend.html">DynExpQuick::DynExpLineGraphBackend</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#a9e065bec43a3860c75be23d6bfe89cab">HBTGraph</a></td></tr>
+<tr class="separator:a9e065bec43a3860c75be23d6bfe89cab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80d09bbd755e202f79a4882408bd4d04" id="r_a80d09bbd755e202f79a4882408bd4d04"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structDynExpModule_1_1Graph_1_1LineGraphPlotInfo.html">Graph::LineGraphPlotInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#a80d09bbd755e202f79a4882408bd4d04">HBTPlotInfo</a></td></tr>
+<tr class="separator:a80d09bbd755e202f79a4882408bd4d04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adabdc9d09fc863a277bada7ee7a18bd4" id="r_adabdc9d09fc863a277bada7ee7a18bd4"><td class="memItemLeft" align="right" valign="top">QMenu *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#adabdc9d09fc863a277bada7ee7a18bd4">CharacterizationStepsContextMenu</a></td></tr>
 <tr class="separator:adabdc9d09fc863a277bada7ee7a18bd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed2c2f730370397b7af2b7426c31941c" id="r_aed2c2f730370397b7af2b7426c31941c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1Widefield_1_1WidefieldMicroscopeWidget.html#aed2c2f730370397b7af2b7426c31941c">UIInitialized</a> = false</td></tr>
@@ -480,6 +469,38 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="af7a6aa4a83041a72be88cf404b0c1ee6" name="af7a6aa4a83041a72be88cf404b0c1ee6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7a6aa4a83041a72be88cf404b0c1ee6">&#9670;&#160;</a></span>AllowDocked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DynExpModule::Widefield::WidefieldMicroscopeWidget::AllowDocked </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">override</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indicates the docking behavior of the user interface window. Override to adjust. </p>
+<dl class="section return"><dt>Returns</dt><dd>Return false when the window should always be undocked from <a class="el" href="namespaceDynExp.html" title="DynExp&#39;s main namespace contains the implementation of DynExp including classes to manage resources (...">DynExp</a>'s main window, false otherwise. </dd></dl>
+
+<p>Reimplemented from <a class="el" href="classDynExp_1_1QModuleWidget.html#a21d47efd33461bc5abba23868f51edad">DynExp::QModuleWidget</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00133">133</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
+
+</div>
+</div>
 <a id="ad075dde0b3532675c78c54047612bd45" name="ad075dde0b3532675c78c54047612bd45"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad075dde0b3532675c78c54047612bd45">&#9670;&#160;</a></span>AllowResize()</h2>
 
@@ -546,7 +567,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00659">659</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00663">663</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -573,34 +594,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00176">176</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
-
-</div>
-</div>
-<a id="af5fb7d87ccfdde6dce1dbeef8ade513a" name="af5fb7d87ccfdde6dce1dbeef8ade513a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5fb7d87ccfdde6dce1dbeef8ade513a">&#9670;&#160;</a></span>GetConfocalSurface3DSeries()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const auto &amp; DynExpModule::Widefield::WidefieldMicroscopeWidget::GetConfocalSurface3DSeries </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00148">148</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00174">174</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -627,7 +621,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00147">147</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00148">148</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
 
 </div>
 </div>
@@ -654,7 +648,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00145">145</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00146">146</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
 
 </div>
 </div>
@@ -708,7 +702,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00146">146</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00147">147</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
 
 </div>
 </div>
@@ -728,7 +722,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00181">181</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00179">179</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -755,7 +749,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00853">853</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00858">858</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -783,7 +777,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00739">739</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00743">743</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -810,7 +804,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00864">864</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00869">869</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -837,7 +831,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00809">809</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00813">813</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -864,7 +858,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00814">814</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00819">819</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -891,7 +885,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00797">797</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00801">801</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -929,7 +923,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00744">744</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00748">748</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -967,7 +961,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00752">752</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00756">756</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -995,7 +989,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00758">758</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00762">762</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1022,7 +1016,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00763">763</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00767">767</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1049,7 +1043,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00775">775</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00779">779</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1076,7 +1070,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00791">791</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00795">795</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1103,7 +1097,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00803">803</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00807">807</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1130,7 +1124,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00835">835</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00840">840</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1158,7 +1152,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00726">726</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00730">730</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1185,7 +1179,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00693">693</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00697">697</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1213,7 +1207,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00720">720</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00724">724</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1240,7 +1234,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00708">708</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00712">712</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1267,7 +1261,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00714">714</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00718">718</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1294,7 +1288,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00702">702</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00706">706</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1322,7 +1316,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00672">672</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00676">676</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1350,7 +1344,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00640">640</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00644">644</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1386,7 +1380,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00245">245</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00243">243</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1416,7 +1410,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Stores the values of the respective cells of ui.TWEmitterList's currently selected row in MarkerPos and SamplePos. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if exactly one row has been selected, so that storing was successful. False otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00677">677</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00681">681</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1446,7 +1440,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00567">567</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00571">571</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1466,7 +1460,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00482">482</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00480">480</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1486,7 +1480,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00540">540</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00545">545</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1505,7 +1499,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00646">646</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00650">650</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1525,7 +1519,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00322">322</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00320">320</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1545,7 +1539,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00353">353</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html#l00351">351</a> of file <a class="el" href="WidefieldMicroscopeWidget_8cpp_source.html">WidefieldMicroscopeWidget.cpp</a>.</p>
 
 </div>
 </div>
@@ -1570,12 +1564,12 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00195">195</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00189">189</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
 
 </div>
 </div>
-<a id="a7ce22af36ea7ed0041a7d8cbc40121d9" name="a7ce22af36ea7ed0041a7d8cbc40121d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ce22af36ea7ed0041a7d8cbc40121d9">&#9670;&#160;</a></span>ConfocalGraph</h2>
+<a id="ae569e3c0935385f4a3169bf06873a09c" name="ae569e3c0935385f4a3169bf06873a09c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae569e3c0935385f4a3169bf06873a09c">&#9670;&#160;</a></span>ConfocalGraph</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1584,7 +1578,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Q3DSurface* DynExpModule::Widefield::WidefieldMicroscopeWidget::ConfocalGraph</td>
+          <td class="memname"><a class="el" href="classDynExpQuick_1_1DynExpSurfaceGraphBackend.html">DynExpQuick::DynExpSurfaceGraphBackend</a>* DynExpModule::Widefield::WidefieldMicroscopeWidget::ConfocalGraph</td>
         </tr>
       </table>
   </td>
@@ -1595,30 +1589,6 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00181">181</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
-
-</div>
-</div>
-<a id="a59f33ade7f1aeadbe4e88b44dd5425c9" name="a59f33ade7f1aeadbe4e88b44dd5425c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59f33ade7f1aeadbe4e88b44dd5425c9">&#9670;&#160;</a></span>ConfocalGraphContainer</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">QWidget* DynExpModule::Widefield::WidefieldMicroscopeWidget::ConfocalGraphContainer</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00182">182</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
 
 </div>
 </div>
@@ -1646,78 +1616,6 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="ab0cd4fc048058bfac331cbff4b2043bb" name="ab0cd4fc048058bfac331cbff4b2043bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0cd4fc048058bfac331cbff4b2043bb">&#9670;&#160;</a></span>ConfocalSurface3DSeries</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">QSurface3DSeries* DynExpModule::Widefield::WidefieldMicroscopeWidget::ConfocalSurface3DSeries</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00185">185</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
-
-</div>
-</div>
-<a id="a699e94a453fbbce4613a7f0a2325da44" name="a699e94a453fbbce4613a7f0a2325da44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a699e94a453fbbce4613a7f0a2325da44">&#9670;&#160;</a></span>ConfocalSurfaceDataArray</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">QSurfaceDataArray* DynExpModule::Widefield::WidefieldMicroscopeWidget::ConfocalSurfaceDataArray</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00184">184</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
-
-</div>
-</div>
-<a id="a86b2eaa1025c352cc943a0e1dad2c125" name="a86b2eaa1025c352cc943a0e1dad2c125"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86b2eaa1025c352cc943a0e1dad2c125">&#9670;&#160;</a></span>ConfocalSurfaceDataProxy</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">QSurfaceDataProxy* DynExpModule::Widefield::WidefieldMicroscopeWidget::ConfocalSurfaceDataProxy</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00183">183</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
-
-</div>
-</div>
 <a id="a3b75e9e98f77e22fca522871e7253c4a" name="a3b75e9e98f77e22fca522871e7253c4a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3b75e9e98f77e22fca522871e7253c4a">&#9670;&#160;</a></span>ConfocalSurfaceMaxCounts</h2>
 
@@ -1738,7 +1636,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00188">188</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00184">184</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
 
 </div>
 </div>
@@ -1762,7 +1660,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00187">187</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00183">183</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
 
 </div>
 </div>
@@ -1834,12 +1732,12 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00202">202</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00196">196</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
 
 </div>
 </div>
-<a id="aba9e6943f0eebfd98664e7d8848543d7" name="aba9e6943f0eebfd98664e7d8848543d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba9e6943f0eebfd98664e7d8848543d7">&#9670;&#160;</a></span>HBTDataChart</h2>
+<a id="a9e065bec43a3860c75be23d6bfe89cab" name="a9e065bec43a3860c75be23d6bfe89cab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e065bec43a3860c75be23d6bfe89cab">&#9670;&#160;</a></span>HBTGraph</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1848,7 +1746,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QChart* DynExpModule::Widefield::WidefieldMicroscopeWidget::HBTDataChart</td>
+          <td class="memname"><a class="el" href="classDynExpQuick_1_1DynExpLineGraphBackend.html">DynExpQuick::DynExpLineGraphBackend</a>* DynExpModule::Widefield::WidefieldMicroscopeWidget::HBTGraph</td>
         </tr>
       </table>
   </td>
@@ -1858,12 +1756,12 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00191">191</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00186">186</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
 
 </div>
 </div>
-<a id="a6e152f6609a79c3465a349a076dab746" name="a6e152f6609a79c3465a349a076dab746"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e152f6609a79c3465a349a076dab746">&#9670;&#160;</a></span>HBTDataSeries</h2>
+<a id="a80d09bbd755e202f79a4882408bd4d04" name="a80d09bbd755e202f79a4882408bd4d04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80d09bbd755e202f79a4882408bd4d04">&#9670;&#160;</a></span>HBTPlotInfo</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1872,7 +1770,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QXYSeries* DynExpModule::Widefield::WidefieldMicroscopeWidget::HBTDataSeries</td>
+          <td class="memname"><a class="el" href="structDynExpModule_1_1Graph_1_1LineGraphPlotInfo.html">Graph::LineGraphPlotInfo</a> DynExpModule::Widefield::WidefieldMicroscopeWidget::HBTPlotInfo</td>
         </tr>
       </table>
   </td>
@@ -1882,55 +1780,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00190">190</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
-
-</div>
-</div>
-<a id="a819670ce65012511f8e73e4f636b57c8" name="a819670ce65012511f8e73e4f636b57c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a819670ce65012511f8e73e4f636b57c8">&#9670;&#160;</a></span>HBTXAxis</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">QValueAxis* DynExpModule::Widefield::WidefieldMicroscopeWidget::HBTXAxis</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00192">192</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
-
-</div>
-</div>
-<a id="a2915f66f137d3c3940ded5831fb072b7" name="a2915f66f137d3c3940ded5831fb072b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2915f66f137d3c3940ded5831fb072b7">&#9670;&#160;</a></span>HBTYAxis</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">QValueAxis* DynExpModule::Widefield::WidefieldMicroscopeWidget::HBTYAxis</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00193">193</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00187">187</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
 
 </div>
 </div>
@@ -2050,7 +1900,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00201">201</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00195">195</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
 
 </div>
 </div>
@@ -2074,7 +1924,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00199">199</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00193">193</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
 
 </div>
 </div>
@@ -2098,7 +1948,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00186">186</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00182">182</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
 
 </div>
 </div>
@@ -2122,7 +1972,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00200">200</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00194">194</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
 
 </div>
 </div>
@@ -2218,7 +2068,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00197">197</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WidefieldMicroscopeWidget_8h_source.html#l00191">191</a> of file <a class="el" href="WidefieldMicroscopeWidget_8h_source.html">WidefieldMicroscopeWidget.h</a>.</p>
 
 </div>
 </div>

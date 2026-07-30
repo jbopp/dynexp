@@ -14,8 +14,8 @@ var classDynExpInstr_1_1NetworkSpectrometerData =
     [ "NetworkSpectrometerTasks::UpdateTask", "classDynExpInstr_1_1NetworkSpectrometerData.html#ad37fdb4fdc28a29d5c679833bd6154c2", null ],
     [ "CapturingProgress", "classDynExpInstr_1_1NetworkSpectrometerData.html#a25591bbc82dab7028e7847b3fc219dab", null ],
     [ "CapturingState", "classDynExpInstr_1_1NetworkSpectrometerData.html#a9690814fdf36206e50de43ee06fd6755", null ],
-    [ "FrequencyUnit", "classDynExpInstr_1_1NetworkSpectrometerData.html#adb83843258ad0269fb8fdbdf1245e412", null ],
-    [ "IntensityUnit", "classDynExpInstr_1_1NetworkSpectrometerData.html#a4bb97cbd2bfe1119d23bd5dfd562320d", null ],
+    [ "FrequencyUnit", "classDynExpInstr_1_1NetworkSpectrometerData.html#a2a0db2cd9d0ee42a9ecdf006bd5dc138", null ],
+    [ "IntensityUnit", "classDynExpInstr_1_1NetworkSpectrometerData.html#acf94cdaf0cb5828525c143e525699e66", null ],
     [ "MaxFrequency", "classDynExpInstr_1_1NetworkSpectrometerData.html#abd900f0c7e8d582f8cb825ff72cd1eb2", null ],
     [ "MinFrequency", "classDynExpInstr_1_1NetworkSpectrometerData.html#a9561c1eeced08247f0eaa84d4eb91605", null ]
 ];

@@ -265,9 +265,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8bf82f17591a4cc768a6c2cbc49bcf2c" id="r_a8bf82f17591a4cc768a6c2cbc49bcf2c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a53ad569673ee70aa9ebc2563277d940b">DataStreamInstrumentData::ValueType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1DigitalIn.html#a8bf82f17591a4cc768a6c2cbc49bcf2c">GetHardwareResolution</a> () const noexcept override final</td></tr>
 <tr class="memdesc:a8bf82f17591a4cc768a6c2cbc49bcf2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates the value's resolution the underlying hardware can record.  <br /></td></tr>
 <tr class="separator:a8bf82f17591a4cc768a6c2cbc49bcf2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae4e20dd18b6197df51c3adc2ae3e74c" id="r_aae4e20dd18b6197df51c3adc2ae3e74c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330">DataStreamInstrumentData::UnitType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1DigitalIn.html#aae4e20dd18b6197df51c3adc2ae3e74c">GetValueUnit</a> () const noexcept override final</td></tr>
-<tr class="memdesc:aae4e20dd18b6197df51c3adc2ae3e74c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines which unit corresponds to the values managed by this <code><a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html" title="Implementation of the data stream meta instrument, which is a base class for all instruments reading/...">DataStreamInstrument</a></code> instance. Do not enforce <code>noexcept</code> to allow overriding functions which throw exceptions.  <br /></td></tr>
-<tr class="separator:aae4e20dd18b6197df51c3adc2ae3e74c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb1b9f15487af84b5d0848d7160b475d" id="r_aeb1b9f15487af84b5d0848d7160b475d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespaceDynExp_1_1Units.html#a31646c74e14969210d5674e7cf74b8eb">DynExp::Units::UnitType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1DigitalIn.html#aeb1b9f15487af84b5d0848d7160b475d">GetValueUnit</a> () const noexcept override final</td></tr>
+<tr class="memdesc:aeb1b9f15487af84b5d0848d7160b475d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines which unit corresponds to the values managed by this <code><a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html" title="Implementation of the data stream meta instrument, which is a base class for all instruments reading/...">DataStreamInstrument</a></code> instance. Do not enforce <code>noexcept</code> to allow overriding functions which throw exceptions.  <br /></td></tr>
+<tr class="separator:aeb1b9f15487af84b5d0848d7160b475d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bc5b02e2392eb97f9ec6fcaf8854fcb" id="r_a4bc5b02e2392eb97f9ec6fcaf8854fcb"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classDynExpInstr_1_1NumericSampleStreamParamsExtension.html#structDynExpInstr_1_1NumericSampleStreamParamsExtension_1_1ValueType">NumericSampleStreamParamsExtension::ValueType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1DigitalIn.html#a4bc5b02e2392eb97f9ec6fcaf8854fcb">GetNumericSampleStreamParams</a> () const</td></tr>
 <tr class="memdesc:a4bc5b02e2392eb97f9ec6fcaf8854fcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves sample stream settings of the instrument's data stream from the instrument's or from the underlying hardware's parameters.  <br /></td></tr>
 <tr class="separator:a4bc5b02e2392eb97f9ec6fcaf8854fcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -495,6 +495,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object" id="r_af55298b0589b9239ff3076d540c97449"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#af55298b0589b9239ff3076d540c97449">CategoryAndNameToStr</a> (const std::string &amp;Category, const std::string &amp;Name)</td></tr>
 <tr class="memdesc:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string from an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> category and name to allow the user to identify an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> type.  <br /></td></tr>
 <tr class="separator:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object" id="r_acaf8f71896eb782a22155311c10a799a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#acaf8f71896eb782a22155311c10a799a">RemoveCategoryAndName</a> (const std::string &amp;ObjectDesc)</td></tr>
+<tr class="memdesc:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the category and name part built by <a class="el" href="classDynExp_1_1Object.html#af55298b0589b9239ff3076d540c97449" title="Builds a string from an Object&#39;s category and name to allow the user to identify an Object&#39;s type.">Object::CategoryAndNameToStr()</a> from the string <code>ObjectDesc</code> constructed by <a class="el" href="classDynExp_1_1LinkedObjectWrapper.html#a8aae6a3a96ddb6671a223da80c150dc8" title="Builds and returns a human-readable string uniquely identifying the Object instance DestinyResource....">LinkedObjectWrapper::GetLinkedObjectDesc()</a>.  <br /></td></tr>
+<tr class="separator:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -932,7 +935,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Indicates the maximal value the underlying hardware can record. </p>
-<dl class="section return"><dt>Returns</dt><dd>Returns the maximal value readable from the input port in units determined by <a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#a893b4bf8036fb748c43ec8b6e044f14e" title="Determines which unit corresponds to the values managed by this DataStreamInstrument instance....">DataStreamInstrument::GetValueUnit()</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the maximal value readable from the input port in units determined by <a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#a90dc29f7e71814a80d02aaa3a01fe100" title="Determines which unit corresponds to the values managed by this DataStreamInstrument instance....">DataStreamInstrument::GetValueUnit()</a>. </dd></dl>
 
 <p>Implements <a class="el" href="classDynExpInstr_1_1InputPort.html#a6b2b775965a779db1805384ac37ff93b">DynExpInstr::InputPort</a>.</p>
 
@@ -964,7 +967,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Indicates the minimal value the underlying hardware can record. </p>
-<dl class="section return"><dt>Returns</dt><dd>Returns the minimal value readable from the input port in units determined by <a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#a893b4bf8036fb748c43ec8b6e044f14e" title="Determines which unit corresponds to the values managed by this DataStreamInstrument instance....">DataStreamInstrument::GetValueUnit()</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the minimal value readable from the input port in units determined by <a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#a90dc29f7e71814a80d02aaa3a01fe100" title="Determines which unit corresponds to the values managed by this DataStreamInstrument instance....">DataStreamInstrument::GetValueUnit()</a>. </dd></dl>
 
 <p>Implements <a class="el" href="classDynExpInstr_1_1InputPort.html#a24f9925d9b4c86202553537b1af6792d">DynExpInstr::InputPort</a>.</p>
 
@@ -996,7 +999,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Indicates the value's resolution the underlying hardware can record. </p>
-<dl class="section return"><dt>Returns</dt><dd>Returns the precision of values readable from the input port in units determined by <a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#a893b4bf8036fb748c43ec8b6e044f14e" title="Determines which unit corresponds to the values managed by this DataStreamInstrument instance....">DataStreamInstrument::GetValueUnit()</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the precision of values readable from the input port in units determined by <a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#a90dc29f7e71814a80d02aaa3a01fe100" title="Determines which unit corresponds to the values managed by this DataStreamInstrument instance....">DataStreamInstrument::GetValueUnit()</a>. </dd></dl>
 
 <p>Implements <a class="el" href="classDynExpInstr_1_1InputPort.html#a1e9c439310fd1683259a211615fe4a38">DynExpInstr::InputPort</a>.</p>
 
@@ -1099,8 +1102,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="aae4e20dd18b6197df51c3adc2ae3e74c" name="aae4e20dd18b6197df51c3adc2ae3e74c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae4e20dd18b6197df51c3adc2ae3e74c">&#9670;&#160;</a></span>GetValueUnit()</h2>
+<a id="aeb1b9f15487af84b5d0848d7160b475d" name="aeb1b9f15487af84b5d0848d7160b475d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb1b9f15487af84b5d0848d7160b475d">&#9670;&#160;</a></span>GetValueUnit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1109,7 +1112,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classDynExpInstr_1_1DataStreamInstrumentData.html#a0093be99f4412b0cb2633b980b241330">DataStreamInstrumentData::UnitType</a> DynExpInstr::DigitalIn::GetValueUnit </td>
+          <td class="memname">virtual <a class="el" href="namespaceDynExp_1_1Units.html#a31646c74e14969210d5674e7cf74b8eb">DynExp::Units::UnitType</a> DynExpInstr::DigitalIn::GetValueUnit </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1125,7 +1128,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Determines which unit corresponds to the values managed by this <code><a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html" title="Implementation of the data stream meta instrument, which is a base class for all instruments reading/...">DataStreamInstrument</a></code> instance. Do not enforce <code>noexcept</code> to allow overriding functions which throw exceptions. </p>
 <dl class="section return"><dt>Returns</dt><dd>Unit of values in the instrument's data stream </dd></dl>
 
-<p>Implements <a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#a893b4bf8036fb748c43ec8b6e044f14e">DynExpInstr::DataStreamInstrument</a>.</p>
+<p>Implements <a class="el" href="classDynExpInstr_1_1DataStreamInstrument.html#a90dc29f7e71814a80d02aaa3a01fe100">DynExpInstr::DataStreamInstrument</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="DigitalIn_8h_source.html#l00173">173</a> of file <a class="el" href="DigitalIn_8h_source.html">DigitalIn.h</a>.</p>
 

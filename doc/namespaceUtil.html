@@ -575,8 +575,8 @@ Variables</h2></td></tr>
 <tr class="memdesc:a85ce0fdf9a70d472a2bce6e342652f77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a QPolygonF representing a cross-style marker.  <br /></td></tr>
 <tr class="separator:a85ce0fdf9a70d472a2bce6e342652f77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader">Physical units and related functions</h2></td></tr>
-<tr><td class="ititle" colspan="2"><p>These definitions and functions provide access to physical quantities and convert in between them. </p>
+<tr class="heading"><td colspan="2"><h2 class="groupheader">Physical unit conversion</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p>These functions convert physical quantities. </p>
 </td></tr>
 <tr class="memitem:aac7f18dbdcac4a7036045cc4f93a283c" id="r_aac7f18dbdcac4a7036045cc4f93a283c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtil.html#aac7f18dbdcac4a7036045cc4f93a283c">seconds</a> = std::chrono::duration&lt; double &gt;</td></tr>
 <tr class="memdesc:aac7f18dbdcac4a7036045cc4f93a283c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extends std::chrono by a duration data type for seconds capable of storing fractions of seconds.  <br /></td></tr>
@@ -584,9 +584,6 @@ Variables</h2></td></tr>
 <tr class="memitem:a99231f65c9cf8ce2d11f5768579cec5f" id="r_a99231f65c9cf8ce2d11f5768579cec5f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtil.html#a99231f65c9cf8ce2d11f5768579cec5f">picoseconds</a> = std::chrono::duration&lt; double, std::pico &gt;</td></tr>
 <tr class="memdesc:a99231f65c9cf8ce2d11f5768579cec5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extends std::chrono by a duration data type for picoseconds.  <br /></td></tr>
 <tr class="separator:a99231f65c9cf8ce2d11f5768579cec5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d2af7b8b0545b3670b402f217dba6bf" id="r_a9d2af7b8b0545b3670b402f217dba6bf"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtil.html#a9d2af7b8b0545b3670b402f217dba6bf">SpeedOfLight</a> = (GSL_CONST_MKSA_SPEED_OF_LIGHT)</td></tr>
-<tr class="memdesc:a9d2af7b8b0545b3670b402f217dba6bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Speed of light in vacuum in m/s.  <br /></td></tr>
-<tr class="separator:a9d2af7b8b0545b3670b402f217dba6bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1635b6f9dbe82ada0c07c66f4a687124" id="r_a1635b6f9dbe82ada0c07c66f4a687124"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtil.html#a1635b6f9dbe82ada0c07c66f4a687124">ConvertFrequencyWavelength</a> (double Value) noexcept</td></tr>
 <tr class="memdesc:a1635b6f9dbe82ada0c07c66f4a687124"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the frequency value of an electromagnetic wave in Hz to the corresponding wavelength in m and vice versa.  <br /></td></tr>
 <tr class="separator:a1635b6f9dbe82ada0c07c66f4a687124"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -608,7 +605,7 @@ Variables</h2></td></tr>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename CallableT&gt;<br />
 struct Util::member_fn_ptr_traits&lt; CallableT &gt;</div><p>Extracts the return value type, the class type the callable is member of, and the argument types of a callable type <code>CallableT</code> which is a member function of some class. The extracted types are stored using type aliases <code>return_type</code> and <code>instance_type</code> and an alias of a tuple of types <code>argument_types</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00312">312</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00313">313</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 </div>
 </div>
 </div>
@@ -626,7 +623,7 @@ struct Util::member_fn_ptr_traits&lt; CallableT &gt;</div><p>Extracts the return
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename ReturnT, typename ObjectT, typename... ArgumentTs&gt;<br />
 struct Util::member_fn_ptr_traits&lt; ReturnT(ObjectT::*)(ArgumentTs...) const &gt;</div><p>Extracts the return value type, the class type the callable is member of, and the argument types of a callable type <code>CallableT</code> which is a member function of some class. The extracted types are stored using type aliases <code>return_type</code> and <code>instance_type</code> and an alias of a tuple of types <code>argument_types</code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00318">318</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00319">319</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 </div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
@@ -665,7 +662,7 @@ return_type</td>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename ReturnT, typename ObjectT, typename... ArgumentTs&gt;<br />
 struct Util::member_fn_ptr_traits&lt; ReturnT(ObjectT::*)(ArgumentTs...) const noexcept &gt;</div><p>Extracts the return value type, the class type the callable is member of, and the argument types of a callable type <code>CallableT</code> which is a member function of some class. The extracted types are stored using type aliases <code>return_type</code> and <code>instance_type</code> and an alias of a tuple of types <code>argument_types</code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00340">340</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00341">341</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 </div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
@@ -704,7 +701,7 @@ return_type</td>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename ReturnT, typename ObjectT, typename... ArgumentTs&gt;<br />
 struct Util::member_fn_ptr_traits&lt; ReturnT(ObjectT::*)(ArgumentTs...) noexcept &gt;</div><p>Extracts the return value type, the class type the callable is member of, and the argument types of a callable type <code>CallableT</code> which is a member function of some class. The extracted types are stored using type aliases <code>return_type</code> and <code>instance_type</code> and an alias of a tuple of types <code>argument_types</code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00329">329</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00330">330</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 </div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
@@ -743,7 +740,7 @@ return_type</td>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename ReturnT, typename ObjectT, typename... ArgumentTs&gt;<br />
 struct Util::member_fn_ptr_traits&lt; ReturnT(ObjectT::*)(ArgumentTs...)&gt;</div><p>Extracts the return value type, the class type the callable is member of, and the argument types of a callable type <code>CallableT</code> which is a member function of some class. The extracted types are stored using type aliases <code>return_type</code> and <code>instance_type</code> and an alias of a tuple of types <code>argument_types</code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00351">351</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00352">352</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 </div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
@@ -789,7 +786,7 @@ struct Util::OffsetIndexSequence&lt; Offset, IndexSequence &gt;</div><p>Holds an
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00402">402</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00403">403</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 </div>
 </div>
 </div>
@@ -814,7 +811,7 @@ struct Util::OffsetIndexSequence&lt; Offset, std::index_sequence&lt; Indices... 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00408">408</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00409">409</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 </div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
@@ -848,7 +845,7 @@ struct Util::RangeIndexSequence&lt; From, To &gt;</div><p>Holds an alias for a s
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00428">428</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00429">429</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 </div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
@@ -875,7 +872,7 @@ type</td>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename TupleT&gt;<br />
 struct Util::remove_first_from_tuple&lt; TupleT &gt;</div><p>Removes first type from a tuple of types <code>TupleT</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00380">380</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00381">381</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 </div>
 </div>
 </div>
@@ -893,7 +890,7 @@ struct Util::remove_first_from_tuple&lt; TupleT &gt;</div><p>Removes first type 
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename FirstElementT, typename... ElementTs&gt;<br />
 struct Util::remove_first_from_tuple&lt; std::tuple&lt; FirstElementT, ElementTs... &gt; &gt;</div><p>Removes first type from a tuple of types <code>TupleT</code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00386">386</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00387">387</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 </div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
@@ -919,7 +916,7 @@ type</td>
 </div><div class="memdoc">
 <div class="textblock"><p>Data type describing DynExp's program version in the form Major.Minor.Patch. </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00918">918</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00914">914</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 </div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
@@ -961,7 +958,7 @@ template&lt;typename CallableT &gt; </div>
 
 <p>Alias for a tuple of argument types the member function callable of type <code>CallableT</code> expects. </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00374">374</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00375">375</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -1017,7 +1014,7 @@ template&lt;typename CallableT &gt; </div>
 
 <p>Alias for the class type a member function callable of type <code>CallableT</code> is member of. </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00368">368</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00369">369</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -1037,7 +1034,7 @@ template&lt;size_t Offset, typename IndexSequence &gt; </div>
 
 <p>Alias for type contained in <code><a class="el" href="namespaceUtil.html#structUtil_1_1OffsetIndexSequence" title="Holds an alias for a std::index_sequence where all indices are shifted by an offset.">OffsetIndexSequence</a></code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00420">420</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00421">421</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -1055,7 +1052,7 @@ template&lt;size_t Offset, typename IndexSequence &gt; </div>
 
 <p>Extends std::chrono by a duration data type for picoseconds. </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00622">622</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00623">623</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -1075,7 +1072,7 @@ template&lt;size_t From, size_t To&gt; </div>
 
 <p>Alias for type contained in <code><a class="el" href="namespaceUtil.html#structUtil_1_1RangeIndexSequence" title="Holds an alias for a std::index_sequence spanning a certain range.">RangeIndexSequence</a></code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00437">437</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00438">438</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -1095,7 +1092,7 @@ template&lt;typename TupleT &gt; </div>
 
 <p>Alias for a tuple of types where the first type of the input tuple <code>TupleT</code> is removed. </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00392">392</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00393">393</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -1115,7 +1112,7 @@ template&lt;typename CallableT &gt; </div>
 
 <p>Alias for the return type of a member function callable of type <code>CallableT</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00362">362</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00363">363</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -1133,7 +1130,7 @@ template&lt;typename CallableT &gt; </div>
 
 <p>Extends std::chrono by a duration data type for seconds capable of storing fractions of seconds. </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00621">621</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00622">622</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -1388,7 +1385,7 @@ template&lt;typename ValueType &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Corresponding wavelength in m or frequency in Hz </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00635">635</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00631">631</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -1447,7 +1444,7 @@ template&lt;typename ValueType &gt; </div>
 <p>Returns a human-readable string describing the current time and date in the current time zone. </p>
 <dl class="section return"><dt>Returns</dt><dd>Time and date string </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00899">899</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00895">895</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -1583,7 +1580,7 @@ template&lt;typename ValueType &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Substring of <code>Path</code> containing the filename </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00906">906</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00902">902</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -2177,7 +2174,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00611">611</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00612">612</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -2263,7 +2260,7 @@ template&lt;typename ToT , std::enable_if_t&lt; std::is_integral_v&lt; ToT &gt; 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00812">812</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00808">808</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -2317,7 +2314,7 @@ template&lt;typename ToT , typename FromT , std::enable_if_t&lt; std::is_integra
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00750">750</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00746">746</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -2405,7 +2402,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Stream which was passed to the function </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00651">651</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00647">647</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -2494,13 +2491,13 @@ template&lt;typename... Ts&gt; </div>
   <table class="params">
     <tr><td class="paramname">CSVData</td><td>csv data to parse </td></tr>
     <tr><td class="paramname">Delimiter</td><td>Delimiter character the csv data is separated with </td></tr>
-    <tr><td class="paramname">SkipLines</td><td>Amount of header lines (separated by '\n') to skip at the beginning of <code>CSVData</code> </td></tr>
+    <tr><td class="paramname">SkipLines</td><td>Number of header lines (separated by '\n') to skip at the beginning of <code>CSVData</code> </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Vector of parsed csv data </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00958">958</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00954">954</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -2806,7 +2803,7 @@ template&lt;typename EnumType &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>List containing key-value pairs of <code>EnumType's</code> entries with entries skipped according to <code>SkipEntriesFront</code> and <code>SkipEntriesEnd</code> ans entry names trimmed according to <code>SkipCharsFront</code> and <code>SkipCharsEnd</code>. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classUtil_1_1OutOfRangeException.html" title="Thrown when an argument passed to a function exceeds the valid range.">Util::OutOfRangeException</a></td><td>is thrown when <code>SkipEntriesFront</code> and <code>SkipEntriesEnd</code> are incompatible with the actual amount of enum entries in <code>EnumType</code>. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classUtil_1_1OutOfRangeException.html" title="Thrown when an argument passed to a function exceeds the valid range.">Util::OutOfRangeException</a></td><td>is thrown when <code>SkipEntriesFront</code> and <code>SkipEntriesEnd</code> are incompatible with the actual number of enum entries in <code>EnumType</code>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -2953,7 +2950,7 @@ template&lt;typename EnumType &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Substring of <code>Path</code> containing the original path and filename but no file extension </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00913">913</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00909">909</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -3036,7 +3033,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00667">667</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00663">663</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -3102,7 +3099,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns <code>Value</code> converted to a string. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00719">719</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00715">715</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -3139,7 +3136,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns <code>Str</code> converted to a string. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00731">731</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00727">727</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -3176,7 +3173,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns <code>TimePoint</code> converted to a string. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00706">706</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00702">702</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -3224,7 +3221,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns <code>Value</code> converted to a string. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00688">688</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00684">684</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -3261,7 +3258,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns <code>Value</code> converted to a string.   </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00724">724</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00720">720</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -3298,7 +3295,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>String containing the program version </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00946">946</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00942">942</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -3372,7 +3369,7 @@ template&lt;&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>String describing the abbreviation of a physical unit   </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00882">882</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00878">878</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -3410,7 +3407,7 @@ template&lt;&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>String describing the abbreviation of a physical unit   </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00873">873</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00869">869</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -3448,7 +3445,7 @@ template&lt;&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>String describing the abbreviation of a physical unit   </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00855">855</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00851">851</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -3486,7 +3483,7 @@ template&lt;&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>String describing the abbreviation of a physical unit   </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00846">846</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00842">842</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -3524,7 +3521,7 @@ template&lt;&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>String describing the abbreviation of a physical unit   </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00864">864</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00860">860</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -3562,7 +3559,7 @@ template&lt;&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>String describing the abbreviation of a physical unit   </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00837">837</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00833">833</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -3599,7 +3596,7 @@ template&lt;&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>String with trailing zeros removed </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00893">893</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00889">889</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -3663,7 +3660,7 @@ template&lt;typename T , typename... ListTs&gt; </div>
 
 <p>Value type of <code><a class="el" href="structUtil_1_1is__contained__in.html" title="Checks whether a type T is contained in a template parameter pack of types ListTs.">is_contained_in</a></code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00303">303</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00304">304</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -3690,32 +3687,6 @@ template&lt;typename T , typename... ListTs&gt; </div>
 <p>Character sequence to indent a Python instruction by one level. </p>
 
 <p class="definition">Definition at line <a class="el" href="PyUtil_8h_source.html#l00019">19</a> of file <a class="el" href="PyUtil_8h_source.html">PyUtil.h</a>.</p>
-
-</div>
-</div>
-<a id="a9d2af7b8b0545b3670b402f217dba6bf" name="a9d2af7b8b0545b3670b402f217dba6bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d2af7b8b0545b3670b402f217dba6bf">&#9670;&#160;</a></span>SpeedOfLight</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr double Util::SpeedOfLight = (GSL_CONST_MKSA_SPEED_OF_LIGHT)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Speed of light in vacuum in m/s. </p>
-
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00627">627</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>

@@ -100,6 +100,7 @@ $(document).ready(function(){initNavTree('namespaceDynExp.html',''); initResizab
 
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
@@ -112,6 +113,11 @@ $(document).ready(function(){initNavTree('namespaceDynExp.html',''); initResizab
 <p>DynExp's main namespace contains the implementation of DynExp including classes to manage resources (DynExp objects like hardware adapters, instruments, and modules) as well as their dependencies and parameters.  
 <a href="namespaceDynExp.html#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespaceDynExp_1_1Units" id="r_namespaceDynExp_1_1Units"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDynExp_1_1Units.html">Units</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ArriveAtLatchTask.html">ArriveAtLatchTask</a></td></tr>
@@ -305,6 +311,20 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1ProjectParams.html">ProjectParams</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines a parameter class with parameters common to all DynExp projects.  <a href="classDynExp_1_1ProjectParams.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QMLModuleBase.html">QMLModuleBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for modules with a QML-based user interface. Derive from this class to implement modules with a QML user interface.  <a href="classDynExp_1_1QMLModuleBase.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QMLModuleConfiguratorBase.html">QMLModuleConfiguratorBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configurator class for <code><a class="el" href="classDynExp_1_1QMLModuleBase.html" title="Base class for modules with a QML-based user interface. Derive from this class to implement modules w...">QMLModuleBase</a></code>.  <a href="classDynExp_1_1QMLModuleConfiguratorBase.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QMLModuleDataBase.html">QMLModuleDataBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data class for <code><a class="el" href="classDynExp_1_1QMLModuleBase.html" title="Base class for modules with a QML-based user interface. Derive from this class to implement modules w...">QMLModuleBase</a></code>.  <a href="classDynExp_1_1QMLModuleDataBase.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QMLModuleParamsBase.html">QMLModuleParamsBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parameter class for <code><a class="el" href="classDynExp_1_1QMLModuleBase.html" title="Base class for modules with a QML-based user interface. Derive from this class to implement modules w...">QMLModuleBase</a></code>.  <a href="classDynExp_1_1QMLModuleParamsBase.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QMLModuleWidget.html">QMLModuleWidget</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QModuleBase.html">QModuleBase</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for modules with a Qt-based user interface. Derive from this class to implement modules with a user interface.  <a href="classDynExp_1_1QModuleBase.html#details">More...</a><br /></td></tr>
@@ -947,7 +967,7 @@ template&lt;typename ObjectType &gt; </div>
 
 <p>Pointer type to store a module (<a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">DynExp::ModuleBase</a>) with. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00024">24</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00025">25</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1112,7 +1132,7 @@ template&lt;typename To , typename From , std::enable_if_t&lt; std::is_same_v&lt
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00898">898</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00899">899</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1150,7 +1170,7 @@ template&lt;typename To , typename From , std::enable_if_t&lt; std::is_base_of_v
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a pointer to the cast <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instance. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02333">2333</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02341">2341</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1400,7 +1420,7 @@ template&lt;typename ReceiverType , typename... ArgsTs&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00810">810</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00811">811</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1604,7 +1624,7 @@ template&lt;typename ModuleT &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the module of the specified type </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00045">45</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00046">46</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -1634,7 +1654,7 @@ template&lt;typename ModuleT &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the configurator for the specified module type </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00032">32</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00033">33</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>

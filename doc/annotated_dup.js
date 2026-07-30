@@ -65,6 +65,11 @@ var annotated_dup =
       [ "ObjectUserList", "classDynExp_1_1ObjectUserList.html", "classDynExp_1_1ObjectUserList" ],
       [ "ParamsBase", "classDynExp_1_1ParamsBase.html", "classDynExp_1_1ParamsBase" ],
       [ "ProjectParams", "classDynExp_1_1ProjectParams.html", "classDynExp_1_1ProjectParams" ],
+      [ "QMLModuleBase", "classDynExp_1_1QMLModuleBase.html", "classDynExp_1_1QMLModuleBase" ],
+      [ "QMLModuleConfiguratorBase", "classDynExp_1_1QMLModuleConfiguratorBase.html", "classDynExp_1_1QMLModuleConfiguratorBase" ],
+      [ "QMLModuleDataBase", "classDynExp_1_1QMLModuleDataBase.html", "classDynExp_1_1QMLModuleDataBase" ],
+      [ "QMLModuleParamsBase", "classDynExp_1_1QMLModuleParamsBase.html", "classDynExp_1_1QMLModuleParamsBase" ],
+      [ "QMLModuleWidget", "classDynExp_1_1QMLModuleWidget.html", "classDynExp_1_1QMLModuleWidget" ],
       [ "QModuleBase", "classDynExp_1_1QModuleBase.html", "classDynExp_1_1QModuleBase" ],
       [ "QModuleConfiguratorBase", "classDynExp_1_1QModuleConfiguratorBase.html", "classDynExp_1_1QModuleConfiguratorBase" ],
       [ "QModuleDataBase", "classDynExp_1_1QModuleDataBase.html", "classDynExp_1_1QModuleDataBase" ],
@@ -718,6 +723,9 @@ var annotated_dup =
       [ "ZI_MFLIParams", "classDynExpInstr_1_1ZI__MFLIParams.html", "classDynExpInstr_1_1ZI__MFLIParams" ]
     ] ],
     [ "DynExpModule", "namespaceDynExpModule.html", [
+      [ "Graph", "namespaceDynExpModule_1_1Graph.html", [
+        [ "LineGraphPlotInfo", "structDynExpModule_1_1Graph_1_1LineGraphPlotInfo.html", "structDynExpModule_1_1Graph_1_1LineGraphPlotInfo" ]
+      ] ],
       [ "ImageViewer", "namespaceDynExpModule_1_1ImageViewer.html", [
         [ "AutofocusEvent", "classDynExpModule_1_1ImageViewer_1_1AutofocusEvent.html", "classDynExpModule_1_1ImageViewer_1_1AutofocusEvent" ],
         [ "FinishedAutofocusEvent", "classDynExpModule_1_1ImageViewer_1_1FinishedAutofocusEvent.html", "classDynExpModule_1_1ImageViewer_1_1FinishedAutofocusEvent" ],
@@ -747,15 +755,22 @@ var annotated_dup =
         [ "ODMRWidget", "classDynExpModule_1_1ODMR_1_1ODMRWidget.html", "classDynExpModule_1_1ODMR_1_1ODMRWidget" ],
         [ "SensitivityPlotType", "namespaceDynExpModule_1_1ODMR.html#structDynExpModule_1_1ODMR_1_1SensitivityPlotType", "namespaceDynExpModule_1_1ODMR_structDynExpModule_1_1ODMR_1_1SensitivityPlotType_dup" ]
       ] ],
+      [ "SignalPlotter", "namespaceDynExpModule_1_1SignalPlotter.html", [
+        [ "SignalPlotter", "classDynExpModule_1_1SignalPlotter_1_1SignalPlotter.html", "classDynExpModule_1_1SignalPlotter_1_1SignalPlotter" ],
+        [ "SignalPlotterBackend", "classDynExpModule_1_1SignalPlotter_1_1SignalPlotterBackend.html", "classDynExpModule_1_1SignalPlotter_1_1SignalPlotterBackend" ],
+        [ "SignalPlotterConfigurator", "classDynExpModule_1_1SignalPlotter_1_1SignalPlotterConfigurator.html", "classDynExpModule_1_1SignalPlotter_1_1SignalPlotterConfigurator" ],
+        [ "SignalPlotterData", "classDynExpModule_1_1SignalPlotter_1_1SignalPlotterData.html", "classDynExpModule_1_1SignalPlotter_1_1SignalPlotterData" ],
+        [ "SignalPlotterParams", "classDynExpModule_1_1SignalPlotter_1_1SignalPlotterParams.html", "classDynExpModule_1_1SignalPlotter_1_1SignalPlotterParams" ]
+      ] ],
       [ "SpectrumViewer", "namespaceDynExpModule_1_1SpectrumViewer.html", [
         [ "PauseSpectrumRecordingEvent", "classDynExpModule_1_1SpectrumViewer_1_1PauseSpectrumRecordingEvent.html", "classDynExpModule_1_1SpectrumViewer_1_1PauseSpectrumRecordingEvent" ],
         [ "ResumeSpectrumRecordingEvent", "classDynExpModule_1_1SpectrumViewer_1_1ResumeSpectrumRecordingEvent.html", "classDynExpModule_1_1SpectrumViewer_1_1ResumeSpectrumRecordingEvent" ],
         [ "SetSilentModeEvent", "classDynExpModule_1_1SpectrumViewer_1_1SetSilentModeEvent.html", "classDynExpModule_1_1SpectrumViewer_1_1SetSilentModeEvent" ],
         [ "SpectrumViewer", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer.html", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewer" ],
+        [ "SpectrumViewerBackend", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerBackend.html", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerBackend" ],
         [ "SpectrumViewerConfigurator", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerConfigurator.html", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerConfigurator" ],
         [ "SpectrumViewerData", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerData.html", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerData" ],
-        [ "SpectrumViewerParams", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerParams.html", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerParams" ],
-        [ "SpectrumViewerWidget", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerWidget.html", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerWidget" ]
+        [ "SpectrumViewerParams", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerParams.html", "classDynExpModule_1_1SpectrumViewer_1_1SpectrumViewerParams" ]
       ] ],
       [ "Widefield", "namespaceDynExpModule_1_1Widefield.html", [
         [ "WidefieldMicroscope", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscope.html", "classDynExpModule_1_1Widefield_1_1WidefieldMicroscope" ],
@@ -830,11 +845,6 @@ var annotated_dup =
       [ "SignalDesignerData", "classDynExpModule_1_1SignalDesignerData.html", "classDynExpModule_1_1SignalDesignerData" ],
       [ "SignalDesignerParams", "classDynExpModule_1_1SignalDesignerParams.html", "classDynExpModule_1_1SignalDesignerParams" ],
       [ "SignalDesignerWidget", "classDynExpModule_1_1SignalDesignerWidget.html", "classDynExpModule_1_1SignalDesignerWidget" ],
-      [ "SignalPlotter", "classDynExpModule_1_1SignalPlotter.html", "classDynExpModule_1_1SignalPlotter" ],
-      [ "SignalPlotterConfigurator", "classDynExpModule_1_1SignalPlotterConfigurator.html", "classDynExpModule_1_1SignalPlotterConfigurator" ],
-      [ "SignalPlotterData", "classDynExpModule_1_1SignalPlotterData.html", "classDynExpModule_1_1SignalPlotterData" ],
-      [ "SignalPlotterParams", "classDynExpModule_1_1SignalPlotterParams.html", "classDynExpModule_1_1SignalPlotterParams" ],
-      [ "SignalPlotterWidget", "classDynExpModule_1_1SignalPlotterWidget.html", "classDynExpModule_1_1SignalPlotterWidget" ],
       [ "Stage1D", "classDynExpModule_1_1Stage1D.html", "classDynExpModule_1_1Stage1D" ],
       [ "Stage1DConfigurator", "classDynExpModule_1_1Stage1DConfigurator.html", "classDynExpModule_1_1Stage1DConfigurator" ],
       [ "Stage1DData", "classDynExpModule_1_1Stage1DData.html", "classDynExpModule_1_1Stage1DData" ],
@@ -852,6 +862,12 @@ var annotated_dup =
       [ "Trajectory1DParams", "classDynExpModule_1_1Trajectory1DParams.html", "classDynExpModule_1_1Trajectory1DParams" ],
       [ "Trajectory1DWidget", "classDynExpModule_1_1Trajectory1DWidget.html", "classDynExpModule_1_1Trajectory1DWidget" ],
       [ "TriggerEvent", "classDynExpModule_1_1TriggerEvent.html", "classDynExpModule_1_1TriggerEvent" ]
+    ] ],
+    [ "DynExpQuick", "namespaceDynExpQuick.html", [
+      [ "DynExpLineGraphBackend", "classDynExpQuick_1_1DynExpLineGraphBackend.html", "classDynExpQuick_1_1DynExpLineGraphBackend" ],
+      [ "DynExpLineGraphPlotModel", "classDynExpQuick_1_1DynExpLineGraphPlotModel.html", "classDynExpQuick_1_1DynExpLineGraphPlotModel" ],
+      [ "DynExpLineGraphPlotSeries", "structDynExpQuick_1_1DynExpLineGraphPlotSeries.html", "structDynExpQuick_1_1DynExpLineGraphPlotSeries" ],
+      [ "DynExpSurfaceGraphBackend", "classDynExpQuick_1_1DynExpSurfaceGraphBackend.html", "classDynExpQuick_1_1DynExpSurfaceGraphBackend" ]
     ] ],
     [ "Util", "namespaceUtil.html", [
       [ "BlobDataType", "classUtil_1_1BlobDataType.html", "classUtil_1_1BlobDataType" ],

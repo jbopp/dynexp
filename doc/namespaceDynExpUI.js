@@ -32,10 +32,12 @@ var namespaceDynExpUI =
       [ "UndockedWindow", "namespaceDynExpUI_1_1Icons.html#a5018b9541b9f47a2963906e908d9e993", null ],
       [ "Warning", "namespaceDynExpUI_1_1Icons.html#a19eb2e9f325e563f81bfd9cf1fb7cb44", null ]
     ] ],
+    [ "PlotColors", "namespaceDynExpUI_1_1PlotColors.html", [
+      [ "ColorFromIndex", "namespaceDynExpUI_1_1PlotColors.html#a5367232df07c4925002068ecd2e0d27d", null ],
+      [ "GetColors", "namespaceDynExpUI_1_1PlotColors.html#a553ef0cfe2bb25f8c4382e75f3f5255a", null ]
+    ] ],
     [ "GetDefaultLinearGradient", "namespaceDynExpUI.html#ad0506ab0d53d16c697a0d36191726e4e", null ],
     [ "MakePushButtonStyleSheet", "namespaceDynExpUI.html#af27c887193e655fa09dea6ca16f387b2", null ],
-    [ "DefaultQ3DTheme", "namespaceDynExpUI.html#a89727c524ee3b393fa824181e831eb7a", null ],
-    [ "DefaultQChartTheme", "namespaceDynExpUI.html#a23601bb9c4f51f6ffc62c75c91194a40", null ],
     [ "PushButtonBusyStyleSheet", "namespaceDynExpUI.html#af4f2c2ef0a6203f814a3f74c538d0df4", null ],
     [ "PushButtonDefaultStyleSheet", "namespaceDynExpUI.html#a0e18fd45c139bf66ab5120bc8886850e", null ],
     [ "PushButtonErrorStyleSheet", "namespaceDynExpUI.html#a6842c28da119f10cd9db1b33e967ddc5", null ],

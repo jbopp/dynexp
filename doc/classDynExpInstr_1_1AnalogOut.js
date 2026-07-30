@@ -14,7 +14,7 @@ var classDynExpInstr_1_1AnalogOut =
     [ "GetNumericSampleStreamParams", "classDynExpInstr_1_1AnalogOut.html#af6cf2570604ef613647343191159a3e4", null ],
     [ "GetUserMaxValue", "classDynExpInstr_1_1AnalogOut.html#a41e9a3d7d1adb6df0e3f537482d9b9a0", null ],
     [ "GetUserMinValue", "classDynExpInstr_1_1AnalogOut.html#a889197499186c71e9aa54294da02c967", null ],
-    [ "GetValueUnit", "classDynExpInstr_1_1AnalogOut.html#a9d7193be84de0a3eeedcf09c4978f10f", null ],
+    [ "GetValueUnit", "classDynExpInstr_1_1AnalogOut.html#a9006156cd58f85925dab110074067da4", null ],
     [ "MakeExitTask", "classDynExpInstr_1_1AnalogOut.html#a1fe4a9c74e5ba796d0656ee6abebe6ce", null ],
     [ "MakeInitTask", "classDynExpInstr_1_1AnalogOut.html#a609a9751e00a2387682060e61f7e9053", null ],
     [ "MakeUpdateTask", "classDynExpInstr_1_1AnalogOut.html#a395c99510fd7b5f72e23e4274e787a37", null ],

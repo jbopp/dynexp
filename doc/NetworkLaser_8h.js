@@ -16,8 +16,6 @@ var NetworkLaser_8h =
     [ "DynExpInstr::NetworkLaserConfigurator", "classDynExpInstr_1_1NetworkLaserConfigurator.html", "classDynExpInstr_1_1NetworkLaserConfigurator" ],
     [ "DynExpInstr::NetworkLaser", "classDynExpInstr_1_1NetworkLaser.html", "classDynExpInstr_1_1NetworkLaser" ],
     [ "ToLaserStateType", "NetworkLaser_8h.html#acc40fa4540ed88cfaef9be474eac1bd5", null ],
-    [ "ToLaserUnitType", "NetworkLaser_8h.html#a9dab1c9aef6ca7a8ac8e7f2870920b96", null ],
-    [ "ToLaserUnitType", "NetworkLaser_8h.html#a6e1b8bcf83bc5fa5bbd02caee4817a2e", null ],
-    [ "ToPrototUnitType", "NetworkLaser_8h.html#af3946f14ee25e15a331926941971310f", null ],
-    [ "ToPrototUnitType", "NetworkLaser_8h.html#ae62f5ef0bcc1058e6234b1ccfc86e4e9", null ]
+    [ "ToLaserUnitType", "NetworkLaser_8h.html#acef547203c0990370a5ac6e78bc70c93", null ],
+    [ "ToLaserUnitType", "NetworkLaser_8h.html#a617afcd882f933b2e7e8d5f5cebadf76", null ]
 ];

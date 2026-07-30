@@ -225,7 +225,7 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Defines data for a thread belonging to a <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance. This data is only accessed by the <a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a> instance's thread. So, no synchronization mechanism is needed. Furthermore, this class is designed to exist only on the stack. <code><a class="el" href="classDynExp_1_1RunnableInstance.html" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R...">RunnableInstance</a></code> instances are to be passed as a parameter to the respective thread functions. This ensures that a <code><a class="el" href="classDynExp_1_1RunnableInstance.html" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R...">RunnableInstance</a></code> instances is deleted when its thread function returns. This class is responsible for locking an object link (list) parameter (<a class="el" href="classDynExp_1_1ParamsBase.html#classDynExp_1_1ParamsBase_1_1Param">ParamsBase::Param</a>&lt; ObjectLink&lt; ObjectT &gt; &gt; or <a class="el" href="classDynExp_1_1ParamsBase.html#classDynExp_1_1ParamsBase_1_1ListParam">ParamsBase::ListParam</a>&lt; ObjectLink&lt; ObjectT &gt; &gt;) hold by a class derived (indirectly) from class <code><a class="el" href="classDynExp_1_1ParamsBase.html" title="Abstract base class for object parameter classes. Each class derived from class Object must be accomp...">ParamsBase</a></code> and for storing the locked resource in a <code><a class="el" href="classDynExp_1_1LinkedObjectWrapper.html" title="Holds a shared_ptr to a resource (instance of class Object) and lets the resource keep track of its u...">LinkedObjectWrapper</a></code> instance. In turn, the created <code><a class="el" href="classDynExp_1_1LinkedObjectWrapper.html" title="Holds a shared_ptr to a resource (instance of class Object) and lets the resource keep track of its u...">LinkedObjectWrapper</a></code> instance is stored in a <code><a class="el" href="classDynExp_1_1LinkedObjectWrapperContainer.html" title="This class holds a pointer (LinkedObjectWrapperPointer) to a LinkedObjectWrapper. Intances of this cl...">LinkedObjectWrapperContainer</a></code> instance hold by a class derived (indirectly) from <code><a class="el" href="classDynExp_1_1InstrumentDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">InstrumentDataBase</a></code> or from <code><a class="el" href="classDynExp_1_1ModuleDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">ModuleDataBase</a></code>. Furthermore, this class is responsible for unlocking <code><a class="el" href="classDynExp_1_1LinkedObjectWrapper.html" title="Holds a shared_ptr to a resource (instance of class Object) and lets the resource keep track of its u...">LinkedObjectWrapper</a></code> instances it created. Unlocking is triggered either on request or on destruction of the <code><a class="el" href="classDynExp_1_1RunnableInstance.html" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R...">RunnableInstance</a></code> instance owning the <code><a class="el" href="classDynExp_1_1LinkedObjectWrapper.html" title="Holds a shared_ptr to a resource (instance of class Object) and lets the resource keep track of its u...">LinkedObjectWrapper</a></code> instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03512">3512</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03520">3520</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0d5b888efa8f4895c7e0e36c4a1e786c" name="a0d5b888efa8f4895c7e0e36c4a1e786c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0d5b888efa8f4895c7e0e36c4a1e786c">&#9670;&#160;</a></span>RunnableInstance() <span class="overload">[1/2]</span></h2>
@@ -270,7 +270,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00755">755</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00760">760</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -306,7 +306,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00763">763</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00768">768</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -325,7 +325,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00772">772</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00777">777</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -355,7 +355,7 @@ Private Attributes</h2></td></tr>
 
 <p>Blocks until <a class="el" href="classDynExp_1_1RunnableInstance.html#ace29d1fc0e7569bd4cd89bd979592d4a" title="Indicates whether the thread this RunnableInstance instance belongs to may start working....">ThreadMayStart</a> is set to true. Thread functions to be run by <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instances are required to call this function before they access the parameters passed to them (except to call this function). </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00781">781</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00786">786</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -377,7 +377,7 @@ Private Attributes</h2></td></tr>
 <p>Unregisters owned <code><a class="el" href="classDynExp_1_1LinkedObjectWrapper.html" title="Holds a shared_ptr to a resource (instance of class Object) and lets the resource keep track of its u...">LinkedObjectWrapper</a></code> instances from their destiny resources in case of the respective destiny resource not being in a ready state (e.g. a stopped/error state). Registers again after the respective destiny resource has returned to a ready state. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if the destiny resources of every owned <code><a class="el" href="classDynExp_1_1LinkedObjectWrapper.html" title="Holds a shared_ptr to a resource (instance of class Object) and lets the resource keep track of its u...">LinkedObjectWrapper</a></code> instance is in a ready state. Returns false if any destiny resource is in an error state. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00787">787</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00792">792</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -399,7 +399,7 @@ Private Attributes</h2></td></tr>
 <p>Finds all linked <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instances <a class="el" href="classDynExp_1_1RunnableInstance.html#ab103525d872932dc64cd598312f1b9f1" title="RunnableObject instance which operates on this RunnableInstance (by its thread). The RunnableObject i...">Owner</a> makes use of which are not in a ready state and builds a string identifying all these <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instances. </p>
 <dl class="section return"><dt>Returns</dt><dd>Human-readable string identifying all linked resources not being in a ready state </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00826">826</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00831">831</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -428,7 +428,7 @@ Private Attributes</h2></td></tr>
 
 <p>Returns <a class="el" href="classDynExp_1_1RunnableInstance.html#ab103525d872932dc64cd598312f1b9f1" title="RunnableObject instance which operates on this RunnableInstance (by its thread). The RunnableObject i...">Owner</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03556">3556</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03564">3564</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -496,7 +496,7 @@ template&lt;typename ObjectT &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03637">3637</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03645">3645</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -558,7 +558,7 @@ template&lt;typename ObjectT &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03593">3593</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03601">3601</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -587,7 +587,7 @@ template&lt;typename ObjectT &gt; </div>
 
 <p>Signals that <a class="el" href="classDynExp_1_1RunnableInstance.html#ab103525d872932dc64cd598312f1b9f1" title="RunnableObject instance which operates on this RunnableInstance (by its thread). The RunnableObject i...">Owner</a>'s thread has exited. Refer to <a class="el" href="classDynExp_1_1RunnableObject.html#aade476f5ee6747da8d8db41b700550e6" title="This function is called when the RunnableObject instance&#39;s thread terminates. The thread receives a R...">RunnableObject::OnThreadHasExited()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00836">836</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8cpp_source.html#l00841">841</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -643,7 +643,7 @@ template&lt;typename ObjectT &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the stored <code><a class="el" href="classDynExp_1_1LinkedObjectWrapper.html" title="Holds a shared_ptr to a resource (instance of class Object) and lets the resource keep track of its u...">LinkedObjectWrapper</a></code> instance </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03730">3730</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03738">3738</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -705,7 +705,7 @@ template&lt;typename ObjectT &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03576">3576</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03584">3584</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -749,7 +749,7 @@ template&lt;typename ObjectT &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03609">3609</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03617">3617</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -793,7 +793,7 @@ template&lt;typename ObjectT &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03681">3681</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03689">3689</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -820,7 +820,7 @@ template&lt;typename ObjectT &gt; </div>
 
 <p>Set to true if it was moved from this instance to indicate that <a class="el" href="classDynExp_1_1RunnableInstance.html#abf8b77fb4c30da951c9dc89f13f8a126" title="Signals the RunnableObject instance owning the thread that its thread has terminated....">ThreadExitedPromise</a> has no shared state anymore. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03766">3766</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03774">3774</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -846,7 +846,7 @@ template&lt;typename ObjectT &gt; </div>
 
 <p>List of all <code><a class="el" href="classDynExp_1_1LinkedObjectWrapper.html" title="Holds a shared_ptr to a resource (instance of class Object) and lets the resource keep track of its u...">LinkedObjectWrapper</a></code> instances owned by this <code><a class="el" href="classDynExp_1_1RunnableInstance.html" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R...">RunnableInstance</a></code> instance (thus belonging to a <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance). If the <code><a class="el" href="classDynExp_1_1RunnableInstance.html" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R...">RunnableInstance</a>'s</code> parent <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> is terminated, by deleting the corresponding <code><a class="el" href="classDynExp_1_1RunnableInstance.html" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R...">RunnableInstance</a></code>, all these <code><a class="el" href="classDynExp_1_1LinkedObjectWrapper.html" title="Holds a shared_ptr to a resource (instance of class Object) and lets the resource keep track of its u...">LinkedObjectWrapper</a></code> instances are also deleted to unlock their linked resources. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03774">3774</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03782">3782</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -872,7 +872,7 @@ template&lt;typename ObjectT &gt; </div>
 
 <p><code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance which operates on this <code><a class="el" href="classDynExp_1_1RunnableInstance.html" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R...">RunnableInstance</a></code> (by its thread). The <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's tasks/events might access the object itself via <code><a class="el" href="classDynExp_1_1RunnableInstance.html#afafb4793635ac8c1c34471ff255549f1" title="Returns Owner.">GetOwner()</a></code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03746">3746</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03754">3754</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -890,7 +890,7 @@ template&lt;typename ObjectT &gt; </div>
 
 <p>Invoke to obtain the parameters (derived from <code><a class="el" href="classDynExp_1_1ParamsBase.html" title="Abstract base class for object parameter classes. Each class derived from class Object must be accomp...">ParamsBase</a></code>) of <a class="el" href="classDynExp_1_1RunnableInstance.html#ab103525d872932dc64cd598312f1b9f1" title="RunnableObject instance which operates on this RunnableInstance (by its thread). The RunnableObject i...">Owner</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03710">3710</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03718">3718</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -908,7 +908,7 @@ template&lt;typename ObjectT &gt; </div>
 
 <p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1RunnableInstance.html" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R...">RunnableInstance</a>'s</code> private variables to <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03712">3712</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03720">3720</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -934,7 +934,7 @@ template&lt;typename ObjectT &gt; </div>
 
 <p>Signals the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance owning the thread that its thread has terminated. This is signaled on destruction of this <code><a class="el" href="classDynExp_1_1RunnableInstance.html" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R...">RunnableInstance</a></code> instance. Refer to <a class="el" href="classDynExp_1_1RunnableObject.html#a45a818a181d16129dfb43080152527c4" title="Future which signals that Thread has terminated. Refer to OnThreadHasExited().">RunnableObject::ThreadExitedSignal</a> and to <a class="el" href="classDynExp_1_1RunnableObject.html#aade476f5ee6747da8d8db41b700550e6" title="This function is called when the RunnableObject instance&#39;s thread terminates. The thread receives a R...">RunnableObject::OnThreadHasExited()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03760">3760</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03768">3768</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -960,7 +960,7 @@ template&lt;typename ObjectT &gt; </div>
 
 <p>Indicates whether the thread this <code><a class="el" href="classDynExp_1_1RunnableInstance.html" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R...">RunnableInstance</a></code> instance belongs to may start working. The thread is required to check this flag first to avoid a race condition between <a class="el" href="classDynExp_1_1RunnableObject.html#a343b47df52dc884564b9e0c60a1647e7" title="Creates and runs the thread of the RunnableObject instance. Call this function in the derived class o...">RunnableObject::MakeThread()</a> and <a class="el" href="classDynExp_1_1RunnableObject.html#a21fc682e09f7e23e2a65fc8b8eef7106" title="Checks whether Thread&#39;s id matches the id of the calling thread. This is thread-safe if the function ...">RunnableObject::IsCallFromRunnableThread()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03753">3753</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l03761">3761</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>

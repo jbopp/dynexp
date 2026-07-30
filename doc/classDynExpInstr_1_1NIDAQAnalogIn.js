@@ -11,7 +11,7 @@ var classDynExpInstr_1_1NIDAQAnalogIn =
     [ "GetName", "classDynExpInstr_1_1NIDAQAnalogIn.html#afa689df2f57aa3b092113119a9732bc6", null ],
     [ "GetNumericSampleStreamParams", "classDynExpInstr_1_1NIDAQAnalogIn.html#a7c7af94efc8cfd5a6d5f3db4bc83532e", null ],
     [ "GetStreamSizeParams", "classDynExpInstr_1_1NIDAQAnalogIn.html#a28b37a6430d747d9cd1e8db44b9ed350", null ],
-    [ "GetValueUnit", "classDynExpInstr_1_1NIDAQAnalogIn.html#ae3ee7bc5b200e1ac1e8b668dde0f4a41", null ],
+    [ "GetValueUnit", "classDynExpInstr_1_1NIDAQAnalogIn.html#ae3c9c22eabbcad0fc7069a1113caa90b", null ],
     [ "HardwareMaxValue", "classDynExpInstr_1_1NIDAQAnalogIn.html#ab50d03237bbfb3f2a930bd8cccd0f5da", null ],
     [ "HardwareMinValue", "classDynExpInstr_1_1NIDAQAnalogIn.html#a3a9b78aae5f0b046a94553f2de7d2464", null ],
     [ "HardwareResolution", "classDynExpInstr_1_1NIDAQAnalogIn.html#a5878bdf6797fb5784c482c371ade2bf6", null ],

@@ -120,7 +120,7 @@ $(document).ready(function(){initNavTree('classDynExp_1_1ModuleDataBase.html',''
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classDynExp_1_1ModuleDataBase__inherit__graph.svg" width="1616" height="1056"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classDynExp_1_1ModuleDataBase__inherit__graph.svg" width="1623" height="1062"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
@@ -246,7 +246,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p>Data structure to contain data which is synchronized in between different threads. This is needed since the module thread as well as the main thread might access the module at the same time. Every class (indirectly) derived from class <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code> must be accompanied by a module data class derived from <code><a class="el" href="classDynExp_1_1ModuleDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">ModuleDataBase</a></code>. <code><a class="el" href="classDynExp_1_1ModuleDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">ModuleDataBase</a></code> and derived classes contain data shared by the respective module thread and the user interface (main) thread to e.g. visualize data. Data only used by the module thread should be private members of the module class. Data only used by the user interface should be private members of the module's widget class (derived from <code><a class="el" href="classDynExp_1_1QModuleWidget.html" title="Window class for Qt-based user interfaces belonging to DynExp modules. User interface Qt window class...">QModuleWidget</a></code>), respectively. </p>
 <dl class="section warning"><dt>Warning</dt><dd>For the same <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code>, always lock the mutex of the corresponding parameter class before the mutex of the corresponding data class (or only one of them). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00172">172</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00173">173</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 </div><hr/><h2 class="groupheader">Class Documentation</h2>
 <a name="structDynExp_1_1ModuleDataBase_1_1dispatch__tag" id="structDynExp_1_1ModuleDataBase_1_1dispatch__tag"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#structDynExp_1_1ModuleDataBase_1_1dispatch__tag">&#9670;&#160;</a></span>DynExp::ModuleDataBase::dispatch_tag</h2>
@@ -268,7 +268,7 @@ struct DynExp::ModuleDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer to <
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00191">191</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00192">192</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 </div>
 </div>
 </div>
@@ -287,7 +287,7 @@ struct DynExp::ModuleDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer to <
 
 <p>Pointer owning an event. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00178">178</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00179">179</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -305,7 +305,7 @@ struct DynExp::ModuleDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer to <
 
 <p>A module's event queue is a FIFO queue owning the enqueued events. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00183">183</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00184">184</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -333,7 +333,7 @@ struct DynExp::ModuleDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer to <
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00238">238</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00239">239</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -360,7 +360,7 @@ struct DynExp::ModuleDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer to <
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00239">239</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00240">240</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -425,7 +425,7 @@ struct DynExp::ModuleDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer to <
 <p>Returns a pointer to the event in the front of the module's event queue without transferring ownership and without removing the event from the queue. </p>
 <dl class="section return"><dt>Returns</dt><dd>Constant pointer to the event </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00267">267</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00268">268</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -455,7 +455,7 @@ struct DynExp::ModuleDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer to <
 <p>Returns a pointer to the event in the front of the module's event queue without transferring ownership and without removing the event from the queue.   </p>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the event </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00273">273</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00274">274</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -515,7 +515,7 @@ struct DynExp::ModuleDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer to <
 <p>Getter for <a class="el" href="classDynExp_1_1ModuleDataBase.html#a2ac26318af913aff483857a30f343797" title="Notifies the thread of the module which owns the respective ModuleDataBase&#39;s instance when an event h...">NewEventNotifier</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns <a class="el" href="classDynExp_1_1ModuleDataBase.html#a2ac26318af913aff483857a30f343797" title="Notifies the thread of the module which owns the respective ModuleDataBase&#39;s instance when an event h...">NewEventNotifier</a> to notify the module thread about new events. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00309">309</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00310">310</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -545,7 +545,7 @@ struct DynExp::ModuleDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer to <
 <p>Getter for the module event queue's length. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the number of currently enqueued events. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00279">279</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00280">280</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -574,7 +574,7 @@ struct DynExp::ModuleDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer to <
 
 <p>Indicates to the main thread that an exception has happened in the module thread. Only performs atomic operations. Hence, this module data instance does not need to be locked for this function call. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00334">334</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00335">335</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -603,7 +603,7 @@ struct DynExp::ModuleDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer to <
 
 <p>Getter for <a class="el" href="classDynExp_1_1ModuleDataBase.html#ac02e70f458d3ba3d8422d0686d35bec6" title="If set to true, indicates to the main (user interface) thread that an exception has happened in the m...">HasException</a>. Only performs atomic operations. Hence, this module data instance does not need to be locked for this function call. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00291">291</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00292">292</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -686,7 +686,7 @@ struct DynExp::ModuleDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer to <
 
 <p>Reimplemented in <a class="el" href="classDynExp_1_1QModuleDataBase.html#ac8c79b4e4cb166d7014a49269c089ade">DynExp::QModuleDataBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00326">326</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00327">327</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -715,7 +715,7 @@ struct DynExp::ModuleDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer to <
 
 <p>Wakes up a module waiting for events and forces it to run its main loop once. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00284">284</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00285">285</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -778,7 +778,7 @@ struct DynExp::ModuleDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer to <
 
 <p>FIFO event queue of the module which owns the respective <code><a class="el" href="classDynExp_1_1ModuleDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">ModuleDataBase</a>'s</code> instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00345">345</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00346">346</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -804,7 +804,7 @@ struct DynExp::ModuleDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer to <
 
 <p>If set to true, indicates to the main (user interface) thread that an exception has happened in the module thread. In that case, the exception is possibly stored in <a class="el" href="classDynExp_1_1ModuleDataBase.html#a17e379588d31f7daf6a5e1a855bbb6b9" title="Used to transfer exceptions from the module thread to the main (user interface) thread....">ModuleException</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00359">359</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00360">360</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -822,7 +822,7 @@ struct DynExp::ModuleDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer to <
 
 <p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">ModuleDataBase</a>'s</code> private methods to <code><a class="el" href="classDynExp_1_1ModuleBase.html" title="Base class for modules. Modules implement programs on their own (e.g. measurement protocols or server...">ModuleBase</a></code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00301">301</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00302">302</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -848,7 +848,7 @@ struct DynExp::ModuleDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer to <
 
 <p>Used to transfer exceptions from the module thread to the main (user interface) thread. Stores the exception responsible for the error state if the module which owns the respective <code><a class="el" href="classDynExp_1_1ModuleDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">ModuleDataBase</a>'s</code> instance is in such an error state. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00366">366</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00367">367</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -866,7 +866,7 @@ struct DynExp::ModuleDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer to <
 
 <p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1ModuleDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">ModuleDataBase</a>'s</code> private methods to the module thread <code><a class="el" href="namespaceDynExp.html#a1ef415c3706dc71e72f030c9d9444291" title="Modules run in their own thread. This is the module thread&#39;s main function.">ModuleThreadMain()</a></code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00302">302</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00303">303</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>
@@ -892,7 +892,7 @@ struct DynExp::ModuleDataBase::dispatch_tag&lt; typename &gt;</div><p>Refer to <
 
 <p>Notifies the thread of the module which owns the respective <code><a class="el" href="classDynExp_1_1ModuleDataBase.html" title="Data structure to contain data which is synchronized in between different threads....">ModuleDataBase</a>'s</code> instance when an event has been enqueued into the module's event queue. This allows the module thread to sleep until new events have to be handled. </p>
 
-<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00352">352</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Module_8h_source.html#l00353">353</a> of file <a class="el" href="Module_8h_source.html">Module.h</a>.</p>
 
 </div>
 </div>

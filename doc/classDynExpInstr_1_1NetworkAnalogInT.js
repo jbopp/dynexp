@@ -12,7 +12,7 @@ var classDynExpInstr_1_1NetworkAnalogInT =
     [ "GetHardwareResolution", "classDynExpInstr_1_1NetworkAnalogInT.html#af5236061a7647fc94df05d0808f12f64", null ],
     [ "GetName", "classDynExpInstr_1_1NetworkAnalogInT.html#ab9b9c6f8b484e8d2d51b566180244ec7", null ],
     [ "GetSync", "classDynExpInstr_1_1NetworkAnalogInT.html#a7b74797f01918acca8a28269640eb14f", null ],
-    [ "GetValueUnit", "classDynExpInstr_1_1NetworkAnalogInT.html#af691cf46df99feb585507bb72eecedcd", null ],
+    [ "GetValueUnit", "classDynExpInstr_1_1NetworkAnalogInT.html#a798a779d6ac7ff8fbf2601b0715d45b4", null ],
     [ "MakeExitTask", "classDynExpInstr_1_1NetworkAnalogInT.html#a89f645d4a91e59e5b853dd59d12111fd", null ],
     [ "MakeInitTask", "classDynExpInstr_1_1NetworkAnalogInT.html#a78927aa4a74591e719ba958f73105f69", null ],
     [ "MakeUpdateTask", "classDynExpInstr_1_1NetworkAnalogInT.html#a54a2ca5c620bacf6af6d347b293ae4d3", null ],

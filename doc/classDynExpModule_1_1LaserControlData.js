@@ -16,7 +16,7 @@ var classDynExpModule_1_1LaserControlData =
     [ "CurrentIntensity", "classDynExpModule_1_1LaserControlData.html#af38ab5d9c7c848816345f10733dde8cb", null ],
     [ "CurrentScanRange", "classDynExpModule_1_1LaserControlData.html#a68118174a2481f1177df21b8c5b6b0b7", null ],
     [ "CurrentScanRate", "classDynExpModule_1_1LaserControlData.html#aa2307c61fb7b706c75d5e00b2158e8e6", null ],
-    [ "FrequencyUnit", "classDynExpModule_1_1LaserControlData.html#aa0e1349853763f7cefcd12233a99e31d", null ],
+    [ "FrequencyUnit", "classDynExpModule_1_1LaserControlData.html#a6c7646a2da7839df3f606072d974bbdb", null ],
     [ "HardwareMaxFrequency", "classDynExpModule_1_1LaserControlData.html#aa5bca92439d6aea364077ae54d037383", null ],
     [ "HardwareMaxIntensity", "classDynExpModule_1_1LaserControlData.html#a6777fd4289036d9a80cf7d98575b6adb", null ],
     [ "HardwareMaxScanRange", "classDynExpModule_1_1LaserControlData.html#a2b0b02e36f5a48140e2cbf7d5276d111", null ],
@@ -26,7 +26,7 @@ var classDynExpModule_1_1LaserControlData =
     [ "HardwareMinScanRange", "classDynExpModule_1_1LaserControlData.html#a3c89b89887c488673fab57d175b47c28", null ],
     [ "HardwareMinScanRate", "classDynExpModule_1_1LaserControlData.html#a6e0db0b6765bc31c8699e192cfd413e6", null ],
     [ "HardwareModeHopFreeTuningRange", "classDynExpModule_1_1LaserControlData.html#ab1594bacc1223b993f98a4cb063ca78f", null ],
-    [ "IntensityUnit", "classDynExpModule_1_1LaserControlData.html#a3bbc15c9969027d6a031e2e9803463cb", null ],
+    [ "IntensityUnit", "classDynExpModule_1_1LaserControlData.html#ac0f1c0ce70a4112875a1f28986b242ae", null ],
     [ "Laser", "classDynExpModule_1_1LaserControlData.html#afa8da03276bab47937c14cc92d80c767", null ],
     [ "LaserState", "classDynExpModule_1_1LaserControlData.html#aaf17548a28b36310d53adaad44f0491d", null ],
     [ "UIInitialized", "classDynExpModule_1_1LaserControlData.html#aa65bc1596fe4025a35c8f68551611415", null ]

@@ -349,8 +349,8 @@ Variables</h2></td></tr>
 <tr class="memdesc:a132b3de3103b01ab172ee946b4ad0c96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value type of <code><a class="el" href="structUtil_1_1is__contained__in.html" title="Checks whether a type T is contained in a template parameter pack of types ListTs.">is_contained_in</a></code>.  <br /></td></tr>
 <tr class="separator:a132b3de3103b01ab172ee946b4ad0c96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader">Physical units and related functions</h2></td></tr>
-<tr><td class="ititle" colspan="2"><p>These definitions and functions provide access to physical quantities and convert in between them. </p>
+<tr class="heading"><td colspan="2"><h2 class="groupheader">Physical unit conversion</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p>These functions convert physical quantities. </p>
 </td></tr>
 <tr class="memitem:aac7f18dbdcac4a7036045cc4f93a283c" id="r_aac7f18dbdcac4a7036045cc4f93a283c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtil.html#aac7f18dbdcac4a7036045cc4f93a283c">Util::seconds</a> = std::chrono::duration&lt; double &gt;</td></tr>
 <tr class="memdesc:aac7f18dbdcac4a7036045cc4f93a283c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extends std::chrono by a duration data type for seconds capable of storing fractions of seconds.  <br /></td></tr>
@@ -358,9 +358,6 @@ Variables</h2></td></tr>
 <tr class="memitem:a99231f65c9cf8ce2d11f5768579cec5f" id="r_a99231f65c9cf8ce2d11f5768579cec5f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtil.html#a99231f65c9cf8ce2d11f5768579cec5f">Util::picoseconds</a> = std::chrono::duration&lt; double, std::pico &gt;</td></tr>
 <tr class="memdesc:a99231f65c9cf8ce2d11f5768579cec5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extends std::chrono by a duration data type for picoseconds.  <br /></td></tr>
 <tr class="separator:a99231f65c9cf8ce2d11f5768579cec5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d2af7b8b0545b3670b402f217dba6bf" id="r_a9d2af7b8b0545b3670b402f217dba6bf"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtil.html#a9d2af7b8b0545b3670b402f217dba6bf">Util::SpeedOfLight</a> = (GSL_CONST_MKSA_SPEED_OF_LIGHT)</td></tr>
-<tr class="memdesc:a9d2af7b8b0545b3670b402f217dba6bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Speed of light in vacuum in m/s.  <br /></td></tr>
-<tr class="separator:a9d2af7b8b0545b3670b402f217dba6bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1635b6f9dbe82ada0c07c66f4a687124" id="r_a1635b6f9dbe82ada0c07c66f4a687124"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtil.html#a1635b6f9dbe82ada0c07c66f4a687124">Util::ConvertFrequencyWavelength</a> (double Value) noexcept</td></tr>
 <tr class="memdesc:a1635b6f9dbe82ada0c07c66f4a687124"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the frequency value of an electromagnetic wave in Hz to the corresponding wavelength in m and vice versa.  <br /></td></tr>
 <tr class="separator:a1635b6f9dbe82ada0c07c66f4a687124"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -384,7 +381,7 @@ Variables</h2></td></tr>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename ReturnT, typename ObjectT, typename... ArgumentTs&gt;<br />
 struct Util::member_fn_ptr_traits&lt; ReturnT(ObjectT::*)(ArgumentTs...) const &gt;</div><p>Extracts the return value type, the class type the callable is member of, and the argument types of a callable type <code>CallableT</code> which is a member function of some class. The extracted types are stored using type aliases <code>return_type</code> and <code>instance_type</code> and an alias of a tuple of types <code>argument_types</code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00318">318</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00319">319</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 </div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
@@ -423,7 +420,7 @@ return_type</td>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename ReturnT, typename ObjectT, typename... ArgumentTs&gt;<br />
 struct Util::member_fn_ptr_traits&lt; ReturnT(ObjectT::*)(ArgumentTs...) noexcept &gt;</div><p>Extracts the return value type, the class type the callable is member of, and the argument types of a callable type <code>CallableT</code> which is a member function of some class. The extracted types are stored using type aliases <code>return_type</code> and <code>instance_type</code> and an alias of a tuple of types <code>argument_types</code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00329">329</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00330">330</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 </div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
@@ -462,7 +459,7 @@ return_type</td>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename ReturnT, typename ObjectT, typename... ArgumentTs&gt;<br />
 struct Util::member_fn_ptr_traits&lt; ReturnT(ObjectT::*)(ArgumentTs...) const noexcept &gt;</div><p>Extracts the return value type, the class type the callable is member of, and the argument types of a callable type <code>CallableT</code> which is a member function of some class. The extracted types are stored using type aliases <code>return_type</code> and <code>instance_type</code> and an alias of a tuple of types <code>argument_types</code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00340">340</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00341">341</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 </div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
@@ -501,7 +498,7 @@ return_type</td>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename ReturnT, typename ObjectT, typename... ArgumentTs&gt;<br />
 struct Util::member_fn_ptr_traits&lt; ReturnT(ObjectT::*)(ArgumentTs...)&gt;</div><p>Extracts the return value type, the class type the callable is member of, and the argument types of a callable type <code>CallableT</code> which is a member function of some class. The extracted types are stored using type aliases <code>return_type</code> and <code>instance_type</code> and an alias of a tuple of types <code>argument_types</code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00351">351</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00352">352</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 </div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
@@ -540,7 +537,7 @@ return_type</td>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename FirstElementT, typename... ElementTs&gt;<br />
 struct Util::remove_first_from_tuple&lt; std::tuple&lt; FirstElementT, ElementTs... &gt; &gt;</div><p>Removes first type from a tuple of types <code>TupleT</code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00386">386</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00387">387</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 </div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
@@ -574,7 +571,7 @@ struct Util::OffsetIndexSequence&lt; Offset, std::index_sequence&lt; Indices... 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00408">408</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00409">409</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 </div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
@@ -608,7 +605,7 @@ struct Util::RangeIndexSequence&lt; From, To &gt;</div><p>Holds an alias for a s
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00428">428</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00429">429</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 </div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
@@ -634,7 +631,7 @@ type</td>
 </div><div class="memdoc">
 <div class="textblock"><p>Data type describing DynExp's program version in the form Major.Minor.Patch. </p>
 
-<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00918">918</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Util_8h_source.html#l00914">914</a> of file <a class="el" href="Util_8h_source.html">Util.h</a>.</p>
 </div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">

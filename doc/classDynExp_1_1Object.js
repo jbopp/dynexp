@@ -41,6 +41,7 @@ var classDynExp_1_1Object =
     [ "IsUnusedUnsafe", "classDynExp_1_1Object.html#a61de80a7326bf7bf35700e9e76d7ea45", null ],
     [ "LockUserList", "classDynExp_1_1Object.html#af6f3ec1d9b22c4699e344d58ab7a873c", null ],
     [ "LogWarning", "classDynExp_1_1Object.html#a3ee071df8a159b6dece8bba7250c67da", null ],
+    [ "RemoveCategoryAndName", "classDynExp_1_1Object.html#acaf8f71896eb782a22155311c10a799a", null ],
     [ "Reset", "classDynExp_1_1Object.html#a837a8e8daa7853003474b458a3fe0a46", null ],
     [ "ResetImpl", "classDynExp_1_1Object.html#a53b82dbe7ee6bb4e9b948c462fffc964", null ],
     [ "SetWarning", "classDynExp_1_1Object.html#af8005025d4b226d97490c0a0581a610f", null ],

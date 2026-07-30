@@ -122,19 +122,19 @@ $(document).ready(function(){initNavTree('classDynExpInstr_1_1CircularDataStream
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a374f1d1c947ebffdc5fc962a7e50e762" id="r_a374f1d1c947ebffdc5fc962a7e50e762"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html#a374f1d1c947ebffdc5fc962a7e50e762">GetNumRecentBasicSamples</a> (size_t Count) const</td></tr>
-<tr class="memdesc:a374f1d1c947ebffdc5fc962a7e50e762"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the amount of samples which have been written to the stream after the last <code>Count</code> samples. This is useful if the caller just wants to obtain recent samples but not the entire stream. Then, the caller should remember the amount of samples it knows already and call <code><a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html#aaa3984aba3474951a54fc29ede98ef39" title="Reads the most recent samples from the stream skipping Count samples. Also refer to GetNumRecentBasic...">ReadRecentBasicSamples()</a></code> next.  <br /></td></tr>
+<tr class="memdesc:a374f1d1c947ebffdc5fc962a7e50e762"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the number of samples which have been written to the stream after the last <code>Count</code> samples. This is useful if the caller just wants to obtain recent samples but not the entire stream. Then, the caller should remember the number of samples it knows already and call <code><a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html#aaa3984aba3474951a54fc29ede98ef39" title="Reads the most recent samples from the stream skipping Count samples. Also refer to GetNumRecentBasic...">ReadRecentBasicSamples()</a></code> next.  <br /></td></tr>
 <tr class="separator:a374f1d1c947ebffdc5fc962a7e50e762"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa3984aba3474951a54fc29ede98ef39" id="r_aaa3984aba3474951a54fc29ede98ef39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynExpInstr_1_1DataStreamBase.html#a4a4c56e212ef01aa21c6ebd4917dbdef">BasicSampleListType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html#aaa3984aba3474951a54fc29ede98ef39">ReadRecentBasicSamples</a> (size_t Count)</td></tr>
-<tr class="memdesc:aaa3984aba3474951a54fc29ede98ef39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the most recent samples from the stream skipping <code>Count</code> samples. Also refer to <code><a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html#a374f1d1c947ebffdc5fc962a7e50e762" title="Determines the amount of samples which have been written to the stream after the last Count samples....">GetNumRecentBasicSamples()</a></code>.  <br /></td></tr>
+<tr class="memdesc:aaa3984aba3474951a54fc29ede98ef39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the most recent samples from the stream skipping <code>Count</code> samples. Also refer to <code><a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html#a374f1d1c947ebffdc5fc962a7e50e762" title="Determines the number of samples which have been written to the stream after the last Count samples....">GetNumRecentBasicSamples()</a></code>.  <br /></td></tr>
 <tr class="separator:aaa3984aba3474951a54fc29ede98ef39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Override</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Override by derived classes. </p>
 </div></td></tr>
 <tr class="memitem:ae5fa303b5ac78fd7fddf40d428b0fc7a" id="r_ae5fa303b5ac78fd7fddf40d428b0fc7a"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html#ae5fa303b5ac78fd7fddf40d428b0fc7a">GetNumAvailableSamplesToReadTillEnd</a> () const noexcept=0</td></tr>
-<tr class="memdesc:ae5fa303b5ac78fd7fddf40d428b0fc7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the amount of samples which can be read from the stream's current get pointer position till the stream's end.  <br /></td></tr>
+<tr class="memdesc:ae5fa303b5ac78fd7fddf40d428b0fc7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the number of samples which can be read from the stream's current get pointer position till the stream's end.  <br /></td></tr>
 <tr class="separator:ae5fa303b5ac78fd7fddf40d428b0fc7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b760e3ff38f0d722418f5d4a275e997" id="r_a7b760e3ff38f0d722418f5d4a275e997"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html#a7b760e3ff38f0d722418f5d4a275e997">GetNumFreeSamplesToWrite</a> () const noexcept=0</td></tr>
-<tr class="memdesc:a7b760e3ff38f0d722418f5d4a275e997"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the amount of samples which can be written to the stream untill the stream's end is reached.  <br /></td></tr>
+<tr class="memdesc:a7b760e3ff38f0d722418f5d4a275e997"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the number of samples which can be written to the stream untill the stream's end is reached.  <br /></td></tr>
 <tr class="separator:a7b760e3ff38f0d722418f5d4a275e997"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab8a5d26182048316bd2a1731dee58d2" id="r_aab8a5d26182048316bd2a1731dee58d2"><td class="memItemLeft" align="right" valign="top">virtual std::streampos&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html#aab8a5d26182048316bd2a1731dee58d2">GetReadPosition</a> () const noexcept=0</td></tr>
 <tr class="memdesc:aab8a5d26182048316bd2a1731dee58d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the current position of the stream's read (get) pointer in samples.  <br /></td></tr>
@@ -290,8 +290,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Determines the amount of samples which can be read from the stream's current get pointer position till the stream's end. </p>
-<dl class="section return"><dt>Returns</dt><dd>Returns the amount of available samples. </dd></dl>
+<p>Determines the number of samples which can be read from the stream's current get pointer position till the stream's end. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns the number of available samples. </dd></dl>
 
 <p>Implemented in <a class="el" href="classDynExpInstr_1_1CircularDataStream.html#a1cb2e4b49ff351cd30fdace9d83ac97d">DynExpInstr::CircularDataStream&lt; SampleT, &gt;</a>, and <a class="el" href="classDynExpInstr_1_1CircularDataStream.html#a1cb2e4b49ff351cd30fdace9d83ac97d">DynExpInstr::CircularDataStream&lt; BasicSample &gt;</a>.</p>
 
@@ -320,8 +320,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Determines the amount of samples which can be written to the stream untill the stream's end is reached. </p>
-<dl class="section return"><dt>Returns</dt><dd>Returns the amount of free samples. </dd></dl>
+<p>Determines the number of samples which can be written to the stream untill the stream's end is reached. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns the number of free samples. </dd></dl>
 
 <p>Implemented in <a class="el" href="classDynExpInstr_1_1CircularDataStream.html#a655e64c13783bd6129b8c9f1d980a477">DynExpInstr::CircularDataStream&lt; SampleT, &gt;</a>, and <a class="el" href="classDynExpInstr_1_1CircularDataStream.html#a655e64c13783bd6129b8c9f1d980a477">DynExpInstr::CircularDataStream&lt; BasicSample &gt;</a>.</p>
 
@@ -343,10 +343,10 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Determines the amount of samples which have been written to the stream after the last <code>Count</code> samples. This is useful if the caller just wants to obtain recent samples but not the entire stream. Then, the caller should remember the amount of samples it knows already and call <code><a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html#aaa3984aba3474951a54fc29ede98ef39" title="Reads the most recent samples from the stream skipping Count samples. Also refer to GetNumRecentBasic...">ReadRecentBasicSamples()</a></code> next. </p>
+<p>Determines the number of samples which have been written to the stream after the last <code>Count</code> samples. This is useful if the caller just wants to obtain recent samples but not the entire stream. Then, the caller should remember the number of samples it knows already and call <code><a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html#aaa3984aba3474951a54fc29ede98ef39" title="Reads the most recent samples from the stream skipping Count samples. Also refer to GetNumRecentBasic...">ReadRecentBasicSamples()</a></code> next. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Count</td><td>Amount of samples which are known by the caller. </td></tr>
+    <tr><td class="paramname">Count</td><td>Number of samples which are known by the caller. </td></tr>
   </table>
   </dd>
 </dl>
@@ -432,10 +432,10 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Reads the most recent samples from the stream skipping <code>Count</code> samples. Also refer to <code><a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html#a374f1d1c947ebffdc5fc962a7e50e762" title="Determines the amount of samples which have been written to the stream after the last Count samples....">GetNumRecentBasicSamples()</a></code>. </p>
+<p>Reads the most recent samples from the stream skipping <code>Count</code> samples. Also refer to <code><a class="el" href="classDynExpInstr_1_1CircularDataStreamBase.html#a374f1d1c947ebffdc5fc962a7e50e762" title="Determines the number of samples which have been written to the stream after the last Count samples....">GetNumRecentBasicSamples()</a></code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Count</td><td>Amount of samples which are known by the caller. </td></tr>
+    <tr><td class="paramname">Count</td><td>Number of samples which are known by the caller. </td></tr>
   </table>
   </dd>
 </dl>

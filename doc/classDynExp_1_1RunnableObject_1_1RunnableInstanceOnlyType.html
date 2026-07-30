@@ -142,7 +142,7 @@ Friends</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Allow exclusive access to some of <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a>'s</code> private methods to class <code><a class="el" href="classDynExp_1_1RunnableInstance.html" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R...">RunnableInstance</a></code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02430">2430</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02438">2438</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6ce221a99ecf71cb3154312032981abf" name="a6ce221a99ecf71cb3154312032981abf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6ce221a99ecf71cb3154312032981abf">&#9670;&#160;</a></span>RunnableInstanceOnlyType()</h2>
@@ -176,7 +176,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02439">2439</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02447">2447</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -206,7 +206,7 @@ Friends</h2></td></tr>
 
 <p>Indicates whether the <code><a class="el" href="classDynExp_1_1RunnableInstance.html" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R...">RunnableInstance</a></code> instance belonging to this <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread should recheck the states of all <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a></code> instances this <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> uses.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02442">2442</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02450">2450</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -235,7 +235,7 @@ Friends</h2></td></tr>
 
 <p>This function is called when the <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance's thread terminates. The thread receives a <code><a class="el" href="classDynExp_1_1RunnableInstance.html" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R...">RunnableInstance</a></code> instance as a parameter. When it exits, this <code><a class="el" href="classDynExp_1_1RunnableInstance.html" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R...">RunnableInstance</a></code> instance is destroyed. So, <code><a class="el" href="classDynExp_1_1RunnableInstance.html" title="Defines data for a thread belonging to a RunnableObject instance. This data is only accessed by the R...">RunnableInstance</a>'s</code> destructor is invoked. It calls <a class="el" href="classDynExp_1_1RunnableInstance.html#a544841063410f6c131f8bd8e91ba1320" title="Signals that Owner&#39;s thread has exited. Refer to RunnableObject::OnThreadHasExited().">RunnableInstance::SetThreadExited()</a>, which in turn calls this function, and signals the thread termination to <a class="el" href="classDynExp_1_1RunnableObject.html#a45a818a181d16129dfb43080152527c4" title="Future which signals that Thread has terminated. Refer to OnThreadHasExited().">ThreadExitedSignal</a>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02441">2441</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02449">2449</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -264,7 +264,7 @@ Friends</h2></td></tr>
 
 <p>Sets <a class="el" href="classDynExp_1_1RunnableObject.html#ac9de5b4f95f6d5e309c20b87b450b5df" title="Indicates whether the RunnableInstance instance belonging to this RunnableObject instance&#39;s thread sh...">RunnableObject::LinkedObjStateCheckRequested</a> to false. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02443">2443</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02451">2451</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -289,7 +289,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02433">2433</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02441">2441</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -313,7 +313,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02432">2432</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02440">2440</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -340,7 +340,7 @@ Friends</h2></td></tr>
 
 <p>Owning <code><a class="el" href="classDynExp_1_1RunnableObject.html" title="Defines an Object which possesses a thread it runs in. The RunnableObject can be started and stopped ...">RunnableObject</a></code> instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02445">2445</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Object_8h_source.html#l02453">2453</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>

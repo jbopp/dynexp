@@ -211,10 +211,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab716d840fba223d3b74335e54300a033 inherit pub_methods_classDynExp_1_1QModuleBase" id="r_ab716d840fba223d3b74335e54300a033"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QModuleBase.html#ab716d840fba223d3b74335e54300a033">HideUI</a> ()</td></tr>
 <tr class="memdesc:ab716d840fba223d3b74335e54300a033 inherit pub_methods_classDynExp_1_1QModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes <a class="el" href="classDynExp_1_1QModuleBase.html#acee88586880f821eb21a9a7b2de95ac6" title="Frame for Widget when the module window is docked to MdiArea.">MdiSubWindow</a>, <a class="el" href="classDynExp_1_1QModuleBase.html#a9c5628e95032026082f66a76efd9be7a" title="Frame for Widget when the module window is undocked from MdiArea.">DockWidget</a>, and <a class="el" href="classDynExp_1_1QModuleBase.html#af2e9fca9f7746dbd87ee89aee5d74d43" title="Qt action to push module window into focus. When triggered, QModuleWidget::OnFocusWindow() in invoked...">ModuleWindowFocusAction</a> setting them to <code>nullptr</code>.  <br /></td></tr>
 <tr class="separator:ab716d840fba223d3b74335e54300a033 inherit pub_methods_classDynExp_1_1QModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3af8dad35eddcdf478309c7e1b945c42 inherit pub_methods_classDynExp_1_1QModuleBase" id="r_a3af8dad35eddcdf478309c7e1b945c42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QModuleBase.html#a3af8dad35eddcdf478309c7e1b945c42">DisableUI</a> ()</td></tr>
+<tr class="memitem:a3af8dad35eddcdf478309c7e1b945c42 inherit pub_methods_classDynExp_1_1QModuleBase" id="r_a3af8dad35eddcdf478309c7e1b945c42"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QModuleBase.html#a3af8dad35eddcdf478309c7e1b945c42">DisableUI</a> ()</td></tr>
 <tr class="memdesc:a3af8dad35eddcdf478309c7e1b945c42 inherit pub_methods_classDynExp_1_1QModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables all user interface controls in <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a>. Does nothing if <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a> is <code>nullptr</code>.  <br /></td></tr>
 <tr class="separator:a3af8dad35eddcdf478309c7e1b945c42 inherit pub_methods_classDynExp_1_1QModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe3b8129cf1157a467e5925b92a7a311 inherit pub_methods_classDynExp_1_1QModuleBase" id="r_abe3b8129cf1157a467e5925b92a7a311"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QModuleBase.html#abe3b8129cf1157a467e5925b92a7a311">UpdateUI</a> ()</td></tr>
+<tr class="memitem:abe3b8129cf1157a467e5925b92a7a311 inherit pub_methods_classDynExp_1_1QModuleBase" id="r_abe3b8129cf1157a467e5925b92a7a311"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QModuleBase.html#abe3b8129cf1157a467e5925b92a7a311">UpdateUI</a> ()</td></tr>
 <tr class="memdesc:abe3b8129cf1157a467e5925b92a7a311 inherit pub_methods_classDynExp_1_1QModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the user interface controls in <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a>. Does nothing if <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a> is <code>nullptr</code>. Calls <code><a class="el" href="classDynExp_1_1QModuleBase.html#a462f6a8f4201dc8750a2ffdb3c8617f4" title="Use this function to update the module&#39;s user interface widget according to the module data obtained ...">UpdateUIChild()</a></code>.  <br /></td></tr>
 <tr class="separator:abe3b8129cf1157a467e5925b92a7a311 inherit pub_methods_classDynExp_1_1QModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada6e3c4f5ac2213c65a53a15875951b6 inherit pub_methods_classDynExp_1_1QModuleBase" id="r_ada6e3c4f5ac2213c65a53a15875951b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QModuleBase.html#ada6e3c4f5ac2213c65a53a15875951b6">UpdateModuleWindowFocusAction</a> ()</td></tr>
@@ -389,6 +389,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object" id="r_af55298b0589b9239ff3076d540c97449"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#af55298b0589b9239ff3076d540c97449">CategoryAndNameToStr</a> (const std::string &amp;Category, const std::string &amp;Name)</td></tr>
 <tr class="memdesc:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string from an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> category and name to allow the user to identify an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> type.  <br /></td></tr>
 <tr class="separator:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object" id="r_acaf8f71896eb782a22155311c10a799a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#acaf8f71896eb782a22155311c10a799a">RemoveCategoryAndName</a> (const std::string &amp;ObjectDesc)</td></tr>
+<tr class="memdesc:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the category and name part built by <a class="el" href="classDynExp_1_1Object.html#af55298b0589b9239ff3076d540c97449" title="Builds a string from an Object&#39;s category and name to allow the user to identify an Object&#39;s type.">Object::CategoryAndNameToStr()</a> from the string <code>ObjectDesc</code> constructed by <a class="el" href="classDynExp_1_1LinkedObjectWrapper.html#a8aae6a3a96ddb6671a223da80c150dc8" title="Builds and returns a human-readable string uniquely identifying the Object instance DestinyResource....">LinkedObjectWrapper::GetLinkedObjectDesc()</a>.  <br /></td></tr>
+<tr class="separator:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -516,7 +519,7 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a46aa91ec36056a128e2876092c288edf inherit pro_methods_classDynExp_1_1QModuleBase"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QModuleBase.html#a46aa91ec36056a128e2876092c288edf">Connect</a> (SenderType *Sender, SignalType Signal, ReceiverType *Receiver, EventType Event)</td></tr>
 <tr class="memdesc:a46aa91ec36056a128e2876092c288edf inherit pro_methods_classDynExp_1_1QModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses Qt's connect mechanism to connect a <code>QObject's</code> signal to a DynExp module's event. By directly connecting slots to signals via <code>QObject::connect()</code>, the slot function runs in the user interface thread. In contrast, this function connects a signal to a lambda function, which itself enqueues an event in the module's event queue. The event runs in the module thread. Arguments passed from the signal to the lambda function are forwarded to the event.  <br /></td></tr>
 <tr class="separator:a46aa91ec36056a128e2876092c288edf inherit pro_methods_classDynExp_1_1QModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01335d90a48a66f418c6e1bb8b34b3e1 inherit pro_methods_classDynExp_1_1QModuleBase" id="r_a01335d90a48a66f418c6e1bb8b34b3e1"><td class="memTemplParams" colspan="2">template&lt;typename WidgetType &gt; </td></tr>
+<tr class="memitem:a01335d90a48a66f418c6e1bb8b34b3e1 inherit pro_methods_classDynExp_1_1QModuleBase" id="r_a01335d90a48a66f418c6e1bb8b34b3e1"><td class="memTemplParams" colspan="2">template&lt;typename WidgetType  = QModuleWidget&gt; </td></tr>
 <tr class="memitem:a01335d90a48a66f418c6e1bb8b34b3e1 inherit pro_methods_classDynExp_1_1QModuleBase"><td class="memTemplItemLeft" align="right" valign="top">WidgetType *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QModuleBase.html#a01335d90a48a66f418c6e1bb8b34b3e1">GetWidget</a> () const</td></tr>
 <tr class="memdesc:a01335d90a48a66f418c6e1bb8b34b3e1 inherit pro_methods_classDynExp_1_1QModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a>.  <br /></td></tr>
 <tr class="separator:a01335d90a48a66f418c6e1bb8b34b3e1 inherit pro_methods_classDynExp_1_1QModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -582,7 +585,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00137">137</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00143">143</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a273d706ee30b9454c436a808a93378ff" name="a273d706ee30b9454c436a808a93378ff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a273d706ee30b9454c436a808a93378ff">&#9670;&#160;</a></span>ConfigType</h2>
@@ -596,7 +599,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00141">141</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00147">147</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
 
 </div>
 </div>
@@ -612,7 +615,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00142">142</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00148">148</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
 
 </div>
 </div>
@@ -628,7 +631,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00140">140</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00146">146</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
 
 </div>
 </div>
@@ -659,7 +662,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00108">108</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00110">110</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -723,7 +726,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00257">257</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00265">265</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -750,7 +753,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00145">145</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00151">151</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
 
 </div>
 </div>
@@ -778,7 +781,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00227">227</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00244">244</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -809,7 +812,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#a6d50167b798951b1a347739976a007d1">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00151">151</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00157">157</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
 
 </div>
 </div>
@@ -841,7 +844,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#af7baae8cb81ade4cc48898d72eff8693">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00153">153</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00159">159</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
 
 </div>
 </div>
@@ -872,7 +875,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classDynExp_1_1Object.html#a057f86e9ceec0f7e709e720f66cbb7fb">DynExp::Object</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00150">150</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00156">156</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
 
 </div>
 </div>
@@ -899,7 +902,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00222">222</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00239">239</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -926,7 +929,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00212">212</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00229">229</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -953,7 +956,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00217">217</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00234">234</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -985,7 +988,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classDynExp_1_1QModuleBase.html#a93c2c74f5b7059834ff6422e54a8ec40">DynExp::QModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00143">143</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00145">145</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1024,7 +1027,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classDynExp_1_1ModuleBase.html#abe86b2a8c7a6e60a2937be8b2a0e6b00">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00114">114</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00116">116</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1051,7 +1054,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00144">144</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00150">150</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
 
 </div>
 </div>
@@ -1089,7 +1092,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00436">436</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00444">444</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1127,7 +1130,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#a77fb87b30e26eea73d6d53d2d871160a">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00289">289</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00297">297</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1155,7 +1158,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00523">523</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00531">531</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1193,7 +1196,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00411">411</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00419">419</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1231,7 +1234,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#a51b4635720cb3b96033970dba4a95500">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00266">266</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00274">274</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1269,7 +1272,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00341">341</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00349">349</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1307,7 +1310,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00481">481</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00489">489</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1345,7 +1348,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00467">467</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00475">475</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1383,7 +1386,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00511">511</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00519">519</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1421,7 +1424,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00516">516</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00524">524</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1459,7 +1462,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00487">487</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00495">495</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1487,7 +1490,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00303">303</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00311">311</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1525,7 +1528,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00493">493</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00501">501</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1563,7 +1566,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00321">321</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00329">329</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1601,7 +1604,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00453">453</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00461">461</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1629,7 +1632,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00326">326</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00334">334</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1667,7 +1670,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00336">336</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00344">344</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1705,7 +1708,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00376">376</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00384">384</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1733,7 +1736,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00555">555</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00563">563</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1761,7 +1764,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00136">136</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00138">138</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1789,7 +1792,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00166">166</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00168">168</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1817,7 +1820,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00613">613</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00615">615</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1845,7 +1848,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00560">560</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html#l00568">568</a> of file <a class="el" href="LaserScanningSpectroscopy_8cpp_source.html">LaserScanningSpectroscopy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1870,7 +1873,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00209">209</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00215">215</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
 
 </div>
 </div>
@@ -1895,11 +1898,11 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a>(<a class="code hl_enumvalue" href="namespaceDynExpModule_1_1LaserScanningSpectroscopy.html#a1ef582ac641d9744a82a22840d008742ae7d31fc0602fb2ede144d18cdffd816b">StateType::Ready</a>,</div>
 <div class="line">            &amp;<a class="code hl_function" href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a9d778f10b5639824f64842c07c704791">LaserScanningSpectroscopy::ReadyStateFunc</a>, <span class="stringliteral">&quot;Ready&quot;</span>)</div>
-<div class="ttc" id="aclassDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy_html_a9d778f10b5639824f64842c07c704791"><div class="ttname"><a href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a9d778f10b5639824f64842c07c704791">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy::ReadyStateFunc</a></div><div class="ttdeci">StateType ReadyStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="LaserScanningSpectroscopy_8cpp_source.html#l00555">LaserScanningSpectroscopy.cpp:555</a></div></div>
-<div class="ttc" id="aclassUtil_1_1StateMachineState_html"><div class="ttname"><a href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a></div><div class="ttdoc">State machine state as used by class StateMachine. A state mainly wraps a state function of the membe...</div><div class="ttdef"><b>Definition</b> <a href="Util_8h_source.html#l01366">Util.h:1367</a></div></div>
+<div class="ttc" id="aclassDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy_html_a9d778f10b5639824f64842c07c704791"><div class="ttname"><a href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a9d778f10b5639824f64842c07c704791">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy::ReadyStateFunc</a></div><div class="ttdeci">StateType ReadyStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="LaserScanningSpectroscopy_8cpp_source.html#l00563">LaserScanningSpectroscopy.cpp:563</a></div></div>
+<div class="ttc" id="aclassUtil_1_1StateMachineState_html"><div class="ttname"><a href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a></div><div class="ttdoc">State machine state as used by class StateMachine. A state mainly wraps a state function of the membe...</div><div class="ttdef"><b>Definition</b> <a href="Util_8h_source.html#l01362">Util.h:1363</a></div></div>
 <div class="ttc" id="anamespaceDynExpModule_1_1LaserScanningSpectroscopy_html_a1ef582ac641d9744a82a22840d008742ae7d31fc0602fb2ede144d18cdffd816b"><div class="ttname"><a href="namespaceDynExpModule_1_1LaserScanningSpectroscopy.html#a1ef582ac641d9744a82a22840d008742ae7d31fc0602fb2ede144d18cdffd816b">DynExpModule::LaserScanningSpectroscopy::StateType::Ready</a></div><div class="ttdeci">@ Ready</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00196">196</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00202">202</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
 
 </div>
 </div>
@@ -1923,7 +1926,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00204">204</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00210">210</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
 
 </div>
 </div>
@@ -1948,10 +1951,10 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a>(<a class="code hl_enumvalue" href="namespaceDynExpModule_1_1LaserScanningSpectroscopy.html#a1ef582ac641d9744a82a22840d008742a907f3da679ca9fd1b737fabfae3ad3b2">StateType::WaitForCapturing</a>,</div>
 <div class="line">            &amp;<a class="code hl_function" href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a63b80dc983634f7d46101aa53661ba1d">LaserScanningSpectroscopy::WaitForCapturingStateFunc</a>, <span class="stringliteral">&quot;Capturing...&quot;</span>)</div>
-<div class="ttc" id="aclassDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy_html_a63b80dc983634f7d46101aa53661ba1d"><div class="ttname"><a href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a63b80dc983634f7d46101aa53661ba1d">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy::WaitForCapturingStateFunc</a></div><div class="ttdeci">StateType WaitForCapturingStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="LaserScanningSpectroscopy_8cpp_source.html#l00613">LaserScanningSpectroscopy.cpp:613</a></div></div>
+<div class="ttc" id="aclassDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy_html_a63b80dc983634f7d46101aa53661ba1d"><div class="ttname"><a href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a63b80dc983634f7d46101aa53661ba1d">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy::WaitForCapturingStateFunc</a></div><div class="ttdeci">StateType WaitForCapturingStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="LaserScanningSpectroscopy_8cpp_source.html#l00615">LaserScanningSpectroscopy.cpp:615</a></div></div>
 <div class="ttc" id="anamespaceDynExpModule_1_1LaserScanningSpectroscopy_html_a1ef582ac641d9744a82a22840d008742a907f3da679ca9fd1b737fabfae3ad3b2"><div class="ttname"><a href="namespaceDynExpModule_1_1LaserScanningSpectroscopy.html#a1ef582ac641d9744a82a22840d008742a907f3da679ca9fd1b737fabfae3ad3b2">DynExpModule::LaserScanningSpectroscopy::StateType::WaitForCapturing</a></div><div class="ttdeci">@ WaitForCapturing</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00200">200</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00206">206</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
 
 </div>
 </div>
@@ -1976,10 +1979,10 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a>(<a class="code hl_enumvalue" href="namespaceDynExpModule_1_1LaserScanningSpectroscopy.html#a1ef582ac641d9744a82a22840d008742adaa09a23fee8e179b73ee921edcc664e">StateType::WaitForSettingFrequency</a>,</div>
 <div class="line">            &amp;<a class="code hl_function" href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a2fbecc7c7728fa7ac09b63b22100b49b">LaserScanningSpectroscopy::WaitForSettingFrequencyStateFunc</a>, <span class="stringliteral">&quot;Laser stabilizes at target Frequency...&quot;</span>)</div>
-<div class="ttc" id="aclassDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy_html_a2fbecc7c7728fa7ac09b63b22100b49b"><div class="ttname"><a href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a2fbecc7c7728fa7ac09b63b22100b49b">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy::WaitForSettingFrequencyStateFunc</a></div><div class="ttdeci">StateType WaitForSettingFrequencyStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="LaserScanningSpectroscopy_8cpp_source.html#l00560">LaserScanningSpectroscopy.cpp:560</a></div></div>
+<div class="ttc" id="aclassDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy_html_a2fbecc7c7728fa7ac09b63b22100b49b"><div class="ttname"><a href="classDynExpModule_1_1LaserScanningSpectroscopy_1_1LaserScanningSpectroscopy.html#a2fbecc7c7728fa7ac09b63b22100b49b">DynExpModule::LaserScanningSpectroscopy::LaserScanningSpectroscopy::WaitForSettingFrequencyStateFunc</a></div><div class="ttdeci">StateType WaitForSettingFrequencyStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="LaserScanningSpectroscopy_8cpp_source.html#l00568">LaserScanningSpectroscopy.cpp:568</a></div></div>
 <div class="ttc" id="anamespaceDynExpModule_1_1LaserScanningSpectroscopy_html_a1ef582ac641d9744a82a22840d008742adaa09a23fee8e179b73ee921edcc664e"><div class="ttname"><a href="namespaceDynExpModule_1_1LaserScanningSpectroscopy.html#a1ef582ac641d9744a82a22840d008742adaa09a23fee8e179b73ee921edcc664e">DynExpModule::LaserScanningSpectroscopy::StateType::WaitForSettingFrequency</a></div><div class="ttdeci">@ WaitForSettingFrequency</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00198">198</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00204">204</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
 
 </div>
 </div>
@@ -2003,7 +2006,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00207">207</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LaserScanningSpectroscopy_8h_source.html#l00213">213</a> of file <a class="el" href="LaserScanningSpectroscopy_8h_source.html">LaserScanningSpectroscopy.h</a>.</p>
 
 </div>
 </div>

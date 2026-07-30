@@ -221,12 +221,12 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Override (instrument information)</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Override by derived classes to provide information about the instrument. </p>
 </div></td></tr>
-<tr class="memitem:a4033c944bbd5e4d68aa5eeb6077a639c" id="r_a4033c944bbd5e4d68aa5eeb6077a639c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classDynExpInstr_1_1SpectrometerData.html#ae42e8db302c481aab3ecfbd2115bf233">SpectrometerData::FrequencyUnitType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1Spectrometer.html#a4033c944bbd5e4d68aa5eeb6077a639c">GetFrequencyUnit</a> () const =0</td></tr>
-<tr class="memdesc:a4033c944bbd5e4d68aa5eeb6077a639c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the frequency (x-axis) unit of the spectra acquired by the derived instrument.  <br /></td></tr>
-<tr class="separator:a4033c944bbd5e4d68aa5eeb6077a639c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa137378ba42d425193653c55801516ac" id="r_aa137378ba42d425193653c55801516ac"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classDynExpInstr_1_1SpectrometerData.html#aeca5ad2b16f00f82ce45b5388d8f2306">SpectrometerData::IntensityUnitType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1Spectrometer.html#aa137378ba42d425193653c55801516ac">GetIntensityUnit</a> () const =0</td></tr>
-<tr class="memdesc:aa137378ba42d425193653c55801516ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the intensity (y-axis) unit of the spectra acquired by the derived instrument.  <br /></td></tr>
-<tr class="separator:aa137378ba42d425193653c55801516ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a509a2dd51af77924a2e37526106be23a" id="r_a509a2dd51af77924a2e37526106be23a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespaceDynExp_1_1Units.html#a31646c74e14969210d5674e7cf74b8eb">DynExp::Units::UnitType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1Spectrometer.html#a509a2dd51af77924a2e37526106be23a">GetFrequencyUnit</a> () const =0</td></tr>
+<tr class="memdesc:a509a2dd51af77924a2e37526106be23a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the frequency (x-axis) unit of the spectra acquired by the derived instrument.  <br /></td></tr>
+<tr class="separator:a509a2dd51af77924a2e37526106be23a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0617b2e9e9279fe46abafeaa7862f916" id="r_a0617b2e9e9279fe46abafeaa7862f916"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespaceDynExp_1_1Units.html#a31646c74e14969210d5674e7cf74b8eb">DynExp::Units::UnitType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1Spectrometer.html#a0617b2e9e9279fe46abafeaa7862f916">GetIntensityUnit</a> () const =0</td></tr>
+<tr class="memdesc:a0617b2e9e9279fe46abafeaa7862f916"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the intensity (y-axis) unit of the spectra acquired by the derived instrument.  <br /></td></tr>
+<tr class="separator:a0617b2e9e9279fe46abafeaa7862f916"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5770f2f753018a1feacd34e0262ad27c" id="r_a5770f2f753018a1feacd34e0262ad27c"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpInstr_1_1Spectrometer.html#a5770f2f753018a1feacd34e0262ad27c">GetMinFrequency</a> () const =0</td></tr>
 <tr class="memdesc:a5770f2f753018a1feacd34e0262ad27c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the minimal lower frequency limit where the spectrum acquisition can begin.  <br /></td></tr>
 <tr class="separator:a5770f2f753018a1feacd34e0262ad27c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -395,6 +395,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object" id="r_af55298b0589b9239ff3076d540c97449"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#af55298b0589b9239ff3076d540c97449">CategoryAndNameToStr</a> (const std::string &amp;Category, const std::string &amp;Name)</td></tr>
 <tr class="memdesc:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string from an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> category and name to allow the user to identify an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> type.  <br /></td></tr>
 <tr class="separator:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object" id="r_acaf8f71896eb782a22155311c10a799a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#acaf8f71896eb782a22155311c10a799a">RemoveCategoryAndName</a> (const std::string &amp;ObjectDesc)</td></tr>
+<tr class="memdesc:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the category and name part built by <a class="el" href="classDynExp_1_1Object.html#af55298b0589b9239ff3076d540c97449" title="Builds a string from an Object&#39;s category and name to allow the user to identify an Object&#39;s type.">Object::CategoryAndNameToStr()</a> from the string <code>ObjectDesc</code> constructed by <a class="el" href="classDynExp_1_1LinkedObjectWrapper.html#a8aae6a3a96ddb6671a223da80c150dc8" title="Builds and returns a human-readable string uniquely identifying the Object instance DestinyResource....">LinkedObjectWrapper::GetLinkedObjectDesc()</a>.  <br /></td></tr>
+<tr class="separator:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -505,7 +508,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Meta instrument for a spectrometer. </p>
 
-<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00319">319</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00283">283</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aa1b943812bf16abff308c656cb3769c0" name="aa1b943812bf16abff308c656cb3769c0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa1b943812bf16abff308c656cb3769c0">&#9670;&#160;</a></span>ConfigType</h2>
@@ -521,7 +524,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Type of the configurator class belonging to this <code>Object</code> type. Declare this alias in every derived class with the respective configurator class accompanying the derived <code>Object</code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00323">323</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00287">287</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
 
 </div>
 </div>
@@ -539,7 +542,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Defines a task for deinitializing an instrument within an instrument inheritance hierarchy. Each instrument (indirectly) derived from class <code>InstrumentBase</code> must be accompanied by a deinitialization task class derived from <code>ExitTaskBase</code>. Even if the task does not do anything, at least it has to call ExitTaskBase::ExitFuncImpl() of the derived instrument's deinitialization task class.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00331">331</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00295">295</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
 
 </div>
 </div>
@@ -558,7 +561,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Defines a task for initializing an instrument within an instrument inheritance hierarchy. Each instrument (indirectly) derived from class <code>InstrumentBase</code> must be accompanied by an initialization task class derived from <code>InitTaskBase</code>. Even if the task does not do anything, at least it has to call InitTaskBase::InitFuncImpl() of the derived instrument's initialization task class.   </p>
 <p>"  </p>
 
-<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00330">330</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00294">294</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
 
 </div>
 </div>
@@ -576,7 +579,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Type of the data class belonging to this <code>InstrumentBase</code> type. Declare this alias in every derived class with the respective data class accompanying the derived <code>InstrumentBase</code>.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00324">324</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00288">288</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
 
 </div>
 </div>
@@ -595,7 +598,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Type of the parameter class belonging to this <code>Object</code> type. Declare this alias in every derived class with the respective parameter class accompanying the derived <code>Object</code>. "  </p>
 <p>"  </p>
 
-<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00322">322</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00286">286</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
 
 </div>
 </div>
@@ -613,7 +616,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Defines a task for updating an instrument within an instrument inheritance hierarchy. Each instrument (indirectly) derived from class <code>InstrumentBase</code> must be accompanied by an update task class derived from <code>UpdateTaskBase</code>. Even if the task does not do anything, at least it has to call UpdateTaskBase::UpdateFuncImpl() of the derived instrument's update task class.   </p>
 
-<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00332">332</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00296">296</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
 
 </div>
 </div>
@@ -668,7 +671,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00341">341</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00305">305</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
 
 </div>
 </div>
@@ -695,7 +698,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Spectrometer_8cpp_source.html#l00101">101</a> of file <a class="el" href="Spectrometer_8cpp_source.html">Spectrometer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Spectrometer_8cpp_source.html#l00081">81</a> of file <a class="el" href="Spectrometer_8cpp_source.html">Spectrometer.cpp</a>.</p>
 
 </div>
 </div>
@@ -740,7 +743,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NetworkSpectrometer.html#a08e8129d22bdca052098df33fc9df576">DynExpInstr::NetworkSpectrometer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Spectrometer_8cpp_source.html#l00109">109</a> of file <a class="el" href="Spectrometer_8cpp_source.html">Spectrometer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Spectrometer_8cpp_source.html#l00089">89</a> of file <a class="el" href="Spectrometer_8cpp_source.html">Spectrometer.cpp</a>.</p>
 
 </div>
 </div>
@@ -770,7 +773,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Every derived class has to redefine this function.   </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the category of this instrument type.   </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00336">336</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00300">300</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
 
 </div>
 </div>
@@ -803,12 +806,12 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#a6ee87dcf3ed17651d0e5c392499bd10a">DynExpInstr::gRPCInstrument&lt; Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00347">347</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00311">311</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
 
 </div>
 </div>
-<a id="a4033c944bbd5e4d68aa5eeb6077a639c" name="a4033c944bbd5e4d68aa5eeb6077a639c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4033c944bbd5e4d68aa5eeb6077a639c">&#9670;&#160;</a></span>GetFrequencyUnit()</h2>
+<a id="a509a2dd51af77924a2e37526106be23a" name="a509a2dd51af77924a2e37526106be23a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a509a2dd51af77924a2e37526106be23a">&#9670;&#160;</a></span>GetFrequencyUnit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -817,7 +820,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classDynExpInstr_1_1SpectrometerData.html#ae42e8db302c481aab3ecfbd2115bf233">SpectrometerData::FrequencyUnitType</a> DynExpInstr::Spectrometer::GetFrequencyUnit </td>
+          <td class="memname">virtual <a class="el" href="namespaceDynExp_1_1Units.html#a31646c74e14969210d5674e7cf74b8eb">DynExp::Units::UnitType</a> DynExpInstr::Spectrometer::GetFrequencyUnit </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -833,12 +836,12 @@ Additional Inherited Members</h2></td></tr>
 <p>Determines the frequency (x-axis) unit of the spectra acquired by the derived instrument. </p>
 <dl class="section return"><dt>Returns</dt><dd>Frequency unit of the acquired spectra </dd></dl>
 
-<p>Implemented in <a class="el" href="classDynExpInstr_1_1NetworkSpectrometer.html#a6a3e56f10861c35db20990e0506207ad">DynExpInstr::NetworkSpectrometer</a>.</p>
+<p>Implemented in <a class="el" href="classDynExpInstr_1_1NetworkSpectrometer.html#aabbe93596cb803f25cff92550ca50408">DynExpInstr::NetworkSpectrometer</a>.</p>
 
 </div>
 </div>
-<a id="aa137378ba42d425193653c55801516ac" name="aa137378ba42d425193653c55801516ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa137378ba42d425193653c55801516ac">&#9670;&#160;</a></span>GetIntensityUnit()</h2>
+<a id="a0617b2e9e9279fe46abafeaa7862f916" name="a0617b2e9e9279fe46abafeaa7862f916"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0617b2e9e9279fe46abafeaa7862f916">&#9670;&#160;</a></span>GetIntensityUnit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -847,7 +850,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classDynExpInstr_1_1SpectrometerData.html#aeca5ad2b16f00f82ce45b5388d8f2306">SpectrometerData::IntensityUnitType</a> DynExpInstr::Spectrometer::GetIntensityUnit </td>
+          <td class="memname">virtual <a class="el" href="namespaceDynExp_1_1Units.html#a31646c74e14969210d5674e7cf74b8eb">DynExp::Units::UnitType</a> DynExpInstr::Spectrometer::GetIntensityUnit </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -863,7 +866,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Determines the intensity (y-axis) unit of the spectra acquired by the derived instrument. </p>
 <dl class="section return"><dt>Returns</dt><dd>Intensity unit of the acquired spectra </dd></dl>
 
-<p>Implemented in <a class="el" href="classDynExpInstr_1_1NetworkSpectrometer.html#a9363f224229ea990b0270b6caec4c146">DynExpInstr::NetworkSpectrometer</a>.</p>
+<p>Implemented in <a class="el" href="classDynExpInstr_1_1NetworkSpectrometer.html#a62c15c658a76d48a9d48bb654ab7121a">DynExpInstr::NetworkSpectrometer</a>.</p>
 
 </div>
 </div>
@@ -891,7 +894,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Determines the maximal upper frequency limit where the spectrum acquisition can end. </p>
-<dl class="section return"><dt>Returns</dt><dd>Maximal upper frequency limit in units of <code><a class="el" href="classDynExpInstr_1_1Spectrometer.html#a4033c944bbd5e4d68aa5eeb6077a639c" title="Determines the frequency (x-axis) unit of the spectra acquired by the derived instrument.">GetFrequencyUnit()</a></code>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Maximal upper frequency limit in units of <code><a class="el" href="classDynExpInstr_1_1Spectrometer.html#a509a2dd51af77924a2e37526106be23a" title="Determines the frequency (x-axis) unit of the spectra acquired by the derived instrument.">GetFrequencyUnit()</a></code>. </dd></dl>
 
 <p>Implemented in <a class="el" href="classDynExpInstr_1_1NetworkSpectrometer.html#a7553f1ff4ee9b8ca8b5653902d9b9722">DynExpInstr::NetworkSpectrometer</a>.</p>
 
@@ -921,7 +924,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Determines the minimal lower frequency limit where the spectrum acquisition can begin. </p>
-<dl class="section return"><dt>Returns</dt><dd>Minimal lower frequency limit in units of <code><a class="el" href="classDynExpInstr_1_1Spectrometer.html#a4033c944bbd5e4d68aa5eeb6077a639c" title="Determines the frequency (x-axis) unit of the spectra acquired by the derived instrument.">GetFrequencyUnit()</a></code>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Minimal lower frequency limit in units of <code><a class="el" href="classDynExpInstr_1_1Spectrometer.html#a509a2dd51af77924a2e37526106be23a" title="Determines the frequency (x-axis) unit of the spectra acquired by the derived instrument.">GetFrequencyUnit()</a></code>. </dd></dl>
 
 <p>Implemented in <a class="el" href="classDynExpInstr_1_1NetworkSpectrometer.html#acb4fdc58bae7456fe513f760191e5a65">DynExpInstr::NetworkSpectrometer</a>.</p>
 
@@ -956,7 +959,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NetworkSpectrometer.html#ab9c960d093267e785a0d6d72abd10d70">DynExpInstr::NetworkSpectrometer</a>, and <a class="el" href="classDynExpInstr_1_1gRPCInstrument.html#aa3add60d4ed9f1412dc9ff8e1fbfc7b6">DynExpInstr::gRPCInstrument&lt; Spectrometer, 0, DynExpProto::NetworkSpectrometer::NetworkSpectrometer &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00346">346</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00310">310</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
 
 </div>
 </div>
@@ -988,7 +991,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1InstrumentBase.html#a7a6bf7866631c2f3879efaced4c7e21b">DynExp::InstrumentBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00349">349</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00313">313</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
 
 </div>
 </div>
@@ -1018,7 +1021,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Every derived class has to redefine this function.   </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the name of this DynExp object type.   </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00335">335</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Spectrometer_8h_source.html#l00299">299</a> of file <a class="el" href="Spectrometer_8h_source.html">Spectrometer.h</a>.</p>
 
 </div>
 </div>
@@ -1082,7 +1085,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Spectrometer_8cpp_source.html#l00114">114</a> of file <a class="el" href="Spectrometer_8cpp_source.html">Spectrometer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Spectrometer_8cpp_source.html#l00094">94</a> of file <a class="el" href="Spectrometer_8cpp_source.html">Spectrometer.cpp</a>.</p>
 
 </div>
 </div>
@@ -1262,7 +1265,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDynExpInstr_1_1NetworkSpectrometer.html#aa59a09d63226977c0309f3904b224aec">DynExpInstr::NetworkSpectrometer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Spectrometer_8cpp_source.html#l00105">105</a> of file <a class="el" href="Spectrometer_8cpp_source.html">Spectrometer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Spectrometer_8cpp_source.html#l00085">85</a> of file <a class="el" href="Spectrometer_8cpp_source.html">Spectrometer.cpp</a>.</p>
 
 </div>
 </div>

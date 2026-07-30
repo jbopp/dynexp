@@ -214,10 +214,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab716d840fba223d3b74335e54300a033 inherit pub_methods_classDynExp_1_1QModuleBase" id="r_ab716d840fba223d3b74335e54300a033"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QModuleBase.html#ab716d840fba223d3b74335e54300a033">HideUI</a> ()</td></tr>
 <tr class="memdesc:ab716d840fba223d3b74335e54300a033 inherit pub_methods_classDynExp_1_1QModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes <a class="el" href="classDynExp_1_1QModuleBase.html#acee88586880f821eb21a9a7b2de95ac6" title="Frame for Widget when the module window is docked to MdiArea.">MdiSubWindow</a>, <a class="el" href="classDynExp_1_1QModuleBase.html#a9c5628e95032026082f66a76efd9be7a" title="Frame for Widget when the module window is undocked from MdiArea.">DockWidget</a>, and <a class="el" href="classDynExp_1_1QModuleBase.html#af2e9fca9f7746dbd87ee89aee5d74d43" title="Qt action to push module window into focus. When triggered, QModuleWidget::OnFocusWindow() in invoked...">ModuleWindowFocusAction</a> setting them to <code>nullptr</code>.  <br /></td></tr>
 <tr class="separator:ab716d840fba223d3b74335e54300a033 inherit pub_methods_classDynExp_1_1QModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3af8dad35eddcdf478309c7e1b945c42 inherit pub_methods_classDynExp_1_1QModuleBase" id="r_a3af8dad35eddcdf478309c7e1b945c42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QModuleBase.html#a3af8dad35eddcdf478309c7e1b945c42">DisableUI</a> ()</td></tr>
+<tr class="memitem:a3af8dad35eddcdf478309c7e1b945c42 inherit pub_methods_classDynExp_1_1QModuleBase" id="r_a3af8dad35eddcdf478309c7e1b945c42"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QModuleBase.html#a3af8dad35eddcdf478309c7e1b945c42">DisableUI</a> ()</td></tr>
 <tr class="memdesc:a3af8dad35eddcdf478309c7e1b945c42 inherit pub_methods_classDynExp_1_1QModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables all user interface controls in <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a>. Does nothing if <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a> is <code>nullptr</code>.  <br /></td></tr>
 <tr class="separator:a3af8dad35eddcdf478309c7e1b945c42 inherit pub_methods_classDynExp_1_1QModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe3b8129cf1157a467e5925b92a7a311 inherit pub_methods_classDynExp_1_1QModuleBase" id="r_abe3b8129cf1157a467e5925b92a7a311"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QModuleBase.html#abe3b8129cf1157a467e5925b92a7a311">UpdateUI</a> ()</td></tr>
+<tr class="memitem:abe3b8129cf1157a467e5925b92a7a311 inherit pub_methods_classDynExp_1_1QModuleBase" id="r_abe3b8129cf1157a467e5925b92a7a311"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QModuleBase.html#abe3b8129cf1157a467e5925b92a7a311">UpdateUI</a> ()</td></tr>
 <tr class="memdesc:abe3b8129cf1157a467e5925b92a7a311 inherit pub_methods_classDynExp_1_1QModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the user interface controls in <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a>. Does nothing if <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a> is <code>nullptr</code>. Calls <code><a class="el" href="classDynExp_1_1QModuleBase.html#a462f6a8f4201dc8750a2ffdb3c8617f4" title="Use this function to update the module&#39;s user interface widget according to the module data obtained ...">UpdateUIChild()</a></code>.  <br /></td></tr>
 <tr class="separator:abe3b8129cf1157a467e5925b92a7a311 inherit pub_methods_classDynExp_1_1QModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada6e3c4f5ac2213c65a53a15875951b6 inherit pub_methods_classDynExp_1_1QModuleBase" id="r_ada6e3c4f5ac2213c65a53a15875951b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QModuleBase.html#ada6e3c4f5ac2213c65a53a15875951b6">UpdateModuleWindowFocusAction</a> ()</td></tr>
@@ -389,6 +389,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object" id="r_af55298b0589b9239ff3076d540c97449"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#af55298b0589b9239ff3076d540c97449">CategoryAndNameToStr</a> (const std::string &amp;Category, const std::string &amp;Name)</td></tr>
 <tr class="memdesc:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string from an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> category and name to allow the user to identify an <code><a class="el" href="classDynExp_1_1Object.html" title="Base class for all DynExp Objects like hardware adapters (DynExp::HardwareAdapterBase),...">Object</a>'s</code> type.  <br /></td></tr>
 <tr class="separator:af55298b0589b9239ff3076d540c97449 inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object" id="r_acaf8f71896eb782a22155311c10a799a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExp_1_1Object.html#acaf8f71896eb782a22155311c10a799a">RemoveCategoryAndName</a> (const std::string &amp;ObjectDesc)</td></tr>
+<tr class="memdesc:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the category and name part built by <a class="el" href="classDynExp_1_1Object.html#af55298b0589b9239ff3076d540c97449" title="Builds a string from an Object&#39;s category and name to allow the user to identify an Object&#39;s type.">Object::CategoryAndNameToStr()</a> from the string <code>ObjectDesc</code> constructed by <a class="el" href="classDynExp_1_1LinkedObjectWrapper.html#a8aae6a3a96ddb6671a223da80c150dc8" title="Builds and returns a human-readable string uniquely identifying the Object instance DestinyResource....">LinkedObjectWrapper::GetLinkedObjectDesc()</a>.  <br /></td></tr>
+<tr class="separator:acaf8f71896eb782a22155311c10a799a inherit pub_static_methods_classDynExp_1_1Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -412,8 +415,6 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a8f6620620108a9da46d2eaf42eb51386"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3182ffcbeefacd35ea3de218438779ed" id="r_a3182ffcbeefacd35ea3de218438779ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a3182ffcbeefacd35ea3de218438779ed">WaitUntilReadyAndTrigger</a> (<a class="el" href="classUtil_1_1SynchronizedPointer.html">Util::SynchronizedPointer</a>&lt; <a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#ab0d33b084cb5bfe2475391f2759b2dec">ModuleDataType</a> &gt; &amp;<a class="el" href="classDynExp_1_1ModuleBase.html#a56ccafca54cfc4f7f6231b198b1e2d86">ModuleData</a>) const</td></tr>
 <tr class="separator:a3182ffcbeefacd35ea3de218438779ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2994befb61f41cda8bc7f6917cc0b039" id="r_a2994befb61f41cda8bc7f6917cc0b039"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a2994befb61f41cda8bc7f6917cc0b039">ConnectChartWidgets</a> (QLineSeries *ODMRLineSeries)</td></tr>
-<tr class="separator:a2994befb61f41cda8bc7f6917cc0b039"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae50cb435ff957b0192734801279f25b5" id="r_ae50cb435ff957b0192734801279f25b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#ae50cb435ff957b0192734801279f25b5">OnInit</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance) const override final</td></tr>
 <tr class="memdesc:ae50cb435ff957b0192734801279f25b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This event is triggered right before the module thread starts. Override it to lock instruments this module depends on (via RunnableInstance::LockObject()) and to register/subscribe for events (via InterModuleEvent::Register()).  <br /></td></tr>
 <tr class="separator:ae50cb435ff957b0192734801279f25b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -494,10 +495,8 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a5e4d4c069a00bf91c209366cda83efc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf4193962b68bde99d020e313fe70957" id="r_adf4193962b68bde99d020e313fe70957"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#adf4193962b68bde99d020e313fe70957">OnRFOffClicked</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance, bool) const</td></tr>
 <tr class="separator:adf4193962b68bde99d020e313fe70957"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94010f07064c9f879cae7e7d22677a28" id="r_a94010f07064c9f879cae7e7d22677a28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a94010f07064c9f879cae7e7d22677a28">OnODMRChartHovered</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance, QPointF Point, bool State) const</td></tr>
-<tr class="separator:a94010f07064c9f879cae7e7d22677a28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d49a9c980da8ed24a6496b8453417c4" id="r_a9d49a9c980da8ed24a6496b8453417c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a9d49a9c980da8ed24a6496b8453417c4">OnODMRChartClicked</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance, QPointF Point) const</td></tr>
-<tr class="separator:a9d49a9c980da8ed24a6496b8453417c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae25c9398a97fadef2db054d9f6e75d5" id="r_aae25c9398a97fadef2db054d9f6e75d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#aae25c9398a97fadef2db054d9f6e75d5">OnODMRGraphClicked</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *Instance, QPointF Point) const</td></tr>
+<tr class="separator:aae25c9398a97fadef2db054d9f6e75d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c99e072ab0b6086ec56b7e58d90f090" id="r_a8c99e072ab0b6086ec56b7e58d90f090"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4">StateType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a8c99e072ab0b6086ec56b7e58d90f090">InitializingStateFunc</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> &amp;Instance)</td></tr>
 <tr class="separator:a8c99e072ab0b6086ec56b7e58d90f090"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6cd9a8a2f2668e8bd54fd0a33e192e4f" id="r_a6cd9a8a2f2668e8bd54fd0a33e192e4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4">StateType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a6cd9a8a2f2668e8bd54fd0a33e192e4f">ReadyStateFunc</a> (<a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> &amp;Instance)</td></tr>
@@ -598,7 +597,7 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a46aa91ec36056a128e2876092c288edf inherit pro_methods_classDynExp_1_1QModuleBase"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QModuleBase.html#a46aa91ec36056a128e2876092c288edf">Connect</a> (SenderType *Sender, SignalType Signal, ReceiverType *Receiver, EventType Event)</td></tr>
 <tr class="memdesc:a46aa91ec36056a128e2876092c288edf inherit pro_methods_classDynExp_1_1QModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses Qt's connect mechanism to connect a <code>QObject's</code> signal to a DynExp module's event. By directly connecting slots to signals via <code>QObject::connect()</code>, the slot function runs in the user interface thread. In contrast, this function connects a signal to a lambda function, which itself enqueues an event in the module's event queue. The event runs in the module thread. Arguments passed from the signal to the lambda function are forwarded to the event.  <br /></td></tr>
 <tr class="separator:a46aa91ec36056a128e2876092c288edf inherit pro_methods_classDynExp_1_1QModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01335d90a48a66f418c6e1bb8b34b3e1 inherit pro_methods_classDynExp_1_1QModuleBase" id="r_a01335d90a48a66f418c6e1bb8b34b3e1"><td class="memTemplParams" colspan="2">template&lt;typename WidgetType &gt; </td></tr>
+<tr class="memitem:a01335d90a48a66f418c6e1bb8b34b3e1 inherit pro_methods_classDynExp_1_1QModuleBase" id="r_a01335d90a48a66f418c6e1bb8b34b3e1"><td class="memTemplParams" colspan="2">template&lt;typename WidgetType  = QModuleWidget&gt; </td></tr>
 <tr class="memitem:a01335d90a48a66f418c6e1bb8b34b3e1 inherit pro_methods_classDynExp_1_1QModuleBase"><td class="memTemplItemLeft" align="right" valign="top">WidgetType *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classDynExp_1_1QModuleBase.html#a01335d90a48a66f418c6e1bb8b34b3e1">GetWidget</a> () const</td></tr>
 <tr class="memdesc:a01335d90a48a66f418c6e1bb8b34b3e1 inherit pro_methods_classDynExp_1_1QModuleBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for <a class="el" href="classDynExp_1_1QModuleBase.html#a205b69d0ef649162946fb6c351764376" title="User interface widget belonging to the module.">Widget</a>.  <br /></td></tr>
 <tr class="separator:a01335d90a48a66f418c6e1bb8b34b3e1 inherit pro_methods_classDynExp_1_1QModuleBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -741,7 +740,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00153">153</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00160">160</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -795,34 +794,6 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00161">161</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
-
-</div>
-</div>
-<a id="a2994befb61f41cda8bc7f6917cc0b039" name="a2994befb61f41cda8bc7f6917cc0b039"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2994befb61f41cda8bc7f6917cc0b039">&#9670;&#160;</a></span>ConnectChartWidgets()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DynExpModule::ODMR::ODMR::ConnectChartWidgets </td>
-          <td>(</td>
-          <td class="paramtype">QLineSeries *&#160;</td>
-          <td class="paramname"><em>ODMRLineSeries</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00369">369</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -885,7 +856,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#af7baae8cb81ade4cc48898d72eff8693">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00162">162</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00169">169</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -944,7 +915,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00686">686</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00661">661</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -988,7 +959,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00328">328</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00318">318</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1016,7 +987,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00299">299</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00289">289</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1075,7 +1046,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classDynExp_1_1QModuleBase.html#a93c2c74f5b7059834ff6422e54a8ec40">DynExp::QModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00210">210</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00217">217</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1103,7 +1074,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00696">696</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00671">671</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1131,7 +1102,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00714">714</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00689">689</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1170,7 +1141,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classDynExp_1_1ModuleBase.html#abe86b2a8c7a6e60a2937be8b2a0e6b00">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00173">173</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00180">180</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1225,7 +1196,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00779">779</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00754">754</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1253,7 +1224,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00741">741</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00716">716</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1281,7 +1252,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00772">772</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00747">747</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1319,7 +1290,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00508">508</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00489">489</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1357,7 +1328,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00562">562</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00543">543</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1395,7 +1366,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00574">574</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00555">555</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1433,7 +1404,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#a77fb87b30e26eea73d6d53d2d871160a">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00408">408</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00389">389</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1471,7 +1442,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00568">568</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00549">549</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1509,12 +1480,12 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classDynExp_1_1ModuleBase.html#a51b4635720cb3b96033970dba4a95500">DynExp::ModuleBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00378">378</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00359">359</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a9d49a9c980da8ed24a6496b8453417c4" name="a9d49a9c980da8ed24a6496b8453417c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d49a9c980da8ed24a6496b8453417c4">&#9670;&#160;</a></span>OnODMRChartClicked()</h2>
+<a id="aae25c9398a97fadef2db054d9f6e75d5" name="aae25c9398a97fadef2db054d9f6e75d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae25c9398a97fadef2db054d9f6e75d5">&#9670;&#160;</a></span>OnODMRGraphClicked()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1523,7 +1494,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void DynExpModule::ODMR::ODMR::OnODMRChartClicked </td>
+          <td class="memname">void DynExpModule::ODMR::ODMR::OnODMRGraphClicked </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *&#160;</td>
           <td class="paramname"><em>Instance</em>, </td>
@@ -1547,51 +1518,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00677">677</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a94010f07064c9f879cae7e7d22677a28" name="a94010f07064c9f879cae7e7d22677a28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94010f07064c9f879cae7e7d22677a28">&#9670;&#160;</a></span>OnODMRChartHovered()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DynExpModule::ODMR::ODMR::OnODMRChartHovered </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classDynExp_1_1ModuleInstance.html">DynExp::ModuleInstance</a> *&#160;</td>
-          <td class="paramname"><em>Instance</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">QPointF&#160;</td>
-          <td class="paramname"><em>Point</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>State</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00671">671</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00652">652</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1629,7 +1556,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00490">490</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00471">471</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1667,7 +1594,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00514">514</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00495">495</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1705,7 +1632,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00526">526</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00507">507</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1743,7 +1670,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00520">520</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00501">501</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1781,7 +1708,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00424">424</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00405">405</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1819,7 +1746,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00430">430</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00411">411</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1857,7 +1784,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00448">448</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00429">429</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1895,7 +1822,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00442">442</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00423">423</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1933,7 +1860,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00436">436</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00417">417</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -1971,7 +1898,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00484">484</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00465">465</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2009,7 +1936,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00478">478</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00459">459</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2047,7 +1974,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00454">454</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00435">435</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2085,7 +2012,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00470">470</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00451">451</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2123,7 +2050,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00462">462</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00443">443</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2161,7 +2088,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00665">665</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00646">646</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2199,7 +2126,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00659">659</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00640">640</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2237,7 +2164,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00418">418</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00399">399</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2275,7 +2202,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00502">502</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00483">483</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2313,7 +2240,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00496">496</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00477">477</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2351,7 +2278,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00556">556</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00537">537</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2389,7 +2316,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00538">538</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00519">519</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2427,7 +2354,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00532">532</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00513">513</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2465,7 +2392,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00544">544</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00525">525</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2503,7 +2430,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00550">550</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00531">531</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2541,7 +2468,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00625">625</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00606">606</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2579,7 +2506,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00636">636</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00617">617</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2617,7 +2544,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00647">647</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00628">628</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2655,7 +2582,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00619">619</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00600">600</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2693,7 +2620,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00580">580</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00561">561</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2731,7 +2658,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00613">613</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00594">594</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2769,7 +2696,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00595">595</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00576">576</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2807,7 +2734,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00607">607</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00588">588</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2845,7 +2772,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00601">601</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00582">582</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2873,7 +2800,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00691">691</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00666">666</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2901,7 +2828,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00199">199</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00206">206</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2929,7 +2856,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00925">925</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00902">902</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2957,7 +2884,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00891">891</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00868">868</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -2985,7 +2912,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00918">918</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00895">895</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -3013,7 +2940,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00343">343</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00333">333</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -3073,7 +3000,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00262">262</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00271">271</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -3101,7 +3028,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00349">349</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8cpp_source.html#l00339">339</a> of file <a class="el" href="ODMR_8cpp_source.html">ODMR.cpp</a>.</p>
 
 </div>
 </div>
@@ -3127,11 +3054,11 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a>(<a class="code hl_enumvalue" href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4a32b169f72b293ef80d35435e9894f8e2">StateType::Initializing</a>,</div>
 <div class="line">            &amp;<a class="code hl_function" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a8c99e072ab0b6086ec56b7e58d90f090">ODMR::InitializingStateFunc</a>, <span class="stringliteral">&quot;Initializing module...&quot;</span>)</div>
-<div class="ttc" id="aclassDynExpModule_1_1ODMR_1_1ODMR_html_a8c99e072ab0b6086ec56b7e58d90f090"><div class="ttname"><a href="classDynExpModule_1_1ODMR_1_1ODMR.html#a8c99e072ab0b6086ec56b7e58d90f090">DynExpModule::ODMR::ODMR::InitializingStateFunc</a></div><div class="ttdeci">StateType InitializingStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ODMR_8cpp_source.html#l00686">ODMR.cpp:686</a></div></div>
-<div class="ttc" id="aclassUtil_1_1StateMachineState_html"><div class="ttname"><a href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a></div><div class="ttdoc">State machine state as used by class StateMachine. A state mainly wraps a state function of the membe...</div><div class="ttdef"><b>Definition</b> <a href="Util_8h_source.html#l01366">Util.h:1367</a></div></div>
+<div class="ttc" id="aclassDynExpModule_1_1ODMR_1_1ODMR_html_a8c99e072ab0b6086ec56b7e58d90f090"><div class="ttname"><a href="classDynExpModule_1_1ODMR_1_1ODMR.html#a8c99e072ab0b6086ec56b7e58d90f090">DynExpModule::ODMR::ODMR::InitializingStateFunc</a></div><div class="ttdeci">StateType InitializingStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ODMR_8cpp_source.html#l00661">ODMR.cpp:661</a></div></div>
+<div class="ttc" id="aclassUtil_1_1StateMachineState_html"><div class="ttname"><a href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a></div><div class="ttdoc">State machine state as used by class StateMachine. A state mainly wraps a state function of the membe...</div><div class="ttdef"><b>Definition</b> <a href="Util_8h_source.html#l01362">Util.h:1363</a></div></div>
 <div class="ttc" id="anamespaceDynExpModule_1_1ODMR_html_a3b3c65853c499ede00dd1c16086315a4a32b169f72b293ef80d35435e9894f8e2"><div class="ttname"><a href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4a32b169f72b293ef80d35435e9894f8e2">DynExpModule::ODMR::StateType::Initializing</a></div><div class="ttdeci">@ Initializing</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00253">253</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00251">251</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
 
 </div>
 </div>
@@ -3156,10 +3083,10 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a>(<a class="code hl_enumvalue" href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4aacec8070b117f2f730b95a2a99eb313e">StateType::MeasurementSeriesInit</a>,</div>
 <div class="line">            &amp;<a class="code hl_function" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a3386bd3704e264699c8dbf2fd4157d31">ODMR::MeasurementSeriesInitFunc</a>, <span class="stringliteral">&quot;Measuring...&quot;</span>)</div>
-<div class="ttc" id="aclassDynExpModule_1_1ODMR_1_1ODMR_html_a3386bd3704e264699c8dbf2fd4157d31"><div class="ttname"><a href="classDynExpModule_1_1ODMR_1_1ODMR.html#a3386bd3704e264699c8dbf2fd4157d31">DynExpModule::ODMR::ODMR::MeasurementSeriesInitFunc</a></div><div class="ttdeci">StateType MeasurementSeriesInitFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ODMR_8cpp_source.html#l00696">ODMR.cpp:696</a></div></div>
+<div class="ttc" id="aclassDynExpModule_1_1ODMR_1_1ODMR_html_a3386bd3704e264699c8dbf2fd4157d31"><div class="ttname"><a href="classDynExpModule_1_1ODMR_1_1ODMR.html#a3386bd3704e264699c8dbf2fd4157d31">DynExpModule::ODMR::ODMR::MeasurementSeriesInitFunc</a></div><div class="ttdeci">StateType MeasurementSeriesInitFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ODMR_8cpp_source.html#l00671">ODMR.cpp:671</a></div></div>
 <div class="ttc" id="anamespaceDynExpModule_1_1ODMR_html_a3b3c65853c499ede00dd1c16086315a4aacec8070b117f2f730b95a2a99eb313e"><div class="ttname"><a href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4aacec8070b117f2f730b95a2a99eb313e">DynExpModule::ODMR::StateType::MeasurementSeriesInit</a></div><div class="ttdeci">@ MeasurementSeriesInit</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00257">257</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00255">255</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
 
 </div>
 </div>
@@ -3184,10 +3111,10 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a>(<a class="code hl_enumvalue" href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4aeafcdb1c985c9924178b01b0a1dd5edd">StateType::MeasurementSeriesStep</a>,</div>
 <div class="line">            &amp;<a class="code hl_function" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a9b2145bd45f4b00cce5f6b89c8a937a8">ODMR::MeasurementSeriesStepFunc</a>, <span class="stringliteral">&quot;Measuring...&quot;</span>)</div>
-<div class="ttc" id="aclassDynExpModule_1_1ODMR_1_1ODMR_html_a9b2145bd45f4b00cce5f6b89c8a937a8"><div class="ttname"><a href="classDynExpModule_1_1ODMR_1_1ODMR.html#a9b2145bd45f4b00cce5f6b89c8a937a8">DynExpModule::ODMR::ODMR::MeasurementSeriesStepFunc</a></div><div class="ttdeci">StateType MeasurementSeriesStepFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ODMR_8cpp_source.html#l00714">ODMR.cpp:714</a></div></div>
+<div class="ttc" id="aclassDynExpModule_1_1ODMR_1_1ODMR_html_a9b2145bd45f4b00cce5f6b89c8a937a8"><div class="ttname"><a href="classDynExpModule_1_1ODMR_1_1ODMR.html#a9b2145bd45f4b00cce5f6b89c8a937a8">DynExpModule::ODMR::ODMR::MeasurementSeriesStepFunc</a></div><div class="ttdeci">StateType MeasurementSeriesStepFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ODMR_8cpp_source.html#l00689">ODMR.cpp:689</a></div></div>
 <div class="ttc" id="anamespaceDynExpModule_1_1ODMR_html_a3b3c65853c499ede00dd1c16086315a4aeafcdb1c985c9924178b01b0a1dd5edd"><div class="ttname"><a href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4aeafcdb1c985c9924178b01b0a1dd5edd">DynExpModule::ODMR::StateType::MeasurementSeriesStep</a></div><div class="ttdeci">@ MeasurementSeriesStep</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00259">259</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00257">257</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
 
 </div>
 </div>
@@ -3211,7 +3138,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00282">282</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00280">280</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
 
 </div>
 </div>
@@ -3235,7 +3162,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00281">281</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00279">279</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
 
 </div>
 </div>
@@ -3259,7 +3186,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00280">280</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00278">278</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
 
 </div>
 </div>
@@ -3283,7 +3210,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00284">284</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00282">282</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
 
 </div>
 </div>
@@ -3308,10 +3235,10 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a>(<a class="code hl_enumvalue" href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4aa9763a0acb61983ba476de90f4f1028f">StateType::ODMRTraceFinish</a>,</div>
 <div class="line">            &amp;<a class="code hl_function" href="classDynExpModule_1_1ODMR_1_1ODMR.html#aefd28d79341748746946ea30d3cec747">ODMR::ODMRTraceFinishFunc</a>, <span class="stringliteral">&quot;Processing and saving ODMR trace...&quot;</span>)</div>
-<div class="ttc" id="aclassDynExpModule_1_1ODMR_1_1ODMR_html_aefd28d79341748746946ea30d3cec747"><div class="ttname"><a href="classDynExpModule_1_1ODMR_1_1ODMR.html#aefd28d79341748746946ea30d3cec747">DynExpModule::ODMR::ODMR::ODMRTraceFinishFunc</a></div><div class="ttdeci">StateType ODMRTraceFinishFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ODMR_8cpp_source.html#l00779">ODMR.cpp:779</a></div></div>
+<div class="ttc" id="aclassDynExpModule_1_1ODMR_1_1ODMR_html_aefd28d79341748746946ea30d3cec747"><div class="ttname"><a href="classDynExpModule_1_1ODMR_1_1ODMR.html#aefd28d79341748746946ea30d3cec747">DynExpModule::ODMR::ODMR::ODMRTraceFinishFunc</a></div><div class="ttdeci">StateType ODMRTraceFinishFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ODMR_8cpp_source.html#l00754">ODMR.cpp:754</a></div></div>
 <div class="ttc" id="anamespaceDynExpModule_1_1ODMR_html_a3b3c65853c499ede00dd1c16086315a4aa9763a0acb61983ba476de90f4f1028f"><div class="ttname"><a href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4aa9763a0acb61983ba476de90f4f1028f">DynExpModule::ODMR::StateType::ODMRTraceFinish</a></div><div class="ttdeci">@ ODMRTraceFinish</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00265">265</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00263">263</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
 
 </div>
 </div>
@@ -3336,10 +3263,10 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a>(<a class="code hl_enumvalue" href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4af5e9087aa9031f9ac227e52c9b55cfae">StateType::ODMRTraceInit</a>,</div>
 <div class="line">            &amp;<a class="code hl_function" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a8c68382b6ff03a2b064f3fe785e92b44">ODMR::ODMRTraceInitFunc</a>, <span class="stringliteral">&quot;Acquiring ODMR trace...&quot;</span>)</div>
-<div class="ttc" id="aclassDynExpModule_1_1ODMR_1_1ODMR_html_a8c68382b6ff03a2b064f3fe785e92b44"><div class="ttname"><a href="classDynExpModule_1_1ODMR_1_1ODMR.html#a8c68382b6ff03a2b064f3fe785e92b44">DynExpModule::ODMR::ODMR::ODMRTraceInitFunc</a></div><div class="ttdeci">StateType ODMRTraceInitFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ODMR_8cpp_source.html#l00741">ODMR.cpp:741</a></div></div>
+<div class="ttc" id="aclassDynExpModule_1_1ODMR_1_1ODMR_html_a8c68382b6ff03a2b064f3fe785e92b44"><div class="ttname"><a href="classDynExpModule_1_1ODMR_1_1ODMR.html#a8c68382b6ff03a2b064f3fe785e92b44">DynExpModule::ODMR::ODMR::ODMRTraceInitFunc</a></div><div class="ttdeci">StateType ODMRTraceInitFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ODMR_8cpp_source.html#l00716">ODMR.cpp:716</a></div></div>
 <div class="ttc" id="anamespaceDynExpModule_1_1ODMR_html_a3b3c65853c499ede00dd1c16086315a4af5e9087aa9031f9ac227e52c9b55cfae"><div class="ttname"><a href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4af5e9087aa9031f9ac227e52c9b55cfae">DynExpModule::ODMR::StateType::ODMRTraceInit</a></div><div class="ttdeci">@ ODMRTraceInit</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00261">261</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00259">259</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
 
 </div>
 </div>
@@ -3364,10 +3291,10 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a>(<a class="code hl_enumvalue" href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4a4f1da521a038731e18f77e62f946b06a">StateType::ODMRTraceWait</a>,</div>
 <div class="line">            &amp;<a class="code hl_function" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a36112b33180d314a253d061b1da4c42a">ODMR::ODMRTraceWaitFunc</a>, <span class="stringliteral">&quot;Acquiring ODMR trace...&quot;</span>)</div>
-<div class="ttc" id="aclassDynExpModule_1_1ODMR_1_1ODMR_html_a36112b33180d314a253d061b1da4c42a"><div class="ttname"><a href="classDynExpModule_1_1ODMR_1_1ODMR.html#a36112b33180d314a253d061b1da4c42a">DynExpModule::ODMR::ODMR::ODMRTraceWaitFunc</a></div><div class="ttdeci">StateType ODMRTraceWaitFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ODMR_8cpp_source.html#l00772">ODMR.cpp:772</a></div></div>
+<div class="ttc" id="aclassDynExpModule_1_1ODMR_1_1ODMR_html_a36112b33180d314a253d061b1da4c42a"><div class="ttname"><a href="classDynExpModule_1_1ODMR_1_1ODMR.html#a36112b33180d314a253d061b1da4c42a">DynExpModule::ODMR::ODMR::ODMRTraceWaitFunc</a></div><div class="ttdeci">StateType ODMRTraceWaitFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ODMR_8cpp_source.html#l00747">ODMR.cpp:747</a></div></div>
 <div class="ttc" id="anamespaceDynExpModule_1_1ODMR_html_a3b3c65853c499ede00dd1c16086315a4a4f1da521a038731e18f77e62f946b06a"><div class="ttname"><a href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4a4f1da521a038731e18f77e62f946b06a">DynExpModule::ODMR::StateType::ODMRTraceWait</a></div><div class="ttdeci">@ ODMRTraceWait</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00263">263</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00261">261</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
 
 </div>
 </div>
@@ -3392,10 +3319,10 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a>(<a class="code hl_enumvalue" href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4ae7d31fc0602fb2ede144d18cdffd816b">StateType::Ready</a>,</div>
 <div class="line">            &amp;<a class="code hl_function" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a6cd9a8a2f2668e8bd54fd0a33e192e4f">ODMR::ReadyStateFunc</a>, <span class="stringliteral">&quot;Ready&quot;</span>)</div>
-<div class="ttc" id="aclassDynExpModule_1_1ODMR_1_1ODMR_html_a6cd9a8a2f2668e8bd54fd0a33e192e4f"><div class="ttname"><a href="classDynExpModule_1_1ODMR_1_1ODMR.html#a6cd9a8a2f2668e8bd54fd0a33e192e4f">DynExpModule::ODMR::ODMR::ReadyStateFunc</a></div><div class="ttdeci">StateType ReadyStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ODMR_8cpp_source.html#l00691">ODMR.cpp:691</a></div></div>
+<div class="ttc" id="aclassDynExpModule_1_1ODMR_1_1ODMR_html_a6cd9a8a2f2668e8bd54fd0a33e192e4f"><div class="ttname"><a href="classDynExpModule_1_1ODMR_1_1ODMR.html#a6cd9a8a2f2668e8bd54fd0a33e192e4f">DynExpModule::ODMR::ODMR::ReadyStateFunc</a></div><div class="ttdeci">StateType ReadyStateFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ODMR_8cpp_source.html#l00666">ODMR.cpp:666</a></div></div>
 <div class="ttc" id="anamespaceDynExpModule_1_1ODMR_html_a3b3c65853c499ede00dd1c16086315a4ae7d31fc0602fb2ede144d18cdffd816b"><div class="ttname"><a href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4ae7d31fc0602fb2ede144d18cdffd816b">DynExpModule::ODMR::StateType::Ready</a></div><div class="ttdeci">@ Ready</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00255">255</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00253">253</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
 
 </div>
 </div>
@@ -3420,10 +3347,10 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a>(<a class="code hl_enumvalue" href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4a8448c945549591d60cc4258b9c6313fe">StateType::SensitivityFinish</a>,</div>
 <div class="line">            &amp;<a class="code hl_function" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a88c0cffe5cdc24a5a7334266cd7b0420">ODMR::SensitivityFinishFunc</a>, <span class="stringliteral">&quot;Processing and saving sensitivity series...&quot;</span>)</div>
-<div class="ttc" id="aclassDynExpModule_1_1ODMR_1_1ODMR_html_a88c0cffe5cdc24a5a7334266cd7b0420"><div class="ttname"><a href="classDynExpModule_1_1ODMR_1_1ODMR.html#a88c0cffe5cdc24a5a7334266cd7b0420">DynExpModule::ODMR::ODMR::SensitivityFinishFunc</a></div><div class="ttdeci">StateType SensitivityFinishFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ODMR_8cpp_source.html#l00925">ODMR.cpp:925</a></div></div>
+<div class="ttc" id="aclassDynExpModule_1_1ODMR_1_1ODMR_html_a88c0cffe5cdc24a5a7334266cd7b0420"><div class="ttname"><a href="classDynExpModule_1_1ODMR_1_1ODMR.html#a88c0cffe5cdc24a5a7334266cd7b0420">DynExpModule::ODMR::ODMR::SensitivityFinishFunc</a></div><div class="ttdeci">StateType SensitivityFinishFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ODMR_8cpp_source.html#l00902">ODMR.cpp:902</a></div></div>
 <div class="ttc" id="anamespaceDynExpModule_1_1ODMR_html_a3b3c65853c499ede00dd1c16086315a4a8448c945549591d60cc4258b9c6313fe"><div class="ttname"><a href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4a8448c945549591d60cc4258b9c6313fe">DynExpModule::ODMR::StateType::SensitivityFinish</a></div><div class="ttdeci">@ SensitivityFinish</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00271">271</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00269">269</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
 
 </div>
 </div>
@@ -3448,10 +3375,10 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a>(<a class="code hl_enumvalue" href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4a14508d3647eaf46972f8d24cdf3ef42b">StateType::SensitivityInit</a>,</div>
 <div class="line">            &amp;<a class="code hl_function" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a943cc3d554a20de10f287409d88b8037">ODMR::SensitivityInitFunc</a>, <span class="stringliteral">&quot;Acquiring sensitivity series...&quot;</span>)</div>
-<div class="ttc" id="aclassDynExpModule_1_1ODMR_1_1ODMR_html_a943cc3d554a20de10f287409d88b8037"><div class="ttname"><a href="classDynExpModule_1_1ODMR_1_1ODMR.html#a943cc3d554a20de10f287409d88b8037">DynExpModule::ODMR::ODMR::SensitivityInitFunc</a></div><div class="ttdeci">StateType SensitivityInitFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ODMR_8cpp_source.html#l00891">ODMR.cpp:891</a></div></div>
+<div class="ttc" id="aclassDynExpModule_1_1ODMR_1_1ODMR_html_a943cc3d554a20de10f287409d88b8037"><div class="ttname"><a href="classDynExpModule_1_1ODMR_1_1ODMR.html#a943cc3d554a20de10f287409d88b8037">DynExpModule::ODMR::ODMR::SensitivityInitFunc</a></div><div class="ttdeci">StateType SensitivityInitFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ODMR_8cpp_source.html#l00868">ODMR.cpp:868</a></div></div>
 <div class="ttc" id="anamespaceDynExpModule_1_1ODMR_html_a3b3c65853c499ede00dd1c16086315a4a14508d3647eaf46972f8d24cdf3ef42b"><div class="ttname"><a href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4a14508d3647eaf46972f8d24cdf3ef42b">DynExpModule::ODMR::StateType::SensitivityInit</a></div><div class="ttdeci">@ SensitivityInit</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00267">267</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00265">265</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
 
 </div>
 </div>
@@ -3475,7 +3402,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00275">275</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00273">273</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
 
 </div>
 </div>
@@ -3500,10 +3427,10 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classUtil_1_1StateMachineState.html">Util::StateMachineState</a>(<a class="code hl_enumvalue" href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4ade69ee5d03b426c48c31339af68b193c">StateType::SensitivityWait</a>,</div>
 <div class="line">            &amp;<a class="code hl_function" href="classDynExpModule_1_1ODMR_1_1ODMR.html#a821c1d67ecab73e49d6ec6beb4a5b205">ODMR::SensitivityWaitFunc</a>, <span class="stringliteral">&quot;Acquiring sensitivity series...&quot;</span>)</div>
-<div class="ttc" id="aclassDynExpModule_1_1ODMR_1_1ODMR_html_a821c1d67ecab73e49d6ec6beb4a5b205"><div class="ttname"><a href="classDynExpModule_1_1ODMR_1_1ODMR.html#a821c1d67ecab73e49d6ec6beb4a5b205">DynExpModule::ODMR::ODMR::SensitivityWaitFunc</a></div><div class="ttdeci">StateType SensitivityWaitFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ODMR_8cpp_source.html#l00918">ODMR.cpp:918</a></div></div>
+<div class="ttc" id="aclassDynExpModule_1_1ODMR_1_1ODMR_html_a821c1d67ecab73e49d6ec6beb4a5b205"><div class="ttname"><a href="classDynExpModule_1_1ODMR_1_1ODMR.html#a821c1d67ecab73e49d6ec6beb4a5b205">DynExpModule::ODMR::ODMR::SensitivityWaitFunc</a></div><div class="ttdeci">StateType SensitivityWaitFunc(DynExp::ModuleInstance &amp;Instance)</div><div class="ttdef"><b>Definition</b> <a href="ODMR_8cpp_source.html#l00895">ODMR.cpp:895</a></div></div>
 <div class="ttc" id="anamespaceDynExpModule_1_1ODMR_html_a3b3c65853c499ede00dd1c16086315a4ade69ee5d03b426c48c31339af68b193c"><div class="ttname"><a href="namespaceDynExpModule_1_1ODMR.html#a3b3c65853c499ede00dd1c16086315a4ade69ee5d03b426c48c31339af68b193c">DynExpModule::ODMR::StateType::SensitivityWait</a></div><div class="ttdeci">@ SensitivityWait</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00269">269</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00267">267</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
 
 </div>
 </div>
@@ -3527,7 +3454,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00278">278</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ODMR_8h_source.html#l00276">276</a> of file <a class="el" href="ODMR_8h_source.html">ODMR.h</a>.</p>
 
 </div>
 </div>

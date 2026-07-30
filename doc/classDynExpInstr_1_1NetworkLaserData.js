@@ -18,7 +18,7 @@ var classDynExpInstr_1_1NetworkLaserData =
     [ "ResetImpl", "classDynExpInstr_1_1NetworkLaserData.html#ad49ac7a452f6a42a1e92d8c9ffb3f980", null ],
     [ "NetworkLaserTasks::InitTask", "classDynExpInstr_1_1NetworkLaserData.html#a62d8e9786e19a8db5ae70cf967c72c4b", null ],
     [ "NetworkLaserTasks::UpdateTask", "classDynExpInstr_1_1NetworkLaserData.html#a2473503501a14e09b4f135fc90284b1d", null ],
-    [ "FrequencyUnit", "classDynExpInstr_1_1NetworkLaserData.html#ab4631a6c7a48c325d205cecf197fdf6b", null ],
+    [ "FrequencyUnit", "classDynExpInstr_1_1NetworkLaserData.html#afeca1ae59afd646591945cff06267af0", null ],
     [ "HardwareMaxFrequency", "classDynExpInstr_1_1NetworkLaserData.html#a1615b38379f8351bc64266c33c422b63", null ],
     [ "HardwareMaxIntensity", "classDynExpInstr_1_1NetworkLaserData.html#a3bfa3a26aa9d537581184e76e7b38589", null ],
     [ "HardwareMaxScanRange", "classDynExpInstr_1_1NetworkLaserData.html#abf9da1639e0bc6505b8258a6de8085e7", null ],
@@ -28,6 +28,6 @@ var classDynExpInstr_1_1NetworkLaserData =
     [ "HardwareMinScanRange", "classDynExpInstr_1_1NetworkLaserData.html#a16f20712e09ebe9ce300b3916991861d", null ],
     [ "HardwareMinScanRate", "classDynExpInstr_1_1NetworkLaserData.html#a7d7bbfac03d11e57a2bc96f27d97b142", null ],
     [ "HardwareModeHopFreeTuningRange", "classDynExpInstr_1_1NetworkLaserData.html#a54b7b97a6dfd0b47aa83e7ad00a3c08d", null ],
-    [ "IntensityUnit", "classDynExpInstr_1_1NetworkLaserData.html#ab26ddca26ccc62a55a6a97122394a977", null ],
+    [ "IntensityUnit", "classDynExpInstr_1_1NetworkLaserData.html#aa2679e8a63637f13f1b4bb6162d3c78d", null ],
     [ "LaserState", "classDynExpInstr_1_1NetworkLaserData.html#a221d5ba46c32be3c0804c0b4b6b88a3f", null ]
 ];
