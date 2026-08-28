@@ -572,9 +572,9 @@ namespace DynExpModule::Widefield
 		ConfocalScanPositionerStateZ(std::make_shared<AtomicPositionerStateType>()),
 		WidefieldCellIDState(std::make_shared<AtomicWidefieldImageProcessingStateType>()),
 		WidefieldLocalizationState(std::make_shared<AtomicWidefieldImageProcessingStateType>()),
-		GSLConfocalOptimizationState(gsl_multimin_fminimizer_alloc(GSLConfocalOptimizationMinimizer, GSLConfocalOptimizationNumDimensions)),
-		GSLConfocalOptimizationStepSize(gsl_vector_alloc(GSLConfocalOptimizationNumDimensions)),
-		GSLConfocalOptimizationInitialPoint(gsl_vector_alloc(GSLConfocalOptimizationNumDimensions))
+		GSLConfocalOptimizationState(gsl_multimin_fminimizer_alloc(GSLConfocalOptimizationMinimizer, GSLConfocalOptimizationNumDimensions), &gsl_multimin_fminimizer_free),
+		GSLConfocalOptimizationStepSize(gsl_vector_alloc(GSLConfocalOptimizationNumDimensions), &gsl_vector_free),
+		GSLConfocalOptimizationInitialPoint(gsl_vector_alloc(GSLConfocalOptimizationNumDimensions), &gsl_vector_free)
 	{
 		if (!GSLConfocalOptimizationState || !GSLConfocalOptimizationStepSize || !GSLConfocalOptimizationInitialPoint)
 			throw Util::NotAvailableException("Could not initialize GSL multimin library components.", Util::ErrorType::Error);
@@ -582,12 +582,6 @@ namespace DynExpModule::Widefield
 
 	WidefieldMicroscope::~WidefieldMicroscope()
 	{
-		if (GSLConfocalOptimizationInitialPoint)
-			gsl_vector_free(GSLConfocalOptimizationInitialPoint);
-		if (GSLConfocalOptimizationStepSize)
-			gsl_vector_free(GSLConfocalOptimizationStepSize);
-		if (GSLConfocalOptimizationState)
-			gsl_multimin_fminimizer_free(GSLConfocalOptimizationState);
 	}
 
 	std::chrono::milliseconds WidefieldMicroscope::GetMainLoopDelay() const
@@ -1091,15 +1085,15 @@ namespace DynExpModule::Widefield
 		SetFocus(ModuleData, ModuleData->GetFocusZeroVoltage());
 		auto SamplePosition = ModuleData->GetSamplePosition();
 
-		gsl_vector_set(GSLConfocalOptimizationStepSize, 0,
+		gsl_vector_set(GSLConfocalOptimizationStepSize.get(), 0,
 			ModuleData->GetSampleStageX()->GetResolution() * ModuleData->GetConfocalOptimizationInitXYStepSize());
-		gsl_vector_set(GSLConfocalOptimizationStepSize, 1,
+		gsl_vector_set(GSLConfocalOptimizationStepSize.get(), 1,
 			ModuleData->GetSampleStageY()->GetResolution() * ModuleData->GetConfocalOptimizationInitXYStepSize());
-		gsl_vector_set(GSLConfocalOptimizationStepSize, 2,
+		gsl_vector_set(GSLConfocalOptimizationStepSize.get(), 2,
 			ModuleData->GetSampleFocusPiezoZ()->GetHardwareResolution() * ModuleData->GetConfocalOptimizationInitZStepSize());
-		gsl_vector_set(GSLConfocalOptimizationInitialPoint, 0, SamplePosition.x);
-		gsl_vector_set(GSLConfocalOptimizationInitialPoint, 1, SamplePosition.y);
-		gsl_vector_set(GSLConfocalOptimizationInitialPoint, 2, ModuleData->GetFocusZeroVoltage());
+		gsl_vector_set(GSLConfocalOptimizationInitialPoint.get(), 0, SamplePosition.x);
+		gsl_vector_set(GSLConfocalOptimizationInitialPoint.get(), 1, SamplePosition.y);
+		gsl_vector_set(GSLConfocalOptimizationInitialPoint.get(), 2, ModuleData->GetFocusZeroVoltage());
 	}
 
 	void WidefieldMicroscope::SetHBTSwitch(Util::SynchronizedPointer<const ParamsType>& ModuleParams,
@@ -1250,18 +1244,18 @@ namespace DynExpModule::Widefield
 		{
 			if (Owner->ConfocalOptimizationNumStepsPerformed == 0)
 			{
-				auto Status = gsl_multimin_fminimizer_set(Owner->GSLConfocalOptimizationState, &Owner->GSLConfocalOptimizationFuncDesc,
-					Owner->GSLConfocalOptimizationInitialPoint, Owner->GSLConfocalOptimizationStepSize);
+				auto Status = gsl_multimin_fminimizer_set(Owner->GSLConfocalOptimizationState.get(), &Owner->GSLConfocalOptimizationFuncDesc,
+					Owner->GSLConfocalOptimizationInitialPoint.get(), Owner->GSLConfocalOptimizationStepSize.get());
 
 				return Status ? ConfocalOptimizationThreadReturnType::Failed : ConfocalOptimizationThreadReturnType::NextStep;
 			}
 			else
 			{
-				auto Status = gsl_multimin_fminimizer_iterate(Owner->GSLConfocalOptimizationState);
+				auto Status = gsl_multimin_fminimizer_iterate(Owner->GSLConfocalOptimizationState.get());
 				if (Status)
 					return ConfocalOptimizationThreadReturnType::Failed;
 
-				auto Size = gsl_multimin_fminimizer_size(Owner->GSLConfocalOptimizationState);
+				auto Size = gsl_multimin_fminimizer_size(Owner->GSLConfocalOptimizationState.get());
 
 				{
 					auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Owner->GetModuleData());

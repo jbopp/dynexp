@@ -69,7 +69,7 @@ namespace DynExpModule::ImageViewer
 		GraphicsView->viewport()->setMouseTracking(true);
 	}
 
-	void ImageViewerWidget::SetImage(const QImage& NewImage) noexcept
+	void ImageViewerWidget::SetImage(const QImage& NewImage)
 	{
 		Pixmap = QPixmap::fromImage(NewImage);	// deep copy
 		Pixmap.detach();						// just to be sure...

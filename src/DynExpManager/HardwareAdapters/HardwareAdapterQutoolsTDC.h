@@ -98,7 +98,7 @@ namespace DynExpHardware
 
 		public:
 			// Synchronizes every call to qutools TDC library from anywhere.
-			static [[nodiscard]] LockType Lock(const std::chrono::milliseconds Timeout = std::chrono::milliseconds(100));
+			[[nodiscard]] static LockType Lock(const std::chrono::milliseconds Timeout = std::chrono::milliseconds(100));
 
 		private:
 			static QutoolsTDCSynchronizer& GetInstance() noexcept;

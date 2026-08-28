@@ -1017,9 +1017,9 @@ namespace DynExpModule::Widefield
 		static constexpr size_t GSLConfocalOptimizationNumDimensions = 3;
 		const gsl_multimin_fminimizer_type* const GSLConfocalOptimizationMinimizer = gsl_multimin_fminimizer_nmsimplex2;
 		gsl_multimin_function GSLConfocalOptimizationFuncDesc{ &WidefieldMicroscope::ConfocalOptimizationFuncForwarder, GSLConfocalOptimizationNumDimensions, this };
-		gsl_multimin_fminimizer* const GSLConfocalOptimizationState;
-		gsl_vector* const GSLConfocalOptimizationStepSize;
-		gsl_vector* const GSLConfocalOptimizationInitialPoint;
+		const std::unique_ptr<gsl_multimin_fminimizer, decltype(&gsl_multimin_fminimizer_free)> GSLConfocalOptimizationState;
+		const std::unique_ptr<gsl_vector, decltype(&gsl_vector_free)> GSLConfocalOptimizationStepSize;
+		const std::unique_ptr<gsl_vector, decltype(&gsl_vector_free)> GSLConfocalOptimizationInitialPoint;
 		mutable std::atomic<size_t> ConfocalOptimizationNumStepsPerformed = 0;						// To be accessed by ConfocalOptimizationThread and WidefieldMicroscope thread.
 		mutable std::atomic_bool ConfocalOptimizationPromisesRenewed = false;						// To be accessed by ConfocalOptimizationThread and WidefieldMicroscope thread.
 		std::promise<ConfocalOptimizationStateType> ConfocalOptimizationStatePromise;				// To be solely accessed by ConfocalOptimizationThread.

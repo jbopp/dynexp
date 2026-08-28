@@ -49,7 +49,7 @@ namespace DynExpModule::ImageViewer
 
 		bool AllowResize() const noexcept override final { return true; }
 
-		void SetImage(const QImage& NewImage) noexcept;
+		void SetImage(const QImage& NewImage);
 		void SetImageViewEnabled(bool Enable);
 		void SetIntensityHistogram(Util::ImageHistogramType&& NewIntensityHistogram) noexcept;
 		void SetRGBHistogram(Util::ImageRGBHistogramType&& NewRGBHistogram) noexcept;

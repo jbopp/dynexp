@@ -263,15 +263,15 @@ namespace DynExp
 		/**
 		 * @brief Returns a pointer to the event in the front of the module's event queue
 		 * without transferring ownership and without removing the event from the queue.
-		 * @return Constant pointer to the event
+		 * @return Constant pointer to the event or nullptr if queue is empty.
 		*/
-		const auto& GetEventFront() const noexcept { return *EventQueue.front().get(); }
+		const auto* GetEventFront() const noexcept { return EventQueue.empty() ? nullptr : EventQueue.front().get(); }
 
 		/**
 		 * @copybrief ModuleDataBase::GetEventFront() const
 		 * @return Pointer to the event
 		*/
-		auto& GetEventFront() noexcept { return *EventQueue.front().get(); }
+		auto* GetEventFront() noexcept { return EventQueue.empty() ? nullptr : EventQueue.front().get(); }
 
 		/**
 		 * @brief Getter for the module event queue's length

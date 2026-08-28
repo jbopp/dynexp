@@ -77,7 +77,11 @@ namespace Util
 		 * @brief Copy-constructs a PyObject from @p Object.
 		 * @param Object Object to copy
 		*/
-		PyObject(const T& Object) : Object(std::make_unique<T>(Object)) {}
+		PyObject(const T& Object)
+		{
+			py::gil_scoped_acquire acquire;
+			this->Object = std::make_unique<T>(Object);
+		}
 
 		/**
 		 * @brief Removes the owned @p pybind11::object after locking the GIL.
@@ -91,7 +95,9 @@ namespace Util
 		*/
 		PyObject& operator=(const T& Object)
 		{
+			py::gil_scoped_acquire acquire;
 			this->Object = std::make_unique<T>(Object);
+
 			return *this;
 		}
 
@@ -105,12 +111,12 @@ namespace Util
 		 * @brief Returns the wrapped @p pybind11::object
 		 * @return Owned object or nullptr if no object is owned
 		*/
-		auto& Get() const noexcept { return *Object; }
+		const auto* Get() const noexcept { return Object.get(); }
 
 		/**
 		 * @copydoc Get() const noexcept
 		*/
-		auto& Get() noexcept { return *Object; }
+		auto* Get() noexcept { return Object.get(); }
 
 		/**
 		 * @copydoc ~PyObject()

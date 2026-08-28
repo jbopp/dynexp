@@ -61,7 +61,7 @@ namespace DynExpInstr
 		class ImageProcessingTaskBase
 		{
 		public:
-			ImageProcessingTaskBase(const QImage& Image) noexcept;
+			ImageProcessingTaskBase(const QImage& Image);
 
 			// Consumes ImageData.
 			DynExpProto::WidefieldLocalization::ImageMessage MakeImageMessage();

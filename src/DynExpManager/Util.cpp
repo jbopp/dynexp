@@ -131,7 +131,9 @@ namespace Util
 	void BlobDataType::Assign(size_t Size, const DataType Data)
 	{
 		Reserve(Size);
-		std::memcpy(DataPtr.get(), Data, Size);
+
+		if (Size && Data && Data != DataPtr.get())
+			std::memcpy(DataPtr.get(), Data, Size);
 	}
 
 	void BlobDataType::Reset()
@@ -149,9 +151,9 @@ namespace Util
 	size_t UniqueID::Make() noexcept
 	{
 		// Start with 1 to allow special meaning for 0.
-		static size_t Counter = 1;
+		static std::atomic<size_t> Counter = 1;
 
-		return Counter++;
+		return Counter.fetch_add(1);
 	}
 
 	std::strong_ordering operator<=>(const VersionType& lhs, const VersionType& rhs)
@@ -227,6 +229,8 @@ namespace Util
 
 	std::vector<std::complex<double>> FFT(const std::vector<std::complex<double>>& Data, bool InverseTransform)
 	{
+		if (Data.empty())
+			throw EmptyException("Data vector must not be empty.");
 		if (Data.size() > std::numeric_limits<size_t>::max() / 2)
 			throw OverflowException("Size of Data vector must not exceed half the capacity of size_t.");
 
@@ -238,40 +242,27 @@ namespace Util
 			RawData[2 * i + 1] = Data[i].imag();
 		}
 
-		gsl_fft_complex_workspace* Workspace = gsl_fft_complex_workspace_alloc(Data.size());
-		gsl_fft_complex_wavetable* Wavetable = gsl_fft_complex_wavetable_alloc(Data.size());
+		std::unique_ptr<gsl_fft_complex_workspace, decltype(&gsl_fft_complex_workspace_free)>
+			Workspace(gsl_fft_complex_workspace_alloc(Data.size()), &gsl_fft_complex_workspace_free);
+		std::unique_ptr<gsl_fft_complex_wavetable, decltype(&gsl_fft_complex_wavetable_free)>
+			Wavetable(gsl_fft_complex_wavetable_alloc(Data.size()), &gsl_fft_complex_wavetable_free);
 		
-		try
-		{
-			if (!Workspace || !Wavetable)
-				throw NotAvailableException("Could not reserve memory for FFT.", ErrorType::Error);
+		if (!Workspace || !Wavetable)
+			throw NotAvailableException("Could not reserve memory for FFT.", ErrorType::Error);
 
-			if (gsl_fft_complex_transform(RawData.data(), 1, Data.size(), Wavetable, Workspace,
-				InverseTransform ? gsl_fft_direction::gsl_fft_backward : gsl_fft_direction::gsl_fft_forward))
-				throw InvalidDataException("The FFT failed for an unknown reason.");
+		if (gsl_fft_complex_transform(RawData.data(), 1, Data.size(), Wavetable.get(), Workspace.get(),
+			InverseTransform ? gsl_fft_direction::gsl_fft_backward : gsl_fft_direction::gsl_fft_forward))
+			throw InvalidDataException("The FFT failed for an unknown reason.");
 
-			gsl_fft_complex_wavetable_free(Wavetable);
-			gsl_fft_complex_workspace_free(Workspace);
+		std::vector<std::complex<double>> Result;
+		Result.resize(Data.size());
+		for (size_t i = 0; i < Result.size(); ++i)
+			Result[i] = { RawData[2 * i], RawData[2 * i + 1] };
 
-			std::vector<std::complex<double>> Result;
-			Result.resize(Data.size());
-			for (size_t i = 0; i < Result.size(); ++i)
-				Result[i] = { RawData[2 * i], RawData[2 * i + 1] };
-
-			return Result;
-		}
-		catch (...)
-		{
-			if (Wavetable)
-				gsl_fft_complex_wavetable_free(Wavetable);
-			if (Workspace)
-				gsl_fft_complex_workspace_free(Workspace);
-
-			throw;
-		}
+		return Result;
 	}
 
-	Warning::Warning(Warning&& Other) noexcept : Data(std::make_unique<WarningData>())
+	Warning::Warning(Warning&& Other) : Data(std::make_unique<WarningData>())
 	{
 		auto other_lock = Other.AcquireLock();
 

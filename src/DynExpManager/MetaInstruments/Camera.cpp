@@ -30,8 +30,7 @@ namespace DynExpInstr
 			{
 				RGBHistogram = Util::ComputeRGBHistogram(Image);
 
-				if (ComputeHistogram == CameraData::ComputeHistogramType::IntensityHistogram ||
-					ComputeHistogram == CameraData::ComputeHistogramType::IntensityAndRGBHistogram)
+				if (ComputeHistogram == CameraData::ComputeHistogramType::IntensityAndRGBHistogram)
 					IntensityHistogram = Util::ConvertRGBToIntensityHistogram(RGBHistogram);
 			}
 		}

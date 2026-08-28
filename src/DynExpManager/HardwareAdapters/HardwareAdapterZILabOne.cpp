@@ -460,6 +460,7 @@ namespace DynExpHardware
 
 		Result = ZILabOneHardwareAdapterSyms::ziAPIModSubscribe(ZIConnection, DAQModuleHandle,
 			("/" + DeviceDescriptor + "/demods/" + Util::ToStr(Demodulator) + "/sample.x").c_str());
+		CheckError(Result);
 		Result = ZILabOneHardwareAdapterSyms::ziAPIModSubscribe(ZIConnection, DAQModuleHandle,
 			("/" + DeviceDescriptor + "/demods/" + Util::ToStr(Demodulator) + "/sample.y").c_str());
 		CheckError(Result);

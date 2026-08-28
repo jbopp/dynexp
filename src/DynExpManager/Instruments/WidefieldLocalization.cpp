@@ -40,7 +40,7 @@ namespace DynExpInstr
 		UpdateFuncImpl(dispatch_tag<UpdateTask>(), Instance);
 	}
 
-	WidefieldLocalizationTasks::ImageProcessingTaskBase::ImageProcessingTaskBase(const QImage& Image) noexcept
+	WidefieldLocalizationTasks::ImageProcessingTaskBase::ImageProcessingTaskBase(const QImage& Image)
 		: ImageWidth(Util::NumToT<google::protobuf::uint32>(Image.width())), ImageHeight(Util::NumToT<google::protobuf::uint32>(Image.height())),
 		ImageFormat(Image.format())
 	{

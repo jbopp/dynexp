@@ -81,7 +81,7 @@ namespace DynExpHardware
 			static auto GetIsInitialized() noexcept { return GetInstance().IsInitialized.load(); }
 
 			// Synchronizes every call to PVCam library from anywhere.
-			static [[nodiscard]] LockType Lock(const std::chrono::milliseconds Timeout = std::chrono::milliseconds(100));
+			[[nodiscard]] static LockType Lock(const std::chrono::milliseconds Timeout = std::chrono::milliseconds(100));
 
 		private:
 			// Does not throw if MayInit = false.

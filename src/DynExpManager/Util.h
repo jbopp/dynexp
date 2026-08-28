@@ -530,8 +530,14 @@ namespace Util
 		BlobDataType& operator=(const BlobDataType& Other);		//!< Copy-assigns data from @p Other.
 		BlobDataType& operator=(BlobDataType&& Other) noexcept;	//!< Move-assigns data from @p Other. @p Other is empty afterwards.
 
-		void Reserve(size_t Size);								//!< Reserves @p Size bytes of memory freeing any previously reserved memory.
-		void Assign(size_t Size, const DataType Data);			//!< Copies @p Size bytes from @p Data to the buffer freeing any previously reserved memory.
+		/**
+		 * @brief Reserves @p Size bytes of memory, freeing any previously reserved memory.
+		 * Does nothing if @p Size already matches the current buffer size.
+		 * @param Size New size of the buffer.
+		*/
+		void Reserve(size_t Size);
+
+		void Assign(size_t Size, const DataType Data);			//!< Copies @p Size bytes from @p Data to the buffer making use of @p Reserve() to allocate memory.
 		void Reset();											//!< Frees any reserved memory.
 		DataPtrType::element_type* Release() noexcept;			//!< Releases ownership of the stored buffer returning a pointer to it and leaving this instance empty.
 		auto GetPtr() noexcept { return DataPtr.get(); }		//!< Returns a pointer to the stored buffer.
@@ -1076,7 +1082,7 @@ namespace Util
 		 * @brief Constructs a Warning moving @p Other's warning data to this instance clearing @p Other's warning data.
 		 * @param Other Warning to move from
 		*/
-		Warning(Warning&& Other) noexcept;
+		Warning(Warning&& Other);
 
 		virtual ~Warning() = default;
 
