@@ -620,8 +620,8 @@ namespace DynExpModule::Widefield
 				" / " + QString::number(EmitterCount) + ", " +
 				QString::number(ModuleData->GetNumFinishedLocalizedPositions()) + " successful, " +
 				QString::number(ModuleData->GetNumFailedLocalizedPositions()) + " failed");
-			ui->PBAutoMeasureCellProgress->setValue(static_cast<int>(100.0 * CurrentEmitter / EmitterCount));
-			ui->PBAutoMeasureCellProgress->setVisible(true);
+			ui->PBAutoMeasureCellProgress->setValue(EmitterCount > 0 ? static_cast<int>(100.0 * CurrentEmitter / EmitterCount) : 0);
+			ui->PBAutoMeasureCellProgress->setVisible(EmitterCount > 0);
 		}
 		else
 		{

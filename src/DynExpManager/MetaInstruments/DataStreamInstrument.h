@@ -189,6 +189,7 @@ namespace DynExpInstr
 		/**
 		 * @brief Sets the stream size in samples.
 		 * @param BufferSizeInSamples New stream size in samples
+		 * @throws Util::OverflowException is thrown if the requested size is too large.
 		*/
 		virtual void SetStreamSize(size_t BufferSizeInSamples) = 0;
 		///@}
@@ -432,7 +433,14 @@ namespace DynExpInstr
 		virtual size_t GetStreamSizeRead() const noexcept override { return StreamBuffer.gsize() / sizeof(SampleT);}
 		virtual size_t GetStreamSizeWrite() const noexcept override { return StreamBuffer.psize() / sizeof(SampleT); }
 		virtual size_t GetNumSamplesWritten() const noexcept override { return NumSamplesWritten; }
-		virtual void SetStreamSize(size_t BufferSizeInSamples) override { StreamBuffer.resize(sizeof(SampleT) * BufferSizeInSamples); }
+
+		virtual void SetStreamSize(size_t BufferSizeInSamples) override
+		{
+			if (BufferSizeInSamples > std::numeric_limits<size_t>::max() / sizeof(SampleT))
+				throw Util::OverflowException("The requested buffer size is too large.");
+
+			StreamBuffer.resize(sizeof(SampleT) * BufferSizeInSamples);
+		}
 
 		/** @name (De)serialization
 		 * Functions for (de)serialization of trivially-copyable types

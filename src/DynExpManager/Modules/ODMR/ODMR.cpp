@@ -735,7 +735,7 @@ namespace DynExpModule::ODMR
 		if (ModuleData->TestFeature(ODMRData::FeatureType::LockinDetection))
 		{
 			auto LockinAmplifier = ModuleData->GetLockinAmplifier();
-			LockinAmplifier->SetStreamSize(ModuleData->RFDwellTime * ModuleData->GetNumSamples() * ModuleData->ODMRSamplingRate);
+			LockinAmplifier->SetStreamSize(Util::NumToT<size_t>(ModuleData->RFDwellTime * ModuleData->GetNumSamples() * ModuleData->ODMRSamplingRate));
 			LockinAmplifier->SetSamplingRate(ModuleData->ODMRSamplingRate);
 		}
 
@@ -884,7 +884,7 @@ namespace DynExpModule::ODMR
 		InitRFGenerator(RFFreq, ModuleData->RFAutoEnabled, ModuleData);
 
 		auto LockinAmplifier = ModuleData->GetLockinAmplifier();
-		LockinAmplifier->SetStreamSize(ModuleData->SensitivityDuration * ModuleData->SensitivitySamplingRate);
+		LockinAmplifier->SetStreamSize(Util::NumToT<size_t>(ModuleData->SensitivityDuration * ModuleData->SensitivitySamplingRate));
 		LockinAmplifier->SetSamplingRate(ModuleData->SensitivitySamplingRate);
 
 		WaitUntilReadyAndTrigger(ModuleData);

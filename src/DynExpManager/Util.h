@@ -744,6 +744,7 @@ namespace Util
 	 * when one of the types, @p FromT or @p ToT, is signed and the respective other type is unsigned or when @p FromT is non-integral.
 	 * @throws UnderflowException is thrown in case the conversion of @p Value from type @p FromT to type @p ToT would yield an underflow
 	 * when one of the types, @p FromT or @p ToT, is signed and the respective other type is unsigned or when @p FromT is non-integral.
+	 * @throws InvalidArgException is thrown in case of a conversion of @p Value from type @p double when @p Value is not a finite number.
 	*/
 	template <typename ToT, typename FromT, std::enable_if_t<
 		std::is_integral_v<ToT> && std::is_integral_v<FromT> &&
@@ -765,7 +766,7 @@ namespace Util
 	ToT NumToT(const FromT Value)
 	{
 		if (Value < std::numeric_limits<ToT>::lowest() || Value > std::numeric_limits<ToT>::max())
-			throw OutOfRangeException("Cannot convert Value into destiny type since this would cause an underflow or an overflow.");
+			throw OutOfRangeException("Cannot convert Value into destination type since this would cause an underflow or an overflow.");
 
 		return static_cast<ToT>(Value);
 	}
@@ -781,7 +782,7 @@ namespace Util
 	ToT NumToT(const FromT Value)
 	{
 		if (Value > static_cast<std::make_unsigned_t<ToT>>(std::numeric_limits<ToT>::max()))
-			throw OverflowException("Cannot convert Value into destiny type since this would cause an overflow.");
+			throw OverflowException("Cannot convert Value into destination type since this would cause an overflow.");
 
 		return static_cast<ToT>(Value);
 	}
@@ -797,9 +798,9 @@ namespace Util
 	ToT NumToT(const FromT Value)
 	{
 		if (Value < 0)
-			throw UnderflowException("Cannot convert Value into destiny type since this would cause an underflow.");
+			throw UnderflowException("Cannot convert Value into destination type since this would cause an underflow.");
 		if (static_cast<std::make_unsigned_t<FromT>>(Value) > std::numeric_limits<ToT>::max())
-			throw OverflowException("Cannot convert Value into destiny type since this would cause an overflow.");
+			throw OverflowException("Cannot convert Value into destination type since this would cause an overflow.");
 
 		return static_cast<ToT>(Value);
 	}
@@ -808,17 +809,18 @@ namespace Util
 	 * @copydoc NumToT
 	*/
 	template <typename ToT, std::enable_if_t<
-		std::is_integral_v<ToT> &&
-		!std::is_same_v<std::remove_cv_t<ToT>, double>, int> = 0
+		std::is_integral_v<ToT>, int> = 0
 	>
 	ToT NumToT(const double Value)
 	{
 		const double RoundedValue = std::round(Value);
 
+		if (!std::isfinite(RoundedValue))
+			throw InvalidArgException("Cannot convert double Value since it does not represent a finite number.");
 		if (RoundedValue < static_cast<double>(std::numeric_limits<ToT>::lowest()))
-			throw UnderflowException("Cannot convert Value into double since this would cause an underflow.");
-		if (RoundedValue > static_cast<double>(std::numeric_limits<ToT>::max()))
-			throw OverflowException("Cannot convert Value into double since this would cause an overflow.");
+			throw UnderflowException("Cannot convert double Value into destination since this would cause an underflow.");
+		if (RoundedValue >= static_cast<double>(std::exp2(std::numeric_limits<ToT>::digits)))
+			throw OverflowException("Cannot convert double Value into destination since this would cause an overflow.");
 
 		return static_cast<ToT>(RoundedValue);
 	}
