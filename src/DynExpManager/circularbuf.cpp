@@ -51,18 +51,20 @@ namespace Util
 
 	void circularbuf::resize(size_t size)
 	{
-		buffer.resize(size);
+		// pbump() expects int parameter.
+		if (size > static_cast<size_t>(std::numeric_limits<int>::max()))
+			throw std::overflow_error("Cannot convert a buffer size to int since this would cause an overflow in circularbuf::resize().");
 
-		auto ppos = ptellp();
+		const auto gsz = gsize();		// Calls sync() first.
+		const auto gpos = gtellp();
+		const auto ppos = ptellp();
+
+		buffer.resize(size);
 		setp(buffer.data(), buffer.data() + buffer.size());
 
-		auto buffer_size = to_pos_type(buffer.size());
-		if (buffer_size > std::numeric_limits<int>::max())
-			throw std::overflow_error("Cannot convert a buffer size to int since this would cause an overflow in circularbuf::resize().");
+		const auto buffer_size = to_pos_type(buffer.size());
 		pbump(ppos >= buffer_size ? buffer_size : ppos);
 
-		auto gpos = gtellp();
-		auto gsz = gsize();
 		setg(buffer.data(),
 			gpos >= buffer_size ? buffer.data() + buffer_size : buffer.data() + gpos,
 			gsz >= buffer.size() ? buffer.data() + buffer.size() : buffer.data() + gsz);
@@ -148,20 +150,17 @@ namespace Util
 
 	circularbuf::pos_type circularbuf::seekoff(off_type off, std::ios_base::seekdir dir, std::ios_base::openmode which)
 	{
-		bool in = which & std::ios_base::in;
-		bool out = which & std::ios_base::out;
+		const bool in = which & std::ios_base::in;
+		const bool out = which & std::ios_base::out;
+		const auto buffersize = to_pos_type(buffer.size());
 		pos_type new_pos(pos_type(off_type(-1)));
 
 		if (in)
 		{
 			pos_type abs_pos_in = (dir == std::ios_base::end ? pos_type(avail_get_count()) :
 				(dir == std::ios_base::cur ? gtellp() : pos_type(0)));
-			if (!off)
-				return abs_pos_in;
 			if (avail_get_count())
 				abs_pos_in += std::abs(off % avail_get_count()) * (off >= 0 ? 1 : -1);
-			else
-				abs_pos_in += off;
 
 			// Check boundaries
 			if (abs_pos_in < 0 || avail_get_count() <= abs_pos_in)
@@ -173,28 +172,21 @@ namespace Util
 		// Only do something if there wasn't any error.
 		if (out && ((in && new_pos >= 0) || !in))
 		{
-			pos_type abs_pos_out = (dir == std::ios_base::end ? pos_type(buffer.size()) :
+			pos_type abs_pos_out = (dir == std::ios_base::end ? buffersize :
 				(dir == std::ios_base::cur ? ptellp() : pos_type(0)));
-			if (!off)
-				return abs_pos_out;
 			if (buffer.size())
-				abs_pos_out += std::abs(off % to_pos_type(buffer.size())) * (off >= 0 ? 1 : -1);
-			else
-				abs_pos_out += off;
+				abs_pos_out += std::abs(off % buffersize) * (off >= 0 ? 1 : -1);
 
 			// Check boundaries
-			if (abs_pos_out < 0 || to_pos_type(buffer.size()) <= abs_pos_out)
-				abs_pos_out += to_pos_type(buffer.size()) * (abs_pos_out < 0 ? 1 : -1);
+			if (abs_pos_out < 0 || buffersize <= abs_pos_out)
+				abs_pos_out += buffersize * (abs_pos_out < 0 ? 1 : -1);
 
 			auto new_pos_out = seekpos(abs_pos_out, std::ios_base::out);
 			if (new_pos_out < 0 || !in)
 				new_pos = new_pos_out;
 		}		
 
-		if (in && out)
-			return pos_type(off_type(-1));
-		else
-			return new_pos;
+		return new_pos;
 	}
 
 	circularbuf::pos_type circularbuf::seekpos(pos_type pos, std::ios_base::openmode which)

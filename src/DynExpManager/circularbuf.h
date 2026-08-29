@@ -31,6 +31,12 @@ namespace Util
 		*/
 		circularbuf(size_t size);
 
+		circularbuf(const circularbuf&) = delete;
+		circularbuf(circularbuf&&) = delete;
+
+		circularbuf& operator=(const circularbuf&) = delete;
+		circularbuf& operator=(circularbuf&&) = delete;
+
 		/**
 		 * @brief Indicates whether characters can be read from the get area.
 		 * Not const since @p sync() needs to be called to get correct size after a character has been written recently.
@@ -108,23 +114,27 @@ namespace Util
 		/**
 		 * @brief Sets the position of the pointer(s) specified by @p which to the position @p pos relative
 		 * to @p dir. Takes the stream's circularity into account.
-		 * @param off Destiny position (relative to @p dir).
+		 * @param off Destination position (relative to @p dir).
 		 * @param dir Set position relative to stream's beginning (@p std::ios_base::beg), its end
 		 * (@p std::ios_base::end) or the current position (@p std::ios_base::cur).
 		 * @param which Combination of flags @p std::ios_base::in and @p std::ios_base::out specifying
 		 * get or put pointers.
 		 * @return New position @p pos in case of success, -1 otherwise. If the get and the put pointers
 		 * are both successfully moved, the new position of the get pointer is returned.
+		 * A return value of -1 may indicate that the get pointer has moved but moving the put pointer has
+		 * failed if both @p std::ios_base::in and @p std::ios_base::out are specified.
 		*/
 		virtual pos_type seekoff(off_type off, std::ios_base::seekdir dir,
 			std::ios_base::openmode which = std::ios_base::in | std::ios_base::out) override;
 
 		/**
 		 * @brief Sets the position of the pointer(s) specified by @p which to the absolute position @p pos.
-		 * @param pos Destiny position (absolute).
+		 * @param pos Destination position (absolute).
 		 * @param which Combination of flags @p std::ios_base::in and @p std::ios_base::out specifying get
 		 * or put pointers.
 		 * @return New position @p pos in case of success, -1 otherwise.
+		 * A return value of -1 may indicate that the get pointer has moved but moving the put pointer has
+		 * failed if both @p std::ios_base::in and @p std::ios_base::out are specified.
 		*/
 		virtual pos_type seekpos(pos_type pos,
 			std::ios_base::openmode which = std::ios_base::in | std::ios_base::out) override;
