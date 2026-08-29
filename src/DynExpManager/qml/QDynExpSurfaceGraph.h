@@ -53,7 +53,6 @@ namespace DynExpQuick
 		void qresetCamera();
 
 	private:
-
 		QSurfaceDataProxy* const Proxy = nullptr;
 		const std::unique_ptr<QValue3DAxis> XValueAxis;
 		const std::unique_ptr<QValue3DAxis> YValueAxis;

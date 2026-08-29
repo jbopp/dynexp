@@ -505,8 +505,17 @@ namespace DynExpModule
 			ServerQueue = ServerBuilder.AddCompletionQueue();
 			Server = ServerBuilder.BuildAndStart();
 
-			CreateInitialCallDataObjectsImpl(DynExp::Object::dispatch_tag<gRPCModule>(), *Instance);
-			OnInitChild(Instance);
+			try
+			{
+				CreateInitialCallDataObjectsImpl(DynExp::Object::dispatch_tag<gRPCModule>(), *Instance);
+				OnInitChild(Instance);
+			}
+			catch (...)
+			{
+				Shutdown();
+
+				throw;
+			}
 
 			ServerRunning = true;
 			Util::EventLog().Log("gRPC server \"" + ObjName + "\" (" + GetCategoryAndName() + ") listening on " + Address + ".");

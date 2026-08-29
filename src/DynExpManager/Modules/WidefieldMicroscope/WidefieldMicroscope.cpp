@@ -2333,7 +2333,7 @@ namespace DynExpModule::Widefield
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<WidefieldMicroscope>(Instance.ModuleDataGetter());
 		auto CameraData = DynExp::dynamic_InstrumentData_cast<DynExpInstr::Camera>(ModuleData->GetWidefieldCamera()->GetInstrumentData());
 
-		if (CameraData->IsImageAvailbale())
+		if (CameraData->IsImageAvailable())
 		{
 			if (ModuleData->TestFeature(WidefieldMicroscopeData::FeatureType::LEDLightToggle))
 				ModuleData->SetLEDLightTurnedOn(false);

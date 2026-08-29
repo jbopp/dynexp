@@ -172,7 +172,7 @@ namespace DynExpInstr
 		 * @brief Determines whether an image is currently available.
 		 * @return Returns true if #CurrentImage is not empty (not null), false otherwise.
 		 */
-		bool IsImageAvailbale() const noexcept { return !CurrentImage.isNull(); }
+		bool IsImageAvailable() const noexcept { return !CurrentImage.isNull(); }
 
 		/**
 		 * @brief Setter for #CurrentImage.

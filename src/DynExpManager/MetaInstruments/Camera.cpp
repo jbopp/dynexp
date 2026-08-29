@@ -53,7 +53,7 @@ namespace DynExpInstr
 
 	QImage CameraData::GetImage() const
 	{
-		if (!IsImageAvailbale())
+		if (!IsImageAvailable())
 			throw Util::EmptyException("There is currently no image.");
 
 		// Move-constructs new object by stealing from internal data.
@@ -62,7 +62,7 @@ namespace DynExpInstr
 
 	QImage CameraData::GetImageCopy(const QRect& RegionOfInterest) const
 	{
-		if (!IsImageAvailbale())
+		if (!IsImageAvailable())
 			throw Util::EmptyException("There is currently no image.");
 
 		return CurrentImage.copy(RegionOfInterest);

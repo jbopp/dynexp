@@ -1,4 +1,3 @@
-#include "QDynExpSurfaceGraph.h"
 // This file is part of DynExp.
 
 #include "QDynExpSurfaceGraph.h"

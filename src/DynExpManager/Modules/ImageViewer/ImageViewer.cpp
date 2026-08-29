@@ -761,7 +761,7 @@ namespace DynExpModule::ImageViewer
 
 			CameraData->SetComputeHistogram(ModuleData->ComputeHistogram);
 
-			ImageAvailable = CameraData->IsImageAvailbale() && !ModuleData->ImageCapturingPaused;
+			ImageAvailable = CameraData->IsImageAvailable() && !ModuleData->ImageCapturingPaused;
 			if (ImageAvailable)
 			{
 				ModuleData->CurrentImage = CameraData->GetImage();
@@ -847,7 +847,7 @@ namespace DynExpModule::ImageViewer
 		auto ModuleData = DynExp::dynamic_ModuleData_cast<ImageViewer>(Instance.ModuleDataGetter());
 		auto CameraData = DynExp::dynamic_InstrumentData_cast<DynExpInstr::Camera>(ModuleData->Camera->GetInstrumentData());
 
-		if (CameraData->IsImageAvailbale())
+		if (CameraData->IsImageAvailable())
 		{
 			ModuleData->CurrentExposureTime = CameraData->GetExposureTime();
 			ModuleData->CurrentImage = CameraData->GetImage();
