@@ -22,8 +22,12 @@ namespace DynExpQuick
 	{
 		DynExpLineGraphPlotSeries(QString Name);
 
+		QString GetBarSeriesLabel() const;
+
 		QString Name;
+
 		bool Visible = true;
+		bool NegBarValue = false;
 
 		std::shared_ptr<QBarSeries> BarSeries;
 		std::shared_ptr<QLineSeries> LineSeries;

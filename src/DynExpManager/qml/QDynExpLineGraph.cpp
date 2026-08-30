@@ -10,7 +10,13 @@ namespace DynExpQuick
 		BarSet(new QBarSet(this->Name))
 	{
 		BarSet->append(.0);
+		BarSet->setBorderColor(QColorConstants::Svg::crimson);
 		BarSeries->append(BarSet);
+	}
+
+	QString DynExpLineGraphPlotSeries::GetBarSeriesLabel() const
+	{
+		return (NegBarValue ? "Neg. " : "") + Name;
 	}
 
 	size_t DynExpLineGraphPlotModel::InsertSeries(QString Name, QColor Color)
@@ -43,7 +49,7 @@ namespace DynExpQuick
 		QStringList SeriesNames;
 
 		for (const auto& Series : PlotSeries)
-			SeriesNames.push_back(QString::fromStdString(DynExp::Object::RemoveCategoryAndName(Series.Name.toStdString())));
+			SeriesNames.push_back(QString::fromStdString(DynExp::Object::RemoveCategoryAndName(Series.GetBarSeriesLabel().toStdString())));
 
 		return SeriesNames;
 	}
@@ -219,6 +225,8 @@ namespace DynExpQuick
 				if (!Samples.empty())
 				{
 					Series.BarSet->replace(0, std::abs(Samples.front().y()));
+					Series.NegBarValue = Samples.front().y() < 0;
+					Series.BarSet->setBorderWidth(Series.NegBarValue ? 3 : 0);
 					Series.LineSeries->replace(Samples);
 				}
 				else
